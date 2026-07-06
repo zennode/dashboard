@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YellowBrick Management — Dashboards</title>
+<meta name="description" content="Unified operations dashboard for YellowBrick Management: rental leads, portfolio P&amp;L, house flips, and law &amp; tax updates.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script>
+/* ============================================================
+   DATA OBJECTS
+   These window.* objects are updated programmatically by
+   scheduled tasks. Keep the shapes stable.
+   ============================================================ */
+
+/* ---------- TAB 1: RENTAL LEADS (updated daily) ---------- */
+window.LEADS_DATA = {
+  lastUpdated: "2026-07-06T07:00:00-04:00",
+  kpis: {
+    avgResponseHrs: 21.4,          // average first-contact time, hours
+    responseGoalHrs: 4,
+    contactRate4h: 22,             // % of leads contacted within 4 hours
+    contactRate24h: 61,
+    newLeadsToday: 9,
+    newLeadsWeek: 47,
+    uncontacted: 14
+  },
+  // trailing 14 days
+  responseTrend: {
+    labels: ["6/23","6/24","6/25","6/26","6/27","6/28","6/29","6/30","7/1","7/2","7/3","7/4","7/5","7/6"],
+    avgHours: [26.1, 24.8, 28.3, 22.0, 19.5, 23.7, 25.2, 20.9, 18.4, 21.6, 19.8, 24.5, 22.3, 21.4]
+  },
+  volumeTrend: {
+    labels: ["6/23","6/24","6/25","6/26","6/27","6/28","6/29","6/30","7/1","7/2","7/3","7/4","7/5","7/6"],
+    leads: [6, 8, 5, 11, 9, 4, 3, 7, 10, 8, 6, 2, 5, 9]
+  },
+  // trailing 30 days
+  funnel: { leads: 186, contacted: 138, showing: 52, applied: 29, approved: 17, leased: 12 },
+  sources: [
+    { name: "Zillow",   leads: 84, leased: 6 },
+    { name: "Website",  leads: 52, leased: 3 },
+    { name: "Facebook", leads: 38, leased: 2 },
+    { name: "Walk-in",  leads: 12, leased: 1 }
+  ],
+  properties: [
+    { name: "45 Maple St, Springfield",      leads: 24, avgResponseHrs: 14.2, contactRate4h: 33, vacantUnits: 2 },
+    { name: "112 Chestnut St, Springfield",  leads: 21, avgResponseHrs: 19.8, contactRate4h: 24, vacantUnits: 1 },
+    { name: "78 Elm St, Holyoke",            leads: 19, avgResponseHrs: 31.5, contactRate4h:  9, vacantUnits: 3 },
+    { name: "230 Grattan St, Chicopee",      leads: 17, avgResponseHrs: 18.1, contactRate4h: 28, vacantUnits: 1 },
+    { name: "16 Oak Grove Ave, Springfield", leads: 15, avgResponseHrs: 24.7, contactRate4h: 18, vacantUnits: 2 },
+    { name: "9 Cabot St, Holyoke",           leads: 13, avgResponseHrs: 27.9, contactRate4h: 12, vacantUnits: 1 },
+    { name: "301 Front St, Chicopee",        leads: 11, avgResponseHrs: 12.6, contactRate4h: 41, vacantUnits: 1 },
+    { name: "55 Union St, Westfield",        leads:  9, avgResponseHrs: 16.3, contactRate4h: 30, vacantUnits: 1 }
+  ],
+  urgentQueue: [
+    { name: "D. Rivera",   property: "78 Elm St, Holyoke",           source: "Zillow",   waitingHrs: 38.2 },
+    { name: "K. Thompson", property: "45 Maple St, Springfield",     source: "Website",  waitingHrs: 26.5 },
+    { name: "M. Osei",     property: "16 Oak Grove Ave, Springfield",source: "Zillow",   waitingHrs: 19.1 },
+    { name: "J. Carter",   property: "230 Grattan St, Chicopee",     source: "Facebook", waitingHrs: 11.4 },
+    { name: "S. Nguyen",   property: "9 Cabot St, Holyoke",          source: "Zillow",   waitingHrs:  6.8 },
+    { name: "A. Fontaine", property: "112 Chestnut St, Springfield", source: "Website",  waitingHrs:  2.3 }
+  ],
+  team: [
+    { name: "Dana",   contacted: 52, avgResponseHrs:  9.4, showings: 21, leases: 6 },
+    { name: "Marcus", contacted: 44, avgResponseHrs: 17.8, showings: 16, leases: 4 },
+    { name: "Priya",  contacted: 42, avgResponseHrs: 28.6, showings: 15, leases: 2 }
+  ]
+};
+
+/* ---------- TAB 2: PROPERTY PORTFOLIO P&L (updated monthly) ---------- */
+window.PORTFOLIO_DATA = {
+  lastUpdated: "2026-07-01T09:00:00-04:00",
+  period: "June 2026",
+  summary: {
+    totalIncome: 412480, totalExpenses: 247390, noi: 165090,
+    vacancyRate: 5.6, collectionRate: 96.2,
+    capRate: 7.4, dscr: 1.38, expenseRatio: 60.0,
+    momIncomePct: 1.8, momExpensesPct: -2.4, momNoiPct: 8.6,
+    yoyIncomePct: 6.3, yoyExpensesPct: 4.1, yoyNoiPct: 9.8,
+    momVacancyPts: -0.7, yoyVacancyPts: -1.2
+  },
+  companies: [
+    { name: "Yellowbrick Property LLC", units: 148, income: 178220, expenses: 106540, noi: 71680 },
+    { name: "Courageous Lion LLC",      units:  86, income: 104910, expenses:  63870, noi: 41040 },
+    { name: "Land of Oz LLC",           units:  64, income:  81350, expenses:  49030, noi: 32320 },
+    { name: "Gillikin LLC",             units:  40, income:  48000, expenses:  27950, noi: 20050 }
+  ],
+  properties: [
+    { entity: "Yellowbrick Property LLC", name: "45 Maple St, Springfield",       units: 12, income: 15840, expenses:  9210, noi:  6630 },
+    { entity: "Yellowbrick Property LLC", name: "112 Chestnut St, Springfield",   units: 16, income: 20480, expenses: 12930, noi:  7550 },
+    { entity: "Yellowbrick Property LLC", name: "16 Oak Grove Ave, Springfield",  units: 10, income: 12650, expenses:  7480, noi:  5170 },
+    { entity: "Yellowbrick Property LLC", name: "88 Belmont Ave, Springfield",    units: 14, income: 17360, expenses: 10120, noi:  7240 },
+    { entity: "Yellowbrick Property LLC", name: "Other (12 properties)",          units: 96, income: 111890, expenses: 66800, noi: 45090 },
+    { entity: "Courageous Lion LLC",      name: "78 Elm St, Holyoke",             units: 18, income: 20880, expenses: 13540, noi:  7340 },
+    { entity: "Courageous Lion LLC",      name: "9 Cabot St, Holyoke",            units:  8, income:  9440, expenses:  6120, noi:  3320 },
+    { entity: "Courageous Lion LLC",      name: "141 Sargeant St, Holyoke",       units: 12, income: 14520, expenses:  8760, noi:  5760 },
+    { entity: "Courageous Lion LLC",      name: "Other (9 properties)",           units: 48, income: 60070, expenses: 35450, noi: 24620 },
+    { entity: "Land of Oz LLC",           name: "230 Grattan St, Chicopee",       units: 10, income: 12900, expenses:  7610, noi:  5290 },
+    { entity: "Land of Oz LLC",           name: "301 Front St, Chicopee",         units:  8, income: 10160, expenses:  6240, noi:  3920 },
+    { entity: "Land of Oz LLC",           name: "Other (8 properties)",           units: 46, income: 58290, expenses: 35180, noi: 23110 },
+    { entity: "Gillikin LLC",             name: "55 Union St, Westfield",         units:  9, income: 11250, expenses:  6480, noi:  4770 },
+    { entity: "Gillikin LLC",             name: "72 Meadow St, Westfield",        units:  7, income:  8470, expenses:  4920, noi:  3550 },
+    { entity: "Gillikin LLC",             name: "Other (6 properties)",           units: 24, income: 28280, expenses: 16550, noi: 11730 }
+  ],
+  trends: {
+    labels: ["Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26"],
+    income:   [388200, 391400, 393100, 396800, 398200, 395600, 401300, 399800, 404200, 407900, 405100, 412480],
+    expenses: [244100, 239800, 236500, 241200, 252600, 261900, 268400, 259300, 251800, 246100, 253400, 247390],
+    noi:      [144100, 151600, 156600, 155600, 145600, 133700, 132900, 140500, 152400, 161800, 151700, 165090],
+    vacancy:  [6.8, 6.5, 6.2, 5.9, 6.4, 6.8, 7.1, 6.6, 6.3, 5.9, 6.3, 5.6]
+  }
+};
+
+/* ---------- TAB 3: HOUSE FLIP (updated 2x daily) ---------- */
+window.FLIP_DATA = {
+  lastUpdated: "2026-07-06T06:30:00-04:00",
+  active: [
+    {
+      address: "27 Beauchamp St", city: "Springfield, MA",
+      status: "In Progress",
+      purchasePrice: 185000, renoBudget: 92000, renoSpent: 61400,
+      arv: 355000, expectedProfit: 51200,
+      daysOwned: 74, estCompletion: "2026-08-15",
+      notes: "Kitchen and both baths done; flooring and exterior paint remaining."
+    },
+    {
+      address: "114 Montgomery St", city: "Chicopee, MA",
+      status: "Listed",
+      purchasePrice: 210000, renoBudget: 68000, renoSpent: 71300,
+      arv: 345000, expectedProfit: 38900,
+      daysOwned: 128, estCompletion: "2026-06-20",
+      notes: "Listed at $349,900 on 6/22. Two showings last week."
+    },
+    {
+      address: "8 Hitchcock St", city: "Holyoke, MA",
+      status: "Acquired",
+      purchasePrice: 142000, renoBudget: 105000, renoSpent: 8200,
+      arv: 330000, expectedProfit: 49800,
+      daysOwned: 12, estCompletion: "2026-10-30",
+      notes: "Permits filed 7/1. Demo starts next week."
+    },
+    {
+      address: "63 Dartmouth Ter", city: "Springfield, MA",
+      status: "Under Contract",
+      purchasePrice: 168000, renoBudget: 74000, renoSpent: 76900,
+      arv: 322000, expectedProfit: 43600,
+      daysOwned: 151, estCompletion: "2026-07-28",
+      notes: "Under agreement at $329,000. Closing scheduled 7/28."
+    }
+  ],
+  sold: [
+    { address: "19 Noel St, Springfield",      soldDate: "2026-05-12", totalInvested: 248300, salePrice: 315000, profit: 42100, roiPct: 17.0, daysHeld: 163 },
+    { address: "452 Chicopee St, Chicopee",    soldDate: "2026-03-03", totalInvested: 231800, salePrice: 289900, profit: 33500, roiPct: 14.5, daysHeld: 141 },
+    { address: "31 Lyman St, Holyoke",         soldDate: "2025-12-18", totalInvested: 204600, salePrice: 272000, profit: 44900, roiPct: 21.9, daysHeld: 176 },
+    { address: "205 Prospect St, W. Springfield", soldDate: "2025-10-02", totalInvested: 259400, salePrice: 305000, profit: 26300, roiPct: 10.1, daysHeld: 198 }
+  ]
+};
+
+/* ---------- TAB 4: BUSINESS LAW & TAX (updated weekly) ---------- */
+window.LAW_TAX_DATA = {
+  lastUpdated: "2026-07-05T08:00:00-04:00",
+  updates: [
+    {
+      title: "100% bonus depreciation applies to 2026 acquisitions",
+      date: "2026-07-02", jurisdiction: "Federal", category: "Tax", impact: "High",
+      summary: "Permanent 100% bonus depreciation (restored under the 2025 tax act) remains in effect for qualified property placed in service in 2026, including cost-segregated components of rental acquisitions and flip rehab equipment.",
+      action: "Run cost segregation studies on any 2026 acquisitions over ~$500K before year-end. Coordinate with CPA on which entities take the deduction."
+    },
+    {
+      title: "MA broker fee law: landlord pays if landlord hires the broker",
+      date: "2026-06-28", jurisdiction: "MA State", category: "Legal", impact: "High",
+      summary: "Under the Massachusetts law effective Aug 1, 2025, the party who engages the broker pays the fee. Tenants can no longer be charged broker fees for broker relationships they did not initiate. Enforcement activity has increased in 2026.",
+      action: "Confirm all listing agreements and lease-up marketing budgets reflect landlord-paid fees. Audit any tenant charges since Aug 2025."
+    },
+    {
+      title: "MA short-term capital gains taxed at 8.5%",
+      date: "2026-06-25", jurisdiction: "MA State", category: "Tax", impact: "High",
+      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA — timing matters for projects near the 1-year mark.",
+      action: "Review hold periods on 63 Dartmouth Ter and 114 Montgomery St with CPA; dealer-status treatment may apply to flip entity regardless."
+    },
+    {
+      title: "Security deposit compliance: strict G.L. c.186 §15B enforcement",
+      date: "2026-06-20", jurisdiction: "MA State", category: "Legal", impact: "Medium",
+      summary: "Recent MA appellate decisions continue to award treble damages for deposit handling violations (separate interest-bearing account, statement of condition within 10 days, annual interest payments). Even technical violations can void the deposit claim.",
+      action: "Spot-audit deposit accounts and statements of condition across all four entities; verify annual interest was paid or credited at each lease anniversary."
+    },
+    {
+      title: "1099-K reporting threshold at $20K/200 transactions",
+      date: "2026-06-14", jurisdiction: "Federal", category: "Tax", impact: "Low",
+      summary: "The 2025 tax act restored the higher 1099-K threshold ($20,000 and 200 transactions), reducing reporting noise for payment platforms used to collect rent or application fees.",
+      action: "No action needed; keep rent-collection platform records reconciled as usual."
+    },
+    {
+      title: "Corporate Transparency Act: domestic LLCs exempt from BOI filing",
+      date: "2026-06-07", jurisdiction: "Federal", category: "Regulatory", impact: "Medium",
+      summary: "FinCEN's rule exempting U.S.-formed companies from beneficial ownership (BOI) reporting remains in effect; only certain foreign-formed entities must file. All YellowBrick and Ruby Lending entities are domestic LLCs.",
+      action: "None currently. Monitor — litigation could revive domestic filing requirements; re-check before forming new entities."
+    },
+    {
+      title: "Springfield rental registration and inspection cycle",
+      date: "2026-05-30", jurisdiction: "MA State", category: "Regulatory", impact: "Medium",
+      summary: "Springfield continues enforcement of its apartment registration ordinance; unregistered units face fines and inspection backlogs are creating scheduling delays for lease-ups after turnover.",
+      action: "Verify every Springfield property's registration is current before Q3 turnovers; calendar renewal dates."
+    },
+    {
+      title: "Lead paint compliance for pre-1978 units",
+      date: "2026-05-22", jurisdiction: "MA State", category: "Legal", impact: "Medium",
+      summary: "MA lead law requires deleading or interim control when a child under 6 resides in a pre-1978 unit. Most of the western MA portfolio is pre-1978 housing stock; violations carry strict liability.",
+      action: "Maintain letters of compliance file; flag any pending applications with children under 6 for units without current compliance letters."
+    }
+  ]
+};
+</script>
+<style>
+:root{
+  --bg:#0e1014;
+  --bg-2:#151821;
+  --card:#1a1e29;
+  --card-2:#20253340;
+  --border:#2a3040;
+  --border-2:#343b4e;
+  --text:#e8eaf0;
+  --muted:#9aa3b5;
+  --faint:#6b7385;
+  --gold:#f5c518;
+  --gold-dim:#c9a212;
+  --gold-soft:rgba(245,197,24,.12);
+  --green:#4ade80;
+  --green-soft:rgba(74,222,128,.12);
+  --red:#f87171;
+  --red-soft:rgba(248,113,113,.12);
+  --amber:#fbbf24;
+  --amber-soft:rgba(251,191,36,.12);
+  --blue:#60a5fa;
+  --blue-soft:rgba(96,165,250,.12);
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:15px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--gold);text-decoration:none}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(14,16,20,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:1200px;margin:0 auto;padding:14px 20px 0;
+  display:flex;flex-direction:column;gap:10px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:38px;height:38px;border-radius:9px;flex:0 0 auto;
+  background:linear-gradient(135deg,var(--gold),#d99e00);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:#141414;font-size:17px;letter-spacing:-.5px;
+  box-shadow:0 2px 10px rgba(245,197,24,.25);
+}
+.brand h1{font-size:17px;font-weight:700;letter-spacing:.2px}
+.brand .sub{font-size:12px;color:var(--muted);margin-top:-2px}
+
+/* ---------- Tabs ---------- */
+.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{
+  appearance:none;background:none;border:none;cursor:pointer;
+  color:var(--muted);font-size:14px;font-weight:600;font-family:inherit;
+  padding:10px 16px 12px;white-space:nowrap;
+  border-bottom:3px solid transparent;
+  transition:color .15s,border-color .15s;
+}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-btn .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:1px}
+
+/* ---------- Layout ---------- */
+main{max-width:1200px;margin:0 auto;padding:22px 20px 60px}
+.tab-panel{display:none;animation:fadeIn .25s ease}
+.tab-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+.panel-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:18px}
+.panel-head h2{font-size:21px;font-weight:700}
+.panel-head .updated{font-size:12.5px;color:var(--faint)}
+.panel-head .updated strong{color:var(--muted);font-weight:600}
+
+.section-title{
+  font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;
+  color:var(--muted);margin:26px 0 12px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-title::after{content:"";flex:1;height:1px;background:var(--border)}
+
+/* ---------- Cards ---------- */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px}
+.kpi{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px 16px;position:relative;overflow:hidden;
+}
+.kpi .label{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.kpi .value{font-size:26px;font-weight:800;margin-top:4px;letter-spacing:-.5px}
+.kpi .meta{font-size:12px;color:var(--faint);margin-top:2px}
+.kpi.accent{border-color:rgba(245,197,24,.4);background:linear-gradient(180deg,var(--gold-soft),var(--card))}
+.kpi .value.good{color:var(--green)}
+.kpi .value.bad{color:var(--red)}
+.kpi .value.warn{color:var(--amber)}
+.kpi .value.gold{color:var(--gold)}
+
+.delta{font-size:12px;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap}
+.delta.up{color:var(--green);background:var(--green-soft)}
+.delta.down{color:var(--red);background:var(--red-soft)}
+.delta.flat{color:var(--muted);background:rgba(154,163,181,.12)}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:820px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px;
+}
+.card h3{font-size:14.5px;font-weight:700;margin-bottom:12px}
+.card h3 .hint{font-size:12px;color:var(--faint);font-weight:500;margin-left:6px}
+.chart-box{position:relative;height:240px}
+@media(max-width:600px){.chart-box{height:210px}}
+
+/* ---------- Tables ---------- */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+th{
+  text-align:left;padding:10px 14px;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--muted);border-bottom:1px solid var(--border-2);background:var(--bg-2);
+  white-space:nowrap;
+}
+td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tbody tr:hover{background:rgba(255,255,255,.02)}
+
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.badge.red{color:var(--red);background:var(--red-soft)}
+.badge.green{color:var(--green);background:var(--green-soft)}
+.badge.amber{color:var(--amber);background:var(--amber-soft)}
+.badge.blue{color:var(--blue);background:var(--blue-soft)}
+.badge.gold{color:var(--gold);background:var(--gold-soft)}
+.badge.gray{color:var(--muted);background:rgba(154,163,181,.12)}
+
+.bar-cell{display:flex;align-items:center;gap:8px;min-width:130px}
+.bar-track{flex:1;height:6px;border-radius:3px;background:var(--bg-2);overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+
+/* expandable entity rows */
+tr.entity-row{cursor:pointer;user-select:none}
+tr.entity-row td:first-child::before{
+  content:"▸";display:inline-block;margin-right:8px;color:var(--gold);
+  transition:transform .15s;font-size:11px;
+}
+tr.entity-row.open td:first-child::before{transform:rotate(90deg)}
+tr.prop-row td{background:rgba(0,0,0,.18);color:var(--muted);font-size:13px}
+tr.prop-row td:first-child{padding-left:34px}
+tr.prop-row{display:none}
+tr.prop-row.show{display:table-row}
+
+/* ---------- Flip cards ---------- */
+.flip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.flip-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:10px}
+.flip-card .addr{font-size:16px;font-weight:700}
+.flip-card .city{font-size:12.5px;color:var(--muted);margin-top:-8px}
+.flip-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;font-size:13px}
+.flip-stats .lbl{color:var(--faint);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+.flip-stats .val{font-weight:700;font-variant-numeric:tabular-nums}
+.budget-track{height:8px;border-radius:4px;background:var(--bg-2);overflow:hidden}
+.budget-fill{height:100%;border-radius:4px}
+.flip-notes{font-size:12.5px;color:var(--muted);border-top:1px solid var(--border);padding-top:9px}
+
+/* ---------- Law & tax ---------- */
+.filter-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.filter-btn{
+  appearance:none;font-family:inherit;cursor:pointer;font-size:12.5px;font-weight:600;
+  background:var(--card);color:var(--muted);border:1px solid var(--border);
+  border-radius:20px;padding:6px 14px;transition:all .15s;
+}
+.filter-btn:hover{color:var(--text);border-color:var(--border-2)}
+.filter-btn.active{background:var(--gold-soft);color:var(--gold);border-color:rgba(245,197,24,.45)}
+.law-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:820px){.law-grid{grid-template-columns:1fr}}
+.law-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;border-left:4px solid var(--border-2)}
+.law-card.impact-high{border-left-color:var(--red)}
+.law-card.impact-medium{border-left-color:var(--amber)}
+.law-card.impact-low{border-left-color:var(--green)}
+.law-card .law-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px;align-items:center}
+.law-card .law-date{font-size:12px;color:var(--faint);margin-left:auto}
+.law-card h4{font-size:15px;font-weight:700;margin-bottom:7px;line-height:1.35}
+.law-card p{font-size:13.5px;color:var(--muted)}
+.law-action{
+  margin-top:11px;padding:10px 12px;border-radius:8px;font-size:13px;
+  background:var(--gold-soft);border:1px solid rgba(245,197,24,.25);color:var(--text);
+}
+.law-action strong{color:var(--gold)}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  border-top:1px solid var(--border);padding:22px 20px;text-align:center;
+  font-size:12.5px;color:var(--faint);
+}
+.site-footer .fbrand{color:var(--gold);font-weight:700}
+.empty-note{color:var(--faint);font-size:13px;padding:14px}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark">YB</div>
+      <div>
+        <h1>YellowBrick Management</h1>
+        <div class="sub">Operations Dashboard &middot; Western Massachusetts</div>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Dashboards">
+      <button class="tab-btn" data-tab="leads"     role="tab"><span class="dot" style="background:var(--gold)"></span>Rental Leads</button>
+      <button class="tab-btn" data-tab="portfolio" role="tab"><span class="dot" style="background:var(--green)"></span>Property Portfolio</button>
+      <button class="tab-btn" data-tab="flips"     role="tab"><span class="dot" style="background:var(--blue)"></span>House Flip</button>
+      <button class="tab-btn" data-tab="law-tax"   role="tab"><span class="dot" style="background:var(--red)"></span>Law &amp; Tax</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ TAB 1: RENTAL LEADS ============ -->
+  <section id="panel-leads" class="tab-panel" role="tabpanel">
+    <div class="panel-head">
+      <h2>Rental Leads</h2>
+      <div class="updated">Updated daily &middot; Last updated: <strong id="leads-updated"></strong></div>
+    </div>
+
+    <div class="kpi-grid" id="leads-kpis"></div>
+
+    <div class="section-title">Trends</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Avg First-Contact Time <span class="hint">hours &middot; goal &lt; 4h</span></h3>
+        <div class="chart-box"><canvas id="chart-response"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>New Leads Per Day <span class="hint">last 14 days</span></h3>
+        <div class="chart-box"><canvas id="chart-volume"></canvas></div>
+      </div>
+    </div>
+
+    <div class="section-title">Pipeline</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Conversion Funnel <span class="hint">last 30 days</span></h3>
+        <div class="chart-box"><canvas id="chart-funnel"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Lead Sources <span class="hint">last 30 days</span></h3>
+        <div class="chart-box"><canvas id="chart-sources"></canvas></div>
+      </div>
+    </div>
+
+    <div class="section-title">Urgent Queue — Uncontacted Leads</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Lead</th><th>Property</th><th>Source</th><th class="num">Waiting</th><th>Status</th></tr></thead>
+        <tbody id="urgent-body"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title">Per-Property Breakdown</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Property</th><th class="num">Leads (30d)</th><th class="num">Avg Response</th><th>Contact Rate &lt;4h</th><th class="num">Vacant Units</th></tr></thead>
+        <tbody id="prop-leads-body"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title">Team Scorecard <span style="text-transform:none;letter-spacing:0">&nbsp;</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Team Member</th><th class="num">Leads Contacted</th><th class="num">Avg Response</th><th class="num">Showings</th><th class="num">Leases</th><th>Rank</th></tr></thead>
+        <tbody id="team-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ TAB 2: PORTFOLIO ============ -->
+  <section id="panel-portfolio" class="tab-panel" role="tabpanel">
+    <div class="panel-head">
+      <h2>Property Portfolio — <span id="portfolio-period" style="color:var(--gold)"></span></h2>
+      <div class="updated">Updated monthly &middot; Last updated: <strong id="portfolio-updated"></strong></div>
+    </div>
+
+    <div class="kpi-grid" id="portfolio-kpis"></div>
+
+    <div class="section-title">Key Metrics</div>
+    <div class="kpi-grid" id="portfolio-metrics"></div>
+
+    <div class="section-title">Trends — Trailing 12 Months</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Income vs Expenses</h3>
+        <div class="chart-box"><canvas id="chart-incexp"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Net Operating Income</h3>
+        <div class="chart-box"><canvas id="chart-noi"></canvas></div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:14px">
+      <div class="card">
+        <h3>Vacancy Rate <span class="hint">%</span></h3>
+        <div class="chart-box"><canvas id="chart-vacancy"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>NOI by Entity <span class="hint" id="noi-entity-period"></span></h3>
+        <div class="chart-box"><canvas id="chart-entity"></canvas></div>
+      </div>
+    </div>
+
+    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;— tap a row to expand properties</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Entity / Property</th><th class="num">Units</th><th class="num">Income</th><th class="num">Expenses</th><th class="num">NOI</th><th class="num">Margin</th></tr></thead>
+        <tbody id="pnl-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ TAB 3: HOUSE FLIP ============ -->
+  <section id="panel-flips" class="tab-panel" role="tabpanel">
+    <div class="panel-head">
+      <h2>House Flip</h2>
+      <div class="updated">Updated 2x daily &middot; Last updated: <strong id="flips-updated"></strong></div>
+    </div>
+
+    <div class="kpi-grid" id="flip-kpis"></div>
+
+    <div class="section-title">Active Projects</div>
+    <div class="flip-grid" id="flip-cards"></div>
+
+    <div class="section-title">Renovation Budget vs Spent</div>
+    <div class="card">
+      <div class="chart-box"><canvas id="chart-flip-budget"></canvas></div>
+    </div>
+
+    <div class="section-title">Sold Flips — History</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Property</th><th class="num">Sold</th><th class="num">Total Invested</th><th class="num">Sale Price</th><th class="num">Profit</th><th class="num">ROI</th><th class="num">Days Held</th></tr></thead>
+        <tbody id="sold-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ TAB 4: LAW & TAX ============ -->
+  <section id="panel-law-tax" class="tab-panel" role="tabpanel">
+    <div class="panel-head">
+      <h2>Business Law &amp; Tax</h2>
+      <div class="updated">Updated weekly &middot; Last updated: <strong id="lawtax-updated"></strong></div>
+    </div>
+
+    <div class="filter-row" id="law-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Federal">Federal</button>
+      <button class="filter-btn" data-filter="MA State">MA State</button>
+      <button class="filter-btn" data-filter="Tax">Tax</button>
+      <button class="filter-btn" data-filter="Legal">Legal</button>
+      <button class="filter-btn" data-filter="Regulatory">Regulatory</button>
+      <button class="filter-btn" data-filter="High">High Impact</button>
+    </div>
+
+    <div class="law-grid" id="law-cards"></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  Powered by <span class="fbrand">YellowBrick Management</span> &middot; Internal use only
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- helpers ---------- */
+const $ = (s, el) => (el||document).querySelector(s);
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const C = {
+  gold: "#f5c518", green: "#4ade80", red: "#f87171", amber: "#fbbf24",
+  blue: "#60a5fa", purple: "#c084fc", muted: "#9aa3b5", grid: "rgba(255,255,255,.06)"
+};
+const fmtMoney = n => "$" + Math.round(n).toLocaleString("en-US");
+const fmtMoneyK = n => Math.abs(n) >= 1000 ? "$" + (n/1000).toFixed(0) + "K" : "$" + Math.round(n);
+const fmtPct = n => n.toFixed(1) + "%";
+const fmtHrs = h => h >= 1 ? h.toFixed(1) + " hrs" : Math.round(h*60) + " min";
+const fmtDate = iso => {
+  const d = new Date(iso);
+  if (isNaN(d)) return iso;
+  return d.toLocaleString("en-US",{month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit"});
+};
+const fmtDateShort = iso => {
+  const d = new Date(iso + (iso.length === 10 ? "T12:00:00" : ""));
+  if (isNaN(d)) return iso;
+  return d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
+};
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const delta = (pct, goodWhenUp) => {
+  const up = pct > 0, flat = Math.abs(pct) < 0.05;
+  const cls = flat ? "flat" : ((up === goodWhenUp) ? "up" : "down");
+  const arrow = flat ? "→" : (up ? "▲" : "▼");
+  return `<span class="delta ${cls}">${arrow} ${Math.abs(pct).toFixed(1)}%</span>`;
+};
+
+/* ---------- Chart.js defaults ---------- */
+if (window.Chart) {
+  Chart.defaults.color = C.muted;
+  Chart.defaults.borderColor = C.grid;
+  Chart.defaults.font.family = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
+  Chart.defaults.font.size = 11.5;
+  Chart.defaults.plugins.legend.labels.boxWidth = 12;
+  Chart.defaults.plugins.legend.labels.boxHeight = 12;
+  Chart.defaults.plugins.tooltip.backgroundColor = "rgba(20,23,32,.95)";
+  Chart.defaults.plugins.tooltip.borderColor = "#343b4e";
+  Chart.defaults.plugins.tooltip.borderWidth = 1;
+  Chart.defaults.plugins.tooltip.padding = 10;
+  Chart.defaults.maintainAspectRatio = false;
+  Chart.defaults.responsive = true;
+}
+
+/* Charts are created lazily per tab so they size correctly */
+const chartsBuilt = { leads:false, portfolio:false, flips:false, "law-tax":true };
+
+/* ============================================================
+   TAB 1 — RENTAL LEADS
+   ============================================================ */
+function renderLeads(){
+  const D = window.LEADS_DATA, K = D.kpis;
+  $("#leads-updated").textContent = fmtDate(D.lastUpdated);
+
+  const respClass = K.avgResponseHrs <= K.responseGoalHrs ? "good" : (K.avgResponseHrs <= 8 ? "warn" : "bad");
+  const crClass = K.contactRate4h >= 75 ? "good" : (K.contactRate4h >= 40 ? "warn" : "bad");
+  $("#leads-kpis").innerHTML = `
+    <div class="kpi accent">
+      <div class="label">Avg Response Time</div>
+      <div class="value ${respClass}">${K.avgResponseHrs.toFixed(1)}<span style="font-size:15px;font-weight:600"> hrs</span></div>
+      <div class="meta">Goal: under ${K.responseGoalHrs} hrs</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Contacted &lt; 4 hrs</div>
+      <div class="value ${crClass}">${K.contactRate4h}%</div>
+      <div class="meta">${K.contactRate24h}% within 24 hrs</div>
+    </div>
+    <div class="kpi">
+      <div class="label">New Leads Today</div>
+      <div class="value gold">${K.newLeadsToday}</div>
+      <div class="meta">${K.newLeadsWeek} this week</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Awaiting Contact</div>
+      <div class="value ${K.uncontacted > 0 ? "bad" : "good"}">${K.uncontacted}</div>
+      <div class="meta">in urgent queue below</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Leased (30d)</div>
+      <div class="value good">${D.funnel.leased}</div>
+      <div class="meta">${(D.funnel.leased / D.funnel.leads * 100).toFixed(1)}% of ${D.funnel.leads} leads</div>
+    </div>`;
+
+  // urgent queue
+  $("#urgent-body").innerHTML = D.urgentQueue
+    .slice().sort((a,b)=>b.waitingHrs-a.waitingHrs)
+    .map(l => {
+      const over = l.waitingHrs > 4;
+      return `<tr>
+        <td><strong>${esc(l.name)}</strong></td>
+        <td>${esc(l.property)}</td>
+        <td><span class="badge blue">${esc(l.source)}</span></td>
+        <td class="num" style="font-weight:700;color:${over?css('--red'):css('--green')}">${fmtHrs(l.waitingHrs)}</td>
+        <td>${over ? '<span class="badge red">OVERDUE</span>' : '<span class="badge green">Within goal</span>'}</td>
+      </tr>`;
+    }).join("") || `<tr><td colspan="5" class="empty-note">No uncontacted leads — queue is clear.</td></tr>`;
+
+  // per-property table
+  $("#prop-leads-body").innerHTML = D.properties.map(p => {
+    const barColor = p.contactRate4h >= 40 ? C.green : (p.contactRate4h >= 25 ? C.amber : C.red);
+    const respColor = p.avgResponseHrs <= 4 ? C.green : (p.avgResponseHrs <= 18 ? C.amber : C.red);
+    return `<tr>
+      <td>${esc(p.name)}</td>
+      <td class="num">${p.leads}</td>
+      <td class="num" style="color:${respColor};font-weight:700">${p.avgResponseHrs.toFixed(1)} h</td>
+      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:${p.contactRate4h}%;background:${barColor}"></div></div><span style="font-variant-numeric:tabular-nums;min-width:36px;text-align:right">${p.contactRate4h}%</span></div></td>
+      <td class="num">${p.vacantUnits}</td>
+    </tr>`;
+  }).join("");
+
+  // team scorecard, ranked by avg response (lower = better)
+  const ranked = D.team.slice().sort((a,b)=>a.avgResponseHrs-b.avgResponseHrs);
+  const medals = ["🥇","🥈","🥉"];
+  $("#team-body").innerHTML = ranked.map((t,i) => {
+    const respColor = t.avgResponseHrs <= 4 ? C.green : (t.avgResponseHrs <= 18 ? C.amber : C.red);
+    return `<tr>
+      <td><strong>${esc(t.name)}</strong></td>
+      <td class="num">${t.contacted}</td>
+      <td class="num" style="color:${respColor};font-weight:700">${t.avgResponseHrs.toFixed(1)} h</td>
+      <td class="num">${t.showings}</td>
+      <td class="num">${t.leases}</td>
+      <td>${medals[i] || ""} #${i+1}</td>
+    </tr>`;
+  }).join("");
+}
+
+function buildLeadsCharts(){
+  const D = window.LEADS_DATA;
+
+  new Chart($("#chart-response"), {
+    type: "line",
+    data: {
+      labels: D.responseTrend.labels,
+      datasets: [
+        { label: "Avg hours", data: D.responseTrend.avgHours, borderColor: C.gold,
+          backgroundColor: "rgba(245,197,24,.12)", fill: true, tension: .35,
+          pointRadius: 2.5, pointBackgroundColor: C.gold, borderWidth: 2 },
+        { label: "Goal (4h)", data: D.responseTrend.labels.map(()=>D.kpis.responseGoalHrs),
+          borderColor: C.green, borderDash: [6,5], pointRadius: 0, borderWidth: 1.5, fill: false }
+      ]
+    },
+    options: { scales: { y: { beginAtZero: true, title: { display:false } } },
+      plugins: { legend: { position: "bottom" } } }
+  });
+
+  new Chart($("#chart-volume"), {
+    type: "bar",
+    data: { labels: D.volumeTrend.labels,
+      datasets: [{ label: "New leads", data: D.volumeTrend.leads,
+        backgroundColor: "rgba(96,165,250,.55)", borderColor: C.blue, borderWidth: 1, borderRadius: 4 }] },
+    options: { scales: { y: { beginAtZero: true, ticks: { precision: 0 } } },
+      plugins: { legend: { display: false } } }
+  });
+
+  const F = D.funnel;
+  const funnelLabels = ["Leads","Contacted","Showing","Applied","Approved","Leased"];
+  const funnelVals = [F.leads,F.contacted,F.showing,F.applied,F.approved,F.leased];
+  const funnelColors = [C.blue, "#818cf8", C.purple, C.amber, "#fb923c", C.green];
+  new Chart($("#chart-funnel"), {
+    type: "bar",
+    data: { labels: funnelLabels,
+      datasets: [{ data: funnelVals, backgroundColor: funnelColors.map(c=>c+"cc"),
+        borderColor: funnelColors, borderWidth: 1, borderRadius: 4 }] },
+    options: { indexAxis: "y",
+      scales: { x: { beginAtZero: true, ticks: { precision: 0 } } },
+      plugins: { legend: { display: false },
+        tooltip: { callbacks: { label: ctx => {
+          const v = ctx.parsed.x;
+          const pct = (v / F.leads * 100).toFixed(0);
+          return ` ${v} (${pct}% of leads)`;
+        }}}}}
+  });
+
+  new Chart($("#chart-sources"), {
+    type: "doughnut",
+    data: { labels: D.sources.map(s=>s.name),
+      datasets: [{ data: D.sources.map(s=>s.leads),
+        backgroundColor: [C.blue, C.gold, "#818cf8", C.green],
+        borderColor: "#1a1e29", borderWidth: 3 }] },
+    options: { cutout: "62%",
+      plugins: { legend: { position: "bottom" },
+        tooltip: { callbacks: { label: ctx => {
+          const s = D.sources[ctx.dataIndex];
+          return ` ${s.leads} leads · ${s.leased} leased`;
+        }}}}}
+  });
+}
+
+/* ============================================================
+   TAB 2 — PORTFOLIO
+   ============================================================ */
+function renderPortfolio(){
+  const D = window.PORTFOLIO_DATA, S = D.summary;
+  $("#portfolio-updated").textContent = fmtDate(D.lastUpdated);
+  $("#portfolio-period").textContent = D.period;
+  $("#noi-entity-period").textContent = D.period;
+
+  $("#portfolio-kpis").innerHTML = `
+    <div class="kpi">
+      <div class="label">Total Income</div>
+      <div class="value">${fmtMoney(S.totalIncome)}</div>
+      <div class="meta">MoM ${delta(S.momIncomePct,true)} &nbsp; YoY ${delta(S.yoyIncomePct,true)}</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Total Expenses</div>
+      <div class="value">${fmtMoney(S.totalExpenses)}</div>
+      <div class="meta">MoM ${delta(S.momExpensesPct,false)} &nbsp; YoY ${delta(S.yoyExpensesPct,false)}</div>
+    </div>
+    <div class="kpi accent">
+      <div class="label">Net Operating Income</div>
+      <div class="value gold">${fmtMoney(S.noi)}</div>
+      <div class="meta">MoM ${delta(S.momNoiPct,true)} &nbsp; YoY ${delta(S.yoyNoiPct,true)}</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Vacancy Rate</div>
+      <div class="value ${S.vacancyRate <= 6 ? "good" : "warn"}">${fmtPct(S.vacancyRate)}</div>
+      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">▼ ' : '<span class="delta down">▲ '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
+    </div>
+    <div class="kpi">
+      <div class="label">Collection Rate</div>
+      <div class="value ${S.collectionRate >= 95 ? "good" : "warn"}">${fmtPct(S.collectionRate)}</div>
+      <div class="meta">of billed rent collected</div>
+    </div>`;
+
+  $("#portfolio-metrics").innerHTML = `
+    <div class="kpi"><div class="label">Cap Rate</div><div class="value">${fmtPct(S.capRate)}</div><div class="meta">portfolio blended</div></div>
+    <div class="kpi"><div class="label">DSCR</div><div class="value ${S.dscr >= 1.25 ? "good" : "warn"}">${S.dscr.toFixed(2)}x</div><div class="meta">debt service coverage</div></div>
+    <div class="kpi"><div class="label">Expense Ratio</div><div class="value ${S.expenseRatio <= 55 ? "good" : "warn"}">${fmtPct(S.expenseRatio)}</div><div class="meta">expenses / income</div></div>
+    <div class="kpi"><div class="label">Total Units</div><div class="value">${D.companies.reduce((a,c)=>a+c.units,0)}</div><div class="meta">${D.companies.length} entities</div></div>`;
+
+  // P&L expandable table
+  const propsByEntity = {};
+  D.properties.forEach(p => { (propsByEntity[p.entity] = propsByEntity[p.entity] || []).push(p); });
+
+  let html = "";
+  D.companies.forEach((c,i) => {
+    const margin = (c.noi / c.income * 100);
+    html += `<tr class="entity-row" data-entity="${i}">
+      <td><strong>${esc(c.name)}</strong></td>
+      <td class="num">${c.units}</td>
+      <td class="num">${fmtMoney(c.income)}</td>
+      <td class="num">${fmtMoney(c.expenses)}</td>
+      <td class="num" style="color:${C.gold};font-weight:700">${fmtMoney(c.noi)}</td>
+      <td class="num">${margin.toFixed(0)}%</td>
+    </tr>`;
+    (propsByEntity[c.name] || []).forEach(p => {
+      html += `<tr class="prop-row" data-parent="${i}">
+        <td>${esc(p.name)}</td>
+        <td class="num">${p.units}</td>
+        <td class="num">${fmtMoney(p.income)}</td>
+        <td class="num">${fmtMoney(p.expenses)}</td>
+        <td class="num">${fmtMoney(p.noi)}</td>
+        <td class="num">${(p.noi/p.income*100).toFixed(0)}%</td>
+      </tr>`;
+    });
+  });
+  // totals row
+  html += `<tr style="background:var(--bg-2)">
+    <td><strong>Portfolio Total</strong></td>
+    <td class="num"><strong>${D.companies.reduce((a,c)=>a+c.units,0)}</strong></td>
+    <td class="num"><strong>${fmtMoney(S.totalIncome)}</strong></td>
+    <td class="num"><strong>${fmtMoney(S.totalExpenses)}</strong></td>
+    <td class="num" style="color:${C.gold}"><strong>${fmtMoney(S.noi)}</strong></td>
+    <td class="num"><strong>${(S.noi/S.totalIncome*100).toFixed(0)}%</strong></td>
+  </tr>`;
+  const body = $("#pnl-body");
+  body.innerHTML = html;
+
+  body.querySelectorAll("tr.entity-row").forEach(row => {
+    row.addEventListener("click", () => {
+      row.classList.toggle("open");
+      const open = row.classList.contains("open");
+      body.querySelectorAll(`tr.prop-row[data-parent="${row.dataset.entity}"]`)
+        .forEach(pr => pr.classList.toggle("show", open));
+    });
+  });
+}
+
+function buildPortfolioCharts(){
+  const T = window.PORTFOLIO_DATA.trends;
+  const moneyTicks = { callback: v => fmtMoneyK(v) };
+
+  new Chart($("#chart-incexp"), {
+    type: "bar",
+    data: { labels: T.labels, datasets: [
+      { label: "Income", data: T.income, backgroundColor: "rgba(74,222,128,.55)", borderColor: C.green, borderWidth: 1, borderRadius: 3 },
+      { label: "Expenses", data: T.expenses, backgroundColor: "rgba(248,113,113,.5)", borderColor: C.red, borderWidth: 1, borderRadius: 3 }
+    ]},
+    options: { scales: { y: { ticks: moneyTicks } }, plugins: { legend: { position: "bottom" },
+      tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtMoney(c.parsed.y)}` } } } }
+  });
+
+  new Chart($("#chart-noi"), {
+    type: "line",
+    data: { labels: T.labels, datasets: [
+      { label: "NOI", data: T.noi, borderColor: C.gold, backgroundColor: "rgba(245,197,24,.14)",
+        fill: true, tension: .35, pointRadius: 2.5, pointBackgroundColor: C.gold, borderWidth: 2 }
+    ]},
+    options: { scales: { y: { ticks: moneyTicks } }, plugins: { legend: { display: false },
+      tooltip: { callbacks: { label: c => ` NOI: ${fmtMoney(c.parsed.y)}` } } } }
+  });
+
+  new Chart($("#chart-vacancy"), {
+    type: "line",
+    data: { labels: T.labels, datasets: [
+      { label: "Vacancy %", data: T.vacancy, borderColor: C.blue, backgroundColor: "rgba(96,165,250,.12)",
+        fill: true, tension: .35, pointRadius: 2.5, pointBackgroundColor: C.blue, borderWidth: 2 }
+    ]},
+    options: { scales: { y: { ticks: { callback: v => v + "%" }, suggestedMin: 0 } },
+      plugins: { legend: { display: false },
+        tooltip: { callbacks: { label: c => ` Vacancy: ${c.parsed.y}%` } } } }
+  });
+
+  const comps = window.PORTFOLIO_DATA.companies;
+  new Chart($("#chart-entity"), {
+    type: "bar",
+    data: { labels: comps.map(c=>c.name.replace(" LLC","")), datasets: [
+      { data: comps.map(c=>c.noi),
+        backgroundColor: [C.gold+"cc", C.green+"cc", C.blue+"cc", C.purple+"cc"],
+        borderColor: [C.gold, C.green, C.blue, C.purple], borderWidth: 1, borderRadius: 4 }
+    ]},
+    options: { indexAxis: "y", scales: { x: { ticks: { callback: v => fmtMoneyK(v) } } },
+      plugins: { legend: { display: false },
+        tooltip: { callbacks: { label: c => ` NOI: ${fmtMoney(c.parsed.x)}` } } } }
+  });
+}
+
+/* ============================================================
+   TAB 3 — HOUSE FLIP
+   ============================================================ */
+const STATUS_BADGE = {
+  "Acquired": "gray", "In Progress": "amber", "Listed": "blue",
+  "Under Contract": "gold", "Sold": "green"
+};
+
+function renderFlips(){
+  const D = window.FLIP_DATA;
+  $("#flips-updated").textContent = fmtDate(D.lastUpdated);
+
+  const capital = D.active.reduce((a,f)=>a+f.purchasePrice+f.renoSpent,0);
+  const expProfit = D.active.reduce((a,f)=>a+f.expectedProfit,0);
+  const avgRoi = D.active.reduce((a,f)=>a + f.expectedProfit/(f.purchasePrice+f.renoBudget)*100, 0) / (D.active.length||1);
+  const soldProfit = D.sold.reduce((a,f)=>a+f.profit,0);
+
+  $("#flip-kpis").innerHTML = `
+    <div class="kpi"><div class="label">Active Flips</div><div class="value gold">${D.active.length}</div><div class="meta">${D.sold.length} completed</div></div>
+    <div class="kpi"><div class="label">Capital Deployed</div><div class="value">${fmtMoneyK(capital)}</div><div class="meta">purchase + reno to date</div></div>
+    <div class="kpi accent"><div class="label">Expected Profit</div><div class="value good">${fmtMoneyK(expProfit)}</div><div class="meta">across active projects</div></div>
+    <div class="kpi"><div class="label">Avg Expected ROI</div><div class="value">${avgRoi.toFixed(1)}%</div><div class="meta">on total project cost</div></div>
+    <div class="kpi"><div class="label">Realized Profit</div><div class="value good">${fmtMoneyK(soldProfit)}</div><div class="meta">last ${D.sold.length} sold flips</div></div>`;
+
+  $("#flip-cards").innerHTML = D.active.map(f => {
+    const pct = Math.min(100, f.renoSpent / f.renoBudget * 100);
+    const over = f.renoSpent > f.renoBudget;
+    const barColor = over ? C.red : (pct > 85 ? C.amber : C.green);
+    const roi = (f.expectedProfit / (f.purchasePrice + f.renoBudget) * 100).toFixed(1);
+    return `<div class="flip-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+        <div class="addr">${esc(f.address)}</div>
+        <span class="badge ${STATUS_BADGE[f.status]||"gray"}">${esc(f.status)}</span>
+      </div>
+      <div class="city">${esc(f.city)} &middot; ${f.daysOwned} days owned &middot; est. done ${fmtDateShort(f.estCompletion)}</div>
+      <div class="flip-stats">
+        <div><div class="lbl">Purchase</div><div class="val">${fmtMoney(f.purchasePrice)}</div></div>
+        <div><div class="lbl">ARV</div><div class="val">${fmtMoney(f.arv)}</div></div>
+        <div><div class="lbl">Reno Budget</div><div class="val">${fmtMoney(f.renoBudget)}</div></div>
+        <div><div class="lbl">Reno Spent</div><div class="val" style="color:${over?C.red:"inherit"}">${fmtMoney(f.renoSpent)}${over?" ⚠":""}</div></div>
+        <div><div class="lbl">Expected Profit</div><div class="val" style="color:${C.green}">${fmtMoney(f.expectedProfit)}</div></div>
+        <div><div class="lbl">Expected ROI</div><div class="val">${roi}%</div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--faint);margin-bottom:4px">
+          <span>Budget used</span><span style="color:${barColor};font-weight:700">${(f.renoSpent/f.renoBudget*100).toFixed(0)}%</span>
+        </div>
+        <div class="budget-track"><div class="budget-fill" style="width:${pct}%;background:${barColor}"></div></div>
+      </div>
+      ${f.notes ? `<div class="flip-notes">${esc(f.notes)}</div>` : ""}
+    </div>`;
+  }).join("") || `<div class="empty-note">No active flip projects.</div>`;
+
+  $("#sold-body").innerHTML = D.sold.map(f => `<tr>
+    <td><strong>${esc(f.address)}</strong></td>
+    <td class="num">${fmtDateShort(f.soldDate)}</td>
+    <td class="num">${fmtMoney(f.totalInvested)}</td>
+    <td class="num">${fmtMoney(f.salePrice)}</td>
+    <td class="num" style="color:${f.profit>=0?C.green:C.red};font-weight:700">${fmtMoney(f.profit)}</td>
+    <td class="num">${f.roiPct.toFixed(1)}%</td>
+    <td class="num">${f.daysHeld}</td>
+  </tr>`).join("");
+}
+
+function buildFlipCharts(){
+  const D = window.FLIP_DATA;
+  new Chart($("#chart-flip-budget"), {
+    type: "bar",
+    data: { labels: D.active.map(f=>f.address),
+      datasets: [
+        { label: "Budget", data: D.active.map(f=>f.renoBudget),
+          backgroundColor: "rgba(154,163,181,.28)", borderColor: C.muted, borderWidth: 1, borderRadius: 4 },
+        { label: "Spent", data: D.active.map(f=>f.renoSpent),
+          backgroundColor: D.active.map(f=> f.renoSpent > f.renoBudget ? "rgba(248,113,113,.65)" : "rgba(245,197,24,.6)"),
+          borderColor: D.active.map(f=> f.renoSpent > f.renoBudget ? C.red : C.gold), borderWidth: 1, borderRadius: 4 }
+      ]},
+    options: { indexAxis: "y",
+      scales: { x: { ticks: { callback: v => fmtMoneyK(v) } } },
+      plugins: { legend: { position: "bottom" },
+        tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtMoney(c.parsed.x)}` } } } }
+  });
+}
+
+/* ============================================================
+   TAB 4 — LAW & TAX
+   ============================================================ */
+let lawFilter = "all";
+function renderLawTax(){
+  const D = window.LAW_TAX_DATA;
+  $("#lawtax-updated").textContent = fmtDate(D.lastUpdated);
+
+  const impactCls = { High: "impact-high", Medium: "impact-medium", Low: "impact-low" };
+  const impactBadge = { High: "red", Medium: "amber", Low: "green" };
+  const catBadge = { Tax: "gold", Legal: "blue", Regulatory: "gray" };
+
+  const items = D.updates.filter(u =>
+    lawFilter === "all" ||
+    u.jurisdiction === lawFilter ||
+    u.category === lawFilter ||
+    u.impact === lawFilter
+  );
+
+  $("#law-cards").innerHTML = items.map(u => `
+    <div class="law-card ${impactCls[u.impact]||""}">
+      <div class="law-meta">
+        <span class="badge ${impactBadge[u.impact]||"gray"}">${esc(u.impact)} impact</span>
+        <span class="badge ${catBadge[u.category]||"gray"}">${esc(u.category)}</span>
+        <span class="badge ${u.jurisdiction==="Federal"?"blue":"gold"}">${esc(u.jurisdiction)}</span>
+        <span class="law-date">${fmtDateShort(u.date)}</span>
+      </div>
+      <h4>${esc(u.title)}</h4>
+      <p>${esc(u.summary)}</p>
+      <div class="law-action"><strong>Action:</strong> ${esc(u.action)}</div>
+    </div>`).join("") || `<div class="empty-note">No updates match this filter.</div>`;
+}
+
+$("#law-filters").addEventListener("click", e => {
+  const btn = e.target.closest(".filter-btn");
+  if (!btn) return;
+  lawFilter = btn.dataset.filter;
+  document.querySelectorAll("#law-filters .filter-btn").forEach(b => b.classList.toggle("active", b === btn));
+  renderLawTax();
+});
+
+/* ============================================================
+   TAB NAVIGATION with URL hash persistence
+   ============================================================ */
+const TABS = ["leads","portfolio","flips","law-tax"];
+const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts, flips: buildFlipCharts };
+
+function activateTab(name, updateHash){
+  if (!TABS.includes(name)) name = "leads";
+  document.querySelectorAll(".tab-btn").forEach(b => {
+    const on = b.dataset.tab === name;
+    b.classList.toggle("active", on);
+    b.setAttribute("aria-selected", on);
+  });
+  document.querySelectorAll(".tab-panel").forEach(p =>
+    p.classList.toggle("active", p.id === "panel-" + name));
+  if (updateHash !== false && location.hash !== "#" + name) {
+    history.replaceState(null, "", "#" + name);
+  }
+  // lazy chart init after panel is visible
+  if (!chartsBuilt[name] && window.Chart && chartBuilders[name]) {
+    requestAnimationFrame(() => { chartBuilders[name](); });
+    chartsBuilt[name] = true;
+  }
+  window.scrollTo({ top: 0 });
+}
+
+document.querySelectorAll(".tab-btn").forEach(b =>
+  b.addEventListener("click", () => activateTab(b.dataset.tab)));
+window.addEventListener("hashchange", () =>
+  activateTab(location.hash.replace("#",""), false));
+
+/* ---------- init ---------- */
+renderLeads();
+renderPortfolio();
+renderFlips();
+renderLawTax();
+activateTab(location.hash.replace("#","") || "leads", false);
+
+/* Public hook: after a scheduled task mutates window.*_DATA it can call
+   window.refreshDashboards() — or simply regenerate this file's data block. */
+window.refreshDashboards = function(){
+  renderLeads(); renderPortfolio(); renderFlips(); renderLawTax();
+};
+})();
+</script>
+</body>
+</html>
