@@ -1,0 +1,147 @@
+{
+  "lastUpdated": "2026-07-06T22:47:36.341-04:00",
+  "kpis": {
+    "avgResponseHrs": 20.9,
+    "responseGoalHrs": 4,
+    "contactRate4h": 59,
+    "contactRate24h": 68,
+    "newLeadsToday": 8,
+    "newLeadsWeek": 41,
+    "uncontacted": 2
+  },
+  "responseTrend": {
+    "labels": [
+      "6/23",
+      "6/24",
+      "6/25",
+      "6/26",
+      "6/27",
+      "6/28",
+      "6/29",
+      "6/30",
+      "7/1",
+      "7/2",
+      "7/3",
+      "7/4",
+      "7/5",
+      "7/6"
+    ],
+    "avgHours": [
+      19.8,
+      48.4,
+      25.3,
+      45.6,
+      26.2,
+      43.1,
+      24.5,
+      0,
+      37.9,
+      3.1,
+      21.2,
+      49.1,
+      7.2,
+      0.1
+    ]
+  },
+  "volumeTrend": {
+    "labels": [
+      "6/23",
+      "6/24",
+      "6/25",
+      "6/26",
+      "6/27",
+      "6/28",
+      "6/29",
+      "6/30",
+      "7/1",
+      "7/2",
+      "7/3",
+      "7/4",
+      "7/5",
+      "7/6"
+    ],
+    "leads": [
+      12,
+      12,
+      10,
+      9,
+      4,
+      2,
+      7,
+      4,
+      2,
+      9,
+      10,
+      3,
+      7,
+      6
+    ]
+  },
+  "funnel": {
+    "leads": 288,
+    "contacted": 236,
+    "showing": 0,
+    "applied": 0,
+    "approved": 0,
+    "leased": 0
+  },
+  "sources": [
+    {
+      "name": "Not Tracked in RM",
+      "leads": 288,
+      "leased": 0
+    }
+  ],
+  "properties": [
+    {
+      "name": "24-28 Wilcox",
+      "leads": 157,
+      "avgResponseHrs": 45.2,
+      "contactRate4h": 11,
+      "vacantUnits": 0
+    },
+    {
+      "name": "YellowBrick Management, Inc",
+      "leads": 127,
+      "avgResponseHrs": 0,
+      "contactRate4h": 100,
+      "vacantUnits": 0
+    },
+    {
+      "name": "Property 726",
+      "leads": 2,
+      "avgResponseHrs": 20.7,
+      "contactRate4h": 50,
+      "vacantUnits": 0
+    },
+    {
+      "name": "Property 702",
+      "leads": 1,
+      "avgResponseHrs": 85.5,
+      "contactRate4h": 0,
+      "vacantUnits": 0
+    },
+    {
+      "name": "Property 694",
+      "leads": 1,
+      "avgResponseHrs": 50.2,
+      "contactRate4h": 0,
+      "vacantUnits": 0
+    }
+  ],
+  "urgentQueue": [
+    {
+      "name": "Cierra Sanchez",
+      "property": "24-28 Wilcox",
+      "source": "Unknown",
+      "waitingHrs": 5.8
+    },
+    {
+      "name": "Naukeeza Wannamaker",
+      "property": "24-28 Wilcox",
+      "source": "Unknown",
+      "waitingHrs": 4.6
+    }
+  ],
+  "team": []
+}
