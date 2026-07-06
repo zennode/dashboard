@@ -1090,6 +1090,29 @@ activateTab(location.hash.replace("#","") || "leads", false);
 window.refreshDashboards = function(){
   renderLeads(); renderPortfolio(); renderFlips(); renderLawTax();
 };
+
+/* ---------- live-data loader ----------
+   Fetch JSON data files from the same directory. If they exist and parse
+   successfully, override the embedded sample data and re-render.
+   Files: leads_data.json, portfolio_data.json, flip_data.json, law_tax_data.json
+   Scheduled tasks only need to update these small JSON files. */
+var dataFiles = [
+  {url: 'leads_data.json',     target: 'LEADS_DATA'},
+  {url: 'portfolio_data.json', target: 'PORTFOLIO_DATA'},
+  {url: 'flip_data.json',     target: 'FLIP_DATA'},
+  {url: 'law_tax_data.json',  target: 'LAW_TAX_DATA'}
+];
+Promise.allSettled(dataFiles.map(function(f){
+  return fetch(f.url + '?_=' + Date.now()).then(function(r){
+    if(!r.ok) throw new Error(r.status);
+    return r.json();
+  }).then(function(d){
+    window[f.target] = d;
+  });
+})).then(function(results){
+  var any = results.some(function(r){ return r.status === 'fulfilled'; });
+  if(any) window.refreshDashboards();
+});
 })();
 </script>
 </body>
