@@ -1,0 +1,49 @@
+{
+  "lastUpdated": "2026-07-07T10:50:00-04:00",
+  "period": "June 2026",
+  "summary": {
+    "totalIncome": 296324,
+    "totalExpenses": 195255,
+    "noi": 101069,
+    "vacancyRate": 21.8,
+    "collectionRate": 98.6,
+    "capRate": 7.8,
+    "dscr": 1.58,
+    "expenseRatio": 66,
+    "momIncomePct": -2.9,
+    "momExpensesPct": -14.7,
+    "momNoiPct": 32.4,
+    "yoyIncomePct": -6.3,
+    "yoyExpensesPct": -9.5,
+    "yoyNoiPct": 0.6,
+    "momVacancyPts": -0.3,
+    "yoyVacancyPts": -0.5
+  },
+  "companies": [
+    {"name": "Yellowbrick Property LLC", "units": 105, "income": 157838, "expenses": 104003, "noi": 53835},
+    {"name": "Courageous Lion LLC", "units": 55, "income": 83914, "expenses": 55293, "noi": 28621},
+    {"name": "Land of Oz LLC", "units": 51, "income": 54571, "expenses": 35958, "noi": 18613},
+    {"name": "Gillikin LLC", "units": 0, "income": 0, "expenses": 0, "noi": 0}
+  ],
+  "properties": [
+    {"entity": "Yellowbrick Property LLC", "name": "Northwestern 3", "units": 4, "income": 17827, "expenses": 11744, "noi": 6083},
+    {"entity": "Yellowbrick Property LLC", "name": "Terrence St 56", "units": 3, "income": 7450, "expenses": 4908, "noi": 2542},
+    {"entity": "Yellowbrick Property LLC", "name": "Holly St 65-67", "units": 3, "income": 6200, "expenses": 4085, "noi": 2115},
+    {"entity": "Yellowbrick Property LLC", "name": "Other (48 properties)", "units": 95, "income": 126361, "expenses": 83266, "noi": 43095},
+    {"entity": "Courageous Lion LLC", "name": "St. James Ave 83", "units": 6, "income": 11001, "expenses": 7247, "noi": 3754},
+    {"entity": "Courageous Lion LLC", "name": "Mainline 54", "units": 7, "income": 8395, "expenses": 5531, "noi": 2864},
+    {"entity": "Courageous Lion LLC", "name": "St. James Ave 81", "units": 2, "income": 3000, "expenses": 1977, "noi": 1023},
+    {"entity": "Courageous Lion LLC", "name": "Other (44 properties)", "units": 40, "income": 61519, "expenses": 40539, "noi": 20980},
+    {"entity": "Land of Oz LLC", "name": "1-3 Stadler Street", "units": 43, "income": 45246, "expenses": 29814, "noi": 15432},
+    {"entity": "Land of Oz LLC", "name": "12 Jabish Street", "units": 8, "income": 9325, "expenses": 6144, "noi": 3181},
+    {"entity": "Land of Oz LLC", "name": "Other (2 properties)", "units": 0, "income": 0, "expenses": 0, "noi": 0},
+    {"entity": "Gillikin LLC", "name": "Other (3 properties)", "units": 0, "income": 0, "expenses": 0, "noi": 0}
+  ],
+  "trends": {
+    "labels": ["Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26"],
+    "income": [316369, 301701, 315145, 311765, 318035, 329678, 321533, 306091, 302998, 306659, 305237, 296324],
+    "expenses": [215866, 205400, 221202, 179055, 217102, 183308, 206599, 174396, 203535, 220984, 228928, 195255],
+    "noi": [100503, 96301, 93943, 132710, 100933, 146370, 114934, 131695, 99463, 85675, 76309, 101069],
+    "vacancy": [22.1, 22.5, 22.2, 22.2, 22.1, 21.8, 22.0, 22.4, 22.4, 22.4, 22.4, 21.8]
+  }
+}
