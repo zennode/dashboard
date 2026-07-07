@@ -932,77 +932,164 @@ const STATUS_BADGE = {
 };
 
 function renderFlips(){
-  const D = window.FLIP_DATA;
+  var D = window.FLIP_DATA;
+  var esc = function(s){ return s ? String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;") : ""; };
+  var rawActive = D.active || D.activeProjects || [];
+  var rawSold = D.sold || D.soldHistory || [];
+  var active = rawActive.map(function(p){
+    return {
+      address: p.address || "Unknown",
+      city: (p.state && p.city && p.city.indexOf(p.state)===-1) ? p.city+", "+p.state : (p.city||""),
+      entity: p.entity || "Unknown",
+      status: p.status || "In Progress",
+      daysOwned: p.daysOwned || 0,
+      purchasePrice: p.purchasePrice || 0,
+      renoBudget: p.renoBudget || 0,
+      renoSpent: p.renoSpent || 0,
+      arv: p.arv || 0,
+      expectedProfit: p.expectedProfit || 0,
+      estCompletion: p.estCompletion || p.estCompletionDate || null,
+      notes: p.notes || ""
+    };
+  });
+  var sold = rawSold.map(function(p){
+    return {
+      address: p.address || "Unknown",
+      city: (p.state && p.city && p.city.indexOf(p.state)===-1) ? p.city+", "+p.state : (p.city||""),
+      entity: p.entity || "Unknown",
+      soldDate: p.soldDate || null,
+      totalInvested: p.totalCost || p.totalInvested || 0,
+      salePrice: p.salePrice || 0,
+      profit: p.profit || 0,
+      roiPct: p.roi || p.roiPct || 0,
+      daysHeld: p.holdingPeriodDays || p.daysHeld || 0
+    };
+  });
   $("#flips-updated").textContent = fmtDate(D.lastUpdated);
-
-  const capital = D.active.reduce((a,f)=>a+f.purchasePrice+f.renoSpent,0);
-  const expProfit = D.active.reduce((a,f)=>a+f.expectedProfit,0);
-  const avgRoi = D.active.reduce((a,f)=>a + f.expectedProfit/(f.purchasePrice+f.renoBudget)*100, 0) / (D.active.length||1);
-  const soldProfit = D.sold.reduce((a,f)=>a+f.profit,0);
-
-  $("#flip-kpis").innerHTML = `
-    <div class="kpi"><div class="label">Active Flips</div><div class="value gold">${D.active.length}</div><div class="meta">${D.sold.length} completed</div></div>
-    <div class="kpi"><div class="label">Capital Deployed</div><div class="value">${fmtMoneyK(capital)}</div><div class="meta">purchase + reno to date</div></div>
-    <div class="kpi accent"><div class="label">Expected Profit</div><div class="value good">${fmtMoneyK(expProfit)}</div><div class="meta">across active projects</div></div>
-    <div class="kpi"><div class="label">Avg Expected ROI</div><div class="value">${avgRoi.toFixed(1)}%</div><div class="meta">on total project cost</div></div>
-    <div class="kpi"><div class="label">Realized Profit</div><div class="value good">${fmtMoneyK(soldProfit)}</div><div class="meta">last ${D.sold.length} sold flips</div></div>`;
-
-  $("#flip-cards").innerHTML = D.active.map(f => {
-    const pct = Math.min(100, f.renoSpent / f.renoBudget * 100);
-    const over = f.renoSpent > f.renoBudget;
-    const barColor = over ? C.red : (pct > 85 ? C.amber : C.green);
-    const roi = (f.expectedProfit / (f.purchasePrice + f.renoBudget) * 100).toFixed(1);
-    return `<div class="flip-card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
-        <div class="addr">${esc(f.address)}</div>
-        <span class="badge ${STATUS_BADGE[f.status]||"gray"}">${esc(f.status)}</span>
-      </div>
-      <div class="city">${esc(f.city)} &middot; ${f.daysOwned} days owned &middot; est. done ${fmtDateShort(f.estCompletion)}</div>
-      <div class="flip-stats">
-        <div><div class="lbl">Purchase</div><div class="val">${fmtMoney(f.purchasePrice)}</div></div>
-        <div><div class="lbl">ARV</div><div class="val">${fmtMoney(f.arv)}</div></div>
-        <div><div class="lbl">Reno Budget</div><div class="val">${fmtMoney(f.renoBudget)}</div></div>
-        <div><div class="lbl">Reno Spent</div><div class="val" style="color:${over?C.red:"inherit"}">${fmtMoney(f.renoSpent)}${over?" ⚠":""}</div></div>
-        <div><div class="lbl">Expected Profit</div><div class="val" style="color:${C.green}">${fmtMoney(f.expectedProfit)}</div></div>
-        <div><div class="lbl">Expected ROI</div><div class="val">${roi}%</div></div>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--faint);margin-bottom:4px">
-          <span>Budget used</span><span style="color:${barColor};font-weight:700">${(f.renoSpent/f.renoBudget*100).toFixed(0)}%</span>
-        </div>
-        <div class="budget-track"><div class="budget-fill" style="width:${pct}%;background:${barColor}"></div></div>
-      </div>
-      ${f.notes ? `<div class="flip-notes">${esc(f.notes)}</div>` : ""}
-    </div>`;
-  }).join("") || `<div class="empty-note">No active flip projects.</div>`;
-
-  $("#sold-body").innerHTML = D.sold.map(f => `<tr>
-    <td><strong>${esc(f.address)}</strong></td>
-    <td class="num">${fmtDateShort(f.soldDate)}</td>
-    <td class="num">${fmtMoney(f.totalInvested)}</td>
-    <td class="num">${fmtMoney(f.salePrice)}</td>
-    <td class="num" style="color:${f.profit>=0?C.green:C.red};font-weight:700">${fmtMoney(f.profit)}</td>
-    <td class="num">${f.roiPct.toFixed(1)}%</td>
-    <td class="num">${f.daysHeld}</td>
-  </tr>`).join("");
+  var SC = {"In Progress":"#f5c518","Demo/Rehab":"#f97316","Listed":"#818cf8","Acquired":"#34d399","Under Contract":"#22d3ee","Closing":"#f472b6","Prospecting":"#9ca3af","Sold":"#10b981"};
+  var byEntity = {}, byStatus = {}, totalDays = 0;
+  active.forEach(function(f){
+    if(!byEntity[f.entity]) byEntity[f.entity] = [];
+    byEntity[f.entity].push(f);
+    byStatus[f.status] = (byStatus[f.status]||0) + 1;
+    totalDays += f.daysOwned;
+  });
+  var entityCount = Object.keys(byEntity).length;
+  var avgDays = Math.round(totalDays / (active.length || 1));
+  var entities = Object.entries(byEntity).sort(function(a,b){ return b[1].length - a[1].length; });
+  var hasFinancials = active.some(function(f){ return f.purchasePrice > 0; });
+  var statusBadges = Object.entries(byStatus).sort(function(a,b){return b[1]-a[1];})
+    .map(function(e){ return "<span style=\"display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;margin:2px;background:"+(SC[e[0]]||"#666")+"22;color:"+(SC[e[0]]||"#999")+"\">"+e[1]+" "+esc(e[0])+"</span>"; })
+    .join("");
+  if (hasFinancials) {
+    var capital = active.reduce(function(a,f){return a+f.purchasePrice+f.renoSpent;},0);
+    var expProfit = active.reduce(function(a,f){return a+f.expectedProfit;},0);
+    var avgRoi = active.reduce(function(a,f){return a+((f.purchasePrice+f.renoBudget)>0?f.expectedProfit/(f.purchasePrice+f.renoBudget)*100:0);},0)/(active.length||1);
+    var soldProfit = sold.reduce(function(a,f){return a+f.profit;},0);
+    $("#flip-kpis").innerHTML =
+      "<div class=\"kpi\"><div class=\"label\">Active Flips</div><div class=\"value gold\">"+active.length+"</div><div class=\"meta\">"+sold.length+" completed</div></div>"+
+      "<div class=\"kpi\"><div class=\"label\">Capital Deployed</div><div class=\"value\">"+fmtMoneyK(capital)+"</div><div class=\"meta\">purchase + reno to date</div></div>"+
+      "<div class=\"kpi accent\"><div class=\"label\">Expected Profit</div><div class=\"value good\">"+fmtMoneyK(expProfit)+"</div><div class=\"meta\">across active projects</div></div>"+
+      "<div class=\"kpi\"><div class=\"label\">Avg Expected ROI</div><div class=\"value\">"+avgRoi.toFixed(1)+"%</div><div class=\"meta\">on total project cost</div></div>"+
+      "<div class=\"kpi\"><div class=\"label\">Realized Profit</div><div class=\"value good\">"+fmtMoneyK(soldProfit)+"</div><div class=\"meta\">last "+sold.length+" sold flips</div></div>";
+  } else {
+    $("#flip-kpis").innerHTML =
+      "<div class=\"kpi\"><div class=\"label\">Active Flips</div><div class=\"value gold\">"+active.length+"</div><div class=\"meta\">"+sold.length+" completed</div></div>"+
+      "<div class=\"kpi\"><div class=\"label\">Entities</div><div class=\"value\">"+entityCount+"</div><div class=\"meta\">across all companies</div></div>"+
+      "<div class=\"kpi\"><div class=\"label\">Avg Days Owned</div><div class=\"value\">"+avgDays+"</div><div class=\"meta\">active properties</div></div>"+
+      "<div class=\"kpi\" style=\"grid-column:span 2\"><div class=\"label\">Status Breakdown</div><div style=\"margin-top:6px\">"+statusBadges+"</div></div>";
+  }
+  var fc = $("#flip-cards");
+  fc.style.display = "block";
+  var out = "<div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px\">";
+  out += "<button onclick=\"window._flipFilter=null;renderFlips()\" style=\"padding:4px 12px;border-radius:12px;border:1px solid var(--border);background:"+(!window._flipFilter?"var(--gold)":"transparent")+";color:"+(!window._flipFilter?"#000":"var(--faint)")+";cursor:pointer;font-size:12px;font-weight:600\">All ("+active.length+")</button>";
+  entities.forEach(function(pair){
+    var name=pair[0], props=pair[1];
+    var isA = window._flipFilter === name;
+    out += "<button onclick=\"window._flipFilter="+"'"+name.replace(/'/g,"\\\'")+"'"+";renderFlips()\" style=\"padding:4px 12px;border-radius:12px;border:1px solid var(--border);background:"+(isA?"var(--gold)":"transparent")+";color:"+(isA?"#000":"var(--faint)")+";cursor:pointer;font-size:12px\">"+esc(name)+" ("+props.length+")</button>";
+  });
+  out += "</div>";
+  var filtered = window._flipFilter ? (byEntity[window._flipFilter] || []) : active;
+  if (hasFinancials && filtered.length <= 20) {
+    out += filtered.map(function(f){
+      var pct = Math.min(100, f.renoBudget > 0 ? f.renoSpent / f.renoBudget * 100 : 0);
+      var over = f.renoSpent > f.renoBudget && f.renoBudget > 0;
+      var barColor = over ? C.red : (pct > 85 ? C.amber : C.green);
+      var roi = ((f.purchasePrice+f.renoBudget)>0 ? (f.expectedProfit/(f.purchasePrice+f.renoBudget)*100).toFixed(1) : "0.0");
+      return "<div class=\"flip-card\">"+
+        "<div style=\"display:flex;justify-content:space-between;align-items:flex-start;gap:8px\">"+
+        "<div class=\"addr\">"+esc(f.address)+"</div>"+
+        "<span class=\"badge "+(STATUS_BADGE[f.status]||"gray")+"\">"+esc(f.status)+"</span></div>"+
+        "<div class=\"city\">"+esc(f.city)+" &middot; "+f.daysOwned+" days owned"+(f.estCompletion?" &middot; est. done "+fmtDateShort(f.estCompletion):"")+"</div>"+
+        "<div class=\"flip-stats\">"+
+        "<div><div class=\"lbl\">Purchase</div><div class=\"val\">"+fmtMoney(f.purchasePrice)+"</div></div>"+
+        "<div><div class=\"lbl\">ARV</div><div class=\"val\">"+fmtMoney(f.arv)+"</div></div>"+
+        "<div><div class=\"lbl\">Reno Budget</div><div class=\"val\">"+fmtMoney(f.renoBudget)+"</div></div>"+
+        "<div><div class=\"lbl\">Reno Spent</div><div class=\"val\" style=\"color:"+(over?C.red:"inherit")+"\">"+fmtMoney(f.renoSpent)+(over?" \u26a0":"")+"</div></div>"+
+        "<div><div class=\"lbl\">Expected Profit</div><div class=\"val\" style=\"color:"+C.green+"\">"+fmtMoney(f.expectedProfit)+"</div></div>"+
+        "<div><div class=\"lbl\">Expected ROI</div><div class=\"val\">"+roi+"%</div></div></div>"+
+        (f.renoBudget > 0 ? "<div><div style=\"display:flex;justify-content:space-between;font-size:11.5px;color:var(--faint);margin-bottom:4px\"><span>Budget used</span><span style=\"color:"+barColor+";font-weight:700\">"+(f.renoSpent/f.renoBudget*100).toFixed(0)+"%</span></div><div class=\"budget-track\"><div class=\"budget-fill\" style=\"width:"+pct+"%;background:"+barColor+"\"></div></div></div>" : "") +
+        (f.notes ? "<div class=\"flip-notes\">"+esc(f.notes)+"</div>" : "")+
+        "</div>";
+    }).join("") || "<div class=\"empty-note\">No active flip projects.</div>";
+  } else {
+    out += "<div class=\"table-wrap\"><table><thead><tr>"+
+      "<th>Address</th><th>City</th><th>Entity</th><th>Status</th><th class=\"num\">Days Owned</th><th>Notes</th>"+
+      "</tr></thead><tbody>";
+    filtered.forEach(function(f){
+      var sc = SC[f.status] || "#999";
+      out += "<tr>"+
+        "<td><strong>"+esc(f.address)+"</strong></td>"+
+        "<td>"+esc(f.city)+"</td>"+
+        "<td style=\"font-size:12px\">"+esc(f.entity)+"</td>"+
+        "<td><span style=\"display:inline-block;padding:1px 8px;border-radius:8px;font-size:11px;font-weight:600;background:"+sc+"22;color:"+sc+"\">"+esc(f.status)+"</span></td>"+
+        "<td class=\"num\">"+f.daysOwned+"</td>"+
+        "<td style=\"font-size:12px;max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap\">"+esc(f.notes)+"</td></tr>";
+    });
+    out += "</tbody></table></div>";
+  }
+  fc.innerHTML = out;
+  $("#sold-body").innerHTML = sold.map(function(f){
+    var hasFin = f.salePrice > 0;
+    return "<tr>"+
+      "<td><strong>"+esc(f.address)+"</strong><br><span style=\"font-size:11px;color:var(--faint)\">"+esc(f.entity)+"</span></td>"+
+      "<td class=\"num\">"+(f.soldDate ? fmtDateShort(f.soldDate) : "N/A")+"</td>"+
+      "<td class=\"num\">"+(hasFin ? fmtMoney(f.totalInvested) : "N/A")+"</td>"+
+      "<td class=\"num\">"+(hasFin ? fmtMoney(f.salePrice) : "N/A")+"</td>"+
+      "<td class=\"num\" style=\"color:"+(f.profit>=0?C.green:C.red)+";font-weight:700\">"+(hasFin ? fmtMoney(f.profit) : "N/A")+"</td>"+
+      "<td class=\"num\">"+(hasFin ? f.roiPct.toFixed(1)+"%" : "N/A")+"</td>"+
+      "<td class=\"num\">"+(f.daysHeld || "N/A")+"</td></tr>";
+  }).join("");
 }
 
 function buildFlipCharts(){
-  const D = window.FLIP_DATA;
-  new Chart($("#chart-flip-budget"), {
+  var D = window.FLIP_DATA;
+  var active = D.active || D.activeProjects || [];
+  var hasFinancials = active.some(function(f){ return (f.purchasePrice||0) > 0; });
+  var chartEl = $("#chart-flip-budget");
+  if (!hasFinancials) {
+    if (chartEl) {
+      var card = chartEl.closest(".card");
+      if (card) card.style.display = "none";
+      var titles = document.querySelectorAll(".section-title");
+      titles.forEach(function(t){ if(t.textContent.indexOf("Renovation Budget")!==-1) t.style.display="none"; });
+    }
+    return;
+  }
+  new Chart(chartEl, {
     type: "bar",
-    data: { labels: D.active.map(f=>f.address),
+    data: { labels: active.map(function(f){return f.address;}),
       datasets: [
-        { label: "Budget", data: D.active.map(f=>f.renoBudget),
+        { label: "Budget", data: active.map(function(f){return f.renoBudget;}),
           backgroundColor: "rgba(154,163,181,.28)", borderColor: C.muted, borderWidth: 1, borderRadius: 4 },
-        { label: "Spent", data: D.active.map(f=>f.renoSpent),
-          backgroundColor: D.active.map(f=> f.renoSpent > f.renoBudget ? "rgba(248,113,113,.65)" : "rgba(245,197,24,.6)"),
-          borderColor: D.active.map(f=> f.renoSpent > f.renoBudget ? C.red : C.gold), borderWidth: 1, borderRadius: 4 }
+        { label: "Spent", data: active.map(function(f){return f.renoSpent;}),
+          backgroundColor: active.map(function(f){ return f.renoSpent > f.renoBudget ? "rgba(248,113,113,.65)" : "rgba(245,197,24,.6)"; }),
+          borderColor: active.map(function(f){ return f.renoSpent > f.renoBudget ? C.red : C.gold; }), borderWidth: 1, borderRadius: 4 }
       ]},
     options: { indexAxis: "y",
-      scales: { x: { ticks: { callback: v => fmtMoneyK(v) } } },
+      scales: { x: { ticks: { callback: function(v){ return fmtMoneyK(v); } } } },
       plugins: { legend: { position: "bottom" },
-        tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtMoney(c.parsed.x)}` } } } }
+        tooltip: { callbacks: { label: function(c){ return " "+c.dataset.label+": "+fmtMoney(c.parsed.x); } } } } }
   });
 }
 
