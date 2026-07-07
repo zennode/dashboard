@@ -1,17 +1,16 @@
 {
-  "lastUpdated": "2026-07-06T22:47:36.341-04:00",
+  "lastUpdated": "2026-07-07T07:09:01-04:00",
   "kpis": {
-    "avgResponseHrs": 20.9,
+    "avgResponseHrs": 21.2,
     "responseGoalHrs": 4,
-    "contactRate4h": 59,
-    "contactRate24h": 68,
-    "newLeadsToday": 8,
-    "newLeadsWeek": 41,
-    "uncontacted": 2
+    "contactRate4h": 48,
+    "contactRate24h": 55,
+    "newLeadsToday": 10,
+    "newLeadsWeek": 45,
+    "uncontacted": 52
   },
   "responseTrend": {
     "labels": [
-      "6/23",
       "6/24",
       "6/25",
       "6/26",
@@ -24,10 +23,10 @@
       "7/3",
       "7/4",
       "7/5",
-      "7/6"
+      "7/6",
+      "7/7"
     ],
     "avgHours": [
-      19.8,
       48.4,
       25.3,
       45.6,
@@ -40,12 +39,12 @@
       21.2,
       49.1,
       7.2,
-      0.1
+      0.1,
+      0
     ]
   },
   "volumeTrend": {
     "labels": [
-      "6/23",
       "6/24",
       "6/25",
       "6/26",
@@ -58,10 +57,10 @@
       "7/3",
       "7/4",
       "7/5",
-      "7/6"
+      "7/6",
+      "7/7"
     ],
     "leads": [
-      12,
       12,
       10,
       9,
@@ -74,12 +73,13 @@
       10,
       3,
       7,
-      6
+      7,
+      3
     ]
   },
   "funnel": {
-    "leads": 288,
-    "contacted": 236,
+    "leads": 280,
+    "contacted": 228,
     "showing": 0,
     "applied": 0,
     "approved": 0,
@@ -87,42 +87,42 @@
   },
   "sources": [
     {
-      "name": "Not Tracked in RM",
-      "leads": 288,
+      "name": "Untracked (no source set in RM)",
+      "leads": 280,
       "leased": 0
     }
   ],
   "properties": [
     {
       "name": "24-28 Wilcox",
-      "leads": 157,
+      "leads": 155,
       "avgResponseHrs": 45.2,
-      "contactRate4h": 11,
+      "contactRate4h": 8,
       "vacantUnits": 0
     },
     {
       "name": "YellowBrick Management, Inc",
-      "leads": 127,
+      "leads": 121,
       "avgResponseHrs": 0,
       "contactRate4h": 100,
       "vacantUnits": 0
     },
     {
-      "name": "Property 726",
+      "name": "50 Springfield Street",
       "leads": 2,
       "avgResponseHrs": 20.7,
       "contactRate4h": 50,
       "vacantUnits": 0
     },
     {
-      "name": "Property 702",
+      "name": "Wilbraham RD 257",
       "leads": 1,
       "avgResponseHrs": 85.5,
       "contactRate4h": 0,
       "vacantUnits": 0
     },
     {
-      "name": "Property 694",
+      "name": "St. James Ave 83",
       "leads": 1,
       "avgResponseHrs": 50.2,
       "contactRate4h": 0,
@@ -131,16 +131,94 @@
   ],
   "urgentQueue": [
     {
-      "name": "Cierra Sanchez",
+      "name": "A. Manship",
       "property": "24-28 Wilcox",
-      "source": "Unknown",
-      "waitingHrs": 5.8
+      "source": "Untracked",
+      "waitingHrs": 5
     },
     {
-      "name": "Naukeeza Wannamaker",
+      "name": "M. Peralta",
       "property": "24-28 Wilcox",
-      "source": "Unknown",
-      "waitingHrs": 4.6
+      "source": "Untracked",
+      "waitingHrs": 12.7
+    },
+    {
+      "name": "N. Wannamaker",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 17.1
+    },
+    {
+      "name": "C. Sanchez",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 18.2
+    },
+    {
+      "name": "E. VanDusky",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 20.7
+    },
+    {
+      "name": "R. Bunn",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 63.5
+    },
+    {
+      "name": "M. Melendez",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 110.8
+    },
+    {
+      "name": "S. Mohamed",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 121.3
+    },
+    {
+      "name": "C. Rosado",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 132.8
+    },
+    {
+      "name": "S. Abraham",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 158.5
+    },
+    {
+      "name": "T. Fluitt",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 165.7
+    },
+    {
+      "name": "A. Manship",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 190.6
+    },
+    {
+      "name": "A. Ramos",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 208
+    },
+    {
+      "name": "N. Burgos",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 270.9
+    },
+    {
+      "name": "M. Carlson",
+      "property": "24-28 Wilcox",
+      "source": "Untracked",
+      "waitingHrs": 278.7
     }
   ],
   "team": []
