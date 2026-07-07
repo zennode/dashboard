@@ -1002,11 +1002,11 @@ function renderFlips(){
   var fc = $("#flip-cards");
   fc.style.display = "block";
   var out = "<div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px\">";
-  out += "<button onclick=\"window._flipFilter=null;renderFlips()\" style=\"padding:4px 12px;border-radius:12px;border:1px solid var(--border);background:"+(!window._flipFilter?"var(--gold)":"transparent")+";color:"+(!window._flipFilter?"#000":"var(--faint)")+";cursor:pointer;font-size:12px;font-weight:600\">All ("+active.length+")</button>";
+  out += "<button onclick=\"window._flipFilter=null;window.refreshDashboards()\" style=\"padding:4px 12px;border-radius:12px;border:1px solid var(--border);background:"+(!window._flipFilter?"var(--gold)":"transparent")+";color:"+(!window._flipFilter?"#000":"var(--faint)")+";cursor:pointer;font-size:12px;font-weight:600\">All ("+active.length+")</button>";
   entities.forEach(function(pair){
     var name=pair[0], props=pair[1];
     var isA = window._flipFilter === name;
-    out += "<button onclick=\"window._flipFilter="+"'"+name.replace(/'/g,"\\\'")+"'"+";renderFlips()\" style=\"padding:4px 12px;border-radius:12px;border:1px solid var(--border);background:"+(isA?"var(--gold)":"transparent")+";color:"+(isA?"#000":"var(--faint)")+";cursor:pointer;font-size:12px\">"+esc(name)+" ("+props.length+")</button>";
+    out += "<button onclick=\"window._flipFilter="+"'"+name.replace(/'/g,"\\\'")+"'"+";window.refreshDashboards()\" style=\"padding:4px 12px;border-radius:12px;border:1px solid var(--border);background:"+(isA?"var(--gold)":"transparent")+";color:"+(isA?"#000":"var(--faint)")+";cursor:pointer;font-size:12px\">"+esc(name)+" ("+props.length+")</button>";
   });
   out += "</div>";
   var filtered = window._flipFilter ? (byEntity[window._flipFilter] || []) : active;
