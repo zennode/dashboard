@@ -1,0 +1,104 @@
+{
+  "lastUpdated": "2026-07-07T08:00:00-04:00",
+  "updates": [
+    {
+      "title": "100% bonus depreciation permanently restored for 2026 acquisitions",
+      "date": "2026-07-04",
+      "jurisdiction": "Federal",
+      "category": "Tax",
+      "impact": "High",
+      "summary": "The One Big Beautiful Bill Act (signed July 4, 2025) permanently reinstated 100% bonus depreciation for qualified property placed in service after Jan 19, 2025. IRS Notice 2026-11 confirms cost-segregated components of rental acquisitions and flip rehab equipment qualify. The prior phase-down to 20% in 2026 is eliminated.",
+      "action": "Run cost segregation studies on any YellowBrick Property or Emerald City Rentals acquisitions over ~$500K before year-end. Coordinate with CPA on which entities (YBP, ECR, Springfield Homes) take the deduction."
+    },
+    {
+      "title": "SJC strikes rent control ballot measure from November 2026 ballot",
+      "date": "2026-06-23",
+      "jurisdiction": "MA State",
+      "category": "Legal",
+      "impact": "High",
+      "summary": "The Massachusetts Supreme Judicial Court unanimously ruled the statewide rent control ballot initiative cannot appear on the November 2026 ballot. The measure would have capped annual rent increases at 5% or CPI, whichever is lower. The court found the petition’s religious-institution exemption violated the state constitution’s bar on ballot questions relating to religion.",
+      "action": "No immediate action required — rent caps will not apply this cycle. Monitor legislative alternatives; advocates plan to redraft for 2028. Continue market-rate rent-setting across all YellowBrick Management entities."
+    },
+    {
+      "title": "MA broker fee law: landlord pays if landlord hires the broker",
+      "date": "2026-06-28",
+      "jurisdiction": "MA State",
+      "category": "Legal",
+      "impact": "High",
+      "summary": "Under the Massachusetts law effective Aug 1, 2025, the party who engages the broker pays the fee. Tenants can no longer be charged broker fees for broker relationships they did not initiate. Enforcement activity has increased in 2026, with the AG’s office pursuing violations.",
+      "action": "Confirm all listing agreements and lease-up marketing budgets across YellowBrick Property, Emerald City Rentals, Springfield Homes, and Hampden Realty reflect landlord-paid fees. Audit any tenant charges since Aug 2025."
+    },
+    {
+      "title": "MA short-term capital gains taxed at 8.5% plus surtax risk",
+      "date": "2026-06-25",
+      "jurisdiction": "MA State",
+      "category": "Tax",
+      "impact": "High",
+      "summary": "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA. The 4% Fair Share surtax applies if total taxable income exceeds ~$1,108,000 in 2026, pushing the effective rate to 12.5%.",
+      "action": "Review hold periods on active flip properties with CPA; dealer-status treatment may apply to flip entity regardless. Model surtax exposure if combined entity income approaches the $1.1M threshold."
+    },
+    {
+      "title": "Eviction record sealing law impacts tenant screening",
+      "date": "2026-06-18",
+      "jurisdiction": "MA State",
+      "category": "Legal",
+      "impact": "High",
+      "summary": "The MA eviction record sealing law (effective May 5, 2025) allows tenants to petition courts to seal dismissed, no-fault, and satisfied eviction cases. Fault-based evictions can be sealed after 7 years. Sealed records are invisible to screening companies and tenants may legally answer ‘no record’ on applications. Over 6,200 petitions filed in the first year.",
+      "action": "Update tenant screening procedures across all entities to emphasize income verification, direct landlord references, and credit checks. Train leasing staff at Commonwealth Ave 99, Windsor St 56, and all Springfield properties on the new screening landscape."
+    },
+    {
+      "title": "Security deposit compliance: strict G.L. c.186 §15B enforcement",
+      "date": "2026-06-10",
+      "jurisdiction": "MA State",
+      "category": "Legal",
+      "impact": "Medium",
+      "summary": "Recent MA appellate decisions continue to award treble damages for deposit handling violations (separate interest-bearing account, statement of condition within 10 days, annual interest payments). The Aug 2025 SJC ruling in Peebles v. JRK narrowed the ‘reasonable wear and tear’ standard, making it harder for landlords to deduct repainting, carpet cleaning, and professional cleaning costs.",
+      "action": "Spot-audit deposit accounts and statements of condition across YellowBrick Property, Emerald City Rentals, Springfield Homes, and Hampden Realty; verify annual interest was paid or credited at each lease anniversary."
+    },
+    {
+      "title": "Security deposit fee-in-lieu option now permitted",
+      "date": "2026-06-05",
+      "jurisdiction": "MA State",
+      "category": "Legal",
+      "impact": "Medium",
+      "summary": "Acts of 2025, Chapter 9 (effective Aug 1, 2025) explicitly permits landlords and tenants to agree to a monthly fee in lieu of a traditional security deposit. This gives tenants a lower move-in cost alternative while providing landlords ongoing damage coverage. The fee arrangement must be voluntary and documented in writing.",
+      "action": "Evaluate whether offering a fee-in-lieu option at lease-up across high-vacancy properties (Kensington Ave 101, Bowles St 75-77, Eastern Ave 39-41) would improve conversion rates. Consult attorney on required lease addendum language."
+    },
+    {
+      "title": "1099-K reporting threshold restored to $20K/200 transactions",
+      "date": "2026-06-01",
+      "jurisdiction": "Federal",
+      "category": "Tax",
+      "impact": "Low",
+      "summary": "The One Big Beautiful Bill Act restored the pre-2022 1099-K threshold at $20,000 and 200+ transactions. Separately, the 1099-MISC threshold for rental payments increases to $2,000 for tax year 2026, with inflation adjustments starting in 2027. This reduces reporting noise for payment platforms used to collect rent or application fees.",
+      "action": "No action needed; keep rent-collection platform records reconciled as usual. Note the new $2,000 1099-MISC threshold when issuing contractor payments for property maintenance."
+    },
+    {
+      "title": "Corporate Transparency Act: domestic LLCs exempt from BOI filing",
+      "date": "2026-05-28",
+      "jurisdiction": "Federal",
+      "category": "Regulatory",
+      "impact": "Medium",
+      "summary": "FinCEN’s March 2025 interim final rule exempts all U.S.-formed companies from beneficial ownership (BOI) reporting; only certain foreign-formed entities registered in a U.S. state must file. All YellowBrick Property, Emerald City Rentals, Springfield Homes, Hampden Realty, Ruby Lending, and Courageous Lion entities are domestic LLCs and are exempt.",
+      "action": "None currently. FinCEN plans to finalize the rule in 2026 — monitor for changes. Litigation could revive domestic filing requirements; re-check before forming new entities."
+    },
+    {
+      "title": "Springfield rental registration and inspection enforcement",
+      "date": "2026-05-20",
+      "jurisdiction": "MA State",
+      "category": "Regulatory",
+      "impact": "Medium",
+      "summary": "Springfield continues active enforcement of its apartment registration ordinance; unregistered units face fines up to $300/day and inspection backlogs are creating 4-6 week scheduling delays for lease-ups after turnover. The city’s Code Enforcement department is prioritizing multi-family properties in the downtown and Six Corners areas.",
+      "action": "Verify every Springfield property’s registration is current before Q3 turnovers — Cambridge St 112-114, Dawes St 70-72, Dawes St 111-113, Oak Grove Ave 91-93, and all YBP Springfield addresses. Calendar renewal dates and budget for $75/unit inspection fees."
+    },
+    {
+      "title": "Lead paint compliance for pre-1978 units",
+      "date": "2026-05-12",
+      "jurisdiction": "MA State",
+      "category": "Legal",
+      "impact": "Medium",
+      "summary": "MA lead law (G.L. c.111 §§189A-199B) requires deleading or interim control when a child under 6 resides in a pre-1978 unit. Violations carry strict liability — landlords are liable even if lead exposure occurred elsewhere. Most of the western MA portfolio across YellowBrick Property, Emerald City Rentals, and Springfield Homes is pre-1978 housing stock. A MA tax credit of up to $1,500/unit for full compliance or $500/unit for interim control is available.",
+      "action": "Maintain letters of compliance file; flag any pending applications with children under 6 for units without current compliance letters. Audit Loring St 30-32, Johnson St 38, Greene St 62-68, and all Hampden Realty properties for current lead certificates."
+    }
+  ]
+}
