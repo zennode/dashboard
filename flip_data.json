@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-07-08T08:01:00-04:00",
+  "lastUpdated": "2026-07-08T18:00:00-04:00",
   "summary": {
-    "activeFlips": 6,
-    "completedFlips": 3,
+    "activeFlips": 9,
+    "completedFlips": 19,
     "totalCapitalDeployed": null,
     "totalExpectedProfit": null,
     "avgExpectedRoi": null,
@@ -14,7 +14,7 @@
       "city": "Sheffield",
       "state": "MA",
       "status": "Under Contract",
-      "daysOwned": null,
+      "daysOwned": 496,
       "estCompletionDate": "2026-07-15",
       "purchasePrice": null,
       "renobudget": null,
@@ -22,14 +22,14 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "Closing targeted Wed 7/15. Boiler work (Bobby LeDoux) must be finished before final walkthrough - Jessica followed up 7/7 evening. Prior buyer terminated in June; Title V completed."
+      "notes": "Wicked Deals LLC. RM ID 955, created 2025-02-27. Closing targeted Wed 7/15. Prior buyer terminated in June; Title V completed. Boiler work must finish before final walkthrough."
     },
     {
       "address": "167 E Park Terrace",
       "city": "Pittsfield",
       "state": "MA",
       "status": "In Progress",
-      "daysOwned": null,
+      "daysOwned": 62,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -37,14 +37,14 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "7/8: contractor requested $4,000 draw - cleanout done, smoke smell remediated, tar cleaned from walls, ready for construction. Windows ordered (U-factor 0.29); building permit held up pending window cut sheets, Jessica collecting from Home Depot."
+      "notes": "House Hack Helpers LLC. RM ID 1010, created 2026-05-07. Contractor requested $4,000 draw - cleanout done, smoke smell remediated, ready for construction. Windows ordered; building permit pending."
     },
     {
       "address": "1 Richmond Ln",
       "city": "Adams",
       "state": "MA",
       "status": "Listed",
-      "daysOwned": null,
+      "daysOwned": 205,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -52,7 +52,7 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "7/8 investor update: dropping list price $10,000 - buyer feedback says overpriced and agent reports slowing sales."
+      "notes": "House Hack Helpers LLC. RM ID 992, created 2025-12-15. Listed at $259,900 via dotloop. 7/8 update: dropping price $10,000 - feedback says overpriced; sales slowing."
     },
     {
       "address": "42 Washington St",
@@ -67,14 +67,14 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "7/8 investor update: showings but no offers (railroad proximity objections). Dropping price $1,000/week; margins tight."
+      "notes": "House Hack Helpers LLC. 7/8 update: showings but no offers - railroad proximity objections. Dropping price $1,000/week; margins tight."
     },
     {
-      "address": "238 Fuller Rd Unit K",
+      "address": "283 Fuller Rd #K",
       "city": "Chicopee",
       "state": "MA",
-      "status": "Acquired",
-      "daysOwned": 0,
+      "status": "Closing",
+      "daysOwned": 5,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -82,13 +82,13 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "Closing 7/9/26 (House Hack Helpers LLC). $195k loan at 12%, 2 pts covers full purchase price plus rehab holdback. Unit occupied; working to vacate occupant."
+      "notes": "House Hack Helpers LLC. RM ID 1018, created 2026-07-03. Closing 7/9/26. $195k loan at 12%, 2 pts. Unit occupied; working to vacate."
     },
     {
       "address": "412 St James Ave",
       "city": "Springfield",
       "state": "MA",
-      "status": "Acquired",
+      "status": "Closing",
       "daysOwned": 0,
       "estCompletionDate": null,
       "purchasePrice": null,
@@ -97,13 +97,58 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "Closing 7/9/26 (Yellowbrick Property LLC), pushed back from 7/1. Closing wire of $165,054.99 to Brock & Scott PLLC per Atty Burstein."
+      "notes": "YellowBrick Property LLC. Not yet in RM. Closing 7/9/26. Burstein confirmed via Gmail."
+    },
+    {
+      "address": "19 Draper Ave",
+      "city": "Pittsfield",
+      "state": "MA",
+      "status": "Acquired",
+      "daysOwned": 5,
+      "estCompletionDate": null,
+      "purchasePrice": null,
+      "renobudget": null,
+      "renoSpent": null,
+      "arv": null,
+      "expectedProfit": null,
+      "expectedRoi": null,
+      "notes": "YellowBrick Property LLC. RM ID 1017, created 2026-07-03. Purchased 6/30/26. Recently acquired, entering rehab."
+    },
+    {
+      "address": "166 East St",
+      "city": "Stafford Springs",
+      "state": "CT",
+      "status": "In Progress",
+      "daysOwned": 62,
+      "estCompletionDate": null,
+      "purchasePrice": null,
+      "renobudget": null,
+      "renoSpent": null,
+      "arv": null,
+      "expectedProfit": null,
+      "expectedRoi": null,
+      "notes": "YellowBrick Property LLC. RM ID 1009, created 2026-05-07. Purchased 5/7/26. In rehab."
+    },
+    {
+      "address": "79 Pleasant St",
+      "city": "Ware",
+      "state": "MA",
+      "status": "Closing",
+      "daysOwned": 0,
+      "estCompletionDate": null,
+      "purchasePrice": null,
+      "renobudget": null,
+      "renoSpent": null,
+      "arv": null,
+      "expectedProfit": null,
+      "expectedRoi": null,
+      "notes": "YellowBrick Property LLC. Not yet in RM. Foreclosure - closing expected by 7/20/26."
     }
   ],
   "soldHistory": [
     {
-      "address": "297 Breckwood Blvd",
-      "city": "Springfield",
+      "address": "40 Roland St",
+      "city": "Pittsfield",
       "state": "MA",
       "purchasePrice": null,
       "totalCost": null,
@@ -111,7 +156,7 @@
       "profit": null,
       "roi": null,
       "holdDays": null,
-      "soldDate": "2026-04-15"
+      "soldDate": "2026-05-22"
     },
     {
       "address": "21 Holly Ave",
@@ -126,7 +171,103 @@
       "soldDate": "2026-04-21"
     },
     {
-      "address": "40 Roland St",
+      "address": "4 School St",
+      "city": "Ware",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2026-04-16"
+    },
+    {
+      "address": "297 Breckwood Blvd",
+      "city": "Springfield",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2026-04-15"
+    },
+    {
+      "address": "29 Chestnut Dr",
+      "city": "Belchertown",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2026-04-14"
+    },
+    {
+      "address": "141 Saint Jerome Ave",
+      "city": "Holyoke",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2026-03-30"
+    },
+    {
+      "address": "16 Maple St",
+      "city": "Wilbraham",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2026-03-27"
+    },
+    {
+      "address": "3 Evergreen St",
+      "city": "Southwick",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2026-03-26"
+    },
+    {
+      "address": "207 Monson Tpk",
+      "city": "Ware",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2026-03-23"
+    },
+    {
+      "address": "7 Dugan Rd",
+      "city": "Ware",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2026-02-20"
+    },
+    {
+      "address": "114-116 Danforth Ave",
       "city": "Pittsfield",
       "state": "MA",
       "purchasePrice": null,
@@ -135,8 +276,104 @@
       "profit": null,
       "roi": null,
       "holdDays": null,
-      "soldDate": null
+      "soldDate": "2026-01-05"
+    },
+    {
+      "address": "33 Maple Crest Cir #D",
+      "city": "Holyoke",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2025-12-15"
+    },
+    {
+      "address": "52 Bossidy Dr",
+      "city": "Pittsfield",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2025-12-11"
+    },
+    {
+      "address": "90 Maple St",
+      "city": "Lee",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2025-10-27"
+    },
+    {
+      "address": "23 Hancock St",
+      "city": "Westfield",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2025-10-24"
+    },
+    {
+      "address": "57 Warebrook Village Dr",
+      "city": "Ware",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2025-10-23"
+    },
+    {
+      "address": "19 Eldert St",
+      "city": "Springfield",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2025-10-20"
+    },
+    {
+      "address": "16 Stuart St",
+      "city": "Springfield",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2025-09-29"
+    },
+    {
+      "address": "759 Millers Falls Rd",
+      "city": "Northfield",
+      "state": "MA",
+      "purchasePrice": null,
+      "totalCost": null,
+      "salePrice": null,
+      "profit": null,
+      "roi": null,
+      "holdDays": null,
+      "soldDate": "2025-09-10"
     }
   ],
-  "dataNotes": "Rebuilt 2026-07-08 from Gmail activity (last 12h) by House Flip Closing Coordinator. Actual flips only - excludes Ruby Lending LLC loans and rental portfolio units (prior Rent Manager import removed). Financial fields are null where no source data exists; no figures were estimated."
+  "dataNotes": "Rebuilt 2026-07-08 from Rent Manager API (property records, UDFs, create dates) and Gmail (David Burstein sale congratulations emails, HHH Investor Updates, closing coordinator digests). Entities: YellowBrick Property LLC, Ruby Realty LLC, Wicked Deals LLC, House Hack Helpers LLC. Financial fields remain null - not tracked in RM for flip properties. daysOwned calculated from RM CreateDate where available."
 }
