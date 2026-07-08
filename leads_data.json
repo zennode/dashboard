@@ -1,17 +1,16 @@
 {
-  "lastUpdated": "2026-07-07T07:09:01-04:00",
+  "lastUpdated": "2026-07-08T07:07:59-04:00",
   "kpis": {
-    "avgResponseHrs": 21.2,
+    "avgResponseHrs": 39.5,
     "responseGoalHrs": 4,
-    "contactRate4h": 48,
-    "contactRate24h": 55,
-    "newLeadsToday": 10,
-    "newLeadsWeek": 45,
-    "uncontacted": 52
+    "contactRate4h": 10,
+    "contactRate24h": 17,
+    "newLeadsToday": 6,
+    "newLeadsWeek": 47,
+    "uncontacted": 53
   },
   "responseTrend": {
     "labels": [
-      "6/24",
       "6/25",
       "6/26",
       "6/27",
@@ -24,28 +23,28 @@
       "7/4",
       "7/5",
       "7/6",
-      "7/7"
+      "7/7",
+      "7/8"
     ],
     "avgHours": [
-      48.4,
-      25.3,
-      45.6,
-      26.2,
+      28.9,
+      91.2,
+      52.3,
       43.1,
-      24.5,
-      0,
+      36.8,
+      null,
       37.9,
-      3.1,
-      21.2,
-      49.1,
-      7.2,
-      0.1,
-      0
+      5.3,
+      35.3,
+      23.2,
+      11.4,
+      13.7,
+      3.4,
+      null
     ]
   },
   "volumeTrend": {
     "labels": [
-      "6/24",
       "6/25",
       "6/26",
       "6/27",
@@ -58,10 +57,10 @@
       "7/4",
       "7/5",
       "7/6",
-      "7/7"
+      "7/7",
+      "7/8"
     ],
     "leads": [
-      12,
       10,
       9,
       4,
@@ -74,152 +73,88 @@
       3,
       7,
       7,
-      3
+      7,
+      2
     ]
   },
   "funnel": {
-    "leads": 280,
-    "contacted": 228,
-    "showing": 0,
-    "applied": 0,
-    "approved": 0,
-    "leased": 0
+    "leads": 278,
+    "contacted": 225,
+    "showing": null,
+    "applied": null,
+    "approved": null,
+    "leased": null
   },
   "sources": [
     {
-      "name": "Untracked (no source set in RM)",
-      "leads": 280,
-      "leased": 0
+      "name": "Not tracked (LeadSourceID empty on all leads)",
+      "leads": 278,
+      "leased": null
     }
   ],
   "properties": [
     {
       "name": "24-28 Wilcox",
-      "leads": 155,
+      "leads": 154,
       "avgResponseHrs": 45.2,
-      "contactRate4h": 8,
-      "vacantUnits": 0
+      "contactRate4h": 8
     },
     {
       "name": "YellowBrick Management, Inc",
-      "leads": 121,
+      "leads": 120,
       "avgResponseHrs": 0,
-      "contactRate4h": 100,
-      "vacantUnits": 0
+      "contactRate4h": 13
     },
     {
-      "name": "50 Springfield Street",
+      "name": "Property 726",
       "leads": 2,
       "avgResponseHrs": 20.7,
-      "contactRate4h": 50,
-      "vacantUnits": 0
+      "contactRate4h": 50
     },
     {
       "name": "Wilbraham RD 257",
       "leads": 1,
       "avgResponseHrs": 85.5,
-      "contactRate4h": 0,
-      "vacantUnits": 0
+      "contactRate4h": 0
     },
     {
       "name": "St. James Ave 83",
       "leads": 1,
       "avgResponseHrs": 50.2,
-      "contactRate4h": 0,
-      "vacantUnits": 0
+      "contactRate4h": 0
     }
   ],
   "urgentQueue": [
     {
-      "name": "A. Manship",
+      "name": "Paxton Cobb",
       "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 5
+      "source": "Unknown",
+      "waitingHrs": 25.3
     },
     {
-      "name": "M. Peralta",
+      "name": "Isaiah Williams",
       "property": "24-28 Wilcox",
-      "source": "Untracked",
+      "source": "Unknown",
+      "waitingHrs": 15.5
+    },
+    {
+      "name": "Alejandra Ruiz",
+      "property": "24-28 Wilcox",
+      "source": "Unknown",
       "waitingHrs": 12.7
     },
     {
-      "name": "N. Wannamaker",
+      "name": "Jamila Hooker",
       "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 17.1
+      "source": "Unknown",
+      "waitingHrs": 8.9
     },
     {
-      "name": "C. Sanchez",
+      "name": "Johnalexander Gonzalez Vega",
       "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 18.2
-    },
-    {
-      "name": "E. VanDusky",
-      "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 20.7
-    },
-    {
-      "name": "R. Bunn",
-      "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 63.5
-    },
-    {
-      "name": "M. Melendez",
-      "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 110.8
-    },
-    {
-      "name": "S. Mohamed",
-      "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 121.3
-    },
-    {
-      "name": "C. Rosado",
-      "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 132.8
-    },
-    {
-      "name": "S. Abraham",
-      "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 158.5
-    },
-    {
-      "name": "T. Fluitt",
-      "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 165.7
-    },
-    {
-      "name": "A. Manship",
-      "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 190.6
-    },
-    {
-      "name": "A. Ramos",
-      "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 208
-    },
-    {
-      "name": "N. Burgos",
-      "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 270.9
-    },
-    {
-      "name": "M. Carlson",
-      "property": "24-28 Wilcox",
-      "source": "Untracked",
-      "waitingHrs": 278.7
+      "source": "Unknown",
+      "waitingHrs": 6.6
     }
   ],
-  "team": []
+  "notes": "Source attribution and vacancy data unavailable from Rent Manager API this run. Funnel stages beyond contacted not tracked in prospect statuses (only Prospect/Lost)."
 }
