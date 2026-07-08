@@ -156,5 +156,6 @@
       "waitingHrs": 6.6
     }
   ],
-  "notes": "Source attribution and vacancy data unavailable from Rent Manager API this run. Funnel stages beyond contacted not tracked in prospect statuses (only Prospect/Lost)."
+  "notes": "Source attribution and vacancy data unavailable from Rent Manager API this run. Funnel stages beyond contacted not tracked in prospect statuses (only Prospect/Lost).",
+  "team": []
 }
