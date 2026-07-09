@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-08T18:05:00-04:00",
+  "lastUpdated": "2026-07-09T08:00:00-04:00",
   "active": [
     {
       "address": "1874 Home Rd",
@@ -10,9 +10,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 496,
+      "daysOwned": 497,
       "estCompletion": "2026-07-15",
-      "notes": "Wicked Deals LLC. RM ID 955. Closing targeted 7/15. Boiler: draft fan arrives 7/9 eve, install to follow (Bobby LeDoux) — must be done before final walkthrough."
+      "notes": "Wicked Deals LLC. RM ID 955. Closing targeted 7/15. Boiler: draft fan expected delivered 7/9 eve; Bobby LeDoux installs right after — must be done before final walkthrough."
     },
     {
       "address": "167 E Park Terrace",
@@ -23,7 +23,7 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 62,
+      "daysOwned": 63,
       "estCompletion": null,
       "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit."
     },
@@ -36,7 +36,7 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 205,
+      "daysOwned": 206,
       "estCompletion": null,
       "notes": "House Hack Helpers. RM ID 992. Listed $259,900; $10k price drop confirmed 7/8 — feedback says overpriced, market slowing."
     },
@@ -62,9 +62,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 5,
+      "daysOwned": 6,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1018. Closing 7/9. $195k loan at 12%, 2 pts. Insurance certificate issued 7/8 (Webber & Grinnell). Occupied; working to vacate. NOTE: attorney docs reference 383 Fuller Rd — confirm street number."
+      "notes": "House Hack Helpers. RM ID 1018. Closing TODAY 7/9. $195k loan at 12%, 2 pts. Insurance certificate issued 7/8 (Webber & Grinnell). Occupied; working to vacate. NOTE: attorney docs reference 383 Fuller Rd — confirm street number."
     },
     {
       "address": "412 St James Ave",
@@ -77,7 +77,7 @@
       "expectedProfit": null,
       "daysOwned": 0,
       "estCompletion": null,
-      "notes": "YellowBrick Property. Not yet in RM. Closing 7/9. Burstein confirmed. Wire $165,054.99."
+      "notes": "YellowBrick Property. Not yet in RM. Closing TODAY 7/9. Burstein confirmed. Wire $165,054.99."
     },
     {
       "address": "19 Draper Ave",
@@ -88,7 +88,7 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 8,
+      "daysOwned": 9,
       "estCompletion": null,
       "notes": "YellowBrick Property. RM ID 1017. Purchased 6/30. Entering rehab."
     },
@@ -101,7 +101,7 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 62,
+      "daysOwned": 63,
       "estCompletion": null,
       "notes": "YellowBrick Property. RM ID 1009. Purchased 5/7. In rehab."
     },
