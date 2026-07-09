@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T08:00:00-04:00",
+  "lastUpdated": "2026-07-09T18:00:00-04:00",
   "active": [
     {
       "address": "1874 Home Rd",
@@ -12,7 +12,7 @@
       "expectedProfit": null,
       "daysOwned": 497,
       "estCompletion": "2026-07-15",
-      "notes": "Wicked Deals LLC. RM ID 955. Closing targeted 7/15. Boiler: draft fan expected delivered 7/9 eve; Bobby LeDoux installs right after — must be done before final walkthrough."
+      "notes": "Wicked Deals LLC. RM ID 955. Closing targeted 7/15 (6 days). Boiler draft fan was due 7/9 eve; Bobby LeDoux installs right after — must be done before final walkthrough. No install confirmation yet."
     },
     {
       "address": "167 E Park Terrace",
@@ -64,12 +64,12 @@
       "expectedProfit": null,
       "daysOwned": 6,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1018. Closing TODAY 7/9. $195k loan at 12%, 2 pts. Insurance certificate issued 7/8 (Webber & Grinnell). Occupied; working to vacate. NOTE: attorney docs reference 383 Fuller Rd — confirm street number."
+      "notes": "House Hack Helpers. RM ID 1018. Was scheduled to close TODAY 7/9 — no closing confirmation email as of 6 PM ET; follow up with Vitaliy/Pete. $195k loan at 12%, 2 pts. Insurance cert issued 7/8 (Webber & Grinnell). Occupied; working to vacate. NOTE: attorney docs reference 383 Fuller Rd — confirm street number."
     },
     {
       "address": "412 St James Ave",
       "city": "Springfield, MA",
-      "status": "Closing",
+      "status": "Acquired",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
@@ -77,7 +77,7 @@
       "expectedProfit": null,
       "daysOwned": 0,
       "estCompletion": null,
-      "notes": "YellowBrick Property. Not yet in RM. Closing TODAY 7/9. Burstein confirmed. Wire $165,054.99."
+      "notes": "YellowBrick Property. Not yet in RM. CLOSED 7/9 — Burstein confirmed purchase finalized; closing paperwork received (PDF). Q1 real estate taxes paid to City of Springfield at closing. Wire was $165,054.99."
     },
     {
       "address": "19 Draper Ave",
