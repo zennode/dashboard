@@ -1,17 +1,16 @@
 {
-  "lastUpdated": "2026-07-09T07:08:30-04:00",
+  "lastUpdated": "2026-07-10T07:08:43-04:00",
   "kpis": {
-    "avgResponseHrs": 21.7,
+    "avgResponseHrs": 21.3,
     "responseGoalHrs": 4,
-    "contactRate4h": 46,
-    "contactRate24h": 55,
-    "newLeadsToday": 11,
-    "newLeadsWeek": 54,
-    "uncontacted": 9
+    "contactRate4h": 45,
+    "contactRate24h": 54,
+    "newLeadsToday": 13,
+    "newLeadsWeek": 59,
+    "uncontacted": 57
   },
   "responseTrend": {
     "labels": [
-      "6/26",
       "6/27",
       "6/28",
       "6/29",
@@ -24,10 +23,10 @@
       "7/6",
       "7/7",
       "7/8",
-      "7/9"
+      "7/9",
+      "7/10"
     ],
     "avgHours": [
-      45.6,
       26.2,
       43.1,
       24.5,
@@ -39,13 +38,13 @@
       3.2,
       9.1,
       10,
-      4.5,
-      0
+      3.6,
+      0,
+      null
     ]
   },
   "volumeTrend": {
     "labels": [
-      "6/26",
       "6/27",
       "6/28",
       "6/29",
@@ -58,10 +57,10 @@
       "7/6",
       "7/7",
       "7/8",
-      "7/9"
+      "7/9",
+      "7/10"
     ],
     "leads": [
-      9,
       4,
       2,
       7,
@@ -74,51 +73,52 @@
       7,
       7,
       13,
+      13,
       0
     ]
   },
   "funnel": {
-    "leads": 271,
-    "contacted": 221,
-    "showing": 106,
-    "applied": 103,
-    "approved": 9,
-    "leased": 4
+    "leads": 269,
+    "contacted": 212,
+    "showing": 0,
+    "applied": 0,
+    "approved": 0,
+    "leased": 0
   },
   "sources": [
     {
-      "name": "Unattributed (LeadSourceID empty on all recent leads)",
-      "leads": 271,
-      "leased": 4
+      "name": "Unattributed (no source set in Rent Manager)",
+      "leads": 269,
+      "leased": 0
     }
   ],
   "properties": [
     {
       "name": "24-28 Wilcox",
-      "leads": 155,
-      "avgResponseHrs": 43.9,
-      "contactRate4h": 8
+      "leads": 154,
+      "avgResponseHrs": 44.7,
+      "contactRate4h": 6
     },
     {
       "name": "YellowBrick Management, Inc",
-      "leads": 112,
+      "leads": 111,
       "avgResponseHrs": 0,
       "contactRate4h": 100
     },
     {
-      "name": "Property 726",
+      "name": "50 Springfield Street",
       "leads": 2,
       "avgResponseHrs": 20.7,
       "contactRate4h": 50
     },
     {
-      "name": "Property 702",
+      "name": "Wilbraham RD 257",
       "leads": 1,
       "avgResponseHrs": 85.5,
       "contactRate4h": 0
     },
     {
-      "name": "Property 694",
+      "name": "St. James Ave 83",
       "leads": 1,
       "avgResponseHrs": 50.2,
       "contactRate4h": 0
@@ -126,58 +126,95 @@
   ],
   "urgentQueue": [
     {
-      "name": "Carlos Santiago",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 21.5
-    },
-    {
-      "name": "Kelibeth Resto-Albelo",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 20.6
-    },
-    {
       "name": "Isaiah Rodriguez",
       "property": "24-28 Wilcox",
       "source": "Unattributed",
-      "waitingHrs": 18.9
+      "waitingHrs": 43
     },
     {
       "name": "Erika Rodríguez",
       "property": "24-28 Wilcox",
       "source": "Unattributed",
-      "waitingHrs": 18.8
+      "waitingHrs": 42.8
     },
     {
       "name": "Jaime Alvarado",
       "property": "24-28 Wilcox",
       "source": "Unattributed",
-      "waitingHrs": 18.7
+      "waitingHrs": 42.7
     },
     {
       "name": "Tyffannie Fluitt",
       "property": "24-28 Wilcox",
       "source": "Unattributed",
-      "waitingHrs": 15.5
+      "waitingHrs": 39.5
     },
     {
-      "name": "Victoria  Gonzalez Vega",
+      "name": "Victoria Gonzalez Vega",
       "property": "24-28 Wilcox",
       "source": "Unattributed",
-      "waitingHrs": 14.5
+      "waitingHrs": 38.5
     },
     {
-      "name": "Medjina  Saint Vil",
+      "name": "Medjina Saint Vil",
       "property": "24-28 Wilcox",
       "source": "Unattributed",
-      "waitingHrs": 13.6
+      "waitingHrs": 37.6
     },
     {
-      "name": "Anna Flores",
+      "name": "Anastasia Smith",
       "property": "24-28 Wilcox",
       "source": "Unattributed",
-      "waitingHrs": 9.6
+      "waitingHrs": 21.6
+    },
+    {
+      "name": "Joliemar Hernandez",
+      "property": "24-28 Wilcox",
+      "source": "Unattributed",
+      "waitingHrs": 21.3
+    },
+    {
+      "name": "Jermaine Chase",
+      "property": "24-28 Wilcox",
+      "source": "Unattributed",
+      "waitingHrs": 17.1
+    },
+    {
+      "name": "Christopher Charles",
+      "property": "24-28 Wilcox",
+      "source": "Unattributed",
+      "waitingHrs": 16.7
+    },
+    {
+      "name": "Katrice Hicks",
+      "property": "24-28 Wilcox",
+      "source": "Unattributed",
+      "waitingHrs": 15.3
+    },
+    {
+      "name": "Melissa Jana",
+      "property": "24-28 Wilcox",
+      "source": "Unattributed",
+      "waitingHrs": 14.3
+    },
+    {
+      "name": "Glendalys Colon",
+      "property": "24-28 Wilcox",
+      "source": "Unattributed",
+      "waitingHrs": 13.9
+    },
+    {
+      "name": "Jalisa Serrano",
+      "property": "24-28 Wilcox",
+      "source": "Unattributed",
+      "waitingHrs": 9
+    },
+    {
+      "name": "Tyauna Lizardi",
+      "property": "24-28 Wilcox",
+      "source": "Unattributed",
+      "waitingHrs": 9
     }
-  ]
+  ],
+  "notes": "Lead sources are not recorded in Rent Manager (all LeadSourceID = -1). Statuses in use: Prospect and Lost only - showing/applied/approved stages not tracked. Vacancy and team data unavailable from API."
 }
