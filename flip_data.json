@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T18:00:00-04:00",
+  "lastUpdated": "2026-07-10T08:00:00-04:00",
   "active": [
     {
       "address": "1874 Home Rd",
@@ -10,9 +10,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 497,
+      "daysOwned": 498,
       "estCompletion": "2026-07-15",
-      "notes": "Wicked Deals LLC. RM ID 955. Closing targeted 7/15 (6 days). Boiler draft fan was due 7/9 eve; Bobby LeDoux installs right after — must be done before final walkthrough. No install confirmation yet."
+      "notes": "Wicked Deals LLC. RM ID 955. Closing targeted 7/15 (5 days). Boiler draft fan was due delivered 7/9 eve; Bobby LeDoux installs next — must be done before final walkthrough. No install confirmation yet as of 7/10 AM."
     },
     {
       "address": "167 E Park Terrace",
@@ -23,7 +23,7 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 63,
+      "daysOwned": 64,
       "estCompletion": null,
       "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit."
     },
@@ -36,9 +36,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 206,
+      "daysOwned": 207,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 992. Listed $259,900; $10k price drop confirmed 7/8 — feedback says overpriced, market slowing."
+      "notes": "House Hack Helpers. RM ID 992. Listed $249,900 after $10k price drop confirmed 7/8 — feedback says overpriced, market slowing."
     },
     {
       "address": "42 Washington St",
@@ -62,9 +62,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 6,
+      "daysOwned": 7,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1018. Was scheduled to close TODAY 7/9 — no closing confirmation email as of 6 PM ET; follow up with Vitaliy/Pete. $195k loan at 12%, 2 pts. Insurance cert issued 7/8 (Webber & Grinnell). Occupied; working to vacate. NOTE: attorney docs reference 383 Fuller Rd — confirm street number."
+      "notes": "House Hack Helpers. RM ID 1018. Was scheduled to close 7/9 — still no closing confirmation as of 7/10 8 AM; follow up with Vitaliy/Pete. $195k loan at 12%, 2 pts. Insurance cert issued 7/8 (Webber & Grinnell). Occupied; working to vacate. NOTE: attorney docs reference 383 Fuller Rd — confirm street number."
     },
     {
       "address": "412 St James Ave",
@@ -75,9 +75,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 0,
+      "daysOwned": 1,
       "estCompletion": null,
-      "notes": "YellowBrick Property. Not yet in RM. CLOSED 7/9 — Burstein confirmed purchase finalized; closing paperwork received (PDF). Q1 real estate taxes paid to City of Springfield at closing. Wire was $165,054.99."
+      "notes": "YellowBrick Property. Not yet in RM. Closed 7/9 — Burstein confirmed purchase finalized; closing paperwork received (PDF). Q1 real estate taxes paid to City of Springfield at closing. Wire was $165,054.99. Next: rehab scope."
     },
     {
       "address": "19 Draper Ave",
@@ -88,7 +88,7 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 9,
+      "daysOwned": 10,
       "estCompletion": null,
       "notes": "YellowBrick Property. RM ID 1017. Purchased 6/30. Entering rehab."
     },
@@ -101,7 +101,7 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 63,
+      "daysOwned": 64,
       "estCompletion": null,
       "notes": "YellowBrick Property. RM ID 1009. Purchased 5/7. In rehab."
     },
