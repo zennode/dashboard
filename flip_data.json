@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T08:00:00-04:00",
+  "lastUpdated": "2026-07-10T18:05:00-04:00",
   "active": [
     {
       "address": "1874 Home Rd",
@@ -11,8 +11,8 @@
       "arv": null,
       "expectedProfit": null,
       "daysOwned": 498,
-      "estCompletion": "2026-07-15",
-      "notes": "Wicked Deals LLC. RM ID 955. Closing targeted 7/15 (5 days). Boiler draft fan was due delivered 7/9 eve; Bobby LeDoux installs next — must be done before final walkthrough. No install confirmation yet as of 7/10 AM."
+      "estCompletion": "2026-07-17",
+      "notes": "Wicked Deals LLC. RM ID 955. Closing now targeted Fri 7/17 (Alice 7/10: buyer's agent may send extension). Boiler: new parts to be installed before closing; burner clean/service being scheduled (Jessica). Flooring credit vs. price reduction TBD — Burstein + buyer's attorney to sort. Buyer's agent unresponsive; buyer's attorney identity requested. Alice's commission bill due Mon. Matt to provide boiler statement/invoice."
     },
     {
       "address": "167 E Park Terrace",
@@ -25,7 +25,7 @@
       "expectedProfit": null,
       "daysOwned": 64,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit."
+      "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit. No new activity 7/10."
     },
     {
       "address": "1 Richmond Ln",
@@ -38,7 +38,7 @@
       "expectedProfit": null,
       "daysOwned": 207,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 992. Listed $249,900 after $10k price drop confirmed 7/8 — feedback says overpriced, market slowing."
+      "notes": "House Hack Helpers. RM ID 992. Listed $249,900 after $10k price drop confirmed 7/8 — feedback says overpriced, market slowing. No new activity 7/10."
     },
     {
       "address": "42 Washington St",
@@ -51,20 +51,20 @@
       "expectedProfit": null,
       "daysOwned": null,
       "estCompletion": null,
-      "notes": "House Hack Helpers. Showings but no offers; railroad proximity objections. Dropping $1k/week (confirmed 7/8). Tight margins."
+      "notes": "House Hack Helpers. Showings but no offers; railroad proximity objections. Dropping $1k/week (confirmed 7/8). Tight margins. No new activity 7/10."
     },
     {
-      "address": "238 Fuller Rd #K",
+      "address": "283 Fuller Rd, Unit K",
       "city": "Chicopee, MA",
-      "status": "Closing",
+      "status": "Acquired",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 7,
+      "daysOwned": 0,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1018. Was scheduled to close 7/9 — still no closing confirmation as of 7/10 8 AM; follow up with Vitaliy/Pete. $195k loan at 12%, 2 pts. Insurance cert issued 7/8 (Webber & Grinnell). Occupied; working to vacate. NOTE: attorney docs reference 383 Fuller Rd — confirm street number."
+      "notes": "House Hack Helpers. RM ID 1018. CLOSED 7/10 — Burstein confirmed purchase completed and deed recorded; address confirmed as 283 Fuller Rd Unit K (resolves 238/383 confusion). Closing docs received; lender package to Vitaliy (originals Mon). Excess construction loan funds check at Burstein's office. Condo fees paid thru 7/31; next RE tax bill due Nov. $195k loan at 12%, 2 pts. Occupied; working to vacate."
     },
     {
       "address": "412 St James Ave",
