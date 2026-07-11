@@ -1,17 +1,16 @@
 {
-  "lastUpdated": "2026-07-10T07:08:43-04:00",
+  "lastUpdated": "2026-07-11T07:09:57-04:00",
   "kpis": {
-    "avgResponseHrs": 21.3,
+    "avgResponseHrs": 21.7,
     "responseGoalHrs": 4,
     "contactRate4h": 45,
-    "contactRate24h": 54,
+    "contactRate24h": 56,
     "newLeadsToday": 13,
-    "newLeadsWeek": 59,
-    "uncontacted": 57
+    "newLeadsWeek": 62,
+    "uncontacted": 9
   },
   "responseTrend": {
     "labels": [
-      "6/27",
       "6/28",
       "6/29",
       "6/30",
@@ -24,10 +23,10 @@
       "7/7",
       "7/8",
       "7/9",
-      "7/10"
+      "7/10",
+      "7/11"
     ],
     "avgHours": [
-      26.2,
       43.1,
       24.5,
       0,
@@ -38,14 +37,14 @@
       3.2,
       9.1,
       10,
-      3.6,
+      30.5,
+      13,
       0,
-      null
+      0
     ]
   },
   "volumeTrend": {
     "labels": [
-      "6/27",
       "6/28",
       "6/29",
       "6/30",
@@ -58,10 +57,10 @@
       "7/7",
       "7/8",
       "7/9",
-      "7/10"
+      "7/10",
+      "7/11"
     ],
     "leads": [
-      4,
       2,
       7,
       4,
@@ -74,12 +73,13 @@
       7,
       13,
       13,
+      13,
       0
     ]
   },
   "funnel": {
-    "leads": 269,
-    "contacted": 212,
+    "leads": 272,
+    "contacted": 225,
     "showing": 0,
     "applied": 0,
     "approved": 0,
@@ -87,21 +87,21 @@
   },
   "sources": [
     {
-      "name": "Unattributed (no source set in Rent Manager)",
-      "leads": 269,
+      "name": "Untagged (no source set in Rent Manager)",
+      "leads": 272,
       "leased": 0
     }
   ],
   "properties": [
     {
       "name": "24-28 Wilcox",
-      "leads": 154,
-      "avgResponseHrs": 44.7,
+      "leads": 156,
+      "avgResponseHrs": 43.2,
       "contactRate4h": 6
     },
     {
       "name": "YellowBrick Management, Inc",
-      "leads": 111,
+      "leads": 112,
       "avgResponseHrs": 0,
       "contactRate4h": 100
     },
@@ -126,95 +126,59 @@
   ],
   "urgentQueue": [
     {
-      "name": "Isaiah Rodriguez",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 43
-    },
-    {
-      "name": "Erika Rodríguez",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 42.8
-    },
-    {
-      "name": "Jaime Alvarado",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 42.7
-    },
-    {
-      "name": "Tyffannie Fluitt",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 39.5
-    },
-    {
-      "name": "Victoria Gonzalez Vega",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 38.5
-    },
-    {
-      "name": "Medjina Saint Vil",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 37.6
-    },
-    {
-      "name": "Anastasia Smith",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 21.6
-    },
-    {
-      "name": "Joliemar Hernandez",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 21.3
-    },
-    {
-      "name": "Jermaine Chase",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 17.1
-    },
-    {
-      "name": "Christopher Charles",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 16.7
-    },
-    {
-      "name": "Katrice Hicks",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 15.3
-    },
-    {
-      "name": "Melissa Jana",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 14.3
-    },
-    {
-      "name": "Glendalys Colon",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 13.9
-    },
-    {
-      "name": "Jalisa Serrano",
-      "property": "24-28 Wilcox",
-      "source": "Unattributed",
-      "waitingHrs": 9
-    },
-    {
       "name": "Tyauna Lizardi",
       "property": "24-28 Wilcox",
-      "source": "Unattributed",
+      "source": "Untagged",
+      "waitingHrs": 33
+    },
+    {
+      "name": "Joseph Matos",
+      "property": "24-28 Wilcox",
+      "source": "Untagged",
+      "waitingHrs": 19
+    },
+    {
+      "name": "Jose Parrilla Aponte",
+      "property": "24-28 Wilcox",
+      "source": "Untagged",
+      "waitingHrs": 18.5
+    },
+    {
+      "name": "Marly Cruz",
+      "property": "24-28 Wilcox",
+      "source": "Untagged",
+      "waitingHrs": 18.4
+    },
+    {
+      "name": "Amy Baxter",
+      "property": "24-28 Wilcox",
+      "source": "Untagged",
+      "waitingHrs": 18.3
+    },
+    {
+      "name": "Amanda Crochetiere",
+      "property": "24-28 Wilcox",
+      "source": "Untagged",
+      "waitingHrs": 18.2
+    },
+    {
+      "name": "Elizabeth Arroyo",
+      "property": "24-28 Wilcox",
+      "source": "Untagged",
+      "waitingHrs": 15.1
+    },
+    {
+      "name": "Melinda Arocho",
+      "property": "24-28 Wilcox",
+      "source": "Untagged",
+      "waitingHrs": 13
+    },
+    {
+      "name": "Delayla Rivera",
+      "property": "24-28 Wilcox",
+      "source": "Untagged",
       "waitingHrs": 9
     }
   ],
-  "notes": "Lead sources are not recorded in Rent Manager (all LeadSourceID = -1). Statuses in use: Prospect and Lost only - showing/applied/approved stages not tracked. Vacancy and team data unavailable from API."
+  "notes": "Source and leasing-agent tagging is not populated in Rent Manager (LeadSourceID=-1, LeasingAgentID=null on all 272 leads). Funnel stages beyond contacted unavailable: statuses in use are only Prospect/Lost/Customer; 0 conversions in last 30 days. Vacancy data unavailable (IsVacant null). 96 of 225 contacted leads have FirstContact identical to CreateDate (likely auto-logged)."
 }
