@@ -1221,7 +1221,7 @@ activateTab(location.hash.replace("#","") || "leads", false);
 /* Public hook: after a scheduled task mutates window.*_DATA it can call
    window.refreshDashboards() — or simply regenerate this file's data block. */
 window.refreshDashboards = function(){
-  renderLeads(); renderPortfolio(); renderFlips(); renderLawTax();
+  try{renderLeads();}catch(e){console.warn(e)} try{renderPortfolio();}catch(e){console.warn(e)} try{renderFlips();}catch(e){console.warn(e)} try{renderLawTax();}catch(e){console.warn(e)}
 };
 
 /* ---------- live-data loader ----------
