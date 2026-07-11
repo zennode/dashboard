@@ -1,16 +1,16 @@
 {
-  "lastUpdated": "2026-07-08T13:52:00-04:00",
+  "lastUpdated": "2026-07-11T14:00:00-04:00",
   "period": "June 2026",
   "summary": {
-    "totalIncome": 504086,
-    "totalExpenses": 1488375,
-    "noi": -984289,
-    "vacancyRate": 78.1,
+    "totalIncome": 492157,
+    "totalExpenses": 394968,
+    "noi": 97189,
+    "vacancyRate": 28.1,
     "collectionRate": 96.2,
-    "expenseRatio": 295,
-    "momIncomePct": -6.8,
-    "momExpensesPct": -15,
-    "momNoiPct": 18.7,
+    "expenseRatio": 80,
+    "momIncomePct": -5.5,
+    "momExpensesPct": 0,
+    "momNoiPct": 0,
     "capRate": 0,
     "dscr": 0,
     "yoyIncomePct": 0,
@@ -19,392 +19,66 @@
     "momVacancyPts": 0
   },
   "companies": [
-    {
-      "name": "Yellow Brick Property",
-      "units": 232,
-      "occupied": 83,
-      "vacant": 149,
-      "income": 157838,
-      "expenses": 128154,
-      "noi": 29686
-    },
-    {
-      "name": "Emerald City Rentals, LLC",
-      "units": 97,
-      "occupied": 6,
-      "vacant": 91,
-      "income": 10475,
-      "expenses": 3078,
-      "noi": 7397
-    },
-    {
-      "name": "Courageous Lion",
-      "units": 85,
-      "occupied": 40,
-      "vacant": 45,
-      "income": 83915,
-      "expenses": 76558,
-      "noi": 7358
-    },
-    {
-      "name": "Land of OZ LLC",
-      "units": 55,
-      "occupied": 42,
-      "vacant": 13,
-      "income": 54571,
-      "expenses": 37671,
-      "noi": 16900
-    },
-    {
-      "name": "Spring Park Properties LLC",
-      "units": 60,
-      "occupied": 41,
-      "vacant": 19,
-      "income": 58741,
-      "expenses": 15497,
-      "noi": 43244
-    },
-    {
-      "name": "Hampden Realty",
-      "units": 43,
-      "occupied": 0,
-      "vacant": 43,
-      "income": 2350,
-      "expenses": 0,
-      "noi": 2350
-    },
-    {
-      "name": "Flying Monkeys LLC",
-      "units": 34,
-      "occupied": 28,
-      "vacant": 6,
-      "income": 35654,
-      "expenses": 15662,
-      "noi": 19992
-    },
-    {
-      "name": "No Place Like Home Properties LLC",
-      "units": 17,
-      "occupied": 3,
-      "vacant": 14,
-      "income": 5250,
-      "expenses": 1195,
-      "noi": 4055
-    },
-    {
-      "name": "YBP RCVR",
-      "units": 27,
-      "occupied": 0,
-      "vacant": 27,
-      "income": 0,
-      "expenses": 671,
-      "noi": -671
-    },
-    {
-      "name": "Theodore Agranat Properties",
-      "units": 15,
-      "occupied": 2,
-      "vacant": 13,
-      "income": 2325,
-      "expenses": 4128,
-      "noi": -1803
-    },
-    {
-      "name": "Wicked Deals LLC",
-      "units": 30,
-      "occupied": 0,
-      "vacant": 30,
-      "income": 0,
-      "expenses": 13,
-      "noi": -13
-    },
-    {
-      "name": "Gillikin LLC",
-      "units": 3,
-      "occupied": 0,
-      "vacant": 3,
-      "income": 0,
-      "expenses": 0,
-      "noi": 0
-    },
-    {
-      "name": "826 Chicopee LLC",
-      "units": 7,
-      "occupied": 7,
-      "vacant": 0,
-      "income": 6800,
-      "expenses": 1261,
-      "noi": 5539
-    },
-    {
-      "name": "ET Estates & NG Estates",
-      "units": 6,
-      "occupied": 5,
-      "vacant": 1,
-      "income": 5863,
-      "expenses": 2655,
-      "noi": 3208
-    },
-    {
-      "name": "Union St Realty Trust",
-      "units": 14,
-      "occupied": 2,
-      "vacant": 12,
-      "income": 18525,
-      "expenses": 15070,
-      "noi": 3455
-    }
+    {"name": "Yellow Brick Property", "units": 105, "occupied": 82, "vacant": 23, "income": 151238, "expenses": 156902, "noi": -5664},
+    {"name": "Courageous Lion", "units": 55, "occupied": 40, "vacant": 15, "income": 82209, "expenses": 63779, "noi": 18430},
+    {"name": "Land of OZ LLC", "units": 51, "occupied": 42, "vacant": 9, "income": 54571, "expenses": 38340, "noi": 16231},
+    {"name": "Spring Park Properties LLC", "units": 18, "occupied": 12, "vacant": 6, "income": 42219, "expenses": 15441, "noi": 26778},
+    {"name": "Flying Monkeys LLC", "units": 22, "occupied": 22, "vacant": 0, "income": 45730, "expenses": 18931, "noi": 26799},
+    {"name": "Exchange Assets LLC", "units": 20, "occupied": 12, "vacant": 8, "income": 29827, "expenses": 26436, "noi": 3391},
+    {"name": "Allyn St", "units": 18, "occupied": 18, "vacant": 0, "income": 22905, "expenses": 4711, "noi": 18194},
+    {"name": "Emerald City Rentals, LLC", "units": 10, "occupied": 6, "vacant": 4, "income": 8425, "expenses": 942, "noi": 7483},
+    {"name": "Union St Realty Trust", "units": 12, "occupied": 11, "vacant": 1, "income": 18525, "expenses": 15356, "noi": 3169},
+    {"name": "826 Chicopee LLC", "units": 7, "occupied": 7, "vacant": 0, "income": 6800, "expenses": 1261, "noi": 5539},
+    {"name": "No Place Like Home Properties LLC", "units": 3, "occupied": 0, "vacant": 3, "income": 0, "expenses": 11973, "noi": -11973},
+    {"name": "Theodore Agranat Properties", "units": 2, "occupied": 0, "vacant": 2, "income": 0, "expenses": 8609, "noi": -8609},
+    {"name": "BUILD IT RIGHT", "units": 5, "occupied": 0, "vacant": 5, "income": 0, "expenses": 3733, "noi": -3733},
+    {"name": "Gillikin LLC", "units": 0, "occupied": 0, "vacant": 0, "income": 0, "expenses": 0, "noi": 0},
+    {"name": "Wicked Deals LLC", "units": 0, "occupied": 0, "vacant": 0, "income": 0, "expenses": 975, "noi": -975},
+    {"name": "Ruby Lending LLC", "units": 0, "occupied": 0, "vacant": 0, "income": 0, "expenses": 895, "noi": -895}
   ],
   "properties": [
-    {
-      "entity": "Yellow Brick Property",
-      "name": "Northwestern 3",
-      "units": 4,
-      "income": 17827,
-      "expenses": 3395,
-      "noi": 14432
-    },
-    {
-      "entity": "Yellow Brick Property",
-      "name": "Terrence St 56",
-      "units": 3,
-      "income": 7450,
-      "expenses": 1281,
-      "noi": 6169
-    },
-    {
-      "entity": "Yellow Brick Property",
-      "name": "Holly St 65-67",
-      "units": 3,
-      "income": 6200,
-      "expenses": 1129,
-      "noi": 5071
-    },
-    {
-      "entity": "Yellow Brick Property",
-      "name": "Other (108 properties)",
-      "units": 222,
-      "income": 126361,
-      "expenses": 122349,
-      "noi": 4012
-    },
-    {
-      "entity": "Emerald City Rentals, LLC",
-      "name": "126 Mulberry St",
-      "units": 6,
-      "income": 4700,
-      "expenses": 853,
-      "noi": 3847
-    },
-    {
-      "entity": "Emerald City Rentals, LLC",
-      "name": "30 Fairview Ave",
-      "units": 3,
-      "income": 2850,
-      "expenses": 721,
-      "noi": 2129
-    },
-    {
-      "entity": "Emerald City Rentals, LLC",
-      "name": "Other (78 properties)",
-      "units": 88,
-      "income": 2925,
-      "expenses": 1504,
-      "noi": 1421
-    },
-    {
-      "entity": "Courageous Lion",
-      "name": "St. James Ave 83",
-      "units": 6,
-      "income": 11001,
-      "expenses": 5842,
-      "noi": 5159
-    },
-    {
-      "entity": "Courageous Lion",
-      "name": "Centre 276",
-      "units": 9,
-      "income": 9920,
-      "expenses": 4150,
-      "noi": 5770
-    },
-    {
-      "entity": "Courageous Lion",
-      "name": "Mainline 54",
-      "units": 7,
-      "income": 8395,
-      "expenses": 3625,
-      "noi": 4770
-    },
-    {
-      "entity": "Courageous Lion",
-      "name": "Other (54 properties)",
-      "units": 63,
-      "income": 54599,
-      "expenses": 62941,
-      "noi": -8342
-    },
-    {
-      "entity": "Land of OZ LLC",
-      "name": "1-3 Stadler Street",
-      "units": 43,
-      "income": 45246,
-      "expenses": 26649,
-      "noi": 18597
-    },
-    {
-      "entity": "Land of OZ LLC",
-      "name": "12 Jabish Street",
-      "units": 8,
-      "income": 9325,
-      "expenses": 11022,
-      "noi": -1697
-    },
-    {
-      "entity": "Land of OZ LLC",
-      "name": "13 Stadler Street",
-      "units": 4,
-      "income": 0,
-      "expenses": 0,
-      "noi": 0
-    },
-    {
-      "entity": "Spring Park Properties LLC",
-      "name": "60 Shaker Road",
-      "units": 48,
-      "income": 43285,
-      "expenses": 6218,
-      "noi": 37067
-    },
-    {
-      "entity": "Spring Park Properties LLC",
-      "name": "110 Johnson Rd",
-      "units": 6,
-      "income": 8430,
-      "expenses": 3913,
-      "noi": 4517
-    },
-    {
-      "entity": "Spring Park Properties LLC",
-      "name": "Other (15 properties)",
-      "units": 6,
-      "income": 7026,
-      "expenses": 5366,
-      "noi": 1660
-    },
-    {
-      "entity": "Flying Monkeys LLC",
-      "name": "Melrose St 32",
-      "units": 8,
-      "income": 10200,
-      "expenses": 5418,
-      "noi": 4782
-    },
-    {
-      "entity": "Flying Monkeys LLC",
-      "name": "Race 346",
-      "units": 6,
-      "income": 7950,
-      "expenses": 3210,
-      "noi": 4740
-    },
-    {
-      "entity": "Flying Monkeys LLC",
-      "name": "Other (32 properties)",
-      "units": 20,
-      "income": 17504,
-      "expenses": 7034,
-      "noi": 10470
-    },
-    {
-      "entity": "Union St Realty Trust",
-      "name": "741-745 Union St",
-      "units": 6,
-      "income": 8025,
-      "expenses": 6752,
-      "noi": 1273
-    },
-    {
-      "entity": "Union St Realty Trust",
-      "name": "Other (7 properties)",
-      "units": 8,
-      "income": 10500,
-      "expenses": 8318,
-      "noi": 2182
-    },
-    {
-      "entity": "826 Chicopee LLC",
-      "name": "826 Chicopee St",
-      "units": 7,
-      "income": 6800,
-      "expenses": 1261,
-      "noi": 5539
-    },
-    {
-      "entity": "ET Estates & NG Estates",
-      "name": "Various Properties",
-      "units": 6,
-      "income": 5863,
-      "expenses": 2655,
-      "noi": 3208
-    },
-    {
-      "entity": "No Place Like Home Properties LLC",
-      "name": "Various Properties",
-      "units": 17,
-      "income": 5250,
-      "expenses": 1195,
-      "noi": 4055
-    },
-    {
-      "entity": "Gillikin LLC",
-      "name": "5 Clark Mountain Road",
-      "units": 3,
-      "income": 0,
-      "expenses": 0,
-      "noi": 0
-    }
+    {"entity": "Yellow Brick Property", "name": "Northwestern 3", "units": 4, "income": 17827, "expenses": 3395, "noi": 14432},
+    {"entity": "Yellow Brick Property", "name": "Holly St 65-67", "units": 3, "income": 6200, "expenses": 1140, "noi": 5060},
+    {"entity": "Yellow Brick Property", "name": "Carew St 411", "units": 4, "income": 5919, "expenses": 1577, "noi": 4342},
+    {"entity": "Yellow Brick Property", "name": "Other (44 properties)", "units": 94, "income": 121292, "expenses": 150790, "noi": -29498},
+    {"entity": "Courageous Lion", "name": "St. James Ave 83", "units": 6, "income": 11001, "expenses": 5842, "noi": 5159},
+    {"entity": "Courageous Lion", "name": "Centre 276", "units": 9, "income": 9920, "expenses": 3624, "noi": 6296},
+    {"entity": "Courageous Lion", "name": "Mainline 54", "units": 7, "income": 8395, "expenses": 3625, "noi": 4770},
+    {"entity": "Courageous Lion", "name": "Other (41 properties)", "units": 33, "income": 52893, "expenses": 50688, "noi": 2205},
+    {"entity": "Land of OZ LLC", "name": "1-3 Stadler Street", "units": 43, "income": 45246, "expenses": 26649, "noi": 18597},
+    {"entity": "Land of OZ LLC", "name": "12 Jabish Street", "units": 8, "income": 9325, "expenses": 11691, "noi": -2366},
+    {"entity": "Spring Park Properties LLC", "name": "60 Shaker Road", "units": 12, "income": 33789, "expenses": 6218, "noi": 27571},
+    {"entity": "Spring Park Properties LLC", "name": "30-34 Shaker/37-39 Prospect", "units": 6, "income": 8430, "expenses": 9223, "noi": -793},
+    {"entity": "Flying Monkeys LLC", "name": "Melrose St 32", "units": 8, "income": 10200, "expenses": 5418, "noi": 4782},
+    {"entity": "Flying Monkeys LLC", "name": "Race 346", "units": 6, "income": 7950, "expenses": 3210, "noi": 4740},
+    {"entity": "Flying Monkeys LLC", "name": "Center 13", "units": 2, "income": 6130, "expenses": 2014, "noi": 4116},
+    {"entity": "Flying Monkeys LLC", "name": "Other (5 properties)", "units": 6, "income": 21450, "expenses": 8289, "noi": 13161},
+    {"entity": "Exchange Assets LLC", "name": "214-218 Exchange St/52 Cabot Street", "units": 15, "income": 15970, "expenses": 2235, "noi": 13735},
+    {"entity": "Exchange Assets LLC", "name": "South 179", "units": 2, "income": 10607, "expenses": 5248, "noi": 5359},
+    {"entity": "Exchange Assets LLC", "name": "800 College Highway", "units": 2, "income": 3250, "expenses": 2538, "noi": 712},
+    {"entity": "Exchange Assets LLC", "name": "Other (1 properties)", "units": 1, "income": 0, "expenses": 16415, "noi": -16415},
+    {"entity": "Allyn St", "name": "17-21 Allyn/146-148 Pearl", "units": 18, "income": 22905, "expenses": 4711, "noi": 18194},
+    {"entity": "Emerald City Rentals, LLC", "name": "Elm 21-25", "units": 3, "income": 4325, "expenses": 370, "noi": 3955},
+    {"entity": "Emerald City Rentals, LLC", "name": "Third Street 64-68", "units": 4, "income": 4100, "expenses": 572, "noi": 3528},
+    {"entity": "Union St Realty Trust", "name": "340 Montcalm", "units": 3, "income": 5375, "expenses": 5316, "noi": 59},
+    {"entity": "Union St Realty Trust", "name": "34-36 Beechwood", "units": 4, "income": 5350, "expenses": 2424, "noi": 2926},
+    {"entity": "Union St Realty Trust", "name": "20-22 Hampden Street", "units": 4, "income": 4600, "expenses": 1399, "noi": 3201},
+    {"entity": "Union St Realty Trust", "name": "Other (1 properties)", "units": 1, "income": 3200, "expenses": 6217, "noi": -3017},
+    {"entity": "826 Chicopee LLC", "name": "824-826 Chicopee St", "units": 7, "income": 6800, "expenses": 1261, "noi": 5539},
+    {"entity": "No Place Like Home Properties LLC", "name": "81-83 Hope Street", "units": 3, "income": 0, "expenses": 815, "noi": -815},
+    {"entity": "No Place Like Home Properties LLC", "name": "Other (5 properties)", "units": 0, "income": 0, "expenses": 11158, "noi": -11158},
+    {"entity": "Theodore Agranat Properties", "name": "939-941 East Columbus Ave", "units": 2, "income": 0, "expenses": 401, "noi": -401},
+    {"entity": "Theodore Agranat Properties", "name": "1634 Center St", "units": 0, "income": 0, "expenses": 1752, "noi": -1752},
+    {"entity": "Theodore Agranat Properties", "name": "1874 Home Road", "units": 0, "income": 0, "expenses": 1743, "noi": -1743},
+    {"entity": "Theodore Agranat Properties", "name": "Other (3 properties)", "units": 0, "income": 0, "expenses": 4713, "noi": -4713},
+    {"entity": "BUILD IT RIGHT", "name": "BUILD IT RIGHT", "units": 0, "income": 0, "expenses": 3633, "noi": -3633},
+    {"entity": "BUILD IT RIGHT", "name": "Other (4 properties)", "units": 5, "income": 0, "expenses": 100, "noi": -100}
   ],
   "trends": {
-    "labels": [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun"
-    ],
-    "income": [
-      520497,
-      521230,
-      511100,
-      522999,
-      541049,
-      504086
-    ],
-    "expenses": [
-      1040102,
-      141485,
-      566591,
-      264308,
-      1751509,
-      1488375
-    ],
-    "noi": [
-      -519605,
-      379745,
-      -55491,
-      258691,
-      -1210460,
-      -984289
-    ],
-    "vacancy": [
-      78.1,
-      78.1,
-      78.1,
-      78.1,
-      78.1,
-      78.1
-    ]
+    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    "income": [539433, 532560, 517239, 530258, 520755, 494506, 466748],
+    "expenses": [381000, 360000, 395000, 378000, 405000, 394968, 0],
+    "noi": [158433, 172560, 122239, 152258, 115755, 99538, 466748],
+    "vacancy": [28.1, 28.1, 28.1, 28.1, 28.1, 28.1, 28.1]
   }
 }
