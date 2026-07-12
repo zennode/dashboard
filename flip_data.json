@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-07-12T08:05:00-04:00",
+  "lastUpdated": "2026-07-12T18:05:00-04:00",
   "active": [
+    {
+      "address": "83 Rolf Ave",
+      "city": "Chicopee, MA",
+      "status": "Under Contract",
+      "purchasePrice": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "arv": null,
+      "expectedProfit": null,
+      "daysOwned": 0,
+      "estCompletion": null,
+      "notes": "NEW 7/12 — First appearance in email. Alice Kempf shared 7 documents via dotloop (loop: 83 Rolf Ave, Chicopee, MA 01020-1227) at 3:56 PM for Matt's review — likely offer/P&S package. ACTION: Matt to review and sign in dotloop. Status assumed Under Contract pending doc review."
+    },
     {
       "address": "1874 Home Rd",
       "city": "Sheffield, MA",
@@ -12,7 +25,7 @@
       "expectedProfit": null,
       "daysOwned": 500,
       "estCompletion": "2026-07-17",
-      "notes": "Wicked Deals LLC. RM ID 955. Closing targeted Fri 7/17 (buyer's side may still send extension). Buyer's counsel identified 7/10 PM: Courtney S. Lane, Downing Lane PC, Great Barrington (courtney@downinglane.com). Burstein offered to negotiate flooring credit with buyer's attorney Monday; paid receipts required for boiler work. Boiler: new parts to be installed before closing; burner clean/service being scheduled (Jessica). Alice's commission bill due Mon. Matt to provide boiler statement/invoice. No new email activity through Sun 7/12 AM; closing still tracking Fri 7/17 — 5 days out."
+      "notes": "Wicked Deals LLC. RM ID 955. Closing targeted Fri 7/17 (buyer's side may still send extension). Buyer's counsel identified 7/10 PM: Courtney S. Lane, Downing Lane PC, Great Barrington (courtney@downinglane.com). Burstein offered to negotiate flooring credit with buyer's attorney Monday; paid receipts required for boiler work. Boiler: new parts to be installed before closing; burner clean/service being scheduled (Jessica). Alice's commission bill due Mon. Matt to provide boiler statement/invoice. No new email activity through Sun 7/12 PM; closing still tracking Fri 7/17 — 5 days out."
     },
     {
       "address": "167 E Park Terrace",
@@ -25,7 +38,7 @@
       "expectedProfit": null,
       "daysOwned": 66,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit. No new activity through Sun 7/12 AM."
+      "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit. No new activity through Sun 7/12 PM."
     },
     {
       "address": "1 Richmond Ln",
@@ -38,7 +51,7 @@
       "expectedProfit": null,
       "daysOwned": 209,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 992. Listed $249,900 after $10k price drop confirmed 7/8 — feedback says overpriced, market slowing. No new activity through Sun 7/12 AM."
+      "notes": "House Hack Helpers. RM ID 992. Listed $249,900 after $10k price drop confirmed 7/8 — feedback says overpriced, market slowing. No new activity through Sun 7/12 PM."
     },
     {
       "address": "42 Washington St",
@@ -51,7 +64,7 @@
       "expectedProfit": null,
       "daysOwned": null,
       "estCompletion": null,
-      "notes": "House Hack Helpers. Showings but no offers; railroad proximity objections. Dropping $1k/week (confirmed 7/8). Tight margins. No new activity through Sun 7/12 AM."
+      "notes": "House Hack Helpers. Showings but no offers; railroad proximity objections. Dropping $1k/week (confirmed 7/8). Tight margins. No new activity through Sun 7/12 PM."
     },
     {
       "address": "283 Fuller Rd, Unit K",
@@ -64,7 +77,7 @@
       "expectedProfit": null,
       "daysOwned": 2,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1018. CLOSED 7/10 — Burstein confirmed purchase completed and deed recorded; address confirmed as 283 Fuller Rd Unit K (resolves 238/383 confusion). Closing docs received; lender package sent to Vitaliy 7/10 (originals Mon). Excess construction loan funds check at Burstein's office. Condo fees paid thru 7/31; next RE tax bill due Nov. $195k loan at 12%, 2 pts. Occupied; working to vacate."
+      "notes": "House Hack Helpers. RM ID 1018. CLOSED 7/10 — Burstein confirmed purchase completed and deed recorded; address confirmed as 283 Fuller Rd Unit K (resolves 238/383 confusion). Closing docs received; lender package sent to Vitaliy 7/10 (originals Mon). Excess construction loan funds check at Burstein's office. Condo fees paid thru 7/31; next RE tax bill due Nov. $195k loan at 12%, 2 pts. Occupied; working to vacate. UPDATE 7/12: Will McGuire setting up utilities Mon 7/13 — needs to confirm oil vs gas; Will traveling until ~7/20."
     },
     {
       "address": "412 St James Ave",
