@@ -1,0 +1,847 @@
+{
+  "lastUpdated": "2026-07-12T10:49:54.353Z",
+  "dataRange": "July 2021 - July 2026",
+  "summary": {
+    "totalWOs5yr": 7953,
+    "totalOpen": 74,
+    "totalClosed": 7879,
+    "closedThisMonth": 45,
+    "closedThisYear": 815,
+    "avgCompletionDays": 17,
+    "pctWithin24h": 9.4,
+    "pctWithin48h": 17.5,
+    "pctWithin72h": 22.8,
+    "pctWithin1wk": 50.6,
+    "completionTimesCount": 7877
+  },
+  "monthlyTrend": {
+    "labels": [
+      "Jul 2021",
+      "Aug 2021",
+      "Sep 2021",
+      "Oct 2021",
+      "Nov 2021",
+      "Dec 2021",
+      "Jan 2022",
+      "Feb 2022",
+      "Mar 2022",
+      "Apr 2022",
+      "May 2022",
+      "Jun 2022",
+      "Jul 2022",
+      "Aug 2022",
+      "Sep 2022",
+      "Oct 2022",
+      "Nov 2022",
+      "Dec 2022",
+      "Jan 2023",
+      "Feb 2023",
+      "Mar 2023",
+      "Apr 2023",
+      "May 2023",
+      "Jun 2023",
+      "Jul 2023",
+      "Aug 2023",
+      "Sep 2023",
+      "Oct 2023",
+      "Nov 2023",
+      "Dec 2023",
+      "Jan 2024",
+      "Feb 2024",
+      "Mar 2024",
+      "Apr 2024",
+      "May 2024",
+      "Jun 2024",
+      "Jul 2024",
+      "Aug 2024",
+      "Sep 2024",
+      "Oct 2024",
+      "Nov 2024",
+      "Dec 2024",
+      "Jan 2025",
+      "Feb 2025",
+      "Mar 2025",
+      "Apr 2025",
+      "May 2025",
+      "Jun 2025",
+      "Jul 2025",
+      "Aug 2025",
+      "Sep 2025",
+      "Oct 2025",
+      "Nov 2025",
+      "Dec 2025",
+      "Jan 2026",
+      "Feb 2026",
+      "Mar 2026",
+      "Apr 2026",
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026"
+    ],
+    "volume": [
+      100,
+      90,
+      90,
+      88,
+      66,
+      65,
+      93,
+      94,
+      89,
+      115,
+      108,
+      133,
+      136,
+      178,
+      183,
+      179,
+      155,
+      168,
+      193,
+      176,
+      142,
+      152,
+      155,
+      170,
+      183,
+      172,
+      145,
+      156,
+      133,
+      139,
+      150,
+      117,
+      137,
+      120,
+      131,
+      101,
+      123,
+      124,
+      111,
+      138,
+      124,
+      136,
+      162,
+      144,
+      134,
+      116,
+      101,
+      116,
+      128,
+      103,
+      122,
+      151,
+      123,
+      155,
+      157,
+      128,
+      134,
+      125,
+      109,
+      141,
+      46
+    ],
+    "completed": [
+      64,
+      87,
+      104,
+      75,
+      78,
+      64,
+      60,
+      97,
+      90,
+      114,
+      102,
+      144,
+      113,
+      187,
+      185,
+      171,
+      138,
+      167,
+      215,
+      142,
+      154,
+      164,
+      146,
+      184,
+      156,
+      184,
+      110,
+      196,
+      116,
+      105,
+      192,
+      120,
+      156,
+      140,
+      131,
+      101,
+      115,
+      119,
+      98,
+      135,
+      118,
+      148,
+      168,
+      139,
+      149,
+      111,
+      106,
+      114,
+      137,
+      105,
+      115,
+      154,
+      122,
+      159,
+      133,
+      141,
+      134,
+      128,
+      106,
+      128,
+      45
+    ],
+    "avgCompletionDays": [
+      6.7,
+      12.8,
+      12.1,
+      10.4,
+      16.4,
+      15.8,
+      10.4,
+      13.5,
+      14.9,
+      16.6,
+      21.3,
+      17.7,
+      15.6,
+      15.5,
+      11,
+      16.7,
+      12.2,
+      17,
+      17.9,
+      11.2,
+      14.4,
+      19.8,
+      14.8,
+      16.6,
+      16.2,
+      20.1,
+      20.5,
+      29,
+      22.2,
+      23,
+      28.9,
+      17.7,
+      18.8,
+      26.7,
+      19.8,
+      12.7,
+      11.4,
+      20.7,
+      19.9,
+      15.8,
+      14.3,
+      14.8,
+      14.4,
+      29.4,
+      19.4,
+      22.2,
+      37.1,
+      14.6,
+      18,
+      16.1,
+      17.1,
+      14,
+      9.6,
+      11.2,
+      10.7,
+      12.6,
+      10.8,
+      16.4,
+      11,
+      12.4,
+      16.4
+    ]
+  },
+  "byEntity": [
+    {
+      "name": "Yellow Brick Property",
+      "total": 3723,
+      "open": 30,
+      "closed": 3693,
+      "avgCompletionDays": 17.2
+    },
+    {
+      "name": "Courageous Lion",
+      "total": 1818,
+      "open": 16,
+      "closed": 1802,
+      "avgCompletionDays": 19.1
+    },
+    {
+      "name": "Exchange Assets",
+      "total": 659,
+      "open": 6,
+      "closed": 653,
+      "avgCompletionDays": 12.7
+    },
+    {
+      "name": "Land of Oz",
+      "total": 528,
+      "open": 9,
+      "closed": 519,
+      "avgCompletionDays": 17.5
+    },
+    {
+      "name": "Allyn St",
+      "total": 480,
+      "open": 4,
+      "closed": 476,
+      "avgCompletionDays": 10.6
+    },
+    {
+      "name": "Emerald City Rentals",
+      "total": 278,
+      "open": 3,
+      "closed": 275,
+      "avgCompletionDays": 16.8
+    },
+    {
+      "name": "Shaker Shops",
+      "total": 248,
+      "open": 3,
+      "closed": 245,
+      "avgCompletionDays": 17.8
+    },
+    {
+      "name": "Flying Monkey",
+      "total": 113,
+      "open": 2,
+      "closed": 111,
+      "avgCompletionDays": 23.7
+    },
+    {
+      "name": "826 Chicopee",
+      "total": 106,
+      "open": 1,
+      "closed": 105,
+      "avgCompletionDays": 18
+    }
+  ],
+  "byCategory": [
+    {
+      "name": "Maintenance",
+      "total": 4077,
+      "open": 19,
+      "closed": 4058,
+      "avgCompletionDays": 16.5,
+      "pctOfTotal": 51.3
+    },
+    {
+      "name": "Common Areas",
+      "total": 2611,
+      "open": 12,
+      "closed": 2599,
+      "avgCompletionDays": 14.6,
+      "pctOfTotal": 32.8
+    },
+    {
+      "name": "Subsidy Repairs",
+      "total": 435,
+      "open": 1,
+      "closed": 434,
+      "avgCompletionDays": 21,
+      "pctOfTotal": 5.5
+    },
+    {
+      "name": "Recurring Issues",
+      "total": 218,
+      "open": 0,
+      "closed": 218,
+      "avgCompletionDays": 8.5,
+      "pctOfTotal": 2.7
+    },
+    {
+      "name": "HVAC Routine",
+      "total": 195,
+      "open": 28,
+      "closed": 167,
+      "avgCompletionDays": 72.2,
+      "pctOfTotal": 2.5
+    },
+    {
+      "name": "Emergency",
+      "total": 130,
+      "open": 0,
+      "closed": 130,
+      "avgCompletionDays": 6.4,
+      "pctOfTotal": 1.6
+    },
+    {
+      "name": "HVAC Emergency",
+      "total": 56,
+      "open": 1,
+      "closed": 55,
+      "avgCompletionDays": 5.9,
+      "pctOfTotal": 0.7
+    },
+    {
+      "name": "Electrical Maintenance",
+      "total": 55,
+      "open": 6,
+      "closed": 49,
+      "avgCompletionDays": 11.8,
+      "pctOfTotal": 0.7
+    },
+    {
+      "name": "Sale/Rehabs",
+      "total": 27,
+      "open": 3,
+      "closed": 24,
+      "avgCompletionDays": 26.8,
+      "pctOfTotal": 0.3
+    },
+    {
+      "name": "To do",
+      "total": 24,
+      "open": 3,
+      "closed": 21,
+      "avgCompletionDays": 23.4,
+      "pctOfTotal": 0.3
+    },
+    {
+      "name": "Exit",
+      "total": 17,
+      "open": 0,
+      "closed": 17,
+      "avgCompletionDays": 3.6,
+      "pctOfTotal": 0.2
+    },
+    {
+      "name": "Exterior Trash/Bulk Items",
+      "total": 12,
+      "open": 0,
+      "closed": 12,
+      "avgCompletionDays": 7.2,
+      "pctOfTotal": 0.2
+    },
+    {
+      "name": "Code Enforcement",
+      "total": 8,
+      "open": 0,
+      "closed": 8,
+      "avgCompletionDays": 2.3,
+      "pctOfTotal": 0.1
+    },
+    {
+      "name": "Court Repairs",
+      "total": 5,
+      "open": 0,
+      "closed": 5,
+      "avgCompletionDays": 23.6,
+      "pctOfTotal": 0.1
+    }
+  ],
+  "byPriority": [
+    {
+      "name": "Medium",
+      "total": 5380
+    },
+    {
+      "name": "High",
+      "total": 2191
+    },
+    {
+      "name": "Low",
+      "total": 268
+    },
+    {
+      "name": "Unknown",
+      "total": 114
+    }
+  ],
+  "byStatus": [
+    {
+      "name": "Resolved",
+      "total": 6678
+    },
+    {
+      "name": "New",
+      "total": 640
+    },
+    {
+      "name": "Work In Progress",
+      "total": 401
+    },
+    {
+      "name": "Unresolved",
+      "total": 176
+    },
+    {
+      "name": "Unknown",
+      "total": 58
+    }
+  ],
+  "yearlyData": [
+    {
+      "year": "2021",
+      "created": 499,
+      "closed": 472
+    },
+    {
+      "year": "2022",
+      "created": 1631,
+      "closed": 1585
+    },
+    {
+      "year": "2023",
+      "created": 1916,
+      "closed": 1901
+    },
+    {
+      "year": "2024",
+      "created": 1512,
+      "closed": 1576
+    },
+    {
+      "year": "2025",
+      "created": 1555,
+      "closed": 1528
+    },
+    {
+      "year": "2026",
+      "created": 840,
+      "closed": 817
+    }
+  ],
+  "agingAnalysis": {
+    "under7": 17,
+    "d7to30": 24,
+    "d30to60": 13,
+    "d60to90": 9,
+    "over90": 11
+  },
+  "openWorkOrders": [
+    {
+      "id": 37307,
+      "title": "Door jamb",
+      "entity": "826 Chicopee",
+      "property": "824-826 Chicopee St",
+      "category": "Maintenance",
+      "created": "2023-12-20",
+      "ageDays": 934,
+      "status": "Unknown",
+      "priority": "High"
+    },
+    {
+      "id": 40752,
+      "title": "Siding came off",
+      "entity": "Courageous Lion",
+      "property": "Field 49",
+      "category": "To do",
+      "created": "2025-04-30",
+      "ageDays": 437,
+      "status": "Unresolved",
+      "priority": "Medium"
+    },
+    {
+      "id": 41061,
+      "title": "ELECTRICAL UPDATE 55 White Street",
+      "entity": "Exchange Assets",
+      "property": "55 White Ave",
+      "category": "Sale/Rehabs",
+      "created": "2025-06-26",
+      "ageDays": 380,
+      "status": "Work In Progress",
+      "priority": "Medium"
+    },
+    {
+      "id": 41711,
+      "title": "Minisplits/heat pumps 55 White",
+      "entity": "Exchange Assets",
+      "property": "55 White Ave",
+      "category": "Sale/Rehabs",
+      "created": "2025-10-16",
+      "ageDays": 268,
+      "status": "Work In Progress",
+      "priority": "Medium"
+    },
+    {
+      "id": 42001,
+      "title": "Electrical issue 30 Hunt",
+      "entity": "Yellow Brick Property",
+      "property": "Hunt St 30",
+      "category": "To do",
+      "created": "2025-12-03",
+      "ageDays": 220,
+      "status": "Unresolved",
+      "priority": "Medium"
+    },
+    {
+      "id": 42251,
+      "title": "HVAC routine maintenance",
+      "entity": "Yellow Brick Property",
+      "property": "Various",
+      "category": "HVAC Routine",
+      "created": "2026-01-15",
+      "ageDays": 177,
+      "status": "Work In Progress",
+      "priority": "Medium"
+    },
+    {
+      "id": 42455,
+      "title": "Common area lighting",
+      "entity": "Courageous Lion",
+      "property": "Field 49",
+      "category": "Common Areas",
+      "created": "2026-02-10",
+      "ageDays": 152,
+      "status": "Work In Progress",
+      "priority": "Low"
+    },
+    {
+      "id": 42620,
+      "title": "Plumbing leak repair",
+      "entity": "Land of Oz",
+      "property": "43 Belmont",
+      "category": "Maintenance",
+      "created": "2026-03-01",
+      "ageDays": 133,
+      "status": "Work In Progress",
+      "priority": "High"
+    },
+    {
+      "id": 42781,
+      "title": "Fire escape inspection",
+      "entity": "Yellow Brick Property",
+      "property": "Loring St 30-32",
+      "category": "Maintenance",
+      "created": "2026-03-15",
+      "ageDays": 119,
+      "status": "New",
+      "priority": "High"
+    },
+    {
+      "id": 42890,
+      "title": "Roof patch needed",
+      "entity": "Emerald City Rentals",
+      "property": "Centre St 270-272",
+      "category": "Maintenance",
+      "created": "2026-03-28",
+      "ageDays": 106,
+      "status": "New",
+      "priority": "High"
+    }
+  ],
+  "seasonalPattern": [
+    {
+      "month": "Jan",
+      "avgVolume": 151
+    },
+    {
+      "month": "Feb",
+      "avgVolume": 132
+    },
+    {
+      "month": "Mar",
+      "avgVolume": 127
+    },
+    {
+      "month": "Apr",
+      "avgVolume": 126
+    },
+    {
+      "month": "May",
+      "avgVolume": 121
+    },
+    {
+      "month": "Jun",
+      "avgVolume": 132
+    },
+    {
+      "month": "Jul",
+      "avgVolume": 143
+    },
+    {
+      "month": "Aug",
+      "avgVolume": 133
+    },
+    {
+      "month": "Sep",
+      "avgVolume": 130
+    },
+    {
+      "month": "Oct",
+      "avgVolume": 142
+    },
+    {
+      "month": "Nov",
+      "avgVolume": 120
+    },
+    {
+      "month": "Dec",
+      "avgVolume": 133
+    }
+  ],
+  "turnoverStats": {
+    "total": 633,
+    "avgCompletionDays": 12.1,
+    "pctOfAll": 8,
+    "byEntity": {
+      "Yellow Brick Property": 298,
+      "Courageous Lion": 142,
+      "Exchange Assets": 55,
+      "Land of Oz": 48,
+      "Allyn St": 35,
+      "Emerald City Rentals": 22,
+      "Shaker Shops": 18,
+      "Flying Monkey": 9,
+      "826 Chicopee": 6
+    }
+  },
+  "vendorCosts": [
+    {
+      "name": "Home Depot",
+      "total": 1107529,
+      "count": 1451
+    },
+    {
+      "name": "YellowBrick Management",
+      "total": 996380,
+      "count": 2576
+    },
+    {
+      "name": "Chase Ink",
+      "total": 610491,
+      "count": 21
+    },
+    {
+      "name": "Amex",
+      "total": 370458,
+      "count": 22
+    },
+    {
+      "name": "Unlimited HS LLC",
+      "total": 289875,
+      "count": 28
+    },
+    {
+      "name": "Eversource",
+      "total": 243720,
+      "count": 729
+    },
+    {
+      "name": "Mahari Miller",
+      "total": 240520,
+      "count": 69
+    },
+    {
+      "name": "MK Creative Home Innovations",
+      "total": 231605,
+      "count": 5
+    },
+    {
+      "name": "USA Waste & Recycling",
+      "total": 219843,
+      "count": 392
+    },
+    {
+      "name": "Springfield Water & Sewer",
+      "total": 209831,
+      "count": 938
+    },
+    {
+      "name": "Witman Properties",
+      "total": 191798,
+      "count": 80
+    },
+    {
+      "name": "Premiere Home Solutions LLC",
+      "total": 168178,
+      "count": 10
+    },
+    {
+      "name": "Misc. CC Vendors",
+      "total": 165336,
+      "count": 1003
+    },
+    {
+      "name": "City of Springfield",
+      "total": 108006,
+      "count": 183
+    },
+    {
+      "name": "City of Chicopee",
+      "total": 104037,
+      "count": 89
+    },
+    {
+      "name": "Baystate Winair",
+      "total": 91885,
+      "count": 101
+    },
+    {
+      "name": "Alera Group",
+      "total": 88200,
+      "count": 10
+    },
+    {
+      "name": "National Grid",
+      "total": 85792,
+      "count": 331
+    },
+    {
+      "name": "Innovative CPA Group",
+      "total": 82884,
+      "count": 33
+    },
+    {
+      "name": "Rivas Contractor Services",
+      "total": 82055,
+      "count": 8
+    },
+    {
+      "name": "SAJE Homes Services LLC",
+      "total": 81800,
+      "count": 6
+    },
+    {
+      "name": "Vermont Mutual Insurance",
+      "total": 79989,
+      "count": 44
+    },
+    {
+      "name": "Preferred Property Management",
+      "total": 79705,
+      "count": 11
+    },
+    {
+      "name": "Lyon & Fitzpatrick LLP",
+      "total": 74244,
+      "count": 45
+    },
+    {
+      "name": "Key Bank",
+      "total": 69559,
+      "count": 7
+    }
+  ],
+  "repeatIssueCount": 6403,
+  "recommendations": [
+    "Maintenance category dominates at 51.3% of all work orders (4,077 of 7,953). Consider implementing preventive maintenance programs for the most common issues to reduce reactive maintenance volume.",
+    "Average completion time is 17 days. With only 9.4% of work orders completed within 24 hours and 50.6% within a week, there is significant room to improve response times for high-priority items.",
+    "Yellow Brick Property generates 46.8% of all work orders (3,723). A focused property condition assessment and capital improvement plan for YBP properties could significantly reduce maintenance volume.",
+    "Common Areas account for 32.8% of work orders (2,611). Establishing a dedicated common area maintenance schedule could reduce reactive common area issues.",
+    "There are 74 open work orders currently, with 11 aging over 90 days. Implement a weekly review process to prevent work orders from aging beyond 30 days.",
+    "Turnover work orders average 12.1 days to complete (633 total, 8% of all WOs). Standardizing a turnover checklist and pre-scheduling vendors could reduce this to under 7 days.",
+    "Repeat issues within 90 days are high (6,403 instances). Root-cause analysis on recurring problems would reduce callbacks and total maintenance spend.",
+    "Home Depot is the #1 vendor at $1.1M in 2025-2026. Negotiating a commercial account discount or bulk pricing agreement could yield 5-10% savings.",
+    "Seasonal analysis shows January has the highest volume (avg 151/mo) while May is lowest (avg 121/mo). Pre-position resources and supplies before the winter peak.",
+    "HVAC Routine maintenance (195 WOs, 2.5%) has the longest avg completion at 72.2 days. Expanding preventive HVAC service could reduce emergency HVAC calls."
+  ]
+}
