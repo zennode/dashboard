@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YellowBrick Management — Dashboards</title>
+<title>YellowBrick Management â Dashboards</title>
 <meta name="description" content="Unified operations dashboard for YellowBrick Management: rental leads, portfolio P&amp;L, house flips, and law &amp; tax updates.">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script>
@@ -72,9 +72,9 @@ window.PORTFOLIO_DATA = {
   lastUpdated: "2026-07-01T09:00:00-04:00",
   period: "June 2026",
   summary: {
-    totalIncome: 412480, totalExpenses: 247390, noi: 165090,
+    totalIncome: 364480, totalExpenses: 219440, noi: 145040,
     vacancyRate: 5.6, collectionRate: 96.2,
-    capRate: 7.4, dscr: 1.38, expenseRatio: 60.0,
+    capRate: 7.4, dscr: 1.38, expenseRatio: 60.2,
     momIncomePct: 1.8, momExpensesPct: -2.4, momNoiPct: 8.6,
     yoyIncomePct: 6.3, yoyExpensesPct: 4.1, yoyNoiPct: 9.8,
     momVacancyPts: -0.7, yoyVacancyPts: -1.2
@@ -82,8 +82,7 @@ window.PORTFOLIO_DATA = {
   companies: [
     { name: "Yellowbrick Property LLC", units: 148, income: 178220, expenses: 106540, noi: 71680 },
     { name: "Courageous Lion LLC",      units:  86, income: 104910, expenses:  63870, noi: 41040 },
-    { name: "Land of Oz LLC",           units:  64, income:  81350, expenses:  49030, noi: 32320 },
-    { name: "Gillikin LLC",             units:  40, income:  48000, expenses:  27950, noi: 20050 }
+    { name: "Land of Oz LLC",           units:  64, income:  81350, expenses:  49030, noi: 32320 }
   ],
   properties: [
     { entity: "Yellowbrick Property LLC", name: "45 Maple St, Springfield",       units: 12, income: 15840, expenses:  9210, noi:  6630 },
@@ -97,10 +96,7 @@ window.PORTFOLIO_DATA = {
     { entity: "Courageous Lion LLC",      name: "Other (9 properties)",           units: 48, income: 60070, expenses: 35450, noi: 24620 },
     { entity: "Land of Oz LLC",           name: "230 Grattan St, Chicopee",       units: 10, income: 12900, expenses:  7610, noi:  5290 },
     { entity: "Land of Oz LLC",           name: "301 Front St, Chicopee",         units:  8, income: 10160, expenses:  6240, noi:  3920 },
-    { entity: "Land of Oz LLC",           name: "Other (8 properties)",           units: 46, income: 58290, expenses: 35180, noi: 23110 },
-    { entity: "Gillikin LLC",             name: "55 Union St, Westfield",         units:  9, income: 11250, expenses:  6480, noi:  4770 },
-    { entity: "Gillikin LLC",             name: "72 Meadow St, Westfield",        units:  7, income:  8470, expenses:  4920, noi:  3550 },
-    { entity: "Gillikin LLC",             name: "Other (6 properties)",           units: 24, income: 28280, expenses: 16550, noi: 11730 }
+    { entity: "Land of Oz LLC",           name: "Other (8 properties)",           units: 46, income: 58290, expenses: 35180, noi: 23110 }
   ],
   trends: {
     labels: ["Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26"],
@@ -221,11 +217,11 @@ window.LAW_TAX_DATA = {
     {
       title: "MA short-term capital gains taxed at 8.5%",
       date: "2026-06-25", jurisdiction: "MA State", category: "Tax", impact: "High",
-      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA — timing matters for projects near the 1-year mark.",
+      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA â timing matters for projects near the 1-year mark.",
       action: "Review hold periods on 63 Dartmouth Ter and 114 Montgomery St with CPA; dealer-status treatment may apply to flip entity regardless."
     },
     {
-      title: "Security deposit compliance: strict G.L. c.186 §15B enforcement",
+      title: "Security deposit compliance: strict G.L. c.186 Â§15B enforcement",
       date: "2026-06-20", jurisdiction: "MA State", category: "Legal", impact: "Medium",
       summary: "Recent MA appellate decisions continue to award treble damages for deposit handling violations (separate interest-bearing account, statement of condition within 10 days, annual interest payments). Even technical violations can void the deposit claim.",
       action: "Spot-audit deposit accounts and statements of condition across all four entities; verify annual interest was paid or credited at each lease anniversary."
@@ -240,7 +236,7 @@ window.LAW_TAX_DATA = {
       title: "Corporate Transparency Act: domestic LLCs exempt from BOI filing",
       date: "2026-06-07", jurisdiction: "Federal", category: "Regulatory", impact: "Medium",
       summary: "FinCEN's rule exempting U.S.-formed companies from beneficial ownership (BOI) reporting remains in effect; only certain foreign-formed entities must file. All YellowBrick and Ruby Lending entities are domestic LLCs.",
-      action: "None currently. Monitor — litigation could revive domestic filing requirements; re-check before forming new entities."
+      action: "None currently. Monitor â litigation could revive domestic filing requirements; re-check before forming new entities."
     },
     {
       title: "Springfield rental registration and inspection cycle",
@@ -407,7 +403,7 @@ tbody tr:hover{background:rgba(255,255,255,.02)}
 /* expandable entity rows */
 tr.entity-row{cursor:pointer;user-select:none}
 tr.entity-row td:first-child::before{
-  content:"▸";display:inline-block;margin-right:8px;color:var(--gold);
+  content:"â¸";display:inline-block;margin-right:8px;color:var(--gold);
   transition:transform .15s;font-size:11px;
 }
 tr.entity-row.open td:first-child::before{transform:rotate(90deg)}
@@ -517,7 +513,7 @@ tr.prop-row.show{display:table-row}
       </div>
     </div>
 
-    <div class="section-title">Urgent Queue — Uncontacted Leads</div>
+    <div class="section-title">Urgent Queue â Uncontacted Leads</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Lead</th><th>Property</th><th>Source</th><th class="num">Waiting</th><th>Status</th></tr></thead>
@@ -545,7 +541,7 @@ tr.prop-row.show{display:table-row}
   <!-- ============ TAB 2: PORTFOLIO ============ -->
   <section id="panel-portfolio" class="tab-panel" role="tabpanel">
     <div class="panel-head">
-      <h2>Property Portfolio — <span id="portfolio-period" style="color:var(--gold)"></span></h2>
+      <h2>Property Portfolio â <span id="portfolio-period" style="color:var(--gold)"></span></h2>
       <div class="updated">Updated monthly &middot; Last updated: <strong id="portfolio-updated"></strong></div>
     </div>
 
@@ -554,7 +550,7 @@ tr.prop-row.show{display:table-row}
     <div class="section-title">Key Metrics</div>
     <div class="kpi-grid" id="portfolio-metrics"></div>
 
-    <div class="section-title">Trends — Trailing 12 Months</div>
+    <div class="section-title">Trends â Trailing 12 Months</div>
     <div class="grid-2">
       <div class="card">
         <h3>Income vs Expenses</h3>
@@ -576,7 +572,7 @@ tr.prop-row.show{display:table-row}
       </div>
     </div>
 
-    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;— tap a row to expand properties</span></div>
+    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;â tap a row to expand properties</span></div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Entity / Property</th><th class="num">Units</th><th class="num">Income</th><th class="num">Expenses</th><th class="num">NOI</th><th class="num">Margin</th></tr></thead>
@@ -602,7 +598,7 @@ tr.prop-row.show{display:table-row}
       <div class="chart-box"><canvas id="chart-flip-budget"></canvas></div>
     </div>
 
-    <div class="section-title">Sold Flips — History</div>
+    <div class="section-title">Sold Flips â History</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Property</th><th class="num">Sold</th><th class="num">Total Invested</th><th class="num">Sale Price</th><th class="num">Profit</th><th class="num">ROI</th><th class="num">Days Held</th></tr></thead>
@@ -666,7 +662,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 const delta = (pct, goodWhenUp) => {
   const up = pct > 0, flat = Math.abs(pct) < 0.05;
   const cls = flat ? "flat" : ((up === goodWhenUp) ? "up" : "down");
-  const arrow = flat ? "→" : (up ? "▲" : "▼");
+  const arrow = flat ? "â" : (up ? "â²" : "â¼");
   return `<span class="delta ${cls}">${arrow} ${Math.abs(pct).toFixed(1)}%</span>`;
 };
 
@@ -690,7 +686,7 @@ if (window.Chart) {
 const chartsBuilt = { leads:false, portfolio:false, flips:false, "law-tax":true };
 
 /* ============================================================
-   TAB 1 — RENTAL LEADS
+   TAB 1 â RENTAL LEADS
    ============================================================ */
 function renderLeads(){
   const D = window.LEADS_DATA, K = D.kpis;
@@ -737,7 +733,7 @@ function renderLeads(){
         <td class="num" style="font-weight:700;color:${over?css('--red'):css('--green')}">${fmtHrs(l.waitingHrs)}</td>
         <td>${over ? '<span class="badge red">OVERDUE</span>' : '<span class="badge green">Within goal</span>'}</td>
       </tr>`;
-    }).join("") || `<tr><td colspan="5" class="empty-note">No uncontacted leads — queue is clear.</td></tr>`;
+    }).join("") || `<tr><td colspan="5" class="empty-note">No uncontacted leads â queue is clear.</td></tr>`;
 
   // per-property table
   $("#prop-leads-body").innerHTML = D.properties.map(p => {
@@ -754,7 +750,7 @@ function renderLeads(){
 
   // team scorecard, ranked by avg response (lower = better)
   const ranked = D.team.slice().sort((a,b)=>a.avgResponseHrs-b.avgResponseHrs);
-  const medals = ["🥇","🥈","🥉"];
+  const medals = ["ð¥","ð¥","ð¥"];
   $("#team-body").innerHTML = ranked.map((t,i) => {
     const respColor = t.avgResponseHrs <= 4 ? C.green : (t.avgResponseHrs <= 18 ? C.amber : C.red);
     return `<tr>
@@ -825,13 +821,13 @@ function buildLeadsCharts(){
       plugins: { legend: { position: "bottom" },
         tooltip: { callbacks: { label: ctx => {
           const s = D.sources[ctx.dataIndex];
-          return ` ${s.leads} leads · ${s.leased} leased`;
+          return ` ${s.leads} leads Â· ${s.leased} leased`;
         }}}}}
   });
 }
 
 /* ============================================================
-   TAB 2 — PORTFOLIO
+   TAB 2 â PORTFOLIO
    ============================================================ */
 function renderPortfolio(){
   const D = window.PORTFOLIO_DATA, S = D.summary;
@@ -858,7 +854,7 @@ function renderPortfolio(){
     <div class="kpi">
       <div class="label">Vacancy Rate</div>
       <div class="value ${S.vacancyRate <= 6 ? "good" : "warn"}">${fmtPct(S.vacancyRate)}</div>
-      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">▼ ' : '<span class="delta down">▲ '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
+      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">â¼ ' : '<span class="delta down">â² '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
     </div>
     <div class="kpi">
       <div class="label">Collection Rate</div>
@@ -970,7 +966,7 @@ function buildPortfolioCharts(){
 }
 
 /* ============================================================
-   TAB 3 — HOUSE FLIP
+   TAB 3 â HOUSE FLIP
    ============================================================ */
 const STATUS_BADGE = {
   "Acquired": "gray", "In Progress": "amber", "Listed": "blue",
@@ -1140,7 +1136,7 @@ function buildFlipCharts(){
 }
 
 /* ============================================================
-   TAB 4 — LAW & TAX
+   TAB 4 â LAW & TAX
    ============================================================ */
 let lawFilter = "all";
 function renderLawTax(){
@@ -1219,7 +1215,7 @@ renderLawTax();
 activateTab(location.hash.replace("#","") || "leads", false);
 
 /* Public hook: after a scheduled task mutates window.*_DATA it can call
-   window.refreshDashboards() — or simply regenerate this file's data block. */
+   window.refreshDashboards() â or simply regenerate this file's data block. */
 window.refreshDashboards = function(){
   try{renderLeads();}catch(e){console.warn(e)} try{renderPortfolio();}catch(e){console.warn(e)} try{renderFlips();}catch(e){console.warn(e)} try{renderLawTax();}catch(e){console.warn(e)}
 };
