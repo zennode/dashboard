@@ -3,7 +3,7 @@ h<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YellowBrick Management â Dashboards</title>
+<title>YellowBrick Management Ã¢ÂÂ Dashboards</title>
 <meta name="description" content="Unified operations dashboard for YellowBrick Management: rental leads, portfolio P&amp;L, house flips, and law &amp; tax updates.">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script>
@@ -217,11 +217,11 @@ window.LAW_TAX_DATA = {
     {
       title: "MA short-term capital gains taxed at 8.5%",
       date: "2026-06-25", jurisdiction: "MA State", category: "Tax", impact: "High",
-      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA â timing matters for projects near the 1-year mark.",
+      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA Ã¢ÂÂ timing matters for projects near the 1-year mark.",
       action: "Review hold periods on 63 Dartmouth Ter and 114 Montgomery St with CPA; dealer-status treatment may apply to flip entity regardless."
     },
     {
-      title: "Security deposit compliance: strict G.L. c.186 Â§15B enforcement",
+      title: "Security deposit compliance: strict G.L. c.186 ÃÂ§15B enforcement",
       date: "2026-06-20", jurisdiction: "MA State", category: "Legal", impact: "Medium",
       summary: "Recent MA appellate decisions continue to award treble damages for deposit handling violations (separate interest-bearing account, statement of condition within 10 days, annual interest payments). Even technical violations can void the deposit claim.",
       action: "Spot-audit deposit accounts and statements of condition across all four entities; verify annual interest was paid or credited at each lease anniversary."
@@ -236,7 +236,7 @@ window.LAW_TAX_DATA = {
       title: "Corporate Transparency Act: domestic LLCs exempt from BOI filing",
       date: "2026-06-07", jurisdiction: "Federal", category: "Regulatory", impact: "Medium",
       summary: "FinCEN's rule exempting U.S.-formed companies from beneficial ownership (BOI) reporting remains in effect; only certain foreign-formed entities must file. All YellowBrick and Ruby Lending entities are domestic LLCs.",
-      action: "None currently. Monitor â litigation could revive domestic filing requirements; re-check before forming new entities."
+      action: "None currently. Monitor Ã¢ÂÂ litigation could revive domestic filing requirements; re-check before forming new entities."
     },
     {
       title: "Springfield rental registration and inspection cycle",
@@ -403,7 +403,7 @@ tbody tr:hover{background:rgba(255,255,255,.02)}
 /* expandable entity rows */
 tr.entity-row{cursor:pointer;user-select:none}
 tr.entity-row td:first-child::before{
-  content:"â¸";display:inline-block;margin-right:8px;color:var(--gold);
+  content:"Ã¢ÂÂ¸";display:inline-block;margin-right:8px;color:var(--gold);
   transition:transform .15s;font-size:11px;
 }
 tr.entity-row.open td:first-child::before{transform:rotate(90deg)}
@@ -513,7 +513,7 @@ tr.prop-row.show{display:table-row}
       </div>
     </div>
 
-    <div class="section-title">Urgent Queue â Uncontacted Leads</div>
+    <div class="section-title">Urgent Queue Ã¢ÂÂ Uncontacted Leads</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Lead</th><th>Property</th><th>Source</th><th class="num">Waiting</th><th>Status</th></tr></thead>
@@ -541,7 +541,7 @@ tr.prop-row.show{display:table-row}
   <!-- ============ TAB 2: PORTFOLIO ============ -->
   <section id="panel-portfolio" class="tab-panel" role="tabpanel">
     <div class="panel-head">
-      <h2>Property Portfolio â <span id="portfolio-period" style="color:var(--gold)"></span></h2>
+      <h2>Property Portfolio Ã¢ÂÂ <span id="portfolio-period" style="color:var(--gold)"></span></h2>
       <div class="updated">Updated monthly &middot; Last updated: <strong id="portfolio-updated"></strong></div>
     </div>
 
@@ -550,7 +550,7 @@ tr.prop-row.show{display:table-row}
     <div class="section-title">Key Metrics</div>
     <div class="kpi-grid" id="portfolio-metrics"></div>
 
-    <div class="section-title">Trends â Trailing 12 Months</div>
+    <div class="section-title">Trends Ã¢ÂÂ Trailing 12 Months</div>
     <div class="grid-2">
       <div class="card">
         <h3>Income vs Expenses</h3>
@@ -572,7 +572,7 @@ tr.prop-row.show{display:table-row}
       </div>
     </div>
 
-    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;â tap a row to expand properties</span></div>
+    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;Ã¢ÂÂ tap a row to expand properties</span></div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Entity / Property</th><th class="num">Units</th><th class="num">Income</th><th class="num">Expenses</th><th class="num">NOI</th><th class="num">Margin</th></tr></thead>
@@ -598,7 +598,7 @@ tr.prop-row.show{display:table-row}
       <div class="chart-box"><canvas id="chart-flip-budget"></canvas></div>
     </div>
 
-    <div class="section-title">Sold Flips â History</div>
+    <div class="section-title">Sold Flips Ã¢ÂÂ History</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Property</th><th class="num">Sold</th><th class="num">Total Invested</th><th class="num">Sale Price</th><th class="num">Profit</th><th class="num">ROI</th><th class="num">Days Held</th></tr></thead>
@@ -687,7 +687,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 const delta = (pct, goodWhenUp) => {
   const up = pct > 0, flat = Math.abs(pct) < 0.05;
   const cls = flat ? "flat" : ((up === goodWhenUp) ? "up" : "down");
-  const arrow = flat ? "â" : (up ? "â²" : "â¼");
+  const arrow = flat ? "Ã¢ÂÂ" : (up ? "Ã¢ÂÂ²" : "Ã¢ÂÂ¼");
   return `<span class="delta ${cls}">${arrow} ${Math.abs(pct).toFixed(1)}%</span>`;
 };
 
@@ -711,7 +711,7 @@ if (window.Chart) {
 const chartsBuilt = { leads:false, portfolio:false, flips:false, "law-tax":true };
 
 /* ============================================================
-   TAB 1 â RENTAL LEADS
+   TAB 1 Ã¢ÂÂ RENTAL LEADS
    ============================================================ */
 function renderLeads(){
   const D = window.LEADS_DATA, K = D.kpis;
@@ -758,7 +758,7 @@ function renderLeads(){
         <td class="num" style="font-weight:700;color:${over?css('--red'):css('--green')}">${fmtHrs(l.waitingHrs)}</td>
         <td>${over ? '<span class="badge red">OVERDUE</span>' : '<span class="badge green">Within goal</span>'}</td>
       </tr>`;
-    }).join("") || `<tr><td colspan="5" class="empty-note">No uncontacted leads â queue is clear.</td></tr>`;
+    }).join("") || `<tr><td colspan="5" class="empty-note">No uncontacted leads Ã¢ÂÂ queue is clear.</td></tr>`;
 
   // per-property table
   $("#prop-leads-body").innerHTML = D.properties.map(p => {
@@ -775,7 +775,7 @@ function renderLeads(){
 
   // team scorecard, ranked by avg response (lower = better)
   const ranked = D.team.slice().sort((a,b)=>a.avgResponseHrs-b.avgResponseHrs);
-  const medals = ["ð¥","ð¥","ð¥"];
+  const medals = ["Ã°ÂÂ¥Â","Ã°ÂÂ¥Â","Ã°ÂÂ¥Â"];
   $("#team-body").innerHTML = ranked.map((t,i) => {
     const respColor = t.avgResponseHrs <= 4 ? C.green : (t.avgResponseHrs <= 18 ? C.amber : C.red);
     return `<tr>
@@ -846,13 +846,13 @@ function buildLeadsCharts(){
       plugins: { legend: { position: "bottom" },
         tooltip: { callbacks: { label: ctx => {
           const s = D.sources[ctx.dataIndex];
-          return ` ${s.leads} leads Â· ${s.leased} leased`;
+          return ` ${s.leads} leads ÃÂ· ${s.leased} leased`;
         }}}}}
   });
 }
 
 /* ============================================================
-   TAB 2 â PORTFOLIO
+   TAB 2 Ã¢ÂÂ PORTFOLIO
    ============================================================ */
 function renderPortfolio(){
   const D = window.PORTFOLIO_DATA, S = D.summary;
@@ -879,7 +879,7 @@ function renderPortfolio(){
     <div class="kpi">
       <div class="label">Vacancy Rate</div>
       <div class="value ${S.vacancyRate <= 6 ? "good" : "warn"}">${fmtPct(S.vacancyRate)}</div>
-      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">â¼ ' : '<span class="delta down">â² '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
+      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">Ã¢ÂÂ¼ ' : '<span class="delta down">Ã¢ÂÂ² '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
     </div>
     <div class="kpi">
       <div class="label">Collection Rate</div>
@@ -991,7 +991,7 @@ function buildPortfolioCharts(){
 }
 
 /* ============================================================
-   TAB 3 â HOUSE FLIP
+   TAB 3 Ã¢ÂÂ HOUSE FLIP
    ============================================================ */
 const STATUS_BADGE = {
   "Acquired": "gray", "In Progress": "amber", "Listed": "blue",
@@ -1161,7 +1161,7 @@ function buildFlipCharts(){
 }
 
 /* ============================================================
-   TAB 4 â LAW & TAX
+   TAB 4 Ã¢ÂÂ LAW & TAX
    ============================================================ */
 let lawFilter = "all";
 function renderLawTax(){
@@ -1240,7 +1240,7 @@ renderLawTax();
 activateTab(location.hash.replace("#","") || "leads", false);
 
 /* Public hook: after a scheduled task mutates window.*_DATA it can call
-   window.refreshDashboards() â or simply regenerate this file's data block. */
+   window.refreshDashboards() Ã¢ÂÂ or simply regenerate this file's data block. */
 window.refreshDashboards = function(){
   try{renderLeads();}catch(e){console.warn(e)} try{renderPortfolio();}catch(e){console.warn(e)} try{renderFlips();}catch(e){console.warn(e)} try{renderLawTax();}catch(e){console.warn(e)}
 };
@@ -1286,14 +1286,14 @@ document.getElementById("wo-recommendations").innerHTML=D.recommendations.map((r
 var gold="#D4A843",red="#e74c3c",green="#27ae60",blue="#3498db",muted2="#888";
 var cFont={family:"-apple-system,system-ui,sans-serif",size:11,color:muted2},gOpts={color:"rgba(255,255,255,0.06)"};
 var topCats=D.byCategory.filter(c=>c.total>10);
-new Chart(document.getElementById("chart-wo-catspend"),{type:"bar",data:{labels:topCats.map(c=>c.name),datasets:[{label:"Work Orders",data:topCats.map(c=>c.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#e74c3c","#2ecc71","#f39c12"],borderRadius:4}]},options:{indexAxis:"y",responsive:true,plugins:{legend:{display:false},title:{display:true,text:"Work Orders by Category",color:muted2,font:{size:13}}},scales:{x:{grid:gOpts,ticks:{color:muted2,font:cFont}},y:{grid:{display:false},ticks:{color:"#ccc",font:{size:11}}}}}});
+new Chart(document.getElementById("chart-wo-catspend"),{type:"bar",data:{labels:topCats.map(c=>c.name),datasets:[{label:"Work Orders",data:topCats.map(c=>c.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#e74c3c","#2ecc71","#f39c12"],borderRadius:4}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false},title:{display:true,text:"Work Orders by Category",color:muted2,font:{size:13}}},scales:{x:{grid:gOpts,ticks:{color:muted2,font:cFont}},y:{grid:{display:false},ticks:{color:"#ccc",font:{size:11}}}}}});
 var sL=D.monthlyTrend.labels.map((l,i)=>i%3===0?l:"");
-new Chart(document.getElementById("chart-wo-volume"),{type:"bar",data:{labels:sL,datasets:[{label:"Created",data:D.monthlyTrend.volume,backgroundColor:"rgba(212,168,67,0.6)",borderRadius:2},{label:"Completed",data:D.monthlyTrend.completed,backgroundColor:"rgba(39,174,96,0.5)",borderRadius:2}]},options:{responsive:true,plugins:{legend:{labels:{color:muted2,font:cFont}}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont,maxRotation:45}},y:{grid:gOpts,ticks:{color:muted2,font:cFont}}}}});
-new Chart(document.getElementById("chart-wo-completion"),{type:"line",data:{labels:sL,datasets:[{label:"Avg Days",data:D.monthlyTrend.avgCompletionDays,borderColor:gold,backgroundColor:"rgba(212,168,67,0.1)",fill:true,tension:0.3,pointRadius:1}]},options:{responsive:true,plugins:{legend:{labels:{color:muted2,font:cFont}}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont,maxRotation:45}},y:{grid:gOpts,ticks:{color:muted2,font:cFont}}}}});
+new Chart(document.getElementById("chart-wo-volume"),{type:"bar",data:{labels:sL,datasets:[{label:"Created",data:D.monthlyTrend.volume,backgroundColor:"rgba(212,168,67,0.6)",borderRadius:2},{label:"Completed",data:D.monthlyTrend.completed,backgroundColor:"rgba(39,174,96,0.5)",borderRadius:2}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{labels:{color:muted2,font:cFont}}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont,maxRotation:45,maxTicksLimit:12}},y:{grid:gOpts,ticks:{color:muted2,font:cFont}}}}});
+new Chart(document.getElementById("chart-wo-completion"),{type:"line",data:{labels:sL,datasets:[{label:"Avg Days",data:D.monthlyTrend.avgCompletionDays,borderColor:gold,backgroundColor:"rgba(212,168,67,0.1)",fill:true,tension:0.3,pointRadius:1}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{labels:{color:muted2,font:cFont}}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont,maxRotation:45,maxTicksLimit:12}},y:{grid:gOpts,ticks:{color:muted2,font:cFont}}}}});
 var topV=D.vendorCosts.slice(0,15);
-new Chart(document.getElementById("chart-wo-vendors"),{type:"bar",data:{labels:topV.map(v=>v.name.length>20?v.name.substring(0,18)+"...":v.name),datasets:[{label:"Total Spend ($)",data:topV.map(v=>v.total),backgroundColor:topV.map((_,i)=>i<5?gold:i<10?blue:green),borderRadius:4}]},options:{indexAxis:"y",responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return "$"+ctx.raw.toLocaleString()}}}},scales:{x:{grid:gOpts,ticks:{color:muted2,font:cFont,callback:function(v){return "$"+(v/1000).toFixed(0)+"K"}}},y:{grid:{display:false},ticks:{color:"#ccc",font:{size:10}}}}}});
-new Chart(document.getElementById("chart-wo-entity"),{type:"doughnut",data:{labels:D.byEntity.map(e=>e.name),datasets:[{data:D.byEntity.map(e=>e.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#f39c12","#2c3e50"]}]},options:{responsive:true,plugins:{legend:{position:"right",labels:{color:muted2,font:cFont,boxWidth:12,padding:6}}}}});
-new Chart(document.getElementById("chart-wo-seasonal"),{type:"bar",data:{labels:D.seasonalPattern.map(s=>s.month),datasets:[{label:"Avg WOs/Month",data:D.seasonalPattern.map(s=>s.avgVolume),backgroundColor:D.seasonalPattern.map(s=>s.avgVolume>140?red:s.avgVolume>130?gold:green),borderRadius:4}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont}},y:{grid:gOpts,ticks:{color:muted2,font:cFont},beginAtZero:false,min:100}}}});
+new Chart(document.getElementById("chart-wo-vendors"),{type:"bar",data:{labels:topV.map(v=>v.name.length>20?v.name.substring(0,18)+"...":v.name),datasets:[{label:"Total Spend ($)",data:topV.map(v=>v.total),backgroundColor:topV.map((_,i)=>i<5?gold:i<10?blue:green),borderRadius:4}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return "$"+ctx.raw.toLocaleString()}}}},scales:{x:{grid:gOpts,ticks:{color:muted2,font:cFont,callback:function(v){return "$"+(v/1000).toFixed(0)+"K"}}},y:{grid:{display:false},ticks:{color:"#ccc",font:{size:10}}}}}});
+new Chart(document.getElementById("chart-wo-entity"),{type:"doughnut",data:{labels:D.byEntity.map(e=>e.name),datasets:[{data:D.byEntity.map(e=>e.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#f39c12","#2c3e50"]}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{position:"right",labels:{color:muted2,font:cFont,boxWidth:12,padding:6}}}}});
+new Chart(document.getElementById("chart-wo-seasonal"),{type:"bar",data:{labels:D.seasonalPattern.map(s=>s.month),datasets:[{label:"Avg WOs/Month",data:D.seasonalPattern.map(s=>s.avgVolume),backgroundColor:D.seasonalPattern.map(s=>s.avgVolume>140?red:s.avgVolume>130?gold:green),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont}},y:{grid:gOpts,ticks:{color:muted2,font:cFont},beginAtZero:false,min:100}}}});
 }catch(e){console.error("WO load error:",e)}}
 loadWorkOrders();
 </script>
