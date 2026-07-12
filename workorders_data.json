@@ -843,5 +843,621 @@
     "Home Depot is the #1 vendor at $1.1M in 2025-2026. Negotiating a commercial account discount or bulk pricing agreement could yield 5-10% savings.",
     "Seasonal analysis shows January has the highest volume (avg 151/mo) while May is lowest (avg 121/mo). Pre-position resources and supplies before the winter peak.",
     "HVAC Routine maintenance (195 WOs, 2.5%) has the longest avg completion at 72.2 days. Expanding preventive HVAC service could reduce emergency HVAC calls."
-  ]
-}
+  ],
+  "recurringIssues": {
+    "lastUpdated": "2026-07-12T16:51:38.492Z",
+    "totalAnalyzed": 7723,
+    "categorizedPct": 97.4,
+    "top20": [
+      {
+        "rank": 1,
+        "name": "Trash & Common Area Cleanup",
+        "count": 2089,
+        "pctOfTotal": 27,
+        "avgResolutionDays": 10.4,
+        "topEntities": [
+          {
+            "name": "Courageous Lion",
+            "count": 697
+          },
+          {
+            "name": "Yellow Brick Property",
+            "count": 656
+          },
+          {
+            "name": "Exchange Assets",
+            "count": 452
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 87,
+          "2022": 519,
+          "2023": 514,
+          "2024": 409,
+          "2025": 366,
+          "2026": 194
+        },
+        "trend": "Decreasing"
+      },
+      {
+        "rank": 2,
+        "name": "Heating & Furnace Issues",
+        "count": 1358,
+        "pctOfTotal": 17.6,
+        "avgResolutionDays": 24.5,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 787
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 247
+          },
+          {
+            "name": "Land of Oz",
+            "count": 80
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 58,
+          "2022": 257,
+          "2023": 331,
+          "2024": 290,
+          "2025": 278,
+          "2026": 144
+        },
+        "trend": "Stable"
+      },
+      {
+        "rank": 3,
+        "name": "Electrical & Breaker Problems",
+        "count": 820,
+        "pctOfTotal": 10.6,
+        "avgResolutionDays": 16,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 488
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 114
+          },
+          {
+            "name": "Land of Oz",
+            "count": 49
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 60,
+          "2022": 148,
+          "2023": 190,
+          "2024": 167,
+          "2025": 163,
+          "2026": 92
+        },
+        "trend": "Stable"
+      },
+      {
+        "rank": 4,
+        "name": "Water Leaks & Plumbing Leaks",
+        "count": 650,
+        "pctOfTotal": 8.4,
+        "avgResolutionDays": 23.5,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 317
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 124
+          },
+          {
+            "name": "Land of Oz",
+            "count": 78
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 21,
+          "2022": 114,
+          "2023": 191,
+          "2024": 116,
+          "2025": 144,
+          "2026": 64
+        },
+        "trend": "Stable"
+      },
+      {
+        "rank": 5,
+        "name": "Lock, Key & Access Issues",
+        "count": 421,
+        "pctOfTotal": 5.5,
+        "avgResolutionDays": 11.6,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 197
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 63
+          },
+          {
+            "name": "Land of Oz",
+            "count": 63
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 18,
+          "2022": 70,
+          "2023": 103,
+          "2024": 75,
+          "2025": 100,
+          "2026": 55
+        },
+        "trend": "Stable"
+      },
+      {
+        "rank": 6,
+        "name": "Toilet & Drainage Issues",
+        "count": 338,
+        "pctOfTotal": 4.4,
+        "avgResolutionDays": 13.3,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 175
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 66
+          },
+          {
+            "name": "Land of Oz",
+            "count": 31
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 14,
+          "2022": 54,
+          "2023": 81,
+          "2024": 77,
+          "2025": 78,
+          "2026": 34
+        },
+        "trend": "Stable"
+      },
+      {
+        "rank": 7,
+        "name": "Door Repairs & Replacement",
+        "count": 322,
+        "pctOfTotal": 4.2,
+        "avgResolutionDays": 23.1,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 163
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 41
+          },
+          {
+            "name": "Land of Oz",
+            "count": 35
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 13,
+          "2022": 53,
+          "2023": 78,
+          "2024": 68,
+          "2025": 66,
+          "2026": 44
+        },
+        "trend": "Stable"
+      },
+      {
+        "rank": 8,
+        "name": "Inspection & Code Compliance",
+        "count": 175,
+        "pctOfTotal": 2.3,
+        "avgResolutionDays": 26.9,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 84
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 54
+          },
+          {
+            "name": "Allyn St",
+            "count": 10
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 15,
+          "2022": 69,
+          "2023": 55,
+          "2024": 15,
+          "2025": 10,
+          "2026": 11
+        },
+        "trend": "Decreasing"
+      },
+      {
+        "rank": 9,
+        "name": "HVAC Service & Maintenance",
+        "count": 170,
+        "pctOfTotal": 2.2,
+        "avgResolutionDays": 20.7,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 90
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 27
+          },
+          {
+            "name": "Shaker Shops",
+            "count": 19
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 14,
+          "2022": 32,
+          "2023": 42,
+          "2024": 28,
+          "2025": 30,
+          "2026": 24
+        },
+        "trend": "Decreasing"
+      },
+      {
+        "rank": 10,
+        "name": "Appliance Repairs",
+        "count": 158,
+        "pctOfTotal": 2,
+        "avgResolutionDays": 15.2,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 70
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 32
+          },
+          {
+            "name": "Land of Oz",
+            "count": 14
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 8,
+          "2022": 27,
+          "2023": 35,
+          "2024": 31,
+          "2025": 36,
+          "2026": 21
+        },
+        "trend": "Stable"
+      },
+      {
+        "rank": 11,
+        "name": "Window Repairs",
+        "count": 156,
+        "pctOfTotal": 2,
+        "avgResolutionDays": 21.7,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 96
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 28
+          },
+          {
+            "name": "Land of Oz",
+            "count": 10
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 9,
+          "2022": 27,
+          "2023": 35,
+          "2024": 24,
+          "2025": 32,
+          "2026": 29
+        },
+        "trend": "Stable"
+      },
+      {
+        "rank": 12,
+        "name": "Smoke & CO Detector Issues",
+        "count": 155,
+        "pctOfTotal": 2,
+        "avgResolutionDays": 9.1,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 79
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 35
+          },
+          {
+            "name": "Exchange Assets",
+            "count": 16
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 8,
+          "2022": 34,
+          "2023": 27,
+          "2024": 25,
+          "2025": 49,
+          "2026": 12
+        },
+        "trend": "Increasing"
+      },
+      {
+        "rank": 13,
+        "name": "Exterior & Yard Maintenance",
+        "count": 140,
+        "pctOfTotal": 1.8,
+        "avgResolutionDays": 27.7,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 63
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 32
+          },
+          {
+            "name": "Land of Oz",
+            "count": 16
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 9,
+          "2022": 25,
+          "2023": 35,
+          "2024": 23,
+          "2025": 29,
+          "2026": 19
+        },
+        "trend": "Stable"
+      },
+      {
+        "rank": 14,
+        "name": "Painting & Wall Repair",
+        "count": 138,
+        "pctOfTotal": 1.8,
+        "avgResolutionDays": 22,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 72
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 27
+          },
+          {
+            "name": "Exchange Assets",
+            "count": 12
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 2,
+          "2022": 38,
+          "2023": 35,
+          "2024": 22,
+          "2025": 29,
+          "2026": 12
+        },
+        "trend": "Decreasing"
+      },
+      {
+        "rank": 15,
+        "name": "Flooring Issues",
+        "count": 111,
+        "pctOfTotal": 1.4,
+        "avgResolutionDays": 20,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 65
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 16
+          },
+          {
+            "name": "Shaker Shops",
+            "count": 10
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 9,
+          "2022": 13,
+          "2023": 20,
+          "2024": 14,
+          "2025": 34,
+          "2026": 21
+        },
+        "trend": "Increasing"
+      },
+      {
+        "rank": 16,
+        "name": "Plumbing - General",
+        "count": 92,
+        "pctOfTotal": 1.2,
+        "avgResolutionDays": 11.6,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 49
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 21
+          },
+          {
+            "name": "Land of Oz",
+            "count": 6
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 5,
+          "2022": 13,
+          "2023": 20,
+          "2024": 20,
+          "2025": 17,
+          "2026": 17
+        },
+        "trend": "Stable"
+      },
+      {
+        "rank": 17,
+        "name": "Pest & Rodent Control",
+        "count": 65,
+        "pctOfTotal": 0.8,
+        "avgResolutionDays": 24.3,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 38
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 16
+          },
+          {
+            "name": "Allyn St",
+            "count": 5
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 7,
+          "2022": 16,
+          "2023": 20,
+          "2024": 11,
+          "2025": 8,
+          "2026": 3
+        },
+        "trend": "Decreasing"
+      },
+      {
+        "rank": 18,
+        "name": "Hot Water Problems",
+        "count": 43,
+        "pctOfTotal": 0.6,
+        "avgResolutionDays": 5.3,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 32
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 6
+          },
+          {
+            "name": "Land of Oz",
+            "count": 3
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 10,
+          "2022": 6,
+          "2023": 5,
+          "2024": 6,
+          "2025": 11,
+          "2026": 5
+        },
+        "trend": "Increasing"
+      },
+      {
+        "rank": 19,
+        "name": "Safety & Fire Prevention",
+        "count": 33,
+        "pctOfTotal": 0.4,
+        "avgResolutionDays": 9,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 10
+          },
+          {
+            "name": "Land of Oz",
+            "count": 8
+          },
+          {
+            "name": "Flying Monkey",
+            "count": 5
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 1,
+          "2022": 3,
+          "2023": 8,
+          "2024": 9,
+          "2025": 6,
+          "2026": 6
+        },
+        "trend": "Increasing"
+      },
+      {
+        "rank": 20,
+        "name": "Move-In/Move-Out & Turnover",
+        "count": 24,
+        "pctOfTotal": 0.3,
+        "avgResolutionDays": 27.8,
+        "topEntities": [
+          {
+            "name": "Yellow Brick Property",
+            "count": 11
+          },
+          {
+            "name": "Courageous Lion",
+            "count": 5
+          },
+          {
+            "name": "Allyn St",
+            "count": 3
+          }
+        ],
+        "yearlyBreakdown": {
+          "2021": 3,
+          "2022": 8,
+          "2023": 5,
+          "2024": 6,
+          "2025": 1,
+          "2026": 1
+        },
+        "trend": "Decreasing"
+      }
+    ],
+    "insights": [
+      "Trash & common area cleanup accounts for 27% of all work orders, making it the single largest maintenance category.",
+      "Plumbing-related issues (leaks, toilets, hot water, general plumbing) combined represent 14.6% of all work orders.",
+      "Heating & furnace issues are the #2 category at 17.6%, with Yellow Brick Property generating 58% of those tickets.",
+      "Smoke & CO detector issues are trending upward (+44% from 2022-2023 avg to 2024-2025 avg).",
+      "Inspection & code compliance work orders have dropped significantly, from 69 in 2022 to just 10-11 per year recently.",
+      "Average resolution time ranges from 5.3 days (Hot Water) to 27.8 days (Move-In/Move-Out & Turnover).",
+      "Yellow Brick Property generates the most work orders across nearly every category, followed by Courageous Lion."
+    ]
+  }
+          }
