@@ -651,6 +651,12 @@ tr.prop-row.show{display:table-row}
 <div class="card" style="overflow-x:auto"><table class="tbl"><thead><tr><th>Entity</th><th>Total</th><th>Open</th><th>Closed</th><th>Avg Days</th></tr></thead><tbody id="wo-entity-body"></tbody></table></div>
 <h3 style="margin:28px 0 12px;font-size:15px;color:var(--gold)">Data-Driven Recommendations</h3>
 <div id="wo-recommendations" class="card" style="padding:16px"></div>
+
+<!-- Top 20 Recurring Maintenance Issues -->
+<h3 style="margin:24px 0 12px;color:var(--text)">Top 20 Recurring Maintenance Issues</h3>
+<div class="card" style="padding:16px;margin-bottom:16px"><canvas id="chart-wo-recurring" height="420"></canvas></div>
+<div class="card" style="padding:16px;margin-bottom:16px;overflow-x:auto" id="wo-recurring-table"></div>
+<div id="wo-recurring-insights" class="card" style="padding:16px"></div>
 </section>
 </main>
 
@@ -1294,6 +1300,16 @@ var topV=D.vendorCosts.slice(0,15);
 new Chart(document.getElementById("chart-wo-vendors"),{type:"bar",data:{labels:topV.map(v=>v.name.length>20?v.name.substring(0,18)+"...":v.name),datasets:[{label:"Total Spend ($)",data:topV.map(v=>v.total),backgroundColor:topV.map((_,i)=>i<5?gold:i<10?blue:green),borderRadius:4}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return "$"+ctx.raw.toLocaleString()}}}},scales:{x:{grid:gOpts,ticks:{color:muted2,font:cFont,callback:function(v){return "$"+(v/1000).toFixed(0)+"K"}}},y:{grid:{display:false},ticks:{color:"#ccc",font:{size:10}}}}}});
 new Chart(document.getElementById("chart-wo-entity"),{type:"doughnut",data:{labels:D.byEntity.map(e=>e.name),datasets:[{data:D.byEntity.map(e=>e.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#f39c12","#2c3e50"]}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{position:"right",labels:{color:muted2,font:cFont,boxWidth:12,padding:6}}}}});
 new Chart(document.getElementById("chart-wo-seasonal"),{type:"bar",data:{labels:D.seasonalPattern.map(s=>s.month),datasets:[{label:"Avg WOs/Month",data:D.seasonalPattern.map(s=>s.avgVolume),backgroundColor:D.seasonalPattern.map(s=>s.avgVolume>140?red:s.avgVolume>130?gold:green),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont}},y:{grid:gOpts,ticks:{color:muted2,font:cFont},beginAtZero:false,min:100}}}});
+
+// === Top 20 Recurring Maintenance Issues ===
+if(D.recurringIssues&&D.recurringIssues.top20){
+const ri=D.recurringIssues;
+const t20=ri.top20;
+new Chart(document.getElementById("chart-wo-recurring"),{type:"bar",data:{labels:t20.map(x=>x.name),datasets:[{label:"Count",data:t20.map(x=>x.count),backgroundColor:"rgba(59,130,246,0.7)",borderColor:"rgba(59,130,246,1)",borderWidth:1}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:"Top 20 Recurring Issues by Frequency",font:{size:14}},legend:{display:false}},scales:{x:{beginAtZero:true,title:{display:true,text:"Work Order Count"}},y:{ticks:{font:{size:11}}}}}});
+const tbl='<table class="mini-tbl" style="width:100%"><thead><tr><th>#</th><th>Issue</th><th>Count</th><th>%</th><th>Avg Days</th><th>Trend</th><th>Top Entity</th></tr></thead><tbody>'+t20.map(x=>'<tr><td>'+x.rank+'</td><td>'+x.name+'</td><td>'+x.count.toLocaleString()+'</td><td>'+x.pctOfTotal+'%</td><td>'+x.avgResolutionDays+'</td><td style="color:'+(x.trend==="Increasing"?"var(--red)":x.trend==="Decreasing"?"var(--green)":"var(--text)")+'">'+( x.trend==="Increasing"?"↑":x.trend==="Decreasing"?"↓":"→")+" "+x.trend+'</td><td>'+x.topEntities[0].name+' ('+x.topEntities[0].count+')</td></tr>').join('')+'</tbody></table>';
+document.getElementById("wo-recurring-table").innerHTML=tbl;
+document.getElementById("wo-recurring-insights").innerHTML='<h4 style="margin:0 0 8px;color:var(--text)">Key Insights</h4>'+ri.insights.map(x=>'<p style="margin:4px 0;font-size:14px;color:var(--text-dim)">• '+x+'</p>').join('');
+}
 }catch(e){console.error("WO load error:",e)}}
 loadWorkOrders();
 </script>
