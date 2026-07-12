@@ -474,7 +474,7 @@ tr.prop-row.show{display:table-row}
       <button class="tab-btn" data-tab="portfolio" role="tab"><span class="dot" style="background:var(--green)"></span>Property Portfolio</button>
       <button class="tab-btn" data-tab="flips"     role="tab"><span class="dot" style="background:var(--blue)"></span>House Flip</button>
       <button class="tab-btn" data-tab="law-tax"   role="tab"><span class="dot" style="background:var(--red)"></span>Law &amp; Tax</button>
-    </nav>
+    <button class="tab-btn" data-tab="workorders" role="tab"><span class="dot" style="background:var(--green)"></span>Work Orders</button></nav>
   </div>
 </header>
 
@@ -627,6 +627,31 @@ tr.prop-row.show{display:table-row}
     <div class="law-grid" id="law-cards"></div>
   </section>
 
+<section id="panel-workorders" class="tab-panel" role="tabpanel">
+<p class="updated" id="wo-updated"></p>
+<div class="kpi-row" id="wo-kpis"></div>
+<h3 style="margin:28px 0 12px;font-size:15px;color:var(--gold)">Where Maintenance Money Goes</h3>
+<div class="card" style="padding:16px"><canvas id="chart-wo-catspend" height="260"></canvas></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+<div class="card" style="padding:16px"><h4 style="margin:0 0 10px;font-size:14px;color:var(--muted)">Monthly Volume Trend</h4><canvas id="chart-wo-volume" height="220"></canvas></div>
+<div class="card" style="padding:16px"><h4 style="margin:0 0 10px;font-size:14px;color:var(--muted)">Avg Completion Time (Days)</h4><canvas id="chart-wo-completion" height="220"></canvas></div>
+</div>
+<h3 style="margin:28px 0 12px;font-size:15px;color:var(--gold)">Top Vendor Spend (2025-2026)</h3>
+<div class="card" style="padding:16px"><canvas id="chart-wo-vendors" height="280"></canvas></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+<div class="card" style="padding:16px"><h4 style="margin:0 0 10px;font-size:14px;color:var(--muted)">Work Orders by Entity</h4><canvas id="chart-wo-entity" height="240"></canvas></div>
+<div class="card" style="padding:16px"><h4 style="margin:0 0 10px;font-size:14px;color:var(--muted)">Seasonal Pattern (Avg Monthly)</h4><canvas id="chart-wo-seasonal" height="240"></canvas></div>
+</div>
+<h3 style="margin:28px 0 12px;font-size:15px;color:var(--gold)">Turnover Analysis</h3>
+<div class="kpi-row" id="wo-turnover-kpis"></div>
+<h3 style="margin:28px 0 12px;font-size:15px;color:var(--gold)">Open Work Orders &mdash; Aging</h3>
+<div class="kpi-row" id="wo-aging-kpis"></div>
+<div class="card" style="overflow-x:auto;margin-top:12px"><table class="tbl"><thead><tr><th>ID</th><th>Title</th><th>Entity</th><th>Property</th><th>Category</th><th>Created</th><th>Age</th><th>Status</th><th>Priority</th></tr></thead><tbody id="wo-open-body"></tbody></table></div>
+<h3 style="margin:28px 0 12px;font-size:15px;color:var(--gold)">Work Orders by Entity</h3>
+<div class="card" style="overflow-x:auto"><table class="tbl"><thead><tr><th>Entity</th><th>Total</th><th>Open</th><th>Closed</th><th>Avg Days</th></tr></thead><tbody id="wo-entity-body"></tbody></table></div>
+<h3 style="margin:28px 0 12px;font-size:15px;color:var(--gold)">Data-Driven Recommendations</h3>
+<div id="wo-recommendations" class="card" style="padding:16px"></div>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -1243,6 +1268,35 @@ Promise.allSettled(dataFiles.map(function(f){
   if(any) window.refreshDashboards();
 });
 })();
+
+/* ===== WORK ORDERS TAB ===== */
+async function loadWorkOrders(){
+try{
+const r=await fetch("workorders_data.json");const D=await r.json();
+document.getElementById("wo-updated").textContent="Data as of "+new Date(D.lastUpdated).toLocaleDateString()+" | "+D.dataRange;
+const kpis=[{l:"Total WOs (5yr)",v:D.summary.totalWOs5yr.toLocaleString(),c:"var(--gold)"},{l:"Currently Open",v:D.summary.totalOpen,c:D.summary.totalOpen>50?"var(--red)":"var(--green)"},{l:"Avg Days to Close",v:D.summary.avgCompletionDays,c:D.summary.avgCompletionDays>14?"var(--red)":"var(--green)"},{l:"Closed This Year",v:D.summary.closedThisYear.toLocaleString(),c:"var(--blue)"},{l:"Within 48h",v:D.summary.pctWithin48h+"%",c:D.summary.pctWithin48h>25?"var(--green)":"var(--red)"},{l:"Within 1 Week",v:D.summary.pctWithin1wk+"%",c:D.summary.pctWithin1wk>60?"var(--green)":"var(--gold)"}];
+document.getElementById("wo-kpis").innerHTML=kpis.map(k=>"<div class=\"kpi\"><span class=\"kpi-val\" style=\"color:"+k.c+"\">"+k.v+"</span><span class=\"kpi-lbl\">"+k.l+"</span></div>").join("");
+const tKpis=[{l:"Total Turnovers",v:D.turnoverStats.total,c:"var(--gold)"},{l:"Avg Turnover Days",v:D.turnoverStats.avgCompletionDays,c:D.turnoverStats.avgCompletionDays>10?"var(--red)":"var(--green)"},{l:"% of All WOs",v:D.turnoverStats.pctOfAll+"%",c:"var(--blue)"},{l:"Repeat Issues (90d)",v:D.repeatIssueCount.toLocaleString(),c:"var(--red)"}];
+document.getElementById("wo-turnover-kpis").innerHTML=tKpis.map(k=>"<div class=\"kpi\"><span class=\"kpi-val\" style=\"color:"+k.c+"\">"+k.v+"</span><span class=\"kpi-lbl\">"+k.l+"</span></div>").join("");
+var ag=D.agingAnalysis;var aKpis=[{l:"< 7 Days",v:ag.under7,c:"var(--green)"},{l:"7-30 Days",v:ag.d7to30,c:"var(--gold)"},{l:"30-60 Days",v:ag.d30to60,c:"var(--red)"},{l:"60-90 Days",v:ag.d60to90,c:"var(--red)"},{l:"90+ Days",v:ag.over90,c:"#ff4444"}];
+document.getElementById("wo-aging-kpis").innerHTML=aKpis.map(k=>"<div class=\"kpi\"><span class=\"kpi-val\" style=\"color:"+k.c+"\">"+k.v+"</span><span class=\"kpi-lbl\">"+k.l+"</span></div>").join("");
+document.getElementById("wo-open-body").innerHTML=D.openWorkOrders.map(w=>"<tr><td>"+w.id+"</td><td>"+w.title+"</td><td>"+w.entity+"</td><td>"+w.property+"</td><td>"+w.category+"</td><td>"+w.created+"</td><td style=\"color:"+(w.ageDays>90?"var(--red)":w.ageDays>30?"var(--gold)":"var(--green)")+";font-weight:700\">"+w.ageDays+"</td><td>"+w.status+"</td><td>"+w.priority+"</td></tr>").join("");
+document.getElementById("wo-entity-body").innerHTML=D.byEntity.map(e=>"<tr><td>"+e.name+"</td><td>"+e.total.toLocaleString()+"</td><td style=\"color:"+(e.open>5?"var(--red)":"var(--green)")+"\">"+e.open+"</td><td>"+e.closed.toLocaleString()+"</td><td style=\"color:"+(e.avgCompletionDays>20?"var(--red)":"var(--green)")+"\">"+e.avgCompletionDays+"</td></tr>").join("");
+document.getElementById("wo-recommendations").innerHTML=D.recommendations.map((r,i)=>"<div style=\"padding:8px 0;border-bottom:1px solid var(--border);font-size:13px\"><strong style=\"color:var(--gold)\">"+(i+1)+".</strong> "+r+"</div>").join("");
+var gold="#D4A843",red="#e74c3c",green="#27ae60",blue="#3498db",muted2="#888";
+var cFont={family:"-apple-system,system-ui,sans-serif",size:11,color:muted2},gOpts={color:"rgba(255,255,255,0.06)"};
+var topCats=D.byCategory.filter(c=>c.total>10);
+new Chart(document.getElementById("chart-wo-catspend"),{type:"bar",data:{labels:topCats.map(c=>c.name),datasets:[{label:"Work Orders",data:topCats.map(c=>c.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#e74c3c","#2ecc71","#f39c12"],borderRadius:4}]},options:{indexAxis:"y",responsive:true,plugins:{legend:{display:false},title:{display:true,text:"Work Orders by Category",color:muted2,font:{size:13}}},scales:{x:{grid:gOpts,ticks:{color:muted2,font:cFont}},y:{grid:{display:false},ticks:{color:"#ccc",font:{size:11}}}}}});
+var sL=D.monthlyTrend.labels.map((l,i)=>i%3===0?l:"");
+new Chart(document.getElementById("chart-wo-volume"),{type:"bar",data:{labels:sL,datasets:[{label:"Created",data:D.monthlyTrend.volume,backgroundColor:"rgba(212,168,67,0.6)",borderRadius:2},{label:"Completed",data:D.monthlyTrend.completed,backgroundColor:"rgba(39,174,96,0.5)",borderRadius:2}]},options:{responsive:true,plugins:{legend:{labels:{color:muted2,font:cFont}}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont,maxRotation:45}},y:{grid:gOpts,ticks:{color:muted2,font:cFont}}}}});
+new Chart(document.getElementById("chart-wo-completion"),{type:"line",data:{labels:sL,datasets:[{label:"Avg Days",data:D.monthlyTrend.avgCompletionDays,borderColor:gold,backgroundColor:"rgba(212,168,67,0.1)",fill:true,tension:0.3,pointRadius:1}]},options:{responsive:true,plugins:{legend:{labels:{color:muted2,font:cFont}}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont,maxRotation:45}},y:{grid:gOpts,ticks:{color:muted2,font:cFont}}}}});
+var topV=D.vendorCosts.slice(0,15);
+new Chart(document.getElementById("chart-wo-vendors"),{type:"bar",data:{labels:topV.map(v=>v.name.length>20?v.name.substring(0,18)+"...":v.name),datasets:[{label:"Total Spend ($)",data:topV.map(v=>v.total),backgroundColor:topV.map((_,i)=>i<5?gold:i<10?blue:green),borderRadius:4}]},options:{indexAxis:"y",responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return "$"+ctx.raw.toLocaleString()}}}},scales:{x:{grid:gOpts,ticks:{color:muted2,font:cFont,callback:function(v){return "$"+(v/1000).toFixed(0)+"K"}}},y:{grid:{display:false},ticks:{color:"#ccc",font:{size:10}}}}}});
+new Chart(document.getElementById("chart-wo-entity"),{type:"doughnut",data:{labels:D.byEntity.map(e=>e.name),datasets:[{data:D.byEntity.map(e=>e.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#f39c12","#2c3e50"]}]},options:{responsive:true,plugins:{legend:{position:"right",labels:{color:muted2,font:cFont,boxWidth:12,padding:6}}}}});
+new Chart(document.getElementById("chart-wo-seasonal"),{type:"bar",data:{labels:D.seasonalPattern.map(s=>s.month),datasets:[{label:"Avg WOs/Month",data:D.seasonalPattern.map(s=>s.avgVolume),backgroundColor:D.seasonalPattern.map(s=>s.avgVolume>140?red:s.avgVolume>130?gold:green),borderRadius:4}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont}},y:{grid:gOpts,ticks:{color:muted2,font:cFont},beginAtZero:false,min:100}}}});
+}catch(e){console.error("WO load error:",e)}}
+loadWorkOrders();
 </script>
 </body>
 </html>
+
