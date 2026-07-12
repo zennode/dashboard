@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+h<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script>
 /* ============================================================
-   DATA OBJECTS
+   DATA OBJECTSh
    These window.* objects are updated programmatically by
    scheduled tasks. Keep the shapes stable.
    ============================================================ */
@@ -1204,8 +1204,8 @@ $("#law-filters").addEventListener("click", e => {
 /* ============================================================
    TAB NAVIGATION with URL hash persistence
    ============================================================ */
-const TABS = ["leads","portfolio","flips","law-tax"];
-const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts, flips: buildFlipCharts };
+const TABS = ["leads","portfolio","flips","law-tax","workorders"];
+const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts, flips: buildFlipCharts, workorders: loadWorkOrders };
 
 function activateTab(name, updateHash){
   if (!TABS.includes(name)) name = "leads";
