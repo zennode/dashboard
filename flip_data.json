@@ -4,20 +4,24 @@
     {
       "address": "83 Rolf Ave",
       "city": "Chicopee, MA",
+      "entity": "Courageous Lion LLC",
       "status": "Listed",
+      "purchaseDate": "2023-08-24",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 2,
+      "daysOwned": 1054,
       "estCompletion": null,
-      "notes": "Listing package (7 docs) signed 7/12 8:36 PM via dotloop with Alice Kempf (Kempf-Vanderburgh Realty): Exclusive Right to Sell, disclosures, lead paint notification, buyer-broker compensation authorization, Deferral of Showings. Showings deferred - not yet actively showing. List price not yet seen in email. No new activity Mon 7/13."
+      "notes": "Courageous Lion LLC. RM ID 789. Listing package (7 docs) signed 7/12 8:36 PM via dotloop with Alice Kempf (Kempf-Vanderburgh Realty): Exclusive Right to Sell, disclosures, lead paint notification, buyer-broker compensation authorization, Deferral of Showings. Showings deferred - not yet actively showing. List price not yet seen in email. No new activity Mon 7/13."
     },
     {
       "address": "1874 Home Rd",
       "city": "Sheffield, MA",
+      "entity": "Wicked Deals LLC",
       "status": "Under Contract",
+      "purchaseDate": "2025-02-27",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
@@ -30,7 +34,9 @@
     {
       "address": "167 E Park Terrace",
       "city": "Pittsfield, MA",
+      "entity": "House Hack Helpers LLC",
       "status": "In Progress",
+      "purchaseDate": "2026-05-07",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
@@ -43,7 +49,9 @@
     {
       "address": "1 Richmond Ln",
       "city": "Adams, MA",
+      "entity": "House Hack Helpers LLC",
       "status": "Listed",
+      "purchaseDate": "2025-12-15",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
@@ -56,20 +64,24 @@
     {
       "address": "42 Washington St",
       "city": "Monson, MA",
+      "entity": "House Hack Helpers LLC",
       "status": "Listed",
+      "purchaseDate": "2024-07-25",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": null,
+      "daysOwned": 718,
       "estCompletion": null,
-      "notes": "House Hack Helpers. Showings but no offers; railroad proximity objections. Dropping $1k/week (confirmed 7/8). Tight margins. No new activity through Mon 7/13 PM."
+      "notes": "House Hack Helpers. RM ID 985. Showings but no offers; railroad proximity objections. Dropping $1k/week (confirmed 7/8). Tight margins. No new activity through Mon 7/13 PM."
     },
     {
       "address": "283 Fuller Rd, Unit K",
       "city": "Chicopee, MA",
+      "entity": "House Hack Helpers LLC",
       "status": "Acquired",
+      "purchaseDate": "2026-07-10",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
@@ -77,12 +89,14 @@
       "expectedProfit": null,
       "daysOwned": 3,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1018. CLOSED 7/10 - deed recorded. NEW 7/13: Matt set anticipated resale at $265-275k; Will shared the purchase HUD. Excess construction loan funds check at Burstein's office. Condo fees paid thru 7/31; next RE tax bill due Nov. $195k loan at 12%, 2 pts. Occupied; working to vacate. Utilities setup underway - oil-vs-gas question still open; Will traveling until ~7/20."
+      "notes": "House Hack Helpers. RM ID 1018. CLOSED 7/10 - deed recorded. NEW 7/13: Matt set anticipated resale at $265-275k; Will shared the purchase HUD. Excess construction loan funds check at Burstein's office. Condo fees paid thru 7/31; next RE tax bill due Nov. Occupied; working to vacate. Utilities setup underway - oil-vs-gas question still open; Will traveling until ~7/20."
     },
     {
       "address": "412 St James Ave",
       "city": "Springfield, MA",
+      "entity": "YellowBrick Property",
       "status": "Acquired",
+      "purchaseDate": "2026-07-09",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
@@ -90,12 +104,14 @@
       "expectedProfit": null,
       "daysOwned": 4,
       "estCompletion": null,
-      "notes": "YellowBrick Property. Not yet in RM. Closed 7/9 - Burstein confirmed purchase finalized; closing paperwork received (PDF). Q1 real estate taxes paid to City of Springfield at closing. Wire was $165,054.99. Next: rehab scope. No new activity through Mon 7/13 PM."
+      "notes": "YellowBrick Property. RM ID 1019. Closed 7/9 - Burstein confirmed purchase finalized; closing paperwork received (PDF). Q1 real estate taxes paid to City of Springfield at closing. Next: rehab scope. No new activity through Mon 7/13 PM."
     },
     {
       "address": "19 Draper Ave",
       "city": "Pittsfield, MA",
+      "entity": "YellowBrick Property",
       "status": "Acquired",
+      "purchaseDate": "2026-06-30",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
@@ -108,7 +124,9 @@
     {
       "address": "166 East St",
       "city": "Stafford Springs, CT",
+      "entity": "YellowBrick Property",
       "status": "In Progress",
+      "purchaseDate": "2026-05-07",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
@@ -121,7 +139,9 @@
     {
       "address": "79 Pleasant St",
       "city": "Ware, MA",
+      "entity": "YellowBrick Property",
       "status": "Closing",
+      "purchaseDate": null,
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
