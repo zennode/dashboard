@@ -7,13 +7,13 @@ h<!DOCTYPE html>
 <meta name="description" content="Unified operations dashboard for YellowBrick Management: rental leads, portfolio P&amp;L, house flips, and law &amp; tax updates.">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script>
-/* ============================================================
+/* =========================h===================================
    DATA OBJECTSh
    These window.* objects are updated programmatically by
    scheduled tasks. Keep the shapes stable.
    ============================================================ */
 
-/* ---------- TAB 1: RENTAL LEADS (updated daily) ---------- */
+/* ---------- TAB 1: RENTAL LEADS (updated dhaily) ---------- */
 window.LEADS_DATA = {
   lastUpdated: "2026-07-06T07:00:00-04:00",
   kpis: {
@@ -1015,7 +1015,7 @@ function renderFlips(){
       city: (p.state && p.city && p.city.indexOf(p.state)===-1) ? p.city+", "+p.state : (p.city||""),
       entity: p.entity || "Unknown",
       status: p.status || "In Progress",
-      daysOwned: p.daysOwned || 0,
+      daysOwned: p.purchaseDate ? Math.floor((new Date() - new Date(p.purchaseDate)) / 864e5) : (p.daysOwned || 0),
       purchasePrice: p.purchasePrice || 0,
       renoBudget: p.renoBudget || 0,
       renoSpent: p.renoSpent || 0,
