@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-13T08:05:00-04:00",
+  "lastUpdated": "2026-07-13T18:05:00-04:00",
   "active": [
     {
       "address": "83 Rolf Ave",
@@ -10,9 +10,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 1,
+      "daysOwned": 2,
       "estCompletion": null,
-      "notes": "CORRECTION 7/13 — the 7 dotloop docs were a LISTING package, not an offer/P&S. Matt signed all 7 on 7/12 8:36 PM: CON DUAL DESIGNATED Exclusive Right to Sell, Licensee-Consumer Relationship Disclosure, Lead Paint Notification, MANDATORY Mass Inspection Disclosure, Authorization to Offer Buyer Broker Compensation (MAR), Deferral of Showings Form. Listing with Alice Kempf (Kempf-Vanderburgh Realty). Showings deferred per signed form — not yet actively showing. List price not yet seen in email."
+      "notes": "Listing package (7 docs) signed 7/12 8:36 PM via dotloop with Alice Kempf (Kempf-Vanderburgh Realty): Exclusive Right to Sell, disclosures, lead paint notification, buyer-broker compensation authorization, Deferral of Showings. Showings deferred - not yet actively showing. List price not yet seen in email. No new activity Mon 7/13."
     },
     {
       "address": "1874 Home Rd",
@@ -25,7 +25,7 @@
       "expectedProfit": null,
       "daysOwned": 501,
       "estCompletion": "2026-07-17",
-      "notes": "Wicked Deals LLC. RM ID 955. Closing targeted Fri 7/17 (4 days). Buyer's counsel: Courtney S. Lane, Downing Lane PC, Great Barrington. Burstein to negotiate flooring credit with buyer's attorney today (Mon 7/13); paid receipts required for boiler work. Boiler: new parts to be installed before closing; burner clean/service being scheduled (Jessica). Alice's commission bill due today. No new email overnight."
+      "notes": "Wicked Deals LLC. RM ID 955. Closing Fri 7/17 (4 days). BOILER RESOLVED 7/13: plumber completed all repairs today; Matt getting written statement tonight - Burstein wants it to say boiler is fully operational. Buyer's broker Jonathan Hankin will NOT test boiler at Friday walkthrough (heat) and requires written contractor confirmation. OPEN: buyers' $2,000 floor credit request still awaiting seller decision; buyer's counsel Courtney Lane offered addendum covering furnace, floor credit, and closing-date extension if needed. Alice's commission bill was due Mon."
     },
     {
       "address": "167 E Park Terrace",
@@ -38,7 +38,7 @@
       "expectedProfit": null,
       "daysOwned": 67,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit. No new activity through Mon 7/13 AM."
+      "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit. No new activity through Mon 7/13 PM."
     },
     {
       "address": "1 Richmond Ln",
@@ -51,7 +51,7 @@
       "expectedProfit": null,
       "daysOwned": 210,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 992. Listed $249,900 after $10k price drop confirmed 7/8 — feedback says overpriced, market slowing. No new activity through Mon 7/13 AM."
+      "notes": "House Hack Helpers. RM ID 992. Listed $249,900 after $10k price drop confirmed 7/8 - feedback says overpriced, market slowing. No new activity through Mon 7/13 PM."
     },
     {
       "address": "42 Washington St",
@@ -64,7 +64,7 @@
       "expectedProfit": null,
       "daysOwned": null,
       "estCompletion": null,
-      "notes": "House Hack Helpers. Showings but no offers; railroad proximity objections. Dropping $1k/week (confirmed 7/8). Tight margins. No new activity through Mon 7/13 AM."
+      "notes": "House Hack Helpers. Showings but no offers; railroad proximity objections. Dropping $1k/week (confirmed 7/8). Tight margins. No new activity through Mon 7/13 PM."
     },
     {
       "address": "283 Fuller Rd, Unit K",
@@ -73,11 +73,11 @@
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
-      "arv": null,
+      "arv": 270000,
       "expectedProfit": null,
       "daysOwned": 3,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1018. CLOSED 7/10 — deed recorded. Excess construction loan funds check at Burstein's office. Condo fees paid thru 7/31; next RE tax bill due Nov. $195k loan at 12%, 2 pts. Occupied; working to vacate. Will McGuire setting up utilities TODAY (Mon 7/13) — still needs oil-vs-gas answer; Will traveling until ~7/20."
+      "notes": "House Hack Helpers. RM ID 1018. CLOSED 7/10 - deed recorded. NEW 7/13: Matt set anticipated resale at $265-275k; Will shared the purchase HUD. Excess construction loan funds check at Burstein's office. Condo fees paid thru 7/31; next RE tax bill due Nov. $195k loan at 12%, 2 pts. Occupied; working to vacate. Utilities setup underway - oil-vs-gas question still open; Will traveling until ~7/20."
     },
     {
       "address": "412 St James Ave",
@@ -90,7 +90,7 @@
       "expectedProfit": null,
       "daysOwned": 4,
       "estCompletion": null,
-      "notes": "YellowBrick Property. Not yet in RM. Closed 7/9 — Burstein confirmed purchase finalized; closing paperwork received (PDF). Q1 real estate taxes paid to City of Springfield at closing. Wire was $165,054.99. Next: rehab scope."
+      "notes": "YellowBrick Property. Not yet in RM. Closed 7/9 - Burstein confirmed purchase finalized; closing paperwork received (PDF). Q1 real estate taxes paid to City of Springfield at closing. Wire was $165,054.99. Next: rehab scope. No new activity through Mon 7/13 PM."
     },
     {
       "address": "19 Draper Ave",
@@ -103,7 +103,7 @@
       "expectedProfit": null,
       "daysOwned": 13,
       "estCompletion": null,
-      "notes": "YellowBrick Property. RM ID 1017. Purchased 6/30. Entering rehab."
+      "notes": "YellowBrick Property. RM ID 1017. Purchased 6/30. Entering rehab. No new activity through Mon 7/13 PM."
     },
     {
       "address": "166 East St",
@@ -116,7 +116,7 @@
       "expectedProfit": null,
       "daysOwned": 67,
       "estCompletion": null,
-      "notes": "YellowBrick Property. RM ID 1009. Purchased 5/7. In rehab."
+      "notes": "YellowBrick Property. RM ID 1009. Purchased 5/7. In rehab. No new activity through Mon 7/13 PM."
     },
     {
       "address": "79 Pleasant St",
@@ -129,180 +129,28 @@
       "expectedProfit": null,
       "daysOwned": 0,
       "estCompletion": null,
-      "notes": "YellowBrick Property. Not yet in RM. Foreclosure closing expected by 7/20."
+      "notes": "YellowBrick Property. Not yet in RM. Foreclosure closing expected by 7/20. No new activity through Mon 7/13 PM."
     }
   ],
   "sold": [
-    {
-      "address": "40 Roland St, Pittsfield",
-      "soldDate": "2026-05-22",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "21 Holly Ave, Greenfield",
-      "soldDate": "2026-04-21",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "4 School St, Ware",
-      "soldDate": "2026-04-16",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "297 Breckwood Blvd, Springfield",
-      "soldDate": "2026-04-15",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "29 Chestnut Dr, Belchertown",
-      "soldDate": "2026-04-14",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "141 Saint Jerome Ave, Holyoke",
-      "soldDate": "2026-03-30",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "16 Maple St, Wilbraham",
-      "soldDate": "2026-03-27",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "3 Evergreen St, Southwick",
-      "soldDate": "2026-03-26",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "207 Monson Tpk, Ware",
-      "soldDate": "2026-03-23",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "7 Dugan Rd, Ware",
-      "soldDate": "2026-02-20",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "114-116 Danforth Ave, Pittsfield",
-      "soldDate": "2026-01-05",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "33 Maple Crest Cir #D, Holyoke",
-      "soldDate": "2025-12-15",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "52 Bossidy Dr, Pittsfield",
-      "soldDate": "2025-12-11",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "90 Maple St, Lee",
-      "soldDate": "2025-10-27",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "23 Hancock St, Westfield",
-      "soldDate": "2025-10-24",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "57 Warebrook Village Dr, Ware",
-      "soldDate": "2025-10-23",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "19 Eldert St, Springfield",
-      "soldDate": "2025-10-20",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "16 Stuart St, Springfield",
-      "soldDate": "2025-09-29",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    },
-    {
-      "address": "759 Millers Falls Rd, Northfield",
-      "soldDate": "2025-09-10",
-      "totalInvested": null,
-      "salePrice": null,
-      "profit": null,
-      "roiPct": null,
-      "daysHeld": null
-    }
+    {"address": "40 Roland St, Pittsfield", "soldDate": "2026-05-22", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "21 Holly Ave, Greenfield", "soldDate": "2026-04-21", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "4 School St, Ware", "soldDate": "2026-04-16", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "297 Breckwood Blvd, Springfield", "soldDate": "2026-04-15", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "29 Chestnut Dr, Belchertown", "soldDate": "2026-04-14", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "141 Saint Jerome Ave, Holyoke", "soldDate": "2026-03-30", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "16 Maple St, Wilbraham", "soldDate": "2026-03-27", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "3 Evergreen St, Southwick", "soldDate": "2026-03-26", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "207 Monson Tpk, Ware", "soldDate": "2026-03-23", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "7 Dugan Rd, Ware", "soldDate": "2026-02-20", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "114-116 Danforth Ave, Pittsfield", "soldDate": "2026-01-05", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "33 Maple Crest Cir #D, Holyoke", "soldDate": "2025-12-15", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "52 Bossidy Dr, Pittsfield", "soldDate": "2025-12-11", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "90 Maple St, Lee", "soldDate": "2025-10-27", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "23 Hancock St, Westfield", "soldDate": "2025-10-24", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "57 Warebrook Village Dr, Ware", "soldDate": "2025-10-23", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "19 Eldert St, Springfield", "soldDate": "2025-10-20", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "16 Stuart St, Springfield", "soldDate": "2025-09-29", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null},
+    {"address": "759 Millers Falls Rd, Northfield", "soldDate": "2025-09-10", "totalInvested": null, "salePrice": null, "profit": null, "roiPct": null, "daysHeld": null}
   ]
 }
