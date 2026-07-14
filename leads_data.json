@@ -1,34 +1,32 @@
 {
-  "lastUpdated": "2026-07-12T07:09:00-04:00",
+  "lastUpdated": "2026-07-14T14:30:00-04:00",
   "kpis": {
-    "avgResponseHrs": 21.9,
+    "avgResponseHrs": 21.8,
     "responseGoalHrs": 4,
-    "contactRate4h": 45,
-    "contactRate24h": 55,
-    "newLeadsToday": 5,
-    "newLeadsWeek": 64,
-    "uncontacted": 14
+    "contactRate4h": 46.1,
+    "contactRate24h": 58.7,
+    "newLeadsToday": 3,
+    "newLeadsWeek": 58,
+    "uncontacted": 1
   },
   "responseTrend": {
     "labels": [
-      "6/29",
-      "6/30",
-      "7/1",
-      "7/2",
-      "7/3",
-      "7/4",
-      "7/5",
-      "7/6",
-      "7/7",
-      "7/8",
-      "7/9",
-      "7/10",
-      "7/11",
-      "7/12"
+      "07-01",
+      "07-02",
+      "07-03",
+      "07-04",
+      "07-05",
+      "07-06",
+      "07-07",
+      "07-08",
+      "07-09",
+      "07-10",
+      "07-11",
+      "07-12",
+      "07-13",
+      "07-14"
     ],
     "avgHours": [
-      24.5,
-      0,
       37.9,
       3.1,
       21.2,
@@ -38,31 +36,31 @@
       10,
       30.5,
       13,
-      0,
-      0,
+      42,
+      42.1,
+      15.2,
+      9,
       0
     ]
   },
   "volumeTrend": {
     "labels": [
-      "6/29",
-      "6/30",
-      "7/1",
-      "7/2",
-      "7/3",
-      "7/4",
-      "7/5",
-      "7/6",
-      "7/7",
-      "7/8",
-      "7/9",
-      "7/10",
-      "7/11",
-      "7/12"
+      "07-01",
+      "07-02",
+      "07-03",
+      "07-04",
+      "07-05",
+      "07-06",
+      "07-07",
+      "07-08",
+      "07-09",
+      "07-10",
+      "07-11",
+      "07-12",
+      "07-13",
+      "07-14"
     ],
     "leads": [
-      7,
-      4,
       2,
       9,
       10,
@@ -74,140 +72,70 @@
       13,
       13,
       4,
-      1
+      5,
+      7,
+      3
     ]
   },
   "funnel": {
-    "leads": 253,
-    "contacted": 205,
-    "showing": 0,
-    "applied": 0,
-    "approved": 0,
-    "leased": 0
+    "leads": 254,
+    "contacted": 218,
+    "showing": 76,
+    "applied": 33,
+    "approved": 22,
+    "leased": 17
   },
   "sources": [
     {
-      "name": "Not recorded",
-      "leads": 253,
+      "name": "Unspecified",
+      "leads": 254,
       "leased": 0
     }
   ],
   "properties": [
     {
-      "name": "24-28 Wilcox",
-      "leads": 146,
-      "avgResponseHrs": 43.9,
-      "contactRate4h": 7
+      "name": "Property 472",
+      "leads": 145,
+      "avgResponseHrs": 22.4,
+      "contactRate4h": 45,
+      "vacantUnits": 0
     },
     {
       "name": "YellowBrick Management, Inc",
-      "leads": 103,
-      "avgResponseHrs": 0,
-      "contactRate4h": 100
+      "leads": 105,
+      "avgResponseHrs": 20.9,
+      "contactRate4h": 48,
+      "vacantUnits": 0
     },
     {
-      "name": "50 Springfield Street",
+      "name": "Property 726",
       "leads": 2,
-      "avgResponseHrs": 20.7,
-      "contactRate4h": 50
+      "avgResponseHrs": null,
+      "contactRate4h": 0,
+      "vacantUnits": 0
     },
     {
-      "name": "St. James Ave 83",
+      "name": "Property 694",
       "leads": 1,
-      "avgResponseHrs": 50.2,
-      "contactRate4h": 0
+      "avgResponseHrs": null,
+      "contactRate4h": 0,
+      "vacantUnits": 0
     },
     {
-      "name": "Wilbraham RD 257",
+      "name": "Property 702",
       "leads": 1,
-      "avgResponseHrs": 85.5,
-      "contactRate4h": 0
+      "avgResponseHrs": null,
+      "contactRate4h": 0,
+      "vacantUnits": 0
     }
   ],
   "urgentQueue": [
     {
-      "name": "T. Lizardi",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 57
-    },
-    {
-      "name": "J. Matos",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 43
-    },
-    {
-      "name": "J. Parrilla Aponte",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 42.5
-    },
-    {
-      "name": "M. Cruz",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 42.4
-    },
-    {
-      "name": "A. Baxter",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 42.3
-    },
-    {
-      "name": "A. Crochetiere",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 42.2
-    },
-    {
-      "name": "E. Arroyo",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 39.1
-    },
-    {
-      "name": "M. Arocho",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 37
-    },
-    {
-      "name": "D. Rivera",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 33
-    },
-    {
-      "name": "N. Dixon",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 18.7
-    },
-    {
-      "name": "E. (US)",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 15.9
-    },
-    {
-      "name": "J. Gonzalez",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 14.4
-    },
-    {
-      "name": "E. BYRNE",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 8.9
-    },
-    {
-      "name": "K. Rivera Rosa",
-      "property": "24-28 Wilcox",
-      "source": "Not recorded",
-      "waitingHrs": 6
+      "name": "Tyauna Lizardi",
+      "property": "Property 472",
+      "source": "Unspecified",
+      "waitingHrs": 112.2
     }
-  ]
+  ],
+  "team": []
 }
