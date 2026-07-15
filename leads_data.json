@@ -1,13 +1,12 @@
 {
-  "lastUpdated": "2026-07-14T14:30:00-04:00",
+  "lastUpdated": "2026-07-15T08:00:00-04:00",
   "kpis": {
-    "avgResponseHrs": 21.8,
-    "responseGoalHrs": 4,
-    "contactRate4h": 46.1,
-    "contactRate24h": 58.7,
-    "newLeadsToday": 3,
-    "newLeadsWeek": 58,
-    "uncontacted": 1
+    "avgResponseHrs": 22,
+    "contactRate4h": 53.8,
+    "contactRate24h": 68.6,
+    "newLeadsToday": 0,
+    "newLeadsWeek": 61,
+    "uncontacted": 4
   },
   "responseTrend": {
     "labels": [
@@ -45,6 +44,22 @@
   },
   "volumeTrend": {
     "labels": [
+      "06-15",
+      "06-16",
+      "06-17",
+      "06-18",
+      "06-19",
+      "06-20",
+      "06-21",
+      "06-22",
+      "06-23",
+      "06-24",
+      "06-25",
+      "06-26",
+      "06-27",
+      "06-28",
+      "06-29",
+      "06-30",
       "07-01",
       "07-02",
       "07-03",
@@ -61,6 +76,22 @@
       "07-14"
     ],
     "leads": [
+      10,
+      11,
+      13,
+      12,
+      8,
+      4,
+      7,
+      15,
+      12,
+      12,
+      10,
+      9,
+      4,
+      2,
+      7,
+      4,
       2,
       9,
       10,
@@ -74,67 +105,95 @@
       4,
       5,
       7,
-      3
+      6
     ]
   },
   "funnel": {
-    "leads": 254,
-    "contacted": 218,
-    "showing": 76,
-    "applied": 33,
-    "approved": 22,
-    "leased": 17
+    "leads": 246,
+    "contacted": 210,
+    "applied": 101
+  },
+  "pipeline": {
+    "Pending App Completion": 119,
+    "Waiting on Docs": 27,
+    "Denied Due to Court": 17,
+    "Application Completed": 11,
+    "Denied Due to Income": 11,
+    "Denied Due to Credit Report": 11,
+    "PreApproved": 10,
+    "Other Adults Pending App": 4,
+    "Unit Locked In": 3,
+    "Invited to Showing": 2,
+    "No Longer Interested": 1,
+    "Denied": 1,
+    "No Stage": 29
+  },
+  "statusBreakdown": {
+    "Lost": 213,
+    "Prospect": 33
   },
   "sources": [
     {
       "name": "Unspecified",
-      "leads": 254,
-      "leased": 0
+      "leads": 246
     }
   ],
   "properties": [
     {
-      "name": "Property 472",
-      "leads": 145,
-      "avgResponseHrs": 22.4,
-      "contactRate4h": 45,
-      "vacantUnits": 0
+      "name": "24-28 Wilcox",
+      "leads": 141,
+      "avgResponseHrs": 42.3,
+      "contactRate4h": 10.5
     },
     {
       "name": "YellowBrick Management, Inc",
-      "leads": 105,
-      "avgResponseHrs": 20.9,
-      "contactRate4h": 48,
-      "vacantUnits": 0
+      "leads": 101,
+      "avgResponseHrs": 0,
+      "contactRate4h": 100
     },
     {
       "name": "Property 726",
       "leads": 2,
-      "avgResponseHrs": null,
-      "contactRate4h": 0,
-      "vacantUnits": 0
+      "avgResponseHrs": 20.7,
+      "contactRate4h": 50
     },
     {
       "name": "Property 694",
       "leads": 1,
-      "avgResponseHrs": null,
-      "contactRate4h": 0,
-      "vacantUnits": 0
+      "avgResponseHrs": 50.2,
+      "contactRate4h": 0
     },
     {
       "name": "Property 702",
       "leads": 1,
-      "avgResponseHrs": null,
-      "contactRate4h": 0,
-      "vacantUnits": 0
+      "avgResponseHrs": 85.5,
+      "contactRate4h": 0
     }
   ],
   "urgentQueue": [
     {
       "name": "Tyauna Lizardi",
-      "property": "Property 472",
-      "source": "Unspecified",
-      "waitingHrs": 112.2
+      "property": "24-28 Wilcox",
+      "waitingHrs": 129.8,
+      "createDate": "2026-07-09T22:09:02"
+    },
+    {
+      "name": "Jenny Ares",
+      "property": "24-28 Wilcox",
+      "waitingHrs": 18.4,
+      "createDate": "2026-07-14T13:34:19"
+    },
+    {
+      "name": "Richard Rosado Velez",
+      "property": "24-28 Wilcox",
+      "waitingHrs": 15.6,
+      "createDate": "2026-07-14T16:20:26"
+    },
+    {
+      "name": "Angela Walsh",
+      "property": "24-28 Wilcox",
+      "waitingHrs": 11.7,
+      "createDate": "2026-07-14T20:18:19"
     }
   ],
   "team": []
