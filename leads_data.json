@@ -111,7 +111,8 @@
   "funnel": {
     "leads": 246,
     "contacted": 210,
-    "applied": 101
+    "applied": 101,
+    "leased": 0
   },
   "pipeline": {
     "Pending App Completion": 119,
@@ -174,24 +175,28 @@
     {
       "name": "Tyauna Lizardi",
       "property": "24-28 Wilcox",
+      "source": "Unspecified",
       "waitingHrs": 129.8,
       "createDate": "2026-07-09T22:09:02"
     },
     {
       "name": "Jenny Ares",
       "property": "24-28 Wilcox",
+      "source": "Unspecified",
       "waitingHrs": 18.4,
       "createDate": "2026-07-14T13:34:19"
     },
     {
       "name": "Richard Rosado Velez",
       "property": "24-28 Wilcox",
+      "source": "Unspecified",
       "waitingHrs": 15.6,
       "createDate": "2026-07-14T16:20:26"
     },
     {
       "name": "Angela Walsh",
       "property": "24-28 Wilcox",
+      "source": "Unspecified",
       "waitingHrs": 11.7,
       "createDate": "2026-07-14T20:18:19"
     }
