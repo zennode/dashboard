@@ -221,7 +221,7 @@ window.LAW_TAX_DATA = {
       action: "Review hold periods on 63 Dartmouth Ter and 114 Montgomery St with CPA; dealer-status treatment may apply to flip entity regardless."
     },
     {
-      title: "Security deposit compliance: strict G.L. c.186 ÃÂ§15B enforcement",
+      title: "Security deposit compliance: strict G.L. c.186 §15B enforcement",
       date: "2026-06-20", jurisdiction: "MA State", category: "Legal", impact: "Medium",
       summary: "Recent MA appellate decisions continue to award treble damages for deposit handling violations (separate interest-bearing account, statement of condition within 10 days, annual interest payments). Even technical violations can void the deposit claim.",
       action: "Spot-audit deposit accounts and statements of condition across all four entities; verify annual interest was paid or credited at each lease anniversary."
@@ -403,7 +403,7 @@ tbody tr:hover{background:rgba(255,255,255,.02)}
 /* expandable entity rows */
 tr.entity-row{cursor:pointer;user-select:none}
 tr.entity-row td:first-child::before{
-  content:"Ã¢ÂÂ¸";display:inline-block;margin-right:8px;color:var(--gold);
+  content:"▸";display:inline-block;margin-right:8px;color:var(--gold);
   transition:transform .15s;font-size:11px;
 }
 tr.entity-row.open td:first-child::before{transform:rotate(90deg)}
@@ -693,7 +693,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 const delta = (pct, goodWhenUp) => {
   const up = pct > 0, flat = Math.abs(pct) < 0.05;
   const cls = flat ? "flat" : ((up === goodWhenUp) ? "up" : "down");
-  const arrow = flat ? "Ã¢ÂÂ" : (up ? "Ã¢ÂÂ²" : "Ã¢ÂÂ¼");
+  const arrow = flat ? "→" : (up ? "▲" : "▼");
   return `<span class="delta ${cls}">${arrow} ${Math.abs(pct).toFixed(1)}%</span>`;
 };
 
@@ -781,7 +781,7 @@ function renderLeads(){
 
   // team scorecard, ranked by avg response (lower = better)
   const ranked = D.team.slice().sort((a,b)=>a.avgResponseHrs-b.avgResponseHrs);
-  const medals = ["Ã°ÂÂ¥Â","Ã°ÂÂ¥Â","Ã°ÂÂ¥Â"];
+  const medals = ["🥇","🥈","🥉"];
   $("#team-body").innerHTML = ranked.map((t,i) => {
     const respColor = t.avgResponseHrs <= 4 ? C.green : (t.avgResponseHrs <= 18 ? C.amber : C.red);
     return `<tr>
@@ -852,7 +852,7 @@ function buildLeadsCharts(){
       plugins: { legend: { position: "bottom" },
         tooltip: { callbacks: { label: ctx => {
           const s = D.sources[ctx.dataIndex];
-          return ` ${s.leads} leads ÃÂ· ${s.leased} leased`;
+          return ` ${s.leads} leads · ${s.leased} leased`;
         }}}}}
   });
 }
@@ -885,42 +885,13 @@ function renderPortfolio(){
     <div class="kpi">
       <div class="label">Vacancy Rate</div>
       <div class="value ${S.vacancyRate <= 6 ? "good" : "warn"}">${fmtPct(S.vacancyRate)}</div>
-      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">Ã¢ÂÂ¼ ' : '<span class="delta down">Ã¢ÂÂ² '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
+      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">▼ ' : '<span class="delta down">▲ '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
     </div>
     <div class="kpi">
       <div class="label">Collection Rate</div>
       <div class="value ${S.collectionRate >= 95 ? "good" : "warn"}">${fmtPct(S.collectionRate)}</div>
       <div class="meta">of billed rent collected</div>
     </div>
-<div style="margin-top:32px">
-  <h3 style="color:var(--text);margin-bottom:16px">5-Year Trend Analysis</h3>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-    <div class="card" style="padding:20px">
-      <h4 style="margin:0 0 12px;color:var(--text)">Expense Ratio Trend</h4>
-      <canvas id="expenseRatioChart"></canvas>
-    </div>
-    <div class="card" style="padding:20px">
-      <h4 style="margin:0 0 12px;color:var(--text)">NOI Per Unit Trend</h4>
-      <canvas id="noiPerUnitChart"></canvas>
-    </div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px">
-    <div class="card" style="padding:20px">
-      <h4 style="margin:0 0 12px;color:var(--text)">DSCR Trend</h4>
-      <canvas id="dscrTrendChart"></canvas>
-    </div>
-    <div class="card" style="padding:20px">
-      <h4 style="margin:0 0 12px;color:var(--text)">Annual Cash Flow After Debt Service</h4>
-      <canvas id="cashFlowChart"></canvas>
-    </div>
-  </div>
-</div>
-<div id="keyInsightsSection" style="margin-top:32px">
-  <h3 style="color:var(--text);margin-bottom:16px">Key Insights</h3>
-  <div class="card" style="padding:24px">
-    <ul id="insightsList" style="list-style:none;padding:0;margin:0"></ul>
-  </div>
-</div>
     `;
 
   $("#portfolio-metrics").innerHTML = `
@@ -976,6 +947,21 @@ function renderPortfolio(){
   });
 
   // --- 5-Year Trend Charts ---
+  
+  // --- Insert 5-Year Trend & Key Insights containers into DOM ---
+  const trendSection = document.createElement('div');
+  trendSection.style.cssText = 'margin-top:32px';
+  trendSection.innerHTML = '<h3 style="color:var(--text);margin-bottom:16px">5-Year Trend Analysis</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px"><div class="card" style="padding:20px"><h4 style="margin:0 0 12px;color:var(--text)">Expense Ratio Trend</h4><canvas id="expenseRatioChart"></canvas></div><div class="card" style="padding:20px"><h4 style="margin:0 0 12px;color:var(--text)">NOI Per Unit Trend</h4><canvas id="noiPerUnitChart"></canvas></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px"><div class="card" style="padding:20px"><h4 style="margin:0 0 12px;color:var(--text)">DSCR Trend</h4><canvas id="dscrTrendChart"></canvas></div><div class="card" style="padding:20px"><h4 style="margin:0 0 12px;color:var(--text)">Annual Cash Flow After Debt Service</h4><canvas id="cashFlowChart"></canvas></div></div>';
+  const insightsSection = document.createElement('div');
+  insightsSection.id = 'keyInsightsSection';
+  insightsSection.style.cssText = 'margin-top:32px';
+  insightsSection.innerHTML = '<h3 style="color:var(--text);margin-bottom:16px">Key Insights</h3><div class="card" style="padding:24px"><ul id="insightsList" style="list-style:none;padding:0;margin:0"></ul></div>';
+  const metricsEl = document.getElementById('portfolio-metrics');
+  if (metricsEl && metricsEl.parentElement) {
+    metricsEl.parentElement.insertBefore(trendSection, metricsEl.nextSibling);
+    metricsEl.parentElement.insertBefore(insightsSection, trendSection.nextSibling);
+  }
+
   if (D.fiveYearTrend) {
     const T = D.fiveYearTrend;
     const chartOpts = (label, color, data, isMoney) => ({
