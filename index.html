@@ -3,7 +3,7 @@ h<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YellowBrick Management Ã¢ÂÂ Dashboards</title>
+<title>YellowBrick Management — Dashboards</title>
 <meta name="description" content="Unified operations dashboard for YellowBrick Management: rental leads, portfolio P&amp;L, house flips, and law &amp; tax updates.">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script>
@@ -74,7 +74,7 @@ window.PORTFOLIO_DATA = {
   summary: {
     totalIncome: 364480, totalExpenses: 219440, noi: 145040,
     vacancyRate: 5.6, collectionRate: 96.2,
-    capRate: 7.4, dscr: 1.38, expenseRatio: 60.2,
+    dscr: 1.38, expenseRatio: 60.2,
     momIncomePct: 1.8, momExpensesPct: -2.4, momNoiPct: 8.6,
     yoyIncomePct: 6.3, yoyExpensesPct: 4.1, yoyNoiPct: 9.8,
     momVacancyPts: -0.7, yoyVacancyPts: -1.2
@@ -217,7 +217,7 @@ window.LAW_TAX_DATA = {
     {
       title: "MA short-term capital gains taxed at 8.5%",
       date: "2026-06-25", jurisdiction: "MA State", category: "Tax", impact: "High",
-      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA Ã¢ÂÂ timing matters for projects near the 1-year mark.",
+      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA — timing matters for projects near the 1-year mark.",
       action: "Review hold periods on 63 Dartmouth Ter and 114 Montgomery St with CPA; dealer-status treatment may apply to flip entity regardless."
     },
     {
@@ -236,7 +236,7 @@ window.LAW_TAX_DATA = {
       title: "Corporate Transparency Act: domestic LLCs exempt from BOI filing",
       date: "2026-06-07", jurisdiction: "Federal", category: "Regulatory", impact: "Medium",
       summary: "FinCEN's rule exempting U.S.-formed companies from beneficial ownership (BOI) reporting remains in effect; only certain foreign-formed entities must file. All YellowBrick and Ruby Lending entities are domestic LLCs.",
-      action: "None currently. Monitor Ã¢ÂÂ litigation could revive domestic filing requirements; re-check before forming new entities."
+      action: "None currently. Monitor — litigation could revive domestic filing requirements; re-check before forming new entities."
     },
     {
       title: "Springfield rental registration and inspection cycle",
@@ -513,7 +513,7 @@ tr.prop-row.show{display:table-row}
       </div>
     </div>
 
-    <div class="section-title">Urgent Queue Ã¢ÂÂ Uncontacted Leads</div>
+    <div class="section-title">Urgent Queue — Uncontacted Leads</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Lead</th><th>Property</th><th>Source</th><th class="num">Waiting</th><th>Status</th></tr></thead>
@@ -541,7 +541,7 @@ tr.prop-row.show{display:table-row}
   <!-- ============ TAB 2: PORTFOLIO ============ -->
   <section id="panel-portfolio" class="tab-panel" role="tabpanel">
     <div class="panel-head">
-      <h2>Property Portfolio Ã¢ÂÂ <span id="portfolio-period" style="color:var(--gold)"></span></h2>
+      <h2>Property Portfolio — <span id="portfolio-period" style="color:var(--gold)"></span></h2>
       <div class="updated">Updated monthly &middot; Last updated: <strong id="portfolio-updated"></strong></div>
     </div>
 
@@ -550,7 +550,7 @@ tr.prop-row.show{display:table-row}
     <div class="section-title">Key Metrics</div>
     <div class="kpi-grid" id="portfolio-metrics"></div>
 
-    <div class="section-title">Trends Ã¢ÂÂ Trailing 12 Months</div>
+    <div class="section-title">Trends — Trailing 12 Months</div>
     <div class="grid-2">
       <div class="card">
         <h3>Income vs Expenses</h3>
@@ -572,7 +572,7 @@ tr.prop-row.show{display:table-row}
       </div>
     </div>
 
-    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;Ã¢ÂÂ tap a row to expand properties</span></div>
+    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;— tap a row to expand properties</span></div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Entity / Property</th><th class="num">Units</th><th class="num">Income</th><th class="num">Expenses</th><th class="num">NOI</th><th class="num">Margin</th></tr></thead>
@@ -598,7 +598,7 @@ tr.prop-row.show{display:table-row}
       <div class="chart-box"><canvas id="chart-flip-budget"></canvas></div>
     </div>
 
-    <div class="section-title">Sold Flips Ã¢ÂÂ History</div>
+    <div class="section-title">Sold Flips — History</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Property</th><th class="num">Sold</th><th class="num">Total Invested</th><th class="num">Sale Price</th><th class="num">Profit</th><th class="num">ROI</th><th class="num">Days Held</th></tr></thead>
@@ -717,7 +717,7 @@ if (window.Chart) {
 const chartsBuilt = { leads:false, portfolio:false, flips:false, "law-tax":true };
 
 /* ============================================================
-   TAB 1 Ã¢ÂÂ RENTAL LEADS
+   TAB 1 — RENTAL LEADS
    ============================================================ */
 function renderLeads(){
   const D = window.LEADS_DATA, K = D.kpis;
@@ -764,7 +764,7 @@ function renderLeads(){
         <td class="num" style="font-weight:700;color:${over?css('--red'):css('--green')}">${fmtHrs(l.waitingHrs)}</td>
         <td>${over ? '<span class="badge red">OVERDUE</span>' : '<span class="badge green">Within goal</span>'}</td>
       </tr>`;
-    }).join("") || `<tr><td colspan="5" class="empty-note">No uncontacted leads Ã¢ÂÂ queue is clear.</td></tr>`;
+    }).join("") || `<tr><td colspan="5" class="empty-note">No uncontacted leads — queue is clear.</td></tr>`;
 
   // per-property table
   $("#prop-leads-body").innerHTML = D.properties.map(p => {
@@ -858,7 +858,7 @@ function buildLeadsCharts(){
 }
 
 /* ============================================================
-   TAB 2 Ã¢ÂÂ PORTFOLIO
+   TAB 2 — PORTFOLIO
    ============================================================ */
 function renderPortfolio(){
   const D = window.PORTFOLIO_DATA, S = D.summary;
@@ -891,10 +891,39 @@ function renderPortfolio(){
       <div class="label">Collection Rate</div>
       <div class="value ${S.collectionRate >= 95 ? "good" : "warn"}">${fmtPct(S.collectionRate)}</div>
       <div class="meta">of billed rent collected</div>
-    </div>`;
+    </div>
+<div style="margin-top:32px">
+  <h3 style="color:var(--text);margin-bottom:16px">5-Year Trend Analysis</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div class="card" style="padding:20px">
+      <h4 style="margin:0 0 12px;color:var(--text)">Expense Ratio Trend</h4>
+      <canvas id="expenseRatioChart"></canvas>
+    </div>
+    <div class="card" style="padding:20px">
+      <h4 style="margin:0 0 12px;color:var(--text)">NOI Per Unit Trend</h4>
+      <canvas id="noiPerUnitChart"></canvas>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px">
+    <div class="card" style="padding:20px">
+      <h4 style="margin:0 0 12px;color:var(--text)">DSCR Trend</h4>
+      <canvas id="dscrTrendChart"></canvas>
+    </div>
+    <div class="card" style="padding:20px">
+      <h4 style="margin:0 0 12px;color:var(--text)">Annual Cash Flow After Debt Service</h4>
+      <canvas id="cashFlowChart"></canvas>
+    </div>
+  </div>
+</div>
+<div id="keyInsightsSection" style="margin-top:32px">
+  <h3 style="color:var(--text);margin-bottom:16px">Key Insights</h3>
+  <div class="card" style="padding:24px">
+    <ul id="insightsList" style="list-style:none;padding:0;margin:0"></ul>
+  </div>
+</div>
+    `;
 
   $("#portfolio-metrics").innerHTML = `
-    <div class="kpi"><div class="label">Cap Rate</div><div class="value">${fmtPct(S.capRate)}</div><div class="meta">portfolio blended</div></div>
     <div class="kpi"><div class="label">DSCR</div><div class="value ${S.dscr >= 1.25 ? "good" : "warn"}">${S.dscr.toFixed(2)}x</div><div class="meta">debt service coverage</div></div>
     <div class="kpi"><div class="label">Expense Ratio</div><div class="value ${S.expenseRatio <= 55 ? "good" : "warn"}">${fmtPct(S.expenseRatio)}</div><div class="meta">expenses / income</div></div>
     <div class="kpi"><div class="label">Total Units</div><div class="value">${D.companies.reduce((a,c)=>a+c.units,0)}</div><div class="meta">${D.companies.length} entities</div></div>`;
@@ -945,6 +974,39 @@ function renderPortfolio(){
         .forEach(pr => pr.classList.toggle("show", open));
     });
   });
+
+  // --- 5-Year Trend Charts ---
+  if (D.fiveYearTrend) {
+    const T = D.fiveYearTrend;
+    const chartOpts = (label, color, data, isMoney) => ({
+      type: 'line',
+      data: { labels: T.years, datasets: [{ label, data, borderColor: color, backgroundColor: color + '22', fill: true, tension: 0.3, pointRadius: 5, pointBackgroundColor: color }] },
+      options: { maintainAspectRatio: true, aspectRatio: 2, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxTicksLimit: 12, color: '#888' }, grid: { display: false } }, y: { ticks: { color: '#888', callback: v => isMoney ? '$' + (v >= 1000 ? (v/1000).toFixed(0) + 'K' : v) : v + (label.includes('Ratio') ? '%' : '') }, grid: { color: '#eee' } } } }
+    });
+    const erCtx = document.getElementById('expenseRatioChart');
+    if (erCtx) new Chart(erCtx, chartOpts('Expense Ratio %', '#f59e0b', T.expenseRatio, false));
+    const noiUCtx = document.getElementById('noiPerUnitChart');
+    if (noiUCtx) new Chart(noiUCtx, chartOpts('NOI Per Unit', '#10b981', T.noiPerUnit, true));
+    const dscrCtx = document.getElementById('dscrTrendChart');
+    if (dscrCtx) {
+      const dscrChart = chartOpts('DSCR', '#6366f1', T.dscr, false);
+      dscrChart.options.plugins.annotation = { annotations: { breakeven: { type: 'line', yMin: 1.0, yMax: 1.0, borderColor: '#ef4444', borderWidth: 2, borderDash: [6, 4], label: { display: true, content: '1.0x breakeven', position: 'start', color: '#ef4444', font: { size: 10 } } } } };
+      new Chart(dscrCtx, dscrChart);
+    }
+    const cfCtx = document.getElementById('cashFlowChart');
+    if (cfCtx) new Chart(cfCtx, {
+      type: 'bar',
+      data: { labels: T.years, datasets: [{ label: 'Cash Flow After Debt Service', data: T.cashFlowAfterDS, backgroundColor: T.cashFlowAfterDS.map(v => v >= 0 ? '#10b981' : '#ef4444'), borderRadius: 4 }] },
+      options: { maintainAspectRatio: true, aspectRatio: 2, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxTicksLimit: 12, color: '#888' }, grid: { display: false } }, y: { ticks: { color: '#888', callback: v => '$' + (v/1000).toFixed(0) + 'K' }, grid: { color: '#eee' } } } }
+    });
+  }
+  // --- Key Insights ---
+  if (D.keyInsights) {
+    const ul = document.getElementById('insightsList');
+    if (ul) {
+      ul.innerHTML = D.keyInsights.map(ins => '<li style="padding:10px 0;border-bottom:1px solid #eee;color:var(--text);line-height:1.6"><span style="color:#6366f1;font-weight:700;margin-right:8px">\u25CF</span>' + ins + '</li>').join('');
+    }
+  }
 }
 
 function buildPortfolioCharts(){
@@ -997,7 +1059,7 @@ function buildPortfolioCharts(){
 }
 
 /* ============================================================
-   TAB 3 Ã¢ÂÂ HOUSE FLIP
+   TAB 3 — HOUSE FLIP
    ============================================================ */
 const STATUS_BADGE = {
   "Acquired": "gray", "In Progress": "amber", "Listed": "blue",
@@ -1167,7 +1229,7 @@ function buildFlipCharts(){
 }
 
 /* ============================================================
-   TAB 4 Ã¢ÂÂ LAW & TAX
+   TAB 4 — LAW & TAX
    ============================================================ */
 let lawFilter = "all";
 function renderLawTax(){
@@ -1246,7 +1308,7 @@ renderLawTax();
 activateTab(location.hash.replace("#","") || "leads", false);
 
 /* Public hook: after a scheduled task mutates window.*_DATA it can call
-   window.refreshDashboards() Ã¢ÂÂ or simply regenerate this file's data block. */
+   window.refreshDashboards() — or simply regenerate this file's data block. */
 window.refreshDashboards = function(){
   try{renderLeads();}catch(e){console.warn(e)} try{renderPortfolio();}catch(e){console.warn(e)} try{renderFlips();}catch(e){console.warn(e)} try{renderLawTax();}catch(e){console.warn(e)}
 };
