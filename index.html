@@ -949,7 +949,10 @@ function renderPortfolio(){
   // --- 5-Year Trend Charts ---
   
   // --- Insert 5-Year Trend & Key Insights containers into DOM ---
+  // Remove existing sections to prevent duplicates on re-render
+  document.querySelectorAll('.trend-analysis-section, #keyInsightsSection').forEach(el => el.remove());
   const trendSection = document.createElement('div');
+  trendSection.className = 'trend-analysis-section';
   trendSection.style.cssText = 'margin-top:32px';
   trendSection.innerHTML = '<h3 style="color:var(--text);margin-bottom:16px">5-Year Trend Analysis</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px"><div class="card" style="padding:20px"><h4 style="margin:0 0 12px;color:var(--text)">Expense Ratio Trend</h4><canvas id="expenseRatioChart"></canvas></div><div class="card" style="padding:20px"><h4 style="margin:0 0 12px;color:var(--text)">NOI Per Unit Trend</h4><canvas id="noiPerUnitChart"></canvas></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px"><div class="card" style="padding:20px"><h4 style="margin:0 0 12px;color:var(--text)">DSCR Trend</h4><canvas id="dscrTrendChart"></canvas></div><div class="card" style="padding:20px"><h4 style="margin:0 0 12px;color:var(--text)">Annual Cash Flow After Debt Service</h4><canvas id="cashFlowChart"></canvas></div></div>';
   const insightsSection = document.createElement('div');
