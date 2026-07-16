@@ -1,205 +1,91 @@
 {
-  "lastUpdated": "2026-07-15T08:00:00-04:00",
+  "lastUpdated": "2026-07-16T07:07:49-04:00",
   "kpis": {
-    "avgResponseHrs": 22,
-    "contactRate4h": 53.8,
-    "contactRate24h": 68.6,
-    "newLeadsToday": 0,
-    "newLeadsWeek": 61,
-    "uncontacted": 4
-  },
-  "responseTrend": {
-    "labels": [
-      "07-01",
-      "07-02",
-      "07-03",
-      "07-04",
-      "07-05",
-      "07-06",
-      "07-07",
-      "07-08",
-      "07-09",
-      "07-10",
-      "07-11",
-      "07-12",
-      "07-13",
-      "07-14"
-    ],
-    "avgHours": [
-      37.9,
-      3.1,
-      21.2,
-      23.2,
-      3.2,
-      9.1,
-      10,
-      30.5,
-      13,
-      42,
-      42.1,
-      15.2,
-      9,
-      0
-    ]
+    "newLeads24h": 3,
+    "newLeads30d": 239,
+    "medianResponseHrs": 2,
+    "avgResponseHrs": 22.9,
+    "urgentUnresponded": 2
   },
   "volumeTrend": {
-    "labels": [
-      "06-15",
-      "06-16",
-      "06-17",
-      "06-18",
-      "06-19",
-      "06-20",
-      "06-21",
-      "06-22",
-      "06-23",
-      "06-24",
-      "06-25",
-      "06-26",
-      "06-27",
-      "06-28",
-      "06-29",
-      "06-30",
-      "07-01",
-      "07-02",
-      "07-03",
-      "07-04",
-      "07-05",
-      "07-06",
-      "07-07",
-      "07-08",
-      "07-09",
-      "07-10",
-      "07-11",
-      "07-12",
-      "07-13",
-      "07-14"
-    ],
-    "leads": [
-      10,
-      11,
-      13,
-      12,
-      8,
-      4,
-      7,
-      15,
-      12,
-      12,
-      10,
-      9,
-      4,
-      2,
-      7,
-      4,
-      2,
-      9,
-      10,
-      3,
-      7,
-      7,
-      7,
-      13,
-      13,
-      13,
-      4,
-      5,
-      7,
-      6
-    ]
+    "2026-06-16": 11,
+    "2026-06-17": 13,
+    "2026-06-18": 12,
+    "2026-06-19": 8,
+    "2026-06-20": 4,
+    "2026-06-21": 7,
+    "2026-06-22": 15,
+    "2026-06-23": 12,
+    "2026-06-24": 12,
+    "2026-06-25": 10,
+    "2026-06-26": 9,
+    "2026-06-27": 4,
+    "2026-06-28": 2,
+    "2026-06-29": 7,
+    "2026-06-30": 4,
+    "2026-07-01": 2,
+    "2026-07-02": 9,
+    "2026-07-03": 10,
+    "2026-07-04": 3,
+    "2026-07-05": 7,
+    "2026-07-06": 7,
+    "2026-07-07": 7,
+    "2026-07-08": 13,
+    "2026-07-09": 13,
+    "2026-07-10": 13,
+    "2026-07-11": 4,
+    "2026-07-12": 5,
+    "2026-07-13": 7,
+    "2026-07-14": 6,
+    "2026-07-15": 3
   },
   "funnel": {
-    "leads": 246,
-    "contacted": 210,
-    "applied": 101,
-    "leased": 0
-  },
-  "pipeline": {
-    "Pending App Completion": 119,
-    "Waiting on Docs": 27,
-    "Denied Due to Court": 17,
-    "Application Completed": 11,
-    "Denied Due to Income": 11,
-    "Denied Due to Credit Report": 11,
-    "PreApproved": 10,
-    "Other Adults Pending App": 4,
-    "Unit Locked In": 3,
-    "Invited to Showing": 2,
-    "No Longer Interested": 1,
-    "Denied": 1,
-    "No Stage": 29
-  },
-  "statusBreakdown": {
-    "Lost": 213,
-    "Prospect": 33
+    "Prospect": 20,
+    "Lost": 219
   },
   "sources": [
     {
-      "name": "Unspecified",
-      "leads": 246
+      "name": "HAP Listing",
+      "count30d": 239,
+      "count24h": 3
     }
   ],
   "properties": [
     {
       "name": "24-28 Wilcox",
-      "leads": 141,
-      "avgResponseHrs": 42.3,
-      "contactRate4h": 10.5
+      "leads30d": 140
     },
     {
       "name": "YellowBrick Management, Inc",
-      "leads": 101,
-      "avgResponseHrs": 0,
-      "contactRate4h": 100
+      "leads30d": 95
     },
     {
-      "name": "Property 726",
-      "leads": 2,
-      "avgResponseHrs": 20.7,
-      "contactRate4h": 50
+      "name": "50 Springfield Street",
+      "leads30d": 2
     },
     {
-      "name": "Property 694",
-      "leads": 1,
-      "avgResponseHrs": 50.2,
-      "contactRate4h": 0
+      "name": "Wilbraham RD 257",
+      "leads30d": 1
     },
     {
-      "name": "Property 702",
-      "leads": 1,
-      "avgResponseHrs": 85.5,
-      "contactRate4h": 0
+      "name": "St. James Ave 83",
+      "leads30d": 1
     }
   ],
   "urgentQueue": [
     {
-      "name": "Tyauna Lizardi",
+      "name": "Kellyann Kaiser",
       "property": "24-28 Wilcox",
-      "source": "Unspecified",
-      "waitingHrs": 129.8,
-      "createDate": "2026-07-09T22:09:02"
+      "created": "2026-07-15T14:44:58",
+      "status": "Prospect",
+      "source": "HAP Listing"
     },
     {
-      "name": "Jenny Ares",
+      "name": "Anastasia Serrano",
       "property": "24-28 Wilcox",
-      "source": "Unspecified",
-      "waitingHrs": 18.4,
-      "createDate": "2026-07-14T13:34:19"
-    },
-    {
-      "name": "Richard Rosado Velez",
-      "property": "24-28 Wilcox",
-      "source": "Unspecified",
-      "waitingHrs": 15.6,
-      "createDate": "2026-07-14T16:20:26"
-    },
-    {
-      "name": "Angela Walsh",
-      "property": "24-28 Wilcox",
-      "source": "Unspecified",
-      "waitingHrs": 11.7,
-      "createDate": "2026-07-14T20:18:19"
+      "created": "2026-07-15T22:56:14",
+      "status": "Prospect",
+      "source": "HAP Listing"
     }
-  ],
-  "team": []
+  ]
 }
