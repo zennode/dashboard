@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-17T08:05:00-04:00",
+  "lastUpdated": "2026-07-17T18:10:00-04:00",
   "active": [
     {
       "address": "83 Rolf Ave",
@@ -14,22 +14,7 @@
       "expectedProfit": null,
       "daysOwned": 1058,
       "estCompletion": null,
-      "notes": "Courageous Lion LLC. RM ID 789. Listing package (7 docs) signed 7/12 8:36 PM via dotloop with Alice Kempf (Kempf-Vanderburgh Realty): Exclusive Right to Sell, disclosures, lead paint notification, buyer-broker compensation authorization, Deferral of Showings. Showings deferred - not yet actively showing. List price not yet seen in email. Note: Alice Kempf's phone is broken 7/14 (no calls/texts with Android) - email her instead. No new activity through Fri 7/17 AM."
-    },
-    {
-      "address": "1874 Home Rd",
-      "city": "Sheffield, MA",
-      "entity": "Wicked Deals LLC",
-      "status": "Under Contract",
-      "purchaseDate": "2025-02-27",
-      "purchasePrice": null,
-      "renoBudget": null,
-      "renoSpent": null,
-      "arv": null,
-      "expectedProfit": null,
-      "daysOwned": 505,
-      "estCompletion": "2026-07-17",
-      "notes": "Wicked Deals LLC. RM ID 955. CLOSING TODAY Fri 7/17. 7/15 6:15 AM: Matt approved Bobby's invoice for payment ('Good to pay' - Joist invoice link sent to Chris, Jessica, Michelle). 7/14 11:52 AM: Jessica sent the boiler invoice (PDF) to Burstein and the Kempf team - verify it includes the 'boiler is fully operational' language Burstein requires, since buyer's broker Jonathan Hankin will NOT test the boiler at Friday's walkthrough (heat) and requires written contractor confirmation. STILL OPEN on closing day (as of Fri 7/17 8 AM, no new emails overnight): buyers' $2,000 floor credit request awaiting seller decision; buyer's counsel Courtney Lane offered addendum covering furnace, floor credit, and closing-date extension if needed."
+      "notes": "Courageous Lion LLC. RM ID 789. Listing package (7 docs) signed 7/12 8:36 PM via dotloop with Alice Kempf (Kempf-Vanderburgh Realty): Exclusive Right to Sell, disclosures, lead paint notification, buyer-broker compensation authorization, Deferral of Showings. Showings deferred - not yet actively showing. List price not yet seen in email. Note: Alice Kempf's phone is broken 7/14 (no calls/texts with Android) - email her instead. No new activity through Fri 7/17 PM."
     },
     {
       "address": "167 E Park Terrace",
@@ -44,7 +29,7 @@
       "expectedProfit": null,
       "daysOwned": 71,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit. 7/15 12:41 PM: Jessica Sicard shared progress photo album '167 East Park Terrace 7/10/26' (Google Photos). No new activity through Fri 7/17 AM."
+      "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit. 7/15 12:41 PM: Jessica Sicard shared progress photo album '167 East Park Terrace 7/10/26' (Google Photos). No new activity through Fri 7/17 PM."
     },
     {
       "address": "1 Richmond Ln",
@@ -59,7 +44,7 @@
       "expectedProfit": null,
       "daysOwned": 214,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 992. Listed $249,900 after $10k price drop confirmed 7/8 - feedback says overpriced, market slowing. No new activity through Fri 7/17 AM."
+      "notes": "House Hack Helpers. RM ID 992. Listed $249,900 after $10k price drop confirmed 7/8 - feedback says overpriced, market slowing. No new activity through Fri 7/17 PM."
     },
     {
       "address": "42 Washington St",
@@ -74,7 +59,7 @@
       "expectedProfit": null,
       "daysOwned": 722,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 985. Showings but no offers; railroad proximity objections. Dropping $1k/week (confirmed 7/8). Tight margins. No new activity through Fri 7/17 AM."
+      "notes": "House Hack Helpers. RM ID 985. Showings but no offers; railroad proximity objections. Dropping $1k/week (confirmed 7/8). Tight margins. No new activity through Fri 7/17 PM."
     },
     {
       "address": "283 Fuller Rd, Unit K",
@@ -89,7 +74,7 @@
       "expectedProfit": null,
       "daysOwned": 7,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1018. CLOSED 7/10 - deed recorded. 7/13: Matt set anticipated resale at $265-275k; Will shared the purchase HUD. Excess construction loan funds check at Burstein's office. Condo fees paid thru 7/31; next RE tax bill due Nov. Occupied; working to vacate. Utilities setup underway - oil-vs-gas question still open; Will traveling until ~7/20. No new activity through Fri 7/17 AM."
+      "notes": "House Hack Helpers. RM ID 1018. CLOSED 7/10 - deed recorded. 7/13: Matt set anticipated resale at $265-275k; Will shared the purchase HUD. Excess construction loan funds check at Burstein's office. Condo fees paid thru 7/31; next RE tax bill due Nov. Occupied; working to vacate. Utilities setup underway - oil-vs-gas question still open; Will traveling until ~7/20. No new activity through Fri 7/17 PM."
     },
     {
       "address": "412 St James Ave",
@@ -104,7 +89,7 @@
       "expectedProfit": null,
       "daysOwned": 8,
       "estCompletion": null,
-      "notes": "YellowBrick Property. RM ID 1019. Closed 7/9 - Burstein confirmed purchase finalized; closing paperwork received (PDF). Q1 real estate taxes paid to City of Springfield at closing. Next: rehab scope. No new activity through Fri 7/17 AM."
+      "notes": "YellowBrick Property. RM ID 1019. Closed 7/9 - Burstein confirmed purchase finalized; closing paperwork received (PDF). Q1 real estate taxes paid to City of Springfield at closing. Next: rehab scope. No new activity through Fri 7/17 PM."
     },
     {
       "address": "19 Draper Ave",
@@ -119,7 +104,7 @@
       "expectedProfit": null,
       "daysOwned": 17,
       "estCompletion": null,
-      "notes": "YellowBrick Property. RM ID 1017. Purchased 6/30. Entering rehab. No new activity through Fri 7/17 AM."
+      "notes": "YellowBrick Property. RM ID 1017. Purchased 6/30. Entering rehab. No new activity through Fri 7/17 PM."
     },
     {
       "address": "166 East St",
@@ -134,7 +119,7 @@
       "expectedProfit": null,
       "daysOwned": 71,
       "estCompletion": null,
-      "notes": "YellowBrick Property. RM ID 1009. Purchased 5/7. In rehab. No new activity through Fri 7/17 AM."
+      "notes": "YellowBrick Property. RM ID 1009. Purchased 5/7. In rehab. No new activity through Fri 7/17 PM."
     },
     {
       "address": "79 Pleasant St",
@@ -149,7 +134,7 @@
       "expectedProfit": null,
       "daysOwned": 0,
       "estCompletion": null,
-      "notes": "YellowBrick Property. Not yet in RM. Foreclosure closing expected by 7/20 (Mon - 3 days; deadline extended from 7/6 per Burstein; 7/18 falls on Saturday). No new activity through Fri 7/17 AM."
+      "notes": "YellowBrick Property. Not yet in RM. Foreclosure closing expected by Mon 7/20 (deadline extended from 7/6 per Burstein; 7/18 falls on Saturday). No new activity through Fri 7/17 PM - closing is next business day."
     },
     {
       "address": "96 Shore Rd",
@@ -164,7 +149,7 @@
       "expectedProfit": null,
       "daysOwned": 0,
       "estCompletion": null,
-      "notes": "7/13 PM: Burstein forwarded completed Purchase and Sale Agreement package (96 Shore - Completed package.pdf) to Matt, Kevin, and the Cables (remmcable/russellcable21). 7/14 11:47 AM: Burstein confirmed the $14,000.00 deposit has been received. 7/15 9:02 AM: Chris Keniley sent '96 Shore Expenses 7-15-26.pdf' - expenses were paid by Wicked Deals on behalf of Rise & Revive and per Chris should NOT factor into the closing. Entity appears to be Revive & Rise LLC per accounting emails (unconfirmed). 7/16: Matt confirmed Rise & Revive will reimburse Wicked Deals for those pre-closing expenses (Chris confirmed 11:54 AM); expenses stay out of the closing figures. Price and closing date still only in the P&S PDF. No new activity through Fri 7/17 AM."
+      "notes": "7/13 PM: Burstein forwarded completed Purchase and Sale Agreement package (96 Shore - Completed package.pdf) to Matt, Kevin, and the Cables (remmcable/russellcable21). 7/14 11:47 AM: Burstein confirmed the $14,000.00 deposit has been received. 7/15 9:02 AM: Chris Keniley sent '96 Shore Expenses 7-15-26.pdf' - expenses were paid by Wicked Deals on behalf of Rise & Revive and per Chris should NOT factor into the closing. Entity appears to be Revive & Rise LLC per accounting emails (unconfirmed). 7/16: Matt confirmed Rise & Revive will reimburse Wicked Deals for those pre-closing expenses (Chris confirmed 11:54 AM); expenses stay out of the closing figures. Price and closing date still only in the P&S PDF. No new activity through Fri 7/17 PM."
     },
     {
       "address": "65 Avondale",
@@ -179,10 +164,19 @@
       "expectedProfit": null,
       "daysOwned": 0,
       "estCompletion": null,
-      "notes": "NEW 7/16 8:08 PM: Jessica Sicard has a scope of work in progress (Google Doc shared) and asked when Matt wants to meet at the property; Matt proposed meeting Fri 7/17. Jessica suggested having Barry install the spare basement minisplits 'for sale' - to be discussed at the walkthrough. Entity, purchase status, and city not yet seen in email; added to tracker as a new flip in scoping."
+      "notes": "7/16 8:08 PM: Jessica Sicard has a scope of work in progress (Google Doc shared) and asked when Matt wants to meet at the property; Matt proposed meeting Fri 7/17 and wants to discuss installing the spare basement minisplits (Barry) for sale. Entity, purchase status, and city not yet seen in email. No new email activity through Fri 7/17 PM."
     }
   ],
   "sold": [
+    {
+      "address": "1874 Home Rd, Sheffield",
+      "soldDate": "2026-07-17",
+      "totalInvested": null,
+      "salePrice": 470000,
+      "profit": null,
+      "roiPct": null,
+      "daysHeld": 505
+    },
     {
       "address": "40 Roland St, Pittsfield",
       "soldDate": "2026-05-22",
