@@ -1,91 +1,152 @@
 {
-  "lastUpdated": "2026-07-16T07:07:49-04:00",
+  "lastUpdated": "2026-07-17T07:42:05-04:00",
   "kpis": {
-    "newLeads24h": 3,
-    "newLeads30d": 239,
-    "medianResponseHrs": 2,
-    "avgResponseHrs": 22.9,
-    "urgentUnresponded": 2
+    "newLeads24h": 2,
+    "newLeads30d": 230,
+    "activeProspects": 16,
+    "lostLeads30d": 214,
+    "totalUnits": 1186
   },
-  "volumeTrend": {
-    "2026-06-16": 11,
-    "2026-06-17": 13,
-    "2026-06-18": 12,
-    "2026-06-19": 8,
-    "2026-06-20": 4,
-    "2026-06-21": 7,
-    "2026-06-22": 15,
-    "2026-06-23": 12,
-    "2026-06-24": 12,
-    "2026-06-25": 10,
-    "2026-06-26": 9,
-    "2026-06-27": 4,
-    "2026-06-28": 2,
-    "2026-06-29": 7,
-    "2026-06-30": 4,
-    "2026-07-01": 2,
-    "2026-07-02": 9,
-    "2026-07-03": 10,
-    "2026-07-04": 3,
-    "2026-07-05": 7,
-    "2026-07-06": 7,
-    "2026-07-07": 7,
-    "2026-07-08": 13,
-    "2026-07-09": 13,
-    "2026-07-10": 13,
-    "2026-07-11": 4,
-    "2026-07-12": 5,
-    "2026-07-13": 7,
-    "2026-07-14": 6,
-    "2026-07-15": 3
+  "volumeTrend": {},
+  "statusBreakdown": {
+    "Prospect": 16,
+    "Lost": 214
   },
-  "funnel": {
-    "Prospect": 20,
-    "Lost": 219
+  "leadsByProperty": {
+    "24-28 Wilcox": 136,
+    "YellowBrick Management, Inc": 90,
+    "Wilbraham RD 257": 1,
+    "St. James Ave 83": 1,
+    "Unknown (ID 726)": 2
   },
-  "sources": [
+  "newLeads24h": [
     {
-      "name": "HAP Listing",
-      "count30d": 239,
-      "count24h": 3
+      "name": "Christopher Lopez",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-16T13:28:49",
+      "status": "Prospect",
+      "firstContact": "2026-07-16T13:28:49"
+    },
+    {
+      "name": "Essence Eddington",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-16T20:11:28",
+      "status": "Prospect",
+      "firstContact": "2026-07-16T20:11:28"
     }
   ],
-  "properties": [
+  "activeProspects": [
     {
-      "name": "24-28 Wilcox",
-      "leads30d": 140
+      "name": "Luisannette Valentin",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-06-18",
+      "responseHours": 0,
+      "lastContact": "2026-07-15"
     },
     {
-      "name": "YellowBrick Management, Inc",
-      "leads30d": 95
+      "name": "Paige Demanche",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-06-19",
+      "responseHours": 0,
+      "lastContact": "2026-07-16"
     },
     {
-      "name": "50 Springfield Street",
-      "leads30d": 2
+      "name": "Michaela Carlson",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-06-25",
+      "responseHours": 0,
+      "lastContact": "2026-07-15"
     },
     {
-      "name": "Wilbraham RD 257",
-      "leads30d": 1
+      "name": "Linda Nolan",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-09",
+      "responseHours": 0,
+      "lastContact": "2026-07-09"
     },
     {
-      "name": "St. James Ave 83",
-      "leads30d": 1
-    }
-  ],
-  "urgentQueue": [
+      "name": "Tyauna Lizardi",
+      "property": "24-28 Wilcox",
+      "created": "2026-07-09",
+      "responseHours": 137.3,
+      "lastContact": "2026-07-16"
+    },
+    {
+      "name": "tatyana antonetty",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-10",
+      "responseHours": 0,
+      "lastContact": "2026-07-14"
+    },
+    {
+      "name": "Cristian Garcia",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-10",
+      "responseHours": 0,
+      "lastContact": "2026-07-16"
+    },
+    {
+      "name": "Timothy Plant",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-10",
+      "responseHours": 0,
+      "lastContact": "2026-07-16"
+    },
+    {
+      "name": "Jenny Ares",
+      "property": "24-28 Wilcox",
+      "created": "2026-07-14",
+      "responseHours": 20.9,
+      "lastContact": "2026-07-16"
+    },
+    {
+      "name": "Angel Melendez",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-14",
+      "responseHours": 0,
+      "lastContact": "2026-07-16"
+    },
+    {
+      "name": "Richard Rosado Velez",
+      "property": "24-28 Wilcox",
+      "created": "2026-07-14",
+      "responseHours": 18.2,
+      "lastContact": "2026-07-16"
+    },
+    {
+      "name": "Angela Walsh",
+      "property": "24-28 Wilcox",
+      "created": "2026-07-14",
+      "responseHours": 14.3,
+      "lastContact": "2026-07-16"
+    },
+    {
+      "name": "Abby Castro",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-15",
+      "responseHours": 0,
+      "lastContact": "2026-07-16"
+    },
     {
       "name": "Kellyann Kaiser",
       "property": "24-28 Wilcox",
-      "created": "2026-07-15T14:44:58",
-      "status": "Prospect",
-      "source": "HAP Listing"
+      "created": "2026-07-15",
+      "responseHours": 21.8,
+      "lastContact": "2026-07-16"
     },
     {
-      "name": "Anastasia Serrano",
-      "property": "24-28 Wilcox",
-      "created": "2026-07-15T22:56:14",
-      "status": "Prospect",
-      "source": "HAP Listing"
+      "name": "Christopher Lopez",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-16",
+      "responseHours": 0,
+      "lastContact": "2026-07-16"
+    },
+    {
+      "name": "Essence Eddington",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-16",
+      "responseHours": 0,
+      "lastContact": "2026-07-16"
     }
   ]
 }
