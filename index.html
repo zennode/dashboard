@@ -7,7 +7,7 @@ h<!DOCTYPE html>
 <meta name="description" content="Unified operations dashboard for YellowBrick Management: rental leads, portfolio P&amp;L, house flips, and law &amp; tax updates.">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script>
-/* =========================h===================================
+/* =========================h===============h====================
    DATA OBJECTSh
    These window.* objects are updated programmatically by
    scheduled tasks. Keep the shapes stable.
@@ -1495,7 +1495,7 @@ const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts
           }]
         },
         options: {
-          indexAxis: 'y', responsive: true,
+          indexAxis: 'y', responsive: true, maintainAspectRatio: true,
           plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) { return ctx.raw.toLocaleString() + ' followers'; } } } },
           scales: {
             x: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: C.muted, callback: function(v) { return v >= 1000 ? (v / 1000).toFixed(0) + 'K' : v; } } },
@@ -1517,7 +1517,7 @@ const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts
           }]
         },
         options: {
-          responsive: true, cutout: '55%',
+          responsive: true, maintainAspectRatio: true, cutout: '55%',
           plugins: {
             legend: { position: 'bottom', labels: { color: C.muted, padding: 12, usePointStyle: true, pointStyle: 'circle' } },
             tooltip: { callbacks: { label: function(ctx) { var total = ctx.dataset.data.reduce(function(a, b) { return a + b; }, 0); var pct = ((ctx.raw / total) * 100).toFixed(1); return ctx.label + ': ' + ctx.raw.toLocaleString() + ' (' + pct + '%)'; } } }
