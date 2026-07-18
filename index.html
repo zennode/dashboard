@@ -13,60 +13,17 @@ h<!DOCTYPE html>
    scheduled tasks. Keep the shapes stable.
    ============================================================ */
 
-/* ---------- TAB 1: RENTAL LEADS (updated dhaily) ---------- */
+/* ---------- TAB 1: RENTAL LEADS (loaded from leads_data.json) ---------- */
 window.LEADS_DATA = {
-  lastUpdated: "2026-07-06T07:00:00-04:00",
-  kpis: {
-    avgResponseHrs: 21.4,          // average first-contact time, hours
-    responseGoalHrs: 4,
-    contactRate4h: 22,             // % of leads contacted within 4 hours
-    contactRate24h: 61,
-    newLeadsToday: 9,
-    newLeadsWeek: 47,
-    uncontacted: 14
-  },
-  // trailing 14 days
-  responseTrend: {
-    labels: ["6/23","6/24","6/25","6/26","6/27","6/28","6/29","6/30","7/1","7/2","7/3","7/4","7/5","7/6"],
-    avgHours: [26.1, 24.8, 28.3, 22.0, 19.5, 23.7, 25.2, 20.9, 18.4, 21.6, 19.8, 24.5, 22.3, 21.4]
-  },
-  volumeTrend: {
-    labels: ["6/23","6/24","6/25","6/26","6/27","6/28","6/29","6/30","7/1","7/2","7/3","7/4","7/5","7/6"],
-    leads: [6, 8, 5, 11, 9, 4, 3, 7, 10, 8, 6, 2, 5, 9]
-  },
-  // trailing 30 days
-  funnel: { leads: 186, contacted: 138, showing: 52, applied: 29, approved: 17, leased: 12 },
-  sources: [
-    { name: "Zillow",   leads: 84, leased: 6 },
-    { name: "Website",  leads: 52, leased: 3 },
-    { name: "Facebook", leads: 38, leased: 2 },
-    { name: "Walk-in",  leads: 12, leased: 1 }
-  ],
-  properties: [
-    { name: "45 Maple St, Springfield",      leads: 24, avgResponseHrs: 14.2, contactRate4h: 33, vacantUnits: 2 },
-    { name: "112 Chestnut St, Springfield",  leads: 21, avgResponseHrs: 19.8, contactRate4h: 24, vacantUnits: 1 },
-    { name: "78 Elm St, Holyoke",            leads: 19, avgResponseHrs: 31.5, contactRate4h:  9, vacantUnits: 3 },
-    { name: "230 Grattan St, Chicopee",      leads: 17, avgResponseHrs: 18.1, contactRate4h: 28, vacantUnits: 1 },
-    { name: "16 Oak Grove Ave, Springfield", leads: 15, avgResponseHrs: 24.7, contactRate4h: 18, vacantUnits: 2 },
-    { name: "9 Cabot St, Holyoke",           leads: 13, avgResponseHrs: 27.9, contactRate4h: 12, vacantUnits: 1 },
-    { name: "301 Front St, Chicopee",        leads: 11, avgResponseHrs: 12.6, contactRate4h: 41, vacantUnits: 1 },
-    { name: "55 Union St, Westfield",        leads:  9, avgResponseHrs: 16.3, contactRate4h: 30, vacantUnits: 1 }
-  ],
-  urgentQueue: [
-    { name: "D. Rivera",   property: "78 Elm St, Holyoke",           source: "Zillow",   waitingHrs: 38.2 },
-    { name: "K. Thompson", property: "45 Maple St, Springfield",     source: "Website",  waitingHrs: 26.5 },
-    { name: "M. Osei",     property: "16 Oak Grove Ave, Springfield",source: "Zillow",   waitingHrs: 19.1 },
-    { name: "J. Carter",   property: "230 Grattan St, Chicopee",     source: "Facebook", waitingHrs: 11.4 },
-    { name: "S. Nguyen",   property: "9 Cabot St, Holyoke",          source: "Zillow",   waitingHrs:  6.8 },
-    { name: "A. Fontaine", property: "112 Chestnut St, Springfield", source: "Website",  waitingHrs:  2.3 }
-  ],
-  team: [
-    { name: "Dana",   contacted: 52, avgResponseHrs:  9.4, showings: 21, leases: 6 },
-    { name: "Marcus", contacted: 44, avgResponseHrs: 17.8, showings: 16, leases: 4 },
-    { name: "Priya",  contacted: 42, avgResponseHrs: 28.6, showings: 15, leases: 2 }
-  ]
+lastUpdated: "",
+kpis: {newLeads24h:0,newLeads30d:0,activeProspects:0,lostLeads30d:0,totalUnits:0,contacted30d:0,avgFirstContactHours:0,medianFirstContactHours:0},
+volumeTrend: {},
+statusBreakdown: {},
+leadsByProperty: {},
+newLeads24h: [],
+urgentQueue: [],
+notes: {}
 };
-
 /* ---------- TAB 2: PROPERTY PORTFOLIO P&L (updated monthly) ---------- */
 window.PORTFOLIO_DATA = {
   lastUpdated: "2026-07-01T09:00:00-04:00",
@@ -915,141 +872,153 @@ const chartsBuilt = { leads:false, portfolio:false, flips:false, "law-tax":true 
    TAB 1 — RENTAL LEADS
    ============================================================ */
 function renderLeads(){
-  const D = window.LEADS_DATA, K = D.kpis;
-  $("#leads-updated").textContent = fmtDate(D.lastUpdated);
+const D = window.LEADS_DATA, K = D.kpis;
+if (!K || !D.lastUpdated) return;
+$("#leads-updated").textContent = fmtDate(D.lastUpdated);
 
-  const respClass = K.avgResponseHrs <= K.responseGoalHrs ? "good" : (K.avgResponseHrs <= 8 ? "warn" : "bad");
-  const crClass = K.contactRate4h >= 75 ? "good" : (K.contactRate4h >= 40 ? "warn" : "bad");
-  $("#leads-kpis").innerHTML = `
-    <div class="kpi accent">
-      <div class="label">Avg Response Time</div>
-      <div class="value ${respClass}">${K.avgResponseHrs.toFixed(1)}<span style="font-size:15px;font-weight:600"> hrs</span></div>
-      <div class="meta">Goal: under ${K.responseGoalHrs} hrs</div>
-    </div>
-    <div class="kpi">
-      <div class="label">Contacted &lt; 4 hrs</div>
-      <div class="value ${crClass}">${K.contactRate4h}%</div>
-      <div class="meta">${K.contactRate24h}% within 24 hrs</div>
-    </div>
-    <div class="kpi">
-      <div class="label">New Leads Today</div>
-      <div class="value gold">${K.newLeadsToday}</div>
-      <div class="meta">${K.newLeadsWeek} this week</div>
-    </div>
-    <div class="kpi">
-      <div class="label">Awaiting Contact</div>
-      <div class="value ${K.uncontacted > 0 ? "bad" : "good"}">${K.uncontacted}</div>
-      <div class="meta">in urgent queue below</div>
-    </div>
-    <div class="kpi">
-      <div class="label">Leased (30d)</div>
-      <div class="value good">${D.funnel.leased}</div>
-      <div class="meta">${(D.funnel.leased / D.funnel.leads * 100).toFixed(1)}% of ${D.funnel.leads} leads</div>
-    </div>`;
+const respClass = K.avgFirstContactHours <= 4 ? "good" : (K.avgFirstContactHours <= 8 ? "warn" : "bad");
+const contactPct = K.newLeads30d > 0 ? Math.round((K.contacted30d / K.newLeads30d) * 100) : 0;
+const contactClass = contactPct >= 75 ? "good" : (contactPct >= 40 ? "warn" : "bad");
 
-  // urgent queue
-  $("#urgent-body").innerHTML = D.urgentQueue
-    .slice().sort((a,b)=>b.waitingHrs-a.waitingHrs)
-    .map(l => {
-      const over = l.waitingHrs > 4;
-      return `<tr>
-        <td><strong>${esc(l.name)}</strong></td>
-        <td>${esc(l.property)}</td>
-        <td><span class="badge blue">${esc(l.source)}</span></td>
-        <td class="num" style="font-weight:700;color:${over?css('--red'):css('--green')}">${fmtHrs(l.waitingHrs)}</td>
-        <td>${over ? '<span class="badge red">OVERDUE</span>' : '<span class="badge green">Within goal</span>'}</td>
-      </tr>`;
-    }).join("") || `<tr><td colspan="5" class="empty-note">No uncontacted leads — queue is clear.</td></tr>`;
-
-  // per-property table
-  $("#prop-leads-body").innerHTML = D.properties.map(p => {
-    const barColor = p.contactRate4h >= 40 ? C.green : (p.contactRate4h >= 25 ? C.amber : C.red);
-    const respColor = p.avgResponseHrs <= 4 ? C.green : (p.avgResponseHrs <= 18 ? C.amber : C.red);
-    return `<tr>
-      <td>${esc(p.name)}</td>
-      <td class="num">${p.leads}</td>
-      <td class="num" style="color:${respColor};font-weight:700">${p.avgResponseHrs.toFixed(1)} h</td>
-      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:${p.contactRate4h}%;background:${barColor}"></div></div><span style="font-variant-numeric:tabular-nums;min-width:36px;text-align:right">${p.contactRate4h}%</span></div></td>
-      <td class="num">${p.vacantUnits}</td>
-    </tr>`;
-  }).join("");
-
-  // team scorecard, ranked by avg response (lower = better)
-  const ranked = D.team.slice().sort((a,b)=>a.avgResponseHrs-b.avgResponseHrs);
-  const medals = ["🥇","🥈","🥉"];
-  $("#team-body").innerHTML = ranked.map((t,i) => {
-    const respColor = t.avgResponseHrs <= 4 ? C.green : (t.avgResponseHrs <= 18 ? C.amber : C.red);
-    return `<tr>
-      <td><strong>${esc(t.name)}</strong></td>
-      <td class="num">${t.contacted}</td>
-      <td class="num" style="color:${respColor};font-weight:700">${t.avgResponseHrs.toFixed(1)} h</td>
-      <td class="num">${t.showings}</td>
-      <td class="num">${t.leases}</td>
-      <td>${medals[i] || ""} #${i+1}</td>
-    </tr>`;
+$("#leads-kpis").innerHTML = `
+<div class="kpi accent">
+  <div class="label">Avg First-Contact Time</div>
+  <div class="value ${respClass}">${K.avgFirstContactHours}<span style="font-size:15px;font-weight:600"> hrs</span></div>
+  <div class="meta">Median: ${K.medianFirstContactHours} hrs</div>
+</div>
+<div class="kpi">
+  <div class="label">Contacted (30d)</div>
+  <div class="value ${contactClass}">${contactPct}%</div>
+  <div class="meta">${K.contacted30d} of ${K.newLeads30d} leads</div>
+</div>
+<div class="kpi">
+  <div class="label">New Leads (24h)</div>
+  <div class="value gold">${K.newLeads24h}</div>
+  <div class="meta">${K.newLeads30d} in last 30 days</div>
+</div>
+<div class="kpi">
+  <div class="label">Active Prospects</div>
+  <div class="value warn">${K.activeProspects}</div>
+  <div class="meta">${K.totalUnits} total units</div>
+</div>
+<div class="kpi">
+  <div class="label">Lost Leads (30d)</div>
+  <div class="value bad">${K.lostLeads30d}</div>
+  <div class="meta">${K.newLeads30d > 0 ? ((K.lostLeads30d/K.newLeads30d)*100).toFixed(1) : 0}% lost</div>
+</div>`;
+// Urgent Queue
+const uq = D.urgentQueue || [];
+if (uq.length === 0) {
+  $("#urgent-body").innerHTML = '<tr><td colspan="5" class="empty-note">No uncontacted leads in urgent queue</td></tr>';
+} else {
+  uq.sort((a,b) => b.waitingHrs - a.waitingHrs);
+  $("#urgent-body").innerHTML = uq.map(l => {
+    const hrs = l.waitingHrs;
+    const bc = hrs > 24 ? "red" : hrs > 4 ? "amber" : "green";
+    return `<tr><td><strong>${l.name}</strong></td><td>${l.property}</td>
+      <td><span class="badge ${bc==="green"?"blue":bc}">${l.source||"N/A"}</span></td>
+      <td class="num"><span style="color:var(--${bc})">${hrs.toFixed(1)} hrs</span></td>
+      <td><span class="badge ${bc}">${hrs>24?"OVERDUE":hrs>4?"WAITING":"NEW"}</span></td></tr>`;
   }).join("");
 }
 
+// Per-Property Breakdown
+const props = D.leadsByProperty || {};
+const pe = Object.entries(props).sort((a,b) => b[1] - a[1]);
+if (pe.length === 0) {
+  $("#prop-leads-body").innerHTML = '<tr><td colspan="5" class="empty-note">No property data available</td></tr>';
+} else {
+  const mx = pe[0][1];
+  $("#prop-leads-body").innerHTML = pe.map(([n,c]) => `<tr><td><strong>${n}</strong></td>
+    <td class="num">${c}</td><td class="num">\u2014</td>
+    <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:${(c/mx*100).toFixed(0)}%;background:var(--gold)"></div></div></div></td>
+    <td class="num">\u2014</td></tr>`).join("");
+}
+// Recent Leads (replaces Team Scorecard - team data not in Rent Manager export)
+const recent = Array.isArray(D.newLeads24h) ? D.newLeads24h : [];
+const teamTb = $("#team-body");
+const teamTh = teamTb.closest("table").querySelector("thead");
+const teamSt = teamTb.closest(".table-wrap").previousElementSibling;
+if (recent.length > 0) {
+  if(teamSt && teamSt.classList.contains("section-title")) teamSt.textContent = "Recent Leads (24h)";
+  teamTh.innerHTML = '<tr><th>Lead Name</th><th>Property</th><th>Status</th><th class="num">Created</th><th colspan="2"></th></tr>';
+  teamTb.innerHTML = recent.map(l => {
+    const d = new Date(l.created);
+    const ts = d.toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"});
+    return `<tr><td><strong>${l.name}</strong></td><td>${l.property}</td>
+      <td><span class="badge gold">${l.status}</span></td>
+      <td class="num">${ts}</td><td colspan="2"></td></tr>`;
+  }).join("");
+} else {
+  if(teamSt && teamSt.classList.contains("section-title")) teamSt.textContent = "Recent Leads";
+  teamTh.innerHTML = '<tr><th>Lead Name</th><th>Property</th><th>Status</th><th class="num">Created</th><th colspan="2"></th></tr>';
+  teamTb.innerHTML = '<tr><td colspan="6" class="empty-note">No recent leads in the last 24 hours</td></tr>';
+}
+}
+
 function buildLeadsCharts(){
-  const D = window.LEADS_DATA;
+const D = window.LEADS_DATA;
+if (!D || !D.lastUpdated) return;
 
-  new Chart($("#chart-response"), {
-    type: "line",
-    data: {
-      labels: D.responseTrend.labels,
-      datasets: [
-        { label: "Avg hours", data: D.responseTrend.avgHours, borderColor: C.gold,
-          backgroundColor: "rgba(245,197,24,.12)", fill: true, tension: .35,
-          pointRadius: 2.5, pointBackgroundColor: C.gold, borderWidth: 2 },
-        { label: "Goal (4h)", data: D.responseTrend.labels.map(()=>D.kpis.responseGoalHrs),
-          borderColor: C.green, borderDash: [6,5], pointRadius: 0, borderWidth: 1.5, fill: false }
-      ]
-    },
-    options: { scales: { y: { beginAtZero: true, title: { display:false } } },
-      plugins: { legend: { position: "bottom" } } }
-  });
+// Volume trend - convert date-keyed object to arrays
+const vt = D.volumeTrend || {};
+const vtE = Object.entries(vt).sort((a,b)=>a[0].localeCompare(b[0]));
+const vtL = vtE.map(([d])=>{const p=d.split("-");return parseInt(p[1])+"/"+parseInt(p[2]);});
+const vtD = vtE.map(([,v])=>v);
 
-  new Chart($("#chart-volume"), {
-    type: "bar",
-    data: { labels: D.volumeTrend.labels,
-      datasets: [{ label: "New leads", data: D.volumeTrend.leads,
-        backgroundColor: "rgba(96,165,250,.55)", borderColor: C.blue, borderWidth: 1, borderRadius: 4 }] },
-    options: { scales: { y: { beginAtZero: true, ticks: { precision: 0 } } },
-      plugins: { legend: { display: false } } }
-  });
+// Response time chart - no per-day data available
+const respCanvas = $("#chart-response");
+const respCard = respCanvas.closest(".card");
+if (respCard) {
+  respCanvas.style.display = "none";
+  var rh = respCard.querySelector("h3");
+  if(rh) rh.innerHTML = 'Avg First-Contact Time <span class="hint">current: '+D.kpis.avgFirstContactHours+' hrs (median '+D.kpis.medianFirstContactHours+' hrs)</span>';
+  var rn = document.createElement("div");
+  rn.className = "empty-note";
+  rn.style.cssText = "display:flex;align-items:center;justify-content:center;height:200px;color:var(--faint)";
+  rn.textContent = "Per-day response time trend not available from Rent Manager";
+  respCard.querySelector(".chart-box").appendChild(rn);
+}
+// Volume trend chart
+if (vtL.length > 0) {
+  new Chart($("#chart-volume"),{type:"bar",data:{labels:vtL,datasets:[{label:"New Leads",data:vtD,
+    backgroundColor:C.gold+"33",borderColor:C.gold,borderWidth:1.5,borderRadius:4}]},
+    options:{plugins:{legend:{display:false}},scales:{
+      x:{grid:{display:false},ticks:{color:C.muted,font:{size:10},maxRotation:45}},
+      y:{grid:{color:C.grid},ticks:{color:C.muted,font:{size:11}},beginAtZero:true}}}});
+}
 
-  const F = D.funnel;
-  const funnelLabels = ["Leads","Contacted","Showing","Applied","Approved","Leased"];
-  const funnelVals = [F.leads,F.contacted,F.showing,F.applied,F.approved,F.leased];
-  const funnelColors = [C.blue, "#818cf8", C.purple, C.amber, "#fb923c", C.green];
-  new Chart($("#chart-funnel"), {
-    type: "bar",
-    data: { labels: funnelLabels,
-      datasets: [{ data: funnelVals, backgroundColor: funnelColors.map(c=>c+"cc"),
-        borderColor: funnelColors, borderWidth: 1, borderRadius: 4 }] },
-    options: { indexAxis: "y",
-      scales: { x: { beginAtZero: true, ticks: { precision: 0 } } },
-      plugins: { legend: { display: false },
-        tooltip: { callbacks: { label: ctx => {
-          const v = ctx.parsed.x;
-          const pct = (v / F.leads * 100).toFixed(0);
-          return ` ${v} (${pct}% of leads)`;
-        }}}}}
-  });
+// Status breakdown (replaces conversion funnel)
+const sb = D.statusBreakdown || {};
+const sbE = Object.entries(sb);
+const funnelCard = $("#chart-funnel").closest(".card");
+if (sbE.length > 0 && funnelCard) {
+  var fh = funnelCard.querySelector("h3");
+  if(fh) fh.innerHTML = 'Lead Status Breakdown <span class="hint">last 30 days</span>';
+  new Chart($("#chart-funnel"),{type:"doughnut",data:{labels:sbE.map(([k])=>k),
+    datasets:[{data:sbE.map(([,v])=>v),backgroundColor:[C.gold,C.red,C.green,C.blue,C.amber]}]},
+    options:{plugins:{legend:{position:"bottom",labels:{color:C.muted,font:{size:12},padding:14}}}}});
+} else if(funnelCard) {
+  funnelCard.querySelector(".chart-box").innerHTML = '<div class="empty-note" style="display:flex;align-items:center;justify-content:center;height:200px;color:var(--faint)">Status data unavailable</div>';
+}
+// Leads by property (replaces lead sources - source data not in RM export)
+const lp = D.leadsByProperty || {};
+const lpE = Object.entries(lp).sort((a,b)=>b[1]-a[1]).slice(0,8);
+const srcCard = $("#chart-sources").closest(".card");
+if (lpE.length > 0 && srcCard) {
+  var sh = srcCard.querySelector("h3");
+  if(sh) sh.innerHTML = 'Leads by Property <span class="hint">last 30 days</span>';
+  new Chart($("#chart-sources"),{type:"bar",data:{labels:lpE.map(([k])=>k),
+    datasets:[{label:"Leads",data:lpE.map(([,v])=>v),
+    backgroundColor:[C.gold,C.blue,C.green,C.amber,C.red,"#c084fc",C.muted,C.gold+"88"],borderRadius:4}]},
+    options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{
+      x:{grid:{color:C.grid},ticks:{color:C.muted}},
+      y:{grid:{display:false},ticks:{color:C.muted,font:{size:11}}}}}});
+} else if(srcCard) {
+  srcCard.querySelector(".chart-box").innerHTML = '<div class="empty-note" style="display:flex;align-items:center;justify-content:center;height:200px;color:var(--faint)">Lead source data unavailable</div>';
+}
 
-  new Chart($("#chart-sources"), {
-    type: "doughnut",
-    data: { labels: D.sources.map(s=>s.name),
-      datasets: [{ data: D.sources.map(s=>s.leads),
-        backgroundColor: [C.blue, C.gold, "#818cf8", C.green],
-        borderColor: "#1a1e29", borderWidth: 3 }] },
-    options: { cutout: "62%",
-      plugins: { legend: { position: "bottom" },
-        tooltip: { callbacks: { label: ctx => {
-          const s = D.sources[ctx.dataIndex];
-          return ` ${s.leads} leads · ${s.leased} leased`;
-        }}}}}
-  });
+chartsBuilt.leads = true;
 }
 
 /* ============================================================
