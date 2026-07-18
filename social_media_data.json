@@ -224,28 +224,88 @@
   },
   "contentStrategy": {
     "longFormIdeasMainChannel": [
-      "Complete Guide to Buying Your First Foreclosure Property in 2026",
-      "We Bought 5 Properties at Auction in 30 Days - Full Breakdown",
-      "Foreclosure Auction Day: Live Walkthrough From Research to Winning Bid",
-      "How to Analyze ANY Foreclosure Property in Under 30 Minutes",
-      "$0 to $10K/Month Passive Income Through Foreclosure Auctions",
-      "The Truth About Foreclosure Auction Profits: Our Real Numbers",
-      "Beginners Mistake Cost Us $40K - What We Learned",
-      "How We Built a 700+ Unit Rental Portfolio Starting from Zero",
-      "5 Foreclosure Auction Strategies That Actually Work in 2026",
-      "Real Estate Attorney Answers Your Top Foreclosure Questions"
+      {
+        "title": "Complete Guide to Buying Your First Foreclosure Property in 2026",
+        "type": "Evergreen Educational"
+      },
+      {
+        "title": "We Bought 5 Properties at Auction in 30 Days - Full Breakdown",
+        "type": "Diary / Challenge"
+      },
+      {
+        "title": "Foreclosure Auction Day: Live Walkthrough From Research to Winning Bid",
+        "type": "Live Experience"
+      },
+      {
+        "title": "How to Analyze ANY Foreclosure Property in Under 30 Minutes",
+        "type": "Tutorial"
+      },
+      {
+        "title": "$0 to $10K/Month Passive Income Through Foreclosure Auctions",
+        "type": "Aspirational"
+      },
+      {
+        "title": "The Truth About Foreclosure Auction Profits: Our Real Numbers",
+        "type": "Transparency"
+      },
+      {
+        "title": "Beginners Mistake Cost Us $40K - What We Learned",
+        "type": "Story + Lesson"
+      },
+      {
+        "title": "How We Built a 700+ Unit Rental Portfolio Starting from Zero",
+        "type": "Origin Story"
+      },
+      {
+        "title": "5 Foreclosure Auction Strategies That Actually Work in 2026",
+        "type": "Listicle"
+      },
+      {
+        "title": "Real Estate Attorney Answers Your Top Foreclosure Questions",
+        "type": "Collab / Expert"
+      }
     ],
     "longFormIdeasSecondChannel": [
-      "Step-by-Step: How We Won a $525K House for $334K at Auction",
-      "Foreclosure Auction Title Search: What Could Kill Your Deal",
-      "The Complete Foreclosure Auction Financing Guide for Beginners",
-      "We Toured 10 Foreclosure Properties - Which Ones Were Worth Bidding On?",
-      "Bank-Owned vs Tax Lien: Which Foreclosure Type is More Profitable?",
-      "The Hidden Costs of Buying at Foreclosure Auction Nobody Talks About",
-      "How to Find Foreclosure Auctions in Your Area: The Ultimate Guide",
-      "Renovating Our $165K Foreclosure Win: Full Before and After",
-      "Foreclosure Auction Red Flags: 7 Properties We Walked Away From",
-      "From Auction Win to Rental Income: Our Complete Investment Process"
+      {
+        "title": "Step-by-Step: How We Won a $525K House for $334K at Auction",
+        "type": "Case Study"
+      },
+      {
+        "title": "Foreclosure Auction Title Search: What Could Kill Your Deal",
+        "type": "Educational"
+      },
+      {
+        "title": "The Complete Foreclosure Auction Financing Guide for Beginners",
+        "type": "Tutorial"
+      },
+      {
+        "title": "We Toured 10 Foreclosure Properties - Which Ones Were Worth Bidding On?",
+        "type": "Walkthrough"
+      },
+      {
+        "title": "Bank-Owned vs Tax Lien: Which Foreclosure Type is More Profitable?",
+        "type": "Comparison"
+      },
+      {
+        "title": "The Hidden Costs of Buying at Foreclosure Auction Nobody Talks About",
+        "type": "Myth-Busting"
+      },
+      {
+        "title": "How to Find Foreclosure Auctions in Your Area: The Ultimate Guide",
+        "type": "Local SEO Play"
+      },
+      {
+        "title": "Renovating Our $165K Foreclosure Win: Full Before and After",
+        "type": "Transformation"
+      },
+      {
+        "title": "Foreclosure Auction Red Flags: 7 Properties We Walked Away From",
+        "type": "Cautionary"
+      },
+      {
+        "title": "From Auction Win to Rental Income: Our Complete Investment Process",
+        "type": "Full Pipeline"
+      }
     ],
     "actionableTips": [
       "Long-form videos currently get 150-400 views. Titles with specific dollar amounts perform 2-3x better.",
@@ -256,24 +316,25 @@
       "Use series playlists (Foreclosure Auction Diary, Auction Day).",
       "Hook viewers in first 30 seconds with the outcome/result."
     ],
-    "monetizationRoadmap": {
+    "monetization": {
       "currentRevenue": 54,
-      "currentIssue": "Most views come from shorts which pay ~$0.04/1K views vs. $3-7/1K for long-form",
-      "target1": {
-        "goal": "1,000+ views per long-form video",
-        "estimatedRevenue": "500-1000/mo"
-      },
-      "target2": {
-        "goal": "5K+ views per video, 3 videos/week",
-        "estimatedRevenue": "5000/mo",
-        "requirement": "1M+ monthly long-form views"
-      },
-      "secondaryMonetization": [
+      "currentIssue": "Most views come from shorts (~$0.04/1K views vs $3-7/1K for long-form)",
+      "targets": [
+        {
+          "label": "$500-1K/mo",
+          "requirement": "1,000+ views per long-form video"
+        },
+        {
+          "label": "$5K/mo",
+          "requirement": "5K+ views/video, 3 videos/week (1M+ monthly long-form views)"
+        }
+      ],
+      "secondaryStreams": [
         "Affiliate links (hard money lenders, tools)",
         "Course/coaching",
         "Book sales"
       ],
-      "channel2Status": "Needs 1,000 subs + 4,000 watch hours for monetization eligibility (currently at 811 subs)"
+      "channel2Status": "Needs 1,000 subs + 4,000 watch hours (currently 811 subs - close!)"
     }
   }
 }
