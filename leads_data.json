@@ -1,19 +1,16 @@
 {
-  "lastUpdated": "2026-07-18T07:08:11-04:00",
+  "lastUpdated": "2026-07-20T10:26:35-04:00",
   "kpis": {
-    "newLeads24h": 3,
-    "newLeads30d": 220,
-    "activeProspects": 11,
-    "lostLeads30d": 208,
+    "newLeads24h": 7,
+    "newLeads30d": 212,
+    "activeProspects": 13,
+    "lostLeads30d": 198,
     "totalUnits": 1186,
-    "contacted30d": 190,
-    "avgFirstContactHours": 23.1,
-    "medianFirstContactHours": 3
+    "contacted30d": 184,
+    "avgFirstContactHours": 22.6,
+    "medianFirstContactHours": 4
   },
   "volumeTrend": {
-    "2026-06-18": 12,
-    "2026-06-19": 8,
-    "2026-06-20": 4,
     "2026-06-21": 7,
     "2026-06-22": 15,
     "2026-06-23": 12,
@@ -40,37 +37,64 @@
     "2026-07-14": 6,
     "2026-07-15": 3,
     "2026-07-16": 2,
-    "2026-07-17": 3
+    "2026-07-17": 3,
+    "2026-07-18": 5,
+    "2026-07-19": 6,
+    "2026-07-20": 1
   },
   "statusBreakdown": {
-    "Prospect": 11,
-    "Lost": 208,
+    "Prospect": 13,
+    "Lost": 198,
     "Customer": 1
   },
   "leadsByProperty": {
-    "24-28 Wilcox": 131,
-    "YellowBrick Management, Inc": 84,
+    "24-28 Wilcox": 129,
+    "YellowBrick Management, Inc": 78,
     "50 Springfield Street": 3,
     "Wilbraham RD 257": 1,
     "St. James Ave 83": 1
   },
   "newLeads24h": [
     {
-      "name": "Johanna Figueroa",
-      "created": "2026-07-17T11:03:14",
+      "name": "francine hernandez",
+      "created": "2026-07-19T10:27:38",
       "property": "24-28 Wilcox",
       "status": "Prospect"
     },
     {
-      "name": "Nastacia Thomas",
-      "created": "2026-07-17T12:09:39",
-      "property": "24-28 Wilcox",
-      "status": "Prospect"
+      "name": "Ninoshka Orta Gomez",
+      "created": "2026-07-19T13:43:38",
+      "property": "YellowBrick Management, Inc",
+      "status": "Lost"
     },
     {
-      "name": "shawnie Pitts",
-      "created": "2026-07-17T13:06:58",
+      "name": "Ninoshka Orta Gomez",
+      "created": "2026-07-19T13:52:51",
       "property": "24-28 Wilcox",
+      "status": "Lost"
+    },
+    {
+      "name": "Khalida Faqir Zada",
+      "created": "2026-07-19T15:40:33",
+      "property": "24-28 Wilcox",
+      "status": "Lost"
+    },
+    {
+      "name": "Saunjee Singleton",
+      "created": "2026-07-19T16:11:29",
+      "property": "YellowBrick Management, Inc",
+      "status": "Lost"
+    },
+    {
+      "name": "Christopher Shean",
+      "created": "2026-07-19T16:50:22",
+      "property": "24-28 Wilcox",
+      "status": "Lost"
+    },
+    {
+      "name": "Tyffannie Fluitt",
+      "created": "2026-07-20T03:24:14",
+      "property": "YellowBrick Management, Inc",
       "status": "Prospect"
     }
   ],
