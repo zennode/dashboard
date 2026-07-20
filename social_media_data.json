@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-20T10:31:25-04:00",
+  "lastUpdated": "2026-07-20T14:00:00-04:00",
   "platforms": {
     "youtube": {
       "channels": [
@@ -206,16 +206,71 @@
       "followers": 891100,
       "likes": 7300000,
       "following": 282
+    },
+    "twitter": {
+      "handle": "@2GuysTake",
+      "displayName": "Two Guys Take on Real Estate",
+      "verified": true,
+      "followers": 5780,
+      "following": 34,
+      "posts": 4812,
+      "location": "Springfield, MA",
+      "bio": "Real Estate Investors Paying it forward. 700+ Rental Units. 500+ Flips",
+      "joinedDate": "December 2020",
+      "recentPosts": [
+        {
+          "text": "Foreclosure auction Before and After - Won for 136k, Rehab 70k, UA for 360k",
+          "date": "Feb 21, 2025",
+          "replies": 29,
+          "retweets": 2,
+          "likes": 98,
+          "views": 16000,
+          "pinned": true
+        },
+        {
+          "text": "$100K Salary Looks Like After Taxes in Your State",
+          "date": "Apr 15, 2024",
+          "replies": 285,
+          "retweets": 274,
+          "likes": 1600,
+          "views": 837000
+        },
+        {
+          "text": "If you think real estate prices are expensive now with 7-8% mortgages...",
+          "date": "Aug 15, 2024",
+          "replies": 483,
+          "retweets": 20,
+          "likes": 973,
+          "views": 238000
+        },
+        {
+          "text": "A landlord gives a 60-day eviction notice because they want to go a different way with THEIR house",
+          "date": "Jul 8, 2024",
+          "replies": 248,
+          "retweets": 13,
+          "likes": 1000,
+          "views": 281000
+        },
+        {
+          "text": "Tenant: I moved out, no need for final walkthrough, keep the deposit. Us: Deposit?! Here is a 9k bill!",
+          "date": "Oct 7, 2024",
+          "replies": 243,
+          "retweets": 30,
+          "likes": 820,
+          "views": 174000
+        }
+      ]
     }
   },
   "crossPlatformSummary": {
-    "totalFollowers": 1433913,
+    "totalFollowers": 1439693,
     "breakdown": {
       "tiktok": 891100,
       "facebook": 208000,
       "instagram": 201000,
       "youtubeMain": 133000,
-      "youtubeSecond": 813
+      "youtubeSecond": 813,
+      "twitter": 5780
     },
     "totalYouTubeVideos": 1745,
     "tiktokLikes": 7300000,
