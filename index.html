@@ -289,6 +289,23 @@ window.SOCIAL_MEDIA_DATA = {
       followers: 891000,
       likes: 7300000,
       following: 282
+    },
+    twitter: {
+      handle: "@2GuysTake",
+      displayName: "Two Guys Take on Real Estate",
+      verified: true,
+      followers: 5780,
+      following: 34,
+      posts: 4812,
+      location: "Springfield, MA",
+      bio: "Real Estate Investors Paying it forward. 700+ Rental Units. 500+ Flips",
+      recentPosts: [
+        { text: "Foreclosure auction Before and After", date: "Feb 21, 2025", replies: 29, retweets: 2, likes: 98, views: 16000, pinned: true },
+        { text: "$100K Salary After Taxes in Your State", date: "Apr 15, 2024", replies: 285, retweets: 274, likes: 1600, views: 837000 },
+        { text: "Real estate prices expensive with 7-8% mortgages", date: "Aug 15, 2024", replies: 483, retweets: 20, likes: 973, views: 238000 },
+        { text: "Landlord gives 60-day eviction notice", date: "Jul 8, 2024", replies: 248, retweets: 13, likes: 1000, views: 281000 },
+        { text: "Tenant moved out, here is a 9k bill", date: "Oct 7, 2024", replies: 243, retweets: 30, likes: 820, views: 174000 }
+      ]
     }
   },
   contentStrategy: {
@@ -758,7 +775,8 @@ tr.prop-row.show{display:table-row}
       <div class="kpi"><div class="label">Instagram Followers</div><div class="value" style="color:var(--purple,#c084fc)">201,000</div><div class="meta">2,211 posts</div></div>
       <div class="kpi"><div class="label">YouTube (Main)</div><div class="value" style="color:var(--red)">132,000</div><div class="meta">1,700 videos &middot; $54/mo est.</div></div>
       <div class="kpi"><div class="label">YouTube (Auction Masters)</div><div class="value" style="color:var(--red)">811</div><div class="meta">45 videos &middot; Not monetized</div></div>
-      <div class="kpi"><div class="label">Total Cross-Platform</div><div class="value" style="color:var(--green)">1.43M</div><div class="meta">Combined followers/subscribers</div></div>
+      <div class="kpi"><div class="label">X / Twitter</div><div class="value" style="color:#1da1f2">5,780</div><div class="meta">@2GuysTake &middot; 4,812 posts</div></div>
+<div class="kpi"><div class="label">Total Cross-Platform</div><div class="value" style="color:var(--green)">1.44M</div><div class="meta">Combined followers/subscribers</div></div>
     </div>
 
     <h2 class="section-title" style="margin-top:2rem;">YouTube: Two Guys Take on Real Estate</h2>
@@ -1485,12 +1503,12 @@ const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts
       new Chart(followersCtx, {
         type: 'bar',
         data: {
-          labels: ['TikTok', 'Facebook', 'Instagram', 'YouTube (Main)', 'YouTube (2nd)'],
+          labels: ['TikTok', 'Facebook', 'Instagram', 'YouTube (Main)', 'X/Twitter', 'YouTube (2nd)'],
           datasets: [{
             label: 'Followers / Subscribers',
-            data: [891000, 207000, 201000, 132000, 811],
-            backgroundColor: [C.gold, C.blue, purple, C.red, C.red + '80'],
-            borderColor: [C.gold, C.blue, purple, C.red, C.red],
+            data: [891000, 207000, 201000, 132000, 5780, 811],
+            backgroundColor: [C.gold, C.blue, purple, C.red, '#1da1f2', C.red + '80'],
+            borderColor: [C.gold, C.blue, purple, C.red, '#1da1f2', C.red],
             borderWidth: 1, borderRadius: 4
           }]
         },
@@ -1509,10 +1527,10 @@ const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts
       new Chart(audienceCtx, {
         type: 'doughnut',
         data: {
-          labels: ['TikTok', 'Facebook', 'Instagram', 'YouTube (Main)', 'YouTube (2nd)'],
+          labels: ['TikTok', 'Facebook', 'Instagram', 'YouTube (Main)', 'X/Twitter', 'YouTube (2nd)'],
           datasets: [{
-            data: [891000, 207000, 201000, 132000, 811],
-            backgroundColor: [C.gold, C.blue, purple, C.red, C.red + '80'],
+            data: [891000, 207000, 201000, 132000, 5780, 811],
+            backgroundColor: [C.gold, C.blue, purple, C.red, '#1da1f2', C.red + '80'],
             borderColor: '#1a1e29', borderWidth: 2
           }]
         },
