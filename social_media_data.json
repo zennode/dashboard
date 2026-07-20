@@ -1,243 +1,83 @@
 {
-  "lastUpdated": "2026-07-18",
+  "lastUpdated": "2026-07-20T10:31:25-04:00",
   "platforms": {
     "youtube": {
       "channels": [
         {
           "name": "Two Guys Take on Real Estate",
           "handle": "@TwoGuysTakeonRealEstate",
-          "subscribers": 132000,
+          "subscribers": 133000,
           "totalVideos": 1700,
-          "viewsGained7d": 64118,
-          "viewsGained7dPct": 25.66,
-          "estMonthlyEarnings": 54,
-          "avgVideoLength": "2.2 min",
-          "uploadFrequency": "~7 uploads/week",
-          "monetized": true,
-          "recentVideos": [
-            { "title": "We WON a House at Foreclosure Auction for $165,000!", "views": 161, "age": "12 hours ago", "duration": "9:55" },
-            { "title": "How to Use AI to Buy Investment Properties at Auction!", "views": 264, "age": "7 days ago", "duration": "10:16" },
-            { "title": "Foreclosure Auction Properties EXPLAINED!", "views": 351, "age": "2 weeks ago", "duration": "7:32" },
-            { "title": "What To Do BEFORE Bidding at Foreclosure Auction: Due Diligence Step by Step", "views": 293, "age": "3 weeks ago", "duration": "8:22" },
-            { "title": "Foreclosure Auction FAILS: Top 5 Mistakes!", "views": 263, "age": "4 weeks ago", "duration": "8:57" },
-            { "title": "Can We Buy a Condo at Auction For HALF PRICE?!", "views": 295, "age": "1 month ago", "duration": "11:08" },
-            { "title": "How to Buy a House $100K UNDER Market Value!", "views": 383, "age": "1 month ago", "duration": "10:28" },
-            { "title": "Funding Your Foreclosure Auction House Flips!", "views": 273, "age": "1 month ago", "duration": "8:28" },
-            { "title": "The SECRET to Buying CHEAP Investment Properties!", "views": 247, "age": "1 month ago", "duration": "13:22" },
-            { "title": "Affordable Home Buying Strategy: Auction Properties!", "views": 244, "age": "2 months ago", "duration": "10:11" },
-            { "title": "What You Should Do AFTER You WIN a Foreclosure Auction!", "views": 421, "age": "2 months ago", "duration": "8:45" }
-          ],
-          "popularVideos": [
-            { "title": "Buying Foreclosed Homes at Auction (Step by Step)", "views": 34000, "age": "2 years ago", "duration": "10:46" },
-            { "title": "We Took a First-Time Bidder to a Foreclosure Auction!", "views": 26000, "age": "1 year ago", "duration": "15:11" },
-            { "title": "How to Wholesale Real Estate for Beginners (Make $10,000 A Month)", "views": 25000, "age": "5 years ago", "duration": "16:00" },
-            { "title": "How to buy your first rental property with no money (5 ways)", "views": 24000, "age": "5 years ago", "duration": "11:34" },
-            { "title": "Did we just make a 40k mistake? | Real Estate Investing for Beginners", "views": 20000, "age": "4 years ago", "duration": "3:13" },
-            { "title": "Bidding $140K on a Duplex Worth $400K at a Foreclosure Auction!", "views": 14000, "age": "2 years ago", "duration": "7:46" }
-          ]
-        },
-        {
-          "name": "Auction House Masters",
-          "handle": "@ForeclosureAuctionMasters",
-          "subscribers": 811,
-          "totalVideos": 45,
-          "monetized": false,
-          "recentVideos": [
-            { "title": "Can We Buy a Lake House For HALF PRICE at Auction!?", "views": 15, "age": "1 day ago", "duration": "9:04" },
-            { "title": "Can We Get a $200K DISCOUNT at a Foreclosure Auction!?", "views": 60, "age": "8 days ago", "duration": "7:09" },
-            { "title": "Foreclosure Auction Property: SELL It or RENT It?!", "views": 48, "age": "2 weeks ago", "duration": "13:50" },
-            { "title": "We Bought a $275K Condo For ONLY $157k!", "views": 52, "age": "3 weeks ago", "duration": "10:44" },
-            { "title": "Investors Battle to Win Condo at Foreclosure Auction!", "views": 28, "age": "4 weeks ago", "duration": "7:47" },
-            { "title": "Investment Property Exit Strategies: Wholesale VS Tenant Buyout", "views": 38, "age": "1 month ago", "duration": "8:11" },
-            { "title": "We Won a Foreclosure Auction House for $165K!", "views": 345, "age": "1 month ago", "duration": "9:55" },
-            { "title": "We Bought a Church at a Foreclosure Auction!", "views": 72, "age": "1 month ago", "duration": "12:31" },
-            { "title": "How We Bought a $525K House For Only $334K!", "views": 200, "age": "1 month ago", "duration": "13:41" }
-          ]
-        }
-      ]
-    },
-    "facebook": {
-      "pageName": "Two Guys Take on Real Estate",
-      "verified": true,
-      "followers": 207000,
-      "following": 18
-    },
-    "instagram": {
-      "handle": "@twoguystakeonrealestate",
-      "verified": true,
-      "followers": 201000,
-      "posts": 2211,
-      "following": 128,
-      "bio": "Real Estate Mentors | 600+ Flips and 700+ Rental"
-    },
-    "tiktok": {
-      "handle": "@twoguystakeonrealestate",
-      "displayName": "Real Estate Investing Mentors",
-      "followers": 891000,
-      "likes": 7300000,
-      "following": 282
-    },
-    "twitter": {
-      "handle": "@2GuysTake",
-      "displayName": "Two Guys Take on Real Estate",
-      "verified": true,
-      "followers": 5785,
-      "posts": 4812,
-      "following": 34,
-      "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
-      "location": "Springfield, MA",
-      "joined": "December 2020",
-      "recentPosts": [
-        { "text": "Foreclosure auction Before and After \u2014 Won for 136k, Rehab 70k, UA for 360k.", "date": "Feb 21, 2025", "likes": 98, "retweets": 2, "replies": 29, "views": 16000, "pinned": true },
-        { "text": "$100K Salary Looks Like After Taxes in Your State. Agree?", "date": "Apr 15, 2024", "likes": 974, "retweets": 20, "replies": 483, "views": 238000 },
-        { "text": "Tenant: I moved out, keep the deposit. Us: Here is a 9k bill!", "date": "Oct 7, 2024", "likes": 821, "retweets": 30, "replies": 243, "views": 174000 },
-        { "text": "Opportunity to get this old Kmart for FREE.", "date": "May 19, 2024", "likes": 740, "retweets": 17, "replies": 1300, "views": 264000 },
-        { "text": "Why does the appraisal almost always come in at the agreed sale price?", "date": "May 6, 2024", "likes": 672, "retweets": 17, "replies": 219, "views": 273000 },
-        { "text": "REALTORS ARE OVERPAID!! Average realtor income is ~$56,400...", "date": "Apr 6, 2024", "likes": 529, "retweets": 38, "replies": 320, "views": 226000 }
-      ]
-    }
-  },
-  "crossPlatformSummary": {
-    "totalFollowers": 1437596,
-    "breakdown": {
-      "tiktok": 891000,
-      "facebook": 207000,
-      "instagram": 201000,
-      "youtubeMain": 132000,
-      "twitter": 5785,
-      "youtubeSecond": 811
-    },
-    "totalYouTubeVideos": 1745,
-    "tiktokLikes": 7300000,
-    "twitterPosts": 4812,
-    "instagramPosts": 2211,
-    "youtubeMonthlyRevenue": 54
-  },
-  "contentStrategy": {
-    "longFormIdeasMainChannel": [
-      { "title": "Complete Guide to Buying Your First Foreclosure Property in 2026", "type": "Evergreen Educational" },
-      { "title": "We Bought 5 Properties at Auction in 30 Days - Full Breakdown", "type": "Diary / Challenge" },
-      { "title": "Foreclosure Auction Day: Live Walkthrough From Research to Winning Bid", "type": "Live Experience" },
-      { "title": "How to Analyze ANY Foreclosure Property in Under 30 Minutes", "type": "Tutorial" },
-      { "title": "$0 to $10K/Month Passive Income Through Foreclosure Auctions", "type": "Aspirational" },
-      { "title": "The Truth About Foreclosure Auction Profits: Our Real Numbers", "type": "Transparency" },
-      { "title": "Beginners Mistake Cost Us $40K - What We Learned", "type": "Story + Lesson" },
-      { "title": "How We Built a 700+ Unit Rental Portfolio Starting from Zero", "type": "Origin Story" },
-      { "title": "5 Foreclosure Auction Strategies That Actually Work in 2026", "type": "Listicle" },
-      { "title": "Real Estate Attorney Answers Your Top Foreclosure Questions", "type": "Collab / Expert" }
-    ],
-    "longFormIdeasSecondChannel": [
-      { "title": "Step-by-Step: How We Won a $525K House for $334K at Auction", "type": "Case Study" },
-      { "title": "Foreclosure Auction Title Search: What Could Kill Your Deal", "type": "Educational" },
-      { "title": "The Complete Foreclosure Auction Financing Guide for Beginners", "type": "Tutorial" },
-      { "title": "We Toured 10 Foreclosure Properties - Which Ones Were Worth Bidding On?", "type": "Walkthrough" },
-      { "title": "Bank-Owned vs Tax Lien: Which Foreclosure Type is More Profitable?", "type": "Comparison" },
-      { "title": "The Hidden Costs of Buying at Foreclosure Auction Nobody Talks About", "type": "Myth-Busting" },
-      { "title": "How to Find Foreclosure Auctions in Your Area: The Ultimate Guide", "type": "Local SEO Play" },
-      { "title": "Renovating Our $165K Foreclosure Win: Full Before and After", "type": "Transformation" },
-      { "title": "Foreclosure Auction Red Flags: 7 Properties We Walked Away From", "type": "Cautionary" },
-      { "title": "From Auction Win to Rental Income: Our Complete Investment Process", "type": "Full Pipeline" }
-    ],
-    "actionableTips": [
-      "Long-form videos currently get 150-400 views. Titles with specific dollar amounts perform 2-3x better.",
-      "Best-performing content features real auction experiences with specific numbers.",
-      "Videos over 10 minutes tend to perform better for this niche.",
-      "Shift from 7 shorts/week to 2-3 long-form + 3-4 shorts.",
-      "Thumbnails should consistently show the property + price overlay.",
-      "Use series playlists (Foreclosure Auction Diary, Auction Day).",
-      "Hook viewers in first 30 seconds with the outcome/result."
-    ],
-    "monetization": {
-      "currentRevenue": 54,
-      "currentIssue": "Most views come from shorts (~$0.04/1K views vs $3-7/1K for long-form)",
-      "targets": [
-        { "label": "$500-1K/mo", "requirement": "1,000+ views per long-form video" },
-        { "label": "$5K/mo", "requirement": "5K+ views/video, 3 videos/week (1M+ monthly long-form views)" }
-      ],
-      "secondaryStreams": ["Affiliate links (hard money lenders, tools)", "Course/coaching", "Book sales"],
-      "channel2Status": "Needs 1,000 subs + 4,000 watch hours (currently 811 subs - close!)"
-    }
-  }
-}{
-  "lastUpdated": "2026-07-18",
-  "platforms": {
-    "youtube": {
-      "channels": [
-        {
-          "name": "Two Guys Take on Real Estate",
-          "handle": "@TwoGuysTakeonRealEstate",
-          "subscribers": 132000,
-          "totalVideos": 1700,
-          "viewsGained7d": 64118,
-          "viewsGained7dPct": 25.66,
-          "estMonthlyEarnings": 54,
-          "avgVideoLength": "2.2 min",
+          "viewsGained7d": 138783,
+          "viewsGained7dPct": 164.98,
+          "estMonthlyEarnings": 76,
+          "avgVideoLength": "2.8 min",
           "uploadFrequency": "~7 uploads/week",
           "monetized": true,
           "recentVideos": [
             {
               "title": "We WON a House at Foreclosure Auction for $165,000!",
-              "views": 161,
-              "age": "12 hours ago",
+              "views": 464,
+              "age": "2 days ago",
               "duration": "9:55"
             },
             {
               "title": "How to Use AI to Buy Investment Properties at Auction!",
-              "views": 264,
-              "age": "7 days ago",
+              "views": 420,
+              "age": "9 days ago",
               "duration": "10:16"
             },
             {
               "title": "Foreclosure Auction Properties EXPLAINED!",
-              "views": 351,
+              "views": 380,
               "age": "2 weeks ago",
               "duration": "7:32"
             },
             {
               "title": "What To Do BEFORE Bidding at Foreclosure Auction: Due Diligence Step by Step",
-              "views": 293,
+              "views": 308,
               "age": "3 weeks ago",
               "duration": "8:22"
             },
             {
               "title": "Foreclosure Auction FAILS: Top 5 Mistakes!",
-              "views": 263,
-              "age": "4 weeks ago",
+              "views": 268,
+              "age": "1 month ago",
               "duration": "8:57"
             },
             {
               "title": "Can We Buy a Condo at Auction For HALF PRICE?!",
-              "views": 295,
+              "views": 299,
               "age": "1 month ago",
               "duration": "11:08"
             },
             {
               "title": "How to Buy a House $100K UNDER Market Value!",
-              "views": 383,
+              "views": 392,
               "age": "1 month ago",
               "duration": "10:28"
             },
             {
               "title": "Funding Your Foreclosure Auction House Flips!",
-              "views": 273,
+              "views": 274,
               "age": "1 month ago",
               "duration": "8:28"
             },
             {
               "title": "The SECRET to Buying CHEAP Investment Properties!",
-              "views": 247,
+              "views": 250,
               "age": "1 month ago",
               "duration": "13:22"
             },
             {
               "title": "Affordable Home Buying Strategy: Auction Properties!",
-              "views": 244,
+              "views": 247,
               "age": "2 months ago",
               "duration": "10:11"
             },
             {
               "title": "What You Should Do AFTER You WIN a Foreclosure Auction!",
-              "views": 421,
+              "views": 423,
               "age": "2 months ago",
               "duration": "8:45"
             }
@@ -284,38 +124,38 @@
         {
           "name": "Auction House Masters",
           "handle": "@ForeclosureAuctionMasters",
-          "subscribers": 811,
+          "subscribers": 813,
           "totalVideos": 45,
           "monetized": false,
           "recentVideos": [
             {
               "title": "Can We Buy a Lake House For HALF PRICE at Auction!?",
-              "views": 15,
-              "age": "1 day ago",
+              "views": 52,
+              "age": "3 days ago",
               "duration": "9:04"
             },
             {
               "title": "Can We Get a $200K DISCOUNT at a Foreclosure Auction!?",
-              "views": 60,
-              "age": "8 days ago",
+              "views": 65,
+              "age": "10 days ago",
               "duration": "7:09"
             },
             {
               "title": "Foreclosure Auction Property: SELL It or RENT It?!",
-              "views": 48,
+              "views": 51,
               "age": "2 weeks ago",
               "duration": "13:50"
             },
             {
               "title": "We Bought a $275K Condo For ONLY $157k!",
-              "views": 52,
+              "views": 56,
               "age": "3 weeks ago",
               "duration": "10:44"
             },
             {
               "title": "Investors Battle to Win Condo at Foreclosure Auction!",
               "views": 28,
-              "age": "4 weeks ago",
+              "age": "1 month ago",
               "duration": "7:47"
             },
             {
@@ -326,7 +166,7 @@
             },
             {
               "title": "We Won a Foreclosure Auction House for $165K!",
-              "views": 345,
+              "views": 377,
               "age": "1 month ago",
               "duration": "9:55"
             },
@@ -338,7 +178,7 @@
             },
             {
               "title": "How We Bought a $525K House For Only $334K!",
-              "views": 200,
+              "views": 202,
               "age": "1 month ago",
               "duration": "13:41"
             }
@@ -349,7 +189,7 @@
     "facebook": {
       "pageName": "Two Guys Take on Real Estate",
       "verified": true,
-      "followers": 207000,
+      "followers": 208000,
       "following": 18
     },
     "instagram": {
@@ -363,24 +203,24 @@
     "tiktok": {
       "handle": "@twoguystakeonrealestate",
       "displayName": "Real Estate Investing Mentors",
-      "followers": 891000,
+      "followers": 891100,
       "likes": 7300000,
       "following": 282
     }
   },
   "crossPlatformSummary": {
-    "totalFollowers": 1431811,
+    "totalFollowers": 1433913,
     "breakdown": {
-      "tiktok": 891000,
-      "facebook": 207000,
+      "tiktok": 891100,
+      "facebook": 208000,
       "instagram": 201000,
-      "youtubeMain": 132000,
-      "youtubeSecond": 811
+      "youtubeMain": 133000,
+      "youtubeSecond": 813
     },
     "totalYouTubeVideos": 1745,
     "tiktokLikes": 7300000,
     "instagramPosts": 2211,
-    "youtubeMonthlyRevenue": 54
+    "youtubeMonthlyRevenue": 76
   },
   "contentStrategy": {
     "longFormIdeasMainChannel": [
@@ -477,7 +317,7 @@
       "Hook viewers in first 30 seconds with the outcome/result."
     ],
     "monetization": {
-      "currentRevenue": 54,
+      "currentRevenue": 76,
       "currentIssue": "Most views come from shorts (~$0.04/1K views vs $3-7/1K for long-form)",
       "targets": [
         {
@@ -494,7 +334,7 @@
         "Course/coaching",
         "Book sales"
       ],
-      "channel2Status": "Needs 1,000 subs + 4,000 watch hours (currently 811 subs - close!)"
+      "channel2Status": "Needs 1,000 subs + 4,000 watch hours (currently 813 subs - close!)"
     }
   }
 }
