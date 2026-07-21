@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-20T14:00:00-04:00",
+  "lastUpdated": "2026-07-21T01:08:47-04:00",
   "platforms": {
     "youtube": {
       "channels": [
@@ -17,49 +17,49 @@
           "recentVideos": [
             {
               "title": "We WON a House at Foreclosure Auction for $165,000!",
-              "views": 464,
-              "age": "2 days ago",
+              "views": 512,
+              "age": "3 days ago",
               "duration": "9:55"
             },
             {
               "title": "How to Use AI to Buy Investment Properties at Auction!",
-              "views": 420,
-              "age": "9 days ago",
+              "views": 436,
+              "age": "10 days ago",
               "duration": "10:16"
             },
             {
               "title": "Foreclosure Auction Properties EXPLAINED!",
-              "views": 380,
+              "views": 385,
               "age": "2 weeks ago",
               "duration": "7:32"
             },
             {
               "title": "What To Do BEFORE Bidding at Foreclosure Auction: Due Diligence Step by Step",
-              "views": 308,
+              "views": 314,
               "age": "3 weeks ago",
               "duration": "8:22"
             },
             {
               "title": "Foreclosure Auction FAILS: Top 5 Mistakes!",
-              "views": 268,
+              "views": 272,
               "age": "1 month ago",
               "duration": "8:57"
             },
             {
               "title": "Can We Buy a Condo at Auction For HALF PRICE?!",
-              "views": 299,
+              "views": 300,
               "age": "1 month ago",
               "duration": "11:08"
             },
             {
               "title": "How to Buy a House $100K UNDER Market Value!",
-              "views": 392,
+              "views": 394,
               "age": "1 month ago",
               "duration": "10:28"
             },
             {
               "title": "Funding Your Foreclosure Auction House Flips!",
-              "views": 274,
+              "views": 277,
               "age": "1 month ago",
               "duration": "8:28"
             },
@@ -130,14 +130,14 @@
           "recentVideos": [
             {
               "title": "Can We Buy a Lake House For HALF PRICE at Auction!?",
-              "views": 52,
-              "age": "3 days ago",
+              "views": 71,
+              "age": "4 days ago",
               "duration": "9:04"
             },
             {
               "title": "Can We Get a $200K DISCOUNT at a Foreclosure Auction!?",
-              "views": 65,
-              "age": "10 days ago",
+              "views": 67,
+              "age": "11 days ago",
               "duration": "7:09"
             },
             {
@@ -148,7 +148,7 @@
             },
             {
               "title": "We Bought a $275K Condo For ONLY $157k!",
-              "views": 56,
+              "views": 57,
               "age": "3 weeks ago",
               "duration": "10:44"
             },
@@ -166,7 +166,7 @@
             },
             {
               "title": "We Won a Foreclosure Auction House for $165K!",
-              "views": 377,
+              "views": 397,
               "age": "1 month ago",
               "duration": "9:55"
             },
@@ -178,7 +178,7 @@
             },
             {
               "title": "How We Bought a $525K House For Only $334K!",
-              "views": 202,
+              "views": 203,
               "age": "1 month ago",
               "duration": "13:41"
             }
@@ -196,7 +196,7 @@
       "handle": "@twoguystakeonrealestate",
       "verified": true,
       "followers": 201000,
-      "posts": 2211,
+      "posts": 2212,
       "following": 128,
       "bio": "Real Estate Mentors | 600+ Flips and 700+ Rental"
     },
@@ -211,9 +211,9 @@
       "handle": "@2GuysTake",
       "displayName": "Two Guys Take on Real Estate",
       "verified": true,
-      "followers": 5780,
+      "followers": 5778,
       "following": 34,
-      "posts": 4812,
+      "posts": 4813,
       "location": "Springfield, MA",
       "bio": "Real Estate Investors Paying it forward. 700+ Rental Units. 500+ Flips",
       "joinedDate": "December 2020",
@@ -222,10 +222,18 @@
           "text": "Foreclosure auction Before and After - Won for 136k, Rehab 70k, UA for 360k",
           "date": "Feb 21, 2025",
           "replies": 29,
-          "retweets": 2,
+          "retweets": 4,
           "likes": 98,
-          "views": 16000,
+          "views": 15644,
           "pinned": true
+        },
+        {
+          "text": "We just won a house at a foreclosure auction for $165K! Kevin breaks down the whole process — touring the property, the bidding strategy, and how to spot hidden deals.",
+          "date": "Jul 20, 2026",
+          "replies": 0,
+          "retweets": 0,
+          "likes": 0,
+          "views": 162
         },
         {
           "text": "$100K Salary Looks Like After Taxes in Your State",
@@ -263,18 +271,18 @@
     }
   },
   "crossPlatformSummary": {
-    "totalFollowers": 1439693,
+    "totalFollowers": 1439691,
     "breakdown": {
       "tiktok": 891100,
       "facebook": 208000,
       "instagram": 201000,
       "youtubeMain": 133000,
       "youtubeSecond": 813,
-      "twitter": 5780
+      "twitter": 5778
     },
     "totalYouTubeVideos": 1745,
     "tiktokLikes": 7300000,
-    "instagramPosts": 2211,
+    "instagramPosts": 2212,
     "youtubeMonthlyRevenue": 76
   },
   "contentStrategy": {
