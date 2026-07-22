@@ -1,17 +1,14 @@
 {
-  "lastUpdated": "2026-07-21T07:08:46-04:00",
+  "lastUpdated": "2026-07-22T07:07:13-04:00",
   "kpis": {
-    "newLeads24h": 2,
-    "newLeads30d": 210,
-    "activeProspects": 14,
-    "lostLeads30d": 195,
-    "totalUnits": 1186,
-    "contacted30d": 180,
-    "avgFirstContactHours": 21.8,
-    "medianFirstContactHours": 3
+    "newLeads24h": 3,
+    "newLeads30d": 206,
+    "activeProspects": 7,
+    "medianFirstContactHours": 3,
+    "avgFirstContactHours": 21.3,
+    "leadsWithNoContactRecorded": 31
   },
   "volumeTrend": {
-    "2026-06-21": 7,
     "2026-06-22": 15,
     "2026-06-23": 12,
     "2026-06-24": 12,
@@ -40,49 +37,40 @@
     "2026-07-17": 3,
     "2026-07-18": 5,
     "2026-07-19": 6,
-    "2026-07-20": 3
+    "2026-07-20": 3,
+    "2026-07-21": 2,
+    "2026-07-22": 1
   },
-  "statusBreakdown": {
-    "Prospect": 14,
-    "Lost": 195,
-    "Customer": 1
+  "funnel": {
+    "Prospect": 7,
+    "Customer": 1,
+    "Lost": 198
   },
-  "leadsByProperty": {
-    "24-28 Wilcox": 128,
-    "YellowBrick Management, Inc": 78,
-    "50 Springfield Street": 3,
-    "St. James Ave 83": 1
-  },
-  "newLeads24h": [
+  "properties": [
     {
-      "name": "Yandry Almeida",
-      "created": "2026-07-20T14:12:26",
-      "property": "24-28 Wilcox",
-      "status": "Prospect"
+      "name": "24-28 Wilcox",
+      "leads30d": 127
     },
     {
-      "name": "Petrina Hahn",
-      "created": "2026-07-20T23:42:26",
-      "property": "24-28 Wilcox",
-      "status": "Prospect"
+      "name": "YellowBrick Management, Inc",
+      "leads30d": 75
+    },
+    {
+      "name": "50 Springfield Street",
+      "leads30d": 3
+    },
+    {
+      "name": "St. James Ave 83 ",
+      "leads30d": 1
     }
   ],
   "urgentQueue": [
     {
-      "name": "Yandry Almeida",
-      "created": "2026-07-20T14:12:26",
-      "property": "24-28 Wilcox",
-      "status": "Prospect"
-    },
-    {
       "name": "Petrina Hahn",
-      "created": "2026-07-20T23:42:26",
       "property": "24-28 Wilcox",
-      "status": "Prospect"
+      "created": "2026-07-21T16:40:54",
+      "hoursAgo": 14
     }
   ],
-  "notes": {
-    "sourcesOmitted": "LeadSourceID not populated on any prospect in last 30 days",
-    "vacancyOmitted": "IsVacant returned null for all units"
-  }
+  "notes": "Lead source data unavailable (LeadSourceID not populated on any prospect in last 30 days). Vacancy data omitted (Units endpoint provides no reliable vacancy field)."
 }
