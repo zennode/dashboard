@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2026-07-23T08:58:30-04:00",
+  "lastUpdated": "2026-07-23T07:06:50-04:00",
   "kpis": {
-    "newLeads24h": 2,
+    "newLeads24h": 1,
     "newLeads30d": 192,
     "activeProspects": 4,
     "lostLeads30d": 187,
     "totalUnits": 1186,
-    "contacted30d": 104,
-    "avgFirstContactHours": 34.3,
-    "medianFirstContactHours": 22.6,
-    "leadsWithNoContactRecorded": 88
+    "contacted30d": 165,
+    "avgFirstContactHours": 21.6,
+    "medianFirstContactHours": 3,
+    "leadsWithNoContactRecorded": 27
   },
   "volumeTrend": {
     "2026-06-23": 12,
@@ -51,40 +51,19 @@
   "leadsByProperty": {
     "YellowBrick Management, Inc": 71,
     "24-28 Wilcox": 118,
-    "St. James Ave 83": 1,
+    "St. James Ave 83 ": 1,
     "50 Springfield Street": 2
   },
   "newLeads24h": [
-    {
-      "name": "Oluchi Robinson",
-      "property": "YellowBrick Management, Inc",
-      "created": "2026-07-22T06:01:23"
-    },
     {
       "name": "Taysia Moore",
       "property": "YellowBrick Management, Inc",
       "created": "2026-07-22T12:15:29"
     }
   ],
-  "urgentQueue": [
-    {
-      "name": "Linda Nolan",
-      "property": "YellowBrick Management, Inc",
-      "created": "2026-07-09T13:07:57",
-      "hoursAgo": 328
-    },
-    {
-      "name": "Timothy Plant",
-      "property": "YellowBrick Management, Inc",
-      "created": "2026-07-10T10:55:50",
-      "hoursAgo": 306
-    },
-    {
-      "name": "Oluchi Robinson",
-      "property": "YellowBrick Management, Inc",
-      "created": "2026-07-22T06:01:23",
-      "hoursAgo": 23
-    }
-  ],
-  "notes": {}
+  "urgentQueue": [],
+  "notes": {
+    "units": "IsActive filter not supported by Units endpoint; totalUnits is all units. IsVacant returned false/null for all units, so vacancy count unavailable.",
+    "urgent": "No active prospects without recorded first contact waiting 4+ hours."
+  }
 }
