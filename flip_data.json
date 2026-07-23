@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-22T18:05:00-04:00",
+  "lastUpdated": "2026-07-23T08:05:00-04:00",
   "active": [
     {
       "address": "83 Rolf Ave",
@@ -12,9 +12,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 1063,
+      "daysOwned": 1064,
       "estCompletion": null,
-      "notes": "Courageous Lion LLC. RM ID 789. Listing package (7 docs) signed 7/12 8:36 PM via dotloop with Alice Kempf (Kempf-Vanderburgh Realty): Exclusive Right to Sell, disclosures, lead paint notification, buyer-broker compensation authorization, Deferral of Showings. Showings deferred - not yet actively showing. List price not yet seen in email. Note: Alice Kempf's phone is broken 7/14 (no calls/texts with Android) - email her instead. No new activity through Wed 7/22 PM."
+      "notes": "Courageous Lion LLC. RM ID 789. Listing package (7 docs) signed 7/12 8:36 PM via dotloop with Alice Kempf (Kempf-Vanderburgh Realty): Exclusive Right to Sell, disclosures, lead paint notification, buyer-broker compensation authorization, Deferral of Showings. Showings deferred - not yet actively showing. List price not yet seen in email. Note: Alice Kempf's phone is broken 7/14 (no calls/texts with Android) - email her instead. No new activity through Thu 7/23 AM."
     },
     {
       "address": "167 E Park Terrace",
@@ -27,9 +27,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 76,
+      "daysOwned": 77,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit. 7/15 12:41 PM: Jessica Sicard shared progress photo album '167 East Park Terrace 7/10/26' (Google Photos). 7/14: Dalton Lawn Care proposal approved for lawn care at same rate as this property. No new activity through Wed 7/22 PM."
+      "notes": "House Hack Helpers. RM ID 1010. $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Window cut sheets being gathered for building permit. 7/15: Jessica shared progress photo album. NEW 7/22 PM (HHH Investor Update): Cabinets are IN, flooring coming in; Antonio stopped by and shared a progress photo folder (Google Drive)."
     },
     {
       "address": "1 Richmond Ln",
@@ -42,9 +42,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 219,
+      "daysOwned": 220,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 992. Listed $249,900 after $10k price drop confirmed 7/8 - feedback says overpriced, market slowing. No new activity through Wed 7/22 PM."
+      "notes": "House Hack Helpers. RM ID 992. Listed $249,900 after $10k price drop confirmed 7/8 - feedback says overpriced, market slowing. NEW 7/22 PM (HHH Investor Update): More showings but no offers yet."
     },
     {
       "address": "42 Washington St",
@@ -57,39 +57,39 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 727,
+      "daysOwned": 728,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 985. Showings but no offers; railroad proximity objections. Dropping $1k/week (confirmed 7/8). Tight margins. No new activity through Wed 7/22 PM."
+      "notes": "House Hack Helpers. RM ID 985. Dropping $1k/week (confirmed 7/8). Tight margins. NEW 7/22 PM (HHH Investor Update): More showings, no bites - main objection remains railroad proximity; buyers also complaining about rates, so HHH is exploring paying for a buyer rate buy-down to drive interest."
     },
     {
       "address": "283 Fuller Rd, Unit K",
       "city": "Chicopee, MA",
       "entity": "House Hack Helpers LLC",
-      "status": "Acquired",
+      "status": "In Progress",
       "purchaseDate": "2026-07-10",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
       "arv": 270000,
       "expectedProfit": null,
-      "daysOwned": 12,
+      "daysOwned": 13,
       "estCompletion": null,
-      "notes": "House Hack Helpers. RM ID 1018. CLOSED 7/10 - deed recorded. 7/13: Matt set anticipated resale at $265-275k; Will shared the purchase HUD. Excess construction loan funds check at Burstein's office. Condo fees paid thru 7/31; next RE tax bill due Nov. Occupied; working to vacate. Utilities setup underway - oil-vs-gas question still open; Will traveling until ~7/20. No new activity through Wed 7/22 PM."
+      "notes": "House Hack Helpers. RM ID 1018. CLOSED 7/10 - deed recorded. Anticipated resale $265-275k. Condo fees paid thru 7/31; next RE tax bill due Nov. 7/22 12:24 PM (Melissa): Painters wrapping up TODAY - next payment requested; photos to follow. 7/22 PM (HHH Investor Update): Rehab progress underway; walkthrough photos shared (Drive). Status moved Acquired -> In Progress."
     },
     {
       "address": "412 St James Ave",
       "city": "Springfield, MA",
       "entity": "YellowBrick Property",
-      "status": "Acquired",
+      "status": "In Progress",
       "purchaseDate": "2026-07-09",
       "purchasePrice": null,
       "renoBudget": null,
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 13,
+      "daysOwned": 14,
       "estCompletion": null,
-      "notes": "YellowBrick Property. RM ID 1019. Closed 7/9 - Burstein confirmed purchase finalized; closing paperwork received (PDF). Q1 real estate taxes paid to City of Springfield at closing. Next: rehab scope. No new activity through Wed 7/22 PM."
+      "notes": "YellowBrick Property. RM ID 1019. Closed 7/9; Q1 taxes paid at closing. 7/22 (Unlimited HS LLC): ROOF COMPLETED AND INSPECTED - payment request submitted to Jessica. 7/23: St James trash work order assigned to Victor on Jessica's work-order list. Full rehab scope still to come. Status moved Acquired -> In Progress (roof work done)."
     },
     {
       "address": "19 Draper Ave",
@@ -102,9 +102,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 22,
+      "daysOwned": 23,
       "estCompletion": "2026-09-15",
-      "notes": "YellowBrick Property. RM ID 1017. Purchased 6/30 (wire $62,972.20 incl. taxes). NEW 7/20 10:46 AM: Antonio (Investarters/Premiere Home Solutions) sent scope of work (PDF estimate premierehomesolutionsllc_estimate_110.pdf) - rehab START 7/22/26, END 9/15/26; asked Jessica to draft the contract. Gas forced air + AC; power reconnected early July. UPDATE 7/21: Jessica sent rehab contract to Jesse (Premiere Home Solutions). Rehab starts 7/22, scheduled finish 9/15. 7/22: Rehab starts TODAY per contract (finish 9/15). 7/22 PM: Rehab officially underway as of today; finish target 9/15."
+      "notes": "YellowBrick Property. RM ID 1017. Purchased 6/30 (wire $62,972.20 incl. taxes). Rehab by Premiere Home Solutions started 7/22, scheduled finish 9/15. Gas forced air + AC; power reconnected early July. No overnight updates through Thu 7/23 AM (rehab day 2)."
     },
     {
       "address": "166 East St",
@@ -117,9 +117,9 @@
       "renoSpent": null,
       "arv": null,
       "expectedProfit": null,
-      "daysOwned": 76,
+      "daysOwned": 77,
       "estCompletion": null,
-      "notes": "YellowBrick Property. RM ID 1009. Purchased 5/7. In rehab. No new activity through Wed 7/22 PM."
+      "notes": "YellowBrick Property. RM ID 1009. Purchased 5/7. In rehab. No new activity through Thu 7/23 AM."
     },
     {
       "address": "79 Pleasant St",
@@ -134,7 +134,7 @@
       "expectedProfit": null,
       "daysOwned": 0,
       "estCompletion": null,
-      "notes": "YellowBrick Property. Not yet in RM. Foreclosure closing deadline was TODAY Mon 7/20 (extended from 7/6 per Burstein; 7/18 falls on Saturday). No closing confirmation email seen as of Mon 7/20 6 PM - verify with Burstein whether it closed. Still no closing confirmation email as of Tue 7/21 8 AM. UPDATE 7/21 PM: Burstein confirms ready to close - needs $85,949.31 wire. Plan: Chris wires Thu 7/23 from GSB LOC, close Fri 7/24. Burstein away on vacation next week; registered land may take extra tries to record. 7/22 AM: On track - wire Thu 7/23 (Chris, GSB LOC), close Fri 7/24. No overnight changes. 7/22 PM: Still on track - wire $85,949.31 goes out tomorrow Thu 7/23 (Chris, GSB LOC); close Fri 7/24. Burstein away next week."
+      "notes": "YellowBrick Property. Not yet in RM. WIRE DAY IS TODAY Thu 7/23: $85,949.31 from GSB LOC (Chris), closing Fri 7/24. No wire confirmation email seen as of Thu 7/23 8 AM - confirm with Chris that the wire went out. Burstein on vacation next week; registered land may take extra tries to record. History: foreclosure deadline extended from 7/6 to 7/20; Burstein confirmed ready to close 7/21."
     },
     {
       "address": "96 Shore Rd",
@@ -149,7 +149,7 @@
       "expectedProfit": null,
       "daysOwned": 0,
       "estCompletion": null,
-      "notes": "ACTION NEEDED 7/20: Buyer's inspections complete - buyer requesting a $10,000 seller credit (or price reduction) citing deck/exterior door wood rot, attic rodent activity, improper bath venting, garage door issues, roof moss, grading. Burstein forwarded at 1:55 PM and asked 'Please let me know what you want to do.' Burstein has requested the inspection reports. Signed closing-date extension amendment sent to Touchstone 7/17. History: P&S package 7/13; $14,000 deposit received 7/14; Rise & Revive to reimburse Wicked Deals for pre-closing expenses (kept out of closing figures). No reply/decision on the $10k credit request seen in email as of Tue 7/21 8 AM. 7/21: Still no decision on the $10k seller-credit request - awaiting response/inspection reports. 7/22 AM: $10k seller-credit request STILL awaiting Matt's decision (day 3). 7/22 PM: Still undecided (day 3); no new correspondence today."
+      "notes": "ACTION NEEDED: Buyer's $10,000 seller-credit request (deck/door wood rot, attic rodent activity, bath venting, garage door, roof moss, grading) is STILL UNDECIDED - now day 4. Burstein waiting on Matt's call; he is on vacation next week. History: P&S package 7/13; $14,000 deposit received 7/14; signed closing-date extension amendment sent to Touchstone 7/17; Burstein requested inspection reports. No new correspondence overnight through Thu 7/23 AM."
     },
     {
       "address": "65 Avondale",
@@ -164,7 +164,7 @@
       "expectedProfit": null,
       "daysOwned": 0,
       "estCompletion": null,
-      "notes": "7/16 8:08 PM: Jessica Sicard has a scope of work in progress (Google Doc shared) and asked when Matt wants to meet at the property; Matt proposed meeting Fri 7/17 and wants to discuss installing the spare basement minisplits (Barry) for sale. Entity, purchase status, and city not yet seen in email. 7/20: work order 43266 (65 Avondale) assigned to Randy per Jessica's work-order list. 7/22: Work order for 65 Avondale assigned to Barry per Jessica's 7/22 work-order list."
+      "notes": "7/16: Jessica has scope of work in progress (Google Doc); discussed installing spare basement minisplits (Barry) for sale. Entity/purchase status/city not yet seen in email. 7/22: Work order assigned to Barry. No new activity through Thu 7/23 AM."
     },
     {
       "address": "2140 Palmer Rd",
@@ -179,7 +179,7 @@
       "expectedProfit": null,
       "daysOwned": null,
       "estCompletion": null,
-      "notes": "7/17 PM: Alice Kempf (Kempf-Vanderburgh Realty) shared 6 listing documents via dotloop 8:01 PM; Matt signed all 6 by 8:19 PM. Showings deferred - not yet actively showing. List price, entity, and purchase details not yet seen in email. 7/20: work order 43265 (2140 Palmer Road) assigned to Victor, to call Jess when finishing up. No new activity through Wed 7/22 PM."
+      "notes": "7/17 PM: Alice Kempf shared 6 listing documents via dotloop; Matt signed all 6 same evening. Showings deferred - not yet actively showing. List price, entity, and purchase details not yet seen in email. No new activity through Thu 7/23 AM."
     },
     {
       "address": "50 Potash Hill Rd",
@@ -194,7 +194,7 @@
       "expectedProfit": null,
       "daysOwned": null,
       "estCompletion": null,
-      "notes": "NEW ON DASHBOARD 7/20: Pioneer Valley Appraisal (Marissa Montemagni) replied 2:39 PM to the drive-by appraisal request with attachment 'Revive and Rise LLC.docx' - appraisal deliverable for the planned 3/2 conversion (test-run property sent 7/4, re-sent 7/14). Title V report completed 7/1 (Adam Edwards); Title V bill approved for payment. Ongoing CapX noted 6/25 alongside 67 Willow. No new activity through Wed 7/22 PM."
+      "notes": "7/20: Pioneer Valley Appraisal delivered drive-by appraisal ('Revive and Rise LLC.docx') for planned 3/2 conversion. Title V report completed 7/1; Title V bill approved for payment. No new activity through Thu 7/23 AM."
     }
   ],
   "sold": [
