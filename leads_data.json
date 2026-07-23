@@ -1,15 +1,17 @@
 {
-  "lastUpdated": "2026-07-22T07:07:13-04:00",
+  "lastUpdated": "2026-07-23T08:58:30-04:00",
   "kpis": {
-    "newLeads24h": 3,
-    "newLeads30d": 206,
-    "activeProspects": 7,
-    "medianFirstContactHours": 3,
-    "avgFirstContactHours": 21.3,
-    "leadsWithNoContactRecorded": 31
+    "newLeads24h": 2,
+    "newLeads30d": 192,
+    "activeProspects": 4,
+    "lostLeads30d": 187,
+    "totalUnits": 1186,
+    "contacted30d": 104,
+    "avgFirstContactHours": 34.3,
+    "medianFirstContactHours": 22.6,
+    "leadsWithNoContactRecorded": 88
   },
   "volumeTrend": {
-    "2026-06-22": 15,
     "2026-06-23": 12,
     "2026-06-24": 12,
     "2026-06-25": 10,
@@ -39,38 +41,50 @@
     "2026-07-19": 6,
     "2026-07-20": 3,
     "2026-07-21": 2,
-    "2026-07-22": 1
+    "2026-07-22": 2
   },
-  "funnel": {
-    "Prospect": 7,
+  "statusBreakdown": {
+    "Lost": 187,
     "Customer": 1,
-    "Lost": 198
+    "Prospect": 4
   },
-  "properties": [
+  "leadsByProperty": {
+    "YellowBrick Management, Inc": 71,
+    "24-28 Wilcox": 118,
+    "St. James Ave 83": 1,
+    "50 Springfield Street": 2
+  },
+  "newLeads24h": [
     {
-      "name": "24-28 Wilcox",
-      "leads30d": 127
+      "name": "Oluchi Robinson",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-22T06:01:23"
     },
     {
-      "name": "YellowBrick Management, Inc",
-      "leads30d": 75
-    },
-    {
-      "name": "50 Springfield Street",
-      "leads30d": 3
-    },
-    {
-      "name": "St. James Ave 83 ",
-      "leads30d": 1
+      "name": "Taysia Moore",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-22T12:15:29"
     }
   ],
   "urgentQueue": [
     {
-      "name": "Petrina Hahn",
-      "property": "24-28 Wilcox",
-      "created": "2026-07-21T16:40:54",
-      "hoursAgo": 14
+      "name": "Linda Nolan",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-09T13:07:57",
+      "hoursAgo": 328
+    },
+    {
+      "name": "Timothy Plant",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-10T10:55:50",
+      "hoursAgo": 306
+    },
+    {
+      "name": "Oluchi Robinson",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-07-22T06:01:23",
+      "hoursAgo": 23
     }
   ],
-  "notes": "Lead source data unavailable (LeadSourceID not populated on any prospect in last 30 days). Vacancy data omitted (Units endpoint provides no reliable vacancy field)."
+  "notes": {}
 }
