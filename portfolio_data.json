@@ -15,7 +15,10 @@
     "yoyIncomePct": 0,
     "yoyExpensesPct": 0,
     "yoyNoiPct": 0,
-    "momVacancyPts": 0
+    "momVacancyPts": 0,
+    "totalPrincipalPaydown": 311331,
+    "totalCapEx6100": 125153,
+    "totalRealCashFlow": -138773
   },
   "companies": [
     {
@@ -26,7 +29,9 @@
       "income": 157838,
       "expenses": 183688,
       "noi": -25850,
-      "principalPaydown": null
+      "principalPaydown": 0,
+      "capEx6100": 74637,
+      "realCashFlow": 48787
     },
     {
       "name": "Courageous Lion",
@@ -36,7 +41,9 @@
       "income": 83914,
       "expenses": 63582,
       "noi": 20332,
-      "principalPaydown": null
+      "principalPaydown": 823,
+      "capEx6100": 27299,
+      "realCashFlow": 46808
     },
     {
       "name": "826 Chicopee LLC",
@@ -46,7 +53,9 @@
       "income": 6800,
       "expenses": 2187,
       "noi": 4613,
-      "principalPaydown": null
+      "principalPaydown": 0,
+      "capEx6100": 710,
+      "realCashFlow": 5323
     },
     {
       "name": "Emerald City Rentals, LLC",
@@ -56,7 +65,9 @@
       "income": 10475,
       "expenses": 1876,
       "noi": 8599,
-      "principalPaydown": null
+      "principalPaydown": 0,
+      "capEx6100": 0,
+      "realCashFlow": 8599
     },
     {
       "name": "Exchange Assets LLC",
@@ -66,7 +77,9 @@
       "income": 29827,
       "expenses": 39755,
       "noi": -9928,
-      "principalPaydown": null
+      "principalPaydown": 3265,
+      "capEx6100": 13881,
+      "realCashFlow": 688
     },
     {
       "name": "Flying Monkeys LLC",
@@ -76,7 +89,9 @@
       "income": 45730,
       "expenses": 41109,
       "noi": 4621,
-      "principalPaydown": null
+      "principalPaydown": 3736,
+      "capEx6100": 8476,
+      "realCashFlow": 9361
     },
     {
       "name": "Land of OZ LLC",
@@ -86,7 +101,9 @@
       "income": 54571,
       "expenses": 43637,
       "noi": 10934,
-      "principalPaydown": null
+      "principalPaydown": 5037,
+      "capEx6100": 150,
+      "realCashFlow": 6047
     },
     {
       "name": "Allyn St",
@@ -96,7 +113,9 @@
       "income": 25905,
       "expenses": 6774,
       "noi": 19131,
-      "principalPaydown": null
+      "principalPaydown": 0,
+      "capEx6100": 0,
+      "realCashFlow": 19131
     },
     {
       "name": "Shaker Shops",
@@ -106,7 +125,9 @@
       "income": 42219,
       "expenses": 27266,
       "noi": 14953,
-      "principalPaydown": null
+      "principalPaydown": 298470,
+      "capEx6100": 0,
+      "realCashFlow": -283517
     }
   ],
   "properties": [
@@ -429,7 +450,8 @@
       "GL 721: Other Loan Interest"
     ],
     "principalGLAccount": "GL 386: Mortgage Payable",
-    "principalPaydownNote": "principalPaydown on companies[] and properties[] is populated by the daily update from GL 386. Set to null until first update."
+    "capExGLCategory": "GL Parent 3453: Repairs & Maintenance-Renovate (23 posting sub-accounts)",
+    "principalPaydownNote": "Principal paydown from CheckDetails filtered by GL 386. Cap Ex from Renovate sub-accounts under GL parent 3453."
   },
   "keyInsights": [
     "Portfolio income grew 6x from $905K (FY2022) to $5.5M (FY2026), reflecting rapid acquisition-driven growth across 9 entities and 310 units.",
