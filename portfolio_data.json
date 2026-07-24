@@ -16,9 +16,9 @@
     "yoyExpensesPct": 0,
     "yoyNoiPct": 0,
     "momVacancyPts": 0,
-    "totalPrincipalPaydown": 362029,
+    "totalPrincipalPaydown": 467384,
     "totalCapEx6100": 125153,
-    "totalRealCashFlow": -189471
+    "totalRealCashFlow": -294826
   },
   "companies": [
     {
@@ -29,11 +29,11 @@
       "income": 157838,
       "expenses": 183688,
       "noi": -25850,
-      "principalPaydown": 49514,
+      "principalPaydown": 57766,
       "capEx6100": 74637,
-      "realCashFlow": -727,
+      "realCashFlow": -8979,
       "principalEstimated": true,
-      "principalNote": "Estimated from 2025 GL 386 avg ($8,252/mo x 6mo). 2026 GL not yet reconciled."
+      "principalNote": "Estimated: 2025 annual GL 386: $99,027 x 7/12. 2026 GL not yet reconciled."
     },
     {
       "name": "Courageous Lion",
@@ -43,9 +43,11 @@
       "income": 83914,
       "expenses": 63582,
       "noi": 20332,
-      "principalPaydown": 823,
+      "principalPaydown": 44187,
       "capEx6100": 27299,
-      "realCashFlow": 46808
+      "realCashFlow": 3444,
+      "principalEstimated": true,
+      "principalNote": "Estimated: 2025 annual GL 386: $75,749 x 7/12. 2026 GL not yet reconciled."
     },
     {
       "name": "826 Chicopee LLC",
@@ -68,11 +70,11 @@
       "income": 10475,
       "expenses": 1876,
       "noi": 8599,
-      "principalPaydown": 1184,
+      "principalPaydown": 1381,
       "capEx6100": 0,
-      "realCashFlow": 7415,
+      "realCashFlow": 7218,
       "principalEstimated": true,
-      "principalNote": "Estimated from 2025 GL 386 avg ($197/mo x 6mo). 2026 GL not yet reconciled."
+      "principalNote": "Estimated: 2025 annual GL 386: $2,368 x 7/12. 2026 GL not yet reconciled."
     },
     {
       "name": "Exchange Assets LLC",
@@ -82,9 +84,11 @@
       "income": 29827,
       "expenses": 39755,
       "noi": -9928,
-      "principalPaydown": 3265,
+      "principalPaydown": 22142,
       "capEx6100": 13881,
-      "realCashFlow": 688
+      "realCashFlow": -18189,
+      "principalEstimated": true,
+      "principalNote": "Estimated: 2025 annual GL 386: $37,957 x 7/12. 2026 GL not yet reconciled."
     },
     {
       "name": "Flying Monkeys LLC",
@@ -94,9 +98,11 @@
       "income": 45730,
       "expenses": 41109,
       "noi": 4621,
-      "principalPaydown": 3736,
+      "principalPaydown": 14450,
       "capEx6100": 8476,
-      "realCashFlow": 9361
+      "realCashFlow": -1353,
+      "principalEstimated": true,
+      "principalNote": "Estimated: 2025 annual GL 386: $24,771 x 7/12. 2026 GL not yet reconciled."
     },
     {
       "name": "Land of OZ LLC",
@@ -106,9 +112,11 @@
       "income": 54571,
       "expenses": 43637,
       "noi": 10934,
-      "principalPaydown": 5037,
+      "principalPaydown": 28988,
       "capEx6100": 150,
-      "realCashFlow": 6047
+      "realCashFlow": -17904,
+      "principalEstimated": true,
+      "principalNote": "Estimated: 2025 annual GL 386: $49,693 x 7/12. 2026 GL not yet reconciled."
     },
     {
       "name": "Allyn St",
