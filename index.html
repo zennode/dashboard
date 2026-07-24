@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YellowBrick Management â Dashboards</title>
+<title>YellowBrick Management — Dashboards</title>
 <meta name="description" content="Unified operations dashboard for YellowBrick Management: rental leads, portfolio P&amp;L, house flips, and law &amp; tax updates.">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script>
@@ -174,7 +174,7 @@ window.LAW_TAX_DATA = {
     {
       title: "MA short-term capital gains taxed at 8.5%",
       date: "2026-06-25", jurisdiction: "MA State", category: "Tax", impact: "High",
-      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA â timing matters for projects near the 1-year mark.",
+      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA — timing matters for projects near the 1-year mark.",
       action: "Review hold periods on 63 Dartmouth Ter and 114 Montgomery St with CPA; dealer-status treatment may apply to flip entity regardless."
     },
     {
@@ -193,7 +193,7 @@ window.LAW_TAX_DATA = {
       title: "Corporate Transparency Act: domestic LLCs exempt from BOI filing",
       date: "2026-06-07", jurisdiction: "Federal", category: "Regulatory", impact: "Medium",
       summary: "FinCEN's rule exempting U.S.-formed companies from beneficial ownership (BOI) reporting remains in effect; only certain foreign-formed entities must file. All YellowBrick and Ruby Lending entities are domestic LLCs.",
-      action: "None currently. Monitor â litigation could revive domestic filing requirements; re-check before forming new entities."
+      action: "None currently. Monitor — litigation could revive domestic filing requirements; re-check before forming new entities."
     },
     {
       title: "Springfield rental registration and inspection cycle",
@@ -514,6 +514,10 @@ tr.prop-row td{background:rgba(0,0,0,.18);color:var(--muted);font-size:13px}
 tr.prop-row td:first-child{padding-left:34px}
 tr.prop-row{display:none}
 tr.prop-row.show{display:table-row}
+tr.prop-row.top-label td{background:rgba(74,222,128,.06);color:var(--green);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:6px 14px}
+tr.prop-row.bottom-label td{background:rgba(248,113,113,.08);color:var(--red);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:6px 14px}
+tr.prop-row.bottom td{background:rgba(248,113,113,.04)}
+tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
 
 /* ---------- Flip cards ---------- */
 .flip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
@@ -620,7 +624,7 @@ tr.prop-row.show{display:table-row}
       </div>
     </div>
 
-    <div class="section-title">Urgent Queue â Uncontacted Leads</div>
+    <div class="section-title">Urgent Queue — Uncontacted Leads</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Lead</th><th>Property</th><th>Source</th><th class="num">Waiting</th><th>Status</th></tr></thead>
@@ -648,7 +652,7 @@ tr.prop-row.show{display:table-row}
   <!-- ============ TAB 2: PORTFOLIO ============ -->
   <section id="panel-portfolio" class="tab-panel" role="tabpanel">
     <div class="panel-head">
-      <h2>Property Portfolio â <span id="portfolio-period" style="color:var(--gold)"></span> <span id="portfolio-period-type" style="font-size:13px;color:var(--muted);font-weight:500"></span></h2>
+      <h2>Property Portfolio — <span id="portfolio-period" style="color:var(--gold)"></span> <span id="portfolio-period-type" style="font-size:13px;color:var(--muted);font-weight:500"></span></h2>
       <div class="updated">Updated monthly &middot; Last updated: <strong id="portfolio-updated"></strong></div>
     </div>
 
@@ -657,7 +661,7 @@ tr.prop-row.show{display:table-row}
     <div class="section-title">Key Metrics</div>
     <div class="kpi-grid" id="portfolio-metrics"></div>
 
-    <div class="section-title">Trends â Trailing 12 Months</div>
+    <div class="section-title">Trends — Trailing 12 Months</div>
     <div class="grid-2">
       <div class="card">
         <h3>Income vs Expenses</h3>
@@ -679,10 +683,10 @@ tr.prop-row.show{display:table-row}
       </div>
     </div>
 
-    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;â tap a row to see top &amp; bottom properties</span></div>
+    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;— tap a row to see top &amp; bottom properties</span></div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Entity / Property</th><th class="num">Units</th><th class="num">Income</th><th class="num">Expenses</th><th class="num">NOI</th><th class="num">Principal</th><th class="num">Margin</th></tr></thead>
+        <thead><tr><th>Entity / Property</th><th class="num">Units</th><th class="num">Income</th><th class="num">Expenses</th><th class="num">NOI</th><th class="num">Principal</th><th class="num">Margin</th><th class="num">Princ. Paydown</th></tr></thead>
         <tbody id="pnl-body"></tbody>
       </table>
     </div>
@@ -705,7 +709,7 @@ tr.prop-row.show{display:table-row}
       <div class="chart-box"><canvas id="chart-flip-budget"></canvas></div>
     </div>
 
-    <div class="section-title">Sold Flips â History</div>
+    <div class="section-title">Sold Flips — History</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Property</th><th class="num">Sold</th><th class="num">Total Invested</th><th class="num">Sale Price</th><th class="num">Profit</th><th class="num">ROI</th><th class="num">Days Held</th></tr></thead>
@@ -887,7 +891,7 @@ if (window.Chart) {
 const chartsBuilt = { leads:false, portfolio:false, flips:false, "law-tax":true , 'social-media': false};
 
 /* ============================================================
-   TAB 1 â RENTAL LEADS
+   TAB 1 — RENTAL LEADS
    ============================================================ */
 function renderLeads(){
 const D = window.LEADS_DATA, K = D.kpis;
@@ -1040,7 +1044,7 @@ chartsBuilt.leads = true;
 }
 
 /* ============================================================
-   TAB 2 â PORTFOLIO
+   TAB 2 — PORTFOLIO
    ============================================================ */
 function renderPortfolio(){
   const D = window.PORTFOLIO_DATA, S = D.summary;
@@ -1067,7 +1071,7 @@ function renderPortfolio(){
     </div>
     <div class="kpi">
       <div class="label">Vacancy Rate</div>
-      <div class="value ${S.vacancyRate <= 6 ? "good" : "warn"}">${fmtPct(S.vacancyRate)}</div>
+      <div class="value ${S.vacancyRate <= 8 ? "good" : (S.vacancyRate <= 15 ? "warn" : "bad")}">${fmtPct(S.vacancyRate)}</div>
       <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">â¼ ' : '<span class="delta down">â² '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
     </div>
     <div class="kpi">
@@ -1078,8 +1082,8 @@ function renderPortfolio(){
     `;
 
   $("#portfolio-metrics").innerHTML = `
-    <div class="kpi"><div class="label">DSCR</div><div class="value ${S.dscr >= 1.25 ? "good" : "warn"}">${S.dscr.toFixed(2)}x</div><div class="meta">debt service coverage</div></div>
-    <div class="kpi"><div class="label">Expense Ratio</div><div class="value ${S.expenseRatio <= 55 ? "good" : "warn"}">${fmtPct(S.expenseRatio)}</div><div class="meta">expenses / income</div></div>
+    <div class="kpi"><div class="label">DSCR</div><div class="value ${S.dscr >= 1.25 ? "good" : (S.dscr >= 1.0 ? "warn" : "bad")}">${S.dscr.toFixed(2)}x</div><div class="meta">debt service coverage</div></div>
+    <div class="kpi"><div class="label">Expense Ratio</div><div class="value ${S.expenseRatio <= 65 ? "good" : (S.expenseRatio <= 80 ? "warn" : "bad")}">${fmtPct(S.expenseRatio)}</div><div class="meta">expenses / income</div></div>
     <div class="kpi"><div class="label">Total Units</div><div class="value">${D.companies.reduce((a,c)=>a+c.units,0)}</div><div class="meta">${D.companies.length} entities</div></div>`;
 
   // P&L expandable table
@@ -1088,41 +1092,63 @@ function renderPortfolio(){
 
   let html = "";
   D.companies.forEach((c,i) => {
-    const margin = (c.noi / c.income * 100);
+    const margin = c.income > 0 ? (c.noi / c.income * 100).toFixed(0) + '%' : '—';
+    const noiColor = c.noi >= 0 ? C.gold : C.red;
     html += `<tr class="entity-row" data-entity="${i}">
       <td><strong>${esc(c.name)}</strong></td>
       <td class="num">${c.units}</td>
       <td class="num">${fmtMoney(c.income)}</td>
       <td class="num">${fmtMoney(c.expenses)}</td>
-      <td class="num" style="color:${C.gold};font-weight:700">${fmtMoney(c.noi)}</td>
-      <td class="num">${c.principalPaydown ? fmtMoney(c.principalPaydown) : "\u2014"}</td>
-      <td class="num">${margin.toFixed(0)}%</td>
+      <td class="num" style="color:${noiColor};font-weight:700">${fmtMoney(c.noi)}</td>
+      <td class="num">${margin}</td>
+      <td class="num" style="color:var(--faint)">${c.principalPaydown != null ? fmtMoney(c.principalPaydown) : '—'}</td>
     </tr>`;
-    (() => {
-        const props = (propsByEntity[c.name] || []).slice().sort((a,b) => b.noi - a.noi);
-        const named = props.filter(p => !p.name.startsWith("Other"));
-        const other = props.filter(p => p.name.startsWith("Other"));
-        const top3 = named.slice(0, 3);
-        const bottom3 = named.length > 3 ? named.slice(-3).reverse() : [];
-        const propRow = (p) => `<tr class="prop-row" data-parent="${i}">
+    const entityProps = propsByEntity[c.name] || [];
+    const topProps = entityProps.filter(p => !p.isBottom && !p.name.startsWith('Other'));
+    const otherProps = entityProps.filter(p => !p.isBottom && p.name.startsWith('Other'));
+    const bottomProps = entityProps.filter(p => p.isBottom);
+    if (topProps.length > 0 && bottomProps.length > 0) {
+      html += `<tr class="prop-row top-label" data-parent="${i}"><td colspan="7">▲ Top ${topProps.length} by NOI</td></tr>`;
+    }
+    topProps.forEach(p => {
+      const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : '—';
+      html += `<tr class="prop-row" data-parent="${i}">
+        <td>${esc(p.name)}</td>
+        <td class="num">${p.units}</td>
+        <td class="num">${fmtMoney(p.income)}</td>
+        <td class="num">${fmtMoney(p.expenses)}</td>
+        <td class="num">${fmtMoney(p.noi)}</td>
+        <td class="num">${pm}</td>
+        <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : '—'}</td>
+      </tr>`;
+    });
+    otherProps.forEach(p => {
+      const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : '—';
+      html += `<tr class="prop-row" data-parent="${i}">
+        <td>${esc(p.name)}</td>
+        <td class="num">${p.units}</td>
+        <td class="num">${fmtMoney(p.income)}</td>
+        <td class="num">${fmtMoney(p.expenses)}</td>
+        <td class="num">${fmtMoney(p.noi)}</td>
+        <td class="num">${pm}</td>
+        <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : '—'}</td>
+      </tr>`;
+    });
+    if (bottomProps.length > 0) {
+      html += `<tr class="prop-row bottom-label" data-parent="${i}"><td colspan="7">▼ Bottom ${bottomProps.length} by NOI</td></tr>`;
+      bottomProps.forEach(p => {
+        const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : '—';
+        html += `<tr class="prop-row bottom" data-parent="${i}">
           <td>${esc(p.name)}</td>
           <td class="num">${p.units}</td>
           <td class="num">${fmtMoney(p.income)}</td>
           <td class="num">${fmtMoney(p.expenses)}</td>
-          <td class="num" style="color:${p.noi>=0?C.green:C.red}">${fmtMoney(p.noi)}</td>
-          <td class="num">${p.principalPaydown ? fmtMoney(p.principalPaydown) : "\u2014"}</td>
-          <td class="num">${p.income?((p.noi/p.income*100).toFixed(0)+"%"):"\u2014"}</td>
+          <td class="num">${fmtMoney(p.noi)}</td>
+          <td class="num">${pm}</td>
+          <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : '—'}</td>
         </tr>`;
-        if (top3.length) {
-          html += '<tr class="prop-row" data-parent="'+i+'"><td colspan="7" style="padding:6px 14px 2px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--green);background:rgba(0,0,0,.18)">\u25B2 Top '+top3.length+'</td></tr>';
-          top3.forEach(p => { html += propRow(p); });
-        }
-        if (bottom3.length) {
-          html += '<tr class="prop-row" data-parent="'+i+'"><td colspan="7" style="padding:6px 14px 2px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--red);background:rgba(0,0,0,.18)">\u25BC Bottom '+bottom3.length+'</td></tr>';
-          bottom3.forEach(p => { html += propRow(p); });
-        }
-        other.forEach(p => { html += propRow(p); });
-      })();
+      });
+    }
   });
   // totals row
   html += `<tr style="background:var(--bg-2)">
@@ -1236,10 +1262,10 @@ function buildPortfolioCharts(){
   const comps = window.PORTFOLIO_DATA.companies;
   new Chart($("#chart-entity"), {
     type: "bar",
-    data: { labels: comps.map(c=>c.name.replace(" LLC","")), datasets: [
+    data: { labels: comps.map(c=>c.name.replace(/ LLC$/,"").replace(/, LLC$/,"")), datasets: [
       { data: comps.map(c=>c.noi),
-        backgroundColor: [C.gold+"cc", C.green+"cc", C.blue+"cc", C.purple+"cc"],
-        borderColor: [C.gold, C.green, C.blue, C.purple], borderWidth: 1, borderRadius: 4 }
+        backgroundColor: comps.map((c,i)=> { const cols=[C.gold,C.green,C.blue,C.purple,C.amber,'#f472b6','#34d399','#a78bfa','#fb923c']; return (c.noi >= 0 ? cols[i % cols.length] + 'cc' : C.red + '88'); }),
+        borderColor: comps.map((c,i)=> { const cols=[C.gold,C.green,C.blue,C.purple,C.amber,'#f472b6','#34d399','#a78bfa','#fb923c']; return c.noi >= 0 ? cols[i % cols.length] : C.red; }), borderWidth: 1, borderRadius: 4 }
     ]},
     options: { indexAxis: "y", scales: { x: { ticks: { callback: v => fmtMoneyK(v) } } },
       plugins: { legend: { display: false },
@@ -1248,7 +1274,7 @@ function buildPortfolioCharts(){
 }
 
 /* ============================================================
-   TAB 3 â HOUSE FLIP
+   TAB 3 — HOUSE FLIP
    ============================================================ */
 const STATUS_BADGE = {
   "Acquired": "gray", "In Progress": "amber", "Listed": "blue",
@@ -1418,7 +1444,7 @@ function buildFlipCharts(){
 }
 
 /* ============================================================
-   TAB 4 â LAW & TAX
+   TAB 4 — LAW & TAX
    ============================================================ */
 let lawFilter = "all";
 function renderLawTax(){
@@ -1618,7 +1644,7 @@ renderLawTax();
 activateTab(location.hash.replace("#","") || "leads", false);
 
 /* Public hook: after a scheduled task mutates window.*_DATA it can call
-   window.refreshDashboards() â or simply regenerate this file's data block. */
+   window.refreshDashboards() — or simply regenerate this file's data block. */
 window.refreshDashboards = function(){
   try{renderLeads();}catch(e){console.warn(e)} try{renderPortfolio();}catch(e){console.warn(e)} try{renderFlips();}catch(e){console.warn(e)} try{renderLawTax();
       renderSocialMedia();}catch(e){console.warn(e)}
