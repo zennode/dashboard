@@ -1,18 +1,17 @@
 {
-  "lastUpdated": "2026-07-23T07:06:50-04:00",
+  "lastUpdated": "2026-07-24T07:06:51-04:00",
   "kpis": {
-    "newLeads24h": 1,
-    "newLeads30d": 192,
-    "activeProspects": 4,
-    "lostLeads30d": 187,
+    "newLeads24h": 0,
+    "newLeads30d": 180,
+    "activeProspects": 5,
+    "lostLeads30d": 174,
     "totalUnits": 1186,
-    "contacted30d": 165,
-    "avgFirstContactHours": 21.6,
-    "medianFirstContactHours": 3,
-    "leadsWithNoContactRecorded": 27
+    "contacted30d": 155,
+    "avgFirstContactHours": 21.7,
+    "medianFirstContactHours": 3.5,
+    "leadsWithNoContactRecorded": 25
   },
   "volumeTrend": {
-    "2026-06-23": 12,
     "2026-06-24": 12,
     "2026-06-25": 10,
     "2026-06-26": 9,
@@ -44,26 +43,18 @@
     "2026-07-22": 2
   },
   "statusBreakdown": {
-    "Lost": 187,
+    "Prospect": 5,
     "Customer": 1,
-    "Prospect": 4
+    "Lost": 174
   },
   "leadsByProperty": {
-    "YellowBrick Management, Inc": 71,
-    "24-28 Wilcox": 118,
-    "St. James Ave 83 ": 1,
+    "24-28 Wilcox": 113,
+    "YellowBrick Management, Inc": 65,
     "50 Springfield Street": 2
   },
-  "newLeads24h": [
-    {
-      "name": "Taysia Moore",
-      "property": "YellowBrick Management, Inc",
-      "created": "2026-07-22T12:15:29"
-    }
-  ],
+  "newLeads24h": [],
   "urgentQueue": [],
   "notes": {
-    "units": "IsActive filter not supported by Units endpoint; totalUnits is all units. IsVacant returned false/null for all units, so vacancy count unavailable.",
-    "urgent": "No active prospects without recorded first contact waiting 4+ hours."
+    "totalUnits": "Units endpoint does not expose IsActive/IsVacant fields; totalUnits is the count of all units returned by the API."
   }
 }
