@@ -25,7 +25,8 @@
       "vacant": 23,
       "income": 151238,
       "expenses": 156902,
-      "noi": -5664
+      "noi": -5664,
+      "principalPaydown": null
     },
     {
       "name": "Courageous Lion",
@@ -34,7 +35,8 @@
       "vacant": 15,
       "income": 82209,
       "expenses": 63779,
-      "noi": 18430
+      "noi": 18430,
+      "principalPaydown": null
     },
     {
       "name": "Land of OZ LLC",
@@ -43,7 +45,8 @@
       "vacant": 9,
       "income": 54571,
       "expenses": 38340,
-      "noi": 16231
+      "noi": 16231,
+      "principalPaydown": null
     },
     {
       "name": "Flying Monkeys LLC",
@@ -52,7 +55,8 @@
       "vacant": 0,
       "income": 45730,
       "expenses": 18931,
-      "noi": 26799
+      "noi": 26799,
+      "principalPaydown": null
     },
     {
       "name": "Exchange Assets LLC",
@@ -61,7 +65,8 @@
       "vacant": 8,
       "income": 29827,
       "expenses": 26436,
-      "noi": 3391
+      "noi": 3391,
+      "principalPaydown": null
     },
     {
       "name": "Shaker Shops",
@@ -70,7 +75,8 @@
       "vacant": 0,
       "income": 42219,
       "expenses": 18227,
-      "noi": 23992
+      "noi": 23992,
+      "principalPaydown": null
     },
     {
       "name": "Allyn St",
@@ -79,7 +85,8 @@
       "vacant": 0,
       "income": 22905,
       "expenses": 4711,
-      "noi": 18194
+      "noi": 18194,
+      "principalPaydown": null
     },
     {
       "name": "Emerald City Rentals, LLC",
@@ -88,7 +95,8 @@
       "vacant": 4,
       "income": 8425,
       "expenses": 942,
-      "noi": 7483
+      "noi": 7483,
+      "principalPaydown": null
     },
     {
       "name": "826 Chicopee LLC",
@@ -97,7 +105,8 @@
       "vacant": 0,
       "income": 6800,
       "expenses": 1261,
-      "noi": 5539
+      "noi": 5539,
+      "principalPaydown": null
     }
   ],
   "properties": [
@@ -107,7 +116,8 @@
       "units": 4,
       "income": 17827,
       "expenses": 3395,
-      "noi": 14432
+      "noi": 14432,
+      "principalPaydown": null
     },
     {
       "entity": "Yellow Brick Property",
@@ -115,7 +125,8 @@
       "units": 3,
       "income": 6200,
       "expenses": 1140,
-      "noi": 5060
+      "noi": 5060,
+      "principalPaydown": null
     },
     {
       "entity": "Yellow Brick Property",
@@ -123,7 +134,8 @@
       "units": 4,
       "income": 5919,
       "expenses": 1577,
-      "noi": 4342
+      "noi": 4342,
+      "principalPaydown": null
     },
     {
       "entity": "Yellow Brick Property",
@@ -131,7 +143,8 @@
       "units": 94,
       "income": 121292,
       "expenses": 150790,
-      "noi": -29498
+      "noi": -29498,
+      "principalPaydown": null
     },
     {
       "entity": "Courageous Lion",
@@ -139,7 +152,8 @@
       "units": 6,
       "income": 11001,
       "expenses": 5842,
-      "noi": 5159
+      "noi": 5159,
+      "principalPaydown": null
     },
     {
       "entity": "Courageous Lion",
@@ -147,7 +161,8 @@
       "units": 9,
       "income": 9920,
       "expenses": 3624,
-      "noi": 6296
+      "noi": 6296,
+      "principalPaydown": null
     },
     {
       "entity": "Courageous Lion",
@@ -155,7 +170,8 @@
       "units": 7,
       "income": 8395,
       "expenses": 3625,
-      "noi": 4770
+      "noi": 4770,
+      "principalPaydown": null
     },
     {
       "entity": "Courageous Lion",
@@ -163,7 +179,8 @@
       "units": 33,
       "income": 52893,
       "expenses": 50688,
-      "noi": 2205
+      "noi": 2205,
+      "principalPaydown": null
     },
     {
       "entity": "Land of OZ LLC",
@@ -171,7 +188,8 @@
       "units": 43,
       "income": 45246,
       "expenses": 26649,
-      "noi": 18597
+      "noi": 18597,
+      "principalPaydown": null
     },
     {
       "entity": "Land of OZ LLC",
@@ -179,7 +197,8 @@
       "units": 8,
       "income": 9325,
       "expenses": 11691,
-      "noi": -2366
+      "noi": -2366,
+      "principalPaydown": null
     },
     {
       "entity": "Flying Monkeys LLC",
@@ -187,7 +206,8 @@
       "units": 8,
       "income": 10200,
       "expenses": 5418,
-      "noi": 4782
+      "noi": 4782,
+      "principalPaydown": null
     },
     {
       "entity": "Flying Monkeys LLC",
@@ -195,7 +215,8 @@
       "units": 6,
       "income": 7950,
       "expenses": 3210,
-      "noi": 4740
+      "noi": 4740,
+      "principalPaydown": null
     },
     {
       "entity": "Flying Monkeys LLC",
@@ -203,7 +224,8 @@
       "units": 2,
       "income": 6130,
       "expenses": 2014,
-      "noi": 4116
+      "noi": 4116,
+      "principalPaydown": null
     },
     {
       "entity": "Flying Monkeys LLC",
@@ -211,7 +233,8 @@
       "units": 6,
       "income": 21450,
       "expenses": 8289,
-      "noi": 13161
+      "noi": 13161,
+      "principalPaydown": null
     },
     {
       "entity": "Exchange Assets LLC",
@@ -219,7 +242,8 @@
       "units": 15,
       "income": 15970,
       "expenses": 2235,
-      "noi": 13735
+      "noi": 13735,
+      "principalPaydown": null
     },
     {
       "entity": "Exchange Assets LLC",
@@ -227,7 +251,8 @@
       "units": 2,
       "income": 10607,
       "expenses": 5248,
-      "noi": 5359
+      "noi": 5359,
+      "principalPaydown": null
     },
     {
       "entity": "Exchange Assets LLC",
@@ -235,7 +260,8 @@
       "units": 2,
       "income": 3250,
       "expenses": 2538,
-      "noi": 712
+      "noi": 712,
+      "principalPaydown": null
     },
     {
       "entity": "Exchange Assets LLC",
@@ -243,7 +269,8 @@
       "units": 1,
       "income": 0,
       "expenses": 16415,
-      "noi": -16415
+      "noi": -16415,
+      "principalPaydown": null
     },
     {
       "entity": "Shaker Shops",
@@ -251,7 +278,8 @@
       "units": 10,
       "income": 25331,
       "expenses": 10936,
-      "noi": 14395
+      "noi": 14395,
+      "principalPaydown": null
     },
     {
       "entity": "Shaker Shops",
@@ -259,7 +287,8 @@
       "units": 8,
       "income": 16888,
       "expenses": 7291,
-      "noi": 9597
+      "noi": 9597,
+      "principalPaydown": null
     },
     {
       "entity": "Allyn St",
@@ -267,7 +296,8 @@
       "units": 18,
       "income": 22905,
       "expenses": 4711,
-      "noi": 18194
+      "noi": 18194,
+      "principalPaydown": null
     },
     {
       "entity": "Emerald City Rentals, LLC",
@@ -275,7 +305,8 @@
       "units": 3,
       "income": 4325,
       "expenses": 370,
-      "noi": 3955
+      "noi": 3955,
+      "principalPaydown": null
     },
     {
       "entity": "Emerald City Rentals, LLC",
@@ -283,7 +314,8 @@
       "units": 4,
       "income": 4100,
       "expenses": 572,
-      "noi": 3528
+      "noi": 3528,
+      "principalPaydown": null
     },
     {
       "entity": "826 Chicopee LLC",
@@ -291,7 +323,8 @@
       "units": 7,
       "income": 6800,
       "expenses": 1261,
-      "noi": 5539
+      "noi": 5539,
+      "principalPaydown": null
     }
   ],
   "trends": {
@@ -435,7 +468,8 @@
       "GL 596: LOC Interest",
       "GL 721: Other Loan Interest"
     ],
-    "principalGLAccount": "GL 386: Mortgage Payable"
+    "principalGLAccount": "GL 386: Mortgage Payable",
+    "principalPaydownNote": "principalPaydown on companies[] and properties[] is populated by the daily update from GL 386. Set to null until first update."
   },
   "keyInsights": [
     "Portfolio income grew 6x from $905K (FY2022) to $5.5M (FY2026), reflecting rapid acquisition-driven growth across 9 entities and 306 units.",
