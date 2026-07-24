@@ -690,6 +690,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
         <tbody id="pnl-body"></tbody>
       </table>
     </div>
+    <div style="margin-top:8px;font-size:12px;color:var(--amber)">* Estimated from 2025 GL 386 monthly averages — 2026 GL entries not yet reconciled. Real Cash Flow recalculated accordingly.</div>
   </section>
 
   <!-- ============ TAB 3: HOUSE FLIP ============ -->
@@ -1105,7 +1106,7 @@ function renderPortfolio(){
       <td class="num">${fmtMoney(c.expenses)}</td>
       <td class="num" style="color:${noiColor};font-weight:700">${fmtMoney(c.noi)}</td>
       <td class="num">${margin}</td>
-      <td class="num" style="color:var(--faint)">${c.principalPaydown != null ? fmtMoney(c.principalPaydown) : '—'}</td>
+      <td class="num" style="color:${c.principalEstimated ? 'var(--amber)' : 'var(--faint)'}" title="${c.principalNote || ''}">${c.principalPaydown != null ? fmtMoney(c.principalPaydown) + (c.principalEstimated ? '*' : '') : '—'}</td>
                 <td class="num" style="color:var(--faint)">${c.capEx6100 != null ? fmtMoney(c.capEx6100) : '—'}</td>
                 <td class="num" style="font-weight:600">${c.realCashFlow != null ? '<span class="' + (c.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(c.realCashFlow) + '</span>' : '—'}</td>
     </tr>`;
