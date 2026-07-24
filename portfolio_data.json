@@ -16,9 +16,9 @@
     "yoyExpensesPct": 0,
     "yoyNoiPct": 0,
     "momVacancyPts": 0,
-    "totalPrincipalPaydown": 311331,
+    "totalPrincipalPaydown": 362029,
     "totalCapEx6100": 125153,
-    "totalRealCashFlow": -138773
+    "totalRealCashFlow": -189471
   },
   "companies": [
     {
@@ -29,9 +29,11 @@
       "income": 157838,
       "expenses": 183688,
       "noi": -25850,
-      "principalPaydown": 0,
+      "principalPaydown": 49514,
       "capEx6100": 74637,
-      "realCashFlow": 48787
+      "realCashFlow": -727,
+      "principalEstimated": true,
+      "principalNote": "Estimated from 2025 GL 386 avg ($8,252/mo x 6mo). 2026 GL not yet reconciled."
     },
     {
       "name": "Courageous Lion",
@@ -55,7 +57,8 @@
       "noi": 4613,
       "principalPaydown": 0,
       "capEx6100": 710,
-      "realCashFlow": 5323
+      "realCashFlow": 5323,
+      "principalNote": "No GL 386 activity found in 2025 RM data. Verify mortgage is tracked in Rent Manager."
     },
     {
       "name": "Emerald City Rentals, LLC",
@@ -65,9 +68,11 @@
       "income": 10475,
       "expenses": 1876,
       "noi": 8599,
-      "principalPaydown": 0,
+      "principalPaydown": 1184,
       "capEx6100": 0,
-      "realCashFlow": 8599
+      "realCashFlow": 7415,
+      "principalEstimated": true,
+      "principalNote": "Estimated from 2025 GL 386 avg ($197/mo x 6mo). 2026 GL not yet reconciled."
     },
     {
       "name": "Exchange Assets LLC",
@@ -115,7 +120,8 @@
       "noi": 19131,
       "principalPaydown": 0,
       "capEx6100": 0,
-      "realCashFlow": 19131
+      "realCashFlow": 19131,
+      "principalNote": "No GL 386 activity found in 2025 RM data. Verify mortgage is tracked in Rent Manager."
     },
     {
       "name": "Shaker Shops",
@@ -421,25 +427,132 @@
     }
   ],
   "trends": {
-    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    "income": [539433, 532560, 517239, 530258, 466196, 457279],
-    "expenses": [381000, 360000, 395000, 378000, 413489, 409875],
-    "noi": [158433, 172560, 122239, 152258, 52707, 47405],
-    "vacancy": [28.1, 28.1, 28.1, 28.1, 19.7, 19.7]
+    "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun"
+    ],
+    "income": [
+      539433,
+      532560,
+      517239,
+      530258,
+      466196,
+      457279
+    ],
+    "expenses": [
+      381000,
+      360000,
+      395000,
+      378000,
+      413489,
+      409875
+    ],
+    "noi": [
+      158433,
+      172560,
+      122239,
+      152258,
+      52707,
+      47405
+    ],
+    "vacancy": [
+      28.1,
+      28.1,
+      28.1,
+      28.1,
+      19.7,
+      19.7
+    ]
   },
   "fiveYearTrend": {
-    "years": ["FY2022", "FY2023", "FY2024", "FY2025", "FY2026"],
-    "income": [905421, 3243814, 4151471, 4935136, 5480196],
-    "opex": [977262, 2790146, 3566619, 3484957, 4142808],
-    "noi": [-71841, 453668, 584852, 1450179, 1337388],
-    "interest": [163440, 509207, 1009462, 1082058, 1138279],
-    "principal": [86269, 128621, 387302, 436622, 455638],
-    "debtService": [249709, 637828, 1396764, 1518681, 1593917],
-    "capex": [51125, 8080, 52361, 33671, 41839],
-    "expenseRatio": [107.9, 86, 85.9, 70.6, 75.6],
-    "noiPerUnit": [-235, 1483, 1911, 4739, 4370],
-    "dscr": [-0.29, 0.71, 0.42, 0.95, 0.84],
-    "cashFlowAfterDS": [-321550, -184160, -811912, -68502, -256529],
+    "years": [
+      "FY2022",
+      "FY2023",
+      "FY2024",
+      "FY2025",
+      "FY2026"
+    ],
+    "income": [
+      905421,
+      3243814,
+      4151471,
+      4935136,
+      5480196
+    ],
+    "opex": [
+      977262,
+      2790146,
+      3566619,
+      3484957,
+      4142808
+    ],
+    "noi": [
+      -71841,
+      453668,
+      584852,
+      1450179,
+      1337388
+    ],
+    "interest": [
+      163440,
+      509207,
+      1009462,
+      1082058,
+      1138279
+    ],
+    "principal": [
+      86269,
+      128621,
+      387302,
+      436622,
+      455638
+    ],
+    "debtService": [
+      249709,
+      637828,
+      1396764,
+      1518681,
+      1593917
+    ],
+    "capex": [
+      51125,
+      8080,
+      52361,
+      33671,
+      41839
+    ],
+    "expenseRatio": [
+      107.9,
+      86,
+      85.9,
+      70.6,
+      75.6
+    ],
+    "noiPerUnit": [
+      -235,
+      1483,
+      1911,
+      4739,
+      4370
+    ],
+    "dscr": [
+      -0.29,
+      0.71,
+      0.42,
+      0.95,
+      0.84
+    ],
+    "cashFlowAfterDS": [
+      -321550,
+      -184160,
+      -811912,
+      -68502,
+      -256529
+    ],
     "totalUnits": 310
   },
   "debtDetail": {
