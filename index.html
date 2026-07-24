@@ -506,7 +506,7 @@ tbody tr:hover{background:rgba(255,255,255,.02)}
 /* expandable entity rows */
 tr.entity-row{cursor:pointer;user-select:none}
 tr.entity-row td:first-child::before{
-  content:"â¸";display:inline-block;margin-right:8px;color:var(--gold);
+  content:"▸";display:inline-block;margin-right:8px;color:var(--gold);
   transition:transform .15s;font-size:11px;
 }
 tr.entity-row.open td:first-child::before{transform:rotate(90deg)}
@@ -686,7 +686,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
     <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;— tap a row to see top &amp; bottom properties</span></div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Entity / Property</th><th class="num">Units</th><th class="num">Income</th><th class="num">Expenses</th><th class="num">NOI</th><th class="num">Principal</th><th class="num">Margin</th><th class="num">Princ. Paydown</th></tr></thead>
+        <thead><tr><th>Entity / Property</th><th class="num">Units</th><th class="num">Income</th><th class="num">Expenses</th><th class="num">NOI</th><th class="num">Margin</th><th class="num">Princ. Paydown</th></tr></thead>
         <tbody id="pnl-body"></tbody>
       </table>
     </div>
@@ -867,7 +867,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 const delta = (pct, goodWhenUp) => {
   const up = pct > 0, flat = Math.abs(pct) < 0.05;
   const cls = flat ? "flat" : ((up === goodWhenUp) ? "up" : "down");
-  const arrow = flat ? "â" : (up ? "â²" : "â¼");
+  const arrow = flat ? "→" : (up ? "▲" : "▼");
   return `<span class="delta ${cls}">${arrow} ${Math.abs(pct).toFixed(1)}%</span>`;
 };
 
@@ -1072,7 +1072,7 @@ function renderPortfolio(){
     <div class="kpi">
       <div class="label">Vacancy Rate</div>
       <div class="value ${S.vacancyRate <= 8 ? "good" : (S.vacancyRate <= 15 ? "warn" : "bad")}">${fmtPct(S.vacancyRate)}</div>
-      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">â¼ ' : '<span class="delta down">â² '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
+      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">▼ ' : '<span class="delta down">▲ '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
     </div>
     <div class="kpi">
       <div class="label">Collection Rate</div>
@@ -1719,9 +1719,9 @@ if(D.recurringIssues&&D.recurringIssues.top20){
 const ri=D.recurringIssues;
 const t20=ri.top20;
 new Chart(document.getElementById("chart-wo-recurring"),{type:"bar",data:{labels:t20.map(x=>x.name),datasets:[{label:"Count",data:t20.map(x=>x.count),backgroundColor:"rgba(59,130,246,0.7)",borderColor:"rgba(59,130,246,1)",borderWidth:1}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:"Top 20 Recurring Issues by Frequency",font:{size:14}},legend:{display:false}},scales:{x:{beginAtZero:true,title:{display:true,text:"Work Order Count"}},y:{ticks:{font:{size:11}}}}}});
-const tbl='<table class="mini-tbl" style="width:100%"><thead><tr><th>#</th><th>Issue</th><th>Count</th><th>%</th><th>Avg Days</th><th>Trend</th><th>Top Entity</th></tr></thead><tbody>'+t20.map(x=>'<tr><td>'+x.rank+'</td><td>'+x.name+'</td><td>'+x.count.toLocaleString()+'</td><td>'+x.pctOfTotal+'%</td><td>'+x.avgResolutionDays+'</td><td style="color:'+(x.trend==="Increasing"?"var(--red)":x.trend==="Decreasing"?"var(--green)":"var(--text)")+'">'+( x.trend==="Increasing"?"â":x.trend==="Decreasing"?"â":"â")+" "+x.trend+'</td><td>'+x.topEntities[0].name+' ('+x.topEntities[0].count+')</td></tr>').join('')+'</tbody></table>';
+const tbl='<table class="mini-tbl" style="width:100%"><thead><tr><th>#</th><th>Issue</th><th>Count</th><th>%</th><th>Avg Days</th><th>Trend</th><th>Top Entity</th></tr></thead><tbody>'+t20.map(x=>'<tr><td>'+x.rank+'</td><td>'+x.name+'</td><td>'+x.count.toLocaleString()+'</td><td>'+x.pctOfTotal+'%</td><td>'+x.avgResolutionDays+'</td><td style="color:'+(x.trend==="Increasing"?"var(--red)":x.trend==="Decreasing"?"var(--green)":"var(--text)")+'">'+( x.trend==="Increasing"?"↑":x.trend==="Decreasing"?"↓":"→")+" "+x.trend+'</td><td>'+x.topEntities[0].name+' ('+x.topEntities[0].count+')</td></tr>').join('')+'</tbody></table>';
 document.getElementById("wo-recurring-table").innerHTML=tbl;
-document.getElementById("wo-recurring-insights").innerHTML='<h4 style="margin:0 0 8px;color:var(--text)">Key Insights</h4>'+ri.insights.map(x=>'<p style="margin:4px 0;font-size:14px;color:var(--text-dim)">â¢ '+x+'</p>').join('');
+document.getElementById("wo-recurring-insights").innerHTML='<h4 style="margin:0 0 8px;color:var(--text)">Key Insights</h4>'+ri.insights.map(x=>'<p style="margin:4px 0;font-size:14px;color:var(--text-dim)">• '+x+'</p>').join('');
 }
 }catch(e){console.error("WO load error:",e)}}
 loadWorkOrders();
