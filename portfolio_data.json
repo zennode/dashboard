@@ -1,17 +1,17 @@
 {
-  "lastUpdated": "2026-07-16T14:00:00-04:00",
+  "lastUpdated": "2026-07-24T15:32:00-04:00",
   "period": "June 2026",
   "summary": {
-    "totalIncome": 443924,
-    "totalExpenses": 329529,
-    "noi": 114395,
-    "vacancyRate": 18.1,
+    "totalIncome": 457279,
+    "totalExpenses": 409875,
+    "noi": 47405,
+    "vacancyRate": 19.7,
     "collectionRate": 96.2,
-    "expenseRatio": 74.2,
+    "expenseRatio": 89.6,
     "dscr": 0.84,
-    "momIncomePct": -5.5,
-    "momExpensesPct": 0,
-    "momNoiPct": 0,
+    "momIncomePct": -1.9,
+    "momExpensesPct": -0.9,
+    "momNoiPct": -10.1,
     "yoyIncomePct": 0,
     "yoyExpensesPct": 0,
     "yoyNoiPct": 0,
@@ -21,81 +21,21 @@
     {
       "name": "Yellow Brick Property",
       "units": 105,
-      "occupied": 82,
-      "vacant": 23,
-      "income": 151238,
-      "expenses": 156902,
-      "noi": -5664,
+      "occupied": 86,
+      "vacant": 19,
+      "income": 157838,
+      "expenses": 183688,
+      "noi": -25850,
       "principalPaydown": null
     },
     {
       "name": "Courageous Lion",
-      "units": 55,
-      "occupied": 40,
-      "vacant": 15,
-      "income": 82209,
-      "expenses": 63779,
-      "noi": 18430,
-      "principalPaydown": null
-    },
-    {
-      "name": "Land of OZ LLC",
-      "units": 51,
-      "occupied": 42,
-      "vacant": 9,
-      "income": 54571,
-      "expenses": 38340,
-      "noi": 16231,
-      "principalPaydown": null
-    },
-    {
-      "name": "Flying Monkeys LLC",
-      "units": 22,
-      "occupied": 22,
-      "vacant": 0,
-      "income": 45730,
-      "expenses": 18931,
-      "noi": 26799,
-      "principalPaydown": null
-    },
-    {
-      "name": "Exchange Assets LLC",
-      "units": 20,
-      "occupied": 12,
-      "vacant": 8,
-      "income": 29827,
-      "expenses": 26436,
-      "noi": 3391,
-      "principalPaydown": null
-    },
-    {
-      "name": "Shaker Shops",
-      "units": 18,
-      "occupied": 18,
-      "vacant": 0,
-      "income": 42219,
-      "expenses": 18227,
-      "noi": 23992,
-      "principalPaydown": null
-    },
-    {
-      "name": "Allyn St",
-      "units": 18,
-      "occupied": 18,
-      "vacant": 0,
-      "income": 22905,
-      "expenses": 4711,
-      "noi": 18194,
-      "principalPaydown": null
-    },
-    {
-      "name": "Emerald City Rentals, LLC",
-      "units": 10,
-      "occupied": 6,
-      "vacant": 4,
-      "income": 8425,
-      "expenses": 942,
-      "noi": 7483,
+      "units": 58,
+      "occupied": 41,
+      "vacant": 17,
+      "income": 83914,
+      "expenses": 63582,
+      "noi": 20332,
       "principalPaydown": null
     },
     {
@@ -104,8 +44,68 @@
       "occupied": 7,
       "vacant": 0,
       "income": 6800,
-      "expenses": 1261,
-      "noi": 5539,
+      "expenses": 2187,
+      "noi": 4613,
+      "principalPaydown": null
+    },
+    {
+      "name": "Emerald City Rentals, LLC",
+      "units": 10,
+      "occupied": 7,
+      "vacant": 3,
+      "income": 10475,
+      "expenses": 1876,
+      "noi": 8599,
+      "principalPaydown": null
+    },
+    {
+      "name": "Exchange Assets LLC",
+      "units": 21,
+      "occupied": 15,
+      "vacant": 6,
+      "income": 29827,
+      "expenses": 39755,
+      "noi": -9928,
+      "principalPaydown": null
+    },
+    {
+      "name": "Flying Monkeys LLC",
+      "units": 22,
+      "occupied": 22,
+      "vacant": 0,
+      "income": 45730,
+      "expenses": 41109,
+      "noi": 4621,
+      "principalPaydown": null
+    },
+    {
+      "name": "Land of OZ LLC",
+      "units": 51,
+      "occupied": 42,
+      "vacant": 9,
+      "income": 54571,
+      "expenses": 43637,
+      "noi": 10934,
+      "principalPaydown": null
+    },
+    {
+      "name": "Allyn St",
+      "units": 18,
+      "occupied": 17,
+      "vacant": 1,
+      "income": 25905,
+      "expenses": 6774,
+      "noi": 19131,
+      "principalPaydown": null
+    },
+    {
+      "name": "Shaker Shops",
+      "units": 18,
+      "occupied": 12,
+      "vacant": 6,
+      "income": 42219,
+      "expenses": 27266,
+      "noi": 14953,
       "principalPaydown": null
     }
   ],
@@ -121,47 +121,68 @@
     },
     {
       "entity": "Yellow Brick Property",
+      "name": "Terrence St 56",
+      "units": 3,
+      "income": 7450,
+      "expenses": 1948,
+      "noi": 5502,
+      "principalPaydown": null
+    },
+    {
+      "entity": "Yellow Brick Property",
       "name": "Holly St 65-67",
       "units": 3,
       "income": 6200,
-      "expenses": 1140,
-      "noi": 5060,
+      "expenses": 1492,
+      "noi": 4708,
       "principalPaydown": null
     },
     {
       "entity": "Yellow Brick Property",
-      "name": "Carew St 411",
-      "units": 4,
-      "income": 5919,
-      "expenses": 1577,
-      "noi": 4342,
+      "name": "Other (37 properties)",
+      "units": 85,
+      "income": 126361,
+      "expenses": 101330,
+      "noi": 25031,
       "principalPaydown": null
     },
     {
       "entity": "Yellow Brick Property",
-      "name": "Other (44 properties)",
-      "units": 94,
-      "income": 121292,
-      "expenses": 150790,
-      "noi": -29498,
-      "principalPaydown": null
+      "name": "67 Willow Lane",
+      "units": 0,
+      "income": 0,
+      "expenses": 28280,
+      "noi": -28280,
+      "principalPaydown": null,
+      "isBottom": true
+    },
+    {
+      "entity": "Yellow Brick Property",
+      "name": "166 East Street",
+      "units": 0,
+      "income": 0,
+      "expenses": 26456,
+      "noi": -26456,
+      "principalPaydown": null,
+      "isBottom": true
+    },
+    {
+      "entity": "Yellow Brick Property",
+      "name": "Union St 741-745",
+      "units": 2,
+      "income": 0,
+      "expenses": 20788,
+      "noi": -20788,
+      "principalPaydown": null,
+      "isBottom": true
     },
     {
       "entity": "Courageous Lion",
       "name": "St. James Ave 83",
       "units": 6,
       "income": 11001,
-      "expenses": 5842,
-      "noi": 5159,
-      "principalPaydown": null
-    },
-    {
-      "entity": "Courageous Lion",
-      "name": "Centre 276",
-      "units": 9,
-      "income": 9920,
-      "expenses": 3624,
-      "noi": 6296,
+      "expenses": 5022,
+      "noi": 5979,
       "principalPaydown": null
     },
     {
@@ -169,71 +190,83 @@
       "name": "Mainline 54",
       "units": 7,
       "income": 8395,
-      "expenses": 3625,
-      "noi": 4770,
+      "expenses": 2979,
+      "noi": 5416,
       "principalPaydown": null
     },
     {
       "entity": "Courageous Lion",
-      "name": "Other (41 properties)",
-      "units": 33,
-      "income": 52893,
-      "expenses": 50688,
-      "noi": 2205,
-      "principalPaydown": null
-    },
-    {
-      "entity": "Land of OZ LLC",
-      "name": "1-3 Stadler Street",
-      "units": 43,
-      "income": 45246,
-      "expenses": 26649,
-      "noi": 18597,
-      "principalPaydown": null
-    },
-    {
-      "entity": "Land of OZ LLC",
-      "name": "12 Jabish Street",
-      "units": 8,
-      "income": 9325,
-      "expenses": 11691,
-      "noi": -2366,
-      "principalPaydown": null
-    },
-    {
-      "entity": "Flying Monkeys LLC",
-      "name": "Melrose St 32",
-      "units": 8,
-      "income": 10200,
-      "expenses": 5418,
-      "noi": 4782,
-      "principalPaydown": null
-    },
-    {
-      "entity": "Flying Monkeys LLC",
-      "name": "Race 346",
-      "units": 6,
-      "income": 7950,
-      "expenses": 3210,
-      "noi": 4740,
-      "principalPaydown": null
-    },
-    {
-      "entity": "Flying Monkeys LLC",
-      "name": "Center 13",
+      "name": "St. James Ave 81",
       "units": 2,
-      "income": 6130,
-      "expenses": 2014,
-      "noi": 4116,
+      "income": 3000,
+      "expenses": 213,
+      "noi": 2787,
       "principalPaydown": null
     },
     {
-      "entity": "Flying Monkeys LLC",
-      "name": "Other (5 properties)",
-      "units": 6,
-      "income": 21450,
-      "expenses": 8289,
-      "noi": 13161,
+      "entity": "Courageous Lion",
+      "name": "Other (28 properties)",
+      "units": 28,
+      "income": 59159,
+      "expenses": 10016,
+      "noi": 49143,
+      "principalPaydown": null
+    },
+    {
+      "entity": "Courageous Lion",
+      "name": "Rochelle St 85",
+      "units": 1,
+      "income": 0,
+      "expenses": 22492,
+      "noi": -22492,
+      "principalPaydown": null,
+      "isBottom": true
+    },
+    {
+      "entity": "Courageous Lion",
+      "name": "83 Rolf Ave",
+      "units": 1,
+      "income": 0,
+      "expenses": 20363,
+      "noi": -20363,
+      "principalPaydown": null,
+      "isBottom": true
+    },
+    {
+      "entity": "Courageous Lion",
+      "name": "Burton 37",
+      "units": 2,
+      "income": 2200,
+      "expenses": 7192,
+      "noi": -4992,
+      "principalPaydown": null,
+      "isBottom": true
+    },
+    {
+      "entity": "826 Chicopee LLC",
+      "name": "824-826 Chicopee St",
+      "units": 7,
+      "income": 6800,
+      "expenses": 2187,
+      "noi": 4613,
+      "principalPaydown": null
+    },
+    {
+      "entity": "Emerald City Rentals, LLC",
+      "name": "Third Street 64-68",
+      "units": 4,
+      "income": 5877,
+      "expenses": 800,
+      "noi": 5077,
+      "principalPaydown": null
+    },
+    {
+      "entity": "Emerald City Rentals, LLC",
+      "name": "Elm 21-25",
+      "units": 3,
+      "income": 4598,
+      "expenses": 1076,
+      "noi": 3522,
       "principalPaydown": null
     },
     {
@@ -241,225 +274,152 @@
       "name": "214-218 Exchange St/52 Cabot Street",
       "units": 15,
       "income": 15970,
-      "expenses": 2235,
-      "noi": 13735,
+      "expenses": 5125,
+      "noi": 10845,
       "principalPaydown": null
     },
     {
       "entity": "Exchange Assets LLC",
-      "name": "South 179",
+      "name": "Other (3 properties)",
+      "units": 6,
+      "income": 13857,
+      "expenses": 34630,
+      "noi": -20773,
+      "principalPaydown": null
+    },
+    {
+      "entity": "Flying Monkeys LLC",
+      "name": "Center 13",
       "units": 2,
-      "income": 10607,
-      "expenses": 5248,
-      "noi": 5359,
+      "income": 6130,
+      "expenses": -7436,
+      "noi": 13566,
       "principalPaydown": null
     },
     {
-      "entity": "Exchange Assets LLC",
-      "name": "800 College Highway",
+      "entity": "Flying Monkeys LLC",
+      "name": "38-40 Bay State Road",
+      "units": 3,
+      "income": 4150,
+      "expenses": 938,
+      "noi": 3212,
+      "principalPaydown": null
+    },
+    {
+      "entity": "Flying Monkeys LLC",
+      "name": "23-25 Plymouth",
       "units": 2,
-      "income": 3250,
-      "expenses": 2538,
-      "noi": 712,
+      "income": 2300,
+      "expenses": 299,
+      "noi": 2001,
       "principalPaydown": null
     },
     {
-      "entity": "Exchange Assets LLC",
-      "name": "Other (1 properties)",
-      "units": 1,
+      "entity": "Flying Monkeys LLC",
+      "name": "Other (3 properties)",
+      "units": 7,
+      "income": 16150,
+      "expenses": 14437,
+      "noi": 1713,
+      "principalPaydown": null
+    },
+    {
+      "entity": "Flying Monkeys LLC",
+      "name": "53 1/2 Orchard St",
+      "units": 2,
       "income": 0,
-      "expenses": 16415,
-      "noi": -16415,
+      "expenses": 10651,
+      "noi": -10651,
+      "principalPaydown": null,
+      "isBottom": true
+    },
+    {
+      "entity": "Flying Monkeys LLC",
+      "name": "50 Springfield Street",
+      "units": 4,
+      "income": 10700,
+      "expenses": 10776,
+      "noi": -76,
+      "principalPaydown": null,
+      "isBottom": true
+    },
+    {
+      "entity": "Flying Monkeys LLC",
+      "name": "111 Upper Hampden Rd/26 Bay State/165 Elizabeth",
+      "units": 6,
+      "income": 7300,
+      "expenses": 6912,
+      "noi": 388,
+      "principalPaydown": null,
+      "isBottom": true
+    },
+    {
+      "entity": "Land of OZ LLC",
+      "name": "1-3 Stadler Street",
+      "units": 43,
+      "income": 45246,
+      "expenses": 34420,
+      "noi": 10826,
       "principalPaydown": null
     },
     {
-      "entity": "Shaker Shops",
-      "name": "60 Shaker Road",
-      "units": 10,
-      "income": 25331,
-      "expenses": 10936,
-      "noi": 14395,
-      "principalPaydown": null
-    },
-    {
-      "entity": "Shaker Shops",
-      "name": "30-34 Shaker/37-39 Prospect",
+      "entity": "Land of OZ LLC",
+      "name": "12 Jabish Street",
       "units": 8,
-      "income": 16888,
-      "expenses": 7291,
-      "noi": 9597,
+      "income": 9325,
+      "expenses": 8978,
+      "noi": 347,
       "principalPaydown": null
     },
     {
       "entity": "Allyn St",
       "name": "17-21 Allyn/146-148 Pearl",
       "units": 18,
-      "income": 22905,
-      "expenses": 4711,
-      "noi": 18194,
+      "income": 25905,
+      "expenses": 6774,
+      "noi": 19131,
       "principalPaydown": null
     },
     {
-      "entity": "Emerald City Rentals, LLC",
-      "name": "Elm 21-25",
-      "units": 3,
-      "income": 4325,
-      "expenses": 370,
-      "noi": 3955,
+      "entity": "Shaker Shops",
+      "name": "60 Shaker Road",
+      "units": 12,
+      "income": 31022,
+      "expenses": 22863,
+      "noi": 8159,
       "principalPaydown": null
     },
     {
-      "entity": "Emerald City Rentals, LLC",
-      "name": "Third Street 64-68",
-      "units": 4,
-      "income": 4100,
-      "expenses": 572,
-      "noi": 3528,
-      "principalPaydown": null
-    },
-    {
-      "entity": "826 Chicopee LLC",
-      "name": "824-826 Chicopee St",
-      "units": 7,
-      "income": 6800,
-      "expenses": 1261,
-      "noi": 5539,
+      "entity": "Shaker Shops",
+      "name": "30-34 Shaker/37-39 Prospect",
+      "units": 6,
+      "income": 11197,
+      "expenses": 4403,
+      "noi": 6794,
       "principalPaydown": null
     }
   ],
   "trends": {
-    "labels": [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul"
-    ],
-    "income": [
-      539433,
-      532560,
-      517239,
-      530258,
-      520755,
-      494506,
-      466748
-    ],
-    "expenses": [
-      381000,
-      360000,
-      395000,
-      378000,
-      405000,
-      394968,
-      0
-    ],
-    "noi": [
-      158433,
-      172560,
-      122239,
-      152258,
-      115755,
-      99538,
-      466748
-    ],
-    "vacancy": [
-      28.1,
-      28.1,
-      28.1,
-      28.1,
-      28.1,
-      28.1,
-      28.1
-    ]
+    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    "income": [539433, 532560, 517239, 530258, 466196, 457279],
+    "expenses": [381000, 360000, 395000, 378000, 413489, 409875],
+    "noi": [158433, 172560, 122239, 152258, 52707, 47405],
+    "vacancy": [28.1, 28.1, 28.1, 28.1, 19.7, 19.7]
   },
   "fiveYearTrend": {
-    "years": [
-      "FY2022",
-      "FY2023",
-      "FY2024",
-      "FY2025",
-      "FY2026"
-    ],
-    "income": [
-      905421,
-      3243814,
-      4151471,
-      4935136,
-      5480196
-    ],
-    "opex": [
-      977262,
-      2790146,
-      3566619,
-      3484957,
-      4142808
-    ],
-    "noi": [
-      -71841,
-      453668,
-      584852,
-      1450179,
-      1337388
-    ],
-    "interest": [
-      163440,
-      509207,
-      1009462,
-      1082058,
-      1138279
-    ],
-    "principal": [
-      86269,
-      128621,
-      387302,
-      436622,
-      455638
-    ],
-    "debtService": [
-      249709,
-      637828,
-      1396764,
-      1518681,
-      1593917
-    ],
-    "capex": [
-      51125,
-      8080,
-      52361,
-      33671,
-      41839
-    ],
-    "expenseRatio": [
-      107.9,
-      86,
-      85.9,
-      70.6,
-      75.6
-    ],
-    "noiPerUnit": [
-      -235,
-      1483,
-      1911,
-      4739,
-      4370
-    ],
-    "dscr": [
-      -0.29,
-      0.71,
-      0.42,
-      0.95,
-      0.84
-    ],
-    "cashFlowAfterDS": [
-      -321550,
-      -184160,
-      -811912,
-      -68502,
-      -256529
-    ],
-    "totalUnits": 306
+    "years": ["FY2022", "FY2023", "FY2024", "FY2025", "FY2026"],
+    "income": [905421, 3243814, 4151471, 4935136, 5480196],
+    "opex": [977262, 2790146, 3566619, 3484957, 4142808],
+    "noi": [-71841, 453668, 584852, 1450179, 1337388],
+    "interest": [163440, 509207, 1009462, 1082058, 1138279],
+    "principal": [86269, 128621, 387302, 436622, 455638],
+    "debtService": [249709, 637828, 1396764, 1518681, 1593917],
+    "capex": [51125, 8080, 52361, 33671, 41839],
+    "expenseRatio": [107.9, 86, 85.9, 70.6, 75.6],
+    "noiPerUnit": [-235, 1483, 1911, 4739, 4370],
+    "dscr": [-0.29, 0.71, 0.42, 0.95, 0.84],
+    "cashFlowAfterDS": [-321550, -184160, -811912, -68502, -256529],
+    "totalUnits": 310
   },
   "debtDetail": {
     "interestGLAccounts": [
@@ -472,8 +432,8 @@
     "principalPaydownNote": "principalPaydown on companies[] and properties[] is populated by the daily update from GL 386. Set to null until first update."
   },
   "keyInsights": [
-    "Portfolio income grew 6x from $905K (FY2022) to $5.5M (FY2026), reflecting rapid acquisition-driven growth across 9 entities and 306 units.",
-    "Expense ratio improved significantly from 108% (FY2022) to 71% (FY2025) as properties stabilized, but ticked up to 76% in FY2026 — worth monitoring for cost creep.",
+    "Portfolio income grew 6x from $905K (FY2022) to $5.5M (FY2026), reflecting rapid acquisition-driven growth across 9 entities and 310 units.",
+    "Expense ratio improved significantly from 108% (FY2022) to 71% (FY2025) as properties stabilized, but ticked up to 76% in FY2026 -- worth monitoring for cost creep.",
     "DSCR improved from negative (FY2022) to 0.95x (FY2025), approaching the 1.0x breakeven threshold. FY2026 dipped to 0.84x as debt service grew to $1.6M.",
     "NOI per unit surged from -$235 (FY2022) to $4,739 (FY2025), demonstrating significant operational improvement as renovation-heavy properties began generating returns.",
     "Annual debt service reached $1.6M in FY2026 ($1.1M interest + $456K principal), representing 29% of gross income. Portfolio is not yet cash-flow positive after debt service."
