@@ -689,10 +689,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
         <thead><tr><th>Entity / Property</th><th class="num">Units</th><th class="num">Income</th><th class="num">Expenses</th><th class="num">NOI</th><th class="num">Margin</th><th class="num">Princ. Paydown</th><th class="num">Cap Ex (6100)</th><th class="num">Real Cash Flow</th></tr></thead>
         <tbody id="pnl-body"></tbody>
       </table>
-    
-              <div class="kpi"><div class="label">Cap Ex (6100)</div><div class="value">${fmtMoney(S.totalCapEx6100 || 0)}</div><div class="meta">R&M Renovate spending</div></div>
-              <div class="kpi"><div class="label">Principal Paydown</div><div class="value">${fmtMoney(S.totalPrincipalPaydown || 0)}</div><div class="meta">GL 386 mortgage principal</div></div>
-              <div class="kpi"><div class="label">Real Cash Flow</div><div class="value ${(S.totalRealCashFlow||0) >= 0 ? 'good' : 'bad'}">${fmtMoney(S.totalRealCashFlow || 0)}</div><div class="meta">NOI + CapEx - Principal</div></div></div>
+    </div>
   </section>
 
   <!-- ============ TAB 3: HOUSE FLIP ============ -->
@@ -1087,7 +1084,11 @@ function renderPortfolio(){
   $("#portfolio-metrics").innerHTML = `
     <div class="kpi"><div class="label">DSCR</div><div class="value ${S.dscr >= 1.25 ? "good" : (S.dscr >= 1.0 ? "warn" : "bad")}">${S.dscr.toFixed(2)}x</div><div class="meta">debt service coverage</div></div>
     <div class="kpi"><div class="label">Expense Ratio</div><div class="value ${S.expenseRatio <= 65 ? "good" : (S.expenseRatio <= 80 ? "warn" : "bad")}">${fmtPct(S.expenseRatio)}</div><div class="meta">expenses / income</div></div>
-    <div class="kpi"><div class="label">Total Units</div><div class="value">${D.companies.reduce((a,c)=>a+c.units,0)}</div><div class="meta">${D.companies.length} entities</div></div>`;
+    <div class="kpi"><div class="label">Total Units</div><div class="value">${D.companies.reduce((a,c)=>a+c.units,0)}</div><div class="meta">${D.companies.length} entities</div></div>
+              <div class="kpi"><div class="label">Cap Ex (6100)</div><div class="value">${fmtMoney(S.totalCapEx6100 || 0)}</div><div class="meta">R&M Renovate spending</div></div>
+              <div class="kpi"><div class="label">Principal Paydown</div><div class="value">${fmtMoney(S.totalPrincipalPaydown || 0)}</div><div class="meta">GL 386 mortgage principal</div></div>
+              <div class="kpi"><div class="label">Real Cash Flow</div><div class="value ${(S.totalRealCashFlow||0) >= 0 ? 'good' : 'bad'}">${fmtMoney(S.totalRealCashFlow || 0)}</div><div class="meta">NOI + CapEx - Principal</div></div>
+            `;
 
   // P&L expandable table
   const propsByEntity = {};
