@@ -1271,6 +1271,34 @@ function buildPortfolioCharts(){
       plugins: { legend: { display: false },
         tooltip: { callbacks: { label: c => ` NOI: ${fmtMoney(c.parsed.x)}` } } } }
   });
+
+  // --- Rebuild 5-Year Trend Charts ---
+  var FY = window.PORTFOLIO_DATA.fiveYearTrend;
+  if (FY) {
+    var fyOpts = function(lbl, clr, dat, isMon) {
+      return {
+        type: 'line',
+        data: { labels: FY.years, datasets: [{ label: lbl, data: dat, borderColor: clr, backgroundColor: clr + '22', fill: true, tension: .3, pointRadius: 4, pointBackgroundColor: clr, borderWidth: 2 }] },
+        options: { maintainAspectRatio: true, aspectRatio: 2, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: C.muted }, grid: { color: C.grid } }, y: { ticks: isMon ? moneyTicks : { color: C.muted }, grid: { color: C.grid } } } }
+      };
+    };
+    var erC = document.getElementById('expenseRatioChart');
+    if (erC) new Chart(erC, fyOpts('Expense Ratio %', '#f59e0b', FY.expenseRatio, false));
+    var nuC = document.getElementById('noiPerUnitChart');
+    if (nuC) new Chart(nuC, fyOpts('NOI Per Unit', '#10b981', FY.noiPerUnit, true));
+    var dsC = document.getElementById('dscrTrendChart');
+    if (dsC) {
+      var dsCfg = fyOpts('DSCR', '#6366f1', FY.dscr, false);
+      dsCfg.options.plugins.annotation = { annotations: { breakeven: { type: 'line', yMin: 1.0, yMax: 1.0, borderColor: 'rgba(248,113,113,.5)', borderWidth: 1, borderDash: [6,3], label: { display: true, content: 'Breakeven', position: 'start', color: '#f87171', font: { size: 10 } } } } };
+      new Chart(dsC, dsCfg);
+    }
+    var cfC = document.getElementById('cashFlowChart');
+    if (cfC) new Chart(cfC, {
+      type: 'bar',
+      data: { labels: FY.years, datasets: [{ label: 'Cash Flow After Debt Service', data: FY.cashFlowAfterDS, backgroundColor: FY.cashFlowAfterDS.map(function(v){ return v >= 0 ? 'rgba(74,222,128,.7)' : 'rgba(248,113,113,.7)'; }), borderRadius: 4 }] },
+      options: { maintainAspectRatio: true, aspectRatio: 2, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: C.muted }, grid: { color: C.grid } }, y: { ticks: moneyTicks, grid: { color: C.grid } } } }
+    });
+  }
 }
 
 /* ============================================================
