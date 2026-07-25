@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YellowBrick Management — Dashboards</title>
+<title>YellowBrick Management â Dashboards</title>
 <meta name="description" content="Unified operations dashboard for YellowBrick Management: rental leads, portfolio P&amp;L, house flips, and law &amp; tax updates.">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script>
@@ -174,11 +174,11 @@ window.LAW_TAX_DATA = {
     {
       title: "MA short-term capital gains taxed at 8.5%",
       date: "2026-06-25", jurisdiction: "MA State", category: "Tax", impact: "High",
-      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA — timing matters for projects near the 1-year mark.",
+      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA â timing matters for projects near the 1-year mark.",
       action: "Review hold periods on 63 Dartmouth Ter and 114 Montgomery St with CPA; dealer-status treatment may apply to flip entity regardless."
     },
     {
-      title: "Security deposit compliance: strict G.L. c.186 Â§15B enforcement",
+      title: "Security deposit compliance: strict G.L. c.186 ÃÂ§15B enforcement",
       date: "2026-06-20", jurisdiction: "MA State", category: "Legal", impact: "Medium",
       summary: "Recent MA appellate decisions continue to award treble damages for deposit handling violations (separate interest-bearing account, statement of condition within 10 days, annual interest payments). Even technical violations can void the deposit claim.",
       action: "Spot-audit deposit accounts and statements of condition across all four entities; verify annual interest was paid or credited at each lease anniversary."
@@ -193,7 +193,7 @@ window.LAW_TAX_DATA = {
       title: "Corporate Transparency Act: domestic LLCs exempt from BOI filing",
       date: "2026-06-07", jurisdiction: "Federal", category: "Regulatory", impact: "Medium",
       summary: "FinCEN's rule exempting U.S.-formed companies from beneficial ownership (BOI) reporting remains in effect; only certain foreign-formed entities must file. All YellowBrick and Ruby Lending entities are domestic LLCs.",
-      action: "None currently. Monitor — litigation could revive domestic filing requirements; re-check before forming new entities."
+      action: "None currently. Monitor â litigation could revive domestic filing requirements; re-check before forming new entities."
     },
     {
       title: "Springfield rental registration and inspection cycle",
@@ -506,7 +506,7 @@ tbody tr:hover{background:rgba(255,255,255,.02)}
 /* expandable entity rows */
 tr.entity-row{cursor:pointer;user-select:none}
 tr.entity-row td:first-child::before{
-  content:"▸";display:inline-block;margin-right:8px;color:var(--gold);
+  content:"â¸";display:inline-block;margin-right:8px;color:var(--gold);
   transition:transform .15s;font-size:11px;
 }
 tr.entity-row.open td:first-child::before{transform:rotate(90deg)}
@@ -624,7 +624,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
       </div>
     </div>
 
-    <div class="section-title">Urgent Queue — Uncontacted Leads</div>
+    <div class="section-title">Urgent Queue â Uncontacted Leads</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Lead</th><th>Property</th><th>Source</th><th class="num">Waiting</th><th>Status</th></tr></thead>
@@ -652,7 +652,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
   <!-- ============ TAB 2: PORTFOLIO ============ -->
   <section id="panel-portfolio" class="tab-panel" role="tabpanel">
     <div class="panel-head">
-      <h2>Property Portfolio — <span id="portfolio-period" style="color:var(--gold)"></span> <span id="portfolio-period-type" style="font-size:13px;color:var(--muted);font-weight:500"></span></h2>
+      <h2>Property Portfolio â <span id="portfolio-period" style="color:var(--gold)"></span> <span id="portfolio-period-type" style="font-size:13px;color:var(--muted);font-weight:500"></span></h2>
       <div class="updated">Updated monthly &middot; Last updated: <strong id="portfolio-updated"></strong></div>
     </div>
 
@@ -661,7 +661,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
     <div class="section-title">Key Metrics</div>
     <div class="kpi-grid" id="portfolio-metrics"></div>
 
-    <div class="section-title">Trends — Trailing 12 Months</div>
+    <div class="section-title">Trends â Trailing 12 Months</div>
     <div class="grid-2">
       <div class="card">
         <h3>Income vs Expenses</h3>
@@ -683,14 +683,14 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
       </div>
     </div>
 
-    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;— tap a row to see top &amp; bottom properties</span></div>
+    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;â tap a row to see top &amp; bottom properties</span></div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Entity / Property</th><th class="num">Units</th><th class="num">Income</th><th class="num">Expenses</th><th class="num">NOI</th><th class="num">Margin</th><th class="num">Princ. Paydown</th><th class="num">Cap Ex (6100)</th><th class="num">Real Cash Flow</th></tr></thead>
         <tbody id="pnl-body"></tbody>
       </table>
     </div>
-    <div style="margin-top:8px;font-size:12px;color:var(--amber)">* Estimated from 2025 GL 386 monthly averages — 2026 GL entries not yet reconciled. Real Cash Flow recalculated accordingly.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--amber)">* Estimated from 2025 GL 386 monthly averages â 2026 GL entries not yet reconciled. Real Cash Flow recalculated accordingly.</div>
   </section>
 
   <!-- ============ TAB 3: HOUSE FLIP ============ -->
@@ -710,7 +710,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
       <div class="chart-box"><canvas id="chart-flip-budget"></canvas></div>
     </div>
 
-    <div class="section-title">Sold Flips — History</div>
+    <div class="section-title">Sold Flips â History</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Property</th><th class="num">Sold</th><th class="num">Total Invested</th><th class="num">Sale Price</th><th class="num">Profit</th><th class="num">ROI</th><th class="num">Days Held</th></tr></thead>
@@ -868,7 +868,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 const delta = (pct, goodWhenUp) => {
   const up = pct > 0, flat = Math.abs(pct) < 0.05;
   const cls = flat ? "flat" : ((up === goodWhenUp) ? "up" : "down");
-  const arrow = flat ? "→" : (up ? "▲" : "▼");
+  const arrow = flat ? "â" : (up ? "â²" : "â¼");
   return `<span class="delta ${cls}">${arrow} ${Math.abs(pct).toFixed(1)}%</span>`;
 };
 
@@ -892,7 +892,7 @@ if (window.Chart) {
 const chartsBuilt = { leads:false, portfolio:false, flips:false, "law-tax":true , 'social-media': false};
 
 /* ============================================================
-   TAB 1 — RENTAL LEADS
+   TAB 1 â RENTAL LEADS
    ============================================================ */
 function renderLeads(){
 const D = window.LEADS_DATA, K = D.kpis;
@@ -1045,7 +1045,7 @@ chartsBuilt.leads = true;
 }
 
 /* ============================================================
-   TAB 2 — PORTFOLIO
+   TAB 2 â PORTFOLIO
    ============================================================ */
 function renderPortfolio(){
   const D = window.PORTFOLIO_DATA, S = D.summary;
@@ -1073,7 +1073,7 @@ function renderPortfolio(){
     <div class="kpi">
       <div class="label">Vacancy Rate</div>
       <div class="value ${S.vacancyRate <= 8 ? "good" : (S.vacancyRate <= 15 ? "warn" : "bad")}">${fmtPct(S.vacancyRate)}</div>
-      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">▼ ' : '<span class="delta down">▲ '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
+      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">â¼ ' : '<span class="delta down">â² '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
     </div>
     <div class="kpi">
       <div class="label">Collection Rate</div>
@@ -1097,7 +1097,7 @@ function renderPortfolio(){
 
   let html = "";
   D.companies.forEach((c,i) => {
-    const margin = c.income > 0 ? (c.noi / c.income * 100).toFixed(0) + '%' : '—';
+    const margin = c.income > 0 ? (c.noi / c.income * 100).toFixed(0) + '%' : 'â';
     const noiColor = c.noi >= 0 ? C.gold : C.red;
     html += `<tr class="entity-row" data-entity="${i}">
       <td><strong>${esc(c.name)}</strong></td>
@@ -1106,19 +1106,19 @@ function renderPortfolio(){
       <td class="num">${fmtMoney(c.expenses)}</td>
       <td class="num" style="color:${noiColor};font-weight:700">${fmtMoney(c.noi)}</td>
       <td class="num">${margin}</td>
-      <td class="num" style="color:${c.principalEstimated ? 'var(--amber)' : 'var(--faint)'}" title="${c.principalNote || ''}">${c.principalPaydown != null ? fmtMoney(c.principalPaydown) + (c.principalEstimated ? '*' : '') : '—'}</td>
-                <td class="num" style="color:var(--faint)">${c.capEx6100 != null ? fmtMoney(c.capEx6100) : '—'}</td>
-                <td class="num" style="font-weight:600">${c.realCashFlow != null ? '<span class="' + (c.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(c.realCashFlow) + '</span>' : '—'}</td>
+      <td class="num" style="color:${c.principalEstimated ? 'var(--amber)' : 'var(--faint)'}" title="${c.principalNote || ''}">${c.principalPaydown != null ? fmtMoney(c.principalPaydown) + (c.principalEstimated ? '*' : '') : 'â'}</td>
+                <td class="num" style="color:var(--faint)">${c.capEx6100 != null ? fmtMoney(c.capEx6100) : 'â'}</td>
+                <td class="num" style="font-weight:600">${c.realCashFlow != null ? '<span class="' + (c.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(c.realCashFlow) + '</span>' : 'â'}</td>
     </tr>`;
     const entityProps = propsByEntity[c.name] || [];
     const topProps = entityProps.filter(p => !p.isBottom && !p.name.startsWith('Other'));
     const otherProps = entityProps.filter(p => !p.isBottom && p.name.startsWith('Other'));
     const bottomProps = entityProps.filter(p => p.isBottom);
     if (topProps.length > 0 && bottomProps.length > 0) {
-      html += `<tr class="prop-row top-label" data-parent="${i}"><td colspan="7">▲ Top ${topProps.length} by NOI</td></tr>`;
+      html += `<tr class="prop-row top-label" data-parent="${i}"><td colspan="7">â² Top ${topProps.length} by NOI</td></tr>`;
     }
     topProps.forEach(p => {
-      const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : '—';
+      const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : 'â';
       html += `<tr class="prop-row" data-parent="${i}">
         <td>${esc(p.name)}</td>
         <td class="num">${p.units}</td>
@@ -1126,13 +1126,13 @@ function renderPortfolio(){
         <td class="num">${fmtMoney(p.expenses)}</td>
         <td class="num">${fmtMoney(p.noi)}</td>
         <td class="num">${pm}</td>
-        <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : '—'}</td>
-                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : '—'}</td>
-                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : '—'}</td>
+        <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : 'â'}</td>
+                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : 'â'}</td>
+                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : 'â'}</td>
       </tr>`;
     });
     otherProps.forEach(p => {
-      const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : '—';
+      const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : 'â';
       html += `<tr class="prop-row" data-parent="${i}">
         <td>${esc(p.name)}</td>
         <td class="num">${p.units}</td>
@@ -1140,15 +1140,15 @@ function renderPortfolio(){
         <td class="num">${fmtMoney(p.expenses)}</td>
         <td class="num">${fmtMoney(p.noi)}</td>
         <td class="num">${pm}</td>
-        <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : '—'}</td>
-                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : '—'}</td>
-                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : '—'}</td>
+        <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : 'â'}</td>
+                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : 'â'}</td>
+                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : 'â'}</td>
       </tr>`;
     });
     if (bottomProps.length > 0) {
-      html += `<tr class="prop-row bottom-label" data-parent="${i}"><td colspan="7">▼ Bottom ${bottomProps.length} by NOI</td></tr>`;
+      html += `<tr class="prop-row bottom-label" data-parent="${i}"><td colspan="7">â¼ Bottom ${bottomProps.length} by NOI</td></tr>`;
       bottomProps.forEach(p => {
-        const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : '—';
+        const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : 'â';
         html += `<tr class="prop-row bottom" data-parent="${i}">
           <td>${esc(p.name)}</td>
           <td class="num">${p.units}</td>
@@ -1156,9 +1156,9 @@ function renderPortfolio(){
           <td class="num">${fmtMoney(p.expenses)}</td>
           <td class="num">${fmtMoney(p.noi)}</td>
           <td class="num">${pm}</td>
-          <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : '—'}</td>
-                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : '—'}</td>
-                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : '—'}</td>
+          <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : 'â'}</td>
+                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : 'â'}</td>
+                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : 'â'}</td>
         </tr>`;
       });
     }
@@ -1170,10 +1170,10 @@ function renderPortfolio(){
     <td class="num"><strong>${fmtMoney(S.totalIncome)}</strong></td>
     <td class="num"><strong>${fmtMoney(S.totalExpenses)}</strong></td>
     <td class="num" style="color:${C.gold}"><strong>${fmtMoney(S.noi)}</strong></td>
-    <td class="num"><strong>${D.companies.reduce((a,c)=>a+(c.principalPaydown||0),0) ? fmtMoney(D.companies.reduce((a,c)=>a+(c.principalPaydown||0),0)) : "\u2014"}</strong></td>
-                <td class="num"><strong>${D.companies.reduce((a,c)=>a+(c.capEx6100||0),0) ? fmtMoney(D.companies.reduce((a,c)=>a+(c.capEx6100||0),0)) : "—"}</strong></td>
-                <td class="num"><strong>${(() => { const v = D.companies.reduce((a,c)=>a+(c.realCashFlow||0),0); return v ? '<span class="' + (v >= 0 ? 'good' : 'bad') + '">' + fmtMoney(v) + '</span>' : "—"; })()}</strong></td>
     <td class="num"><strong>${(S.noi/S.totalIncome*100).toFixed(0)}%</strong></td>
+    <td class="num"><strong>${D.companies.reduce((a,c)=>a+(c.principalPaydown||0),0) ? fmtMoney(D.companies.reduce((a,c)=>a+(c.principalPaydown||0),0)) : "\u2014"}</strong></td>
+                <td class="num"><strong>${D.companies.reduce((a,c)=>a+(c.capEx6100||0),0) ? fmtMoney(D.companies.reduce((a,c)=>a+(c.capEx6100||0),0)) : "â"}</strong></td>
+                <td class="num"><strong>${(() => { const v = D.companies.reduce((a,c)=>a+(c.realCashFlow||0),0); return v ? '<span class="' + (v >= 0 ? 'good' : 'bad') + '">' + fmtMoney(v) + '</span>' : "â"; })()}</strong></td>
   </tr>`;
   const body = $("#pnl-body");
   body.innerHTML = html;
@@ -1317,7 +1317,7 @@ function buildPortfolioCharts(){
 }
 
 /* ============================================================
-   TAB 3 — HOUSE FLIP
+   TAB 3 â HOUSE FLIP
    ============================================================ */
 const STATUS_BADGE = {
   "Acquired": "gray", "In Progress": "amber", "Listed": "blue",
@@ -1487,7 +1487,7 @@ function buildFlipCharts(){
 }
 
 /* ============================================================
-   TAB 4 — LAW & TAX
+   TAB 4 â LAW & TAX
    ============================================================ */
 let lawFilter = "all";
 function renderLawTax(){
@@ -1687,7 +1687,7 @@ renderLawTax();
 activateTab(location.hash.replace("#","") || "leads", false);
 
 /* Public hook: after a scheduled task mutates window.*_DATA it can call
-   window.refreshDashboards() — or simply regenerate this file's data block. */
+   window.refreshDashboards() â or simply regenerate this file's data block. */
 window.refreshDashboards = function(){
   try{renderLeads();}catch(e){console.warn(e)} try{renderPortfolio();}catch(e){console.warn(e)} try{renderFlips();}catch(e){console.warn(e)} try{renderLawTax();
       renderSocialMedia();}catch(e){console.warn(e)}
@@ -1762,9 +1762,9 @@ if(D.recurringIssues&&D.recurringIssues.top20){
 const ri=D.recurringIssues;
 const t20=ri.top20;
 new Chart(document.getElementById("chart-wo-recurring"),{type:"bar",data:{labels:t20.map(x=>x.name),datasets:[{label:"Count",data:t20.map(x=>x.count),backgroundColor:"rgba(59,130,246,0.7)",borderColor:"rgba(59,130,246,1)",borderWidth:1}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:"Top 20 Recurring Issues by Frequency",font:{size:14}},legend:{display:false}},scales:{x:{beginAtZero:true,title:{display:true,text:"Work Order Count"}},y:{ticks:{font:{size:11}}}}}});
-const tbl='<table class="mini-tbl" style="width:100%"><thead><tr><th>#</th><th>Issue</th><th>Count</th><th>%</th><th>Avg Days</th><th>Trend</th><th>Top Entity</th></tr></thead><tbody>'+t20.map(x=>'<tr><td>'+x.rank+'</td><td>'+x.name+'</td><td>'+x.count.toLocaleString()+'</td><td>'+x.pctOfTotal+'%</td><td>'+x.avgResolutionDays+'</td><td style="color:'+(x.trend==="Increasing"?"var(--red)":x.trend==="Decreasing"?"var(--green)":"var(--text)")+'">'+( x.trend==="Increasing"?"↑":x.trend==="Decreasing"?"↓":"→")+" "+x.trend+'</td><td>'+x.topEntities[0].name+' ('+x.topEntities[0].count+')</td></tr>').join('')+'</tbody></table>';
+const tbl='<table class="mini-tbl" style="width:100%"><thead><tr><th>#</th><th>Issue</th><th>Count</th><th>%</th><th>Avg Days</th><th>Trend</th><th>Top Entity</th></tr></thead><tbody>'+t20.map(x=>'<tr><td>'+x.rank+'</td><td>'+x.name+'</td><td>'+x.count.toLocaleString()+'</td><td>'+x.pctOfTotal+'%</td><td>'+x.avgResolutionDays+'</td><td style="color:'+(x.trend==="Increasing"?"var(--red)":x.trend==="Decreasing"?"var(--green)":"var(--text)")+'">'+( x.trend==="Increasing"?"â":x.trend==="Decreasing"?"â":"â")+" "+x.trend+'</td><td>'+x.topEntities[0].name+' ('+x.topEntities[0].count+')</td></tr>').join('')+'</tbody></table>';
 document.getElementById("wo-recurring-table").innerHTML=tbl;
-document.getElementById("wo-recurring-insights").innerHTML='<h4 style="margin:0 0 8px;color:var(--text)">Key Insights</h4>'+ri.insights.map(x=>'<p style="margin:4px 0;font-size:14px;color:var(--text-dim)">• '+x+'</p>').join('');
+document.getElementById("wo-recurring-insights").innerHTML='<h4 style="margin:0 0 8px;color:var(--text)">Key Insights</h4>'+ri.insights.map(x=>'<p style="margin:4px 0;font-size:14px;color:var(--text-dim)">â¢ '+x+'</p>').join('');
 }
 }catch(e){console.error("WO load error:",e)}}
 loadWorkOrders();
