@@ -1,18 +1,17 @@
 {
-  "lastUpdated": "2026-07-25T07:06:45-04:00",
+  "lastUpdated": "2026-07-26T07:08:14-04:00",
   "kpis": {
-    "newLeads24h": 2,
-    "newLeads30d": 170,
-    "activeProspects": 7,
-    "lostLeads30d": 162,
+    "newLeads24h": 1,
+    "newLeads30d": 161,
+    "activeProspects": 8,
+    "lostLeads30d": 153,
     "totalUnits": 1186,
-    "contacted30d": 149,
-    "avgFirstContactHours": 20.3,
-    "medianFirstContactHours": 3.5,
-    "leadsWithNoContactRecorded": 21
+    "contacted30d": 141,
+    "avgFirstContactHours": 20.1,
+    "medianFirstContactHours": 3,
+    "leadsWithNoContactRecorded": 20
   },
   "volumeTrend": {
-    "2026-06-25": 10,
     "2026-06-26": 9,
     "2026-06-27": 4,
     "2026-06-28": 2,
@@ -40,28 +39,23 @@
     "2026-07-20": 3,
     "2026-07-21": 2,
     "2026-07-22": 2,
-    "2026-07-24": 2
+    "2026-07-24": 2,
+    "2026-07-25": 1
   },
   "statusBreakdown": {
-    "Prospect": 7,
-    "Customer": 1,
-    "Lost": 162
+    "Lost": 153,
+    "Prospect": 8
   },
   "leadsByProperty": {
-    "24-28 Wilcox": 106,
+    "24-28 Wilcox": 98,
     "YellowBrick Management, Inc": 62,
-    "50 Springfield Street": 2
+    "50 Springfield Street": 1
   },
   "newLeads24h": [
     {
-      "name": "Ayrianis Torres",
-      "property": "YellowBrick Management, Inc",
-      "created": "2026-07-24T12:37:31"
-    },
-    {
-      "name": "Amanda Crochetiere",
+      "name": "Jessely Navarro",
       "property": "24-28 Wilcox",
-      "created": "2026-07-24T22:09:09"
+      "created": "2026-07-25T10:21:21"
     }
   ],
   "urgentQueue": [
@@ -69,10 +63,16 @@
       "name": "Amanda Crochetiere",
       "property": "24-28 Wilcox",
       "created": "2026-07-24T22:09:09",
-      "hoursAgo": 9
+      "hoursAgo": 33
+    },
+    {
+      "name": "Jessely Navarro",
+      "property": "24-28 Wilcox",
+      "created": "2026-07-25T10:21:21",
+      "hoursAgo": 21
     }
   ],
   "notes": {
-    "totalUnits": "Units endpoint does not expose IsActive; count includes all units."
+    "totalUnits": "IsActive filter not supported by /Units endpoint; totalUnits is all units (1186), not filtered to active."
   }
 }
