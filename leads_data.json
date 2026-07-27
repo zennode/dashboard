@@ -1,18 +1,17 @@
 {
-  "lastUpdated": "2026-07-26T07:08:14-04:00",
+  "lastUpdated": "2026-07-27T07:06:52-04:00",
   "kpis": {
-    "newLeads24h": 1,
-    "newLeads30d": 161,
+    "newLeads24h": 0,
+    "newLeads30d": 152,
     "activeProspects": 8,
-    "lostLeads30d": 153,
+    "lostLeads30d": 144,
     "totalUnits": 1186,
-    "contacted30d": 141,
-    "avgFirstContactHours": 20.1,
+    "contacted30d": 133,
+    "avgFirstContactHours": 18.5,
     "medianFirstContactHours": 3,
-    "leadsWithNoContactRecorded": 20
+    "leadsWithNoContactRecorded": 19
   },
   "volumeTrend": {
-    "2026-06-26": 9,
     "2026-06-27": 4,
     "2026-06-28": 2,
     "2026-06-29": 7,
@@ -43,36 +42,31 @@
     "2026-07-25": 1
   },
   "statusBreakdown": {
-    "Lost": 153,
-    "Prospect": 8
+    "Prospect": 8,
+    "Lost": 144
   },
   "leadsByProperty": {
-    "24-28 Wilcox": 98,
-    "YellowBrick Management, Inc": 62,
+    "YellowBrick Management, Inc": 58,
+    "24-28 Wilcox": 93,
     "50 Springfield Street": 1
   },
-  "newLeads24h": [
-    {
-      "name": "Jessely Navarro",
-      "property": "24-28 Wilcox",
-      "created": "2026-07-25T10:21:21"
-    }
-  ],
+  "newLeads24h": [],
   "urgentQueue": [
     {
       "name": "Amanda Crochetiere",
       "property": "24-28 Wilcox",
       "created": "2026-07-24T22:09:09",
-      "hoursAgo": 33
+      "hoursAgo": 57
     },
     {
       "name": "Jessely Navarro",
       "property": "24-28 Wilcox",
       "created": "2026-07-25T10:21:21",
-      "hoursAgo": 21
+      "hoursAgo": 45
     }
   ],
   "notes": {
-    "totalUnits": "IsActive filter not supported by /Units endpoint; totalUnits is all units (1186), not filtered to active."
+    "units": "IsActive/IsVacant filters not supported by Units endpoint; totalUnits reflects all units. Vacancy breakdown unavailable.",
+    "newLeads24h": "No prospects created in the last 24 hours per CreateDate."
   }
 }
