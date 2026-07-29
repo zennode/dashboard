@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-28T18:15:00-04:00",
+  "lastUpdated": "2026-07-29T08:04:00-04:00",
   "summary": {
     "activeFlips": 16,
     "completedFlips": 20,
@@ -14,7 +14,7 @@
       "city": "Chicopee",
       "state": "MA",
       "status": "Listed",
-      "daysOwned": 1066,
+      "daysOwned": 1067,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -29,7 +29,7 @@
       "city": "Pittsfield",
       "state": "MA",
       "status": "In Progress",
-      "daysOwned": 79,
+      "daysOwned": 80,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -44,7 +44,7 @@
       "city": "Monson",
       "state": "MA",
       "status": "Listed",
-      "daysOwned": 730,
+      "daysOwned": 731,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -52,14 +52,14 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "House Hack Helpers LLC (RM ID 985). Dropping $1k/week; tight margins. Main objection is railroad proximity; buyers also citing rates, so HHH is exploring a buyer rate buy-down to drive interest. No new activity since 7/26."
+      "notes": "House Hack Helpers LLC (RM ID 985). Dropping $1k/week; tight margins. Main objection is railroad proximity; buyers also citing rates, so HHH is exploring a buyer rate buy-down to drive interest. NEW 7/28 PM: Matt is getting a CMG one-point life-of-loan buy-down; Alice confirmed her contact also has CMG but is checking whether that program is offered in MA."
     },
     {
       "address": "283 Fuller Rd, Unit K",
       "city": "Chicopee",
       "state": "MA",
       "status": "In Progress",
-      "daysOwned": 17,
+      "daysOwned": 18,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -74,7 +74,7 @@
       "city": "Springfield",
       "state": "MA",
       "status": "In Progress",
-      "daysOwned": 16,
+      "daysOwned": 17,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -89,7 +89,7 @@
       "city": "Pittsfield",
       "state": "MA",
       "status": "In Progress",
-      "daysOwned": 25,
+      "daysOwned": 26,
       "estCompletionDate": "2026-09-15",
       "purchasePrice": 62972,
       "renobudget": null,
@@ -104,7 +104,7 @@
       "city": "Stafford Springs",
       "state": "CT",
       "status": "In Progress",
-      "daysOwned": 79,
+      "daysOwned": 80,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -142,7 +142,7 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "TBD entity (JV with Peter Houser). Purchased from Naples Home Buyers; closing confirmed for 8/6. Eviction attorney Louis Martocchio III (Martocchio & Oliveira, LLC) sent his retainer for review 7/27 and is holding notice-to-quit paperwork ready for closing - asked to be kept updated on the closing date. NEW 7/28: Matt reviewed the retainer and replied \"Looks ok to me\" pending Pete's sign-off. Purchase price not yet seen in email; loop Chris in for the wire once set."
+      "notes": "TBD entity (JV with Peter Houser). Purchased from Naples Home Buyers; closing confirmed for 8/6. Eviction attorney Louis Martocchio III (Martocchio & Oliveira, LLC) sent his retainer for review 7/27 and is holding notice-to-quit paperwork ready for closing - asked to be kept updated on the closing date. Matt reviewed the retainer 7/28 and replied \"Looks ok to me\" pending Pete's sign-off. Purchase price not yet seen in email; loop Chris in for the wire once set. No new activity since 7/28."
     },
     {
       "address": "65 Avondale",
@@ -202,14 +202,14 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "JV with Peter Houser - industrial/commercial building (Sentry Commercial listing). Phase II environmental report reviewed by enviro-risk.net 7/25, confirmed below applicable standards. Financing being sought from Greenfield Savings Bank: targeting $1.8M purchase plus $100k repair holdback (overhead doors, heating systems), 12-month interest-only period requested. Not yet closed."
+      "notes": "JV with Peter Houser - industrial/commercial building (Sentry Commercial listing). Phase II environmental report reviewed by enviro-risk.net 7/25, confirmed below applicable standards. Financing being sought from Greenfield Savings Bank ($1.8M purchase + $100k repair holdback, 12-mo IO) and now also from Freedom Credit Union - NEW 7/28: David Chase (Freedom CU) is preparing a term sheet and requested a call; Matt asked Pete to schedule for 7/29. Not yet closed."
     },
     {
       "address": "1 Richmond Ln",
       "city": "Adams",
       "state": "MA",
       "status": "Listed",
-      "daysOwned": 222,
+      "daysOwned": 223,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -224,7 +224,7 @@
       "city": "Ware",
       "state": "MA",
       "status": "In Progress",
-      "daysOwned": 4,
+      "daysOwned": 5,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -232,7 +232,7 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "YellowBrick Property. Closed 7/23. Full rehab scope still to come. No new activity since 7/26."
+      "notes": "YellowBrick Property. Closed 7/23. Full rehab scope still to come. NEW 7/28: Matt sent himself a note re: changing the locks at the property - full detail not visible in email, likely a routine post-closing security step."
     },
     {
       "address": "53.5 Orchard St",
@@ -247,7 +247,7 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "NEW 7/27: Jessica requested lead paint certs from inspector Tim (tim4pb@aol.com) for units #1 and #4, previously certified in 2015 - likely sale/compliance prep. Not previously tracked; unconfirmed whether this is a new acquisition or a re-emergence of the 53 1/2 Orchard St property referenced in a June 1031-exchange thread (that exchange was reportedly on hold pending an appraisal issue). Entity, purchase price, and status need confirmation."
+      "notes": "NEW 7/27: Jessica requested lead paint certs from inspector Tim (tim4pb@aol.com) for units #1 and #4, previously certified in 2015 - likely sale/compliance prep. Not previously tracked; unconfirmed whether this is a new acquisition or a re-emergence of the 53 1/2 Orchard St property referenced in a June 1031-exchange thread (that exchange was reportedly on hold pending an appraisal issue). Entity, purchase price, and status need confirmation. No new activity since 7/26."
     }
   ],
   "soldHistory": [
