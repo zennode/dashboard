@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-29T18:10:00-04:00",
+  "lastUpdated": "2026-07-30T08:00:00-04:00",
   "summary": {
     "activeFlips": 16,
     "completedFlips": 20,
@@ -14,7 +14,7 @@
       "city": "Chicopee",
       "state": "MA",
       "status": "Listed",
-      "daysOwned": 1067,
+      "daysOwned": 1068,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -29,7 +29,7 @@
       "city": "Pittsfield",
       "state": "MA",
       "status": "In Progress",
-      "daysOwned": 80,
+      "daysOwned": 81,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -37,14 +37,14 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "House Hack Helpers LLC (RM ID 1010). NEW 7/29 AM: Premiere Home Solutions requested a $5,500 draw - kitchen and cabinets fully installed, doorway into kitchen expanded and trimmed out, granite installer (Ruben) lined up next. Antonio (HHH) went out to the property 7/29 to check progress in person. Prior: $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Flooring still pending after granite."
+      "notes": "House Hack Helpers LLC (RM ID 1010). 7/29 AM: Premiere Home Solutions requested a $5,500 draw - kitchen and cabinets fully installed, doorway into kitchen expanded and trimmed out, granite installer (Ruben) lined up next. Antonio (HHH) went out to the property 7/29 to check progress in person. Prior: $4k draw requested 7/8; cleanout + smoke remediation done, tar removed. Flooring still pending after granite. No further update seen since 7/29."
     },
     {
       "address": "42 Washington St",
       "city": "Monson",
       "state": "MA",
       "status": "Listed",
-      "daysOwned": 731,
+      "daysOwned": 732,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -52,14 +52,14 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "House Hack Helpers LLC (RM ID 985). Dropping $1k/week; tight margins. Main objection is railroad proximity; buyers also citing rates, so HHH is exploring a buyer rate buy-down to drive interest. 7/28 PM: Matt is getting a CMG one-point life-of-loan buy-down; Alice confirmed her contact also has CMG but is checking whether that program is offered in MA. NEW 7/29 AM: Matt asked Jessica to send someone to clean the property; no reply seen yet."
+      "notes": "House Hack Helpers LLC (RM ID 985). Dropping $1k/week; tight margins. Main objection is railroad proximity; buyers also citing rates, so HHH is exploring a buyer rate buy-down to drive interest. 7/28 PM: Matt is getting a CMG one-point life-of-loan buy-down; Alice confirmed her contact also has CMG but is checking whether that program is offered in MA. 7/29 AM: Matt asked Jessica to send someone to clean the property; no reply seen yet."
     },
     {
       "address": "283 Fuller Rd, Unit K",
       "city": "Chicopee",
       "state": "MA",
       "status": "In Progress",
-      "daysOwned": 18,
+      "daysOwned": 19,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -67,14 +67,14 @@
       "arv": 270000,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "House Hack Helpers LLC (RM ID unknown). Rehab underway; target sale $265k-$275k. Walkthrough progress photos shared 7/22. No new activity since 7/26."
+      "notes": "House Hack Helpers LLC (RM ID unknown). Rehab underway; target sale $265k-$275k. Walkthrough progress photos shared 7/22. NEW 7/29 PM: Melissa Vanderburgh (KVR Team) reported carpet install today/tomorrow and lights going up this week; down to waiting on countertops and appliances by end of week. Requested $17,000 payment - Matt approved same day (\"I am ok with it\")."
     },
     {
       "address": "412 St James Ave",
       "city": "Springfield",
       "state": "MA",
       "status": "In Progress",
-      "daysOwned": 17,
+      "daysOwned": 21,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -82,14 +82,14 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "YellowBrick Property (RM ID 1019). Closed 7/9; Q1 taxes paid at closing. Roof completed and inspected 7/22 - payment request submitted to Jessica. Trash work order assigned to Victor 7/23. Full rehab scope still to come. No new activity since 7/26."
+      "notes": "YellowBrick Property (RM ID 1019). Closed 7/9; Q1 taxes paid at closing. Roof completed and inspected 7/22 - payment request submitted to Jessica. Trash work order assigned to Victor (reconfirmed on 7/30 work-order list). NEW 7/29: Unlimited HS payment request confirms siding work is now also completed; contractor flagged an open question about the CO (certificate of occupancy) for the exterior/interior work, referred to Matt. Full rehab scope still to come."
     },
     {
       "address": "19 Draper Ave",
       "city": "Pittsfield",
       "state": "MA",
       "status": "In Progress",
-      "daysOwned": 26,
+      "daysOwned": 27,
       "estCompletionDate": "2026-09-15",
       "purchasePrice": 62972,
       "renobudget": null,
@@ -104,7 +104,7 @@
       "city": "Stafford Springs",
       "state": "CT",
       "status": "In Progress",
-      "daysOwned": 80,
+      "daysOwned": 84,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -112,7 +112,7 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "YellowBrick Property (RM ID 1009). Purchased 5/7; in rehab. 7/26 PM: Andrew Laroche (Laroche Builders) sent cleanup photos to Jessica; forwarded to Matt. 7/27 AM: Matt replied he can't see the photos - awaiting resend. 7/27 PM: Jessica sent contractor (Danny) the key location (garage, right-hand side) and flagged a living-room A/C unit that also needs to be removed - cleanout continuing. No further update since 7/27."
+      "notes": "YellowBrick Property (RM ID 1009). Purchased 5/7; in rehab. 7/26 PM: Andrew Laroche (Laroche Builders) sent cleanup photos to Jessica; forwarded to Matt. 7/27: contractor (Danny) given key location (garage, right-hand side); living-room A/C unit flagged for removal - cleanout continuing. NEW 7/29 PM: Scags Enterprise LLC invoiced for clean-out and selective demo work, forwarded by Jessica. 7/29: Matt approved a $2,500 change order for extra items (deck repairs, basement stairs, back of garage, lights, etc)."
     },
     {
       "address": "96 Shore Rd",
@@ -127,7 +127,7 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "ACTION NEEDED: Revive & Rise LLC (unconfirmed). Buyer's $10,000 seller-credit request (deck/door wood rot, attic rodent activity, bath venting, garage door, roof moss, grading) still undecided as of 7/26 (day 9+), no response seen in email since. Burstein is on vacation and waiting on Matt's call - decide ASAP. Title 5 (septic) report received 7/24 and forwarded to Jessica/Burstein. $14,000 deposit received 7/14; signed closing-date extension amendment sent 7/17. No new email activity found today (7/29)."
+      "notes": "ACTION NEEDED: Revive & Rise LLC (unconfirmed). Buyer's $10,000 seller-credit request (deck/door wood rot, attic rodent activity, bath venting, garage door, roof moss, grading) still undecided as of day 9+, no response seen in email since 7/26. Burstein is on vacation and waiting on Matt's call - decide ASAP. Title 5 (septic) report received 7/24 and forwarded to Jessica/Burstein. $14,000 deposit received 7/14; signed closing-date extension amendment sent 7/17. No new email activity found through 7/30 AM - still needs Matt's decision."
     },
     {
       "address": "8 Longview Rd",
@@ -157,13 +157,13 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "Entity TBD. Scope of work in progress (Google Doc); discussed installing spare basement minisplits. Work order assigned to Barry 7/22. City and purchase details not yet seen in email. No new activity since 7/26."
+      "notes": "Entity TBD. Scope of work in progress (Google Doc, shared with property management 7/30); discussed installing spare basement minisplits. Work order assigned to Barry 7/22. NEW 7/30 AM: Matt told Jessica he agrees with the scope but wants it \"done quickly\" - he needs to put the property on the market. City and purchase details still not seen in email."
     },
     {
       "address": "2140 Palmer Rd",
       "city": "Palmer",
       "state": "MA",
-      "status": "Listed",
+      "status": "Under Contract",
       "daysOwned": 0,
       "estCompletionDate": null,
       "purchasePrice": null,
@@ -172,7 +172,7 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "Entity TBD. Alice Kempf shared 6 listing documents via dotloop 7/17; Matt signed same evening. Showings deferred - not yet actively showing. List price and purchase details not yet seen in email. No new activity since 7/26."
+      "notes": "Entity TBD. Previously listed (6 listing docs signed via dotloop 7/17, showings deferred). NEW 7/29 evening: Alice Kempf shared a buyer's Offer via dotloop (10:22 PM) and Matt signed it same night (10:23 PM) - moving this property from Listed to Under Contract. Terms and buyer details not yet seen in email; watch for the fully-executed purchase & sale."
     },
     {
       "address": "50 Potash Hill Rd",
@@ -202,14 +202,14 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "JV with Peter Houser - industrial/commercial building (Sentry Commercial listing). Phase II environmental report reviewed by enviro-risk.net 7/25, confirmed below applicable standards. Financing being sought from Greenfield Savings Bank ($1.8M purchase + $100k repair holdback, 12-mo IO) and now also from Freedom Credit Union - 7/28: David Chase (Freedom CU) is preparing a term sheet and requested a call; Matt asked Pete to schedule for 7/29. No confirmation yet of how today's call went. Not yet closed."
+      "notes": "Environmental report reviewed by enviro-risk.net 7/25, confirmed below applicable standards. Financing being sought from Greenfield Savings Bank ($1.8M purchase + $100k repair holdback, 12-mo IO) and now also from Freedom Credit Union - 7/28: David Chase (Freedom CU) preparing a term sheet, call requested; Matt asked Pete to schedule for 7/29. No confirmation yet of how the 7/29 call went. Not yet closed."
     },
     {
       "address": "1 Richmond Ln",
       "city": "Adams",
       "state": "MA",
       "status": "Listed",
-      "daysOwned": 223,
+      "daysOwned": 224,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -224,7 +224,7 @@
       "city": "Ware",
       "state": "MA",
       "status": "In Progress",
-      "daysOwned": 5,
+      "daysOwned": 7,
       "estCompletionDate": null,
       "purchasePrice": null,
       "renobudget": null,
@@ -232,7 +232,7 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "YellowBrick Property. Closed 7/23. Full rehab scope still to come. 7/28: Matt sent himself a note re: changing the locks at the property - full detail not visible in email, likely a routine post-closing security step. No new activity since 7/28."
+      "notes": "YellowBrick Property LLC. Closed 7/23. 7/28: Matt sent himself a note re: changing the locks at the property, likely a routine post-closing security step. NEW 7/29 evening - 7/30 early AM: Matt requested power be turned on; Jessica asked which owner's name to use, Matt confirmed \"Yellow Brick Property LLC.\" Full rehab scope still to come."
     },
     {
       "address": "53.5 Orchard St",
@@ -247,7 +247,7 @@
       "arv": null,
       "expectedProfit": null,
       "expectedRoi": null,
-      "notes": "7/27: Jessica requested lead paint certs from inspector Tim (tim4pb@aol.com) for units #1 and #4, previously certified in 2015 - likely sale/compliance prep. Not previously tracked; unconfirmed whether this is a new acquisition or a re-emergence of the 53 1/2 Orchard St property referenced in a June 1031-exchange thread (that exchange was reportedly on hold pending an appraisal issue). Entity, purchase price, and status need confirmation. No new activity since 7/26."
+      "notes": "7/27: Jessica requested lead paint certs from inspector Tim (tim4pb@aol.com) for units #1 and #4, previously certified in 2015 - likely sale/compliance prep. Not previously tracked; unconfirmed whether this is a new acquisition or a re-emergence of the 53 1/2 Orchard St property referenced in a June 1031-exchange thread (that exchange was reportedly on hold pending an appraisal issue). Entity, purchase price, and status need confirmation. No new activity since 7/27."
     }
   ],
   "soldHistory": [
