@@ -1,19 +1,17 @@
 {
-  "lastUpdated": "2026-08-01T15:23:57.539-04:00",
+  "lastUpdated": "2026-08-03T11:07:39.617-04:00",
   "kpis": {
-    "newLeads24h": 13,
-    "newLeads30d": 190,
-    "activeProspects": 33,
-    "lostLeads30d": 156,
+    "newLeads24h": 3,
+    "newLeads30d": 183,
+    "activeProspects": 45,
+    "lostLeads30d": 137,
     "totalUnits": 1186,
-    "contacted30d": 162,
-    "avgFirstContactHours": 14.8,
-    "medianFirstContactHours": 0.6,
-    "leadsWithNoContactRecorded": 28
+    "contacted30d": 150,
+    "leadsWithNoContactRecorded": 33,
+    "avgFirstContactHours": 14.2,
+    "medianFirstContactHours": 0.3
   },
   "volumeTrend": {
-    "2026-07-02": 9,
-    "2026-07-03": 10,
     "2026-07-04": 3,
     "2026-07-05": 7,
     "2026-07-06": 7,
@@ -40,40 +38,133 @@
     "2026-07-29": 14,
     "2026-07-30": 19,
     "2026-07-31": 18,
-    "2026-08-01": 1
+    "2026-08-01": 9,
+    "2026-08-02": 3,
+    "2026-08-03": 1
   },
   "statusBreakdown": {
-    "Lost": 156,
-    "Prospect": 33,
+    "Lost": 137,
+    "Prospect": 45,
     "Customer": 1
   },
   "leadsByProperty": {
-    "YellowBrick Management, Inc": 76,
-    "Property 472": 111,
-    "Property 737": 1,
-    "Property 562": 2
+    "YellowBrick Management, Inc": 72,
+    "PropertyID 472": 108,
+    "PropertyID 562": 2,
+    "PropertyID 737": 1
   },
   "newLeads24h": [
-    {"name": "Tyquane Davis", "property": "YellowBrick Management, Inc", "created": "2026-07-31T12:03:01"},
-    {"name": "Dianna  Maisonet", "property": "Property 472", "created": "2026-07-31T13:51:27"},
-    {"name": "Linda Carlson", "property": "YellowBrick Management, Inc", "created": "2026-07-31T13:57:04"},
-    {"name": "Argenis Hernandez", "property": "Property 472", "created": "2026-07-31T14:12:20"},
-    {"name": "Nelson camacho", "property": "YellowBrick Management, Inc", "created": "2026-07-31T14:12:48"},
-    {"name": "Glenda Agron", "property": "YellowBrick Management, Inc", "created": "2026-07-31T14:39:43"},
-    {"name": "William  Perez", "property": "Property 472", "created": "2026-07-31T15:27:28"},
-    {"name": "Adriana Carmona", "property": "YellowBrick Management, Inc", "created": "2026-07-31T19:20:04"},
-    {"name": "Tiara Williams", "property": "YellowBrick Management, Inc", "created": "2026-07-31T19:35:40"},
-    {"name": "Tiara Williams", "property": "YellowBrick Management, Inc", "created": "2026-07-31T19:58:45"},
-    {"name": "Glenda Agron", "property": "Property 472", "created": "2026-07-31T20:48:02"},
-    {"name": "Nyasia Hill", "property": "YellowBrick Management, Inc", "created": "2026-07-31T22:33:26"},
-    {"name": "Josephine Daquin", "property": "YellowBrick Management, Inc", "created": "2026-08-01T10:34:18"}
+    {
+      "ProspectID": 15760,
+      "Name": "Luis Ortiz",
+      "PropertyID": 65,
+      "CreateDate": "2026-08-02T15:56:40",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15761,
+      "Name": "Sade Wilson",
+      "PropertyID": 65,
+      "CreateDate": "2026-08-02T19:34:10",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15762,
+      "Name": "Raven Walker",
+      "PropertyID": 472,
+      "CreateDate": "2026-08-03T01:31:36",
+      "ProspectStatus": "Prospect"
+    }
   ],
   "urgentQueue": [
-    {"name": "Antonio Robles III", "property": "Property 472", "created": "2026-07-30T12:13:11", "hoursAgo": 47.8},
-    {"name": "Dianna  Maisonet", "property": "Property 472", "created": "2026-07-31T13:51:27", "hoursAgo": 22.1},
-    {"name": "Argenis Hernandez", "property": "Property 472", "created": "2026-07-31T14:12:20", "hoursAgo": 21.8},
-    {"name": "William  Perez", "property": "Property 472", "created": "2026-07-31T15:27:28", "hoursAgo": 20.5},
-    {"name": "Glenda Agron", "property": "Property 472", "created": "2026-07-31T20:48:02", "hoursAgo": 15.2}
+    {
+      "ProspectID": 15708,
+      "Name": "Antonio Robles III",
+      "PropertyID": 472,
+      "CreateDate": "2026-07-30T12:13:11",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15730,
+      "Name": "Dianna  Maisonet",
+      "PropertyID": 472,
+      "CreateDate": "2026-07-31T13:51:27",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15735,
+      "Name": "Argenis Hernandez",
+      "PropertyID": 472,
+      "CreateDate": "2026-07-31T14:12:20",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15739,
+      "Name": "William  Perez",
+      "PropertyID": 472,
+      "CreateDate": "2026-07-31T15:27:28",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15743,
+      "Name": "Glenda Agron",
+      "PropertyID": 472,
+      "CreateDate": "2026-07-31T20:48:02",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15746,
+      "Name": "Jaclyn Kareta",
+      "PropertyID": 472,
+      "CreateDate": "2026-08-01T11:29:49",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15748,
+      "Name": "Andrew Bluteau",
+      "PropertyID": 472,
+      "CreateDate": "2026-08-01T15:48:50",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15749,
+      "Name": "Jenna Brown",
+      "PropertyID": 472,
+      "CreateDate": "2026-08-01T17:06:42",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15754,
+      "Name": "Yorgelys Mosquera chirinos",
+      "PropertyID": 472,
+      "CreateDate": "2026-08-01T19:36:28",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15757,
+      "Name": "Samuel Serrano",
+      "PropertyID": 472,
+      "CreateDate": "2026-08-01T19:51:23",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15758,
+      "Name": "Jorelyz Santiago",
+      "PropertyID": 472,
+      "CreateDate": "2026-08-01T20:02:24",
+      "ProspectStatus": "Prospect"
+    },
+    {
+      "ProspectID": 15762,
+      "Name": "Raven Walker",
+      "PropertyID": 472,
+      "CreateDate": "2026-08-03T01:31:36",
+      "ProspectStatus": "Prospect"
+    }
   ],
-  "notes": {}
+  "notes": {
+    "vacancyData": "IsVacant field not available on /Units endpoint for this account; vacancy count not included (0).",
+    "dataSource": "Rent Manager API /Prospects (last 30 days by CreateDate), /Units, /Properties",
+    "prospectStatusValues": "Observed statuses: Lost, Prospect, Customer"
+  }
 }
