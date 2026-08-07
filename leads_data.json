@@ -1,1 +1,133 @@
-{"lastUpdated":"2026-08-05T11:07:38.310-04:00","kpis":{"newLeads24h":3,"newLeads30d":191,"activeProspects":42,"lostLeads30d":147,"totalUnits":1186,"contacted30d":159,"avgFirstContactHours":15.1,"medianFirstContactHours":0.3,"leadsWithNoContactRecorded":32},"volumeTrend":{"2026-07-06":7,"2026-07-07":7,"2026-07-08":13,"2026-07-09":13,"2026-07-10":13,"2026-07-11":4,"2026-07-12":5,"2026-07-13":7,"2026-07-14":6,"2026-07-15":3,"2026-07-16":2,"2026-07-17":3,"2026-07-18":5,"2026-07-19":6,"2026-07-20":3,"2026-07-21":2,"2026-07-22":2,"2026-07-24":2,"2026-07-25":1,"2026-07-27":2,"2026-07-28":3,"2026-07-29":14,"2026-07-30":19,"2026-07-31":18,"2026-08-01":9,"2026-08-02":3,"2026-08-03":15,"2026-08-04":4},"statusBreakdown":{"Lost":147,"Prospect":42,"Customer":2},"leadsByProperty":{"24-28 Wilcox":113,"YellowBrick Management, Inc":74,"214-218 Exchange St/52 Cabot Street":1,"12 Jabish Street":1,"30-34 Shaker/37-39 Prospect":2},"newLeads24h":[{"prospectId":15785,"name":"DANA MOTLEY","property":"24-28 Wilcox","createDate":"2026-08-04T12:56:02","status":"Prospect","rentMin":0,"leasingAgentId":0,"hasFirstContact":false},{"prospectId":15786,"name":"Lourde rodriguez","property":"YellowBrick Management, Inc","createDate":"2026-08-04T17:04:53","status":"Prospect","rentMin":0,"leasingAgentId":0,"hasFirstContact":true},{"prospectId":15787,"name":"Kymani Donaldson","property":"24-28 Wilcox","createDate":"2026-08-04T23:30:19","status":"Prospect","rentMin":0,"leasingAgentId":0,"hasFirstContact":false}],"urgentQueue":[{"prospectId":15746,"name":"Jaclyn Kareta","property":"24-28 Wilcox","createDate":"2026-08-01T11:29:49","rentMin":0,"daysSinceCreated":3.8},{"prospectId":15754,"name":"Yorgelys Mosquera chirinos","property":"24-28 Wilcox","createDate":"2026-08-01T19:36:28","rentMin":0,"daysSinceCreated":3.5},{"prospectId":15768,"name":"Kelibeth Resto-Albelo","property":"24-28 Wilcox","createDate":"2026-08-03T10:48:57","rentMin":0,"daysSinceCreated":1.8},{"prospectId":15769,"name":"Diamond Deberry","property":"24-28 Wilcox","createDate":"2026-08-03T11:34:53","rentMin":0,"daysSinceCreated":1.8},{"prospectId":15771,"name":"Stefanie Escalera","property":"24-28 Wilcox","createDate":"2026-08-03T13:17:46","rentMin":0,"daysSinceCreated":1.7},{"prospectId":15780,"name":"Miriam Escalante","property":"24-28 Wilcox","createDate":"2026-08-03T15:59:53","rentMin":0,"daysSinceCreated":1.6},{"prospectId":15782,"name":"jimmy Belabre","property":"24-28 Wilcox","createDate":"2026-08-04T00:39:55","rentMin":0,"daysSinceCreated":1.3}],"notes":{"vacancyData":"IsVacant field returned null for all units in this API — vacancy count unavailable from source data","leadSourceData":"LeadSourceID field returned null for all prospects — lead source breakdown unavailable","dateFieldUsed":"CreateDate","contactFieldUsed":"FirstContact/LastContact","propertiesCount":882}}
+{
+  "lastUpdated": "2026-08-07T11:07:20.381-04:00",
+  "kpis": {
+    "newLeads24h": 10,
+    "newLeads30d": 198,
+    "activeProspects": 27,
+    "lostLeads30d": 169,
+    "totalUnits": 1187,
+    "contacted30d": 167,
+    "avgFirstContactHours": 16,
+    "medianFirstContactHours": 1.2,
+    "leadsWithNoContactRecorded": 31
+  },
+  "volumeTrend": {},
+  "statusBreakdown": {
+    "Lost": 169,
+    "Prospect": 27,
+    "Customer": 2
+  },
+  "leadsByProperty": {
+    "YellowBrick Management, Inc": 77,
+    "24-28 Wilcox": 117,
+    "30-34 Shaker/37-39 Prospect": 2,
+    "214-218 Exchange St/52 Cabot Street": 1,
+    "12 Jabish Street": 1
+  },
+  "newLeads24h": [
+    {
+      "name": "Chakeil Clayton",
+      "property": "24-28 Wilcox",
+      "createDate": "2026-08-06T09:47:51",
+      "status": "Lost",
+      "firstContact": null
+    },
+    {
+      "name": "Cynthia Walker",
+      "property": "YellowBrick Management, Inc",
+      "createDate": "2026-08-06T10:44:40",
+      "status": "Prospect",
+      "firstContact": "2026-08-06T10:44:40"
+    },
+    {
+      "name": "Raven Emanuel",
+      "property": "24-28 Wilcox",
+      "createDate": "2026-08-06T10:57:41",
+      "status": "Prospect",
+      "firstContact": "2026-08-06T12:25:49"
+    },
+    {
+      "name": "David Murrell",
+      "property": "YellowBrick Management, Inc",
+      "createDate": "2026-08-06T15:35:56",
+      "status": "Prospect",
+      "firstContact": "2026-08-06T15:35:56"
+    },
+    {
+      "name": "Adriana Nazario",
+      "property": "24-28 Wilcox",
+      "createDate": "2026-08-06T16:47:16",
+      "status": "Prospect",
+      "firstContact": null
+    },
+    {
+      "name": "Chakeil Clayton",
+      "property": "YellowBrick Management, Inc",
+      "createDate": "2026-08-06T17:43:28",
+      "status": "Prospect",
+      "firstContact": "2026-08-06T17:43:29"
+    },
+    {
+      "name": "Meg Ortega",
+      "property": "YellowBrick Management, Inc",
+      "createDate": "2026-08-06T20:09:04",
+      "status": "Prospect",
+      "firstContact": "2026-08-06T20:09:04"
+    },
+    {
+      "name": "Fernando Zuniga",
+      "property": "24-28 Wilcox",
+      "createDate": "2026-08-07T04:27:04",
+      "status": "Prospect",
+      "firstContact": null
+    },
+    {
+      "name": "jarmanic hartley",
+      "property": "24-28 Wilcox",
+      "createDate": "2026-08-07T04:36:06",
+      "status": "Prospect",
+      "firstContact": null
+    },
+    {
+      "name": "Glendalys Colon",
+      "property": "24-28 Wilcox",
+      "createDate": "2026-08-07T06:14:26",
+      "status": "Prospect",
+      "firstContact": null
+    }
+  ],
+  "urgentQueue": [
+    {
+      "name": "Adriana Nazario",
+      "property": "24-28 Wilcox",
+      "createDate": "2026-08-06T16:47:16",
+      "status": "Prospect",
+      "daysSinceCreate": 0.6
+    },
+    {
+      "name": "Fernando Zuniga",
+      "property": "24-28 Wilcox",
+      "createDate": "2026-08-07T04:27:04",
+      "status": "Prospect",
+      "daysSinceCreate": 0.1
+    },
+    {
+      "name": "jarmanic hartley",
+      "property": "24-28 Wilcox",
+      "createDate": "2026-08-07T04:36:06",
+      "status": "Prospect",
+      "daysSinceCreate": 0.1
+    },
+    {
+      "name": "Glendalys Colon",
+      "property": "24-28 Wilcox",
+      "createDate": "2026-08-07T06:14:26",
+      "status": "Prospect",
+      "daysSinceCreate": 0
+    }
+  ],
+  "notes": {
+    "vacancyData": "IsVacant field returned null for all units via API; vacancy count not computable from real data, omitted.",
+    "volumeTrend": "Daily trend data not computed in this run; historical breakdown not available from API without additional per-day queries."
+  }
+}
