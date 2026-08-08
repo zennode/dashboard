@@ -845,7 +845,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
       <div class="card">
         <h3>Per-Platform Ad Revenue (6-Month Trend)</h3>
-        <canvas id="sm-platform-revenue-trend"></canvas>
+        <div style="position:relative"><canvas id="sm-platform-revenue-trend"></canvas></div>
       </div>
       <div class="card">
         <h3 style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap">
@@ -856,7 +856,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
             <button onclick="updateTotalRevenueChart('1y')" class="sm-rev-btn" id="btn-1y" style="padding:4px 12px;border-radius:6px;border:1px solid #2a3040;background:#1a1e29;color:#9aa3b5;cursor:pointer;font-size:0.8rem">1Y</button>
           </span>
         </h3>
-        <canvas id="sm-total-revenue-trend"></canvas>
+        <div style="position:relative"><canvas id="sm-total-revenue-trend"></canvas></div>
       </div>
     </div>
 
@@ -1747,7 +1747,7 @@ const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts
           }; })
         },
         options: {
-          responsive: true,
+          responsive: true, maintainAspectRatio: true,
           plugins: {
             legend: { labels: { color: '#9aa3b5', boxWidth: 12, padding: 10 } },
             tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': $' + ctx.parsed.y; } } }
@@ -1789,7 +1789,7 @@ const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts
           }]
         },
         options: {
-          responsive: true,
+          responsive: true, maintainAspectRatio: true,
           plugins: {
             legend: { labels: { color: '#9aa3b5' } },
             tooltip: { callbacks: { label: function(ctx) { return 'Total: $' + ctx.parsed.y; } } }
