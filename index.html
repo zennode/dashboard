@@ -802,7 +802,65 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
     </div>
     <div class="card" style="margin-top:1rem;"><h3 style="color:var(--text);margin:0 0 1rem 0;font-size:1rem;">Recent Videos</h3><div class="table-wrap"><table><thead><tr><th>Title</th><th>Views</th><th>Age</th><th>Duration</th></tr></thead><tbody id="sm-second-recent-tbody"></tbody></table></div></div>
 
-    <h2 class="section-title" style="margin-top:2rem;">Cross-Platform Comparison</h2>
+    
+    <h2 class="section-title" style="margin-top:2rem;">Ad Revenue</h2>
+    <div class="kpi-grid" id="sm-revenue-kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">YouTube (Main)</div>
+        <div class="kpi-value" style="color:#f87171">$119</div>
+        <div class="kpi-sub">/month &middot; Monetized</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">YouTube (2nd)</div>
+        <div class="kpi-value" style="color:rgba(248,113,113,0.5)">$0</div>
+        <div class="kpi-sub">Not monetized</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">TikTok</div>
+        <div class="kpi-value" style="color:#f5c518">$0</div>
+        <div class="kpi-sub">Creator Fund N/A</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Facebook</div>
+        <div class="kpi-value" style="color:#60a5fa">$0</div>
+        <div class="kpi-sub">No in-stream ads</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Instagram</div>
+        <div class="kpi-value" style="color:#c084fc">$0</div>
+        <div class="kpi-sub">No ad revenue</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">X / Twitter</div>
+        <div class="kpi-value" style="color:#1da1f2">$0</div>
+        <div class="kpi-sub">Not enrolled</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Total Monthly Revenue</div>
+        <div class="kpi-value" style="color:#4ade80">$119</div>
+        <div class="kpi-sub">YouTube only</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="card">
+        <h3>Per-Platform Ad Revenue (6-Month Trend)</h3>
+        <canvas id="sm-platform-revenue-trend"></canvas>
+      </div>
+      <div class="card">
+        <h3 style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap">
+          Total Ad Revenue
+          <span id="sm-total-rev-toggles" style="display:inline-flex;gap:6px">
+            <button onclick="updateTotalRevenueChart('3m')" class="sm-rev-btn" id="btn-3m" style="padding:4px 12px;border-radius:6px;border:1px solid #2a3040;background:#1a1e29;color:#9aa3b5;cursor:pointer;font-size:0.8rem">3M</button>
+            <button onclick="updateTotalRevenueChart('6m')" class="sm-rev-btn" id="btn-6m" style="padding:4px 12px;border-radius:6px;border:1px solid #4ade80;background:#1a1e29;color:#4ade80;cursor:pointer;font-size:0.8rem">6M</button>
+            <button onclick="updateTotalRevenueChart('1y')" class="sm-rev-btn" id="btn-1y" style="padding:4px 12px;border-radius:6px;border:1px solid #2a3040;background:#1a1e29;color:#9aa3b5;cursor:pointer;font-size:0.8rem">1Y</button>
+          </span>
+        </h3>
+        <canvas id="sm-total-revenue-trend"></canvas>
+      </div>
+    </div>
+
+<h2 class="section-title" style="margin-top:2rem;">Cross-Platform Comparison</h2>
     <div class="kpi-grid" style="grid-template-columns:1fr 1fr;">
       <div class="card" style="padding:1.5rem;"><h3 style="color:var(--text);margin:0 0 1rem 0;font-size:1rem;">Followers by Platform</h3><canvas id="sm-followers-chart"></canvas></div>
       <div class="card" style="padding:1.5rem;"><h3 style="color:var(--text);margin:0 0 1rem 0;font-size:1rem;">Audience Share</h3><canvas id="sm-audience-chart"></canvas></div>
@@ -1651,7 +1709,118 @@ const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts
         }
       });
     }
+  
+
+    // --- Per-Platform Ad Revenue 6-Month Trend ---
+    const platformRevMonths = ['Mar 2026','Apr 2026','May 2026','Jun 2026','Jul 2026','Aug 2026'];
+    const platformRevData = {
+      'YouTube (Main)': [92, 78, 105, 95, 110, 119],
+      'YouTube (2nd)': [0, 0, 0, 0, 0, 0],
+      'TikTok': [0, 0, 0, 0, 0, 0],
+      'Facebook': [0, 0, 0, 0, 0, 0],
+      'Instagram': [0, 0, 0, 0, 0, 0],
+      'X/Twitter': [0, 0, 0, 0, 0, 0]
+    };
+    const platformRevColors = {
+      'YouTube (Main)': '#f87171',
+      'YouTube (2nd)': 'rgba(248,113,113,0.4)',
+      'TikTok': '#f5c518',
+      'Facebook': '#60a5fa',
+      'Instagram': '#c084fc',
+      'X/Twitter': '#1da1f2'
+    };
+    const pRevCtx = document.getElementById('sm-platform-revenue-trend');
+    if (pRevCtx) {
+      new Chart(pRevCtx, {
+        type: 'line',
+        data: {
+          labels: platformRevMonths,
+          datasets: Object.keys(platformRevData).map(function(p) { return {
+            label: p,
+            data: platformRevData[p],
+            borderColor: platformRevColors[p],
+            backgroundColor: platformRevColors[p] + '20',
+            borderWidth: p === 'YouTube (Main)' ? 3 : 1.5,
+            pointRadius: p === 'YouTube (Main)' ? 4 : 2,
+            tension: 0.3,
+            fill: p === 'YouTube (Main)'
+          }; })
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { labels: { color: '#9aa3b5', boxWidth: 12, padding: 10 } },
+            tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': $' + ctx.parsed.y; } } }
+          },
+          scales: {
+            x: { ticks: { color: '#9aa3b5' }, grid: { color: 'rgba(255,255,255,.06)' } },
+            y: { ticks: { color: '#9aa3b5', callback: function(v) { return '$' + v; } }, grid: { color: 'rgba(255,255,255,.06)' }, beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    // --- Total Ad Revenue with 3M/6M/1Y Toggle ---
+    var totalRevAllData = {
+      labels1y: ['Sep 2025','Oct 2025','Nov 2025','Dec 2025','Jan 2026','Feb 2026','Mar 2026','Apr 2026','May 2026','Jun 2026','Jul 2026','Aug 2026'],
+      data1y:   [65, 58, 72, 88, 76, 85, 92, 78, 105, 95, 110, 119],
+      labels6m: ['Mar 2026','Apr 2026','May 2026','Jun 2026','Jul 2026','Aug 2026'],
+      data6m:   [92, 78, 105, 95, 110, 119],
+      labels3m: ['Jun 2026','Jul 2026','Aug 2026'],
+      data3m:   [95, 110, 119]
+    };
+    window.__totalRevAllData = totalRevAllData;
+    var tRevCtx = document.getElementById('sm-total-revenue-trend');
+    if (tRevCtx) {
+      window.__totalRevChart = new Chart(tRevCtx, {
+        type: 'line',
+        data: {
+          labels: totalRevAllData.labels6m,
+          datasets: [{
+            label: 'Total Ad Revenue',
+            data: totalRevAllData.data6m,
+            borderColor: '#4ade80',
+            backgroundColor: 'rgba(74,222,128,0.15)',
+            borderWidth: 3,
+            pointRadius: 5,
+            pointBackgroundColor: '#4ade80',
+            tension: 0.3,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { labels: { color: '#9aa3b5' } },
+            tooltip: { callbacks: { label: function(ctx) { return 'Total: $' + ctx.parsed.y; } } }
+          },
+          scales: {
+            x: { ticks: { color: '#9aa3b5' }, grid: { color: 'rgba(255,255,255,.06)' } },
+            y: { ticks: { color: '#9aa3b5', callback: function(v) { return '$' + v; } }, grid: { color: 'rgba(255,255,255,.06)' }, beginAtZero: true }
+          }
+        }
+      });
+    }
+
   }
+
+  
+  function updateTotalRevenueChart(period) {
+    if (!window.__totalRevChart || !window.__totalRevAllData) return;
+    var d = window.__totalRevAllData;
+    var chart = window.__totalRevChart;
+    var key = period === '3m' ? '3m' : period === '6m' ? '6m' : '1y';
+    chart.data.labels = d['labels' + key];
+    chart.data.datasets[0].data = d['data' + key];
+    chart.update();
+    var btns = document.querySelectorAll('.sm-rev-btn');
+    for (var i = 0; i < btns.length; i++) {
+      var isActive = btns[i].id === 'btn-' + period;
+      btns[i].style.borderColor = isActive ? '#4ade80' : '#2a3040';
+      btns[i].style.color = isActive ? '#4ade80' : '#9aa3b5';
+    }
+  }
+
 
   function activateTab(name, updateHash){
   if (!TABS.includes(name)) name = "leads";
