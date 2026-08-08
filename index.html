@@ -9,7 +9,7 @@
 <script>
 /* =========================h===============h====================
    DATA OBJECTSh
-   These window.* objects are updated programmatically by
+   These window.* objects are updated prograhmmatically by
    scheduled tasks. Keep the shapes stable.
    ============================================================ */
 
@@ -822,8 +822,8 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
       </div>
       <div class="kpi">
         <div class="kpi-label">Facebook</div>
-        <div class="kpi-value" style="color:#60a5fa">$0</div>
-        <div class="kpi-sub">No in-stream ads</div>
+        <div class="kpi-value" style="color:#60a5fa">$1,232.58</div>
+        <div class="kpi-sub">Reels &middot; Jul 2026</div>
       </div>
       <div class="kpi">
         <div class="kpi-label">Instagram</div>
@@ -837,8 +837,8 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
       </div>
       <div class="kpi">
         <div class="kpi-label">Total Monthly Revenue</div>
-        <div class="kpi-value" style="color:#4ade80">$119</div>
-        <div class="kpi-sub">YouTube only</div>
+        <div class="kpi-value" style="color:#4ade80">$1,352</div>
+        <div class="kpi-sub">YouTube + Facebook Reels</div>
       </div>
     </div>
 
@@ -1717,7 +1717,7 @@ const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts
       'YouTube (Main)': [92, 78, 105, 95, 110, 119],
       'YouTube (2nd)': [0, 0, 0, 0, 0, 0],
       'TikTok': [0, 0, 0, 0, 0, 0],
-      'Facebook': [0, 0, 0, 0, 0, 0],
+      'Facebook': [132.62, 34.12, 186.23, 1040.35, 1232.58, 283.35],
       'Instagram': [0, 0, 0, 0, 0, 0],
       'X/Twitter': [0, 0, 0, 0, 0, 0]
     };
@@ -1763,11 +1763,11 @@ const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts
     // --- Total Ad Revenue with 3M/6M/1Y Toggle ---
     var totalRevAllData = {
       labels1y: ['Sep 2025','Oct 2025','Nov 2025','Dec 2025','Jan 2026','Feb 2026','Mar 2026','Apr 2026','May 2026','Jun 2026','Jul 2026','Aug 2026'],
-      data1y:   [65, 58, 72, 88, 76, 85, 92, 78, 105, 95, 110, 119],
+      data1y:   [193, 198, 295, 402, 325, 349, 225, 112, 291, 1135, 1343, 402],
       labels6m: ['Mar 2026','Apr 2026','May 2026','Jun 2026','Jul 2026','Aug 2026'],
-      data6m:   [92, 78, 105, 95, 110, 119],
+      data6m:   [225, 112, 291, 1135, 1343, 402],
       labels3m: ['Jun 2026','Jul 2026','Aug 2026'],
-      data3m:   [95, 110, 119]
+      data3m:   [1135, 1343, 402]
     };
     window.__totalRevAllData = totalRevAllData;
     var tRevCtx = document.getElementById('sm-total-revenue-trend');
