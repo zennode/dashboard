@@ -1,133 +1,153 @@
 {
-  "lastUpdated": "2026-08-07T11:07:20.381-04:00",
+  "lastUpdated": "2026-08-08T07:07:55-04:00",
   "kpis": {
-    "newLeads24h": 10,
-    "newLeads30d": 198,
-    "activeProspects": 27,
-    "lostLeads30d": 169,
-    "totalUnits": 1187,
-    "contacted30d": 167,
-    "avgFirstContactHours": 16,
-    "medianFirstContactHours": 1.2,
-    "leadsWithNoContactRecorded": 31
+    "newLeads24h": 7,
+    "newLeads30d": 192,
+    "activeProspects": 18,
+    "lostLeads30d": 172,
+    "totalUnits": 287,
+    "contacted30d": 165,
+    "avgFirstContactHours": 14.3,
+    "medianFirstContactHours": 0.3,
+    "leadsWithNoContactRecorded": 27
   },
-  "volumeTrend": {},
+  "volumeTrend": {
+    "2026-07-09": 13,
+    "2026-07-10": 13,
+    "2026-07-11": 4,
+    "2026-07-12": 5,
+    "2026-07-13": 7,
+    "2026-07-14": 6,
+    "2026-07-15": 3,
+    "2026-07-16": 2,
+    "2026-07-17": 3,
+    "2026-07-18": 5,
+    "2026-07-19": 6,
+    "2026-07-20": 3,
+    "2026-07-21": 2,
+    "2026-07-22": 2,
+    "2026-07-24": 2,
+    "2026-07-25": 1,
+    "2026-07-27": 2,
+    "2026-07-28": 3,
+    "2026-07-29": 14,
+    "2026-07-30": 19,
+    "2026-07-31": 18,
+    "2026-08-01": 9,
+    "2026-08-02": 3,
+    "2026-08-03": 15,
+    "2026-08-04": 4,
+    "2026-08-05": 11,
+    "2026-08-06": 7,
+    "2026-08-07": 10
+  },
   "statusBreakdown": {
-    "Lost": 169,
-    "Prospect": 27,
+    "Lost": 172,
+    "Prospect": 18,
     "Customer": 2
   },
   "leadsByProperty": {
-    "YellowBrick Management, Inc": 77,
-    "24-28 Wilcox": 117,
+    "YellowBrick Management, Inc": 79,
+    "24-28 Wilcox": 109,
     "30-34 Shaker/37-39 Prospect": 2,
     "214-218 Exchange St/52 Cabot Street": 1,
     "12 Jabish Street": 1
   },
   "newLeads24h": [
     {
-      "name": "Chakeil Clayton",
-      "property": "24-28 Wilcox",
-      "createDate": "2026-08-06T09:47:51",
-      "status": "Lost",
-      "firstContact": null
+      "ProspectID": 15812,
+      "Name": "Nelson camacho",
+      "PropertyID": 472,
+      "PropertyName": "24-28 Wilcox",
+      "CreateDate": "2026-08-07T09:06:07",
+      "ProspectStatus": "Prospect"
     },
     {
-      "name": "Cynthia Walker",
-      "property": "YellowBrick Management, Inc",
-      "createDate": "2026-08-06T10:44:40",
-      "status": "Prospect",
-      "firstContact": "2026-08-06T10:44:40"
+      "ProspectID": 15813,
+      "Name": "Salma Moreno",
+      "PropertyID": 472,
+      "PropertyName": "24-28 Wilcox",
+      "CreateDate": "2026-08-07T09:19:42",
+      "ProspectStatus": "Prospect"
     },
     {
-      "name": "Raven Emanuel",
-      "property": "24-28 Wilcox",
-      "createDate": "2026-08-06T10:57:41",
-      "status": "Prospect",
-      "firstContact": "2026-08-06T12:25:49"
+      "ProspectID": 15814,
+      "Name": "Ziare Miller",
+      "PropertyID": 472,
+      "PropertyName": "24-28 Wilcox",
+      "CreateDate": "2026-08-07T09:39:41",
+      "ProspectStatus": "Prospect"
     },
     {
-      "name": "David Murrell",
-      "property": "YellowBrick Management, Inc",
-      "createDate": "2026-08-06T15:35:56",
-      "status": "Prospect",
-      "firstContact": "2026-08-06T15:35:56"
+      "ProspectID": 15815,
+      "Name": "ziehr davis",
+      "PropertyID": 65,
+      "PropertyName": "YellowBrick Management, Inc",
+      "CreateDate": "2026-08-07T10:21:38",
+      "ProspectStatus": "Lost"
     },
     {
-      "name": "Adriana Nazario",
-      "property": "24-28 Wilcox",
-      "createDate": "2026-08-06T16:47:16",
-      "status": "Prospect",
-      "firstContact": null
+      "ProspectID": 15816,
+      "Name": "ziehr davis",
+      "PropertyID": 472,
+      "PropertyName": "24-28 Wilcox",
+      "CreateDate": "2026-08-07T10:43:46",
+      "ProspectStatus": "Lost"
     },
     {
-      "name": "Chakeil Clayton",
-      "property": "YellowBrick Management, Inc",
-      "createDate": "2026-08-06T17:43:28",
-      "status": "Prospect",
-      "firstContact": "2026-08-06T17:43:29"
+      "ProspectID": 15817,
+      "Name": "Yosibeth Mendoza Calanche",
+      "PropertyID": 65,
+      "PropertyName": "YellowBrick Management, Inc",
+      "CreateDate": "2026-08-07T11:09:52",
+      "ProspectStatus": "Lost"
     },
     {
-      "name": "Meg Ortega",
-      "property": "YellowBrick Management, Inc",
-      "createDate": "2026-08-06T20:09:04",
-      "status": "Prospect",
-      "firstContact": "2026-08-06T20:09:04"
-    },
-    {
-      "name": "Fernando Zuniga",
-      "property": "24-28 Wilcox",
-      "createDate": "2026-08-07T04:27:04",
-      "status": "Prospect",
-      "firstContact": null
-    },
-    {
-      "name": "jarmanic hartley",
-      "property": "24-28 Wilcox",
-      "createDate": "2026-08-07T04:36:06",
-      "status": "Prospect",
-      "firstContact": null
-    },
-    {
-      "name": "Glendalys Colon",
-      "property": "24-28 Wilcox",
-      "createDate": "2026-08-07T06:14:26",
-      "status": "Prospect",
-      "firstContact": null
+      "ProspectID": 15818,
+      "Name": "Naidelye Torres",
+      "PropertyID": 65,
+      "PropertyName": "YellowBrick Management, Inc",
+      "CreateDate": "2026-08-07T13:39:19",
+      "ProspectStatus": "Prospect"
     }
   ],
-  "urgentQueue": [
-    {
-      "name": "Adriana Nazario",
-      "property": "24-28 Wilcox",
-      "createDate": "2026-08-06T16:47:16",
-      "status": "Prospect",
-      "daysSinceCreate": 0.6
-    },
-    {
-      "name": "Fernando Zuniga",
-      "property": "24-28 Wilcox",
-      "createDate": "2026-08-07T04:27:04",
-      "status": "Prospect",
-      "daysSinceCreate": 0.1
-    },
-    {
-      "name": "jarmanic hartley",
-      "property": "24-28 Wilcox",
-      "createDate": "2026-08-07T04:36:06",
-      "status": "Prospect",
-      "daysSinceCreate": 0.1
-    },
-    {
-      "name": "Glendalys Colon",
-      "property": "24-28 Wilcox",
-      "createDate": "2026-08-07T06:14:26",
-      "status": "Prospect",
-      "daysSinceCreate": 0
-    }
-  ],
+  "urgentQueue": [],
   "notes": {
-    "vacancyData": "IsVacant field returned null for all units via API; vacancy count not computable from real data, omitted.",
-    "volumeTrend": "Daily trend data not computed in this run; historical breakdown not available from API without additional per-day queries."
+    "vacancy": {
+      "totalUnits": 287,
+      "occupied": 260,
+      "vacant": 34,
+      "vacancyRatePct": 11.8,
+      "vacantByProperty": {
+        "Loring St 30-32 ": 1,
+        "Berkshire Ave 1237-1239": 1,
+        "50-54 Orchard": 3,
+        "30-34 Shaker/37-39 Prospect": 1,
+        "226-230 Sargeant Street": 1,
+        "60 Shaker Road": 1,
+        "214-218 Exchange St/52 Cabot Street": 2,
+        "Marlborough 89-91 ": 1,
+        "Avondale 65": 1,
+        "Marble 21": 1,
+        "Central 100 ": 1,
+        "East St 24-30": 1,
+        "Hampden 291-293": 1,
+        "Rochelle St 85": 1,
+        "St. James Ave 83 ": 1,
+        "Terrence St 48-50 ": 1,
+        "Union St 741-745 ": 2,
+        "Wilbraham RD 257 ": 1,
+        "Loring St 31 ": 1,
+        "800 College Highway": 2,
+        "Third Street 64-68": 1,
+        "1-3 Stadler Street": 3,
+        "Northwestern 3": 2,
+        "83 Rolf Ave ": 1,
+        "171 Methuen": 1,
+        "55 White Ave": 1
+      }
+    },
+    "dataSource": "Rent Manager API - Prospects endpoint, 30-day window",
+    "fieldGaps": "Lead source names not resolved (LeadSourceID only, no LeadSources lookup performed)."
   }
 }
