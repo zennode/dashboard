@@ -1805,7 +1805,7 @@ const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts
   }
 
   
-  function updateTotalRevenueChart(period) {
+  window.updateTotalRevenueChart = function(period) {
     if (!window.__totalRevChart || !window.__totalRevAllData) return;
     var d = window.__totalRevAllData;
     var chart = window.__totalRevChart;
