@@ -1,18 +1,27 @@
 {
-  "lastUpdated": "2026-08-08T07:07:55-04:00",
+  "lastUpdated": "2026-08-09T07:07:51-04:00",
   "kpis": {
-    "newLeads24h": 7,
-    "newLeads30d": 192,
-    "activeProspects": 18,
-    "lostLeads30d": 172,
+    "newLeads24h": 3,
+    "newLeads30d": 182,
+    "activeProspects": 20,
+    "lostLeads30d": 160,
     "totalUnits": 287,
-    "contacted30d": 165,
-    "avgFirstContactHours": 14.3,
-    "medianFirstContactHours": 0.3,
+    "contacted30d": 155,
+    "avgFirstContactHours": 13.19,
+    "medianFirstContactHours": 0,
     "leadsWithNoContactRecorded": 27
   },
+  "responseTime": {
+    "avgHours": 13.19,
+    "fastestHours": 0,
+    "fastestLeadName": "Tatyana Antonetty",
+    "slowestHours": 93.59,
+    "slowestLeadName": "Jaclyn Kareta",
+    "respondedCount": 155,
+    "unrespondedCount": 27,
+    "totalLeads": 182
+  },
   "volumeTrend": {
-    "2026-07-09": 13,
     "2026-07-10": 13,
     "2026-07-11": 4,
     "2026-07-12": 5,
@@ -39,115 +48,264 @@
     "2026-08-04": 4,
     "2026-08-05": 11,
     "2026-08-06": 7,
-    "2026-08-07": 10
+    "2026-08-07": 10,
+    "2026-08-08": 3
   },
   "statusBreakdown": {
-    "Lost": 172,
-    "Prospect": 18,
-    "Customer": 2
+    "Customer": 2,
+    "Lost": 160,
+    "Prospect": 20
   },
   "leadsByProperty": {
-    "YellowBrick Management, Inc": 79,
-    "24-28 Wilcox": 109,
-    "30-34 Shaker/37-39 Prospect": 2,
     "214-218 Exchange St/52 Cabot Street": 1,
-    "12 Jabish Street": 1
+    "YellowBrick Management, Inc": 78,
+    "12 Jabish Street": 1,
+    "24-28 Wilcox": 100,
+    "30-34 Shaker/37-39 Prospect": 2
   },
   "newLeads24h": [
     {
-      "ProspectID": 15812,
-      "Name": "Nelson camacho",
-      "PropertyID": 472,
-      "PropertyName": "24-28 Wilcox",
-      "CreateDate": "2026-08-07T09:06:07",
-      "ProspectStatus": "Prospect"
+      "prospectId": 15819,
+      "name": "Ralique Velez",
+      "property": "YellowBrick Management, Inc",
+      "createdDate": "2026-08-08T11:02:38",
+      "status": "Prospect"
     },
     {
-      "ProspectID": 15813,
-      "Name": "Salma Moreno",
-      "PropertyID": 472,
-      "PropertyName": "24-28 Wilcox",
-      "CreateDate": "2026-08-07T09:19:42",
-      "ProspectStatus": "Prospect"
+      "prospectId": 15820,
+      "name": "Denniya Carrington",
+      "property": "YellowBrick Management, Inc",
+      "createdDate": "2026-08-08T19:36:34",
+      "status": "Prospect"
     },
     {
-      "ProspectID": 15814,
-      "Name": "Ziare Miller",
-      "PropertyID": 472,
-      "PropertyName": "24-28 Wilcox",
-      "CreateDate": "2026-08-07T09:39:41",
-      "ProspectStatus": "Prospect"
-    },
-    {
-      "ProspectID": 15815,
-      "Name": "ziehr davis",
-      "PropertyID": 65,
-      "PropertyName": "YellowBrick Management, Inc",
-      "CreateDate": "2026-08-07T10:21:38",
-      "ProspectStatus": "Lost"
-    },
-    {
-      "ProspectID": 15816,
-      "Name": "ziehr davis",
-      "PropertyID": 472,
-      "PropertyName": "24-28 Wilcox",
-      "CreateDate": "2026-08-07T10:43:46",
-      "ProspectStatus": "Lost"
-    },
-    {
-      "ProspectID": 15817,
-      "Name": "Yosibeth Mendoza Calanche",
-      "PropertyID": 65,
-      "PropertyName": "YellowBrick Management, Inc",
-      "CreateDate": "2026-08-07T11:09:52",
-      "ProspectStatus": "Lost"
-    },
-    {
-      "ProspectID": 15818,
-      "Name": "Naidelye Torres",
-      "PropertyID": 65,
-      "PropertyName": "YellowBrick Management, Inc",
-      "CreateDate": "2026-08-07T13:39:19",
-      "ProspectStatus": "Prospect"
+      "prospectId": 15821,
+      "name": "Kisnet  Lopez",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-08-08T22:40:34",
+      "status": "Prospect"
     }
   ],
-  "urgentQueue": [],
-  "notes": {
-    "vacancy": {
-      "totalUnits": 287,
-      "occupied": 260,
-      "vacant": 34,
-      "vacancyRatePct": 11.8,
-      "vacantByProperty": {
-        "Loring St 30-32 ": 1,
-        "Berkshire Ave 1237-1239": 1,
-        "50-54 Orchard": 3,
-        "30-34 Shaker/37-39 Prospect": 1,
-        "226-230 Sargeant Street": 1,
-        "60 Shaker Road": 1,
-        "214-218 Exchange St/52 Cabot Street": 2,
-        "Marlborough 89-91 ": 1,
-        "Avondale 65": 1,
-        "Marble 21": 1,
-        "Central 100 ": 1,
-        "East St 24-30": 1,
-        "Hampden 291-293": 1,
-        "Rochelle St 85": 1,
-        "St. James Ave 83 ": 1,
-        "Terrence St 48-50 ": 1,
-        "Union St 741-745 ": 2,
-        "Wilbraham RD 257 ": 1,
-        "Loring St 31 ": 1,
-        "800 College Highway": 2,
-        "Third Street 64-68": 1,
-        "1-3 Stadler Street": 3,
-        "Northwestern 3": 2,
-        "83 Rolf Ave ": 1,
-        "171 Methuen": 1,
-        "55 White Ave": 1
-      }
+  "urgentQueue": [
+    {
+      "prospectId": 15607,
+      "name": "English (US)",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-11T15:15:13",
+      "hoursSinceCreated": 687.9
     },
-    "dataSource": "Rent Manager API - Prospects endpoint, 30-day window",
-    "fieldGaps": "Lead source names not resolved (LeadSourceID only, no LeadSources lookup performed)."
+    {
+      "prospectId": 15651,
+      "name": "Ninoshka Orta Gomez",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-19T13:52:51",
+      "hoursSinceCreated": 497.2
+    },
+    {
+      "prospectId": 15652,
+      "name": "Khalida Faqir Zada",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-19T15:40:33",
+      "hoursSinceCreated": 495.5
+    },
+    {
+      "prospectId": 15654,
+      "name": "Christopher Shean",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-19T16:50:22",
+      "hoursSinceCreated": 494.3
+    },
+    {
+      "prospectId": 15657,
+      "name": "Petrina Hahn",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-20T23:42:26",
+      "hoursSinceCreated": 463.4
+    },
+    {
+      "prospectId": 15660,
+      "name": "Petrina Hahn",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-21T16:40:54",
+      "hoursSinceCreated": 446.4
+    },
+    {
+      "prospectId": 15666,
+      "name": "Amanda Crochetiere",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-24T22:09:09",
+      "hoursSinceCreated": 369
+    },
+    {
+      "prospectId": 15667,
+      "name": "Jessely Navarro",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-25T10:21:21",
+      "hoursSinceCreated": 356.8
+    },
+    {
+      "prospectId": 15671,
+      "name": "Kaevonna Marrow",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-28T10:02:42",
+      "hoursSinceCreated": 285.1
+    },
+    {
+      "prospectId": 15672,
+      "name": "Jared cotto",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-28T13:09:50",
+      "hoursSinceCreated": 282
+    },
+    {
+      "prospectId": 15675,
+      "name": "Myalynn Vega",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-29T10:55:42",
+      "hoursSinceCreated": 260.2
+    },
+    {
+      "prospectId": 15683,
+      "name": "Jared Cotto",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-29T12:02:55",
+      "hoursSinceCreated": 259.1
+    },
+    {
+      "prospectId": 15696,
+      "name": "Gavin Shawn Baker",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-30T08:16:35",
+      "hoursSinceCreated": 238.9
+    },
+    {
+      "prospectId": 15697,
+      "name": "Janitza Sorto",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-30T09:25:55",
+      "hoursSinceCreated": 237.7
+    },
+    {
+      "prospectId": 15700,
+      "name": "shane bethel",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-30T10:00:45",
+      "hoursSinceCreated": 237.1
+    },
+    {
+      "prospectId": 15711,
+      "name": "Saunjee Singleton",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-30T14:37:15",
+      "hoursSinceCreated": 232.5
+    },
+    {
+      "prospectId": 15719,
+      "name": "Preston Sharp",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-31T02:57:36",
+      "hoursSinceCreated": 220.2
+    },
+    {
+      "prospectId": 15743,
+      "name": "Glenda Agron",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-07-31T20:48:02",
+      "hoursSinceCreated": 202.3
+    },
+    {
+      "prospectId": 15766,
+      "name": "Giana Morales",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-08-03T09:20:46",
+      "hoursSinceCreated": 141.8
+    },
+    {
+      "prospectId": 15770,
+      "name": "Ryan Vandersmith",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-08-03T11:50:45",
+      "hoursSinceCreated": 139.3
+    },
+    {
+      "prospectId": 15790,
+      "name": "Alayssa Vallina",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-08-05T10:36:37",
+      "hoursSinceCreated": 92.5
+    },
+    {
+      "prospectId": 15791,
+      "name": "EMil Murphy",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-08-05T11:08:15",
+      "hoursSinceCreated": 92
+    },
+    {
+      "prospectId": 15793,
+      "name": "Angela Osorio",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-08-05T11:36:02",
+      "hoursSinceCreated": 91.5
+    },
+    {
+      "prospectId": 15795,
+      "name": "Kainalee M Rivera Rosa",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-08-05T13:02:59",
+      "hoursSinceCreated": 90.1
+    },
+    {
+      "prospectId": 15799,
+      "name": "Chakeil Clayton",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-08-06T09:47:51",
+      "hoursSinceCreated": 69.3
+    },
+    {
+      "prospectId": 15816,
+      "name": "ziehr davis",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-08-07T10:43:46",
+      "hoursSinceCreated": 44.4
+    }
+  ],
+  "vacancy": {
+    "totalUnits": 287,
+    "occupied": 260,
+    "vacant": 34,
+    "vacancyRatePct": 11.8,
+    "byProperty": {
+      "Loring St 30-32 ": 1,
+      "Berkshire Ave 1237-1239": 1,
+      "50-54 Orchard": 3,
+      "30-34 Shaker/37-39 Prospect": 1,
+      "226-230 Sargeant Street": 1,
+      "60 Shaker Road": 1,
+      "214-218 Exchange St/52 Cabot Street": 2,
+      "Marlborough 89-91 ": 1,
+      "Avondale 65": 1,
+      "Marble 21": 1,
+      "Central 100 ": 1,
+      "East St 24-30": 1,
+      "Hampden 291-293": 1,
+      "Rochelle St 85": 1,
+      "St. James Ave 83 ": 1,
+      "Terrence St 48-50 ": 1,
+      "Union St 741-745 ": 2,
+      "Wilbraham RD 257 ": 1,
+      "Loring St 31 ": 1,
+      "800 College Highway": 2,
+      "Third Street 64-68": 1,
+      "1-3 Stadler Street": 3,
+      "Northwestern 3": 2,
+      "83 Rolf Ave ": 1,
+      "171 Methuen": 1,
+      "55 White Ave": 1
+    }
+  },
+  "notes": {
+    "contactHistoryEndpoint": "ContactHistory endpoint returned 404; response times computed from Prospect.CreateDate and Prospect.FirstContact fields on the Prospects resource instead.",
+    "dataSource": "Rent Manager API - live pull"
   }
 }
