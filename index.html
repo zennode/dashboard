@@ -2014,7 +2014,8 @@ Promise.allSettled(dataFiles.map(function(f){
   var any = results.some(function(r){ return r.status === 'fulfilled'; });
   if(any) window.refreshDashboards();
 });
-})();
+window.renderUtilities=renderUtilities;window.buildUtilityCharts=buildUtilityCharts;window.buildUtilityDetailChart=buildUtilityDetailChart;
+          })();
 
 /* ===== WORK ORDERS TAB ===== */
 async function loadWorkOrders(){
@@ -2042,7 +2043,7 @@ new Chart(document.getElementById("chart-wo-vendors"),{type:"bar",data:{labels:t
 new Chart(document.getElementById("chart-wo-entity"),{type:"doughnut",data:{labels:D.byEntity.map(e=>e.name),datasets:[{data:D.byEntity.map(e=>e.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#f39c12","#2c3e50"]}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{position:"right",labels:{color:muted2,font:cFont,boxWidth:12,padding:6}}}}});
 new Chart(document.getElementById("chart-wo-seasonal"),{type:"bar",data:{labels:D.seasonalPattern.map(s=>s.month),datasets:[{label:"Avg WOs/Month",data:D.seasonalPattern.map(s=>s.avgVolume),backgroundColor:D.seasonalPattern.map(s=>s.avgVolume>140?red:s.avgVolume>130?gold:green),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont}},y:{grid:gOpts,ticks:{color:muted2,font:cFont},beginAtZero:false,min:100}}}});
 
-// === Top 20 Recurring Maintenance Issues ===
+// === Top 20 Recurring Maintenance Issues =h==
 if(D.recurringIssues&&D.recurringIssues.top20){
 const ri=D.recurringIssues;
 const t20=ri.top20;
@@ -2056,6 +2057,5 @@ fetch('utility_data.json').then(function(r){return r.json()}).then(function(d){w
 loadWorkOrders();
 </script>
 </body>
-</html>
 
 
