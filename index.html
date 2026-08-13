@@ -586,7 +586,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
       <span class="dot" style="background:var(--purple,#c084fc)"></span>Social Media
     </button>
   
-<button class="tab-btn" data-tab="utilities">Utilities</button>
+<button class="tab-btn" data-tab="utilities"><span class="dot" style="background:#00bcd4"></span>Utilities</button>
 </nav>
   </div>
 </header>
@@ -1617,7 +1617,7 @@ $("#law-filters").addEventListener("click", e => {
 /* ============================================================
    TAB NAVIGATION with URL hash persistence
    ============================================================ */
-const TABS = ["leads","portfolio","flips","law-tax","workorders", 'social-media'];
+const TABS = ["leads","portfolio","flips","law-tax","workorders", 'social-media','utilities'];
 const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts, flips: buildFlipCharts, workorders: loadWorkOrders ,
     'social-media': buildSocialMediaCharts};
 
@@ -2014,7 +2014,7 @@ Promise.allSettled(dataFiles.map(function(f){
   var any = results.some(function(r){ return r.status === 'fulfilled'; });
   if(any) window.refreshDashboards();
 });
-window.renderUtilities=renderUtilities;window.buildUtilityCharts=buildUtilityCharts;window.buildUtilityDetailChart=buildUtilityDetailChart;
+window.activateTab=activateTab;window.renderUtilities=renderUtilities;window.buildUtilityCharts=buildUtilityCharts;window.buildUtilityDetailChart=buildUtilityDetailChart;
           })();
 
 /* ===== WORK ORDERS TAB ===== */
