@@ -17,6 +17,7 @@
 window.LEADS_DATA = {
 lastUpdated: "",
 kpis: {newLeads24h:0,newLeads30d:0,activeProspects:0,lostLeads30d:0,totalUnits:0,contacted30d:0,avgFirstContactHours:0,medianFirstContactHours:0},
+.tab-btn:nth-child(7)::before{--dot:#00bcd4}
 volumeTrend: {},
 statusBreakdown: {},
 leadsByProperty: {},
@@ -585,7 +586,9 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
     <button class="tab-btn" data-tab="social-media">
       <span class="dot" style="background:var(--purple,#c084fc)"></span>Social Media
     </button>
-  </nav>
+  
+<button class="tab-btn" data-tab="utilities">Utilities</button>
+</nav>
   </div>
 </header>
 
@@ -891,6 +894,33 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
     </div></div>
     <div class="card" style="margin-top:1rem;"><h3 style="color:var(--text);margin:0 0 1rem 0;font-size:1rem;">Revenue Growth Projection</h3><canvas id="sm-revenue-chart" style="max-height:300px;"></canvas></div>
   </section>
+
+<section class="tab-panel" id="panel-utilities">
+<div class="panel-head"><h2>Utility Costs</h2><div class="updated" id="util-updated"></div></div>
+
+<div class="kpi-grid" id="util-kpi"></div>
+
+<div id="util-alerts" style="margin:1.5rem 0"></div>
+
+<div class="section-title">Monthly Portfolio Spend</div>
+<div style="background:var(--card-bg,#181b22);border-radius:12px;padding:1.2rem;margin-bottom:1.5rem">
+<canvas id="chart-util-trend" height="90"></canvas></div>
+
+<div class="section-title">Spend by Category</div>
+<div class="grid-2">
+<div style="background:var(--card-bg,#181b22);border-radius:12px;padding:1.2rem">
+<canvas id="chart-util-category" height="120"></canvas></div>
+<div style="background:var(--card-bg,#181b22);border-radius:12px;padding:1.2rem">
+<canvas id="chart-util-entity" height="120"></canvas></div></div>
+
+<div class="section-title" style="margin-top:1.5rem">Entity Breakdown</div>
+<div class="table-wrap" id="util-table-wrap"></div>
+
+<div class="section-title" style="margin-top:1.5rem">Entity Detail</div>
+<div style="margin-bottom:.5rem"><select id="util-entity-select" style="background:#181b22;color:#e8eaf0;border:1px solid #333;border-radius:6px;padding:.4rem .8rem;font-size:.9rem"></select></div>
+<div style="background:var(--card-bg,#181b22);border-radius:12px;padding:1.2rem">
+<canvas id="chart-util-detail" height="100"></canvas></div>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -1822,7 +1852,94 @@ const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts
   }
 
 
-  function activateTab(name, updateHash){
+  
+
+function renderUtilities(d){
+  var u=d.updated||d.lastUpdated||'';
+  document.getElementById('util-updated').textContent='Updated monthly \u00b7 Last updated: '+(u?new Date(u).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'}):'N/A');
+  var p=d.portfolio;
+  var kpiHTML='<div class="kpi accent"><div class="label">CURRENT MONTH</div><div class="value">$'+p.currentMonthTotal.toLocaleString()+'</div><div class="meta">'+d.currentMonth+'</div></div>';
+  kpiHTML+='<div class="kpi"><div class="label">PREVIOUS MONTH</div><div class="value">$'+p.previousMonthTotal.toLocaleString()+'</div><div class="meta">MoM: '+p.monthOverMonthChange+'%</div></div>';
+  kpiHTML+='<div class="kpi'+(p.totalAlerts>0?' accent':'')+'"><div class="label">ACTIVE ALERTS</div><div class="value">'+p.totalAlerts+'</div><div class="meta">25%+ above baseline</div></div>';
+  var totalSpend=0;Object.values(p.categoryTotals).forEach(function(v){totalSpend+=v});
+  kpiHTML+='<div class="kpi"><div class="label">3-YEAR TOTAL</div><div class="value">$'+Math.round(totalSpend).toLocaleString()+'</div><div class="meta">Aug 2023 \u2013 Present</div></div>';
+  document.getElementById('util-kpi').innerHTML=kpiHTML;
+
+  var alertHTML='';
+  if(d.alerts&&d.alerts.length>0){
+    alertHTML='<div style="background:#2d1b1b;border:1px solid #c0392b;border-radius:10px;padding:1rem 1.2rem">';
+    alertHTML+='<div style="color:#e74c3c;font-weight:700;margin-bottom:.6rem">\u26a0 Utility Alerts ('+d.alerts.length+')</div>';
+    d.alerts.forEach(function(a){
+      alertHTML+='<div style="color:#e8eaf0;padding:.3rem 0">'+a.entity+' \u2014 '+a.category+': <span style="color:#e74c3c;font-weight:600">$'+a.amount.toLocaleString()+'</span> vs $'+a.baseline.toLocaleString()+' baseline <span style="color:#e74c3c">(+'+a.deviation+'%)</span></div>';
+    });
+    alertHTML+='</div>';
+  }
+  document.getElementById('util-alerts').innerHTML=alertHTML;
+
+  var tbl='<table><thead><tr><th>Entity</th><th>Water/Sewer</th><th>Electric</th><th>Gas</th><th>Oil/Heat</th><th>Trash</th><th>Snow</th><th>Landscape</th><th>Total</th><th>Alerts</th></tr></thead><tbody>';
+  var cats=['Water/Sewer','Electric','Gas','Oil/Heat','Trash','Snow Removal','Landscaping'];
+  Object.keys(d.entities).forEach(function(name){
+    var e=d.entities[name];var cm=e.currentMonth;var row='<tr><td style="font-weight:600">'+name+'</td>';
+    var total=0;
+    cats.forEach(function(cat){
+      var val=cm[cat]?cm[cat].amount:0;total+=val;
+      var flagged=cm[cat]&&cm[cat].flagged;
+      row+='<td style="'+(flagged?'color:#e74c3c;font-weight:700':'')+'">$'+val.toLocaleString()+'</td>';
+    });
+    var alertCount=e.alerts?e.alerts.length:0;
+    row+='<td style="font-weight:700">$'+total.toLocaleString()+'</td>';
+    row+='<td>'+(alertCount>0?'<span style="color:#e74c3c;font-weight:700">'+alertCount+'</span>':'0')+'</td></tr>';
+    tbl+=row;
+  });
+  tbl+='</tbody></table>';
+  document.getElementById('util-table-wrap').innerHTML=tbl;
+
+  var sel=document.getElementById('util-entity-select');
+  sel.innerHTML='';
+  Object.keys(d.entities).forEach(function(name){
+    var o=document.createElement('option');o.value=name;o.textContent=name;sel.appendChild(o);
+  });
+  sel.onchange=function(){buildUtilityDetailChart(d,sel.value)};
+
+  buildUtilityCharts(d);
+  buildUtilityDetailChart(d,Object.keys(d.entities)[0]);
+}
+
+
+function buildUtilityCharts(d){
+  var p=d.portfolio;var months=Object.keys(p.monthlyTotals);var vals=months.map(function(m){return p.monthlyTotals[m]});
+  var ctx1=document.getElementById('chart-util-trend').getContext('2d');
+  new Chart(ctx1,{type:'line',data:{labels:months,datasets:[{label:'Portfolio Spend',data:vals,borderColor:'#00bcd4',backgroundColor:'rgba(0,188,212,.15)',fill:true,tension:.3,pointRadius:2}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#888',maxTicksLimit:12},grid:{color:'#222'}},y:{ticks:{color:'#888',callback:function(v){return '$'+v.toLocaleString()}},grid:{color:'#222'}}}}});
+
+  var cats=Object.keys(p.categoryTotals);var catVals=cats.map(function(c){return p.categoryTotals[c]});
+  var catColors=['#3498db','#f1c40f','#e67e22','#e74c3c','#2ecc71','#9b59b6','#1abc9c'];
+  var ctx2=document.getElementById('chart-util-category').getContext('2d');
+  new Chart(ctx2,{type:'doughnut',data:{labels:cats,datasets:[{data:catVals,backgroundColor:catColors}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{color:'#ccc',boxWidth:12,padding:8,font:{size:11}}}}}});
+
+  var entities=Object.keys(d.entities);
+  var entityTotals=entities.map(function(name){var e=d.entities[name];var t=0;if(e.currentMonth){Object.values(e.currentMonth).forEach(function(v){t+=v.amount||0})}return t});
+  var ctx3=document.getElementById('chart-util-entity').getContext('2d');
+  new Chart(ctx3,{type:'bar',data:{labels:entities.map(function(n){return n.length>15?n.substring(0,13)+'..':n}),datasets:[{label:'Current Month',data:entityTotals,backgroundColor:'#00bcd4'}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#888',callback:function(v){return '$'+v.toLocaleString()}},grid:{color:'#222'}},y:{ticks:{color:'#ccc',font:{size:10}},grid:{display:false}}}}});
+}
+
+function buildUtilityDetailChart(d,entityName){
+  var e=d.entities[entityName];if(!e)return;
+  var cats=['Water/Sewer','Electric','Gas','Oil/Heat','Trash','Snow Removal','Landscaping'];
+  var catColors=['#3498db','#f1c40f','#e67e22','#e74c3c','#2ecc71','#9b59b6','#1abc9c'];
+  var months=d.months||Object.keys(d.portfolio.monthlyTotals);
+  var datasets=[];
+  cats.forEach(function(cat,ci){
+    if(!e.monthlyData[cat])return;
+    var data=months.map(function(m){return e.monthlyData[cat][m]||0});
+    var hasData=data.some(function(v){return v>0});
+    if(hasData){datasets.push({label:cat,data:data,borderColor:catColors[ci],backgroundColor:'transparent',tension:.3,pointRadius:1,borderWidth:1.5})}
+  });
+  var canvas=document.getElementById('chart-util-detail');
+  if(window._utilDetailChart)window._utilDetailChart.destroy();
+  window._utilDetailChart=new Chart(canvas.getContext('2d'),{type:'line',data:{labels:months,datasets:datasets},options:{responsive:true,plugins:{legend:{labels:{color:'#ccc',boxWidth:10,font:{size:10}}}},scales:{x:{ticks:{color:'#888',maxTicksLimit:12},grid:{color:'#222'}},y:{ticks:{color:'#888',callback:function(v){return '$'+v.toLocaleString()}},grid:{color:'#222'}}}}});
+}
+
+function activateTab(name, updateHash){
   if (!TABS.includes(name)) name = "leads";
   document.querySelectorAll(".tab-btn").forEach(b => {
     const on = b.dataset.tab === name;
@@ -1936,8 +2053,10 @@ document.getElementById("wo-recurring-table").innerHTML=tbl;
 document.getElementById("wo-recurring-insights").innerHTML='<h4 style="margin:0 0 8px;color:var(--text)">Key Insights</h4>'+ri.insights.map(x=>'<p style="margin:4px 0;font-size:14px;color:var(--text-dim)">â¢ '+x+'</p>').join('');
 }
 }catch(e){console.error("WO load error:",e)}}
+fetch('utility_data.json').then(function(r){return r.json()}).then(function(d){window._utilData=d;renderUtilities(d)}).catch(function(e){console.log('Utility data not loaded:',e)});
 loadWorkOrders();
 </script>
 </body>
 </html>
+
 
