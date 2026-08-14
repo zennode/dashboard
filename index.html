@@ -563,6 +563,35 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
 }
 .site-footer .fbrand{color:var(--gold);font-weight:700}
 .empty-note{color:var(--faint);font-size:13px;padding:14px}
+
+/* ---------- Utility Alerts ---------- */
+.alert-box{margin:20px 0}
+.alert-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.alert-title::after{content:"";flex:1;height:1px;background:var(--border)}
+.alert-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}
+.alert-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.alert-table th{text-align:left;padding:10px 14px;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border-2);background:var(--bg-2);white-space:nowrap}
+.alert-table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:middle}
+.alert-table tr:last-child td{border-bottom:none}
+.alert-table tbody tr:hover{background:rgba(255,255,255,.03)}
+.alert-table .prop-name{font-weight:700;white-space:nowrap}
+.alert-table .entity-name{color:var(--muted);font-size:12.5px}
+.alert-table .cost-cell{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.alert-table .pct-cell{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.alert-sev{display:inline-block;width:4px;height:28px;border-radius:2px;margin-right:10px;vertical-align:middle}
+.alert-sev.critical{background:var(--red)}
+.alert-sev.high{background:#fb923c}
+.alert-sev.moderate{background:var(--amber)}
+.alert-sev.low{background:var(--green)}
+.alert-pct-bar{display:flex;align-items:center;gap:8px;justify-content:flex-end}
+.alert-pct-bar .bar-track{width:60px;height:6px;border-radius:3px;background:var(--bg-2);overflow:hidden;flex-shrink:0}
+.alert-pct-bar .bar-fill{height:100%;border-radius:3px}
+.alert-cat-badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:12px;white-space:nowrap}
+.alert-cat-badge.water{color:#22d3ee;background:rgba(34,211,238,.12)}
+.alert-cat-badge.gas{color:#fb923c;background:rgba(251,146,60,.12)}
+.alert-cat-badge.electric{color:var(--amber);background:var(--amber-soft)}
+.alert-cat-badge.oil{color:var(--red);background:var(--red-soft)}
+.alert-cat-badge.other{color:var(--muted);background:rgba(154,163,181,.12)}
 </style>
 </head>
 <body>
@@ -1859,14 +1888,36 @@ function renderUtilities(d){
     (p.monthOverMonth>0?'+':'')+p.monthOverMonth+'%</div><div class="kpi-label">Month/Month</div></div>'+
     '<div class="kpi"><div class="kpi-val">'+d.alerts.length+'</div><div class="kpi-label">Alerts (25%+)</div></div>';
   if(d.alerts&&d.alerts.length){
-    let ah='<div class="alert-title">Property Alerts (25%+ Above Baseline)</div>';
-    d.alerts.slice(0,20).forEach(a=>{
-      ah+='<div class="alert-item"><strong>'+a.property+'</strong> <span class="muted">('+a.entity+')</span> &mdash; '+
-        a.category+': $'+a.currentCost.toFixed(2)+' vs $'+a.baseline.toFixed(2)+
-        ' baseline <span class="red">(+'+a.percentAbove.toFixed(1)+'%)</span></div>';
+    var sev=function(p){return p>=100?'critical':p>=50?'high':p>=25?'moderate':'low'};
+    var sevLabel=function(p){return p>=100?'Critical':p>=50?'High':p>=25?'Moderate':'Low'};
+    var sevColor=function(p){return p>=100?'#f87171':p>=50?'#fb923c':p>=25?'#fbbf24':'#4ade80'};
+    var catClass=function(cat){var m={'Water/Sewer':'water','Gas':'gas','Electric':'electric','Oil/Heat':'oil'};return m[cat]||'other'};
+    var ah='<div class="alert-title">Property Alerts (25%+ Above Baseline)</div>';
+    ah+='<div class="alert-table-wrap"><table class="alert-table"><thead><tr>';
+    ah+='<th></th><th>Property</th><th>Entity</th><th>Category</th>';
+    ah+='<th style="text-align:right">Current</th><th style="text-align:right">Baseline</th>';
+    ah+='<th style="text-align:right">Overage</th></tr></thead><tbody>';
+    d.alerts.slice(0,20).forEach(function(a){
+      var pct=a.percentAbove;
+      var sc=sevColor(pct);
+      var barW=Math.min(100,pct/5.3);
+      ah+='<tr>';
+      ah+='<td><span class="alert-sev '+sev(pct)+'" title="'+sevLabel(pct)+'"></span></td>';
+      ah+='<td class="prop-name">'+a.property+'</td>';
+      ah+='<td class="entity-name">'+a.entity+'</td>';
+      ah+='<td><span class="alert-cat-badge '+catClass(a.category)+'">'+a.category+'</span></td>';
+      ah+='<td class="cost-cell">$'+a.currentCost.toFixed(2)+'</td>';
+      ah+='<td class="cost-cell" style="color:var(--faint)">$'+a.baseline.toFixed(2)+'</td>';
+      ah+='<td class="pct-cell"><div class="alert-pct-bar">';
+      ah+='<span style="color:'+sc+'">+'+pct.toFixed(1)+'%</span>';
+      ah+='<div class="bar-track"><div class="bar-fill" style="width:'+barW+'%;background:'+sc+'"></div></div>';
+      ah+='</div></td>';
+      ah+='</tr>';
     });
+    ah+='</tbody></table></div>';
     el('util-alerts').innerHTML=ah;
   } else { el('util-alerts').innerHTML='<div class="alert-ok">No alerts this period.</div>'; }
+
   const es=el('util-entity-select');
   es.innerHTML='<option value="">Portfolio</option>';
   Object.keys(d.entities).sort().forEach(e=>{es.innerHTML+='<option>'+e+'</option>';});
@@ -1949,25 +2000,50 @@ function renderUtilities(d){
   buildUtilityDetailChart(d,es.value,ps.value);
 }
 function buildUtilityCharts(d){
-  const months=d.months.slice(-12);
-  const cats=Object.keys(d.categories);
-  const colors=['#4fc3f7','#ff7043','#66bb6a','#ffa726','#ab47bc','#26a69a','#ef5350'];
-  const trendData=months.map(m=>{let t=0;Object.values(d.entities).forEach(e=>{cats.forEach(c=>{t+=(e.monthlyData[c]&&e.monthlyData[c][m])||0;});});return t;});
-  if(window._utilTrend)window._utilTrend.destroy();
-  window._utilTrend=new Chart(document.getElementById('chart-util-trend'),{type:'line',data:{labels:months.map(m=>m.substring(5)),datasets:[{label:'Total Utility Spend',data:trendData,borderColor:'#4fc3f7',backgroundColor:'rgba(79,195,247,0.1)',fill:true,tension:0.3}]},options:{responsive:true,plugins:{title:{display:true,text:'Monthly Utility Trend',color:'#ccc'},legend:{labels:{color:'#aaa'}}},scales:{x:{ticks:{color:'#888'}},y:{ticks:{color:'#888',callback:v=>'$'+v.toLocaleString()}}}}});
-  const catTotals=cats.map(c=>{let t=0;Object.values(d.entities).forEach(e=>{months.forEach(m=>{t+=(e.monthlyData[c]&&e.monthlyData[c][m])||0;});});return t;});
-  if(window._utilCat)window._utilCat.destroy();
-  window._utilCat=new Chart(document.getElementById('chart-util-category'),{type:'doughnut',data:{labels:cats,datasets:[{data:catTotals,backgroundColor:colors}]},options:{responsive:true,plugins:{title:{display:true,text:'Spend by Category (12mo)',color:'#ccc'},legend:{labels:{color:'#aaa'}}}}});
-  const entityNames=Object.keys(d.entities).sort();
-  const entityTotals=entityNames.map(e=>{let t=0;cats.forEach(c=>{months.forEach(m=>{t+=(d.entities[e].monthlyData[c]&&d.entities[e].monthlyData[c][m])||0;});});return t;});
-  if(window._utilEnt)window._utilEnt.destroy();
-  window._utilEnt=new Chart(document.getElementById('chart-util-entity'),{type:'bar',data:{labels:entityNames.map(n=>n.length>15?n.substring(0,13)+'..':n),datasets:[{label:'12mo Utility Spend',data:entityTotals,backgroundColor:'#4fc3f7'}]},options:{responsive:true,indexAxis:'y',plugins:{title:{display:true,text:'Spend by Entity (12mo)',color:'#ccc'},legend:{display:false}},scales:{x:{ticks:{color:'#888',callback:v=>'$'+v.toLocaleString()}},y:{ticks:{color:'#aaa'}}}}});
-}
-function buildUtilityDetailChart(d,entityName,propName){
+    const allMonths=d.months;
+    const months=d.months.slice(-12);
+    const cats=Object.keys(d.categories);
+    const colors=["#4fc3f7","#ff7043","#66bb6a","#ffa726","#ab47bc","#26a69a","#ef5350"];
+    /* --- Line chart: one line per category --- */
+    var trendDatasets=cats.map(function(cat,i){
+      var data=allMonths.map(function(m){
+        var t=0;
+        Object.values(d.entities).forEach(function(e){
+          t+=(e.monthlyData[cat]&&e.monthlyData[cat][m])||0;
+        });
+        return t;
+      });
+      if(data.every(function(v){return v===0;}))return null;
+      return {label:cat,data:data,borderColor:colors[i%colors.length],backgroundColor:colors[i%colors.length]+"33",fill:true,tension:0.3,pointRadius:3};
+    }).filter(Boolean);
+    if(window._utilTrend)window._utilTrend.destroy();
+    window._utilTrend=new Chart(document.getElementById("chart-util-trend"),{type:"line",data:{labels:allMonths.map(function(m){return m.substring(5);}),datasets:trendDatasets},options:{responsive:true,plugins:{legend:{labels:{color:"#9aa3b5"}},tooltip:{mode:"index",intersect:false,callbacks:{label:function(ctx){return ctx.dataset.label+": $"+ctx.parsed.y.toLocaleString();}}}},interaction:{mode:"index",intersect:false},scales:{x:{ticks:{color:"#9aa3b5"},grid:{color:"rgba(255,255,255,0.05)"}},y:{ticks:{color:"#9aa3b5",callback:function(v){return "$"+v.toLocaleString();}},grid:{color:"rgba(255,255,255,0.05)"}}}}});
+    /* --- Doughnut: use d.categories totals for all-time view --- */
+    var catTotals=cats.map(function(c){return d.categories[c].total;});
+    if(window._utilCat)window._utilCat.destroy();
+    window._utilCat=new Chart(document.getElementById("chart-util-category"),{type:"doughnut",data:{labels:cats,datasets:[{data:catTotals,backgroundColor:colors.slice(0,cats.length)}]},options:{responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return ctx.label+": $"+ctx.parsed.toLocaleString();}}}}}});
+    /* --- Entity bar: stacked by category --- */
+    var entityNames=Object.keys(d.entities).sort();
+    var entDatasets=cats.map(function(cat,i){
+      var data=entityNames.map(function(eName){
+        var t=0;
+        var e=d.entities[eName];
+        allMonths.forEach(function(m){
+          t+=(e.monthlyData[cat]&&e.monthlyData[cat][m])||0;
+        });
+        return t;
+      });
+      if(data.every(function(v){return v===0;}))return null;
+      return {label:cat,data:data,backgroundColor:colors[i%colors.length]};
+    }).filter(Boolean);
+    if(window._utilEnt)window._utilEnt.destroy();
+    window._utilEnt=new Chart(document.getElementById("chart-util-entity"),{type:"bar",data:{labels:entityNames.map(function(n){return n.length>15?n.substring(0,13)+"..":n;}),datasets:entDatasets},options:{indexAxis:"y",responsive:true,plugins:{legend:{labels:{color:"#9aa3b5"}},tooltip:{callbacks:{label:function(ctx){return ctx.dataset.label+": $"+ctx.parsed.x.toLocaleString();}}}},scales:{x:{stacked:true,ticks:{color:"#9aa3b5",callback:function(v){return "$"+v.toLocaleString();}},grid:{color:"rgba(255,255,255,0.05)"}},y:{stacked:true,ticks:{color:"#9aa3b5"},grid:{color:"rgba(255,255,255,0.05)"}}}}});
+  }
+  function buildUtilityDetailChart(d,entityName,propName){
   const canvas=document.getElementById('chart-util-detail');
   if(window._utilDetail)window._utilDetail.destroy();
   if(!entityName){return;}
-  const months=d.months.slice(-12);
+  const months=d.months;
   const cats=Object.keys(d.categories);
   const colors=['#4fc3f7','#ff7043','#66bb6a','#ffa726','#ab47bc','#26a69a','#ef5350'];
   let source,title;
@@ -1981,6 +2057,132 @@ function buildUtilityDetailChart(d,entityName,propName){
   const datasets=cats.map((c,i)=>{
     const data=months.map(m=>(source.monthlyData&&source.monthlyData[c]&&source.monthlyData[c][m])||0);
     if(data.every(v=>v===0))return null;
+    return {label:c,data:data,backgroundColor:colors[i%colors.length]};
+  }).filter(Boolean);
+  window._utilDetail=new Chart(canvas,{type:'bar',data:{labels:months.map(m=>m.substring(5)),datasets:datasets},options:{responsive:true,plugins:{title:{display:true,text:title,color:'#ccc'},legend:{labels:{color:'#aaa'}}},scales:{x:{stacked:true,ticks:{color:'#888'}},y:{stacked:true,ticks:{color:'#888',callback:v=>'$'+v.toLocaleString()}}}}});
+}
+
+function activateTab(name, updateHash){
+  if (!TABS.includes(name)) name = "leads";
+  document.querySelectorAll(".tab-btn").forEach(b => {
+    const on = b.dataset.tab === name;
+    b.classList.toggle("active", on);
+    b.setAttribute("aria-selected", on);
+  });
+  document.querySelectorAll(".tab-panel").forEach(p =>
+    p.classList.toggle("active", p.id === "panel-" + name));
+  if (updateHash !== false && location.hash !== "#" + name) {
+    history.replaceState(null, "", "#" + name);
+  }
+  // lazy chart init after panel is visible
+  if (!chartsBuilt[name] && window.Chart && chartBuilders[name]) {
+    requestAnimationFrame(() => { chartBuilders[name](); });
+    chartsBuilt[name] = true;
+  }
+  window.scrollTo({ top: 0 });
+}
+
+document.querySelectorAll(".tab-btn").forEach(b =>
+  b.addEventListener("click", () => activateTab(b.dataset.tab)));
+window.addEventListener("hashchange", () =>
+  activateTab(location.hash.replace("#",""), false));
+
+/* ---------- init ---------- */
+renderLeads();
+renderPortfolio();
+renderFlips();
+renderLawTax();
+    renderSocialMedia();
+activateTab(location.hash.replace("#","") || "leads", false);
+
+/* Public hook: after a scheduled task mutates window.*_DATA it can call
+   window.refreshDashboards() â or simply regenerate this file's data block. */
+window.refreshDashboards = function(){
+  try{renderLeads();}catch(e){console.warn(e)} try{renderPortfolio();}catch(e){console.warn(e)} try{renderFlips();}catch(e){console.warn(e)} try{renderLawTax();
+      renderSocialMedia();}catch(e){console.warn(e)}
+  try{
+    /* Destroy charts on ALL tabs so lazy-init rebuilds with fresh data */
+    Object.keys(chartBuilders).forEach(function(tab){
+      var pnl=document.getElementById('panel-'+tab);
+      if(pnl)pnl.querySelectorAll('canvas').forEach(function(c){var ch=Chart.getChart(c);if(ch)ch.destroy();});
+    });
+    Object.keys(chartsBuilt).forEach(function(k){chartsBuilt[k]=false;});
+    var ab=document.querySelector('.tab-btn.active');
+    if(ab&&chartBuilders[ab.dataset.tab]){
+      chartBuilders[ab.dataset.tab]();
+      chartsBuilt[ab.dataset.tab]=true;
+    }
+  }catch(e){console.warn('Chart rebuild:',e)}
+};
+
+/* ---------- live-data loader ----------
+   Fetch JSON data files from the same directory. If they exist and parse
+   successfully, override the embedded sample data and re-render.
+   Files: leads_data.json, portfolio_data.json, flip_data.json, law_tax_data.json
+   Scheduled tasks only need to update these small JSON files. */
+var dataFiles = [
+  {url: 'leads_data.json',     target: 'LEADS_DATA'},
+  {url: 'portfolio_data.json', target: 'PORTFOLIO_DATA'},
+  {url: 'flip_data.json',     target: 'FLIP_DATA'},
+  {url: 'law_tax_data.json',  target: 'LAW_TAX_DATA'},
+      {url:'social_media_data.json',target:'SOCIAL_MEDIA_DATA'}
+];
+Promise.allSettled(dataFiles.map(function(f){
+  return fetch(f.url + '?_=' + Date.now()).then(function(r){
+    if(!r.ok) throw new Error(r.status);
+    return r.json();
+  }).then(function(d){
+    window[f.target] = d;
+  });
+})).then(function(results){
+  var any = results.some(function(r){ return r.status === 'fulfilled'; });
+  if(any) window.refreshDashboards();
+});
+window.activateTab=activateTab;window.renderUtilities=renderUtilities;window.buildUtilityCharts=buildUtilityCharts;window.buildUtilityDetailChart=buildUtilityDetailChart;
+          })();
+
+/* ===== WORK ORDERS TAB ===== */
+async function loadWorkOrders(){
+try{
+const r=await fetch("workorders_data.json");const D=await r.json();
+document.getElementById("wo-updated").textContent="Data as of "+new Date(D.lastUpdated).toLocaleDateString()+" | "+D.dataRange;
+const kpis=[{l:"Total WOs (5yr)",v:D.summary.totalWOs5yr.toLocaleString(),c:"var(--gold)"},{l:"Currently Open",v:D.summary.totalOpen,c:D.summary.totalOpen>50?"var(--red)":"var(--green)"},{l:"Avg Days to Close",v:D.summary.avgCompletionDays,c:D.summary.avgCompletionDays>14?"var(--red)":"var(--green)"},{l:"Closed This Year",v:D.summary.closedThisYear.toLocaleString(),c:"var(--blue)"},{l:"Within 48h",v:D.summary.pctWithin48h+"%",c:D.summary.pctWithin48h>25?"var(--green)":"var(--red)"},{l:"Within 1 Week",v:D.summary.pctWithin1wk+"%",c:D.summary.pctWithin1wk>60?"var(--green)":"var(--gold)"}];
+document.getElementById("wo-kpis").innerHTML=kpis.map(k=>"<div class=\"kpi\"><span class=\"kpi-val\" style=\"color:"+k.c+"\">"+k.v+"</span><span class=\"kpi-lbl\">"+k.l+"</span></div>").join("");
+const tKpis=[{l:"Total Turnovers",v:D.turnoverStats.total,c:"var(--gold)"},{l:"Avg Turnover Days",v:D.turnoverStats.avgCompletionDays,c:D.turnoverStats.avgCompletionDays>10?"var(--red)":"var(--green)"},{l:"% of All WOs",v:D.turnoverStats.pctOfAll+"%",c:"var(--blue)"},{l:"Repeat Issues (90d)",v:D.repeatIssueCount.toLocaleString(),c:"var(--red)"}];
+document.getElementById("wo-turnover-kpis").innerHTML=tKpis.map(k=>"<div class=\"kpi\"><span class=\"kpi-val\" style=\"color:"+k.c+"\">"+k.v+"</span><span class=\"kpi-lbl\">"+k.l+"</span></div>").join("");
+var ag=D.agingAnalysis;var aKpis=[{l:"< 7 Days",v:ag.under7,c:"var(--green)"},{l:"7-30 Days",v:ag.d7to30,c:"var(--gold)"},{l:"30-60 Days",v:ag.d30to60,c:"var(--red)"},{l:"60-90 Days",v:ag.d60to90,c:"var(--red)"},{l:"90+ Days",v:ag.over90,c:"#ff4444"}];
+document.getElementById("wo-aging-kpis").innerHTML=aKpis.map(k=>"<div class=\"kpi\"><span class=\"kpi-val\" style=\"color:"+k.c+"\">"+k.v+"</span><span class=\"kpi-lbl\">"+k.l+"</span></div>").join("");
+document.getElementById("wo-open-body").innerHTML=D.openWorkOrders.map(w=>"<tr><td>"+w.id+"</td><td>"+w.title+"</td><td>"+w.entity+"</td><td>"+w.property+"</td><td>"+w.category+"</td><td>"+w.created+"</td><td style=\"color:"+(w.ageDays>90?"var(--red)":w.ageDays>30?"var(--gold)":"var(--green)")+";font-weight:700\">"+w.ageDays+"</td><td>"+w.status+"</td><td>"+w.priority+"</td></tr>").join("");
+document.getElementById("wo-entity-body").innerHTML=D.byEntity.map(e=>"<tr><td>"+e.name+"</td><td>"+e.total.toLocaleString()+"</td><td style=\"color:"+(e.open>5?"var(--red)":"var(--green)")+"\">"+e.open+"</td><td>"+e.closed.toLocaleString()+"</td><td style=\"color:"+(e.avgCompletionDays>20?"var(--red)":"var(--green)")+"\">"+e.avgCompletionDays+"</td></tr>").join("");
+document.getElementById("wo-recommendations").innerHTML=D.recommendations.map((r,i)=>"<div style=\"padding:8px 0;border-bottom:1px solid var(--border);font-size:13px\"><strong style=\"color:var(--gold)\">"+(i+1)+".</strong> "+r+"</div>").join("");
+var gold="#D4A843",red="#e74c3c",green="#27ae60",blue="#3498db",muted2="#888";
+var cFont={family:"-apple-system,system-ui,sans-serif",size:11,color:muted2},gOpts={color:"rgba(255,255,255,0.06)"};
+var topCats=D.byCategory.filter(c=>c.total>10);
+new Chart(document.getElementById("chart-wo-catspend"),{type:"bar",data:{labels:topCats.map(c=>c.name),datasets:[{label:"Work Orders",data:topCats.map(c=>c.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#e74c3c","#2ecc71","#f39c12"],borderRadius:4}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false},title:{display:true,text:"Work Orders by Category",color:muted2,font:{size:13}}},scales:{x:{grid:gOpts,ticks:{color:muted2,font:cFont}},y:{grid:{display:false},ticks:{color:"#ccc",font:{size:11}}}}}});
+var sL=D.monthlyTrend.labels.map((l,i)=>i%3===0?l:"");
+new Chart(document.getElementById("chart-wo-volume"),{type:"bar",data:{labels:sL,datasets:[{label:"Created",data:D.monthlyTrend.volume,backgroundColor:"rgba(212,168,67,0.6)",borderRadius:2},{label:"Completed",data:D.monthlyTrend.completed,backgroundColor:"rgba(39,174,96,0.5)",borderRadius:2}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{labels:{color:muted2,font:cFont}}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont,maxRotation:45,maxTicksLimit:12}},y:{grid:gOpts,ticks:{color:muted2,font:cFont}}}}});
+new Chart(document.getElementById("chart-wo-completion"),{type:"line",data:{labels:sL,datasets:[{label:"Avg Days",data:D.monthlyTrend.avgCompletionDays,borderColor:gold,backgroundColor:"rgba(212,168,67,0.1)",fill:true,tension:0.3,pointRadius:1}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{labels:{color:muted2,font:cFont}}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont,maxRotation:45,maxTicksLimit:12}},y:{grid:gOpts,ticks:{color:muted2,font:cFont}}}}});
+var topV=D.vendorCosts.slice(0,15);
+new Chart(document.getElementById("chart-wo-vendors"),{type:"bar",data:{labels:topV.map(v=>v.name.length>20?v.name.substring(0,18)+"...":v.name),datasets:[{label:"Total Spend ($)",data:topV.map(v=>v.total),backgroundColor:topV.map((_,i)=>i<5?gold:i<10?blue:green),borderRadius:4}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return "$"+ctx.raw.toLocaleString()}}}},scales:{x:{grid:gOpts,ticks:{color:muted2,font:cFont,callback:function(v){return "$"+(v/1000).toFixed(0)+"K"}}},y:{grid:{display:false},ticks:{color:"#ccc",font:{size:10}}}}}});
+new Chart(document.getElementById("chart-wo-entity"),{type:"doughnut",data:{labels:D.byEntity.map(e=>e.name),datasets:[{data:D.byEntity.map(e=>e.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#f39c12","#2c3e50"]}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{position:"right",labels:{color:muted2,font:cFont,boxWidth:12,padding:6}}}}});
+new Chart(document.getElementById("chart-wo-seasonal"),{type:"bar",data:{labels:D.seasonalPattern.map(s=>s.month),datasets:[{label:"Avg WOs/Month",data:D.seasonalPattern.map(s=>s.avgVolume),backgroundColor:D.seasonalPattern.map(s=>s.avgVolume>140?red:s.avgVolume>130?gold:green),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont}},y:{grid:gOpts,ticks:{color:muted2,font:cFont},beginAtZero:false,min:100}}}});
+
+// === Top 20 Recurring Maintenance Issues =h==
+if(D.recurringIssues&&D.recurringIssues.top20){
+const ri=D.recurringIssues;
+const t20=ri.top20;
+new Chart(document.getElementById("chart-wo-recurring"),{type:"bar",data:{labels:t20.map(x=>x.name),datasets:[{label:"Count",data:t20.map(x=>x.count),backgroundColor:"rgba(59,130,246,0.7)",borderColor:"rgba(59,130,246,1)",borderWidth:1}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:"Top 20 Recurring Issues by Frequency",font:{size:14}},legend:{display:false}},scales:{x:{beginAtZero:true,title:{display:true,text:"Work Order Count"}},y:{ticks:{font:{size:11}}}}}});
+const tbl='<table class="mini-tbl" style="width:100%"><thead><tr><th>#</th><th>Issue</th><th>Count</th><th>%</th><th>Avg Days</th><th>Trend</th><th>Top Entity</th></tr></thead><tbody>'+t20.map(x=>'<tr><td>'+x.rank+'</td><td>'+x.name+'</td><td>'+x.count.toLocaleString()+'</td><td>'+x.pctOfTotal+'%</td><td>'+x.avgResolutionDays+'</td><td style="color:'+(x.trend==="Increasing"?"var(--red)":x.trend==="Decreasing"?"var(--green)":"var(--text)")+'">'+( x.trend==="Increasing"?"â":x.trend==="Decreasing"?"â":"â")+" "+x.trend+'</td><td>'+x.topEntities[0].name+' ('+x.topEntities[0].count+')</td></tr>').join('')+'</tbody></table>';
+document.getElementById("wo-recurring-table").innerHTML=tbl;
+document.getElementById("wo-recurring-insights").innerHTML='<h4 style="margin:0 0 8px;color:var(--text)">Key Insights</h4>'+ri.insights.map(x=>'<p style="margin:4px 0;font-size:14px;color:var(--text-dim)">â¢ '+x+'</p>').join('');
+}
+}catch(e){console.error("WO load error:",e)}}
+fetch('utility_data.json').then(function(r){return r.json()}).then(function(d){window._utilData=d;renderUtilities(d)}).catch(function(e){console.log('Utility data not loaded:',e)});
+loadWorkOrders();
+</script>
+</body>
+
+
     return {label:c,data:data,backgroundColor:colors[i%colors.length]};
   }).filter(Boolean);
   window._utilDetail=new Chart(canvas,{type:'bar',data:{labels:months.map(m=>m.substring(5)),datasets:datasets},options:{responsive:true,plugins:{title:{display:true,text:title,color:'#ccc'},legend:{labels:{color:'#aaa'}}},scales:{x:{stacked:true,ticks:{color:'#888'}},y:{stacked:true,ticks:{color:'#888',callback:v=>'$'+v.toLocaleString()}}}}});
