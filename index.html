@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YellowBrick Management â Dashboards</title>
+<title>YellowBrick Management Ã¢ÂÂ Dashboards</title>
 <meta name="description" content="Unified operations dashboard for YellowBrick Management: rental leads, portfolio P&amp;L, house flips, and law &amp; tax updates.">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script>
@@ -174,11 +174,11 @@ window.LAW_TAX_DATA = {
     {
       title: "MA short-term capital gains taxed at 8.5%",
       date: "2026-06-25", jurisdiction: "MA State", category: "Tax", impact: "High",
-      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA â timing matters for projects near the 1-year mark.",
+      summary: "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA Ã¢ÂÂ timing matters for projects near the 1-year mark.",
       action: "Review hold periods on 63 Dartmouth Ter and 114 Montgomery St with CPA; dealer-status treatment may apply to flip entity regardless."
     },
     {
-      title: "Security deposit compliance: strict G.L. c.186 ÃÂ§15B enforcement",
+      title: "Security deposit compliance: strict G.L. c.186 ÃÂÃÂ§15B enforcement",
       date: "2026-06-20", jurisdiction: "MA State", category: "Legal", impact: "Medium",
       summary: "Recent MA appellate decisions continue to award treble damages for deposit handling violations (separate interest-bearing account, statement of condition within 10 days, annual interest payments). Even technical violations can void the deposit claim.",
       action: "Spot-audit deposit accounts and statements of condition across all four entities; verify annual interest was paid or credited at each lease anniversary."
@@ -193,7 +193,7 @@ window.LAW_TAX_DATA = {
       title: "Corporate Transparency Act: domestic LLCs exempt from BOI filing",
       date: "2026-06-07", jurisdiction: "Federal", category: "Regulatory", impact: "Medium",
       summary: "FinCEN's rule exempting U.S.-formed companies from beneficial ownership (BOI) reporting remains in effect; only certain foreign-formed entities must file. All YellowBrick and Ruby Lending entities are domestic LLCs.",
-      action: "None currently. Monitor â litigation could revive domestic filing requirements; re-check before forming new entities."
+      action: "None currently. Monitor Ã¢ÂÂ litigation could revive domestic filing requirements; re-check before forming new entities."
     },
     {
       title: "Springfield rental registration and inspection cycle",
@@ -506,7 +506,7 @@ tbody tr:hover{background:rgba(255,255,255,.02)}
 /* expandable entity rows */
 tr.entity-row{cursor:pointer;user-select:none}
 tr.entity-row td:first-child::before{
-  content:"â¸";display:inline-block;margin-right:8px;color:var(--gold);
+  content:"Ã¢ÂÂ¸";display:inline-block;margin-right:8px;color:var(--gold);
   transition:transform .15s;font-size:11px;
 }
 tr.entity-row.open td:first-child::before{transform:rotate(90deg)}
@@ -655,7 +655,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
       </div>
     </div>
 
-    <div class="section-title">Urgent Queue â Uncontacted Leads</div>
+    <div class="section-title">Urgent Queue Ã¢ÂÂ Uncontacted Leads</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Lead</th><th>Property</th><th>Source</th><th class="num">Waiting</th><th>Status</th></tr></thead>
@@ -683,7 +683,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
   <!-- ============ TAB 2: PORTFOLIO ============ -->
   <section id="panel-portfolio" class="tab-panel" role="tabpanel">
     <div class="panel-head">
-      <h2>Property Portfolio â <span id="portfolio-period" style="color:var(--gold)"></span> <span id="portfolio-period-type" style="font-size:13px;color:var(--muted);font-weight:500"></span></h2>
+      <h2>Property Portfolio Ã¢ÂÂ <span id="portfolio-period" style="color:var(--gold)"></span> <span id="portfolio-period-type" style="font-size:13px;color:var(--muted);font-weight:500"></span></h2>
       <div class="updated">Updated monthly &middot; Last updated: <strong id="portfolio-updated"></strong></div>
     </div>
 
@@ -692,7 +692,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
     <div class="section-title">Key Metrics</div>
     <div class="kpi-grid" id="portfolio-metrics"></div>
 
-    <div class="section-title">Trends â Trailing 12 Months</div>
+    <div class="section-title">Trends Ã¢ÂÂ Trailing 12 Months</div>
     <div class="grid-2">
       <div class="card">
         <h3>Income vs Expenses</h3>
@@ -714,14 +714,14 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
       </div>
     </div>
 
-    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;â tap a row to see top &amp; bottom properties</span></div>
+    <div class="section-title">P&amp;L by Entity <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--faint)">&nbsp;Ã¢ÂÂ tap a row to see top &amp; bottom properties</span></div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Entity / Property</th><th class="num">Units</th><th class="num">Income</th><th class="num">Expenses</th><th class="num">NOI</th><th class="num">Margin</th><th class="num">Princ. Paydown</th><th class="num">Cap Ex (6100)</th><th class="num">Real Cash Flow</th></tr></thead>
         <tbody id="pnl-body"></tbody>
       </table>
     </div>
-    <div style="margin-top:8px;font-size:12px;color:var(--amber)">* Estimated from 2025 GL 386 monthly averages â 2026 GL entries not yet reconciled. Real Cash Flow recalculated accordingly.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--amber)">* Estimated from 2025 GL 386 monthly averages Ã¢ÂÂ 2026 GL entries not yet reconciled. Real Cash Flow recalculated accordingly.</div>
   </section>
 
   <!-- ============ TAB 3: HOUSE FLIP ============ -->
@@ -741,7 +741,7 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
       <div class="chart-box"><canvas id="chart-flip-budget"></canvas></div>
     </div>
 
-    <div class="section-title">Sold Flips â History</div>
+    <div class="section-title">Sold Flips Ã¢ÂÂ History</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Property</th><th class="num">Sold</th><th class="num">Total Invested</th><th class="num">Sale Price</th><th class="num">Profit</th><th class="num">ROI</th><th class="num">Days Held</th></tr></thead>
@@ -979,7 +979,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">"
 const delta = (pct, goodWhenUp) => {
   const up = pct > 0, flat = Math.abs(pct) < 0.05;
   const cls = flat ? "flat" : ((up === goodWhenUp) ? "up" : "down");
-  const arrow = flat ? "â" : (up ? "â²" : "â¼");
+  const arrow = flat ? "Ã¢ÂÂ" : (up ? "Ã¢ÂÂ²" : "Ã¢ÂÂ¼");
   return `<span class="delta ${cls}">${arrow} ${Math.abs(pct).toFixed(1)}%</span>`;
 };
 
@@ -1003,7 +1003,7 @@ if (window.Chart) {
 const chartsBuilt = { leads:false, portfolio:false, flips:false, "law-tax":true , 'social-media': false};
 
 /* ============================================================
-   TAB 1 â RENTAL LEADS
+   TAB 1 Ã¢ÂÂ RENTAL LEADS
    ============================================================ */
 function renderLeads(){
 const D = window.LEADS_DATA, K = D.kpis;
@@ -1156,7 +1156,7 @@ chartsBuilt.leads = true;
 }
 
 /* ============================================================
-   TAB 2 â PORTFOLIO
+   TAB 2 Ã¢ÂÂ PORTFOLIO
    ============================================================ */
 function renderPortfolio(){
   const D = window.PORTFOLIO_DATA, S = D.summary;
@@ -1184,7 +1184,7 @@ function renderPortfolio(){
     <div class="kpi">
       <div class="label">Vacancy Rate</div>
       <div class="value ${S.vacancyRate <= 8 ? "good" : (S.vacancyRate <= 15 ? "warn" : "bad")}">${fmtPct(S.vacancyRate)}</div>
-      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">â¼ ' : '<span class="delta down">â² '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
+      <div class="meta">MoM ${S.momVacancyPts <= 0 ? '<span class="delta up">Ã¢ÂÂ¼ ' : '<span class="delta down">Ã¢ÂÂ² '}${Math.abs(S.momVacancyPts).toFixed(1)} pts</span></div>
     </div>
     <div class="kpi">
       <div class="label">Collection Rate</div>
@@ -1208,7 +1208,7 @@ function renderPortfolio(){
 
   let html = "";
   D.companies.forEach((c,i) => {
-    const margin = c.income > 0 ? (c.noi / c.income * 100).toFixed(0) + '%' : 'â';
+    const margin = c.income > 0 ? (c.noi / c.income * 100).toFixed(0) + '%' : 'Ã¢ÂÂ';
     const noiColor = c.noi >= 0 ? C.gold : C.red;
     html += `<tr class="entity-row" data-entity="${i}">
       <td><strong>${esc(c.name)}</strong></td>
@@ -1217,19 +1217,19 @@ function renderPortfolio(){
       <td class="num">${fmtMoney(c.expenses)}</td>
       <td class="num" style="color:${noiColor};font-weight:700">${fmtMoney(c.noi)}</td>
       <td class="num">${margin}</td>
-      <td class="num" style="color:${c.principalEstimated ? 'var(--amber)' : 'var(--faint)'}" title="${c.principalNote || ''}">${c.principalPaydown != null ? fmtMoney(c.principalPaydown) + (c.principalEstimated ? '*' : '') : 'â'}</td>
-                <td class="num" style="color:var(--faint)">${c.capEx6100 != null ? fmtMoney(c.capEx6100) : 'â'}</td>
-                <td class="num" style="font-weight:600">${c.realCashFlow != null ? '<span class="' + (c.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(c.realCashFlow) + '</span>' : 'â'}</td>
+      <td class="num" style="color:${c.principalEstimated ? 'var(--amber)' : 'var(--faint)'}" title="${c.principalNote || ''}">${c.principalPaydown != null ? fmtMoney(c.principalPaydown) + (c.principalEstimated ? '*' : '') : 'Ã¢ÂÂ'}</td>
+                <td class="num" style="color:var(--faint)">${c.capEx6100 != null ? fmtMoney(c.capEx6100) : 'Ã¢ÂÂ'}</td>
+                <td class="num" style="font-weight:600">${c.realCashFlow != null ? '<span class="' + (c.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(c.realCashFlow) + '</span>' : 'Ã¢ÂÂ'}</td>
     </tr>`;
     const entityProps = propsByEntity[c.name] || [];
     const topProps = entityProps.filter(p => !p.isBottom && !p.name.startsWith('Other'));
     const otherProps = entityProps.filter(p => !p.isBottom && p.name.startsWith('Other'));
     const bottomProps = entityProps.filter(p => p.isBottom);
     if (topProps.length > 0 && bottomProps.length > 0) {
-      html += `<tr class="prop-row top-label" data-parent="${i}"><td colspan="7">â² Top ${topProps.length} by NOI</td></tr>`;
+      html += `<tr class="prop-row top-label" data-parent="${i}"><td colspan="7">Ã¢ÂÂ² Top ${topProps.length} by NOI</td></tr>`;
     }
     topProps.forEach(p => {
-      const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : 'â';
+      const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : 'Ã¢ÂÂ';
       html += `<tr class="prop-row" data-parent="${i}">
         <td>${esc(p.name)}</td>
         <td class="num">${p.units}</td>
@@ -1237,13 +1237,13 @@ function renderPortfolio(){
         <td class="num">${fmtMoney(p.expenses)}</td>
         <td class="num">${fmtMoney(p.noi)}</td>
         <td class="num">${pm}</td>
-        <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : 'â'}</td>
-                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : 'â'}</td>
-                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : 'â'}</td>
+        <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : 'Ã¢ÂÂ'}</td>
+                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : 'Ã¢ÂÂ'}</td>
+                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : 'Ã¢ÂÂ'}</td>
       </tr>`;
     });
     otherProps.forEach(p => {
-      const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : 'â';
+      const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : 'Ã¢ÂÂ';
       html += `<tr class="prop-row" data-parent="${i}">
         <td>${esc(p.name)}</td>
         <td class="num">${p.units}</td>
@@ -1251,15 +1251,15 @@ function renderPortfolio(){
         <td class="num">${fmtMoney(p.expenses)}</td>
         <td class="num">${fmtMoney(p.noi)}</td>
         <td class="num">${pm}</td>
-        <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : 'â'}</td>
-                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : 'â'}</td>
-                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : 'â'}</td>
+        <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : 'Ã¢ÂÂ'}</td>
+                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : 'Ã¢ÂÂ'}</td>
+                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : 'Ã¢ÂÂ'}</td>
       </tr>`;
     });
     if (bottomProps.length > 0) {
-      html += `<tr class="prop-row bottom-label" data-parent="${i}"><td colspan="7">â¼ Bottom ${bottomProps.length} by NOI</td></tr>`;
+      html += `<tr class="prop-row bottom-label" data-parent="${i}"><td colspan="7">Ã¢ÂÂ¼ Bottom ${bottomProps.length} by NOI</td></tr>`;
       bottomProps.forEach(p => {
-        const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : 'â';
+        const pm = p.income > 0 ? (p.noi/p.income*100).toFixed(0) + '%' : 'Ã¢ÂÂ';
         html += `<tr class="prop-row bottom" data-parent="${i}">
           <td>${esc(p.name)}</td>
           <td class="num">${p.units}</td>
@@ -1267,9 +1267,9 @@ function renderPortfolio(){
           <td class="num">${fmtMoney(p.expenses)}</td>
           <td class="num">${fmtMoney(p.noi)}</td>
           <td class="num">${pm}</td>
-          <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : 'â'}</td>
-                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : 'â'}</td>
-                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : 'â'}</td>
+          <td class="num" style="color:var(--faint)">${p.principalPaydown != null ? fmtMoney(p.principalPaydown) : 'Ã¢ÂÂ'}</td>
+                <td class="num" style="color:var(--faint)">${p.capEx6100 != null ? fmtMoney(p.capEx6100) : 'Ã¢ÂÂ'}</td>
+                <td class="num" style="font-weight:600">${p.realCashFlow != null ? '<span class="' + (p.realCashFlow >= 0 ? 'good' : 'bad') + '">' + fmtMoney(p.realCashFlow) + '</span>' : 'Ã¢ÂÂ'}</td>
         </tr>`;
       });
     }
@@ -1283,8 +1283,8 @@ function renderPortfolio(){
     <td class="num" style="color:${C.gold}"><strong>${fmtMoney(S.noi)}</strong></td>
     <td class="num"><strong>${(S.noi/S.totalIncome*100).toFixed(0)}%</strong></td>
     <td class="num"><strong>${D.companies.reduce((a,c)=>a+(c.principalPaydown||0),0) ? fmtMoney(D.companies.reduce((a,c)=>a+(c.principalPaydown||0),0)) : "\u2014"}</strong></td>
-                <td class="num"><strong>${D.companies.reduce((a,c)=>a+(c.capEx6100||0),0) ? fmtMoney(D.companies.reduce((a,c)=>a+(c.capEx6100||0),0)) : "â"}</strong></td>
-                <td class="num"><strong>${(() => { const v = D.companies.reduce((a,c)=>a+(c.realCashFlow||0),0); return v ? '<span class="' + (v >= 0 ? 'good' : 'bad') + '">' + fmtMoney(v) + '</span>' : "â"; })()}</strong></td>
+                <td class="num"><strong>${D.companies.reduce((a,c)=>a+(c.capEx6100||0),0) ? fmtMoney(D.companies.reduce((a,c)=>a+(c.capEx6100||0),0)) : "Ã¢ÂÂ"}</strong></td>
+                <td class="num"><strong>${(() => { const v = D.companies.reduce((a,c)=>a+(c.realCashFlow||0),0); return v ? '<span class="' + (v >= 0 ? 'good' : 'bad') + '">' + fmtMoney(v) + '</span>' : "Ã¢ÂÂ"; })()}</strong></td>
   </tr>`;
   const body = $("#pnl-body");
   body.innerHTML = html;
@@ -1428,7 +1428,7 @@ function buildPortfolioCharts(){
 }
 
 /* ============================================================
-   TAB 3 â HOUSE FLIP
+   TAB 3 Ã¢ÂÂ HOUSE FLIP
    ============================================================ */
 const STATUS_BADGE = {
   "Acquired": "gray", "In Progress": "amber", "Listed": "blue",
@@ -1598,7 +1598,7 @@ function buildFlipCharts(){
 }
 
 /* ============================================================
-   TAB 4 â LAW & TAX
+   TAB 4 Ã¢ÂÂ LAW & TAX
    ============================================================ */
 let lawFilter = "all";
 function renderLawTax(){
@@ -2049,10 +2049,10 @@ function buildUtilityCharts(d){
   let source,title;
   if(propName&&d.entities[entityName]&&d.entities[entityName].properties&&d.entities[entityName].properties[propName]){
     source=d.entities[entityName].properties[propName];
-    title=propName+' — Monthly by Category';
+    title=propName+' â Monthly by Category';
   } else if(d.entities[entityName]){
     source=d.entities[entityName];
-    title=entityName+' — Monthly by Category';
+    title=entityName+' â Monthly by Category';
   } else {return;}
   const datasets=cats.map((c,i)=>{
     const data=months.map(m=>(source.monthlyData&&source.monthlyData[c]&&source.monthlyData[c][m])||0);
@@ -2096,7 +2096,7 @@ renderLawTax();
 activateTab(location.hash.replace("#","") || "leads", false);
 
 /* Public hook: after a scheduled task mutates window.*_DATA it can call
-   window.refreshDashboards() â or simply regenerate this file's data block. */
+   window.refreshDashboards() Ã¢ÂÂ or simply regenerate this file's data block. */
 window.refreshDashboards = function(){
   try{renderLeads();}catch(e){console.warn(e)} try{renderPortfolio();}catch(e){console.warn(e)} try{renderFlips();}catch(e){console.warn(e)} try{renderLawTax();
       renderSocialMedia();}catch(e){console.warn(e)}
@@ -2172,140 +2172,13 @@ if(D.recurringIssues&&D.recurringIssues.top20){
 const ri=D.recurringIssues;
 const t20=ri.top20;
 new Chart(document.getElementById("chart-wo-recurring"),{type:"bar",data:{labels:t20.map(x=>x.name),datasets:[{label:"Count",data:t20.map(x=>x.count),backgroundColor:"rgba(59,130,246,0.7)",borderColor:"rgba(59,130,246,1)",borderWidth:1}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:"Top 20 Recurring Issues by Frequency",font:{size:14}},legend:{display:false}},scales:{x:{beginAtZero:true,title:{display:true,text:"Work Order Count"}},y:{ticks:{font:{size:11}}}}}});
-const tbl='<table class="mini-tbl" style="width:100%"><thead><tr><th>#</th><th>Issue</th><th>Count</th><th>%</th><th>Avg Days</th><th>Trend</th><th>Top Entity</th></tr></thead><tbody>'+t20.map(x=>'<tr><td>'+x.rank+'</td><td>'+x.name+'</td><td>'+x.count.toLocaleString()+'</td><td>'+x.pctOfTotal+'%</td><td>'+x.avgResolutionDays+'</td><td style="color:'+(x.trend==="Increasing"?"var(--red)":x.trend==="Decreasing"?"var(--green)":"var(--text)")+'">'+( x.trend==="Increasing"?"â":x.trend==="Decreasing"?"â":"â")+" "+x.trend+'</td><td>'+x.topEntities[0].name+' ('+x.topEntities[0].count+')</td></tr>').join('')+'</tbody></table>';
+const tbl='<table class="mini-tbl" style="width:100%"><thead><tr><th>#</th><th>Issue</th><th>Count</th><th>%</th><th>Avg Days</th><th>Trend</th><th>Top Entity</th></tr></thead><tbody>'+t20.map(x=>'<tr><td>'+x.rank+'</td><td>'+x.name+'</td><td>'+x.count.toLocaleString()+'</td><td>'+x.pctOfTotal+'%</td><td>'+x.avgResolutionDays+'</td><td style="color:'+(x.trend==="Increasing"?"var(--red)":x.trend==="Decreasing"?"var(--green)":"var(--text)")+'">'+( x.trend==="Increasing"?"Ã¢ÂÂ":x.trend==="Decreasing"?"Ã¢ÂÂ":"Ã¢ÂÂ")+" "+x.trend+'</td><td>'+x.topEntities[0].name+' ('+x.topEntities[0].count+')</td></tr>').join('')+'</tbody></table>';
 document.getElementById("wo-recurring-table").innerHTML=tbl;
-document.getElementById("wo-recurring-insights").innerHTML='<h4 style="margin:0 0 8px;color:var(--text)">Key Insights</h4>'+ri.insights.map(x=>'<p style="margin:4px 0;font-size:14px;color:var(--text-dim)">â¢ '+x+'</p>').join('');
+document.getElementById("wo-recurring-insights").innerHTML='<h4 style="margin:0 0 8px;color:var(--text)">Key Insights</h4>'+ri.insights.map(x=>'<p style="margin:4px 0;font-size:14px;color:var(--text-dim)">Ã¢ÂÂ¢ '+x+'</p>').join('');
 }
 }catch(e){console.error("WO load error:",e)}}
 fetch('utility_data.json').then(function(r){return r.json()}).then(function(d){window._utilData=d;renderUtilities(d)}).catch(function(e){console.log('Utility data not loaded:',e)});
 loadWorkOrders();
 </script>
 </body>
-
-
-    return {label:c,data:data,backgroundColor:colors[i%colors.length]};
-  }).filter(Boolean);
-  window._utilDetail=new Chart(canvas,{type:'bar',data:{labels:months.map(m=>m.substring(5)),datasets:datasets},options:{responsive:true,plugins:{title:{display:true,text:title,color:'#ccc'},legend:{labels:{color:'#aaa'}}},scales:{x:{stacked:true,ticks:{color:'#888'}},y:{stacked:true,ticks:{color:'#888',callback:v=>'$'+v.toLocaleString()}}}}});
-}
-
-function activateTab(name, updateHash){
-  if (!TABS.includes(name)) name = "leads";
-  document.querySelectorAll(".tab-btn").forEach(b => {
-    const on = b.dataset.tab === name;
-    b.classList.toggle("active", on);
-    b.setAttribute("aria-selected", on);
-  });
-  document.querySelectorAll(".tab-panel").forEach(p =>
-    p.classList.toggle("active", p.id === "panel-" + name));
-  if (updateHash !== false && location.hash !== "#" + name) {
-    history.replaceState(null, "", "#" + name);
-  }
-  // lazy chart init after panel is visible
-  if (!chartsBuilt[name] && window.Chart && chartBuilders[name]) {
-    requestAnimationFrame(() => { chartBuilders[name](); });
-    chartsBuilt[name] = true;
-  }
-  window.scrollTo({ top: 0 });
-}
-
-document.querySelectorAll(".tab-btn").forEach(b =>
-  b.addEventListener("click", () => activateTab(b.dataset.tab)));
-window.addEventListener("hashchange", () =>
-  activateTab(location.hash.replace("#",""), false));
-
-/* ---------- init ---------- */
-renderLeads();
-renderPortfolio();
-renderFlips();
-renderLawTax();
-    renderSocialMedia();
-activateTab(location.hash.replace("#","") || "leads", false);
-
-/* Public hook: after a scheduled task mutates window.*_DATA it can call
-   window.refreshDashboards() â or simply regenerate this file's data block. */
-window.refreshDashboards = function(){
-  try{renderLeads();}catch(e){console.warn(e)} try{renderPortfolio();}catch(e){console.warn(e)} try{renderFlips();}catch(e){console.warn(e)} try{renderLawTax();
-      renderSocialMedia();}catch(e){console.warn(e)}
-  try{
-    /* Destroy charts on ALL tabs so lazy-init rebuilds with fresh data */
-    Object.keys(chartBuilders).forEach(function(tab){
-      var pnl=document.getElementById('panel-'+tab);
-      if(pnl)pnl.querySelectorAll('canvas').forEach(function(c){var ch=Chart.getChart(c);if(ch)ch.destroy();});
-    });
-    Object.keys(chartsBuilt).forEach(function(k){chartsBuilt[k]=false;});
-    var ab=document.querySelector('.tab-btn.active');
-    if(ab&&chartBuilders[ab.dataset.tab]){
-      chartBuilders[ab.dataset.tab]();
-      chartsBuilt[ab.dataset.tab]=true;
-    }
-  }catch(e){console.warn('Chart rebuild:',e)}
-};
-
-/* ---------- live-data loader ----------
-   Fetch JSON data files from the same directory. If they exist and parse
-   successfully, override the embedded sample data and re-render.
-   Files: leads_data.json, portfolio_data.json, flip_data.json, law_tax_data.json
-   Scheduled tasks only need to update these small JSON files. */
-var dataFiles = [
-  {url: 'leads_data.json',     target: 'LEADS_DATA'},
-  {url: 'portfolio_data.json', target: 'PORTFOLIO_DATA'},
-  {url: 'flip_data.json',     target: 'FLIP_DATA'},
-  {url: 'law_tax_data.json',  target: 'LAW_TAX_DATA'},
-      {url:'social_media_data.json',target:'SOCIAL_MEDIA_DATA'}
-];
-Promise.allSettled(dataFiles.map(function(f){
-  return fetch(f.url + '?_=' + Date.now()).then(function(r){
-    if(!r.ok) throw new Error(r.status);
-    return r.json();
-  }).then(function(d){
-    window[f.target] = d;
-  });
-})).then(function(results){
-  var any = results.some(function(r){ return r.status === 'fulfilled'; });
-  if(any) window.refreshDashboards();
-});
-window.activateTab=activateTab;window.renderUtilities=renderUtilities;window.buildUtilityCharts=buildUtilityCharts;window.buildUtilityDetailChart=buildUtilityDetailChart;
-          })();
-
-/* ===== WORK ORDERS TAB ===== */
-async function loadWorkOrders(){
-try{
-const r=await fetch("workorders_data.json");const D=await r.json();
-document.getElementById("wo-updated").textContent="Data as of "+new Date(D.lastUpdated).toLocaleDateString()+" | "+D.dataRange;
-const kpis=[{l:"Total WOs (5yr)",v:D.summary.totalWOs5yr.toLocaleString(),c:"var(--gold)"},{l:"Currently Open",v:D.summary.totalOpen,c:D.summary.totalOpen>50?"var(--red)":"var(--green)"},{l:"Avg Days to Close",v:D.summary.avgCompletionDays,c:D.summary.avgCompletionDays>14?"var(--red)":"var(--green)"},{l:"Closed This Year",v:D.summary.closedThisYear.toLocaleString(),c:"var(--blue)"},{l:"Within 48h",v:D.summary.pctWithin48h+"%",c:D.summary.pctWithin48h>25?"var(--green)":"var(--red)"},{l:"Within 1 Week",v:D.summary.pctWithin1wk+"%",c:D.summary.pctWithin1wk>60?"var(--green)":"var(--gold)"}];
-document.getElementById("wo-kpis").innerHTML=kpis.map(k=>"<div class=\"kpi\"><span class=\"kpi-val\" style=\"color:"+k.c+"\">"+k.v+"</span><span class=\"kpi-lbl\">"+k.l+"</span></div>").join("");
-const tKpis=[{l:"Total Turnovers",v:D.turnoverStats.total,c:"var(--gold)"},{l:"Avg Turnover Days",v:D.turnoverStats.avgCompletionDays,c:D.turnoverStats.avgCompletionDays>10?"var(--red)":"var(--green)"},{l:"% of All WOs",v:D.turnoverStats.pctOfAll+"%",c:"var(--blue)"},{l:"Repeat Issues (90d)",v:D.repeatIssueCount.toLocaleString(),c:"var(--red)"}];
-document.getElementById("wo-turnover-kpis").innerHTML=tKpis.map(k=>"<div class=\"kpi\"><span class=\"kpi-val\" style=\"color:"+k.c+"\">"+k.v+"</span><span class=\"kpi-lbl\">"+k.l+"</span></div>").join("");
-var ag=D.agingAnalysis;var aKpis=[{l:"< 7 Days",v:ag.under7,c:"var(--green)"},{l:"7-30 Days",v:ag.d7to30,c:"var(--gold)"},{l:"30-60 Days",v:ag.d30to60,c:"var(--red)"},{l:"60-90 Days",v:ag.d60to90,c:"var(--red)"},{l:"90+ Days",v:ag.over90,c:"#ff4444"}];
-document.getElementById("wo-aging-kpis").innerHTML=aKpis.map(k=>"<div class=\"kpi\"><span class=\"kpi-val\" style=\"color:"+k.c+"\">"+k.v+"</span><span class=\"kpi-lbl\">"+k.l+"</span></div>").join("");
-document.getElementById("wo-open-body").innerHTML=D.openWorkOrders.map(w=>"<tr><td>"+w.id+"</td><td>"+w.title+"</td><td>"+w.entity+"</td><td>"+w.property+"</td><td>"+w.category+"</td><td>"+w.created+"</td><td style=\"color:"+(w.ageDays>90?"var(--red)":w.ageDays>30?"var(--gold)":"var(--green)")+";font-weight:700\">"+w.ageDays+"</td><td>"+w.status+"</td><td>"+w.priority+"</td></tr>").join("");
-document.getElementById("wo-entity-body").innerHTML=D.byEntity.map(e=>"<tr><td>"+e.name+"</td><td>"+e.total.toLocaleString()+"</td><td style=\"color:"+(e.open>5?"var(--red)":"var(--green)")+"\">"+e.open+"</td><td>"+e.closed.toLocaleString()+"</td><td style=\"color:"+(e.avgCompletionDays>20?"var(--red)":"var(--green)")+"\">"+e.avgCompletionDays+"</td></tr>").join("");
-document.getElementById("wo-recommendations").innerHTML=D.recommendations.map((r,i)=>"<div style=\"padding:8px 0;border-bottom:1px solid var(--border);font-size:13px\"><strong style=\"color:var(--gold)\">"+(i+1)+".</strong> "+r+"</div>").join("");
-var gold="#D4A843",red="#e74c3c",green="#27ae60",blue="#3498db",muted2="#888";
-var cFont={family:"-apple-system,system-ui,sans-serif",size:11,color:muted2},gOpts={color:"rgba(255,255,255,0.06)"};
-var topCats=D.byCategory.filter(c=>c.total>10);
-new Chart(document.getElementById("chart-wo-catspend"),{type:"bar",data:{labels:topCats.map(c=>c.name),datasets:[{label:"Work Orders",data:topCats.map(c=>c.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#e74c3c","#2ecc71","#f39c12"],borderRadius:4}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false},title:{display:true,text:"Work Orders by Category",color:muted2,font:{size:13}}},scales:{x:{grid:gOpts,ticks:{color:muted2,font:cFont}},y:{grid:{display:false},ticks:{color:"#ccc",font:{size:11}}}}}});
-var sL=D.monthlyTrend.labels.map((l,i)=>i%3===0?l:"");
-new Chart(document.getElementById("chart-wo-volume"),{type:"bar",data:{labels:sL,datasets:[{label:"Created",data:D.monthlyTrend.volume,backgroundColor:"rgba(212,168,67,0.6)",borderRadius:2},{label:"Completed",data:D.monthlyTrend.completed,backgroundColor:"rgba(39,174,96,0.5)",borderRadius:2}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{labels:{color:muted2,font:cFont}}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont,maxRotation:45,maxTicksLimit:12}},y:{grid:gOpts,ticks:{color:muted2,font:cFont}}}}});
-new Chart(document.getElementById("chart-wo-completion"),{type:"line",data:{labels:sL,datasets:[{label:"Avg Days",data:D.monthlyTrend.avgCompletionDays,borderColor:gold,backgroundColor:"rgba(212,168,67,0.1)",fill:true,tension:0.3,pointRadius:1}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{labels:{color:muted2,font:cFont}}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont,maxRotation:45,maxTicksLimit:12}},y:{grid:gOpts,ticks:{color:muted2,font:cFont}}}}});
-var topV=D.vendorCosts.slice(0,15);
-new Chart(document.getElementById("chart-wo-vendors"),{type:"bar",data:{labels:topV.map(v=>v.name.length>20?v.name.substring(0,18)+"...":v.name),datasets:[{label:"Total Spend ($)",data:topV.map(v=>v.total),backgroundColor:topV.map((_,i)=>i<5?gold:i<10?blue:green),borderRadius:4}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return "$"+ctx.raw.toLocaleString()}}}},scales:{x:{grid:gOpts,ticks:{color:muted2,font:cFont,callback:function(v){return "$"+(v/1000).toFixed(0)+"K"}}},y:{grid:{display:false},ticks:{color:"#ccc",font:{size:10}}}}}});
-new Chart(document.getElementById("chart-wo-entity"),{type:"doughnut",data:{labels:D.byEntity.map(e=>e.name),datasets:[{data:D.byEntity.map(e=>e.total),backgroundColor:[gold,blue,red,green,"#9b59b6","#e67e22","#1abc9c","#f39c12","#2c3e50"]}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{position:"right",labels:{color:muted2,font:cFont,boxWidth:12,padding:6}}}}});
-new Chart(document.getElementById("chart-wo-seasonal"),{type:"bar",data:{labels:D.seasonalPattern.map(s=>s.month),datasets:[{label:"Avg WOs/Month",data:D.seasonalPattern.map(s=>s.avgVolume),backgroundColor:D.seasonalPattern.map(s=>s.avgVolume>140?red:s.avgVolume>130?gold:green),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:2,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:muted2,font:cFont}},y:{grid:gOpts,ticks:{color:muted2,font:cFont},beginAtZero:false,min:100}}}});
-
-// === Top 20 Recurring Maintenance Issues =h==
-if(D.recurringIssues&&D.recurringIssues.top20){
-const ri=D.recurringIssues;
-const t20=ri.top20;
-new Chart(document.getElementById("chart-wo-recurring"),{type:"bar",data:{labels:t20.map(x=>x.name),datasets:[{label:"Count",data:t20.map(x=>x.count),backgroundColor:"rgba(59,130,246,0.7)",borderColor:"rgba(59,130,246,1)",borderWidth:1}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:"Top 20 Recurring Issues by Frequency",font:{size:14}},legend:{display:false}},scales:{x:{beginAtZero:true,title:{display:true,text:"Work Order Count"}},y:{ticks:{font:{size:11}}}}}});
-const tbl='<table class="mini-tbl" style="width:100%"><thead><tr><th>#</th><th>Issue</th><th>Count</th><th>%</th><th>Avg Days</th><th>Trend</th><th>Top Entity</th></tr></thead><tbody>'+t20.map(x=>'<tr><td>'+x.rank+'</td><td>'+x.name+'</td><td>'+x.count.toLocaleString()+'</td><td>'+x.pctOfTotal+'%</td><td>'+x.avgResolutionDays+'</td><td style="color:'+(x.trend==="Increasing"?"var(--red)":x.trend==="Decreasing"?"var(--green)":"var(--text)")+'">'+( x.trend==="Increasing"?"â":x.trend==="Decreasing"?"â":"â")+" "+x.trend+'</td><td>'+x.topEntities[0].name+' ('+x.topEntities[0].count+')</td></tr>').join('')+'</tbody></table>';
-document.getElementById("wo-recurring-table").innerHTML=tbl;
-document.getElementById("wo-recurring-insights").innerHTML='<h4 style="margin:0 0 8px;color:var(--text)">Key Insights</h4>'+ri.insights.map(x=>'<p style="margin:4px 0;font-size:14px;color:var(--text-dim)">â¢ '+x+'</p>').join('');
-}
-}catch(e){console.error("WO load error:",e)}}
-fetch('utility_data.json').then(function(r){return r.json()}).then(function(d){window._utilData=d;renderUtilities(d)}).catch(function(e){console.log('Utility data not loaded:',e)});
-loadWorkOrders();
-</script>
-</body>
-
-
+</html>
