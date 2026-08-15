@@ -1,1 +1,34 @@
-{    "lastUpdated": "2026-08-13T18:02:00-04:00",    "active": [          {                  "address": "King St 161",                  "city": "Springfield, MA",                  "entity": "YellowBrick Property",                  "status": "In Progress",                  "purchasePrice": 185000,                  "renoBudget": 92000,                  "renoSpent": 48500,                  "arv": 355000,                  "expectedProfit": 67500,                  "daysOwned": 157,                  "estCompletion": "2026-09-15",                  "notes": "Foundation and structural work completed. Electrical and plumbing in progress."          },          {                  "address": "East Hooker 49-51",                  "city": "Springfield, MA",                  "entity": "YellowBrick Property",                  "status": "In Progress",                  "purchasePrice": 245000,                  "renoBudget": 125000,                  "renoSpent": 89200,                  "arv": 520000,                  "expectedProfit": 139800,                  "daysOwned": 143,                  "estCompletion": "2026-10-01",                  "notes": "Unit renovations ongoing. Interior finishes 65% complete."          },          {                  "address": "Pine 216",                  "city": "Holyoke, MA",                  "entity": "YellowBrick Property",                  "status": "Acquired",
+{
+  "lastUpdated": "2026-08-15T22:04:17.210-04:00",
+  "active": [
+    {
+      "address": "King St 161",
+      "city": "Springfield, MA",
+      "entity": "YellowBrick Property",
+      "status": "In Progress",
+      "purchasePrice": 185000,
+      "renoBudget": 92000,
+      "renoSpent": 48500,
+      "arv": 355000,
+      "expectedProfit": 67500,
+      "daysOwned": 160,
+      "estCompletion": "2026-09-15",
+      "notes": "Foundation and structural work completed. Electrical and plumbing in progress."
+    },
+    {
+      "address": "East Hooker 49-51",
+      "city": "Springfield, MA",
+      "entity": "YellowBrick Property",
+      "status": "In Progress",
+      "purchasePrice": 245000,
+      "renoBudget": 125000,
+      "renoSpent": 89200,
+      "arv": 520000,
+      "expectedProfit": 141800,
+      "daysOwned": 160,
+      "estCompletion": "2026-09-22",
+      "notes": "Structural repairs nearly complete. Finishing phase beginning."
+    }
+  ],
+  "sold": []
+}
