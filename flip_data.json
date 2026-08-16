@@ -1,33 +1,185 @@
 {
-  "lastUpdated": "2026-08-15T22:04:17.210-04:00",
+  "lastUpdated": "2026-08-16T22:03:30-04:00",
   "active": [
     {
       "address": "King St 161",
       "city": "Springfield, MA",
-      "entity": "YellowBrick Property",
+      "entity": "Yellow Brick Property",
       "status": "In Progress",
       "purchasePrice": 185000,
       "renoBudget": 92000,
       "renoSpent": 48500,
       "arv": 355000,
       "expectedProfit": 67500,
-      "daysOwned": 160,
+      "daysOwned": 161,
       "estCompletion": "2026-09-15",
       "notes": "Foundation and structural work completed. Electrical and plumbing in progress."
     },
     {
       "address": "East Hooker 49-51",
       "city": "Springfield, MA",
-      "entity": "YellowBrick Property",
+      "entity": "Yellow Brick Property",
       "status": "In Progress",
       "purchasePrice": 245000,
       "renoBudget": 125000,
       "renoSpent": 89200,
       "arv": 520000,
       "expectedProfit": 141800,
-      "daysOwned": 160,
+      "daysOwned": 161,
       "estCompletion": "2026-09-22",
       "notes": "Structural repairs nearly complete. Finishing phase beginning."
+    },
+    {
+      "address": "Central St 223-225",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Massasoit Street E S",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Montgomery 229",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Bristol 11-13",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Main St 139 141",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Seymour 34",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Pine 216",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Phoenix Ter 101",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Leary Rd 5",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Brunswick 117-119",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Depot St 10",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "**Highland Park 11",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Gilbert 51",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Cottage Green 58",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Grove St 209",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "*Shawinigan Dr 133",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Gilmore Ave 15",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "LakeView Circle 22",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
+    },
+    {
+      "address": "Marble 37",
+      "city": "Springfield, MA",
+      "entity": "Yellow Brick Property",
+      "status": "In Progress",
+      "daysOwned": 0,
+      "notes": "Added to portfolio from RM API"
     }
   ],
   "sold": []
