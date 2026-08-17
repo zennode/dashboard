@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-17T18:00:00-04:00",
+  "lastUpdated": "2026-08-17T18:59:47Z",
   "pipeline": [
     {
       "address": "8 Longview Rd, Enfield, CT",
@@ -203,8 +203,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-14",
-        "summary": "New listing package (5 docs) signed via dotloop with Alice Kempf"
+        "date": "2026-08-17",
+        "summary": "Open house was slow with couple interested people"
       },
       "draws": [],
       "notes": "Listed for sale. | 8/14: NEW listing docs signed via dotloop with Alice Kempf — CON DUAL DESIGNATED Exclusive Right to Sell, Mandatory Licensee-Consumer Relationship Disclosure, Authorization to Offer Buyer Broker Compensation, MANDATORY Mass Inspection Disclosure, Deferral of Showings."
@@ -284,11 +284,11 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-05",
-        "summary": "Buyer backed out — Release from Contract signed. Inspection had hazard items."
+        "date": "2026-08-17",
+        "summary": "Open house went great, multiple offers received. Calling for highest and best Wednesday 5 PM"
       },
       "draws": [],
-      "notes": "Under contract then buyer backed out. | 7/29: Offer signed via dotloop. 8/5: BUYER BACKED OUT. Release from Contract signed. Alice sent inspection report — hazard items flagged. Alice asked if showings should be blocked. Back to actively listed."
+      "notes": "Under contract then buyer backed out. | 7/29: Offer signed via dotloop. 8/5: BUYER BACKED OUT. Release from Contract signed. Alice sent inspection report — hazard items flagged. Alice asked if showings should be blocked. Back to actively listed. 8/17: Open house great with multiple offers, calling for highest and best Wed 5 PM."
     },
     {
       "address": "50 Potash Hill Rd, Cummington, MA",
@@ -471,7 +471,7 @@
       "totalInvested": 88000,
       "salePrice": 139000,
       "profit": 51000,
-      "roiPct": 58.0,
+      "roiPct": 58,
       "daysHeld": 75,
       "notes": "Sold Apr 2025"
     },
@@ -511,7 +511,8 @@
     {
       "address": "340 Chicopee St, Chicopee, MA",
       "entity": "Wicked Deals",
-      "soldDate": "2025-07-10",       "totalInvested": 165000,
+      "soldDate": "2025-07-10",
+      "totalInvested": 165000,
       "salePrice": 235000,
       "profit": 70000,
       "roiPct": 42.4,
