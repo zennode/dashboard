@@ -1,80 +1,84 @@
 {
-    "lastUpdated": "2026-08-10T01:00:00-04:00",
-    "platforms": {
-          "youtube": {
-                  "channels": [
-                            {
-                                        "name": "Two Guys Take on Real Estate",
-                                        "handle": "twoguystakeonrealestate",
-                                        "url": "https://www.youtube.com/@twoguystakeonrealestate",
-                                        "subscribers": "133K",
-                                        "totalViews": "3.2M",
-                                        "videoCount": "1.8K",
-                                        "recentVideos": [
-                                                      {
-                                                                      "title": "Can We Sell Our FIRST Investment Property for $500K?!",
-                                                                      "views": "110",
-                                                                      "publishDate": "2 days ago",
-                                                                      "duration": "12:41"
-                                                      },
-                                                      {
-                                                                      "title": "Networking Strategy EVERY Investor Should Be Using!",
-                                                                      "views": "125",
-                                                                      "publishDate": "9 days ago",
-                                                                      "duration": "10:48"
-                                                      },
-                                                      {
-                                                                      "title": "How We Bought a $275K Condo For $157K!",
-                                                                      "views": "276",
-                                                                      "publishDate": "2 weeks ago",
-                                                                      "duration": "10:44"
-                                                      }
-                                        ]
-                            },
-                            {
-                                        "name": "Foreclosure Auction Masters",
-                                        "handle": "foreclosureauctionmasters",
-                                        "url": "https://www.youtube.com/@foreclosureauctionmasters",
-                                        "subscribers": "831",
-                                        "videoCount": "48"
-                            }
-                  ]
-          },
-          "facebook": {
-                  "name": "Two Guys Take on Real Estate",
-                  "url": "https://www.facebook.com/TwoGuysTakeonRealEstate",
-                  "followers": "215K",
-                  "following": "18",
-                  "verified": true
-          },
-          "instagram": {
-                  "name": "Two Guys Take on Real Estate",
-                  "handle": "twoguystakeonrealestate",
-                  "url": "https://www.instagram.com/twoguystakeonrealestate/",
-                  "followers": "202K",
-                  "following": "133",
-                  "posts": "2226",
-                  "verified": true
-          },
-          "tiktok": {
-                  "displayName": "Real Estate Investing Mentors",
-                  "handle": "twoguystakeonrealestate",
-                  "url": "https://www.tiktok.com/@twoguystakeonrealestate",
-                  "followers": "892K",
-                  "following": "282",
-                  "likes": "7.3M"
-          },
-          "twitter": {
-                  "name": "Two Guys Take on Real Estate",
-                  "handle": "2GuysTake",
-                  "url": "https://x.com/2GuysTake",
-                  "followers": "5776",
-                  "following": "34",
-                  "tweets": "4888",
-                  "verified": true,
-                  "location": "Springfield, MA",
-                  "bio": "📦Real Estate Investors Paying it forward 🏘️700+ Rental Units 👨‍👩‍👧‍👦🏘️💰500+ Flips",
-                  "joinDate": "December 2020"
-          }
-    }
+      "lastUpdated": "2026-08-17T01:00:00-04:00",
+      "platforms": {
+              "youtube": {
+                        "channels": [
+                                    {
+                                                  "name": "Two Guys Take on Real Estate",
+                                                  "handle": "twoguystakeonrealestate",
+                                                  "uri": "https://www.youtube.com/@twoguystakeonrealestate",
+                                                  "subscribers": "133K",
+                                                  "totalViews": "3.2M",
+                                                  "videoCount": "1.8K",
+                                                  "recentVideos": [
+                                                                  {
+                                                                                    "title": "How We Bought a $275K Condo For $157K!",
+                                                                                    "views": "291",
+                                                                                    "publishDate": "3 weeks ago",
+                                                                                    "duration": "10:44"
+                                                                  },
+                                                                  {
+                                                                                    "title": "We WON a House at Foreclosure Auction for $165,000!",
+                                                                                    "views": "800",
+                                                                                    "publishDate": "4 weeks ago",
+                                                                                    "duration": "9:55"
+                                                                  },
+                                                                  {
+                                                                                    "title": "3 SECRET Websites We Use to Buy Foreclosure Auction Properties!",
+                                                                                    "views": "125",
+                                                                                    "publishDate": "2 days ago",
+                                                                                    "duration": "8:40"
+                                                                  },
+                                                                  {
+                                                                                    "title": "We Bought a $525K House For ONLY $334K at Auction!",
+                                                                                    "views": "1.2K",
+                                                                                    "publishDate": "1 year ago",
+                                                                                    "duration": "13:41"
+                                                                  },
+                                                                  {
+                                                                                    "title": "We Evicted One of Our WORST Tenants",
+                                                                                    "views": "460",
+                                                                                    "publishDate": "3 months ago",
+                                                                                    "duration": "10:22"
+                                                                  }
+                                                  ]
+                                    },
+                                    {
+                                                  "name": "Auction House Masters",
+                                                  "handle": "foreclosureauctionmasters",
+                                                  "uri": "https://www.youtube.com/@foreclosureauctionmasters",
+                                                  "subscribers": "834",
+                                                  "videoCount": "49"
+                                    }
+                        ]
+              },
+              "instagram": {
+                        "handle": "twoguystakeonrealestate",
+                        "followers": "205K",
+                        "posts": "2,231",
+                        "verified": true
+              },
+              "tiktok": {
+                        "handle": "twoguystakeonrealestate",
+                        "displayName": "Real Estate Investing Mentors",
+                        "followers": "892K",
+                        "likes": "7.3M",
+                        "bio": "We created massive wealth in Real Estate | OUR FORECLOSURE AUCTION BOOK"
+              },
+              "twitter": {
+                        "handle": "2GuysTake",
+                        "displayName": "Two Guys Take on Real Estate",
+                        "followers": "5,775",
+                        "following": "36",
+                        "posts": "4,907",
+                        "verified": true,
+                        "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
+                        "location": "Springfield, MA",
+                        "joinedDate": "December 2020"
+              },
+              "facebook": {
+                        "handle": "TwoGuysTakeonRealEstate",
+                        "status": "unable to scrape - login wall"
+              }
+      }
 }
