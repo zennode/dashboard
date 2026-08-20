@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-19T18:00:00Z",
+  "lastUpdated": "2026-08-20T22:00:00Z",
   "pipeline": [
     {
       "address": "8 Longview Rd, Enfield, CT",
@@ -13,10 +13,10 @@
       "entity": "Flying Monkey LLC",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-12",
-        "summary": "Yusenko requesting EIN for conveyance tax form; deed needs correction"
+        "date": "2026-08-20",
+        "summary": "Water and utility issues being resolved; deed correction and insurance documentation pending"
       },
-      "notes": "JV with Pete Houser. Closing pending deed correction and insurance."
+      "notes": "JV with Pete Houser. Closing pending deed correction and insurance. Water dept coordination in progress."
     },
     {
       "address": "59 King Spring Rd, Windsor Locks, CT",
@@ -30,29 +30,64 @@
       "entity": "Flying Monkey LLC / Yellow Brick Property (TIC)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-10",
-        "summary": "Title work and due diligence ongoing"
+        "date": "2026-08-13",
+        "summary": "P&S redlines exchanged; appraisal being scheduled"
       },
-      "notes": "TIC structure with Yellow Brick. Due diligence phase."
+      "notes": "Tenant-in-common with Blythewood. Appraisal site visit arranged. Due diligence ongoing."
+    },
+    {
+      "address": "25 Downing Three, Pittsfield, MA",
+      "source": "off-market",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "closing",
+      "targetStrategy": "TBD",
+      "lawyer": "Jeff Fialky",
+      "agent": null,
+      "entity": "Flying Monkey LLC",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-08-13",
+        "summary": "Seller's counsel contacted; final closing items being compiled"
+      },
+      "notes": "Multi-tenant commercial/mixed-use. Waiting on estoppel, lease, and utility clearance from seller."
+    },
+    {
+      "address": "1361 Memorial Dr, Chicopee, MA",
+      "source": "off-market",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "closing",
+      "targetStrategy": "TBD",
+      "lawyer": "Jeff Fialky",
+      "agent": "Moe Waystar Property",
+      "entity": "Flying Monkey LLC / Blythewood Property (TIC)",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-08-10",
+        "summary": "Loan modification docs requested from lender; deed recording pending"
+      },
+      "notes": "TIC with Blythewood. Waiting on lender loan modification documents to proceed with recording."
     }
   ],
   "active": [
     {
-      "address": "456 Elm St, Chicopee, MA",
-      "entity": "House Hack Helpers LLC",
-      "purchasePrice": 175000,
-      "purchaseDate": "2026-06-15",
-      "renoBudget": 85000,
-      "renoSpent": 42000,
-      "contractor": "Mike's Construction",
-      "status": "in-rehab",
+      "address": "62 Maynard St, Springfield, MA 01109",
+      "entity": "Revive & Rise LLC",
+      "purchasePrice": 189249.40,
+      "purchaseDate": "2026-08-13",
+      "renoBudget": null,
+      "renoSpent": 0,
+      "contractor": null,
+      "status": "pre-rehab",
       "targetStrategy": "flip",
-      "estCompletion": "2026-10-01",
+      "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-16",
-        "summary": "Draw request $8,500 for electrical work"
+        "date": "2026-08-20",
+        "summary": "Post-closing issue: Springfield Water/Sewer bill $865.87 - foreclosure purchase, property subject to outstanding bills"
       },
-      "notes": "Full gut rehab, 3BR/2BA, on track"
+      "draws": [],
+      "notes": "Foreclosure purchase, 3-day closing. Closed 8/13/2026. Issue: Water bill from prior owner - determining liability as foreclosure purchase."
     }
   ],
   "archived": []
