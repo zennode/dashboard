@@ -1,114 +1,392 @@
 {
-  "lastUpdated": "2026-08-20T07:07:50-04:00",
+  "lastUpdated": "2026-08-21T11:08:56.715-04:00",
   "kpis": {
-    "newLeads24h": 3,
-    "newLeads30d": 204,
+    "newLeads24h": 6,
+    "newLeads30d": 208,
     "activeProspects": 11,
-    "lostLeads30d": 193,
+    "lostLeads30d": 197,
     "totalUnits": 289,
-    "contacted30d": 156,
-    "avgFirstContactHours": 9.74,
+    "contacted30d": 157,
+    "avgFirstContactHours": 9.69,
     "medianFirstContactHours": 0,
-    "leadsWithNoContactRecorded": 48
+    "leadsWithNoContactRecorded": 51
   },
   "responseTime": {
-    "avgHours": 9.74,
+    "avgHours": 9.69,
     "fastestHours": 0,
-    "fastestLeadName": "Katelynn Adams",
+    "fastestLeadName": "Oluchi Robinson",
     "slowestHours": 98.36,
     "slowestLeadName": "Nyssa Belvill",
-    "respondedCount": 156,
-    "unrespondedCount": 48,
-    "totalLeads": 204
+    "respondedCount": 157,
+    "unrespondedCount": 51,
+    "totalLeads": 208
   },
-  "volumeTrend": {},
+  "volumeTrend": {
+    "2026-07-22": 2,
+    "2026-07-24": 2,
+    "2026-07-25": 1,
+    "2026-07-27": 2,
+    "2026-07-28": 3,
+    "2026-07-29": 14,
+    "2026-07-30": 19,
+    "2026-07-31": 18,
+    "2026-08-01": 9,
+    "2026-08-02": 3,
+    "2026-08-03": 15,
+    "2026-08-04": 4,
+    "2026-08-05": 11,
+    "2026-08-06": 7,
+    "2026-08-07": 10,
+    "2026-08-08": 3,
+    "2026-08-09": 8,
+    "2026-08-10": 15,
+    "2026-08-11": 12,
+    "2026-08-12": 7,
+    "2026-08-13": 7,
+    "2026-08-14": 12,
+    "2026-08-15": 3,
+    "2026-08-16": 4,
+    "2026-08-17": 2,
+    "2026-08-18": 6,
+    "2026-08-19": 3,
+    "2026-08-20": 5,
+    "2026-08-21": 1
+  },
   "statusBreakdown": {
-    "Lost": 193,
+    "Lost": 197,
     "Prospect": 11
   },
   "leadsByProperty": {
     "YellowBrick Management, Inc": 91,
-    "24-28 Wilcox": 110,
+    "24-28 Wilcox": 114,
     "30-34 Shaker/37-39 Prospect": 2,
     "1-3 Stadler Street": 1
   },
   "newLeads24h": [
     {
-      "prospectId": 15909,
-      "name": "Paulina Adams",
-      "propertyName": "24-28 Wilcox",
-      "createDate": "2026-08-19T08:48:14",
+      "name": "Veronica Peralta",
+      "property": "24-28 Wilcox",
       "status": "Prospect",
-      "leasingAgentId": null
+      "createDate": "2026-08-20T09:16:00"
     },
     {
-      "prospectId": 15910,
-      "name": "Kyra Henry",
-      "propertyName": "24-28 Wilcox",
-      "createDate": "2026-08-19T12:15:21",
+      "name": "Jeanne Defond",
+      "property": "24-28 Wilcox",
       "status": "Prospect",
-      "leasingAgentId": null
+      "createDate": "2026-08-20T12:35:07"
     },
     {
-      "prospectId": 15913,
-      "name": "Ann Simard",
-      "propertyName": "YellowBrick Management, Inc",
-      "createDate": "2026-08-19T13:54:41",
-      "status": "Lost",
-      "leasingAgentId": null
+      "name": "shaunta Brace",
+      "property": "YellowBrick Management, Inc",
+      "status": "Prospect",
+      "createDate": "2026-08-20T13:19:13"
+    },
+    {
+      "name": "shaunta Brace",
+      "property": "24-28 Wilcox",
+      "status": "Prospect",
+      "createDate": "2026-08-20T16:11:43"
+    },
+    {
+      "name": "Marie-Ange Renaty Beaudinoit",
+      "property": "24-28 Wilcox",
+      "status": "Prospect",
+      "createDate": "2026-08-20T23:45:30"
+    },
+    {
+      "name": "Annette Diaz",
+      "property": "24-28 Wilcox",
+      "status": "Prospect",
+      "createDate": "2026-08-21T07:06:26"
     }
   ],
   "urgentQueue": [
-    {"prospectId": 15660, "name": "Petrina Hahn", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-21T16:40:54", "ageHours": 710.44},
-    {"prospectId": 15666, "name": "Amanda Crochetiere", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-24T22:09:09", "ageHours": 632.97},
-    {"prospectId": 15667, "name": "Jessely Navarro", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-25T10:21:21", "ageHours": 620.77},
-    {"prospectId": 15671, "name": "Kaevonna Marrow", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-28T10:02:42", "ageHours": 549.08},
-    {"prospectId": 15672, "name": "Jared cotto", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-28T13:09:50", "ageHours": 545.96},
-    {"prospectId": 15675, "name": "Myalynn Vega", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-29T10:55:42", "ageHours": 524.2},
-    {"prospectId": 15683, "name": "Jared Cotto", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-29T12:02:55", "ageHours": 523.08},
-    {"prospectId": 15696, "name": "Gavin Shawn Baker", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-30T08:16:35", "ageHours": 502.85},
-    {"prospectId": 15697, "name": "Janitza Sorto", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-30T09:25:55", "ageHours": 501.69},
-    {"prospectId": 15700, "name": "shane bethel", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-30T10:00:45", "ageHours": 501.11},
-    {"prospectId": 15711, "name": "Saunjee Singleton", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-30T14:37:15", "ageHours": 496.5},
-    {"prospectId": 15719, "name": "Preston Sharp", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-31T02:57:36", "ageHours": 484.16},
-    {"prospectId": 15743, "name": "Glenda Agron", "propertyName": "24-28 Wilcox", "createdDate": "2026-07-31T20:48:02", "ageHours": 466.32},
-    {"prospectId": 15766, "name": "Giana Morales", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-03T09:20:46", "ageHours": 405.78},
-    {"prospectId": 15770, "name": "Ryan Vandersmith", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-03T11:50:45", "ageHours": 403.28},
-    {"prospectId": 15790, "name": "Alayssa Vallina", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-05T10:36:37", "ageHours": 356.51},
-    {"prospectId": 15791, "name": "EMil Murphy", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-05T11:08:15", "ageHours": 355.99},
-    {"prospectId": 15793, "name": "Angela Osorio", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-05T11:36:02", "ageHours": 355.52},
-    {"prospectId": 15795, "name": "Kainalee M Rivera Rosa", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-05T13:02:59", "ageHours": 354.07},
-    {"prospectId": 15799, "name": "Chakeil Clayton", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-06T09:47:51", "ageHours": 333.33},
-    {"prospectId": 15816, "name": "ziehr davis", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-07T10:43:46", "ageHours": 308.39},
-    {"prospectId": 15822, "name": "Jovani Valdes", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-09T07:07:50", "ageHours": 263.99},
-    {"prospectId": 15824, "name": "Loudine Jacques", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-09T14:19:57", "ageHours": 256.79},
-    {"prospectId": 15825, "name": "Adrian Castaneda", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-09T16:45:52", "ageHours": 254.36},
-    {"prospectId": 15826, "name": "Priyana Rodriguez", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-09T17:43:37", "ageHours": 253.4},
-    {"prospectId": 15840, "name": "Adrian Castaneda", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-10T11:53:51", "ageHours": 235.23},
-    {"prospectId": 15842, "name": "Kisnet Lopez", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-10T12:36:00", "ageHours": 234.52},
-    {"prospectId": 15846, "name": "Jerome Brown", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-11T07:10:04", "ageHours": 215.96},
-    {"prospectId": 15848, "name": "Julianny Molinary", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-11T08:06:57", "ageHours": 215.01},
-    {"prospectId": 15860, "name": "Michaela Obrien", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-12T07:01:28", "ageHours": 192.1},
-    {"prospectId": 15873, "name": "Kersyana Santos", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-13T11:18:41", "ageHours": 163.81},
-    {"prospectId": 15875, "name": "Yulianna Lugo-Rodríguez", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-13T18:22:49", "ageHours": 156.74},
-    {"prospectId": 15878, "name": "Tayzha Baulkman", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-14T09:50:33", "ageHours": 141.28},
-    {"prospectId": 15880, "name": "Stephanie Vazquez", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-14T11:20:09", "ageHours": 139.79},
-    {"prospectId": 15882, "name": "Reynaldo Figueroa", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-14T14:32:37", "ageHours": 136.58},
-    {"prospectId": 15884, "name": "Lorin Fournier", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-14T17:41:19", "ageHours": 133.44},
-    {"prospectId": 15889, "name": "Tanya Davis", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-14T19:53:25", "ageHours": 131.23},
-    {"prospectId": 15890, "name": "Barbara Jimenez", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-15T10:17:58", "ageHours": 116.82},
-    {"prospectId": 15892, "name": "Chavone Gardner", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-15T11:36:01", "ageHours": 115.52},
-    {"prospectId": 15893, "name": "Neala Meade", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-15T14:08:44", "ageHours": 112.98},
-    {"prospectId": 15895, "name": "Victor Millan", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-16T11:11:06", "ageHours": 91.94},
-    {"prospectId": 15902, "name": "Frida Takem", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-18T10:46:40", "ageHours": 44.35},
-    {"prospectId": 15903, "name": "Kyra Henry", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-18T11:46:15", "ageHours": 43.35},
-    {"prospectId": 15904, "name": "patrick riggott", "propertyName": "1-3 Stadler Street", "createdDate": "2026-08-18T13:08:43", "ageHours": 41.98},
-    {"prospectId": 15905, "name": "Lorin Fournier", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-18T13:56:14", "ageHours": 41.19},
-    {"prospectId": 15908, "name": "Paulina Adams", "propertyName": "24-28 Wilcox", "createdDate": "2026-08-18T22:25:19", "ageHours": 32.7}
+    {
+      "name": "Amanda Crochetiere",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 657,
+      "createdDate": "2026-07-24T22:09:09"
+    },
+    {
+      "name": "Jessely Navarro",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 644.79,
+      "createdDate": "2026-07-25T10:21:21"
+    },
+    {
+      "name": "Kaevonna Marrow",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 573.1,
+      "createdDate": "2026-07-28T10:02:42"
+    },
+    {
+      "name": "Jared cotto",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 569.99,
+      "createdDate": "2026-07-28T13:09:50"
+    },
+    {
+      "name": "Myalynn Vega",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 548.22,
+      "createdDate": "2026-07-29T10:55:42"
+    },
+    {
+      "name": "Jared Cotto",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 547.1,
+      "createdDate": "2026-07-29T12:02:55"
+    },
+    {
+      "name": "Gavin Shawn Baker",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 526.87,
+      "createdDate": "2026-07-30T08:16:35"
+    },
+    {
+      "name": "Janitza Sorto",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 525.72,
+      "createdDate": "2026-07-30T09:25:55"
+    },
+    {
+      "name": "shane bethel",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 525.14,
+      "createdDate": "2026-07-30T10:00:45"
+    },
+    {
+      "name": "Saunjee Singleton",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 520.53,
+      "createdDate": "2026-07-30T14:37:15"
+    },
+    {
+      "name": "Preston Sharp",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 508.19,
+      "createdDate": "2026-07-31T02:57:36"
+    },
+    {
+      "name": "Glenda Agron",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 490.35,
+      "createdDate": "2026-07-31T20:48:02"
+    },
+    {
+      "name": "Giana Morales",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 429.8,
+      "createdDate": "2026-08-03T09:20:46"
+    },
+    {
+      "name": "Ryan Vandersmith",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 427.3,
+      "createdDate": "2026-08-03T11:50:45"
+    },
+    {
+      "name": "Alayssa Vallina",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 380.54,
+      "createdDate": "2026-08-05T10:36:37"
+    },
+    {
+      "name": "EMil Murphy",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 380.01,
+      "createdDate": "2026-08-05T11:08:15"
+    },
+    {
+      "name": "Angela Osorio",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 379.55,
+      "createdDate": "2026-08-05T11:36:02"
+    },
+    {
+      "name": "Kainalee M Rivera Rosa",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 378.1,
+      "createdDate": "2026-08-05T13:02:59"
+    },
+    {
+      "name": "Chakeil Clayton",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 357.35,
+      "createdDate": "2026-08-06T09:47:51"
+    },
+    {
+      "name": "ziehr davis",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 332.42,
+      "createdDate": "2026-08-07T10:43:46"
+    },
+    {
+      "name": "Jovani Valdes",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 288.02,
+      "createdDate": "2026-08-09T07:07:50"
+    },
+    {
+      "name": "Loudine Jacques",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 280.82,
+      "createdDate": "2026-08-09T14:19:57"
+    },
+    {
+      "name": "Adrian Castaneda",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 278.38,
+      "createdDate": "2026-08-09T16:45:52"
+    },
+    {
+      "name": "Priyana Rodriguez",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 277.42,
+      "createdDate": "2026-08-09T17:43:37"
+    },
+    {
+      "name": "Adrian Castaneda",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 259.25,
+      "createdDate": "2026-08-10T11:53:51"
+    },
+    {
+      "name": "Kisnet Lopez",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 258.55,
+      "createdDate": "2026-08-10T12:36:00"
+    },
+    {
+      "name": "Jerome Brown",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 239.98,
+      "createdDate": "2026-08-11T07:10:04"
+    },
+    {
+      "name": "Julianny Molinary",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 239.03,
+      "createdDate": "2026-08-11T08:06:57"
+    },
+    {
+      "name": "Michaela Obrien",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 216.12,
+      "createdDate": "2026-08-12T07:01:28"
+    },
+    {
+      "name": "Kersyana Santos",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 187.84,
+      "createdDate": "2026-08-13T11:18:41"
+    },
+    {
+      "name": "Yulianna Lugo-Rodríguez",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 180.77,
+      "createdDate": "2026-08-13T18:22:49"
+    },
+    {
+      "name": "Tayzha Baulkman",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 165.31,
+      "createdDate": "2026-08-14T09:50:33"
+    },
+    {
+      "name": "Stephanie Vazquez",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 163.81,
+      "createdDate": "2026-08-14T11:20:09"
+    },
+    {
+      "name": "Reynaldo Figueroa",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 160.61,
+      "createdDate": "2026-08-14T14:32:37"
+    },
+    {
+      "name": "Lorin Fournier",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 157.46,
+      "createdDate": "2026-08-14T17:41:19"
+    },
+    {
+      "name": "Tanya Davis",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 155.26,
+      "createdDate": "2026-08-14T19:53:25"
+    },
+    {
+      "name": "Barbara Jimenez",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 140.85,
+      "createdDate": "2026-08-15T10:17:58"
+    },
+    {
+      "name": "Chavone Gardner",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 139.55,
+      "createdDate": "2026-08-15T11:36:01"
+    },
+    {
+      "name": "Neala Meade",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 137,
+      "createdDate": "2026-08-15T14:08:44"
+    },
+    {
+      "name": "Victor Millan",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 115.96,
+      "createdDate": "2026-08-16T11:11:06"
+    },
+    {
+      "name": "Frida Takem",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 68.37,
+      "createdDate": "2026-08-18T10:46:40"
+    },
+    {
+      "name": "Kyra Henry",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 67.38,
+      "createdDate": "2026-08-18T11:46:15"
+    },
+    {
+      "name": "patrick riggott",
+      "property": "1-3 Stadler Street",
+      "hoursSinceCreated": 66,
+      "createdDate": "2026-08-18T13:08:43"
+    },
+    {
+      "name": "Lorin Fournier",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 65.21,
+      "createdDate": "2026-08-18T13:56:14"
+    },
+    {
+      "name": "Paulina Adams",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 56.73,
+      "createdDate": "2026-08-18T22:25:19"
+    },
+    {
+      "name": "Paulina Adams",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 46.35,
+      "createdDate": "2026-08-19T08:48:14"
+    },
+    {
+      "name": "Kyra Henry",
+      "property": "24-28 Wilcox",
+      "hoursSinceCreated": 42.89,
+      "createdDate": "2026-08-19T12:15:21"
+    }
   ],
   "vacancy": {
-    "totalUnits": 289,
-    "occupiedUnits": 260,
+    "totalRentableUnits": 289,
+    "occupiedUnits": 254,
     "vacantUnits": 35,
     "vacancyRatePct": 12.1,
     "vacantByProperty": {
@@ -141,8 +419,9 @@
     }
   },
   "notes": {
-    "volumeTrend": "Not computed - requires historical daily snapshots not available from a single API pull.",
-    "contactHistoryEndpoint": "Rent Manager API has no /ContactHistory endpoint; response times computed from Prospects.FirstContact minus Prospects.CreateDate.",
-    "urgentQueueNote": "urgentQueue lists all 46 unresponded leads (>24h) sorted oldest-first; email includes only the oldest 15 for readability."
+    "dataSource": "Rent Manager API - Prospects, Properties, Units, Tenants, Leases",
+    "responseTimeMethod": "Computed from Prospect.FirstContact minus Prospect.CreateDate fields",
+    "vacancyMethod": "Cross-referenced current tenants' leases against rentable units; excludes INACT units and BIR-prefix properties",
+    "urgentQueueDefinition": "Prospects with no FirstContact date recorded, created more than 24 hours ago"
   }
 }
