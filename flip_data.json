@@ -1,5 +1,16 @@
 {
-  "lastUpdated": "2026-08-22T11:38:03.633Z",
+  "lastUpdated": "2026-08-22T00:00:00-04:00",
+  "scanWindow": {
+    "type": "catch-up",
+    "note": "Schema migration to pipeline/active/archived. 30-day Gmail rescan. Covers missed Friday Aug 21 6PM run (period since last successful run Aug 20 6PM).",
+    "from": "2026-07-23",
+    "to": "2026-08-22"
+  },
+  "summary": {
+    "pipeline": 8,
+    "active": 16,
+    "archived": 1
+  },
   "pipeline": [
     {
       "address": "8 Longview Rd, Enfield, CT",
@@ -8,15 +19,15 @@
       "offerAmount": null,
       "status": "closing",
       "targetStrategy": "TBD",
+      "entity": "Flying Monkey LLC",
       "lawyer": "Vitaliy Yusenko",
       "agent": "Nick Bencivengo (Naples Group)",
-      "entity": "Flying Monkey LLC",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-20",
-        "summary": "Water and utility issues being resolved; deed correction and insurance documentation pending"
+        "date": "2026-08-12",
+        "summary": "Yusenko requesting EIN for CT conveyance tax form; draft deed incorrect (wrong Flying Monkey LLC in CT); insurance update still pending"
       },
-      "notes": "JV with Pete Houser. Closing pending deed correction and insurance. Water dept coordination in progress."
+      "notes": "Flying Monkey LLC is not registered in CT — deed/entity issue to resolve before closing."
     },
     {
       "address": "59 King Spring Rd, Windsor Locks, CT",
@@ -25,91 +36,305 @@
       "offerAmount": null,
       "status": "under-contract",
       "targetStrategy": "TBD",
+      "entity": "Flying Monkey LLC / Yellow Brick Property (TIC with Blythewood)",
       "lawyer": "Jeff Fialky",
-      "agent": null,
-      "entity": "Flying Monkey LLC",
+      "agent": "Sentry Commercial (Murdock)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-13",
-        "summary": "P&S Agreement signed; undergoing due diligence"
+        "date": "2026-08-20",
+        "summary": "Pete Houser pressing Greenfield Savings for a term sheet — needs to close within ~30 days. Appraisal on hold until P&S is signed."
       },
-      "notes": ""
+      "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod."
     },
     {
-      "address": "25 Downing Three, Pittsfield, MA",
+      "address": "Pappy - Plymouth Property",
       "source": "off-market",
       "askingPrice": null,
       "offerAmount": null,
-      "status": "closing",
+      "status": "under-contract",
       "targetStrategy": "TBD",
-      "lawyer": "David Burstein",
-      "agent": null,
-      "entity": "Wicked Deals LLC",
+      "entity": null,
+      "lawyer": null,
+      "agent": "Lisa Kelley (Cummings & Co.)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-13",
-        "summary": "Closing coordination underway"
+        "date": "2026-08-16",
+        "summary": "New addendum to Purchase and Sale Contract shared via dotloop for review"
       },
-      "notes": ""
+      "notes": "P&S, appraisal gap addendum, inspection contingency and attorney review clause all signed Jul 26."
+    },
+    {
+      "address": "159 Main St (Cooper's Commons), Agawam, MA 01001",
+      "source": "MLS",
+      "askingPrice": 1525000,
+      "offerAmount": 1400000,
+      "status": "offered",
+      "targetStrategy": "buy-and-hold",
+      "entity": null,
+      "lawyer": null,
+      "agent": "Jeremy Casey / Daniel Lavitman (SR Commercial Realty)",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-08-08",
+        "summary": "Offer to Purchase signed via dotloop (version 2)"
+      },
+      "notes": "Structure discussion: $1.4M with 20% seller second at 4%, 20-yr am / 7-yr term. Seller not open to more than 10–20% seller financing. Seller handles oil tank removal."
+    },
+    {
+      "address": "25 Downing St / 3 Park St, Pittsfield, MA",
+      "source": "off-market",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "under-contract",
+      "targetStrategy": "TBD",
+      "entity": null,
+      "lawyer": "Jeff Fialky",
+      "agent": "BC Realty",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-08-14",
+        "summary": "DocuSign proposal completed — all parties signed (Pete Houser, Matt)"
+      },
+      "notes": "$30,000 repair credit requested. Fialky had a call with seller's counsel emphasizing urgency to close and outstanding deliverables."
     },
     {
       "address": "1361 Memorial Dr, Chicopee, MA",
       "source": "off-market",
       "askingPrice": null,
       "offerAmount": null,
-      "status": "closing",
+      "status": "under-contract",
       "targetStrategy": "TBD",
-      "lawyer": null,
+      "entity": "Flying Monkey LLC (TIC)",
+      "lawyer": "Jeff Fialky",
       "agent": null,
-      "entity": null,
       "keyDates": {},
       "lastActivity": {
         "date": "2026-08-10",
-        "summary": "Closing documents being prepared"
+        "summary": "Waiting on loan modification documents from the lender before the new deed can be recorded; Jeremy Procon traveling, response may be delayed"
       },
-      "notes": ""
+      "notes": "TIC structure — Flying Monkey LLC holds half. Moe Burhan (Waystar) chasing lender docs."
     },
     {
-      "address": "2140 Palmer Rd, Palmer, MA 01069",
-      "source": "MLS",
+      "address": "37 Prospect St, East Longmeadow, MA",
+      "source": "off-market",
       "askingPrice": null,
       "offerAmount": null,
       "status": "offered",
       "targetStrategy": "TBD",
-      "lawyer": null,
-      "agent": "Alice Kempf",
       "entity": null,
+      "lawyer": null,
+      "agent": "Zaisha Robert (SR Commercial Realty)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-21",
-        "summary": "Offer signed via DotLoop"
+        "date": "2026-08-10",
+        "summary": "Executed LOI; lease draft nearly complete — SR Commercial following up on timing"
       },
-      "notes": ""
+      "notes": "LOI signed by all parties Jul 30. Jess has the keys."
     },
     {
-      "address": "83 Rolf Ave, Chicopee, MA 01020-1227",
-      "source": "MLS",
+      "address": "939 East Columbus Ave, Springfield, MA",
+      "source": "off-market",
       "askingPrice": null,
       "offerAmount": null,
-      "status": "offered",
+      "status": "under-contract",
       "targetStrategy": "TBD",
-      "lawyer": null,
-      "agent": "Alice Kempf",
       "entity": null,
+      "lawyer": null,
+      "agent": "Daniel Lavitman (SR Commercial Realty)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-21",
-        "summary": "Offer signed via DotLoop"
+        "date": "2026-07-30",
+        "summary": "07.27.2026 Extension signed via dotloop"
       },
       "notes": ""
     }
   ],
   "active": [
     {
-      "address": "62 Maynard St, Springfield, MA 01109",
+      "address": "2140 Palmer Rd, Palmer, MA 01069",
       "entity": null,
       "purchasePrice": null,
       "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "under-contract",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-08-21",
+        "summary": "NEW OFFER — Contract to Purchase Real Estate (Offer) (5) signed via dotloop with Alice Kempf. Back under contract."
+      },
+      "draws": [],
+      "notes": "Prior buyer backed out Aug 5 (Release from Contract signed); inspection flagged hazard items. Relisted and re-offered within 16 days. Agent: Alice Kempf (Kempf-Vanderburgh)."
+    },
+    {
+      "address": "83 Rolf Ave, Chicopee, MA 01020",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "under-contract",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-08-21",
+        "summary": "NEW OFFER — offer signed via dotloop with Alice Kempf. Moves from listed to under contract."
+      },
+      "draws": [],
+      "notes": "Agent: Alice Kempf (Kempf-Vanderburgh). First activity on this property since tracking began."
+    },
+    {
+      "address": "283 Fuller Rd Unit K, Chicopee, MA",
+      "entity": "House Hack Helpers LLC",
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "listed",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-08-17",
+        "summary": "Open house a little slow — a couple of interested parties showed up, nothing more yet (Alice Kempf)"
+      },
+      "draws": [],
+      "notes": "Listing package signed Aug 14: CON DUAL DESIGNATED Exclusive Right to Sell, Mass Inspection Disclosure, Licensee-Consumer Relationship Disclosure, Buyer Broker Compensation Authorization, Deferral of Showings."
+    },
+    {
+      "address": "1 Richmond Ln, Adams, MA",
+      "entity": "House Hack Helpers LLC",
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "listed",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-08-08",
+        "summary": "Listing updated to note a hardpack area will be added; showings blocked while work is done"
+      },
+      "draws": [],
+      "notes": "Agent: Alice Kempf / Tracy M (Kempf-Vanderburgh)."
+    },
+    {
+      "address": "42 Washington St, Monson, MA",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "listed",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": null,
+      "draws": [],
+      "notes": "No email activity in the scan window."
+    },
+    {
+      "address": "79 Pleasant St, Ware, MA 01081",
+      "entity": "Yellow Brick Property LLC",
+      "purchasePrice": null,
+      "purchaseDate": "2026-07-23",
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "under-contract",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-08-17",
+        "summary": "Appraisal returned to Freedom Credit Union for Dave Chase's review; buyer's counsel needs at least one extra week to close"
+      },
+      "draws": [],
+      "notes": "Acquired via foreclosure deed recorded Jul 23 (Yellowbrick Property LLC). Now under agreement to sell to Mancia Services LLC at $150k with seller financing carried by Ruby Lending LLC ($135k, 12%, 1 yr, 3 pts). Closing was targeted 8/20, slipping. Buyer's attorney: Donna Wexler."
+    },
+    {
+      "address": "167 E Park Terrace, Pittsfield, MA",
+      "entity": "House Hack Helpers LLC",
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": "Premiere Home Solutions",
+      "status": "in-rehab",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-08-06",
+        "summary": "Pittsfield inspection request submitted"
+      },
+      "draws": [
+        {
+          "date": "2026-07-29",
+          "amount": 5500,
+          "note": "Kitchen and cabinets installed; granite next (Ruben); kitchen doorway expanded and trimmed"
+        }
+      ],
+      "notes": "Antonio (Investarters) walking the site on draw verification."
+    },
+    {
+      "address": "19 Draper Ave, Pittsfield, MA",
+      "entity": "Yellow Brick Property LLC",
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": "Premiere Home Solutions",
+      "status": "in-rehab",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-08-06",
+        "summary": "Pittsfield inspection request sent; insurance policy added"
+      },
+      "draws": [],
+      "notes": ""
+    },
+    {
+      "address": "412 St James Ave, Springfield, MA",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "in-rehab",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": null,
+      "draws": [],
+      "notes": "No email activity in the scan window."
+    },
+    {
+      "address": "166 East St, Stafford Springs, CT",
+      "entity": "Yellow Brick Property LLC",
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "in-rehab",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-08-21",
+        "summary": "Authentisign signature request received — Rosario LaBella (Coldwell Banker Realty) inviting Yellow Brick Property LLC to sign documents for 166 East Street"
+      },
+      "draws": [],
+      "notes": "Signature request suggests listing or transaction paperwork is being prepared — confirm document type."
+    },
+    {
+      "address": "62 Maynard St, Springfield, MA 01109",
+      "entity": "Revive and Rise LLC",
+      "purchasePrice": 144806.40,
+      "purchaseDate": "2026-08-13",
       "renoBudget": null,
       "renoSpent": null,
       "contractor": null,
@@ -117,12 +342,105 @@
       "targetStrategy": "TBD",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-20",
-        "summary": "Recently acquired, rehab planning in progress"
+        "date": "2026-08-21",
+        "summary": "Deed sent to Springfield Water & Sewer to transfer the account to Revive and Rise; Jocelyn asked Michelle/Chris to call and pay the $865.87 outstanding water balance"
       },
       "draws": [],
-      "notes": ""
+      "notes": "Foreclosure purchase closed Aug 13 — property taken subject to outstanding municipal charges, so the $865.87 water bill is the buyer's. MassHealth title issue was cleared pre-closing. JV with Russell Cable. Lawyer: David Burstein. Closing paperwork circulated Aug 18."
+    },
+    {
+      "address": "1679 Lapaloma St, Memphis, TN",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "pre-rehab",
+      "targetStrategy": "buy-and-hold",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-08-06",
+        "summary": "Purchase agreement completed via DocuSign with Mid South Home Buyers"
+      },
+      "draws": [],
+      "notes": "Turnkey acquisition through Mid South Home Buyers."
+    },
+    {
+      "address": "205 Old Stage Rd, Hatfield, MA",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "pre-rehab",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-08-21",
+        "summary": "Title 5 voluntary septic inspection bill received from Adam Edwards; Matt forwarded to Chris and Michelle to pay"
+      },
+      "draws": [],
+      "notes": "Title 5 inspection is a septic compliance step — result will drive whether septic work belongs in the scope."
+    },
+    {
+      "address": "65 Avondale Rd, Springfield, MA",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "pre-rehab",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": null,
+      "draws": [],
+      "notes": "No email activity in the scan window."
+    },
+    {
+      "address": "50 Potash Hill Rd, Cummington, MA",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "pre-rehab",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": null,
+      "draws": [],
+      "notes": "No email activity in the scan window."
+    },
+    {
+      "address": "53.5 Orchard St, Pittsfield, MA",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "pre-rehab",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": null,
+      "draws": [],
+      "notes": "No email activity in the scan window."
     }
   ],
-  "archived": []
+  "archived": [
+    {
+      "address": "96 Shore Rd, Becket, MA 01223",
+      "entity": "Revive and Rise LLC",
+      "status": "sold",
+      "soldDate": "2026-08-07",
+      "lastActivity": {
+        "date": "2026-08-08",
+        "summary": "Sale completed Aug 7; Burstein circulated closing documents. Expense accounting with Russ and Russ Cable still open before checks are cut."
+      },
+      "notes": "JV with Russell Cable. Realized profit not yet tallied — pending expense receipts."
+    }
+  ]
 }
