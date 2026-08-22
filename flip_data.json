@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-20T22:00:00Z",
+  "lastUpdated": "2026-08-22T11:38:03.633Z",
   "pipeline": [
     {
       "address": "8 Longview Rd, Enfield, CT",
@@ -27,13 +27,13 @@
       "targetStrategy": "TBD",
       "lawyer": "Jeff Fialky",
       "agent": null,
-      "entity": "Flying Monkey LLC / Yellow Brick Property (TIC)",
+      "entity": "Flying Monkey LLC",
       "keyDates": {},
       "lastActivity": {
         "date": "2026-08-13",
-        "summary": "P&S redlines exchanged; appraisal being scheduled"
+        "summary": "P&S Agreement signed; undergoing due diligence"
       },
-      "notes": "Tenant-in-common with Blythewood. Appraisal site visit arranged. Due diligence ongoing."
+      "notes": ""
     },
     {
       "address": "25 Downing Three, Pittsfield, MA",
@@ -42,15 +42,15 @@
       "offerAmount": null,
       "status": "closing",
       "targetStrategy": "TBD",
-      "lawyer": "Jeff Fialky",
+      "lawyer": "David Burstein",
       "agent": null,
-      "entity": "Flying Monkey LLC",
+      "entity": "Wicked Deals LLC",
       "keyDates": {},
       "lastActivity": {
         "date": "2026-08-13",
-        "summary": "Seller's counsel contacted; final closing items being compiled"
+        "summary": "Closing coordination underway"
       },
-      "notes": "Multi-tenant commercial/mixed-use. Waiting on estoppel, lease, and utility clearance from seller."
+      "notes": ""
     },
     {
       "address": "1361 Memorial Dr, Chicopee, MA",
@@ -59,35 +59,69 @@
       "offerAmount": null,
       "status": "closing",
       "targetStrategy": "TBD",
-      "lawyer": "Jeff Fialky",
-      "agent": "Moe Waystar Property",
-      "entity": "Flying Monkey LLC / Blythewood Property (TIC)",
+      "lawyer": null,
+      "agent": null,
+      "entity": null,
       "keyDates": {},
       "lastActivity": {
         "date": "2026-08-10",
-        "summary": "Loan modification docs requested from lender; deed recording pending"
+        "summary": "Closing documents being prepared"
       },
-      "notes": "TIC with Blythewood. Waiting on lender loan modification documents to proceed with recording."
+      "notes": ""
+    },
+    {
+      "address": "2140 Palmer Rd, Palmer, MA 01069",
+      "source": "MLS",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "offered",
+      "targetStrategy": "TBD",
+      "lawyer": null,
+      "agent": "Alice Kempf",
+      "entity": null,
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-08-21",
+        "summary": "Offer signed via DotLoop"
+      },
+      "notes": ""
+    },
+    {
+      "address": "83 Rolf Ave, Chicopee, MA 01020-1227",
+      "source": "MLS",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "offered",
+      "targetStrategy": "TBD",
+      "lawyer": null,
+      "agent": "Alice Kempf",
+      "entity": null,
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-08-21",
+        "summary": "Offer signed via DotLoop"
+      },
+      "notes": ""
     }
   ],
   "active": [
     {
       "address": "62 Maynard St, Springfield, MA 01109",
-      "entity": "Revive & Rise LLC",
-      "purchasePrice": 189249.40,
-      "purchaseDate": "2026-08-13",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
       "renoBudget": null,
-      "renoSpent": 0,
+      "renoSpent": null,
       "contractor": null,
       "status": "pre-rehab",
-      "targetStrategy": "flip",
+      "targetStrategy": "TBD",
       "estCompletion": null,
       "lastActivity": {
         "date": "2026-08-20",
-        "summary": "Post-closing issue: Springfield Water/Sewer bill $865.87 - foreclosure purchase, property subject to outstanding bills"
+        "summary": "Recently acquired, rehab planning in progress"
       },
       "draws": [],
-      "notes": "Foreclosure purchase, 3-day closing. Closed 8/13/2026. Issue: Water bill from prior owner - determining liability as foreclosure purchase."
+      "notes": ""
     }
   ],
   "archived": []
