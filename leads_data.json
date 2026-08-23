@@ -1,32 +1,25 @@
 {
-  "lastUpdated": "2026-08-22T07:41:34-04:00",
+  "lastUpdated": "2026-08-23T07:08:38-04:00",
   "kpis": {
-    "newLeads24h": 2,
-    "newLeads30d": 208,
-    "activeProspects": 6,
+    "newLeads24h": 1,
+    "newLeads30d": 209,
+    "activeProspects": 8,
     "lostLeads30d": 201,
     "totalUnits": 289,
-    "contacted30d": 158,
-    "avgFirstContactHours": 9.84,
-    "medianFirstContactHours": 0,
-    "leadsWithNoContactRecorded": 50
+    "contacted30d": 117,
+    "avgFirstContactHours": 24.19,
+    "medianFirstContactHours": 17.32,
+    "leadsWithNoContactRecorded": 92
   },
   "responseTime": {
-    "avgHours": 9.84,
-    "fastestHours": 0,
-    "fastestLeadName": "Ayrianis Torres",
-    "slowestHours": 98.37,
-    "slowestLeadName": "Nyssa Belvill",
-    "respondedCount": 158,
-    "unrespondedCount": 50,
-    "totalLeads": 208,
-    "measurableGapOnly": {
-      "count": 66,
-      "avgHours": 23.57,
-      "medianHours": 16.03,
-      "fastestHours": 0.27,
-      "slowestHours": 98.37
-    }
+    "avgHours": 24.19,
+    "fastestHours": 0.02,
+    "fastestLeadName": "Sinem Karaarslan",
+    "slowestHours": 103.31,
+    "slowestLeadName": "Raven Walker",
+    "respondedCount": 117,
+    "unrespondedCount": 92,
+    "totalLeads": 209
   },
   "volumeTrend": {
     "2026-07-24": 2,
@@ -56,58 +49,54 @@
     "2026-08-18": 6,
     "2026-08-19": 3,
     "2026-08-20": 5,
-    "2026-08-21": 3
+    "2026-08-21": 3,
+    "2026-08-22": 1
   },
   "statusBreakdown": {
     "Lost": 201,
-    "Prospect": 6,
-    "Customer": 1
+    "Customer": 1,
+    "Prospect": 7
   },
   "leadsByProperty": {
-    "24-28 Wilcox": 115,
     "YellowBrick Management, Inc": 89,
+    "24-28 Wilcox": 116,
     "30-34 Shaker/37-39 Prospect": 2,
     "Terrence St 48-50 ": 1,
     "1-3 Stadler Street": 1
   },
   "newLeads24h": [
     {
-      "prospectId": 15923,
-      "name": "Tanya Davis",
+      "prospectId": 15925,
+      "name": "Sam Strycharz",
       "property": "24-28 Wilcox",
-      "created": "2026-08-21T10:44:33",
-      "status": "Lost",
-      "firstContact": null,
+      "status": "Prospect",
+      "createdDate": "2026-08-22T12:56:18",
       "responded": false
-    },
+    }
+  ],
+  "urgentQueue": [
     {
       "prospectId": 15924,
       "name": "Jacqueline  Gomez",
       "property": "24-28 Wilcox",
-      "created": "2026-08-21T11:24:20",
       "status": "Prospect",
-      "firstContact": null,
-      "responded": false
+      "createdDate": "2026-08-21T11:24:20",
+      "ageHours": 43.7
     }
   ],
-  "urgentQueue": [],
   "vacancy": {
     "totalRentableUnits": 289,
-    "occupiedUnits": 261,
+    "occupiedUnits": 255,
     "vacantUnits": 34,
     "vacancyRatePct": 11.8,
     "vacantByProperty": {
-      "1-3 Stadler Street": 4,
-      "50-54 Orchard": 3,
-      "214-218 Exchange St/52 Cabot Street": 2,
-      "Union St 741-745 ": 2,
-      "800 College Highway": 2,
-      "Northwestern 3": 2,
       "Loring St 30-32 ": 1,
       "Berkshire Ave 1237-1239": 1,
+      "50-54 Orchard": 3,
       "30-34 Shaker/37-39 Prospect": 1,
       "226-230 Sargeant Street": 1,
       "60 Shaker Road": 1,
+      "214-218 Exchange St/52 Cabot Street": 2,
       "Marlborough 89-91 ": 1,
       "Avondale 65": 1,
       "Marble 21": 1,
@@ -115,9 +104,13 @@
       "East St 24-30": 1,
       "Hampden 291-293": 1,
       "St. James Ave 83 ": 1,
+      "Union St 741-745 ": 2,
       "Wilbraham RD 257 ": 1,
       "Loring St 31 ": 1,
+      "800 College Highway": 2,
       "Third Street 64-68": 1,
+      "1-3 Stadler Street": 4,
+      "Northwestern 3": 2,
       "83 Rolf Ave ": 1,
       "171 Methuen": 1,
       "55 White Ave": 1,
@@ -125,10 +118,11 @@
     }
   },
   "notes": {
-    "contactHistorySource": "The ContactHistory endpoint does not exist on this tenant and the History resource contains no Prospect entities. First-contact times were derived from the Prospects resource FirstContact field measured against CreateDate.",
-    "clampedResponses": "92 of the 158 contacted leads show FirstContact at or before CreateDate and were clamped to 0h. Excluding those, the measurable first-contact gap across 66 leads averages 23.57h with a 16.03h median.",
-    "urgentQueue": "Defined as leads with no contact recorded, older than 24h, and not already marked Lost. 49 of the 50 leads with no contact recorded are already Lost; the one remaining open lead is under 24h old.",
-    "vacancyMethod": "Rentable units exclude INACT units and BIR-prefix construction placeholder properties. Occupancy derived from current tenants latest lease by MoveInDate.",
-    "unavailableFields": "InterestLevel is populated on only 2 of 208 leads and LeadSourceID is largely absent, so lead-source and interest-level breakdowns are omitted."
+    "dataSource": "Rent Manager API (yellow.api.rentmanager.com), pulled live",
+    "firstContactDefinition": "Earliest prospect History entry of type Call, Email, or Note at/after prospect CreateDate. System-generated entries excluded.",
+    "contactHistoryEndpoint": "/ContactHistory returned 404; used /Prospects/{id}/History instead.",
+    "unavailableFields": "LeadSourceID and InterestLevel are not returned on filtered /Prospects queries, so lead-source attribution is omitted.",
+    "vacancyMethod": "Rentable units = active non-BIR properties, excluding INACT (UnitStatusTypeID=1). Occupancy derived from latest lease per Current tenant.",
+    "methodChange": "Response times now measured from prospect History outreach entries rather than the Prospects.FirstContact field, which is auto-stamped at creation and yielded near-zero times."
   }
 }
