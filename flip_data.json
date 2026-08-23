@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-08-22T00:00:00-04:00",
+  "lastUpdated": "2026-08-23T21:30:00-04:00",
   "scanWindow": {
     "type": "catch-up",
     "note": "Schema migration to pipeline/active/archived. 30-day Gmail rescan. Covers missed Friday Aug 21 6PM run (period since last successful run Aug 20 6PM).",
     "from": "2026-07-23",
-    "to": "2026-08-22"
+    "to": "2026-08-23"
   },
   "summary": {
     "pipeline": 8,
@@ -58,8 +58,8 @@
       "agent": "Lisa Kelley (Cummings & Co.)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-16",
-        "summary": "New addendum to Purchase and Sale Contract shared via dotloop for review"
+        "date": "2026-08-23",
+        "summary": "Inspection response from Rob Stubbins Electrical: electrical work estimate ~$1500 (GFI/AFCI breakers, conditional on service upgrade)"
       },
       "notes": "P&S, appraisal gap addendum, inspection contingency and attorney review clause all signed Jul 26."
     },
@@ -333,7 +333,7 @@
     {
       "address": "62 Maynard St, Springfield, MA 01109",
       "entity": "Revive and Rise LLC",
-      "purchasePrice": 144806.40,
+      "purchasePrice": 144806.4,
       "purchaseDate": "2026-08-13",
       "renoBudget": null,
       "renoSpent": null,
