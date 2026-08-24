@@ -1745,7 +1745,7 @@ const tabRenderers = { 'social-media': function(){ safeRenderSocialMedia(); } };
         problems.push(k + ': ' + stt);
       }
     });
-    SM_MISSING.forEach(function(m){ problems.push(m); });
+    SM_MISSING.forEach(function(m){ if (problems.indexOf(m) === -1) problems.push(m); });
 
     var html = '<div style="border:1px solid ' + tone + ';border-left:4px solid ' + tone +
       ';background:rgba(255,255,255,0.03);border-radius:6px;padding:0.75rem 1rem;margin:0 0 1rem 0;">' +
