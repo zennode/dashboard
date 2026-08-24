@@ -804,33 +804,17 @@ tr.prop-row.bottom td:nth-child(5){color:var(--red);font-weight:700}
 
 
   <section id="panel-social-media" class="tab-panel" role="tabpanel">
+<div id="sm-data-health"></div>
     <h2 class="section-title">Platform Overview</h2>
-    <div class="kpi-grid" id="sm-kpi-grid">
-      <div class="kpi"><div class="label">TikTok Followers</div><div class="value" style="color:var(--gold)">891,000</div><div class="meta">7.3M likes</div></div>
-      <div class="kpi"><div class="label">Facebook Followers</div><div class="value" style="color:var(--blue)">207,000</div><div class="meta">Verified Page</div></div>
-      <div class="kpi"><div class="label">Instagram Followers</div><div class="value" style="color:var(--purple,#c084fc)">201,000</div><div class="meta">2,211 posts</div></div>
-      <div class="kpi"><div class="label">YouTube (Main)</div><div class="value" style="color:var(--red)">132,000</div><div class="meta">1,700 videos &middot; $54/mo est.</div></div>
-      <div class="kpi"><div class="label">YouTube (Auction Masters)</div><div class="value" style="color:var(--red)">811</div><div class="meta">45 videos &middot; Not monetized</div></div>
-      <div class="kpi"><div class="label">X / Twitter</div><div class="value" style="color:#1da1f2">5,780</div><div class="meta">@2GuysTake &middot; 4,812 posts</div></div>
-<div class="kpi"><div class="label">Total Cross-Platform</div><div class="value" style="color:var(--green)">1.44M</div><div class="meta">Combined followers/subscribers</div></div>
-    </div>
+    <div class="kpi-grid" id="sm-kpi-grid"><!-- painted by renderSocialMedia() from social_media_data.json --></div>
 
     <h2 class="section-title" style="margin-top:2rem;">YouTube: Two Guys Take on Real Estate</h2>
-    <div class="kpi-grid">
-      <div class="kpi"><div class="label">Subscribers</div><div class="value">132K</div></div>
-      <div class="kpi"><div class="label">7-Day Views</div><div class="value" style="color:var(--green)">+64,118</div><div class="meta">+25.66%</div></div>
-      <div class="kpi"><div class="label">Est. Monthly Revenue</div><div class="value" style="color:var(--gold)">$54</div></div>
-      <div class="kpi"><div class="label">Total Videos</div><div class="value">1,700</div><div class="meta">Avg 2.2 min &middot; ~7/week</div></div>
-    </div>
+    <div class="kpi-grid" id="sm-main-kpi-grid"><!-- painted by renderSocialMedia() --></div>
     <div class="card" style="margin-top:1rem;"><h3 style="color:var(--text);margin:0 0 1rem 0;font-size:1rem;">Recent Videos</h3><div class="table-wrap"><table><thead><tr><th>Title</th><th>Views</th><th>Age</th><th>Duration</th></tr></thead><tbody id="sm-main-recent-tbody"></tbody></table></div></div>
     <div class="card" style="margin-top:1rem;"><h3 style="color:var(--text);margin:0 0 1rem 0;font-size:1rem;">Top Performing Videos (All Time)</h3><div class="table-wrap"><table><thead><tr><th>Title</th><th>Views</th><th>Age</th><th>Duration</th></tr></thead><tbody id="sm-main-popular-tbody"></tbody></table></div></div>
 
     <h2 class="section-title" style="margin-top:2rem;">YouTube: Auction House Masters</h2>
-    <div class="kpi-grid">
-      <div class="kpi"><div class="label">Subscribers</div><div class="value">811</div><div class="meta">189 away from monetization</div></div>
-      <div class="kpi"><div class="label">Total Videos</div><div class="value">45</div></div>
-      <div class="kpi"><div class="label">Monetization Status</div><div class="value" style="color:var(--amber)">Not Eligible</div><div class="meta">Need 1K subs + 4K watch hrs</div></div>
-    </div>
+    <div class="kpi-grid" id="sm-second-kpi-grid"><!-- painted by renderSocialMedia() --></div>
     <div class="card" style="margin-top:1rem;"><h3 style="color:var(--text);margin:0 0 1rem 0;font-size:1rem;">Recent Videos</h3><div class="table-wrap"><table><thead><tr><th>Title</th><th>Views</th><th>Age</th><th>Duration</th></tr></thead><tbody id="sm-second-recent-tbody"></tbody></table></div></div>
 
     
@@ -1644,51 +1628,279 @@ $("#law-filters").addEventListener("click", e => {
 const TABS = ["leads","portfolio","flips","law-tax","workorders", 'social-media','utilities'];
 const chartBuilders = { leads: buildLeadsCharts, portfolio: buildPortfolioCharts, flips: buildFlipCharts, workorders: loadWorkOrders ,
     'social-media': buildSocialMediaCharts};
+/* Audit fix 2026-08-24: chartBuilders only lazy-builds CHARTS, and only once.
+   Panel content needs re-rendering on every tab activation, otherwise the cards
+   keep whatever was painted before social_media_data.json finished loading. */
+const tabRenderers = { 'social-media': function(){ safeRenderSocialMedia(); } };
 
+
+  /* ===================================================================
+     SOCIAL MEDIA RENDERING — rebuilt 2026-08-24 (dashboard audit)
+     Every stat card on this tab is now painted from window.SOCIAL_MEDIA_DATA,
+     i.e. from the fetched social_media_data.json. Nothing on this tab is
+     hard-coded any more.
+     Missing / null fields render as an em dash and are itemised in the
+     data-health banner at the top of the tab, together with the JSON's own
+     lastUpdated timestamp and its age, so a stale or partial data file is
+     obvious at a glance instead of silently showing last month's numbers.
+     =================================================================== */
+
+  var SM_MISSING = [];
+
+  function smEsc(v){
+    return String(v === null || v === undefined ? '' : v)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  /* Accepts 133000, "133000", "133,000", "133k", "133K", "3.2M", "$54", "25.66%".
+     Returns null for anything it cannot read as a number — never a guess. */
+  function smNum(v){
+    if (v === null || v === undefined || v === '') return null;
+    if (typeof v === 'number') return isFinite(v) ? v : null;
+    var t = String(v).trim().replace(/[,$\s]/g, '').replace(/%$/, '');
+    var m = t.match(/^([+-]?\d+(?:\.\d+)?)([kKmMbB])?$/);
+    if (!m) return null;
+    var n = parseFloat(m[1]), suf = (m[2] || '').toLowerCase();
+    if (suf === 'k') n *= 1e3; else if (suf === 'm') n *= 1e6; else if (suf === 'b') n *= 1e9;
+    return n;
+  }
+  var SM_DASH = '—';
+  function smFmt(v){ var n = smNum(v); return n === null ? SM_DASH : Math.round(n).toLocaleString(); }
+  function smCompact(v){
+    var n = smNum(v);
+    if (n === null) return SM_DASH;
+    if (n >= 1e6) return (n / 1e6).toFixed(2).replace(/\.?0+$/, '') + 'M';
+    if (n >= 1e3) return (n / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
+    return String(Math.round(n));
+  }
+  function smMoney(v){ var n = smNum(v); return n === null ? SM_DASH : '$' + Math.round(n).toLocaleString(); }
+  function smPct(v){ var n = smNum(v); return n === null ? SM_DASH : (n > 0 ? '+' : '') + n.toFixed(2) + '%'; }
+  function smDelta(v){ var n = smNum(v); return n === null ? SM_DASH : (n > 0 ? '+' : '') + Math.round(n).toLocaleString(); }
+
+  /* Read a field and record WHY it is unavailable, rather than throwing or
+     silently rendering nothing. aliases[] covers legacy field names. */
+  function smGet(obj, key, path, aliases){
+    var keys = [key].concat(aliases || []);
+    if (!obj || typeof obj !== 'object') {
+      SM_MISSING.push(path + ': parent object absent from social_media_data.json');
+      return null;
+    }
+    for (var i = 0; i < keys.length; i++) {
+      if (Object.prototype.hasOwnProperty.call(obj, keys[i])) {
+        var v = obj[keys[i]];
+        if (v === null) {
+          SM_MISSING.push(path + ': ' + (obj[keys[i] + 'Reason'] || obj.statusReason ||
+            'explicit null from the update run, no reason recorded'));
+          return null;
+        }
+        if (i > 0) SM_MISSING.push(path + ': read from legacy field name "' + keys[i] + '" - update run is emitting the old schema');
+        return v;
+      }
+    }
+    SM_MISSING.push(path + ': key missing entirely from social_media_data.json');
+    return null;
+  }
+
+  function smCard(label, value, meta, color){
+    return '<div class="kpi"><div class="label">' + smEsc(label) + '</div>' +
+      '<div class="value"' + (color ? ' style="color:' + color + '"' : '') + '>' + smEsc(value) + '</div>' +
+      '<div class="meta">' + smEsc(meta) + '</div></div>';
+  }
+  function smNoData(cols, msg){
+    return '<tr><td colspan="' + cols + '" style="color:var(--amber);white-space:normal;">' + smEsc(msg) + '</td></tr>';
+  }
+  function smMonWord(v){ return v === true ? 'Monetized' : v === false ? 'Not monetized' : 'monetization ' + SM_DASH; }
+
+  function smDataHealth(D){
+    var host = document.getElementById('sm-data-health');
+    if (!host) return;
+    var st = (window.DATA_FILE_STATUS || {})['SOCIAL_MEDIA_DATA'];
+    var source = !st
+      ? 'embedded fallback block in index.html - social_media_data.json was never fetched'
+      : st.ok
+        ? 'social_media_data.json (fetched successfully)'
+        : 'embedded fallback block in index.html - FETCH OF social_media_data.json FAILED: ' + st.error;
+    var raw = D && D.lastUpdated ? D.lastUpdated : null;
+    var d = raw ? new Date(raw) : null;
+    var ok = !!(d && !isNaN(d.getTime()));
+    var ageH = ok ? (Date.now() - d.getTime()) / 36e5 : null;
+    var tone = '#22c55e', word = 'FRESH';
+    if (!ok) { tone = '#ef4444'; word = 'NO TIMESTAMP'; }
+    else if (ageH > 168) { tone = '#ef4444'; word = 'STALE'; }
+    else if (ageH > 36) { tone = '#f59e0b'; word = 'AGING'; }
+    if (st && !st.ok) { tone = '#ef4444'; word = 'FETCH FAILED'; }
+    var age = ok ? (ageH < 48 ? Math.round(ageH) + 'h old' : Math.round(ageH / 24) + ' days old') : 'age unknown';
+    var stamp = ok ? d.toLocaleString() : String(raw);
+
+    var problems = [];
+    var P = (D && D.platforms) || {};
+    ['youtube', 'instagram', 'tiktok', 'twitter', 'facebook'].forEach(function(k){
+      var p = P[k];
+      if (!p) { problems.push(k + ': absent from the data file'); return; }
+      var stt = p.status;
+      if (stt && typeof stt === 'object') {
+        if (stt.ok === false) problems.push(k + ': ' + (stt.reason || 'collection failed, no reason recorded'));
+      } else if (typeof stt === 'string' && !/^ok$/i.test(stt.trim())) {
+        problems.push(k + ': ' + stt);
+      }
+    });
+    SM_MISSING.forEach(function(m){ problems.push(m); });
+
+    var html = '<div style="border:1px solid ' + tone + ';border-left:4px solid ' + tone +
+      ';background:rgba(255,255,255,0.03);border-radius:6px;padding:0.75rem 1rem;margin:0 0 1rem 0;">' +
+      '<div style="font-weight:700;letter-spacing:0.05em;color:' + tone + ';">SOCIAL MEDIA DATA: ' + smEsc(word) + '</div>' +
+      '<div style="color:var(--text);margin-top:0.3rem;">Data file lastUpdated: <strong>' + smEsc(stamp) +
+      '</strong> &middot; ' + smEsc(age) + '</div>' +
+      '<div style="color:var(--muted);font-size:0.85rem;margin-top:0.15rem;">Source: ' + smEsc(source) + '</div>';
+    if (problems.length) {
+      html += '<div style="color:var(--amber);font-size:0.85rem;margin-top:0.6rem;font-weight:600;">' +
+        'Not collected / not usable this run (' + problems.length + '):</div>' +
+        '<ul style="margin:0.3rem 0 0 1.1rem;color:var(--muted);font-size:0.85rem;">';
+      problems.slice(0, 30).forEach(function(p){ html += '<li>' + smEsc(p) + '</li>'; });
+      if (problems.length > 30) html += '<li>... and ' + (problems.length - 30) + ' more</li>';
+      html += '</ul>';
+    }
+    html += '</div>';
+    host.innerHTML = html;
+  }
+
+  function smRenderError(err){
+    var host = document.getElementById('sm-data-health');
+    var msg = 'Social Media tab failed to render: ' + ((err && err.message) ? err.message : String(err));
+    if (host) {
+      host.innerHTML = '<div style="border:1px solid #ef4444;border-left:4px solid #ef4444;' +
+        'background:rgba(239,68,68,0.08);border-radius:6px;padding:0.75rem 1rem;margin:0 0 1rem 0;' +
+        'color:#ef4444;font-weight:600;">' + smEsc(msg) + '</div>';
+    }
+    ['sm-kpi-grid', 'sm-main-kpi-grid', 'sm-second-kpi-grid'].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = '';
+    });
+    console.error('renderSocialMedia failed', err);
+  }
+
+  /* A Social Media render failure must never be swallowed by another tab's
+     try/catch, and must never leave stale numbers on screen. */
+  function safeRenderSocialMedia(){
+    try { renderSocialMedia(); } catch (e) { smRenderError(e); }
+  }
 
   function renderSocialMedia() {
+    SM_MISSING = [];
     var D = window.SOCIAL_MEDIA_DATA;
-    if (!D) return;
-    var mainCh = D.platforms.youtube.channels[0];
-    var secondCh = D.platforms.youtube.channels[1];
-    var mainRecentTbody = document.getElementById('sm-main-recent-tbody');
-    if (mainRecentTbody) {
-      mainRecentTbody.innerHTML = mainCh.recentVideos.map(function(v) {
-        var viewColor = v.views >= 400 ? 'var(--green)' : v.views >= 250 ? 'var(--gold)' : 'var(--text)';
-        return '<tr><td style="max-width:400px;white-space:normal;">' + esc(v.title) + '</td><td style="color:' + viewColor + ';font-weight:600;">' + v.views.toLocaleString() + '</td><td style="color:var(--muted);">' + esc(v.age) + '</td><td>' + esc(v.duration) + '</td></tr>';
+    if (!D) { smRenderError(new Error('window.SOCIAL_MEDIA_DATA is not defined')); return; }
+    var P = D.platforms || {};
+    var yt = P.youtube || {};
+    var chans = Array.isArray(yt.channels) ? yt.channels : [];
+    var mainCh = chans[0] || {};
+    var secondCh = chans[1] || {};
+
+    /* ---------- Platform Overview ---------- */
+    var grid = document.getElementById('sm-kpi-grid');
+    if (grid) {
+      var tt = P.tiktok || {}, fb = P.facebook || {}, ig = P.instagram || {}, tw = P.twitter || {};
+      var ttF = smGet(tt, 'followers', 'tiktok.followers');
+      var fbF = smGet(fb, 'followers', 'facebook.followers');
+      var igF = smGet(ig, 'followers', 'instagram.followers');
+      var mS  = smGet(mainCh, 'subscribers', 'youtube.channels[0].subscribers');
+      var sS  = smGet(secondCh, 'subscribers', 'youtube.channels[1].subscribers');
+      var twF = smGet(tw, 'followers', 'twitter.followers');
+      var parts = [ttF, fbF, igF, mS, sS, twF].map(smNum);
+      var total = parts.every(function(n){ return n !== null; })
+        ? parts.reduce(function(x, y){ return x + y; }, 0) : null;
+
+      grid.innerHTML =
+        smCard('TikTok Followers', smFmt(ttF),
+          smNum(tt.likes) !== null ? smCompact(tt.likes) + ' likes' : SM_DASH, 'var(--gold)') +
+        smCard('Facebook Followers', smFmt(fbF),
+          fb.verified === true ? 'Verified Page' : 'Page', 'var(--blue)') +
+        smCard('Instagram Followers', smFmt(igF),
+          smNum(ig.posts) !== null ? smFmt(ig.posts) + ' posts' : SM_DASH, 'var(--purple,#c084fc)') +
+        smCard('YouTube (Main)', smFmt(mS),
+          smFmt(smGet(mainCh, 'totalVideos', 'youtube.channels[0].totalVideos', ['videoCount'])) + ' videos · ' +
+          smMoney(smGet(mainCh, 'estMonthlyEarnings', 'youtube.channels[0].estMonthlyEarnings')) + '/mo est.', 'var(--red)') +
+        smCard('YouTube (' + (secondCh.name || 'second channel') + ')', smFmt(sS),
+          smFmt(smGet(secondCh, 'totalVideos', 'youtube.channels[1].totalVideos', ['videoCount'])) + ' videos · ' +
+          smMonWord(secondCh.monetized), 'var(--red)') +
+        smCard('X / Twitter', smFmt(twF),
+          '@' + (tw.handle || SM_DASH) + ' · ' + smFmt(smGet(tw, 'posts', 'twitter.posts')) + ' posts', '#1da1f2') +
+        smCard('Total Cross-Platform', total === null ? SM_DASH : smCompact(total),
+          total === null ? 'incomplete - at least one platform is missing' : 'Combined followers/subscribers', 'var(--green)');
+    }
+
+    /* ---------- Per-channel KPI grids ---------- */
+    var mg = document.getElementById('sm-main-kpi-grid');
+    if (mg) {
+      mg.innerHTML =
+        smCard('Subscribers', smCompact(smGet(mainCh, 'subscribers', 'youtube.channels[0].subscribers')),
+          smCompact(smGet(mainCh, 'totalViews', 'youtube.channels[0].totalViews')) + ' total views') +
+        smCard('7-Day Views', smDelta(smGet(mainCh, 'viewsGained7d', 'youtube.channels[0].viewsGained7d')),
+          smPct(smGet(mainCh, 'viewsGained7dPct', 'youtube.channels[0].viewsGained7dPct')), 'var(--green)') +
+        smCard('Est. Monthly Revenue', smMoney(smGet(mainCh, 'estMonthlyEarnings', 'youtube.channels[0].estMonthlyEarnings')),
+          smMonWord(mainCh.monetized), 'var(--gold)') +
+        smCard('Total Videos', smFmt(smGet(mainCh, 'totalVideos', 'youtube.channels[0].totalVideos', ['videoCount'])), '');
+    }
+    var sg = document.getElementById('sm-second-kpi-grid');
+    if (sg) {
+      var sSubs = smNum(smGet(secondCh, 'subscribers', 'youtube.channels[1].subscribers'));
+      var away = sSubs === null ? SM_DASH
+        : sSubs >= 1000 ? 'Monetization sub threshold met'
+        : (1000 - Math.round(sSubs)).toLocaleString() + ' away from monetization';
+      var mon = secondCh.monetized;
+      sg.innerHTML =
+        smCard('Subscribers', sSubs === null ? SM_DASH : Math.round(sSubs).toLocaleString(), away) +
+        smCard('Total Videos', smFmt(smGet(secondCh, 'totalVideos', 'youtube.channels[1].totalVideos', ['videoCount'])), '') +
+        smCard('7-Day Views', smDelta(smGet(secondCh, 'viewsGained7d', 'youtube.channels[1].viewsGained7d')),
+          smPct(smGet(secondCh, 'viewsGained7dPct', 'youtube.channels[1].viewsGained7dPct')), 'var(--green)') +
+        smCard('Monetization Status', mon === true ? 'Monetized' : mon === false ? 'Not Eligible' : SM_DASH,
+          mon === true ? 'Earning' : 'Need 1K subs + 4K watch hrs', 'var(--amber)');
+    }
+
+    /* ---------- Video tables ---------- */
+    function smVideoRows(list, tbodyId, hot, warm, label){
+      var tb = document.getElementById(tbodyId);
+      if (!tb) return;
+      if (!Array.isArray(list)) { tb.innerHTML = smNoData(4, label + ' - not present in social_media_data.json'); return; }
+      if (!list.length) { tb.innerHTML = smNoData(4, label + ' - empty in social_media_data.json'); return; }
+      tb.innerHTML = list.map(function(v){
+        var n = smNum(v.views);
+        var c = n === null ? 'var(--muted)' : n >= hot ? 'var(--green)' : n >= warm ? 'var(--gold)' : 'var(--text)';
+        return '<tr><td style="max-width:400px;white-space:normal;">' + smEsc(v.title || SM_DASH) + '</td>' +
+          '<td style="color:' + c + ';font-weight:600;">' + smFmt(v.views) + '</td>' +
+          '<td>' + smEsc(v.publishDate || v.age || SM_DASH) + '</td>' +
+          '<td>' + smEsc(v.duration || SM_DASH) + '</td></tr>';
       }).join('');
     }
-    var mainPopularTbody = document.getElementById('sm-main-popular-tbody');
-    if (mainPopularTbody) {
-      mainPopularTbody.innerHTML = mainCh.popularVideos.map(function(v) {
-        return '<tr><td style="max-width:400px;white-space:normal;">' + esc(v.title) + '</td><td style="color:var(--gold);font-weight:600;">' + (v.views >= 1000 ? (v.views / 1000).toFixed(0) + 'K' : v.views.toLocaleString()) + '</td><td style="color:var(--muted);">' + esc(v.age) + '</td><td>' + esc(v.duration) + '</td></tr>';
-      }).join('');
-    }
-    var secondRecentTbody = document.getElementById('sm-second-recent-tbody');
-    if (secondRecentTbody) {
-      secondRecentTbody.innerHTML = secondCh.recentVideos.map(function(v) {
-        var viewColor = v.views >= 200 ? 'var(--green)' : v.views >= 50 ? 'var(--gold)' : 'var(--text)';
-        return '<tr><td style="max-width:400px;white-space:normal;">' + esc(v.title) + '</td><td style="color:' + viewColor + ';font-weight:600;">' + v.views.toLocaleString() + '</td><td style="color:var(--muted);">' + esc(v.age) + '</td><td>' + esc(v.duration) + '</td></tr>';
-      }).join('');
-    }
+    smVideoRows(mainCh.recentVideos, 'sm-main-recent-tbody', 400, 250, 'Recent videos (main channel)');
+    smVideoRows(mainCh.popularVideos, 'sm-main-popular-tbody', 400, 250, 'Top performing videos (main channel)');
+    smVideoRows(secondCh.recentVideos, 'sm-second-recent-tbody', 200, 50, 'Recent videos (second channel)');
+
+    /* ---------- Content strategy ---------- */
+    var cs = D.contentStrategy || null;
     var tipsList = document.getElementById('sm-tips-list');
     if (tipsList) {
-      tipsList.innerHTML = D.contentStrategy.actionableTips.map(function(tip) {
-        return '<li style="margin-bottom:0.5rem;">' + esc(tip) + '</li>';
+      tipsList.innerHTML = (cs && Array.isArray(cs.actionableTips) && cs.actionableTips.length)
+        ? cs.actionableTips.map(function(t){ return '<li style="margin-bottom:0.5rem;">' + smEsc(t) + '</li>'; }).join('')
+        : '<li style="color:var(--amber);">contentStrategy.actionableTips is not present in social_media_data.json</li>';
+    }
+    function smIdeaRows(list, id, label){
+      var tb = document.getElementById(id);
+      if (!tb) return;
+      if (!Array.isArray(list) || !list.length) {
+        tb.innerHTML = smNoData(3, label + ' - not present in social_media_data.json');
+        return;
+      }
+      tb.innerHTML = list.map(function(idea, i){
+        return '<tr><td style="color:var(--muted);">' + (i + 1) + '</td>' +
+          '<td style="white-space:normal;">' + smEsc(idea.title || SM_DASH) + '</td>' +
+          '<td style="white-space:normal;color:var(--muted);">' + smEsc(idea.format || idea.rationale || '') + '</td></tr>';
       }).join('');
     }
-    var ideasMainTbody = document.getElementById('sm-ideas-main-tbody');
-    if (ideasMainTbody) {
-      ideasMainTbody.innerHTML = D.contentStrategy.longFormIdeasMainChannel.map(function(idea, i) {
-        return '<tr><td style="color:var(--muted);">' + (i + 1) + '</td><td style="white-space:normal;">' + esc(idea.title) + '</td><td><span class="badge" style="background:var(--green);color:#000;font-size:0.7rem;">' + esc(idea.type) + '</span></td></tr>';
-      }).join('');
-    }
-    var ideasSecondTbody = document.getElementById('sm-ideas-second-tbody');
-    if (ideasSecondTbody) {
-      ideasSecondTbody.innerHTML = D.contentStrategy.longFormIdeasSecondChannel.map(function(idea, i) {
-        return '<tr><td style="color:var(--muted);">' + (i + 1) + '</td><td style="white-space:normal;">' + esc(idea.title) + '</td><td><span class="badge" style="background:var(--blue);color:#000;font-size:0.7rem;">' + esc(idea.type) + '</span></td></tr>';
-      }).join('');
-    }
+    smIdeaRows(cs && cs.longFormIdeasMainChannel, 'sm-ideas-main-tbody', 'Video ideas (main channel)');
+    smIdeaRows(cs && cs.longFormIdeasSecondChannel, 'sm-ideas-second-tbody', 'Video ideas (second channel)');
+
+    smDataHealth(D);
   }
 
 
@@ -2079,6 +2291,7 @@ function activateTab(name, updateHash){
     requestAnimationFrame(() => { chartBuilders[name](); });
     chartsBuilt[name] = true;
   }
+  if (typeof tabRenderers !== "undefined" && tabRenderers[name]) tabRenderers[name]();
   window.scrollTo({ top: 0 });
 }
 
@@ -2092,14 +2305,14 @@ renderLeads();
 renderPortfolio();
 renderFlips();
 renderLawTax();
-    renderSocialMedia();
+safeRenderSocialMedia();
 activateTab(location.hash.replace("#","") || "leads", false);
 
 /* Public hook: after a scheduled task mutates window.*_DATA it can call
    window.refreshDashboards() — or simply regenerate this file's data block. */
 window.refreshDashboards = function(){
-  try{renderLeads();}catch(e){console.warn(e)} try{renderPortfolio();}catch(e){console.warn(e)} try{renderFlips();}catch(e){console.warn(e)} try{renderLawTax();
-      renderSocialMedia();}catch(e){console.warn(e)}
+  try{renderLeads();}catch(e){console.warn(e)} try{renderPortfolio();}catch(e){console.warn(e)} try{renderFlips();}catch(e){console.warn(e)} try{renderLawTax();}catch(e){console.warn(e)}
+  safeRenderSocialMedia();
   try{
     /* Destroy charts on ALL tabs so lazy-init rebuilds with fresh data */
     Object.keys(chartBuilders).forEach(function(tab){
@@ -2127,12 +2340,17 @@ var dataFiles = [
   {url: 'law_tax_data.json',  target: 'LAW_TAX_DATA'},
       {url:'social_media_data.json',target:'SOCIAL_MEDIA_DATA'}
 ];
+window.DATA_FILE_STATUS = window.DATA_FILE_STATUS || {};
 Promise.allSettled(dataFiles.map(function(f){
   return fetch(f.url + '?_=' + Date.now()).then(function(r){
-    if(!r.ok) throw new Error(r.status);
+    if(!r.ok) throw new Error('HTTP ' + r.status);
     return r.json();
   }).then(function(d){
     window[f.target] = d;
+    window.DATA_FILE_STATUS[f.target] = { ok: true, file: f.url, error: null };
+  }).catch(function(err){
+    window.DATA_FILE_STATUS[f.target] = { ok: false, file: f.url, error: String((err && err.message) || err) };
+    throw err;
   });
 })).then(function(results){
   var any = results.some(function(r){ return r.status === 'fulfilled'; });
