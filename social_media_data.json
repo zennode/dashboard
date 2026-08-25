@@ -1,1 +1,123 @@
-
+{
+  "schemaVersion": 2,
+  "lastUpdated": "2026-08-25T01:06:13-04:00",
+  "runStatus": {
+    "ok": true,
+    "platformsAttempted": 5,
+    "platformsFailed": 0,
+    "failures": []
+  },
+  "platforms": {
+    "youtube": {
+      "status": {
+        "ok": true,
+        "reason": null
+      },
+      "channels": [
+        {
+          "name": "Two Guys Take on Real Estate",
+          "handle": "twoguystakeonrealestate",
+          "url": "https://www.youtube.com/@twoguystakeonrealestate",
+          "subscribers": 133000,
+          "totalViews": null,
+          "totalViewsReason": "Channel page does not display total views publicly",
+          "totalVideos": null,
+          "totalVideosReason": "Detailed analytics require Studio access",
+          "viewsGained7d": null,
+          "viewsGained7dReason": "Analytics requires channel login; only public data available",
+          "viewsGained7dPct": null,
+          "viewsGained7dPctReason": "Analytics requires channel login; only public data available",
+          "estMonthlyEarnings": null,
+          "estMonthlyEarningsReason": "Analytics requires channel login; only public data available",
+          "monetized": null,
+          "monetizedReason": "Monetization status requires channel login",
+          "status": {
+            "ok": true,
+            "reason": null
+          },
+          "recentVideos": [],
+          "popularVideos": []
+        },
+        {
+          "name": "Auction House Masters",
+          "handle": "foreclosureauctionmasters",
+          "url": "https://www.youtube.com/@foreclosureauctionmasters",
+          "subscribers": 851,
+          "totalViews": null,
+          "totalViewsReason": "Channel page does not display total views publicly",
+          "totalVideos": 50,
+          "viewsGained7d": null,
+          "viewsGained7dReason": "Analytics requires channel login; only public data available",
+          "viewsGained7dPct": null,
+          "viewsGained7dPctReason": "Analytics requires channel login; only public data available",
+          "estMonthlyEarnings": null,
+          "estMonthlyEarningsReason": "Channel is not monetized — no revenue to report",
+          "monetized": false,
+          "status": {
+            "ok": true,
+            "reason": null
+          },
+          "recentVideos": [],
+          "popularVideos": []
+        }
+      ]
+    },
+    "instagram": {
+      "handle": "twoguystakeonrealestate",
+      "url": "https://www.instagram.com/twoguystakeonrealestate/",
+      "followers": 205000,
+      "posts": null,
+      "postsReason": "Post count not publicly visible on profile page",
+      "verified": true,
+      "status": {
+        "ok": true,
+        "reason": null
+      }
+    },
+    "tiktok": {
+      "handle": "twoguystakeonrealestate",
+      "url": "https://www.tiktok.com/@twoguystakeonrealestate",
+      "displayName": "Real Estate Investing Mentors",
+      "followers": 892200,
+      "likes": 7300000,
+      "bio": "We created massive wealth in Real Estate | OUR FORECLOSURE AUCTION BOOK",
+      "status": {
+        "ok": true,
+        "reason": null
+      }
+    },
+    "twitter": {
+      "handle": "2GuysTake",
+      "url": "https://x.com/2GuysTake",
+      "displayName": "Two Guys Take on Real Estate",
+      "followers": 5772,
+      "following": 37,
+      "posts": null,
+      "postsReason": "Tweet count not easily accessible from profile page",
+      "verified": true,
+      "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
+      "location": "Springfield, MA",
+      "joinedDate": "December 2020",
+      "recentPosts": [],
+      "status": {
+        "ok": true,
+        "reason": null
+      }
+    },
+    "facebook": {
+      "handle": "TwoGuysTakeonRealEstate",
+      "url": "https://www.facebook.com/TwoGuysTakeonRealEstate",
+      "followers": 220000,
+      "verified": true,
+      "status": {
+        "ok": true,
+        "reason": null
+      }
+    }
+  },
+  "contentStrategy": {
+    "actionableTips": [],
+    "longFormIdeasMainChannel": [],
+    "longFormIdeasSecondChannel": []
+  }
+}
