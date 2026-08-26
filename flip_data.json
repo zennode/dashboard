@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-08-23T21:30:00-04:00",
+  "lastUpdated": "2026-08-26T22:00:00.000-04:00",
   "scanWindow": {
-    "type": "catch-up",
-    "note": "Schema migration to pipeline/active/archived. 30-day Gmail rescan. Covers missed Friday Aug 21 6PM run (period since last successful run Aug 20 6PM). | RECOVERED 2026-08-25: commit 20d2815 (2026-08-24) wrote summary {pipeline:8,active:16,archived:1} with all three arrays empty (452 bytes). Restored from the last good snapshot b935c11 (2026-08-23, 15876 bytes). The 2026-08-24 scan findings were lost with that corrupt commit and were not recoverable.",
-    "from": "2026-07-23",
-    "to": "2026-08-23"
+    "type": "daily",
+    "from": "2026-08-25",
+    "to": "2026-08-26",
+    "note": "Daily 24-hour scan. One property movement: 79 Pleasant St status changed to closing (wire sent for financing)."
   },
   "summary": {
     "pipeline": 8,
@@ -245,12 +245,12 @@
       "renoBudget": null,
       "renoSpent": null,
       "contractor": null,
-      "status": "under-contract",
+      "status": "closing",
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-17",
-        "summary": "Appraisal returned to Freedom Credit Union for Dave Chase's review; buyer's counsel needs at least one extra week to close"
+        "date": "2026-08-26",
+        "summary": "Wire sent for $135,000 financing; expected to close tomorrow"
       },
       "draws": [],
       "notes": "Acquired via foreclosure deed recorded Jul 23 (Yellowbrick Property LLC). Now under agreement to sell to Mancia Services LLC at $150k with seller financing carried by Ruby Lending LLC ($135k, 12%, 1 yr, 3 pts). Closing was targeted 8/20, slipping. Buyer's attorney: Donna Wexler."
