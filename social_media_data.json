@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-08-25T01:06:13-04:00",
+  "lastUpdated": "2026-08-26T05:09:30-04:00",
   "runStatus": {
     "ok": true,
     "platformsAttempted": 5,
@@ -21,8 +21,7 @@
           "subscribers": 133000,
           "totalViews": null,
           "totalViewsReason": "Channel page does not display total views publicly",
-          "totalVideos": null,
-          "totalVideosReason": "Detailed analytics require Studio access",
+          "totalVideos": 1800,
           "viewsGained7d": null,
           "viewsGained7dReason": "Analytics requires channel login; only public data available",
           "viewsGained7dPct": null,
@@ -30,21 +29,46 @@
           "estMonthlyEarnings": null,
           "estMonthlyEarningsReason": "Analytics requires channel login; only public data available",
           "monetized": null,
-          "monetizedReason": "Monetization status requires channel login",
+          "monetizedReason": "Monetization status not visible to public viewers",
           "status": {
             "ok": true,
             "reason": null
           },
-          "recentVideos": [],
-          "popularVideos": []
+          "recentVideos": [
+            {
+              "title": "Can We Buy an Investment Property at Auction for $190,000?",
+              "url": "https://www.youtube.com/watch?v=Sqly48KgGOI",
+              "views": 110,
+              "likes": null,
+              "publishDate": "4 days ago",
+              "duration": "8:45"
+            },
+            {
+              "title": "How We Bought a $275K Condo For $157K!",
+              "url": "https://www.youtube.com/watch?v=PhQSJ6V5igA",
+              "views": 305,
+              "likes": null,
+              "publishDate": "1 month ago",
+              "duration": "10:44"
+            }
+          ],
+          "popularVideos": [
+            {
+              "title": "How We Bought a $275K Condo For $157K!",
+              "url": "https://www.youtube.com/watch?v=PhQSJ6V5igA",
+              "views": 305,
+              "likes": null,
+              "publishDate": "1 month ago",
+              "duration": "10:44"
+            }
+          ]
         },
         {
           "name": "Auction House Masters",
           "handle": "foreclosureauctionmasters",
           "url": "https://www.youtube.com/@foreclosureauctionmasters",
           "subscribers": 851,
-          "totalViews": null,
-          "totalViewsReason": "Channel page does not display total views publicly",
+          "totalViews": 41200,
           "totalVideos": 50,
           "viewsGained7d": null,
           "viewsGained7dReason": "Analytics requires channel login; only public data available",
@@ -67,7 +91,7 @@
       "url": "https://www.instagram.com/twoguystakeonrealestate/",
       "followers": 205000,
       "posts": null,
-      "postsReason": "Post count not publicly visible on profile page",
+      "postsReason": "Login wall — post count not publicly rendered",
       "verified": true,
       "status": {
         "ok": true,
@@ -80,7 +104,7 @@
       "displayName": "Real Estate Investing Mentors",
       "followers": 892200,
       "likes": 7300000,
-      "bio": "We created massive wealth in Real Estate | OUR FORECLOSURE AUCTION BOOK",
+      "bio": "We created massive wealth in Real Estate | AUTOMATE RENTAL CASHFLOW 💰",
       "status": {
         "ok": true,
         "reason": null
@@ -92,8 +116,7 @@
       "displayName": "Two Guys Take on Real Estate",
       "followers": 5772,
       "following": 37,
-      "posts": null,
-      "postsReason": "Tweet count not easily accessible from profile page",
+      "posts": 4931,
       "verified": true,
       "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
       "location": "Springfield, MA",
