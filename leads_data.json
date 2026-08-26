@@ -131,7 +131,7 @@
   "urgentQueue": [],
   "vacancy": {
     "totalRentableUnits": 290,
-    "occupiedUnits": 262,
+    "occupiedUnits": 256,
     "vacantUnits": 34,
     "vacancyRatePct": 11.7,
     "byProperty": {
@@ -254,6 +254,7 @@
     "urgentQueueDefinition": "Unresponded leads with status other than Lost, older than 24 hours.",
     "activeUnrespondedUnder24h": 2,
     "vacancyMethod": "Rentable units (active non-BIR properties, INACT units excluded) cross-referenced against latest lease of each current tenant. Units.IsVacant is null on this instance and was not used.",
-    "dataSource": "Rent Manager API (yellow.api.rentmanager.com), pulled 2026-08-26T07:07:24-04:00"
+    "dataSource": "Rent Manager API (yellow.api.rentmanager.com), pulled 2026-08-26T07:07:24-04:00",
+    "occupancyNote": "occupiedUnits counts occupied RENTABLE units (290 total - 34 vacant). 262 unit IDs are occupied portfolio-wide; 6 of those sit in INACT or excluded properties."
   }
 }
