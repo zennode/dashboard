@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-08-27T01:09:54-04:00",
+  "lastUpdated": "2026-08-28T01:12:13-04:00",
   "runStatus": {
     "ok": false,
     "platformsAttempted": 5,
     "platformsFailed": 1,
     "failures": [
-      "facebook: Login wall — follower count not publicly rendered"
+      "instagram: Login wall — profile stats not publicly rendered"
     ]
   },
   "platforms": {
@@ -22,15 +22,16 @@
           "url": "https://www.youtube.com/@twoguystakeonrealestate",
           "subscribers": 133000,
           "totalViews": null,
-          "totalViewsReason": "YouTube Studio analytics not accessible - only public data available",
+          "totalViewsReason": "Channel total views not publicly available without login",
           "totalVideos": 1800,
           "viewsGained7d": null,
-          "viewsGained7dReason": "YouTube Studio analytics not accessible",
+          "viewsGained7dReason": "Analytics requires YouTube Studio login",
           "viewsGained7dPct": null,
-          "viewsGained7dPctReason": "YouTube Studio analytics not accessible",
+          "viewsGained7dPctReason": "Analytics requires YouTube Studio login",
           "estMonthlyEarnings": null,
-          "estMonthlyEarningsReason": "YouTube Studio analytics not accessible - channel monetization status unclear",
-          "monetized": true,
+          "estMonthlyEarningsReason": "Analytics requires YouTube Studio login",
+          "monetized": null,
+          "monetizedReason": "Monetization status requires YouTube Studio login",
           "status": {
             "ok": true,
             "reason": null
@@ -38,37 +39,45 @@
           "recentVideos": [
             {
               "title": "Can We Buy an Investment Property at Auction for $190,000?",
-              "url": "https://www.youtube.com/watch?v=UNKNOWN1",
-              "views": 118,
+              "url": null,
+              "views": 128,
               "likes": null,
-              "publishDate": "2026-08-22",
+              "publishDate": "6 days ago",
               "duration": "8:45"
             },
             {
               "title": "3 SECRET Websites We Use to Buy Foreclosure Auction Properties!",
-              "url": "https://www.youtube.com/watch?v=UNKNOWN2",
-              "views": 300,
+              "url": null,
+              "views": 304,
               "likes": null,
-              "publishDate": "2026-08-15",
-              "duration": "8:40"
+              "publishDate": "13 days ago",
+              "duration": "8:39"
             },
             {
-              "title": "Selling Our FIRST Investment Property: Profit REVEALED",
-              "url": "https://www.youtube.com/watch?v=UNKNOWN3",
-              "views": 207,
+              "title": "Selling Our FIRST Investment Property; Profit REVEALED",
+              "url": null,
+              "views": 208,
               "likes": null,
-              "publishDate": "2026-08-13",
+              "publishDate": "2 weeks ago",
               "duration": "12:41"
             }
           ],
           "popularVideos": [
             {
               "title": "How We Bought a $275K Condo For $157K!",
-              "url": "https://www.youtube.com/watch?v=POPULAR1",
-              "views": 307,
+              "url": null,
+              "views": 309,
               "likes": null,
-              "publishDate": "2026-07-27",
+              "publishDate": "1 month ago",
               "duration": "10:44"
+            },
+            {
+              "title": "We WON a House at Foreclosure Auction for $165,000!",
+              "url": null,
+              "views": 812,
+              "likes": null,
+              "publishDate": "1 month ago",
+              "duration": "9:55"
             }
           ]
         },
@@ -76,14 +85,14 @@
           "name": "Auction House Masters",
           "handle": "foreclosureauctionmasters",
           "url": "https://www.youtube.com/@foreclosureauctionmasters",
-          "subscribers": 856,
+          "subscribers": 858,
           "totalViews": null,
-          "totalViewsReason": "YouTube Studio analytics not accessible",
-          "totalVideos": 50,
+          "totalViewsReason": "Channel total views not publicly available without login",
+          "totalVideos": 51,
           "viewsGained7d": null,
-          "viewsGained7dReason": "YouTube Studio analytics not accessible",
+          "viewsGained7dReason": "Analytics requires YouTube Studio login",
           "viewsGained7dPct": null,
-          "viewsGained7dPctReason": "YouTube Studio analytics not accessible",
+          "viewsGained7dPctReason": "Analytics requires YouTube Studio login",
           "estMonthlyEarnings": null,
           "estMonthlyEarningsReason": "Channel is not monetized",
           "monetized": false,
@@ -93,20 +102,20 @@
           },
           "recentVideos": [
             {
-              "title": "Bidding on a HAUNTED House at Foreclosure Auction!",
-              "url": "https://www.youtube.com/watch?v=UNKNOWN4",
-              "views": 125,
+              "title": "Foreclosure Auction Process Breakdown For BEGINNERS!",
+              "url": null,
+              "views": 10,
               "likes": null,
-              "publishDate": "2026-08-21",
-              "duration": "8:08"
+              "publishDate": "7 hours ago",
+              "duration": "7:00"
             },
             {
-              "title": "We Bought a $525K House For ONLY $334K at Auction!",
-              "url": "https://www.youtube.com/watch?v=UNKNOWN5",
-              "views": 59,
+              "title": "Bidding on a HAUNTED House at Foreclosure Auction!",
+              "url": null,
+              "views": 173,
               "likes": null,
-              "publishDate": "2026-08-14",
-              "duration": "13:41"
+              "publishDate": "7 days ago",
+              "duration": "8:08"
             }
           ],
           "popularVideos": []
@@ -116,13 +125,12 @@
     "instagram": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.instagram.com/twoguystakeonrealestate/",
-      "followers": 205000,
+      "followers": null,
       "posts": null,
-      "postsReason": "Post count not publicly visible on profile",
-      "verified": true,
+      "verified": null,
       "status": {
-        "ok": true,
-        "reason": null
+        "ok": false,
+        "reason": "Login wall — profile stats not publicly rendered"
       }
     },
     "tiktok": {
@@ -131,7 +139,7 @@
       "displayName": "Real Estate Investing Mentors",
       "followers": 892400,
       "likes": 7300000,
-      "bio": "We created massive wealth in Real Estate | AUTOMATE RENTAL CASHFLOW👇",
+      "bio": "We created massive wealth in Real Estate AUTOMATE RENTAL CASHFLOW 💰",
       "status": {
         "ok": true,
         "reason": null
@@ -143,20 +151,20 @@
       "displayName": "Two Guys Take on Real Estate",
       "followers": 5771,
       "following": 37,
-      "posts": 4931,
+      "posts": 4940,
       "verified": true,
       "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
       "location": "Springfield, MA",
       "joinedDate": "December 2020",
       "recentPosts": [
         {
-          "text": "We just bid on a foreclosure that looked PERFECT on paper. Solid purchase price. Good comps. Numbers showed 40k profit. Then auction day came... and everything went sideways.",
-          "date": "2026-08-27",
-          "likes": 643,
+          "text": "Foreclosure auction Before and After - Won for 136k, Rehab 70k, UA for 360k",
+          "date": "2025-02-21",
+          "likes": null,
           "retweets": null,
           "replies": null,
           "views": null,
-          "pinned": false
+          "pinned": true
         }
       ],
       "status": {
@@ -167,13 +175,11 @@
     "facebook": {
       "handle": "TwoGuysTakeonRealEstate",
       "url": "https://www.facebook.com/TwoGuysTakeonRealEstate",
-      "followers": null,
-      "followersReason": "Login wall — follower count not publicly rendered",
-      "verified": null,
-      "verifiedReason": "Page access restricted - verification status not publicly visible",
+      "followers": 221000,
+      "verified": true,
       "status": {
-        "ok": false,
-        "reason": "Login wall — profile stats not publicly rendered"
+        "ok": true,
+        "reason": null
       }
     }
   },
