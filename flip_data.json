@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2026-08-26T22:00:00.000-04:00",
+  "lastUpdated": "2026-08-28T18:00:00-04:00",
   "scanWindow": {
     "type": "daily",
-    "from": "2026-08-25",
-    "to": "2026-08-26",
-    "note": "Daily 24-hour scan. One property movement: 79 Pleasant St status changed to closing (wire sent for financing)."
+    "from": "2026-08-27",
+    "to": "2026-08-28",
+    "note": "Window widened to 48h — no digest sent 25, 26 or 27 Aug (blank email, Chrome-compose session death, spend-limit crash). 79 Pleasant St sale completed and archived; 166 East St moved to under-contract on a $30k buyer EMD; five new pipeline properties added."
   },
   "summary": {
-    "pipeline": 8,
-    "active": 16,
-    "archived": 1
+    "pipeline": 13,
+    "active": 15,
+    "archived": 2
   },
   "pipeline": [
     {
@@ -92,8 +92,8 @@
       "agent": "BC Realty",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-14",
-        "summary": "DocuSign proposal completed — all parties signed (Pete Houser, Matt)"
+        "date": "2026-08-27",
+        "summary": "Freedom Credit Union (David Chase): property not seasoned over a year, so financing capped at 80% of purchase price, max $576,000. Pete Houser pushing back on the seasoning rule and considering another bank."
       },
       "notes": "$30,000 repair credit requested. Fialky had a call with seller's counsel emphasizing urgency to close and outstanding deliverables."
     },
@@ -147,6 +147,91 @@
         "summary": "07.27.2026 Extension signed via dotloop"
       },
       "notes": ""
+    },
+    {
+      "address": "99 Shore Rd, Richmond, MA",
+      "source": "wholesaler",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "analyzing",
+      "targetStrategy": "flip",
+      "entity": null,
+      "lawyer": "David Burstein",
+      "agent": "George Valentgas (Pilgrim Hill Holdings)",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-08-28",
+        "summary": "P&S sent for signature via DocuSign by George Valentgas. Burstein reviewed: needs to see a signed contract first, then a separate contract to buy from Prop Doc LLC; seller's attorney Casey Cole is MA-licensed; wants title insurance confirmation and seller ID before relying on the first sale."
+      },
+      "notes": "Double-close structure through Prop Doc LLC using the seller's attorney (Casey Cole). Burstein flagged validation of the first sale as the key risk."
+    },
+    {
+      "address": "6 Henry Rd, Wales, MA",
+      "source": "MLS",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "analyzing",
+      "targetStrategy": "TBD",
+      "entity": null,
+      "lawyer": null,
+      "agent": "Alice Kempf (KVRE Team)",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-08-27",
+        "summary": "Alice Kempf sent a CloudCMA valuation — thinking $289k or a little more. Not on the water and limited land."
+      },
+      "notes": "Valuation only so far. No offer made."
+    },
+    {
+      "address": "53 Davis St, Holyoke, MA",
+      "source": "auction",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "closing",
+      "targetStrategy": "TBD",
+      "entity": null,
+      "lawyer": "David Burstein",
+      "agent": null,
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-08-27",
+        "summary": "Foreclosure completed; deed recording pending, title expected in ~2 weeks. Insurance agents notified; utilities service applied for; work order raised to shut the main breaker off."
+      },
+      "notes": "Acquired by foreclosing on a Ruby Lending note — tracked here as an acquisition, not as lending. Not yet built out in Rent Manager (temporarily tagged under 346 Race St)."
+    },
+    {
+      "address": "23-25 Seymour St, Pittsfield, MA",
+      "source": "auction",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "closing",
+      "targetStrategy": "TBD",
+      "entity": null,
+      "lawyer": "David Burstein",
+      "agent": null,
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-08-27",
+        "summary": "Won at auction after foreclosing on the note; title expected in ~2 weeks. Lock change ordered for first and second floors. Occupant 'Kwik Silver Riley' identified as a squatter."
+      },
+      "notes": "Acquired by foreclosing on a Ruby Lending note — tracked here as an acquisition, not as lending. Occupancy issue to resolve before rehab."
+    },
+    {
+      "address": "Ware, MA (Northeast PCG portfolio — address TBD)",
+      "source": "off-market",
+      "askingPrice": 2100000,
+      "offerAmount": 2100000,
+      "status": "offered",
+      "targetStrategy": "buy-and-hold",
+      "entity": null,
+      "lawyer": null,
+      "agent": "Taylor Perun (Northeast Private Client Group) via Peter Houser",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-08-27",
+        "summary": "Seller agreeable at $2.1M but wants tighter terms: 14-day DD/financing contingency, minimum 60% LTV in contract, $75k deposit going hard after DD, 60-day close. Matt countering for 21-day DD, 30 days for financing, 75% LTV and a $10k first extension."
+      },
+      "notes": "JV with Peter Houser. Street address not yet disclosed in correspondence — do not invent one. Sticking points are seller-imposed LTV floor and the financing window vs 30-day appraisal turnaround."
     }
   ],
   "active": [
@@ -238,24 +323,6 @@
       "notes": "No email activity in the scan window."
     },
     {
-      "address": "79 Pleasant St, Ware, MA 01081",
-      "entity": "Yellow Brick Property LLC",
-      "purchasePrice": null,
-      "purchaseDate": "2026-07-23",
-      "renoBudget": null,
-      "renoSpent": null,
-      "contractor": null,
-      "status": "closing",
-      "targetStrategy": "flip",
-      "estCompletion": null,
-      "lastActivity": {
-        "date": "2026-08-26",
-        "summary": "Wire sent for $135,000 financing; expected to close tomorrow"
-      },
-      "draws": [],
-      "notes": "Acquired via foreclosure deed recorded Jul 23 (Yellowbrick Property LLC). Now under agreement to sell to Mancia Services LLC at $150k with seller financing carried by Ruby Lending LLC ($135k, 12%, 1 yr, 3 pts). Closing was targeted 8/20, slipping. Buyer's attorney: Donna Wexler."
-    },
-    {
       "address": "167 E Park Terrace, Pittsfield, MA",
       "entity": "House Hack Helpers LLC",
       "purchasePrice": null,
@@ -320,15 +387,16 @@
       "renoBudget": null,
       "renoSpent": null,
       "contractor": null,
-      "status": "in-rehab",
+      "status": "under-contract",
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-21",
-        "summary": "Authentisign signature request received — Rosario LaBella (Coldwell Banker Realty) inviting Yellow Brick Property LLC to sign documents for 166 East Street"
+        "date": "2026-08-28",
+        "summary": "$30,000 earnest money deposit received from buyer Larissa Regan (Coldwell Banker, deal 96003201-2026-00859-1). Burstein looped in and requesting buyer's counsel contact."
       },
       "draws": [],
-      "notes": "Signature request suggests listing or transaction paperwork is being prepared — confirm document type."
+      "notes": "Signature request suggests listing or transaction paperwork is being prepared — confirm document type. Resale under agreement. Buyer Larissa Regan; listing/selling agent Ross LaBella, Coldwell Banker South Windsor. EMD $30,000 paid 8/28/2026. Closing attorney David Burstein.",
+      "agent": "Ross (Rosario) LaBella, Coldwell Banker Realty"
     },
     {
       "address": "62 Maynard St, Springfield, MA 01109",
@@ -441,6 +509,17 @@
         "summary": "Sale completed Aug 7; Burstein circulated closing documents. Expense accounting with Russ and Russ Cable still open before checks are cut."
       },
       "notes": "JV with Russell Cable. Realized profit not yet tallied — pending expense receipts."
+    },
+    {
+      "address": "79 Pleasant St, Ware, MA 01081",
+      "entity": "Yellow Brick Property LLC",
+      "status": "sold",
+      "soldDate": "2026-08-27",
+      "lastActivity": {
+        "date": "2026-08-28",
+        "summary": "Matt querying the water/sewer charges on the HUD-1 — property was owned only a couple of months and water should have cleared at the first closing. Also chasing whether a Ruby Lending check was due."
+      },
+      "notes": "Sale completed 8/27/2026. Burstein circulated HUD-1 Settlement Statement, final water bill, commission bill and recorded deed. Checks available for pickup from Burstein Law Offices after 8:30 AM. Water/sewer line on the settlement statement disputed."
     }
   ]
 }
