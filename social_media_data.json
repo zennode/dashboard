@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-08-28T01:12:13-04:00",
+  "lastUpdated": "2026-08-29T05:09:57.457+04:00",
   "runStatus": {
     "ok": false,
-    "platformsAttempted": 5,
+    "platformsAttempted": 6,
     "platformsFailed": 1,
     "failures": [
-      "instagram: Login wall — profile stats not publicly rendered"
+      "instagram: Post count not publicly accessible without login"
     ]
   },
   "platforms": {
@@ -38,46 +38,54 @@
           },
           "recentVideos": [
             {
+              "title": "The SECRET to Buying Cheap Real Estate: Foreclosure Auctions",
+              "url": "https://www.youtube.com/watch?v=0uvnHp8qGco",
+              "views": 143,
+              "likes": null,
+              "publishDate": "2 days ago",
+              "duration": "13:24"
+            },
+            {
               "title": "Can We Buy an Investment Property at Auction for $190,000?",
               "url": null,
-              "views": 128,
+              "views": 156,
               "likes": null,
-              "publishDate": "6 days ago",
+              "publishDate": "7 days ago",
               "duration": "8:45"
             },
             {
               "title": "3 SECRET Websites We Use to Buy Foreclosure Auction Properties!",
               "url": null,
-              "views": 304,
-              "likes": null,
-              "publishDate": "13 days ago",
-              "duration": "8:39"
-            },
-            {
-              "title": "Selling Our FIRST Investment Property; Profit REVEALED",
-              "url": null,
-              "views": 208,
+              "views": 309,
               "likes": null,
               "publishDate": "2 weeks ago",
-              "duration": "12:41"
+              "duration": "8:40"
             }
           ],
           "popularVideos": [
             {
-              "title": "How We Bought a $275K Condo For $157K!",
+              "title": "Buying Foreclosed Homes at Auction (Step by Step)",
               "url": null,
-              "views": 309,
+              "views": 36000,
               "likes": null,
-              "publishDate": "1 month ago",
-              "duration": "10:44"
+              "publishDate": "2 years ago",
+              "duration": "10:46"
             },
             {
-              "title": "We WON a House at Foreclosure Auction for $165,000!",
+              "title": "We Took a First-Time Bidder to a Foreclosure Auction!",
               "url": null,
-              "views": 812,
+              "views": 26000,
               "likes": null,
-              "publishDate": "1 month ago",
-              "duration": "9:55"
+              "publishDate": "1 year ago",
+              "duration": "15:11"
+            },
+            {
+              "title": "How to Wholesale Real Estate for Beginners (Make $10,000 A Month)",
+              "url": null,
+              "views": 25000,
+              "likes": null,
+              "publishDate": "5 years ago",
+              "duration": "16:00"
             }
           ]
         },
@@ -86,15 +94,14 @@
           "handle": "foreclosureauctionmasters",
           "url": "https://www.youtube.com/@foreclosureauctionmasters",
           "subscribers": 858,
-          "totalViews": null,
-          "totalViewsReason": "Channel total views not publicly available without login",
-          "totalVideos": 51,
+          "totalViews": 41200,
+          "totalVideos": 50,
           "viewsGained7d": null,
           "viewsGained7dReason": "Analytics requires YouTube Studio login",
           "viewsGained7dPct": null,
           "viewsGained7dPctReason": "Analytics requires YouTube Studio login",
           "estMonthlyEarnings": null,
-          "estMonthlyEarningsReason": "Channel is not monetized",
+          "estMonthlyEarningsReason": "Channel is not monetized — no revenue to report",
           "monetized": false,
           "status": {
             "ok": true,
@@ -104,18 +111,26 @@
             {
               "title": "Foreclosure Auction Process Breakdown For BEGINNERS!",
               "url": null,
-              "views": 10,
+              "views": 20,
               "likes": null,
-              "publishDate": "7 hours ago",
+              "publishDate": "1 day ago",
               "duration": "7:00"
             },
             {
               "title": "Bidding on a HAUNTED House at Foreclosure Auction!",
               "url": null,
-              "views": 173,
+              "views": 198,
               "likes": null,
-              "publishDate": "7 days ago",
+              "publishDate": "8 days ago",
               "duration": "8:08"
+            },
+            {
+              "title": "We Bought a $525K House For ONLY $334K at Auction!",
+              "url": null,
+              "views": 72,
+              "likes": null,
+              "publishDate": "2 weeks ago",
+              "duration": "13:41"
             }
           ],
           "popularVideos": []
@@ -125,21 +140,22 @@
     "instagram": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.instagram.com/twoguystakeonrealestate/",
-      "followers": null,
+      "followers": 205999,
       "posts": null,
-      "verified": null,
+      "postsReason": "Instagram post count not publicly accessible without login",
+      "verified": true,
       "status": {
         "ok": false,
-        "reason": "Login wall — profile stats not publicly rendered"
+        "reason": "Post count not publicly accessible without login"
       }
     },
     "tiktok": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.tiktok.com/@twoguystakeonrealestate",
       "displayName": "Real Estate Investing Mentors",
-      "followers": 892400,
+      "followers": 892300,
       "likes": 7300000,
-      "bio": "We created massive wealth in Real Estate AUTOMATE RENTAL CASHFLOW 💰",
+      "bio": "We created massive wealth in Real Estate AUTOMATE RENTAL CASHFLOW 👇",
       "status": {
         "ok": true,
         "reason": null
@@ -149,7 +165,7 @@
       "handle": "2GuysTake",
       "url": "https://x.com/2GuysTake",
       "displayName": "Two Guys Take on Real Estate",
-      "followers": 5771,
+      "followers": 5769,
       "following": 37,
       "posts": 4940,
       "verified": true,
@@ -158,7 +174,7 @@
       "joinedDate": "December 2020",
       "recentPosts": [
         {
-          "text": "Foreclosure auction Before and After - Won for 136k, Rehab 70k, UA for 360k",
+          "text": "Foreclosure auction Before and After - Won for 136k Rehab 70k UA for 360k",
           "date": "2025-02-21",
           "likes": null,
           "retweets": null,
