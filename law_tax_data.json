@@ -1,104 +1,131 @@
 {
-  "lastUpdated": "2026-07-07T08:00:00-04:00",
+  "lastUpdated": "2026-08-31T05:18:15-04:00",
   "updates": [
     {
-      "title": "100% bonus depreciation permanently restored for 2026 acquisitions",
-      "date": "2026-07-04",
+      "title": "MA zoning reform: variance standard replaced with 'practical difficulty'",
+      "date": "2026-07-09",
+      "jurisdiction": "MA State",
+      "category": "Legal",
+      "impact": "High",
+      "summary": "The FY2027 state budget (signed July 9, 2026, effective immediately) amended G.L. c.40A section 10, retiring the 40-year-old 'substantial hardship' variance test tied to a lot's unique soil, shape, or topography. Boards may now grant a variance on a showing of 'practical difficulty,' and financial hardship plus housing benefit are explicit factors. This is the most consequential change to MA zoning practice in four decades.",
+      "action": "Revisit any fix-and-flip, conversion, or density project previously denied a variance under the old standard - several may now clear the bar. Raise the new standard with counsel before the next ZBA filing."
+    },
+    {
+      "title": "MA $1M+ real estate transfer withholding remains a closing requirement",
+      "date": "2025-11-01",
+      "jurisdiction": "MA State",
+      "category": "Tax",
+      "impact": "High",
+      "summary": "Massachusetts requires withholding at closing on real estate transfers at or above the $1,000,000 threshold, effective Nov 1, 2025. The obligation sits with the closing process, so it surfaces late and can strand seller proceeds if nobody has planned for it. It applies across the real estate and lending sides of the portfolio.",
+      "action": "Confirm closing attorneys are collecting and remitting on every disposition at or above $1M, and that estimated-tax positions account for amounts already withheld so the portfolio does not overpay twice."
+    },
+    {
+      "title": "MA Commercial Conversion Tax Credit: $15.3M awarded for 856 new homes",
+      "date": "2026-08-30",
+      "jurisdiction": "MA State",
+      "category": "Tax",
+      "impact": "High",
+      "summary": "The Healey administration, through EOHLC, awarded $15.3M under the Commercial Conversion Tax Credit Initiative to convert commercial buildings into 856 new housing units. The awards confirm the CCTCI pipeline is funding real conversions rather than sitting unused. The 2026 NOFA round closed April 2, 2026.",
+      "action": "Watch for the next NOFA cycle before committing 159 Main St (Cooper's Commons) or 939 East Columbus Ave to a conversion plan - the credit materially changes the pro forma and the application window drives the schedule."
+    },
+    {
+      "title": "MA FY2027 budget signed - no new taxes or fees",
+      "date": "2026-07-09",
+      "jurisdiction": "MA State",
+      "category": "Tax",
+      "impact": "Medium",
+      "summary": "Governor Healey signed the $63.4B FY2027 budget on July 9, 2026 with no vetoes and no new taxes or fees. Roughly $2.7B in Fair Share surtax revenue is allocated 64% to education and 36% to transportation. Separately, FY2026 surtax collections came in near $3.1B against a $2B projection, making the surtax a durable core budget item and lowering the odds of repeal.",
+      "action": "No filing action. Plan on the 4% surtax being permanent for modeling purposes rather than treating it as a temporary overlay."
+    },
+    {
+      "title": "MA H.5470: elective PTET expanded to cover the 4% surtax",
+      "date": "2026-06-12",
+      "jurisdiction": "MA State",
+      "category": "Tax",
+      "impact": "High",
+      "summary": "The FY26 supplemental budget (enacted June 12, 2026) expanded the elective pass-through entity tax to cover the 4% surtax beginning in TY2026. An electing S-corp or partnership can pay the surtax portion at the entity level, making it federally deductible without regard to the SALT cap, with members claiming the usual 90% MA credit. The same act delayed MA conformity to the OBBBA section 179, R&D, and section 163(j) provisions behind revenue triggers, so federal and state books can diverge.",
+      "action": "Have the CPA model a 2026 PTET election including the surtax before the Q3 estimate due September 15. The election is made per entity annually - confirm which entities benefit. Flag the conformity delay so MA depreciation and interest add-backs are not a filing-season surprise."
+    },
+    {
+      "title": "IRS Notice 2026-11: interim guidance on permanent 100% bonus depreciation",
+      "date": "2026-01-14",
       "jurisdiction": "Federal",
       "category": "Tax",
       "impact": "High",
-      "summary": "The One Big Beautiful Bill Act (signed July 4, 2025) permanently reinstated 100% bonus depreciation for qualified property placed in service after Jan 19, 2025. IRS Notice 2026-11 confirms cost-segregated components of rental acquisitions and flip rehab equipment qualify. The prior phase-down to 20% in 2026 is eliminated.",
-      "action": "Run cost segregation studies on any YellowBrick Property or Emerald City Rentals acquisitions over ~$500K before year-end. Coordinate with CPA on which entities (YBP, ECR, Springfield Homes) take the deduction."
+      "summary": "The One Big Beautiful Bill Act permanently restored 100% first-year bonus depreciation for qualified property acquired after January 19, 2025, eliminating the scheduled phase-down. IRS Notice 2026-11, issued January 14, 2026, provides interim guidance and confirms treatment for cost-segregated components of rental acquisitions and for equipment. Notice 2026-16 (February 20, 2026) extends 100% treatment to Qualified Production Property.",
+      "action": "Run cost segregation on acquisitions above roughly $500K before year-end and coordinate with the CPA on which entity claims the deduction. Remember MA conformity is delayed under H.5470, so the state add-back is real."
     },
     {
-      "title": "SJC strikes rent control ballot measure from November 2026 ballot",
+      "title": "QOZ deferred gains become taxable Dec 31, 2026; OZ 2.0 nominations open",
+      "date": "2026-06-18",
+      "jurisdiction": "Federal",
+      "category": "Tax",
+      "impact": "High",
+      "summary": "All pre-2027 gains deferred into Qualified Opportunity Funds are recognized on 2026 returns. IRS Notice 2026-40 (June 18, 2026) confirms the December 31, 2026 deemed inclusion, preserves the 10-year FMV step-up on exit, and adds working-capital and ordinary-course-replacement safe harbors plus a compliance bridge through 2047. Separately, the OZ 2.0 nomination window is open: MA will designate 103 zones from 410 eligible tracts, with state nominations due September 28, 2026 and designations effective January 1, 2027.",
+      "action": "Plan liquidity now for the December 31 inclusion - holdings of 5+ years get a 10% exclusion and 7+ years get 15%. Review the published MA eligible-tract map against target submarkets and submit feedback before the Healey administration's early-September submission."
+    },
+    {
+      "title": "21st Century ROAD to Housing Act signed - institutional investor moratorium",
+      "date": "2026-07-11",
+      "jurisdiction": "Federal",
+      "category": "Legal",
+      "impact": "Medium",
+      "summary": "H.R. 6644 became law July 11, 2026 (Senate 85-5, House 358-32), the first major bipartisan federal housing package since the 1990s. It imposes a broad moratorium on large institutional investors purchasing single-family homes and adds supply-side reforms covering zoning incentives, permitting, and manufactured housing. Final text softened the build-to-rent provisions: the 7-year forced-disposal requirement and the renter right-of-first-refusal were dropped.",
+      "action": "The moratorium targets large institutional buyers, not portfolios of this size - no direct restriction expected. Track the supply-side incentives, which may open permitting and zoning advantages worth using."
+    },
+    {
+      "title": "CFPB eliminates ECOA disparate-impact liability; MA authority survives",
+      "date": "2026-07-21",
+      "jurisdiction": "Federal",
+      "category": "Regulatory",
+      "impact": "Medium",
+      "summary": "The CFPB's rewrite of Regulation B took effect July 21, 2026, eliminating disparate-impact liability under ECOA at the federal level. Massachusetts, along with California and New Jersey, retains independent state-level disparate-impact authority, so MA compliance posture is essentially unchanged. For the lending business the business-purpose exemption remains the operative shield.",
+      "action": "No change to underwriting or fair-lending documentation for MA lending. Do not treat the federal rollback as relief from state exposure."
+    },
+    {
+      "title": "MA deeds excise proposed for transfers of controlling interests",
+      "date": "2026-08-30",
+      "jurisdiction": "MA State",
+      "category": "Tax",
+      "impact": "Medium",
+      "summary": "A pending proposal would extend the MA deeds excise to entity-level transfers - transfers of LLC or TIC interests holding MA real property, not just recorded deeds - with a $1M cap on the assumed-mortgage deduction. This is still a proposal and not law, but it would reach structures that currently transfer outside the recording system.",
+      "action": "Directly relevant to the Flying Monkey TIC (1361 Memorial Dr) and the 59 King Spring TIC structure. If any interest transfer is contemplated, discuss timing with counsel before the proposal advances."
+    },
+    {
+      "title": "MA SJC strikes rent control question from the November 2026 ballot",
       "date": "2026-06-23",
       "jurisdiction": "MA State",
       "category": "Legal",
       "impact": "High",
-      "summary": "The Massachusetts Supreme Judicial Court unanimously ruled the statewide rent control ballot initiative cannot appear on the November 2026 ballot. The measure would have capped annual rent increases at 5% or CPI, whichever is lower. The court found the petition’s religious-institution exemption violated the state constitution’s bar on ballot questions relating to religion.",
-      "action": "No immediate action required — rent caps will not apply this cycle. Monitor legislative alternatives; advocates plan to redraft for 2028. Continue market-rate rent-setting across all YellowBrick Management entities."
+      "summary": "The Supreme Judicial Court ruled on June 23, 2026 that the statewide rent control initiative cannot appear on the November 2026 ballot; the petition's religious-institution exemption was held unconstitutional. 88,132 signatures had been certified. Supporters plan to refile. A separate rent stabilization bill remains before a joint committee.",
+      "action": "No rent caps this cycle - continue market-rate rent-setting across all management entities. Keep the rent stabilization bill on the watch list rather than treating the risk as closed."
     },
     {
-      "title": "MA broker fee law: landlord pays if landlord hires the broker",
-      "date": "2026-06-28",
+      "title": "MA MRVP/AHVP voucher rent increase rules effective July 1, 2026",
+      "date": "2026-07-01",
       "jurisdiction": "MA State",
-      "category": "Legal",
-      "impact": "High",
-      "summary": "Under the Massachusetts law effective Aug 1, 2025, the party who engages the broker pays the fee. Tenants can no longer be charged broker fees for broker relationships they did not initiate. Enforcement activity has increased in 2026, with the AG’s office pursuing violations.",
-      "action": "Confirm all listing agreements and lease-up marketing budgets across YellowBrick Property, Emerald City Rentals, Springfield Homes, and Hampden Realty reflect landlord-paid fees. Audit any tenant charges since Aug 2025."
-    },
-    {
-      "title": "MA short-term capital gains taxed at 8.5% plus surtax risk",
-      "date": "2026-06-25",
-      "jurisdiction": "MA State",
-      "category": "Tax",
-      "impact": "High",
-      "summary": "Massachusetts taxes short-term capital gains (assets held under one year) at 8.5%. Flips sold within 12 months of purchase are ordinary income federally and short-term gains for MA. The 4% Fair Share surtax applies if total taxable income exceeds ~$1,108,000 in 2026, pushing the effective rate to 12.5%.",
-      "action": "Review hold periods on active flip properties with CPA; dealer-status treatment may apply to flip entity regardless. Model surtax exposure if combined entity income approaches the $1.1M threshold."
-    },
-    {
-      "title": "Eviction record sealing law impacts tenant screening",
-      "date": "2026-06-18",
-      "jurisdiction": "MA State",
-      "category": "Legal",
-      "impact": "High",
-      "summary": "The MA eviction record sealing law (effective May 5, 2025) allows tenants to petition courts to seal dismissed, no-fault, and satisfied eviction cases. Fault-based evictions can be sealed after 7 years. Sealed records are invisible to screening companies and tenants may legally answer ‘no record’ on applications. Over 6,200 petitions filed in the first year.",
-      "action": "Update tenant screening procedures across all entities to emphasize income verification, direct landlord references, and credit checks. Train leasing staff at Commonwealth Ave 99, Windsor St 56, and all Springfield properties on the new screening landscape."
-    },
-    {
-      "title": "Security deposit compliance: strict G.L. c.186 §15B enforcement",
-      "date": "2026-06-10",
-      "jurisdiction": "MA State",
-      "category": "Legal",
+      "category": "Regulatory",
       "impact": "Medium",
-      "summary": "Recent MA appellate decisions continue to award treble damages for deposit handling violations (separate interest-bearing account, statement of condition within 10 days, annual interest payments). The Aug 2025 SJC ruling in Peebles v. JRK narrowed the ‘reasonable wear and tear’ standard, making it harder for landlords to deduct repainting, carpet cleaning, and professional cleaning costs.",
-      "action": "Spot-audit deposit accounts and statements of condition across YellowBrick Property, Emerald City Rentals, Springfield Homes, and Hampden Realty; verify annual interest was paid or credited at each lease anniversary."
+      "summary": "For MRVP and AHVP voucher tenants, rent increases may now be taken only at lease renewal and must be requested at least 90 days in advance. Requests submitted fewer than 60 days out are deferred to the following year, meaning a missed window costs a full year of increase.",
+      "action": "Calendar 90-day notice deadlines for every voucher-tenant lease anniversary and build the reminder into the renewal workflow so no increase is lost to timing."
     },
     {
-      "title": "Security deposit fee-in-lieu option now permitted",
-      "date": "2026-06-05",
+      "title": "MA PFAS bills and Mass Ready Act still live after the July 31 session date",
+      "date": "2026-08-30",
       "jurisdiction": "MA State",
-      "category": "Legal",
-      "impact": "Medium",
-      "summary": "Acts of 2025, Chapter 9 (effective Aug 1, 2025) explicitly permits landlords and tenants to agree to a monthly fee in lieu of a traditional security deposit. This gives tenants a lower move-in cost alternative while providing landlords ongoing damage coverage. The fee arrangement must be voluntary and documented in writing.",
-      "action": "Evaluate whether offering a fee-in-lieu option at lease-up across high-vacancy properties (Kensington Ave 101, Bowles St 75-77, Eastern Ave 39-41) would improve conversion rates. Consult attorney on required lease addendum language."
+      "category": "Regulatory",
+      "impact": "Low",
+      "summary": "The Legislature's July 31 formal session 'deadline' is not a hard stop. The roughly $120M PFAS remediation bond bill (Mass Ready Act) and the PFAS consumer-product ban bills (S.1504/H.2197, with a biosolids land-application ban in S.2802) remain in conference committee, and once conferees are named talks can continue informally into the fall and winter. Separately, EPA draft guidance on PFOA/PFOS in biosolids walks back the prior risk assessment as overstated, signaling a lighter-touch federal posture.",
+      "action": "No action required. Do not expect quick resolution on either bill; revisit carwash discharge and chemical sourcing exposure if the consumer-product ban moves."
     },
     {
-      "title": "1099-K reporting threshold restored to $20K/200 transactions",
-      "date": "2026-06-01",
+      "title": "IRS mid-year mileage rate increase to 76 cents per mile",
+      "date": "2026-07-13",
       "jurisdiction": "Federal",
       "category": "Tax",
       "impact": "Low",
-      "summary": "The One Big Beautiful Bill Act restored the pre-2022 1099-K threshold at $20,000 and 200+ transactions. Separately, the 1099-MISC threshold for rental payments increases to $2,000 for tax year 2026, with inflation adjustments starting in 2027. This reduces reporting noise for payment platforms used to collect rent or application fees.",
-      "action": "No action needed; keep rent-collection platform records reconciled as usual. Note the new $2,000 1099-MISC threshold when issuing contractor payments for property maintenance."
-    },
-    {
-      "title": "Corporate Transparency Act: domestic LLCs exempt from BOI filing",
-      "date": "2026-05-28",
-      "jurisdiction": "Federal",
-      "category": "Regulatory",
-      "impact": "Medium",
-      "summary": "FinCEN’s March 2025 interim final rule exempts all U.S.-formed companies from beneficial ownership (BOI) reporting; only certain foreign-formed entities registered in a U.S. state must file. All YellowBrick Property, Emerald City Rentals, Springfield Homes, Hampden Realty, Ruby Lending, and Courageous Lion entities are domestic LLCs and are exempt.",
-      "action": "None currently. FinCEN plans to finalize the rule in 2026 — monitor for changes. Litigation could revive domestic filing requirements; re-check before forming new entities."
-    },
-    {
-      "title": "Springfield rental registration and inspection enforcement",
-      "date": "2026-05-20",
-      "jurisdiction": "MA State",
-      "category": "Regulatory",
-      "impact": "Medium",
-      "summary": "Springfield continues active enforcement of its apartment registration ordinance; unregistered units face fines up to $300/day and inspection backlogs are creating 4-6 week scheduling delays for lease-ups after turnover. The city’s Code Enforcement department is prioritizing multi-family properties in the downtown and Six Corners areas.",
-      "action": "Verify every Springfield property’s registration is current before Q3 turnovers — Cambridge St 112-114, Dawes St 70-72, Dawes St 111-113, Oak Grove Ave 91-93, and all YBP Springfield addresses. Calendar renewal dates and budget for $75/unit inspection fees."
-    },
-    {
-      "title": "Lead paint compliance for pre-1978 units",
-      "date": "2026-05-12",
-      "jurisdiction": "MA State",
-      "category": "Legal",
-      "impact": "Medium",
-      "summary": "MA lead law (G.L. c.111 §§189A-199B) requires deleading or interim control when a child under 6 resides in a pre-1978 unit. Violations carry strict liability — landlords are liable even if lead exposure occurred elsewhere. Most of the western MA portfolio across YellowBrick Property, Emerald City Rentals, and Springfield Homes is pre-1978 housing stock. A MA tax credit of up to $1,500/unit for full compliance or $500/unit for interim control is available.",
-      "action": "Maintain letters of compliance file; flag any pending applications with children under 6 for units without current compliance letters. Audit Loring St 30-32, Johnson St 38, Greene St 62-68, and all Hampden Realty properties for current lead certificates."
+      "summary": "IRB 2026-29 raised the business standard mileage rate from 72.5 cents to 76 cents per mile effective July 1, 2026 - the first mid-year adjustment since 2022. Trips before and after July 1 must be rated separately.",
+      "action": "Split 2026 mileage logs at July 1 and update any reimbursement templates or bookkeeping rules that hardcode the old rate."
     }
   ]
 }
