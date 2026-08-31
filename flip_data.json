@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-30T20:30:00-04:00",
+  "lastUpdated": "2026-08-31T21:30:00-04:00",
   "scanWindow": {
     "type": "widened",
     "from": "2026-08-28",
@@ -217,21 +217,23 @@
       "notes": "Acquired by foreclosing on a Ruby Lending note — tracked here as an acquisition, not as lending. Occupancy issue to resolve before rehab."
     },
     {
-      "address": "Ware, MA (Northeast PCG portfolio — address TBD)",
+      "address": "27 Parker St / 28-30 North St / 28.5 North St / 38 North St, Ware, MA 01082",
       "source": "off-market",
       "askingPrice": 2100000,
       "offerAmount": 2100000,
-      "status": "offered",
+      "status": "under-contract",
       "targetStrategy": "buy-and-hold",
-      "entity": null,
+      "entity": "Flying Monkey LLC",
       "lawyer": null,
       "agent": "Taylor Perun (Northeast Private Client Group) via Peter Houser",
-      "keyDates": {},
-      "lastActivity": {
-        "date": "2026-08-27",
-        "summary": "Seller agreeable at $2.1M but wants tighter terms: 14-day DD/financing contingency, minimum 60% LTV in contract, $75k deposit going hard after DD, 60-day close. Matt countering for 21-day DD, 30 days for financing, 75% LTV and a $10k first extension."
+      "keyDates": {
+        "offerAcceptedDate": "2026-08-31"
       },
-      "notes": "JV with Peter Houser. Street address not yet disclosed in correspondence — do not invent one. Sticking points are seller-imposed LTV floor and the financing window vs 30-day appraisal turnaround."
+      "lastActivity": {
+        "date": "2026-08-31",
+        "summary": "OFFER ACCEPTED. Taylor Perun (Northeast PCG) confirmed acceptance at 5:38 PM ET and attached the fully executed LOI (NPCGLOI_WithFinancing_27ParkerStreet2830North285NorthStreet38NorthStreetWareMA_Houser_BestFinal_8.31); Peter Houser forwarded it to Matt at 5:39 PM. Perun asked for buyer's attorney contact info (attorneys to be connected the morning of 9/1) and a comprehensive due-diligence request list. Matt circulated it internally at 6:06 PM as \"20 unit in Ware / Flying Monkey / Executed loi\"."
+      },
+      "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr."
     }
   ],
   "active": [
