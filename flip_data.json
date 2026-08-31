@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-08-28T18:00:00-04:00",
+  "lastUpdated": "2026-08-30T20:30:00-04:00",
   "scanWindow": {
-    "type": "daily",
-    "from": "2026-08-27",
-    "to": "2026-08-28",
-    "note": "Window widened to 48h — no digest sent 25, 26 or 27 Aug (blank email, Chrome-compose session death, spend-limit crash). 79 Pleasant St sale completed and archived; 166 East St moved to under-contract on a $30k buyer EMD; five new pipeline properties added."
+    "type": "widened",
+    "from": "2026-08-28",
+    "to": "2026-08-30",
+    "note": "Widened past 24h because the 2026-08-29 digest was sent but arrived empty. Covers every day since the last good digest on 2026-08-28."
   },
   "summary": {
     "pipeline": 13,
@@ -41,8 +41,8 @@
       "agent": "Sentry Commercial (Murdock)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-20",
-        "summary": "Pete Houser pressing Greenfield Savings for a term sheet — needs to close within ~30 days. Appraisal on hold until P&S is signed."
+        "date": "2026-08-24",
+        "summary": "GSB commercial loan application (Tortoriello/Shippee) completed and signed via DocuSign for Ian Vukovich, Greenfield Savings."
       },
       "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod."
     },
@@ -58,8 +58,8 @@
       "agent": "Lisa Kelley (Cummings & Co.)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-23",
-        "summary": "Inspection response from Rob Stubbins Electrical: electrical work estimate ~$1500 (GFI/AFCI breakers, conditional on service upgrade)"
+        "date": "2026-08-25",
+        "summary": "Addendum 4 to the Purchase and Sale Contract shared for review via dotloop (Lisa Kelley)."
       },
       "notes": "P&S, appraisal gap addendum, inspection contingency and attorney review clause all signed Jul 26."
     },
@@ -126,8 +126,8 @@
       "agent": "Zaisha Robert (SR Commercial Realty)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-10",
-        "summary": "Executed LOI; lease draft nearly complete — SR Commercial following up on timing"
+        "date": "2026-08-29",
+        "summary": "The Opal Studio lease fully executed via dotloop at the property (tenant-side activity)."
       },
       "notes": "LOI signed by all parties Jul 30. Jess has the keys."
     },
@@ -143,8 +143,8 @@
       "agent": "Daniel Lavitman (SR Commercial Realty)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-07-30",
-        "summary": "07.27.2026 Extension signed via dotloop"
+        "date": "2026-08-25",
+        "summary": "Closing timing chased with Burstein; still no response from the other side."
       },
       "notes": ""
     },
@@ -153,15 +153,15 @@
       "source": "wholesaler",
       "askingPrice": null,
       "offerAmount": null,
-      "status": "analyzing",
+      "status": "offered",
       "targetStrategy": "flip",
       "entity": null,
       "lawyer": "David Burstein",
       "agent": "George Valentgas (Pilgrim Hill Holdings)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-28",
-        "summary": "P&S sent for signature via DocuSign by George Valentgas. Burstein reviewed: needs to see a signed contract first, then a separate contract to buy from Prop Doc LLC; seller's attorney Casey Cole is MA-licensed; wants title insurance confirmation and seller ID before relying on the first sale."
+        "date": "2026-08-29",
+        "summary": "DocuSign reminder to sign the P&S from George Valentgas. Burstein advises a signed contract plus a separate contract to buy from Prop Doc LLC (double close); buyer-side attorney Casey Cole is MA-licensed."
       },
       "notes": "Double-close structure through Prop Doc LLC using the seller's attorney (Casey Cole). Burstein flagged validation of the first sale as the key risk."
     },
@@ -265,8 +265,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-21",
-        "summary": "NEW OFFER — offer signed via dotloop with Alice Kempf. Moves from listed to under contract."
+        "date": "2026-08-29",
+        "summary": "Buyer's post-inspection request received via Alice Kempf - large credit sought including chimney; Alice suggests repairing most items and offering a smaller credit."
       },
       "draws": [],
       "notes": "Agent: Alice Kempf (Kempf-Vanderburgh). First activity on this property since tracking began."
@@ -358,8 +358,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-06",
-        "summary": "Pittsfield inspection request sent; insurance policy added"
+        "date": "2026-08-26",
+        "summary": "Gas service turn-on requested through Scott Burstein; utility indicated it may not be out until the following week."
       },
       "draws": [],
       "notes": ""
@@ -391,12 +391,12 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-28",
-        "summary": "$30,000 earnest money deposit received from buyer Larissa Regan (Coldwell Banker, deal 96003201-2026-00859-1). Burstein looped in and requesting buyer's counsel contact."
+        "date": "2026-08-29",
+        "summary": "Buyer's counsel named: Carolyn Futtner, Mancini Provenzano & Futtner (CT). $30,000 EMD confirmed received 8/28 from buyer Larissa Regan."
       },
       "draws": [],
       "notes": "Signature request suggests listing or transaction paperwork is being prepared — confirm document type. Resale under agreement. Buyer Larissa Regan; listing/selling agent Ross LaBella, Coldwell Banker South Windsor. EMD $30,000 paid 8/28/2026. Closing attorney David Burstein.",
-      "agent": "Ross (Rosario) LaBella, Coldwell Banker Realty"
+      "agent": "Ross LaBella (Coldwell Banker Realty)"
     },
     {
       "address": "62 Maynard St, Springfield, MA 01109",
