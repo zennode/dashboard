@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-08-30T01:00:00-04:00",
+  "lastUpdated": "2026-09-01T01:00:00-04:00",
   "runStatus": {
     "ok": true,
     "platformsAttempted": 5,
@@ -29,7 +29,7 @@
           "estMonthlyEarnings": null,
           "estMonthlyEarningsReason": "Analytics requires YouTube Studio login",
           "monetized": null,
-          "monetizedReason": "Monetization status requires YouTube Studio login",
+          "monetizedReason": "Monetization status not publicly available",
           "status": {
             "ok": true,
             "reason": null
@@ -38,36 +38,68 @@
             {
               "title": "The SECRET to Buying Cheap Real Estate: Foreclosure Auctions",
               "url": "https://www.youtube.com/watch?v=0uvnHp8qGco",
-              "views": 246,
+              "views": 360,
               "likes": null,
-              "publishDate": "2026-08-29",
+              "publishDate": "2 days ago",
               "duration": "13:24"
             },
             {
               "title": "Can We Buy an Investment Property at Auction for $190,000?",
               "url": "https://www.youtube.com/watch?v=Sqly48KgGOI",
-              "views": 182,
+              "views": 225,
               "likes": null,
-              "publishDate": "2026-08-22",
+              "publishDate": "10 days ago",
               "duration": "8:45"
             },
             {
               "title": "3 SECRET Websites We Use to Buy Foreclosure Auction Properties!",
               "url": "https://www.youtube.com/watch?v=9gypvvop7QI",
-              "views": 310,
+              "views": 314,
               "likes": null,
-              "publishDate": "2026-08-16",
+              "publishDate": "2 weeks ago",
               "duration": "8:40"
+            },
+            {
+              "title": "Selling Our FIRST Investment Property: Profit REVEALED",
+              "url": "https://www.youtube.com/watch?v=Yj76V_o8IGE",
+              "views": 223,
+              "likes": null,
+              "publishDate": "3 weeks ago",
+              "duration": "12:41"
+            },
+            {
+              "title": "Networking Strategy EVERY Investor Should Be Using!",
+              "url": "https://www.youtube.com/watch?v=wmZa-EzhUdo",
+              "views": 164,
+              "likes": null,
+              "publishDate": "1 month ago",
+              "duration": "10:48"
             }
           ],
           "popularVideos": [
             {
-              "title": "How We Bought a $275K Condo For $157K!",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 304,
-              "likes": 21,
-              "publishDate": "2026-07-27",
-              "duration": "10:44"
+              "title": "Buying Foreclosed Homes at Auction (Step by Step)",
+              "url": null,
+              "views": 37000,
+              "likes": null,
+              "publishDate": "2 years ago",
+              "duration": "10:46"
+            },
+            {
+              "title": "We Took a First-Time Bidder to a Foreclosure Auction!",
+              "url": null,
+              "views": 26000,
+              "likes": null,
+              "publishDate": "1 year ago",
+              "duration": "15:11"
+            },
+            {
+              "title": "How to Wholesale Real Estate for Beginners (Make $10,000 A Month)",
+              "url": null,
+              "views": 25000,
+              "likes": null,
+              "publishDate": "5 years ago",
+              "duration": "16:00"
             }
           ]
         },
@@ -84,7 +116,7 @@
           "viewsGained7dPct": null,
           "viewsGained7dPctReason": "Analytics requires YouTube Studio login",
           "estMonthlyEarnings": null,
-          "estMonthlyEarningsReason": "Channel is not monetized — no revenue to report",
+          "estMonthlyEarningsReason": "Channel is not monetized — below 1000 subscriber threshold",
           "monetized": false,
           "status": {
             "ok": true,
@@ -93,26 +125,26 @@
           "recentVideos": [
             {
               "title": "Foreclosure Auction Process Breakdown For BEGINNERS!",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 36,
+              "url": null,
+              "views": 52,
               "likes": null,
-              "publishDate": "2026-08-28",
+              "publishDate": "4 days ago",
               "duration": "7:00"
             },
             {
               "title": "Bidding on a HAUNTED House at Foreclosure Auction!",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 219,
+              "url": null,
+              "views": 318,
               "likes": null,
-              "publishDate": "2026-08-21",
+              "publishDate": "11 days ago",
               "duration": "8:08"
             },
             {
               "title": "We Bought a $525K House For ONLY $334K at Auction!",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 77,
+              "url": null,
+              "views": 80,
               "likes": null,
-              "publishDate": "2026-08-16",
+              "publishDate": "2 weeks ago",
               "duration": "13:41"
             }
           ],
@@ -123,9 +155,9 @@
     "instagram": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.instagram.com/twoguystakeonrealestate/",
-      "followers": 206012,
+      "followers": 206000,
       "posts": null,
-      "postsReason": "Post count requires login to view",
+      "postsReason": "Profile stats not publicly rendered — login wall",
       "verified": true,
       "status": {
         "ok": true,
@@ -136,7 +168,7 @@
       "handle": "twoguystakeonrealestate",
       "url": "https://www.tiktok.com/@twoguystakeonrealestate",
       "displayName": "Real Estate Investing Mentors",
-      "followers": 892300,
+      "followers": 892200,
       "likes": 7300000,
       "bio": "We created massive wealth in Real Estate | AUTOMATE RENTAL CASHFLOW 👇",
       "status": {
@@ -148,31 +180,22 @@
       "handle": "2GuysTake",
       "url": "https://x.com/2GuysTake",
       "displayName": "Two Guys Take on Real Estate",
-      "followers": 5766,
+      "followers": 5768,
       "following": 37,
-      "posts": 4941,
+      "posts": 4942,
       "verified": true,
       "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
       "location": "Springfield, MA",
       "joinedDate": "December 2020",
       "recentPosts": [
         {
-          "text": "Foreclosure auction Before and After\n\nWon for 136k\nRehab 70k\nUA for 360k\n\nWhat do you think?",
-          "date": "2026-02-21",
-          "likes": 99,
-          "retweets": 4,
-          "replies": 29,
-          "views": 16000,
-          "pinned": true
-        },
-        {
-          "text": "Bought at auction for $136k. Put in $70k rehab. Now worth $360k. That's $154k in equity created from one foreclosure deal. This is why we love auctions. #RealEstateInvesting #ForeclosureAuction",
-          "date": "2026-08-29",
+          "text": "Foreclosure auction Before and After - Won for 136k, Rehab 70k, UA for 360k",
+          "date": "2025-02-21",
           "likes": null,
           "retweets": null,
           "replies": null,
-          "views": 148,
-          "pinned": false
+          "views": null,
+          "pinned": true
         }
       ],
       "status": {
@@ -192,30 +215,8 @@
     }
   },
   "contentStrategy": {
-    "actionableTips": [
-      "Focus on foreclosure auction content across all platforms",
-      "Leverage property before/after transformations for engagement",
-      "Educational content about real estate investing strategies"
-    ],
-    "longFormIdeasMainChannel": [
-      {
-        "title": "Complete Guide to Finding Foreclosure Deals",
-        "format": "Educational series"
-      },
-      {
-        "title": "Top 10 Mistakes First-Time Auction Buyers Make",
-        "format": "How-to guide"
-      }
-    ],
-    "longFormIdeasSecondChannel": [
-      {
-        "title": "Auction House Success Stories",
-        "format": "Case study series"
-      },
-      {
-        "title": "Bidding Strategy Deep Dive",
-        "format": "Tutorial"
-      }
-    ]
+    "actionableTips": [],
+    "longFormIdeasMainChannel": [],
+    "longFormIdeasSecondChannel": []
   }
 }
