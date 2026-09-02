@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-08-31T21:30:00-04:00",
+  "lastUpdated": "2026-09-02T19:20:00-04:00",
   "scanWindow": {
     "type": "widened",
-    "from": "2026-08-28",
-    "to": "2026-08-30",
-    "note": "Widened past 24h because the 2026-08-29 digest was sent but arrived empty. Covers every day since the last good digest on 2026-08-28."
+    "from": "2026-09-01",
+    "to": "2026-09-02",
+    "note": "Widened from the usual 24h because the 2026-09-02 18:00 scheduled run produced no digest; the last successfully sent digest was 2026-09-01 18:04 ET covering data as of 8/31 21:30."
   },
   "summary": {
-    "pipeline": 13,
+    "pipeline": 16,
     "active": 15,
     "archived": 2
   },
@@ -41,8 +41,8 @@
       "agent": "Sentry Commercial (Murdock)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-24",
-        "summary": "GSB commercial loan application (Tortoriello/Shippee) completed and signed via DocuSign for Ian Vukovich, Greenfield Savings."
+        "date": "2026-09-01",
+        "summary": "Square footage / unit count queried with David Murdock (Sentry) — Pete reads 16 units / 26k sq ft across the attachments and asked the owners to reconcile; Greenfield Savings underwriting (Mark Grumoli to Michelle Palmer) asking the same, seller had 5k sq ft owner-occupied plus vacant units to lease up."
       },
       "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod."
     },
@@ -75,8 +75,8 @@
       "agent": "Jeremy Casey / Daniel Lavitman (SR Commercial Realty)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-08",
-        "summary": "Offer to Purchase signed via dotloop (version 2)"
+        "date": "2026-09-02",
+        "summary": "Jeremy Casey (SR Commercial) shared a draft \"SR Commercial Offer To Purchase 159 Main St Agawam.docx\" for review at 11:45 AM; Matt approved it at 12:52 PM and passed it to Pete Houser for sign-off."
       },
       "notes": "Structure discussion: $1.4M with 20% seller second at 4%, 20-yr am / 7-yr term. Seller not open to more than 10–20% seller financing. Seller handles oil tank removal."
     },
@@ -92,8 +92,8 @@
       "agent": "BC Realty",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-27",
-        "summary": "Freedom Credit Union (David Chase): property not seasoned over a year, so financing capped at 80% of purchase price, max $576,000. Pete Houser pushing back on the seasoning rule and considering another bank."
+        "date": "2026-09-01",
+        "summary": "Pete Houser sent a refinance request to Greenfield Savings (Ian Vukovich, Mark Grumoli) — leased to a national company on a 5-year lease, NOI $101k."
       },
       "notes": "$30,000 repair credit requested. Fialky had a call with seller's counsel emphasizing urgency to close and outstanding deliverables."
     },
@@ -221,19 +221,72 @@
       "source": "off-market",
       "askingPrice": 2100000,
       "offerAmount": 2100000,
-      "status": "under-contract",
+      "status": "due-diligence",
       "targetStrategy": "buy-and-hold",
       "entity": "Flying Monkey LLC",
-      "lawyer": null,
+      "lawyer": "Jeff Fialky (Bacon Wilson) / Michael Beglane",
       "agent": "Taylor Perun (Northeast Private Client Group) via Peter Houser",
       "keyDates": {
         "offerAcceptedDate": "2026-08-31"
       },
       "lastActivity": {
-        "date": "2026-08-31",
-        "summary": "OFFER ACCEPTED. Taylor Perun (Northeast PCG) confirmed acceptance at 5:38 PM ET and attached the fully executed LOI (NPCGLOI_WithFinancing_27ParkerStreet2830North285NorthStreet38NorthStreetWareMA_Houser_BestFinal_8.31); Peter Houser forwarded it to Matt at 5:39 PM. Perun asked for buyer's attorney contact info (attorneys to be connected the morning of 9/1) and a comprehensive due-diligence request list. Matt circulated it internally at 6:06 PM as \"20 unit in Ware / Flying Monkey / Executed loi\"."
+        "date": "2026-09-02",
+        "summary": "Due-diligence list finalized — Pete added environmental reports; Chris Parent (Enviro-Risk) engaged to start a Phase I transaction screen to hit the DD deadline. DocuSign \"Commercial Loan Application Ware.pdf\" sent by Pete and signed by Matt; Florence Bank (Wayne Webster / Ryan Hess) requesting 2 years of tax returns for each owner, Flying Monkey docs and current rent rolls — Matt waiting on a secure upload link."
       },
-      "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr."
+      "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr. 9/1: attorneys connected — Taylor Perun looped in Bacon Wilson (Michael Beglane, Jeff Fialky) on the executed LOI. DD request list assembled 9/1-9/2: rent roll, leases, ledgers, lead certs, utility bills, tax/insurance bills and policy, maintenance and capex records (1 yr), estoppels, court agreements, outstanding work orders, environmental reports. Debt being placed with Florence Bank."
+    },
+    {
+      "address": "265 Salisbury Rd, Sheffield, MA",
+      "source": "off-market",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "under-contract",
+      "targetStrategy": "TBD",
+      "entity": "Revive and Rise LLC",
+      "lawyer": "David Burstein",
+      "agent": "Antonio Ruiz (Investarters)",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-09-02",
+        "summary": "Antonio circulated the Purchase & Sale for 265 Salisbury Rd at 3:17 PM. David Burstein acknowledged, asked whether it needed assigning to one of the LLCs, then confirmed at 3:35 PM it is going to Revive & Rise LLC."
+      },
+      "notes": "New this run. P&S in circulation for review — treat as contract formation, not a confirmed executed agreement. Kev Shippee copied. No price disclosed in the thread; do not assume one."
+    },
+    {
+      "address": "36 Paramount St, Springfield, MA",
+      "source": "off-market",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "closing",
+      "targetStrategy": "flip",
+      "entity": "Flying Monkey LLC",
+      "lawyer": "Dunn & Phillips, PC (Pinar Karaaslan) — closing/escrow",
+      "agent": null,
+      "keyDates": {
+        "closingDate": "2026-09-09"
+      },
+      "lastActivity": {
+        "date": "2026-09-02",
+        "summary": "Deposit authorized — Pete asked Chris to send $9,375 to Dunn & Phillips PC (Attn: Pinar Karaaslan, 185 Belmont Ave, Springfield) and Chris confirmed he can mail a check. Matt circulated the deal internally at 9:40 AM: Flying Monkey, goal is to flip, occupants will need to be evicted or relocated; Pete confirmed estoppel and lease are both being obtained."
+      },
+      "notes": "New this run. Closing set for 9/9. Occupied — eviction or relocation required before rehab. Insurance being placed through Adina Edgett (Alera / Union Mutual); carrier asking who the current carrier is and whether it is being non-renewed."
+    },
+    {
+      "address": "71 Hazard Ave (Houser deal — full address TBD)",
+      "source": "off-market",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "analyzing",
+      "targetStrategy": "TBD",
+      "entity": null,
+      "lawyer": null,
+      "agent": null,
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-09-02",
+        "summary": "Pete Houser sent the numbers at 10:54 AM. Matt asked what the lease is on the real estate agency tenant; Pete is waiting on more information. Matt: \"Seems like good potential\" and asked whether to test rentability."
+      },
+      "notes": "New this run. Early-stage analysis only — no offer, no price, no entity. Street name as given in the thread (\"71 Hazard\"); town not stated in the emails and has not been invented."
     }
   ],
   "active": [
