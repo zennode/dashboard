@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2026-09-02T19:20:00-04:00",
+  "lastUpdated": "2026-09-07T19:36:00-04:00",
   "scanWindow": {
     "type": "widened",
-    "from": "2026-09-01",
-    "to": "2026-09-02",
-    "note": "Widened from the usual 24h because the 2026-09-02 18:00 scheduled run produced no digest; the last successfully sent digest was 2026-09-01 18:04 ET covering data as of 8/31 21:30."
+    "from": "2026-09-06",
+    "to": "2026-09-07",
+    "note": "Widened past the usual 24h. Baseline was the 2026-09-02 commit because the 09-06 run’s publish failed, so 09-03 through 09-06 movement was emailed but never committed. This run was itself an automatic re-run of the 18:00 fire, which hung after its STARTED phase. Digest delivered as message 1a07e34e5bf9da93."
   },
   "summary": {
-    "pipeline": 16,
+    "pipeline": 15,
     "active": 15,
-    "archived": 2
+    "archived": 3
   },
   "pipeline": [
     {
@@ -132,23 +132,6 @@
       "notes": "LOI signed by all parties Jul 30. Jess has the keys."
     },
     {
-      "address": "939 East Columbus Ave, Springfield, MA",
-      "source": "off-market",
-      "askingPrice": null,
-      "offerAmount": null,
-      "status": "under-contract",
-      "targetStrategy": "TBD",
-      "entity": null,
-      "lawyer": null,
-      "agent": "Daniel Lavitman (SR Commercial Realty)",
-      "keyDates": {},
-      "lastActivity": {
-        "date": "2026-08-25",
-        "summary": "Closing timing chased with Burstein; still no response from the other side."
-      },
-      "notes": ""
-    },
-    {
       "address": "99 Shore Rd, Richmond, MA",
       "source": "wholesaler",
       "askingPrice": null,
@@ -211,8 +194,8 @@
       "agent": null,
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-27",
-        "summary": "Won at auction after foreclosing on the note; title expected in ~2 weeks. Lock change ordered for first and second floors. Occupant 'Kwik Silver Riley' identified as a squatter."
+        "date": "2026-09-06",
+        "summary": "Deed, affidavit and entry certificates received and signed (Martin Law). Foreclosure closing complete pending recording."
       },
       "notes": "Acquired by foreclosing on a Ruby Lending note — tracked here as an acquisition, not as lending. Occupancy issue to resolve before rehab."
     },
@@ -230,8 +213,8 @@
         "offerAcceptedDate": "2026-08-31"
       },
       "lastActivity": {
-        "date": "2026-09-02",
-        "summary": "Due-diligence list finalized — Pete added environmental reports; Chris Parent (Enviro-Risk) engaged to start a Phase I transaction screen to hit the DD deadline. DocuSign \"Commercial Loan Application Ware.pdf\" sent by Pete and signed by Matt; Florence Bank (Wayne Webster / Ryan Hess) requesting 2 years of tax returns for each owner, Flying Monkey docs and current rent rolls — Matt waiting on a secure upload link."
+        "date": "2026-09-04",
+        "summary": "P&S execution documents circulating via DotLoop/DocuSign through Jeff Fialky and Peter Houser; Phase I transaction screen underway with Enviro-Risk."
       },
       "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr. 9/1: attorneys connected — Taylor Perun looped in Bacon Wilson (Michael Beglane, Jeff Fialky) on the executed LOI. DD request list assembled 9/1-9/2: rent roll, leases, ledgers, lead certs, utility bills, tax/insurance bills and policy, maintenance and capex records (1 yr), estoppels, court agreements, outstanding work orders, environmental reports. Debt being placed with Florence Bank."
     },
@@ -302,8 +285,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-21",
-        "summary": "NEW OFFER — Contract to Purchase Real Estate (Offer) (5) signed via dotloop with Alice Kempf. Back under contract."
+        "date": "2026-09-07",
+        "summary": "David Burstein confirmed the 2140 Palmer payoff at $170,000 plus interest. Matt confirmed the payoff proceeds will be applied to the next acquisition (a roughly $300k property he walked today); remaining funds to come from cash."
       },
       "draws": [],
       "notes": "Prior buyer backed out Aug 5 (Release from Contract signed); inspection flagged hazard items. Relisted and re-offered within 16 days. Agent: Alice Kempf (Kempf-Vanderburgh)."
@@ -334,15 +317,16 @@
       "renoBudget": null,
       "renoSpent": null,
       "contractor": null,
-      "status": "listed",
+      "status": "under-contract",
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-17",
-        "summary": "Open house a little slow — a couple of interested parties showed up, nothing more yet (Alice Kempf)"
+        "date": "2026-09-06",
+        "summary": "Offer to Purchase Revised (version 4) signed via DotLoop with Alice Kempf - buyer's offer executed on the resale. Signed 8:36 PM, after the 09-06 digest went out."
       },
       "draws": [],
-      "notes": "Listing package signed Aug 14: CON DUAL DESIGNATED Exclusive Right to Sell, Mass Inspection Disclosure, Licensee-Consumer Relationship Disclosure, Buyer Broker Compensation Authorization, Deferral of Showings."
+      "notes": "Listing package signed Aug 14: CON DUAL DESIGNATED Exclusive Right to Sell, Mass Inspection Disclosure, Licensee-Consumer Relationship Disclosure, Buyer Broker Compensation Authorization, Deferral of Showings.",
+      "agent": "Alice Kempf"
     },
     {
       "address": "1 Richmond Ln, Adams, MA",
@@ -356,11 +340,12 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-08",
-        "summary": "Listing updated to note a hardpack area will be added; showings blocked while work is done"
+        "date": "2026-09-07",
+        "summary": "Mowing invoice received from Alice Kempf and approved by Matt the same morning; Sam may re-mow in about two weeks, likely at a lower cost."
       },
       "draws": [],
-      "notes": "Agent: Alice Kempf / Tracy M (Kempf-Vanderburgh)."
+      "notes": "Agent: Alice Kempf / Tracy M (Kempf-Vanderburgh).",
+      "agent": "Alice Kempf"
     },
     {
       "address": "42 Washington St, Monson, MA",
@@ -389,8 +374,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-06",
-        "summary": "Pittsfield inspection request submitted"
+        "date": "2026-09-06",
+        "summary": "CMA received from Alice Kempf at $279,900; Antonio and Matt both agreed. Listing prep underway - dining space flagged as a possible objection, enclosed porch to be highlighted."
       },
       "draws": [
         {
@@ -575,6 +560,17 @@
         "summary": "Matt querying the water/sewer charges on the HUD-1 — property was owned only a couple of months and water should have cleared at the first closing. Also chasing whether a Ruby Lending check was due."
       },
       "notes": "Sale completed 8/27/2026. Burstein circulated HUD-1 Settlement Statement, final water bill, commission bill and recorded deed. Checks available for pickup from Burstein Law Offices after 8:30 AM. Water/sewer line on the settlement statement disputed."
+    },
+    {
+      "address": "939-943 E Columbus Ave, Springfield, MA",
+      "entity": "Wicked Deals LLC",
+      "status": "sold",
+      "soldDate": "2026-09-03",
+      "lastActivity": {
+        "date": "2026-09-03",
+        "summary": "Closing completed - settlement statement and deed. Reported in the 09-06 brief but never committed, because that run’s GitHub publish failed."
+      },
+      "notes": "Moved from pipeline to archived on 2026-09-07. Agent Daniel Lavitman (SR Commercial Realty). Prior pipeline record: {\"date\":\"2026-08-25\",\"summary\":\"Closing timing chased with Burstein; still no response from the other side.\"}"
     }
   ]
 }
