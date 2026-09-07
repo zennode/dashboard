@@ -1,13 +1,11 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-09-02T01:00:00-04:00",
+  "lastUpdated": "2026-09-07T01:12:22-04:00",
   "runStatus": {
-    "ok": false,
-    "platformsAttempted": 6,
-    "platformsFailed": 1,
-    "failures": [
-      "instagram: Login wall — profile stats not publicly rendered"
-    ]
+    "ok": true,
+    "platformsAttempted": 5,
+    "platformsFailed": 0,
+    "failures": []
   },
   "platforms": {
     "youtube": {
@@ -21,132 +19,51 @@
           "handle": "twoguystakeonrealestate",
           "url": "https://www.youtube.com/@twoguystakeonrealestate",
           "subscribers": 133000,
-          "totalViews": null,
-          "totalViewsReason": "Channel total views not publicly available without YouTube Studio login",
-          "totalVideos": 1800,
-          "viewsGained7d": null,
-          "viewsGained7dReason": "Analytics requires YouTube Studio login",
-          "viewsGained7dPct": null,
+          "totalViews": 38209495,
+          "totalVideos": 1829,
+          "viewsGained7d": 33829,
+          "viewsGained7dPct": 56.84,
           "estMonthlyEarnings": null,
-          "estMonthlyEarningsReason": "Analytics requires YouTube Studio login",
+          "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts, so the API cannot return them",
           "monetized": true,
           "status": {
             "ok": true,
             "reason": null
           },
-          "recentVideos": [
-            {
-              "title": "The SECRET to Buying Cheap Real Estate: Foreclosure Auctions",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 378,
-              "likes": null,
-              "publishDate": "2026-08-29",
-              "duration": "13:24"
-            },
-            {
-              "title": "Can We Buy an Investment Property at Auction for $190,000?",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 243,
-              "likes": null,
-              "publishDate": "2026-08-22",
-              "duration": "8:45"
-            },
-            {
-              "title": "3 SECRET Websites We Use to Buy Foreclosure Auction Properties!",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 317,
-              "likes": null,
-              "publishDate": "2026-08-19",
-              "duration": "8:39"
-            }
-          ],
-          "popularVideos": [
-            {
-              "title": "Buying Foreclosed Homes at Auction (Step by Step)",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 37000,
-              "likes": null,
-              "publishDate": "2024-08-25",
-              "duration": "10:46"
-            },
-            {
-              "title": "We Took a First-Time Bidder to a Foreclosure Auction!",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 26000,
-              "likes": null,
-              "publishDate": "2025-08-22",
-              "duration": "15:11"
-            },
-            {
-              "title": "How to Wholesale Real Estate for Beginners (Make $10,000 A Month)",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 25000,
-              "likes": null,
-              "publishDate": "2021-08-22",
-              "duration": "16:00"
-            }
-          ],
-          "viewsGained7dPctReason": "Analytics requires YouTube Studio login"
+          "recentVideos": [],
+          "popularVideos": []
         },
         {
           "name": "Auction House Masters",
           "handle": "foreclosureauctionmasters",
           "url": "https://www.youtube.com/@foreclosureauctionmasters",
-          "subscribers": 867,
-          "totalViews": null,
-          "totalViewsReason": "Channel total views not publicly available",
-          "totalVideos": 51,
-          "viewsGained7d": null,
-          "viewsGained7dReason": "Analytics not publicly available",
-          "viewsGained7dPct": null,
+          "subscribers": 881,
+          "totalViews": 26016,
+          "totalVideos": 52,
+          "viewsGained7d": 974,
+          "viewsGained7dPct": 70.28,
           "estMonthlyEarnings": null,
-          "estMonthlyEarningsReason": "Channel is not monetized",
+          "estMonthlyEarningsReason": "Channel is not monetized — no revenue to report",
           "monetized": false,
           "status": {
             "ok": true,
             "reason": null
           },
-          "recentVideos": [
-            {
-              "title": "Foreclosure Auction Process Breakdown For BEGINNERS!",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 56,
-              "likes": null,
-              "publishDate": "2026-08-28",
-              "duration": "7:00"
-            },
-            {
-              "title": "Bidding on a HAUNTED House at Foreclosure Auction!",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 368,
-              "likes": null,
-              "publishDate": "2026-08-21",
-              "duration": "8:08"
-            },
-            {
-              "title": "We Bought a $525K House For ONLY $334K at Auction!",
-              "url": "https://www.youtube.com/watch?v=...",
-              "views": 82,
-              "likes": null,
-              "publishDate": "2026-08-19",
-              "duration": "13:41"
-            }
-          ],
-          "popularVideos": [],
-          "viewsGained7dPctReason": "Analytics not publicly available"
+          "recentVideos": [],
+          "popularVideos": []
         }
       ]
     },
     "instagram": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.instagram.com/twoguystakeonrealestate/",
-      "followers": 206000,
+      "followers": 206318,
       "posts": null,
-      "postsReason": "Login wall — profile stats not publicly rendered",
+      "postsReason": "Post count not publicly visible on Instagram profile page without login",
       "verified": true,
       "status": {
         "ok": false,
-        "reason": "Login wall — profile stats not publicly rendered"
+        "reason": "Post count not accessible — Instagram does not expose post count publicly without authentication"
       }
     },
     "tiktok": {
@@ -165,24 +82,15 @@
       "handle": "2GuysTake",
       "url": "https://x.com/2GuysTake",
       "displayName": "Two Guys Take on Real Estate",
-      "followers": 5767,
-      "following": 37,
-      "posts": 4944,
+      "followers": 5772,
+      "following": null,
+      "followingReason": "Following count requires navigating to following page which loads dynamically",
+      "posts": 4931,
       "verified": true,
       "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
       "location": "Springfield, MA",
       "joinedDate": "December 2020",
-      "recentPosts": [
-        {
-          "text": "Foreclosure auction Before and After",
-          "date": "2026-02-21",
-          "likes": null,
-          "retweets": null,
-          "replies": null,
-          "views": null,
-          "pinned": true
-        }
-      ],
+      "recentPosts": [],
       "status": {
         "ok": true,
         "reason": null
