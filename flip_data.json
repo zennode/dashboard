@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-09-07T19:36:00-04:00",
+  "lastUpdated": "2026-09-08T19:14:00-04:00",
   "scanWindow": {
-    "type": "widened",
-    "from": "2026-09-06",
-    "to": "2026-09-07",
-    "note": "Widened past the usual 24h. Baseline was the 2026-09-02 commit because the 09-06 run’s publish failed, so 09-03 through 09-06 movement was emailed but never committed. This run was itself an automatic re-run of the 18:00 fire, which hung after its STARTED phase. Digest delivered as message 1a07e34e5bf9da93."
+    "type": "daily",
+    "from": "2026-09-07",
+    "to": "2026-09-08",
+    "note": "Re-run launched by auto-rerun-failed-tasks after the scheduled 18:00 ET fire hung at its STARTED phase. The 09-07 run published successfully (loaded lastUpdated 2026-09-07T19:36:00-04:00), so the 24-hour baseline is intact and no widening was needed."
   },
   "summary": {
-    "pipeline": 15,
+    "pipeline": 16,
     "active": 15,
     "archived": 3
   },
@@ -41,8 +41,8 @@
       "agent": "Sentry Commercial (Murdock)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-01",
-        "summary": "Square footage / unit count queried with David Murdock (Sentry) — Pete reads 16 units / 26k sq ft across the attachments and asked the owners to reconcile; Greenfield Savings underwriting (Mark Grumoli to Michelle Palmer) asking the same, seller had 5k sq ft owner-occupied plus vacant units to lease up."
+        "date": "2026-09-08",
+        "summary": "Pete Houser asked Alera (Adina Edgett) for insurance quotes on this and the Ware parcels as \"2 new purchases\" - described here as a 26,000 sq ft multi-tenant industrial building. Greenfield Savings refinance follow-up sent the same afternoon."
       },
       "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod."
     },
@@ -54,12 +54,12 @@
       "status": "under-contract",
       "targetStrategy": "TBD",
       "entity": null,
-      "lawyer": null,
+      "lawyer": "Vincent J. Todd (Langrock Sperry & Wool, VT)",
       "agent": "Lisa Kelley (Cummings & Co.)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-25",
-        "summary": "Addendum 4 to the Purchase and Sale Contract shared for review via dotloop (Lisa Kelley)."
+        "date": "2026-09-08",
+        "summary": "Lisa Kelley shared \"Addendum to Purchase and Sale Contract (One Page) - VR-002\" via dotloop at 2:47 PM. On the closing thread she is waiting to hear whether the affidavit is good, and the buyer's agent is drafting an addendum to extend closing to before next Friday if this week slips; VT counsel Vincent Todd is waiting on Ben Percy."
       },
       "notes": "P&S, appraisal gap addendum, inspection contingency and attorney review clause all signed Jul 26."
     },
@@ -92,8 +92,8 @@
       "agent": "BC Realty",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-01",
-        "summary": "Pete Houser sent a refinance request to Greenfield Savings (Ian Vukovich, Mark Grumoli) — leased to a national company on a 5-year lease, NOI $101k."
+        "date": "2026-09-08",
+        "summary": "Pete Houser followed up with Greenfield Savings (Ian Vukovich, Mark Grumoli) on the refinance request - national tenant on a 5-year lease, NOI $101k."
       },
       "notes": "$30,000 repair credit requested. Fialky had a call with seller's counsel emphasizing urgency to close and outstanding deliverables."
     },
@@ -213,8 +213,8 @@
         "offerAcceptedDate": "2026-08-31"
       },
       "lastActivity": {
-        "date": "2026-09-04",
-        "summary": "P&S execution documents circulating via DotLoop/DocuSign through Jeff Fialky and Peter Houser; Phase I transaction screen underway with Enviro-Risk."
+        "date": "2026-09-08",
+        "summary": "Phase I site visit locked for tomorrow 9:00 AM - Taylor Perun (Northeast PCG) confirmed Chris Parent (Enviro-Risk) will meet on-site manager Dave for access. Also included in Pete's insurance quote request to Alera as 4 buildings / 20 units."
       },
       "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr. 9/1: attorneys connected — Taylor Perun looped in Bacon Wilson (Michael Beglane, Jeff Fialky) on the executed LOI. DD request list assembled 9/1-9/2: rent roll, leases, ledgers, lead certs, utility bills, tax/insurance bills and policy, maintenance and capex records (1 yr), estoppels, court agreements, outstanding work orders, environmental reports. Debt being placed with Florence Bank."
     },
@@ -249,10 +249,10 @@
         "closingDate": "2026-09-09"
       },
       "lastActivity": {
-        "date": "2026-09-02",
-        "summary": "Deposit authorized — Pete asked Chris to send $9,375 to Dunn & Phillips PC (Attn: Pinar Karaaslan, 185 Belmont Ave, Springfield) and Chris confirmed he can mail a check. Matt circulated the deal internally at 9:40 AM: Flying Monkey, goal is to flip, occupants will need to be evicted or relocated; Pete confirmed estoppel and lease are both being obtained."
+        "date": "2026-09-08",
+        "summary": "Closing confirmed for tomorrow 9/9 - Vitaliy Yusenko will close provided the deposit is reconciled; Chris Keniley says the $9,375 check went out Thursday and offered to wire instead, Pete suggested voiding the check. Union Mutual approved the property onto the existing policy effective 9/9, no lender. Pete sent the estoppel. Matt circulated the tenant plan: meet the occupant and move rent to $1,850/mo effective 11/1 on a new one-year lease; Jess confirmed the property and unit are built into Rent Manager."
       },
-      "notes": "New this run. Closing set for 9/9. Occupied — eviction or relocation required before rehab. Insurance being placed through Adina Edgett (Alera / Union Mutual); carrier asking who the current carrier is and whether it is being non-renewed."
+      "notes": "New this run. Closing set for 9/9. Occupied — eviction or relocation required before rehab. Insurance being placed through Adina Edgett (Alera / Union Mutual); carrier asking who the current carrier is and whether it is being non-renewed. Plan shifted 9/8 from evict-or-relocate to retaining the sitting tenant at $1,850/mo from 11/1."
     },
     {
       "address": "71 Hazard Ave (Houser deal — full address TBD)",
@@ -270,6 +270,23 @@
         "summary": "Pete Houser sent the numbers at 10:54 AM. Matt asked what the lease is on the real estate agency tenant; Pete is waiting on more information. Matt: \"Seems like good potential\" and asked whether to test rentability."
       },
       "notes": "New this run. Early-stage analysis only — no offer, no price, no entity. Street name as given in the thread (\"71 Hazard\"); town not stated in the emails and has not been invented."
+    },
+    {
+      "address": "180 Fort Pleasant Ave, Springfield, MA",
+      "source": "off-market",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "offered",
+      "targetStrategy": "TBD",
+      "entity": "Prop Doc LLC",
+      "lawyer": "David Burstein",
+      "agent": "Dennisse Rivera-Mercado (dual agency)",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-09-08",
+        "summary": "New off-market deal. Matt signed the MAR 501 Offer to Purchase plus the dual agency, lead paint and Mass inspection disclosures via dotloop at 1:02 PM; Dennisse Rivera-Mercado revised the offer twice and Matt re-signed at 2:17 PM and 6:33 PM. Matt sent the package to David Burstein and to Webber & Grinnell / Alera for insurance. Burstein replied that the seller has not accepted yet and that he needs the EIN letter and an Operating Agreement for Prop Doc LLC."
+      },
+      "notes": "New this run. Buying entity Prop Doc LLC - not on the standing flip-entity list; Burstein has requested its EIN letter and Operating Agreement. One unit occupied. Matt expects to close in about two weeks. Insurance being placed as a new Named Insured."
     }
   ],
   "active": [
