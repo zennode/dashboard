@@ -1,14 +1,14 @@
 {
-  "lastUpdated": "2026-09-08T19:14:00-04:00",
+  "lastUpdated": "2026-09-09T19:20:00-04:00",
   "scanWindow": {
     "type": "daily",
-    "from": "2026-09-07",
-    "to": "2026-09-08",
-    "note": "Re-run launched by auto-rerun-failed-tasks after the scheduled 18:00 ET fire hung at its STARTED phase. The 09-07 run published successfully (loaded lastUpdated 2026-09-07T19:36:00-04:00), so the 24-hour baseline is intact and no widening was needed."
+    "from": "2026-09-08",
+    "to": "2026-09-09",
+    "note": "Re-run launched by auto-rerun-failed-tasks after the scheduled 18:00 ET fire hung at its STARTED phase and sent nothing. Baseline widened slightly to 48 hours because the last successfully sent digest was 2026-09-08 19:29 ET and two Alice Kempf valuation threads landed after that digest was built."
   },
   "summary": {
-    "pipeline": 16,
-    "active": 15,
+    "pipeline": 17,
+    "active": 16,
     "archived": 3
   },
   "pipeline": [
@@ -24,8 +24,8 @@
       "agent": "Nick Bencivengo (Naples Group)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-12",
-        "summary": "Yusenko requesting EIN for CT conveyance tax form; draft deed incorrect (wrong Flying Monkey LLC in CT); insurance update still pending"
+        "date": "2026-09-09",
+        "summary": "Kevin Shippee proposed scheduling a safety inspection at the property at 4:43 PM; no tenant email addresses are on file so notice will be posted. Matt added John (VA) at 4:57 PM; Jess replied at 5:59 PM that the notice must be printed at the office and asked Jocelyn to print it, targeting next week."
       },
       "notes": "Flying Monkey LLC is not registered in CT — deed/entity issue to resolve before closing."
     },
@@ -41,8 +41,8 @@
       "agent": "Sentry Commercial (Murdock)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-08",
-        "summary": "Pete Houser asked Alera (Adina Edgett) for insurance quotes on this and the Ware parcels as \"2 new purchases\" - described here as a 26,000 sq ft multi-tenant industrial building. Greenfield Savings refinance follow-up sent the same afternoon."
+        "date": "2026-09-09",
+        "summary": "Alera (Adina Edgett) replied to the \"2 new purchases\" quote request at 4:38 PM asking for the questionnaire completed with this 26,000 sq ft industrial building on pages 1-2."
       },
       "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod."
     },
@@ -58,8 +58,8 @@
       "agent": "Lisa Kelley (Cummings & Co.)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-08",
-        "summary": "Lisa Kelley shared \"Addendum to Purchase and Sale Contract (One Page) - VR-002\" via dotloop at 2:47 PM. On the closing thread she is waiting to hear whether the affidavit is good, and the buyer's agent is drafting an addendum to extend closing to before next Friday if this week slips; VT counsel Vincent Todd is waiting on Ben Percy."
+        "date": "2026-09-09",
+        "summary": "Matt checked in on the closing at 10:41 AM. VT counsel Vincent Todd replied at 10:46 AM: Ben Percy is still waiting to hear from his title insurer but understands a P&S addendum is being circulated by the buyer's broker to extend the closing. Todd asked Matt whether he has seen such an addendum."
       },
       "notes": "P&S, appraisal gap addendum, inspection contingency and attorney review clause all signed Jul 26."
     },
@@ -92,15 +92,15 @@
       "agent": "BC Realty",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-08",
-        "summary": "Pete Houser followed up with Greenfield Savings (Ian Vukovich, Mark Grumoli) on the refinance request - national tenant on a 5-year lease, NOI $101k."
+        "date": "2026-09-09",
+        "summary": "Pete Houser forwarded a screenshot at 6:41 PM to Jeff Fialky and Matt regarding the estoppel for the Downing Park deal."
       },
       "notes": "$30,000 repair credit requested. Fialky had a call with seller's counsel emphasizing urgency to close and outstanding deliverables."
     },
     {
       "address": "1361 Memorial Dr, Chicopee, MA",
       "source": "off-market",
-      "askingPrice": null,
+      "askingPrice": 650000,
       "offerAmount": null,
       "status": "under-contract",
       "targetStrategy": "TBD",
@@ -109,10 +109,10 @@
       "agent": null,
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-10",
-        "summary": "Waiting on loan modification documents from the lender before the new deed can be recorded; Jeremy Procon traveling, response may be delayed"
+        "date": "2026-09-09",
+        "summary": "Bacon Wilson (Sarah Federation) circulated the revised deed, purchase and sale and TIC Agreement reflecting total consideration of $650,000 with $287,500 of value to Flying Monkey LLC; Moe Burhan confirmed the split is 50-50; Jeff Fialky asked whether everyone is signed off on the economics and Matt answered \"Yes from me\" at 10:17 AM. Multi-Rep letter completed via DocuSign the same morning. Pete Houser then asked for Matt's $37,500 (half of the $75,000 capital) and proposed a further $25,000 into the property account."
       },
-      "notes": "TIC structure — Flying Monkey LLC holds half. Moe Burhan (Waystar) chasing lender docs."
+      "notes": "TIC structure — Flying Monkey LLC holds half. Moe Burhan (Waystar) chasing lender docs. 9/9: economics agreed by all three parties; total consideration $650,000, Flying Monkey LLC allocated $287,500, split 50-50. Capital call outstanding: Matt owes $37,500 of the $75,000; Pete has funded $50,000. Pete proposes an additional $25,000 working account for SR leasing fees."
     },
     {
       "address": "37 Prospect St, East Longmeadow, MA",
@@ -213,8 +213,8 @@
         "offerAcceptedDate": "2026-08-31"
       },
       "lastActivity": {
-        "date": "2026-09-08",
-        "summary": "Phase I site visit locked for tomorrow 9:00 AM - Taylor Perun (Northeast PCG) confirmed Chris Parent (Enviro-Risk) will meet on-site manager Dave for access. Also included in Pete's insurance quote request to Alera as 4 buildings / 20 units."
+        "date": "2026-09-09",
+        "summary": "Alera (Adina Edgett) replied to Pete Houser's insurance quote request at 4:38 PM asking for the completed questionnaire, with the four Ware building addresses pre-entered on page 3."
       },
       "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr. 9/1: attorneys connected — Taylor Perun looped in Bacon Wilson (Michael Beglane, Jeff Fialky) on the executed LOI. DD request list assembled 9/1-9/2: rent roll, leases, ledgers, lead certs, utility bills, tax/insurance bills and policy, maintenance and capex records (1 yr), estoppels, court agreements, outstanding work orders, environmental reports. Debt being placed with Florence Bank."
     },
@@ -249,10 +249,10 @@
         "closingDate": "2026-09-09"
       },
       "lastActivity": {
-        "date": "2026-09-08",
-        "summary": "Closing confirmed for tomorrow 9/9 - Vitaliy Yusenko will close provided the deposit is reconciled; Chris Keniley says the $9,375 check went out Thursday and offered to wire instead, Pete suggested voiding the check. Union Mutual approved the property onto the existing policy effective 9/9, no lender. Pete sent the estoppel. Matt circulated the tenant plan: meet the occupant and move rent to $1,850/mo effective 11/1 on a new one-year lease; Jess confirmed the property and unit are built into Rent Manager."
+        "date": "2026-09-09",
+        "summary": "Closing day. Gabby Voorhies asked the team to report the outcome so Rent Manager can be updated, and Jocelyn asked at 2:11 PM whether the sitting tenants are being built in as tenants and whether build-in info exists. No closing confirmation, deed or settlement statement has arrived in the mailbox, so the record stays at closing."
       },
-      "notes": "New this run. Closing set for 9/9. Occupied — eviction or relocation required before rehab. Insurance being placed through Adina Edgett (Alera / Union Mutual); carrier asking who the current carrier is and whether it is being non-renewed. Plan shifted 9/8 from evict-or-relocate to retaining the sitting tenant at $1,850/mo from 11/1."
+      "notes": "New this run. Closing set for 9/9. Occupied — eviction or relocation required before rehab. Insurance being placed through Adina Edgett (Alera / Union Mutual); carrier asking who the current carrier is and whether it is being non-renewed. Plan shifted 9/8 from evict-or-relocate to retaining the sitting tenant at $1,850/mo from 11/1. 9/9: closing day reached; no confirmation email received as of this run — status deliberately not advanced past 'closing' without a deed, HUD-1 or explicit confirmation."
     },
     {
       "address": "71 Hazard Ave (Houser deal — full address TBD)",
@@ -280,13 +280,32 @@
       "targetStrategy": "TBD",
       "entity": "Prop Doc LLC",
       "lawyer": "David Burstein",
-      "agent": "Dennisse Rivera-Mercado (dual agency)",
+      "agent": "Dennisse Rivera-Mercado (dual agency) / Alice Kempf (KVRE, EMD handling)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-08",
-        "summary": "New off-market deal. Matt signed the MAR 501 Offer to Purchase plus the dual agency, lead paint and Mass inspection disclosures via dotloop at 1:02 PM; Dennisse Rivera-Mercado revised the offer twice and Matt re-signed at 2:17 PM and 6:33 PM. Matt sent the package to David Burstein and to Webber & Grinnell / Alera for insurance. Burstein replied that the seller has not accepted yet and that he needs the EIN letter and an Operating Agreement for Prop Doc LLC."
+        "date": "2026-09-09",
+        "summary": "Earnest money deposit being processed - Chris Keniley told Alice Kempf his email is not authorized to make the earnest payment and asked her to set it up; Alice confirmed at 12:36 PM that KVRE will resend so he can pay."
       },
-      "notes": "New this run. Buying entity Prop Doc LLC - not on the standing flip-entity list; Burstein has requested its EIN letter and Operating Agreement. One unit occupied. Matt expects to close in about two weeks. Insurance being placed as a new Named Insured."
+      "notes": "New this run. Buying entity Prop Doc LLC - not on the standing flip-entity list; Burstein has requested its EIN letter and Operating Agreement. One unit occupied. Matt expects to close in about two weeks. Insurance being placed as a new Named Insured. 9/9: EMD processing started through KVRE. Seller acceptance still not evidenced in writing, so status held at 'offered' rather than advanced to under-contract."
+    },
+    {
+      "address": "87 Daniel Shays Hwy, Pelham, MA",
+      "source": "auction",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "analyzing",
+      "targetStrategy": "flip",
+      "entity": null,
+      "lawyer": null,
+      "agent": "Alice Kempf (KVRE Team)",
+      "keyDates": {
+        "auctionDate": "2026-09-09"
+      },
+      "lastActivity": {
+        "date": "2026-09-08",
+        "summary": "Alice Kempf sent an ARV opinion at 9:44 PM: $549,900 with a third bedroom squeezed in, taken down off the top for the Route 202 frontage. The same evening's foreclosure auction analysis rated it MAYBE with a hard ceiling of $189,000 without interior access."
+      },
+      "notes": "Added 2026-09-09. Auction was scheduled for today, 9/9. No result email has arrived, so no outcome is recorded and the status stays 'analyzing' - do not read this row as a purchase."
     }
   ],
   "active": [
@@ -357,8 +376,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-07",
-        "summary": "Mowing invoice received from Alice Kempf and approved by Matt the same morning; Sam may re-mow in about two weeks, likely at a lower cost."
+        "date": "2026-09-09",
+        "summary": "Cleaning invoice shared via dotloop by Tracy Munger (Kempf-Vanderburgh) at 9:59 AM; Matt forwarded it to Chris and Michelle at 1:58 PM with \"Please pay\"."
       },
       "draws": [],
       "notes": "Agent: Alice Kempf / Tracy M (Kempf-Vanderburgh).",
@@ -553,6 +572,24 @@
       "lastActivity": null,
       "draws": [],
       "notes": "No email activity in the scan window."
+    },
+    {
+      "address": "93 Lamont St, Springfield, MA",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "in-rehab",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-09-08",
+        "summary": "Alice Kempf sent a CMA at 8:21 PM: $294,900 as a 1-bath and $314,900 with a half bath added, noting the 1.5-bath comps sold materially faster. Matt asked whether it might actually be a 4-bed 1-bath; Alice held her numbers, saying bath count drives the difference and she is being conservative against spring comps."
+      },
+      "draws": [],
+      "notes": "Added 2026-09-09. Not previously tracked. Entered as an active rehab on two independent pieces of evidence: an Alice Kempf listing CMA priced for two finish scenarios, and two open work orders on the 9/9 board (43529, plus 43072 hot water heater swap) assigned to Barry. Entity, purchase price and purchase date are not disclosed in any email and are left null rather than guessed."
     }
   ],
   "archived": [
