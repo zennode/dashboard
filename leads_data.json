@@ -1,32 +1,31 @@
 {
-  "lastUpdated": "2026-09-08T08:49:59.301-04:00",
+  "lastUpdated": "2026-09-09T11:52:49-04:00",
   "kpis": {
-    "newLeads24h": 3,
-    "newLeads30d": 204,
-    "activeProspects": 41,
-    "lostLeads30d": 162,
+    "newLeads24h": 4,
+    "newLeads30d": 200,
+    "activeProspects": 22,
+    "lostLeads30d": 177,
     "totalUnits": 288,
-    "contacted30d": 107,
-    "avgFirstContactHours": 22.12,
-    "medianFirstContactHours": 15.85,
-    "leadsWithNoContactRecorded": 97
+    "contacted30d": 115,
+    "avgFirstContactHours": 26.25,
+    "medianFirstContactHours": 18.39,
+    "leadsWithNoContactRecorded": 85
   },
   "responseTime": {
     "available": true,
     "method": "earliest non-System Call/Email/Note/Text History entry at or after CreateDate",
     "unavailableReason": null,
-    "avgHours": 22.12,
-    "medianHours": 15.85,
+    "avgHours": 26.25,
+    "medianHours": 18.39,
     "fastestHours": 0.07,
     "fastestLeadName": "Jenny Ares",
-    "slowestHours": 138.91,
-    "slowestLeadName": "Erica Robinson",
-    "respondedCount": 107,
-    "unrespondedCount": 97,
-    "totalLeads": 204
+    "slowestHours": 140.8,
+    "slowestLeadName": "James Ferraro",
+    "respondedCount": 115,
+    "unrespondedCount": 85,
+    "totalLeads": 200
   },
   "volumeTrend": {
-    "2026-08-09": 8,
     "2026-08-10": 15,
     "2026-08-11": 12,
     "2026-08-12": 7,
@@ -54,224 +53,258 @@
     "2026-09-04": 12,
     "2026-09-05": 3,
     "2026-09-06": 4,
-    "2026-09-07": 3
+    "2026-09-07": 3,
+    "2026-09-08": 4
   },
   "statusBreakdown": {
-    "Lost": 162,
+    "Lost": 177,
     "Customer": 1,
-    "Prospect": 41
+    "Prospect": 22
   },
   "leadsByProperty": {
-    "24-28 Wilcox": 130,
-    "YellowBrick Management, Inc": 71,
+    "24-28 Wilcox": 124,
+    "YellowBrick Management, Inc": 73,
     "214-218 Exchange St/52 Cabot Street": 1,
     "1-3 Stadler Street": 1,
     "Loring St 30-32 ": 1
   },
   "newLeads24h": [
     {
-      "prospectId": 16066,
-      "displayId": 13461,
-      "name": "Diana Zapata",
+      "prospectId": 16071,
+      "displayId": 13465,
+      "name": "Antonio Liquet Jr",
       "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-09-07T19:22:56",
+      "createdDate": "2026-09-08T17:39:24",
       "status": "Prospect",
-      "contactRecorded": false
+      "lostReason": "",
+      "responded": false,
+      "responseTimeHours": null,
+      "firstContactType": "",
+      "hasApplication": true,
+      "hasScreening": false,
+      "duplicate": false
     },
     {
-      "prospectId": 16065,
-      "displayId": 13460,
-      "name": "Lea Ricci",
+      "prospectId": 16070,
+      "displayId": 13464,
+      "name": "Maria Sanchez Melendez",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-09-07T17:11:27",
+      "createdDate": "2026-09-08T15:13:55",
       "status": "Prospect",
-      "contactRecorded": false
+      "lostReason": "",
+      "responded": false,
+      "responseTimeHours": null,
+      "firstContactType": "",
+      "hasApplication": true,
+      "hasScreening": false,
+      "duplicate": false
     },
     {
-      "prospectId": 16064,
-      "displayId": 13459,
-      "name": "Angelique Minus",
+      "prospectId": 16069,
+      "displayId": 13463,
+      "name": "Ruth Casanova",
       "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-09-07T08:50:51",
+      "createdDate": "2026-09-08T11:46:41",
+      "status": "Lost",
+      "lostReason": "1658 income too low",
+      "responded": true,
+      "responseTimeHours": 2.93,
+      "firstContactType": "Email",
+      "hasApplication": true,
+      "hasScreening": false,
+      "duplicate": false
+    },
+    {
+      "prospectId": 16067,
+      "displayId": 13462,
+      "name": "Dezyre Hughes",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-09-08T10:05:58",
       "status": "Prospect",
-      "contactRecorded": false
+      "lostReason": "",
+      "responded": false,
+      "responseTimeHours": null,
+      "firstContactType": "",
+      "hasApplication": true,
+      "hasScreening": false,
+      "duplicate": false
     }
   ],
   "urgentQueue": [
+    {
+      "prospectId": 16066,
+      "name": "Diana Zapata",
+      "property": "YellowBrick Management, Inc",
+      "createdDate": "2026-09-07T19:22:56",
+      "ageHours": 36.5
+    },
     {
       "prospectId": 16058,
       "name": "Preston Sharp",
       "property": "24-28 Wilcox",
       "createdDate": "2026-09-06T23:39:27",
-      "hoursWaiting": 33
-    },
-    {
-      "prospectId": 16055,
-      "name": "Edyanis Reyes",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-09-06T14:29:11",
-      "hoursWaiting": 42
+      "ageHours": 56.2
     },
     {
       "prospectId": 16054,
       "name": "Katiria Blanco",
       "property": "24-28 Wilcox",
       "createdDate": "2026-09-06T11:33:24",
-      "hoursWaiting": 45
-    },
-    {
-      "prospectId": 16053,
-      "name": "Jyayre Rodriguez",
-      "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-09-06T02:49:50",
-      "hoursWaiting": 54
-    },
-    {
-      "prospectId": 16052,
-      "name": "Erica Robinson",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-09-05T23:07:47",
-      "hoursWaiting": 58
+      "ageHours": 68.3
     },
     {
       "prospectId": 16051,
       "name": "James Ferraro",
       "property": "24-28 Wilcox",
       "createdDate": "2026-09-05T20:54:42",
-      "hoursWaiting": 60
-    },
-    {
-      "prospectId": 16050,
-      "name": "Dasia blackshear",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-09-05T16:04:57",
-      "hoursWaiting": 65
+      "ageHours": 83
     },
     {
       "prospectId": 16049,
       "name": "Gloria Reyes lebron",
       "property": "24-28 Wilcox",
       "createdDate": "2026-09-04T18:35:48",
-      "hoursWaiting": 86
+      "ageHours": 109.3
     },
     {
       "prospectId": 16048,
       "name": "Shamia Gaynor",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-09-04T18:35:12",
-      "hoursWaiting": 86
-    },
-    {
-      "prospectId": 16046,
-      "name": "jalisa smith",
       "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-09-04T14:40:07",
-      "hoursWaiting": 90
+      "createdDate": "2026-09-04T18:35:12",
+      "ageHours": 109.3
     },
     {
       "prospectId": 16045,
       "name": "jalisa smith",
       "property": "YellowBrick Management, Inc",
       "createdDate": "2026-09-04T14:27:20",
-      "hoursWaiting": 90
-    },
-    {
-      "prospectId": 16044,
-      "name": "Joshua Bewick",
-      "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-09-04T14:04:40",
-      "hoursWaiting": 91
+      "ageHours": 113.4
     },
     {
       "prospectId": 16043,
       "name": "jalisa smith",
       "property": "YellowBrick Management, Inc",
       "createdDate": "2026-09-04T13:32:24",
-      "hoursWaiting": 91
-    },
-    {
-      "prospectId": 16042,
-      "name": "Kellen Ravsten",
-      "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-09-04T13:28:48",
-      "hoursWaiting": 91
+      "ageHours": 114.3
     },
     {
       "prospectId": 16040,
       "name": "Maritza Rodriguez",
       "property": "24-28 Wilcox",
       "createdDate": "2026-09-04T12:04:21",
-      "hoursWaiting": 93
+      "ageHours": 115.8
     },
     {
       "prospectId": 16030,
       "name": "Skyelyn Reyes",
       "property": "24-28 Wilcox",
       "createdDate": "2026-09-03T15:09:17",
-      "hoursWaiting": 114
+      "ageHours": 136.7
     },
     {
       "prospectId": 16027,
       "name": "Roldys Leal Moreira",
       "property": "24-28 Wilcox",
       "createdDate": "2026-09-03T13:54:27",
-      "hoursWaiting": 115
+      "ageHours": 138
     },
     {
       "prospectId": 16023,
       "name": "Janay Woolridge",
       "property": "YellowBrick Management, Inc",
       "createdDate": "2026-09-03T12:21:24",
-      "hoursWaiting": 116
+      "ageHours": 139.5
     },
     {
       "prospectId": 16020,
       "name": "Cesar Vargas",
       "property": "24-28 Wilcox",
       "createdDate": "2026-09-03T11:01:53",
-      "hoursWaiting": 118
+      "ageHours": 140.8
     },
     {
       "prospectId": 16018,
       "name": "Maritza Rodriguez",
       "property": "24-28 Wilcox",
       "createdDate": "2026-09-03T09:16:18",
-      "hoursWaiting": 120
+      "ageHours": 142.6
     },
     {
       "prospectId": 16017,
       "name": "Courtney Willis",
       "property": "YellowBrick Management, Inc",
       "createdDate": "2026-09-02T17:37:30",
-      "hoursWaiting": 135
+      "ageHours": 158.3
     },
     {
       "prospectId": 16016,
       "name": "Carlos Santiago",
       "property": "YellowBrick Management, Inc",
       "createdDate": "2026-09-02T17:17:21",
-      "hoursWaiting": 136
-    },
-    {
-      "prospectId": 16014,
-      "name": "James Ferraro",
-      "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-09-02T13:47:54",
-      "hoursWaiting": 139
+      "ageHours": 158.6
     },
     {
       "prospectId": 16013,
       "name": "Roldys Leal Moreira",
       "property": "24-28 Wilcox",
       "createdDate": "2026-09-02T10:21:42",
-      "hoursWaiting": 142
+      "ageHours": 165.5
     },
     {
       "prospectId": 16006,
       "name": "Nyasia Soto",
       "property": "YellowBrick Management, Inc",
       "createdDate": "2026-09-01T15:12:22",
-      "hoursWaiting": 162
+      "ageHours": 184.7
+    },
+    {
+      "prospectId": 16004,
+      "name": "Nicholas Lee",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-09-01T13:40:24",
+      "ageHours": 186.2
+    },
+    {
+      "prospectId": 16003,
+      "name": "Tracy Wanzo",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-09-01T13:35:29",
+      "ageHours": 186.3
+    },
+    {
+      "prospectId": 16002,
+      "name": "Tashala Miller",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-09-01T12:57:20",
+      "ageHours": 186.9
+    },
+    {
+      "prospectId": 16000,
+      "name": "Jazel Scott",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-09-01T12:27:40",
+      "ageHours": 187.4
+    },
+    {
+      "prospectId": 15994,
+      "name": "Tracy Wanzo",
+      "property": "YellowBrick Management, Inc",
+      "createdDate": "2026-09-01T08:58:35",
+      "ageHours": 190.9
+    },
+    {
+      "prospectId": 15991,
+      "name": "Tashala Miller",
+      "property": "24-28 Wilcox",
+      "createdDate": "2026-08-31T19:34:46",
+      "ageHours": 204.3
+    },
+    {
+      "prospectId": 15988,
+      "name": "Ana Torres",
+      "property": "YellowBrick Management, Inc",
+      "createdDate": "2026-08-31T13:36:37",
+      "ageHours": 210.3
     }
   ],
   "vacancy": {
@@ -309,9 +342,9 @@
     }
   },
   "notes": {
-    "urgentQueueTruncated": true,
-    "urgentQueueTrueTotal": 94,
+    "urgentQueueTrueTotal": 82,
     "historySource": "Prospects?embeds=History",
-    "generatedBy": "daily-leads-briefing re-run launched by auto-rerun-failed-tasks after the 07:45 ET run hung"
+    "unitsExcludedINACT": true,
+    "dataWindowStart": "2026-08-10"
   }
 }
