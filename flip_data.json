@@ -1,14 +1,14 @@
 {
-  "lastUpdated": "2026-09-09T19:20:00-04:00",
+  "lastUpdated": "2026-09-10T19:30:00-04:00",
   "scanWindow": {
-    "type": "daily",
-    "from": "2026-09-08",
-    "to": "2026-09-09",
-    "note": "Re-run launched by auto-rerun-failed-tasks after the scheduled 18:00 ET fire hung at its STARTED phase and sent nothing. Baseline widened slightly to 48 hours because the last successfully sent digest was 2026-09-08 19:29 ET and two Alice Kempf valuation threads landed after that digest was built."
+    "type": "since-last-commit",
+    "from": "2026-09-09",
+    "to": "2026-09-10",
+    "note": "Re-run by auto-rerun-failed-tasks after the 18:00 ET fire hung at DATA_MERGED and sent nothing. Baseline is the last COMMITTED lastUpdated (2026-09-09 19:20 ET), not a flat 24h, because the 09-09 20:07 ET digest sent but failed to publish."
   },
   "summary": {
     "pipeline": 17,
-    "active": 16,
+    "active": 17,
     "archived": 3
   },
   "pipeline": [
@@ -24,8 +24,8 @@
       "agent": "Nick Bencivengo (Naples Group)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-09",
-        "summary": "Kevin Shippee proposed scheduling a safety inspection at the property at 4:43 PM; no tenant email addresses are on file so notice will be posted. Matt added John (VA) at 4:57 PM; Jess replied at 5:59 PM that the notice must be printed at the office and asked Jocelyn to print it, targeting next week."
+        "date": "2026-09-10",
+        "summary": "Jocelyn Pickard confirmed at 9:55 AM that the safety-inspection notice has been printed, handed to Matt and logged in the property notes. Jess replied at 10:13 AM asking Matt and Kevin to prep Randy on what to expect and to decide whether Kevin really wants a police escort. Inspection is targeted for next week."
       },
       "notes": "Flying Monkey LLC is not registered in CT — deed/entity issue to resolve before closing."
     },
@@ -92,8 +92,8 @@
       "agent": "BC Realty",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-09",
-        "summary": "Pete Houser forwarded a screenshot at 6:41 PM to Jeff Fialky and Matt regarding the estoppel for the Downing Park deal."
+        "date": "2026-09-10",
+        "summary": "Pete Houser asked at 9:52 AM whether to wait for a clean estoppel or close with a $50k holdback. Jeff Fialky answered at 10:21 AM that without a clean estoppel there is nothing from the tenant confirming the $38K resolves all their issues, and he would want a clean one. Pete accepted at 10:23 AM: \"We will wait for a clean estoppel.\" Closing is now gated on the estoppel."
       },
       "notes": "$30,000 repair credit requested. Fialky had a call with seller's counsel emphasizing urgency to close and outstanding deliverables."
     },
@@ -102,15 +102,15 @@
       "source": "off-market",
       "askingPrice": 650000,
       "offerAmount": null,
-      "status": "under-contract",
+      "status": "closing",
       "targetStrategy": "TBD",
       "entity": "Flying Monkey LLC (TIC)",
       "lawyer": "Jeff Fialky",
       "agent": null,
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-09",
-        "summary": "Bacon Wilson (Sarah Federation) circulated the revised deed, purchase and sale and TIC Agreement reflecting total consideration of $650,000 with $287,500 of value to Flying Monkey LLC; Moe Burhan confirmed the split is 50-50; Jeff Fialky asked whether everyone is signed off on the economics and Matt answered \"Yes from me\" at 10:17 AM. Multi-Rep letter completed via DocuSign the same morning. Pete Houser then asked for Matt's $37,500 (half of the $75,000 capital) and proposed a further $25,000 into the property account."
+        "date": "2026-09-10",
+        "summary": "Funding day. Pete Houser confirmed at 1:48 PM that Matt's total contribution is $37,500. Chris Keniley confirmed at 2:44 PM that Matt and Kevin's $37,500 was deposited into Flying Monkey's Florence account and $15,322.50 of it was wired to Bacon & Wilson for 1361 Memorial. Matt directed $12,500 back to Pete's personal account and the balance to the property account; Chris asked at 3:06 PM for approval of the $12,500 ACH. The Bacon Wilson Multi-Rep letter also completed in DocuSign at 9:12 AM. Status moved under-contract to closing on the wire; no deed or settlement statement has arrived yet."
       },
       "notes": "TIC structure — Flying Monkey LLC holds half. Moe Burhan (Waystar) chasing lender docs. 9/9: economics agreed by all three parties; total consideration $650,000, Flying Monkey LLC allocated $287,500, split 50-50. Capital call outstanding: Matt owes $37,500 of the $75,000; Pete has funded $50,000. Pete proposes an additional $25,000 working account for SR leasing fees."
     },
@@ -213,8 +213,8 @@
         "offerAcceptedDate": "2026-08-31"
       },
       "lastActivity": {
-        "date": "2026-09-09",
-        "summary": "Alera (Adina Edgett) replied to Pete Houser's insurance quote request at 4:38 PM asking for the completed questionnaire, with the four Ware building addresses pre-entered on page 3."
+        "date": "2026-09-10",
+        "summary": "Sherwood Inspection returned a commercial inspection quote at 12:52 PM, itemised per building and opening at $1,288.54 for 27 Parker St. Matt asked at 1:01 PM whether that covers only a basic per-building inspection with no unit interiors; Sherwood confirmed at 1:08 PM that all units will be inspected and asked for access to every available unit at the scheduled time. Matt asked for a call back at 1:40 PM. Due diligence is live: the environmental site visit ran 9/9 with Chris Parent."
       },
       "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr. 9/1: attorneys connected — Taylor Perun looped in Bacon Wilson (Michael Beglane, Jeff Fialky) on the executed LOI. DD request list assembled 9/1-9/2: rent roll, leases, ledgers, lead certs, utility bills, tax/insurance bills and policy, maintenance and capex records (1 yr), estoppels, court agreements, outstanding work orders, environmental reports. Debt being placed with Florence Bank."
     },
@@ -283,8 +283,8 @@
       "agent": "Dennisse Rivera-Mercado (dual agency) / Alice Kempf (KVRE, EMD handling)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-09",
-        "summary": "Earnest money deposit being processed - Chris Keniley told Alice Kempf his email is not authorized to make the earnest payment and asked her to set it up; Alice confirmed at 12:36 PM that KVRE will resend so he can pay."
+        "date": "2026-09-10",
+        "summary": "Alice Kempf sent a CloudCMA at 8:00 AM landing on $524,900. Matt forwarded it to Antonio at 8:24 AM; Antonio pushed back at 9:30 AM - \"Not sure how she landed on that price when two of them sold for more than $50K less\" - and Matt told him at 9:53 AM to take it up with her directly. Valuation is in dispute; no offer number has moved."
       },
       "notes": "New this run. Buying entity Prop Doc LLC - not on the standing flip-entity list; Burstein has requested its EIN letter and Operating Agreement. One unit occupied. Matt expects to close in about two weeks. Insurance being placed as a new Named Insured. 9/9: EMD processing started through KVRE. Seller acceptance still not evidenced in writing, so status held at 'offered' rather than advanced to under-contract."
     },
@@ -370,14 +370,14 @@
       "purchasePrice": null,
       "purchaseDate": null,
       "renoBudget": null,
-      "renoSpent": null,
+      "renoSpent": 76930.92,
       "contractor": null,
       "status": "listed",
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-09",
-        "summary": "Cleaning invoice shared via dotloop by Tracy Munger (Kempf-Vanderburgh) at 9:59 AM; Matt forwarded it to Chris and Michelle at 1:58 PM with \"Please pay\"."
+        "date": "2026-09-10",
+        "summary": "Total cost analysis pulled from Rent Manager at 5:22 PM: $76,930.92 booked to date in rehab and carry only, with no acquisition basis included (PropertyID 992 / HHH-RIC1, status Rehab). Matt sent it to Antonio at 6:11 PM with the read that a sale at $250,000 would roughly break even; Antonio replied that Adams and Monson both need to sell just to stop the carrying losses, and Matt agreed at 6:40 PM."
       },
       "draws": [],
       "notes": "Agent: Alice Kempf / Tracy M (Kempf-Vanderburgh).",
@@ -394,7 +394,10 @@
       "status": "listed",
       "targetStrategy": "flip",
       "estCompletion": null,
-      "lastActivity": null,
+      "lastActivity": {
+        "date": "2026-09-10",
+        "summary": "Named alongside 1 Richmond Ln in Antonio's 6:14 PM carrying-cost message: both Monson and Adams need to sell to stop losing money. First activity recorded on this property since tracking began - no listing update, price change or offer, only the carrying-cost position."
+      },
       "draws": [],
       "notes": "No email activity in the scan window."
     },
@@ -535,12 +538,21 @@
       "purchaseDate": null,
       "renoBudget": null,
       "renoSpent": null,
-      "contractor": null,
+      "contractor": "Preferred Property Management",
       "status": "pre-rehab",
       "targetStrategy": "flip",
       "estCompletion": null,
-      "lastActivity": null,
-      "draws": [],
+      "lastActivity": {
+        "date": "2026-09-10",
+        "summary": "$900 progress payment (PP-510) to Preferred Property Management on Jess's 9/10 ACH run, alongside unrelated portfolio payments for 31 Loring and 257 Wilbraham."
+      },
+      "draws": [
+        {
+          "date": "2026-09-10",
+          "amount": 900,
+          "note": "PP-510 progress payment"
+        }
+      ],
       "notes": "No email activity in the scan window."
     },
     {
@@ -590,6 +602,24 @@
       },
       "draws": [],
       "notes": "Added 2026-09-09. Not previously tracked. Entered as an active rehab on two independent pieces of evidence: an Alice Kempf listing CMA priced for two finish scenarios, and two open work orders on the 9/9 board (43529, plus 43072 hot water heater swap) assigned to Barry. Entity, purchase price and purchase date are not disclosed in any email and are left null rather than guessed."
+    },
+    {
+      "address": "13 Center St / 50 Springfield St, Chicopee, MA (Munich Haus)",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "listed",
+      "targetStrategy": "TBD",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-09-10",
+        "summary": "Zaisha Robert (SR Commercial Realty) sent the Exclusive Right to Sell for signature via dotloop at 9:59 AM addressed to Matthew and Peter; Matt signed at 10:04 AM and the packet completed with all recipients signed at 10:04 AM."
+      },
+      "draws": [],
+      "notes": "NEW 2026-09-10, not previously tracked. Entered as an active listing because an Exclusive Right to Sell makes Matt and Pete the sellers. Owning entity is not stated anywhere in the thread - FLAGGED FOR MATT to confirm the entity and whether this belongs in the flip portfolio. Same broker as 37 Prospect St, East Longmeadow."
     }
   ],
   "archived": [
