@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-09-10T19:30:00-04:00",
+  "lastUpdated": "2026-09-11T19:20:00-04:00",
   "scanWindow": {
-    "type": "since-last-commit",
-    "from": "2026-09-09",
-    "to": "2026-09-10",
-    "note": "Re-run by auto-rerun-failed-tasks after the 18:00 ET fire hung at DATA_MERGED and sent nothing. Baseline is the last COMMITTED lastUpdated (2026-09-09 19:20 ET), not a flat 24h, because the 09-09 20:07 ET digest sent but failed to publish."
+    "type": "since-last-digest",
+    "from": "2026-09-10",
+    "to": "2026-09-11",
+    "note": "Re-run by auto-rerun-failed-tasks after the 18:00 ET fire hung just past GMAIL_SCANNED and sent nothing. Baseline is the 09-10 19:30 ET committed snapshot, which the 09-10 digest published successfully, so a 24h window is correct here."
   },
   "summary": {
     "pipeline": 17,
@@ -41,8 +41,8 @@
       "agent": "Sentry Commercial (Murdock)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-09",
-        "summary": "Alera (Adina Edgett) replied to the \"2 new purchases\" quote request at 4:38 PM asking for the questionnaire completed with this 26,000 sq ft industrial building on pages 1-2."
+        "date": "2026-09-11",
+        "summary": "P&S signed on the buyer side. Pete Houser confirmed at 9:18 AM that he signed the P&S and issued the DD list (leases, tenant ledgers, updated rent roll, utility bills, insurance) to David Murdock at Sentry Commercial; Murdock agreed at 9:41 AM to forward it to the sellers. Matt proposed the inspection for next Wednesday at 10:00 AM. Ian Vukovich at Greenfield Savings chased the executed P&S at 12:31 PM and confirmed the appraisal is still on hold pending the signed agreement; Pete replied that the sellers have not signed yet and that he gave Rob Harrington the broker's number to arrange access. Awaiting seller signature."
       },
       "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod."
     },
@@ -109,8 +109,8 @@
       "agent": null,
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-10",
-        "summary": "Funding day. Pete Houser confirmed at 1:48 PM that Matt's total contribution is $37,500. Chris Keniley confirmed at 2:44 PM that Matt and Kevin's $37,500 was deposited into Flying Monkey's Florence account and $15,322.50 of it was wired to Bacon & Wilson for 1361 Memorial. Matt directed $12,500 back to Pete's personal account and the balance to the property account; Chris asked at 3:06 PM for approval of the $12,500 ACH. The Bacon Wilson Multi-Rep letter also completed in DocuSign at 9:12 AM. Status moved under-contract to closing on the wire; no deed or settlement statement has arrived yet."
+        "date": "2026-09-11",
+        "summary": "Financing day. Adam Baker at Greenfield Cooperative Bank sent the secure upload link at 10:23 AM; Matt began uploading at 10:37 AM and flagged that his and Kevin's personal 2025 returns are still outstanding. Baker asked at 10:39 AM which entity is purchasing and at what ownership percentage, which is unanswered in the mailbox. Baker circulated draft terms for the Chicopee loan at 1:43 PM including a reserve-account condition; Pete confirmed at 2:21 PM that YellowBrick is not managing this one because it is triple net, and Baker agreed at 4:42 PM to remove that guarantee requirement."
       },
       "notes": "TIC structure — Flying Monkey LLC holds half. Moe Burhan (Waystar) chasing lender docs. 9/9: economics agreed by all three parties; total consideration $650,000, Flying Monkey LLC allocated $287,500, split 50-50. Capital call outstanding: Matt owes $37,500 of the $75,000; Pete has funded $50,000. Pete proposes an additional $25,000 working account for SR leasing fees."
     },
@@ -213,8 +213,8 @@
         "offerAcceptedDate": "2026-08-31"
       },
       "lastActivity": {
-        "date": "2026-09-10",
-        "summary": "Sherwood Inspection returned a commercial inspection quote at 12:52 PM, itemised per building and opening at $1,288.54 for 27 Parker St. Matt asked at 1:01 PM whether that covers only a basic per-building inspection with no unit interiors; Sherwood confirmed at 1:08 PM that all units will be inspected and asked for access to every available unit at the scheduled time. Matt asked for a call back at 1:40 PM. Due diligence is live: the environmental site visit ran 9/9 with Chris Parent."
+        "date": "2026-09-11",
+        "summary": "Greenfield Cooperative Bank issued draft loan terms: up to $1,575,000 (75% LTV) to Flying Monkey LLC at 6.30% fixed for 5 years then the 5-year FHLB Classic rate plus 2.25%, 4.50% lifetime floor, 25-year term, estimated P&I $10,527.73 monthly, $750 origination, 3-2-1 prepayment only if refinanced elsewhere. Guarantors: Peter Houser, Matt, Kevin Shippee and Yellowbrick Management Inc. Conditions include 1.20x DSCR, clean environmental report, cross-collateralisation, operating and landlord/tenant accounts moved to GCB, and lead certs for every 2-bedroom-plus unit. On the separate management thread Matt accepted YellowBrick management and chose the reserve account; Baker noted policy zeroes the management fee if DSCR falls under 1.20x."
       },
       "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr. 9/1: attorneys connected — Taylor Perun looped in Bacon Wilson (Michael Beglane, Jeff Fialky) on the executed LOI. DD request list assembled 9/1-9/2: rent roll, leases, ledgers, lead certs, utility bills, tax/insurance bills and policy, maintenance and capex records (1 yr), estoppels, court agreements, outstanding work orders, environmental reports. Debt being placed with Florence Bank."
     },
