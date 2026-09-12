@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-09-11T19:20:00-04:00",
+  "lastUpdated": "2026-09-12T19:20:00-04:00",
   "scanWindow": {
-    "type": "since-last-digest",
-    "from": "2026-09-10",
-    "to": "2026-09-11",
-    "note": "Re-run by auto-rerun-failed-tasks after the 18:00 ET fire hung just past GMAIL_SCANNED and sent nothing. Baseline is the 09-10 19:30 ET committed snapshot, which the 09-10 digest published successfully, so a 24h window is correct here."
+    "type": "daily",
+    "from": "2026-09-11",
+    "to": "2026-09-12",
+    "note": "24h window. Re-run by auto-rerun-failed-tasks after the 18:00 ET fire hung just past PRECHECKS_DONE and sent nothing. The 09-11 digest sent AND published (loadedLastUpdated 2026-09-11T19:20 matches that digest's 'Data as of'), so no merge-baseline widening was needed."
   },
   "summary": {
     "pipeline": 17,
@@ -41,10 +41,10 @@
       "agent": "Sentry Commercial (Murdock)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-11",
-        "summary": "P&S signed on the buyer side. Pete Houser confirmed at 9:18 AM that he signed the P&S and issued the DD list (leases, tenant ledgers, updated rent roll, utility bills, insurance) to David Murdock at Sentry Commercial; Murdock agreed at 9:41 AM to forward it to the sellers. Matt proposed the inspection for next Wednesday at 10:00 AM. Ian Vukovich at Greenfield Savings chased the executed P&S at 12:31 PM and confirmed the appraisal is still on hold pending the signed agreement; Pete replied that the sellers have not signed yet and that he gave Rob Harrington the broker's number to arrange access. Awaiting seller signature."
+        "date": "2026-09-12",
+        "summary": "Pete Houser sent the inspection to-do list at 7:59 AM ahead of the proposed Wednesday 10:00 AM inspection: check roofs; inventory HVAC ages and types per unit; view all rental units; laser-measure unit square footage to verify; ask tenants who uses the adjacent lot for parking; check electrical condition and amperage per unit and whether any service is three-phase; identify which units have oil/water separators; check overhead door condition and height per unit. Seller signature on the P&S is still outstanding."
       },
-      "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod."
+      "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod. 9/12: inspection scope issued by Pete Houser ahead of the proposed Wed 10:00 AM inspection. Adjacent-lot parking use, overhead door heights and three-phase electrical flagged as diligence items."
     },
     {
       "address": "Pappy - Plymouth Property",
@@ -470,11 +470,11 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-29",
-        "summary": "Buyer's counsel named: Carolyn Futtner, Mancini Provenzano & Futtner (CT). $30,000 EMD confirmed received 8/28 from buyer Larissa Regan."
+        "date": "2026-09-12",
+        "summary": "David Burstein forwarded the building department search from Carol Gaudio (Mancini, Provenzano & Futtner) at 11:08 AM. It shows an OPEN PERMIT that must be closed before the closing can proceed. Matt acknowledged at 11:14 AM - \"Thank you. On it.\" The title search had been sent 9/4."
       },
       "draws": [],
-      "notes": "Signature request suggests listing or transaction paperwork is being prepared — confirm document type. Resale under agreement. Buyer Larissa Regan; listing/selling agent Ross LaBella, Coldwell Banker South Windsor. EMD $30,000 paid 8/28/2026. Closing attorney David Burstein.",
+      "notes": "Signature request suggests listing or transaction paperwork is being prepared — confirm document type. Resale under agreement. Buyer Larissa Regan; listing/selling agent Ross LaBella, Coldwell Banker South Windsor. EMD $30,000 paid 8/28/2026. Closing attorney David Burstein. 9/12: building department search returned an open permit that must be closed prior to closing - this is now the gating item on the Regan & Kaluna sale. Buyer's counsel Carol Gaudio (paralegal), Mancini Provenzano & Futtner, South Windsor CT.",
       "agent": "Ross LaBella (Coldwell Banker Realty)"
     },
     {
