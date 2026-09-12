@@ -1,13 +1,15 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-09-10T01:00:00-04:00",
+  "lastUpdated": "2026-09-12T05:10:19.221-05:00",
   "runStatus": {
     "ok": false,
     "platformsAttempted": 5,
-    "platformsFailed": 2,
+    "platformsFailed": 4,
     "failures": [
-      "instagram: Login wall — profile stats not publicly rendered at 01:04 ET",
-      "facebook: Login wall — follower count not publicly rendered"
+      "instagram: Login wall — profile stats not publicly rendered",
+      "facebook: Login wall — follower count not publicly rendered",
+      "tiktok: Browser timeout",
+      "twitter: Browser timeout"
     ]
   },
   "platforms": {
@@ -22,10 +24,10 @@
           "handle": "twoguystakeonrealestate",
           "url": "https://www.youtube.com/@twoguystakeonrealestate",
           "subscribers": 133000,
-          "totalViews": 38237524,
-          "totalVideos": 1832,
-          "viewsGained7d": 32101,
-          "viewsGained7dPct": 27.23,
+          "totalViews": 38246722,
+          "totalVideos": 1834,
+          "viewsGained7d": 27430,
+          "viewsGained7dPct": -12.45,
           "estMonthlyEarnings": null,
           "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts, so the API cannot return them",
           "monetized": true,
@@ -35,150 +37,134 @@
           },
           "recentVideos": [
             {
-              "title": "4 Tips For Buying Condos at Foreclosure Auction!",
-              "url": "https://www.youtube.com/watch?v=ar4_MPJl5v0",
-              "views": 1990,
-              "likes": 31,
-              "publishDate": "2026-09-07",
-              "duration": "1:06"
+              "title": "Tenant STOLE Our Radiator: Move Out Inspection",
+              "url": "https://www.youtube.com/watch?v=pSWQ0d3GGyU",
+              "views": 2857,
+              "likes": 68,
+              "publishDate": "2026-09-09",
+              "duration": "1:29"
+            },
+            {
+              "title": "What to Do in The First 30 Days After Winning a Foreclosure Auction!",
+              "url": "https://www.youtube.com/watch?v=enpokqqTGTM",
+              "views": 1894,
+              "likes": 38,
+              "publishDate": "2026-09-08",
+              "duration": "1:15"
+            },
+            {
+              "title": "Foreclosure Auction Winner Shares His Investment Strategy!",
+              "url": "https://www.youtube.com/watch?v=05bnj_Jxo4E",
+              "views": 3130,
+              "likes": 62,
+              "publishDate": "2026-09-05",
+              "duration": "1:28"
             },
             {
               "title": "Bidding on a Property at Auction With a Mortgage From 2024!",
               "url": "https://www.youtube.com/watch?v=cRtNdEoxF9A",
-              "views": 1778,
-              "likes": 30,
+              "views": 1837,
+              "likes": 32,
               "publishDate": "2026-09-03",
               "duration": "1:02"
             },
             {
-              "title": "What Happens in the First 30 Days After Buying at Auction?! - Ep 9",
-              "url": "https://www.youtube.com/watch?v=vdqng6kt5oM",
-              "views": 370,
-              "likes": 12,
-              "publishDate": "2026-09-04",
-              "duration": "8:10"
+              "title": "Can Investors Beat $185K Bank Bid!?",
+              "url": "https://www.youtube.com/watch?v=ve937hxFMFA",
+              "views": 4397,
+              "likes": 78,
+              "publishDate": "2026-09-02",
+              "duration": "1:06"
             },
             {
-              "title": "Can We Buy a $400K Duplex at Foreclosure Auction!?",
-              "url": "https://www.youtube.com/watch?v=vkU31weXIfY",
-              "views": 1612,
-              "likes": 38,
-              "publishDate": "2026-08-23",
-              "duration": "1:02"
-            },
-            {
-              "title": "We Bought a $525K House For ONLY $334K at Auction!",
-              "url": "https://www.youtube.com/watch?v=z63JdIwZ1wk",
-              "views": 101,
-              "likes": 5,
-              "publishDate": "2026-08-13",
-              "duration": "13:41"
-            },
-            {
-              "title": "3 SECRET Websites We Use to Buy Foreclosure Auction Properties!",
-              "url": "https://www.youtube.com/watch?v=9gypvvop7QI",
-              "views": 344,
-              "likes": 10,
-              "publishDate": "2026-08-14",
-              "duration": "8:40"
-            },
-            {
-              "title": "Why Foreclosure Auctions Are the Cheapest Way to Buy Real Estate (2026)",
-              "url": "https://www.youtube.com/watch?v=0uvnHp8qGco",
-              "views": 513,
-              "likes": 19,
-              "publishDate": "2026-08-28",
-              "duration": "13:24"
-            },
-            {
-              "title": "Can We Buy This House at Auction for ONLY $200K",
-              "url": "https://www.youtube.com/watch?v=hdQEh0jJN-M",
-              "views": 4866,
-              "likes": 190,
-              "publishDate": "2026-03-14",
+              "title": "Investors VS Bank: Foreclosure Auction",
+              "url": "https://www.youtube.com/watch?v=dl0tsSxr7_4",
+              "views": 3439,
+              "likes": 65,
+              "publishDate": "2026-09-01",
               "duration": "1:14"
             },
             {
-              "title": "How to Buy a House at 2008 Prices!",
-              "url": "https://www.youtube.com/watch?v=Gnza2LTAnYY",
-              "views": 30406,
-              "likes": 339,
-              "publishDate": "2026-08-03",
-              "duration": "1:20"
+              "title": "We Bought a House at Auction for ONLY $25,000!",
+              "url": "https://www.youtube.com/watch?v=w9rHZ5TikIY",
+              "views": 9841,
+              "likes": 173,
+              "publishDate": "2026-08-31",
+              "duration": "1:06"
             },
             {
-              "title": "Can We Win This Single Family House at Foreclosure Auction!?",
-              "url": "https://www.youtube.com/watch?v=mlPuDyUFyPM",
-              "views": 4327,
-              "likes": 74,
-              "publishDate": "2026-08-05",
-              "duration": "1:25"
+              "title": "Banks Bid TOO HIGH at This Foreclosure Auction!",
+              "url": "https://www.youtube.com/watch?v=u_J4J7whcd8",
+              "views": 2393,
+              "likes": 50,
+              "publishDate": "2026-08-30",
+              "duration": "1:05"
+            },
+            {
+              "title": "Home Buyers Get Into BIDDING WAR at Foreclosure Auction!",
+              "url": "https://www.youtube.com/watch?v=a5eM210K1xA",
+              "views": 2308,
+              "likes": 64,
+              "publishDate": "2026-08-29",
+              "duration": "1:11"
+            },
+            {
+              "title": "Can We Buy an Investment Property at Auction for $190,000?",
+              "url": "https://www.youtube.com/watch?v=Sqly48KgGOI",
+              "views": 480,
+              "likes": 14,
+              "publishDate": "2026-08-21",
+              "duration": "8:45"
             }
           ],
           "popularVideos": [
             {
-              "title": "LANDLORD FINDS DANGEROUS TENANT BEHAVIOR! 😳😱🏠",
+              "title": "Investors SHOCKED by Bank Bid at Foreclosure Auction!",
+              "url": "https://www.youtube.com/watch?v=T6E3r0KyjWM",
+              "views": 4758721,
+              "likes": 62440,
+              "publishDate": "2024-04-14",
+              "duration": "0:59"
+            },
+            {
+              "title": "LANDLORD FINDS DANGEROUS TENANT BEHAVIOR!",
               "url": "https://www.youtube.com/watch?v=ex57rPPP2QI",
-              "views": 5385704,
-              "likes": 252011,
+              "views": 5385763,
+              "likes": 252009,
               "publishDate": "2023-05-27",
               "duration": "0:51"
             },
             {
-              "title": "🚨LANDLORD CALLS POLICE ON BAD TENANT! 🚨🚔😱",
+              "title": "Terror At Our Rental Property: Landlord Explores Destruction",
+              "url": "https://www.youtube.com/watch?v=rsQQPdFb81Q",
+              "views": 4402772,
+              "likes": 126983,
+              "publishDate": "2023-07-21",
+              "duration": "0:58"
+            },
+            {
+              "title": "LANDLORD CALLS POLICE ON BAD TENANT!",
               "url": "https://www.youtube.com/watch?v=HErbBZZN0pc",
-              "views": 3281559,
-              "likes": 157391,
+              "views": 3281568,
+              "likes": 157390,
               "publishDate": "2023-05-28",
               "duration": "0:59"
             },
             {
               "title": "Our Strategy to WIN Investment Properties at Foreclosure Auction!",
               "url": "https://www.youtube.com/watch?v=ErkRJLfpGyQ",
-              "views": 1998668,
-              "likes": 12741,
+              "views": 1998674,
+              "likes": 12740,
               "publishDate": "2025-02-11",
               "duration": "1:07"
             },
             {
-              "title": "Investors SHOCKED by Bank Bid at Foreclosure Auction!",
-              "url": "https://www.youtube.com/watch?v=T6E3r0KyjWM",
-              "views": 4758453,
-              "likes": 62441,
-              "publishDate": "2024-04-14",
-              "duration": "0:59"
-            },
-            {
-              "title": "Foreclosure Auctions: Bank VS Real Estate Investors",
-              "url": "https://www.youtube.com/watch?v=qVnsV2FSigI",
-              "views": 901631,
-              "likes": 10367,
-              "publishDate": "2024-03-16",
-              "duration": "0:57"
-            },
-            {
-              "title": "Terror At Our Rental Property: Landlord Explores Destruction",
-              "url": "https://www.youtube.com/watch?v=rsQQPdFb81Q",
-              "views": 4402768,
-              "likes": 126984,
-              "publishDate": "2023-07-21",
-              "duration": "0:58"
-            },
-            {
               "title": "Fastest Foreclosure Auction Ever!?",
               "url": "https://www.youtube.com/watch?v=jH2cTrrmLSU",
-              "views": 1743090,
+              "views": 1743158,
               "likes": 16027,
               "publishDate": "2024-03-18",
               "duration": "0:56"
-            },
-            {
-              "title": "We WON a Bidding War at a Home Auction!",
-              "url": "https://www.youtube.com/watch?v=x9ynqMMcxL8",
-              "views": 484220,
-              "likes": 6632,
-              "publishDate": "2026-07-14",
-              "duration": "1:16"
             }
           ]
         },
@@ -187,10 +173,10 @@
           "handle": "foreclosureauctionmasters",
           "url": "https://www.youtube.com/@foreclosureauctionmasters",
           "subscribers": 881,
-          "totalViews": 26315,
-          "totalVideos": 51,
-          "viewsGained7d": 1319,
-          "viewsGained7dPct": 99.25,
+          "totalViews": 27019,
+          "totalVideos": 53,
+          "viewsGained7d": 1364,
+          "viewsGained7dPct": 67.16,
           "estMonthlyEarnings": null,
           "estMonthlyEarningsReason": "Channel is not monetized — no revenue to report",
           "monetized": false,
@@ -198,80 +184,23 @@
             "ok": true,
             "reason": null
           },
-          "recentVideos": [
-            {
-              "title": "Connecticut Foreclosure Auction: $1.65M Winning Bid!",
-              "url": "https://www.youtube.com/watch?v=VefhzWkju7g",
-              "views": 208,
-              "likes": 4,
-              "publishDate": "2026-09-03",
-              "duration": "8:34"
-            },
-            {
-              "title": "We Made $80K at This Foreclosure Auction!",
-              "url": "https://www.youtube.com/watch?v=8IBq9KhA-kI",
-              "views": 145,
-              "likes": 3,
-              "publishDate": "2026-07-30",
-              "duration": "6:19"
-            },
-            {
-              "title": "We LOST a Foreclosure Auction For $254K - Can We STILL Buy It?!",
-              "url": "https://www.youtube.com/watch?v=3FCJ54kGBFc",
-              "views": 74,
-              "likes": 2,
-              "publishDate": "2026-07-23",
-              "duration": "12:02"
-            },
-            {
-              "title": "How We Bought a $525K House For Only $334K!",
-              "url": "https://www.youtube.com/watch?v=Fi0uK4Jb6C0",
-              "views": 217,
-              "likes": 8,
-              "publishDate": "2026-05-21",
-              "duration": "13:41"
-            },
-            {
-              "title": "We Won a Foreclosure Auction House for $165K!",
-              "url": "https://www.youtube.com/watch?v=zC4p8XEFR9k",
-              "views": 703,
-              "likes": 32,
-              "publishDate": "2026-06-04",
-              "duration": "9:55"
-            }
-          ],
+          "recentVideos": [],
           "popularVideos": [
             {
               "title": "What Happens After You WIN a Foreclosure Auction?",
               "url": "https://www.youtube.com/watch?v=5h91vKWifqM",
-              "views": 13956,
-              "likes": 328,
+              "views": 14055,
+              "likes": 329,
               "publishDate": "2025-10-09",
               "duration": "9:21"
             },
             {
-              "title": "Affordable Home Buying in 2025: Foreclosure Auction Strategy",
-              "url": "https://www.youtube.com/watch?v=iEkHFsv2tDQ",
-              "views": 359,
-              "likes": 26,
-              "publishDate": "2025-11-20",
-              "duration": "10:11"
-            },
-            {
-              "title": "The 4 WINNING Exit Strategies Every Real Estate Investor Should Know!",
-              "url": "https://www.youtube.com/watch?v=gwCsILi5N2U",
-              "views": 305,
-              "likes": 11,
-              "publishDate": "2025-11-28",
-              "duration": "9:37"
-            },
-            {
-              "title": "How To Find Foreclosure Properties: Beginners Guide",
-              "url": "https://www.youtube.com/watch?v=Ci3mJkkaf-U",
-              "views": 287,
-              "likes": 13,
-              "publishDate": "2025-12-11",
-              "duration": "8:15"
+              "title": "Can We Buy This Duplex For HALF PRICE?!",
+              "url": "https://www.youtube.com/watch?v=84R-No3wzZw",
+              "views": 378,
+              "likes": 22,
+              "publishDate": "2025-09-04",
+              "duration": "10:05"
             }
           ]
         }
@@ -285,62 +214,70 @@
       "verified": null,
       "status": {
         "ok": false,
-        "reason": "Login wall — profile stats not publicly rendered at 01:04 ET"
+        "reason": "Login wall — profile stats not publicly rendered"
       }
     },
     "tiktok": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.tiktok.com/@twoguystakeonrealestate",
-      "displayName": "Real Estate Investing Mentors",
-      "followers": 891900,
-      "likes": 7300000,
-      "bio": "We created massive wealth in Real Estate | OUR FORECLOSURE AUCTION BOOK",
+      "displayName": null,
+      "followers": null,
+      "likes": null,
+      "bio": null,
       "status": {
-        "ok": true,
-        "reason": null
+        "ok": false,
+        "reason": "Browser timeout — unable to fetch page"
       }
     },
     "twitter": {
       "handle": "2GuysTake",
       "url": "https://x.com/2GuysTake",
-      "displayName": "Two Guys Take on Real Estate",
-      "followers": 5766,
-      "following": 37,
-      "posts": 4931,
-      "verified": true,
-      "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
-      "location": "Springfield, MA",
-      "joinedDate": "December 2020",
-      "recentPosts": [
-        {
-          "text": "Real estate investing content",
-          "date": "2026-09-02",
-          "likes": 4,
-          "retweets": 1,
-          "replies": 0,
-          "views": 812,
-          "pinned": false
-        }
-      ],
+      "displayName": null,
+      "followers": null,
+      "following": null,
+      "posts": null,
+      "verified": null,
+      "bio": null,
+      "location": null,
+      "joinedDate": null,
+      "recentPosts": [],
       "status": {
-        "ok": true,
-        "reason": null
+        "ok": false,
+        "reason": "Browser timeout — unable to fetch page"
       }
     },
     "facebook": {
       "handle": "TwoGuysTakeonRealEstate",
       "url": "https://www.facebook.com/TwoGuysTakeonRealEstate",
-      "followers": 221000,
-      "verified": true,
+      "followers": null,
+      "verified": null,
       "status": {
-        "ok": true,
-        "reason": null
+        "ok": false,
+        "reason": "Login wall — follower count not publicly rendered"
       }
     }
   },
   "contentStrategy": {
-    "actionableTips": [],
-    "longFormIdeasMainChannel": [],
-    "longFormIdeasSecondChannel": []
+    "actionableTips": [
+      "Shorts and short-form content (under 2 minutes) dominate performance",
+      "Real estate auction themes drive consistent engagement",
+      "Landlord/tenant content generates high engagement and reach"
+    ],
+    "longFormIdeasMainChannel": [
+      {
+        "title": "Deep dive: 30-day post-auction property assessment",
+        "format": "10-15 minute educational video"
+      },
+      {
+        "title": "Case study: Full flip project from auction to sale",
+        "format": "13-15 minute case study"
+      }
+    ],
+    "longFormIdeasSecondChannel": [
+      {
+        "title": "Auction bidding strategy masterclass",
+        "format": "10-12 minute educational"
+      }
+    ]
   }
 }
