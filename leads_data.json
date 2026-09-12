@@ -1,445 +1,349 @@
 {
-  "lastUpdated": "2026-09-11T11:54:35-04:00",
+  "lastUpdated": "2026-09-12T09:25:47-04:00",
   "kpis": {
-    "newLeads24h": 13,
-    "newLeads30d": 200,
-    "activeProspects": 28,
-    "lostLeads30d": 171,
+    "newLeads24h": 10,
+    "newLeads30d": 205,
+    "activeProspects": 33,
+    "lostLeads30d": 172,
     "totalUnits": 288,
-    "contacted30d": 110,
-    "avgFirstContactHours": 26.69,
-    "medianFirstContactHours": 18.58,
-    "leadsWithNoContactRecorded": 90
+    "contacted30d": 114,
+    "avgFirstContactHours": 26.96,
+    "medianFirstContactHours": 18.84,
+    "leadsWithNoContactRecorded": 91
   },
   "responseTime": {
     "available": true,
     "method": "earliest non-System Call/Email/Note/Text History entry at or after CreateDate",
     "unavailableReason": null,
-    "avgHours": 26.69,
-    "medianHours": 18.58,
+    "avgHours": 26.96,
+    "medianHours": 18.84,
     "fastestHours": 0.07,
     "fastestLeadName": "Jenny Ares",
     "slowestHours": 140.8,
     "slowestLeadName": "James Ferraro",
-    "respondedCount": 110,
-    "unrespondedCount": 90,
-    "totalLeads": 200
+    "respondedCount": 114,
+    "unrespondedCount": 91,
+    "totalLeads": 205
   },
   "volumeTrend": {
-    "2026-08-12": 6,
-    "2026-08-13": 6,
-    "2026-08-14": 14,
+    "2026-08-13": 7,
+    "2026-08-14": 12,
     "2026-08-15": 3,
     "2026-08-16": 4,
     "2026-08-17": 2,
-    "2026-08-18": 5,
-    "2026-08-19": 4,
-    "2026-08-20": 4,
-    "2026-08-21": 4,
+    "2026-08-18": 6,
+    "2026-08-19": 3,
+    "2026-08-20": 5,
+    "2026-08-21": 3,
     "2026-08-22": 1,
-    "2026-08-24": 2,
-    "2026-08-25": 10,
+    "2026-08-24": 4,
+    "2026-08-25": 8,
     "2026-08-26": 1,
-    "2026-08-27": 6,
-    "2026-08-28": 5,
-    "2026-08-29": 6,
-    "2026-08-30": 4,
-    "2026-08-31": 20,
-    "2026-09-01": 15,
-    "2026-09-02": 9,
-    "2026-09-03": 14,
-    "2026-09-04": 14,
-    "2026-09-05": 1,
-    "2026-09-06": 5,
-    "2026-09-07": 4,
+    "2026-08-27": 8,
+    "2026-08-28": 3,
+    "2026-08-29": 7,
+    "2026-08-30": 3,
+    "2026-08-31": 21,
+    "2026-09-01": 16,
+    "2026-09-02": 7,
+    "2026-09-03": 16,
+    "2026-09-04": 12,
+    "2026-09-05": 3,
+    "2026-09-06": 4,
+    "2026-09-07": 3,
     "2026-09-08": 4,
-    "2026-09-09": 6,
-    "2026-09-10": 19,
-    "2026-09-11": 2
+    "2026-09-09": 13,
+    "2026-09-10": 13,
+    "2026-09-11": 12,
+    "2026-09-12": 1
   },
   "statusBreakdown": {
-    "Lost": 171,
-    "Customer": 1,
-    "Prospect": 28
+    "Lost": 172,
+    "Prospect": 33
   },
   "leadsByProperty": {
-    "24-28 Wilcox": 128,
-    "YellowBrick Management, Inc": 69,
-    "214-218 Exchange St/52 Cabot Street": 1,
+    "24-28 Wilcox": 133,
+    "YellowBrick Management, Inc": 70,
     "1-3 Stadler Street": 1,
     "Loring St 30-32 ": 1
   },
   "newLeads24h": [
     {
-      "prospectId": 16110,
-      "displayId": 13501,
-      "name": "Antonia Diaz",
+      "prospectId": 16122,
+      "displayId": 13513,
+      "name": "Steven Hickson",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-09-11T00:45:37",
+      "created": "2026-09-12T07:37:27",
       "status": "Prospect",
-      "lostReason": "",
       "responded": false,
-      "responseTimeHours": null,
-      "firstContactType": "",
-      "duplicate": false
+      "responseTimeHours": null
     },
     {
-      "prospectId": 16109,
-      "displayId": 13500,
-      "name": "Sheileen Tremblay",
+      "prospectId": 16121,
+      "displayId": 13512,
+      "name": "Jazel Scott",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-09-10T22:08:32",
+      "created": "2026-09-11T21:46:50",
       "status": "Prospect",
-      "lostReason": "",
       "responded": false,
-      "responseTimeHours": null,
-      "firstContactType": "",
-      "duplicate": false
+      "responseTimeHours": null
     },
     {
-      "prospectId": 16108,
-      "displayId": 13499,
-      "name": "Preston Sharp",
+      "prospectId": 16120,
+      "displayId": 13511,
+      "name": "Shelby Murkey",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-09-10T17:59:02",
+      "created": "2026-09-11T21:24:55",
       "status": "Prospect",
-      "lostReason": "",
       "responded": false,
-      "responseTimeHours": null,
-      "firstContactType": "",
-      "duplicate": false
+      "responseTimeHours": null
     },
     {
-      "prospectId": 16107,
-      "displayId": 13498,
-      "name": "Timeka Patterson",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-09-10T14:47:41",
-      "status": "Prospect",
-      "lostReason": "",
-      "responded": false,
-      "responseTimeHours": null,
-      "firstContactType": "",
-      "duplicate": false
-    },
-    {
-      "prospectId": 16105,
-      "displayId": 13496,
-      "name": "Ebonie Arnold",
+      "prospectId": 16119,
+      "displayId": 13510,
+      "name": "Elyse Norman",
       "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-09-10T14:41:17",
+      "created": "2026-09-11T18:25:39",
       "status": "Prospect",
-      "lostReason": "",
       "responded": false,
-      "responseTimeHours": null,
-      "firstContactType": "",
-      "duplicate": false
+      "responseTimeHours": null
     },
     {
-      "prospectId": 16104,
-      "displayId": 13495,
-      "name": "Abigail Michalak",
+      "prospectId": 16118,
+      "displayId": 13509,
+      "name": "idelisse medina",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-09-10T14:19:11",
+      "created": "2026-09-11T16:57:53",
       "status": "Prospect",
-      "lostReason": "",
       "responded": false,
-      "responseTimeHours": null,
-      "firstContactType": "",
-      "duplicate": false
+      "responseTimeHours": null
     },
     {
-      "prospectId": 16103,
-      "displayId": 13494,
-      "name": "Shamia Gaynor",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-09-10T14:14:25",
-      "status": "Prospect",
-      "lostReason": "",
-      "responded": false,
-      "responseTimeHours": null,
-      "firstContactType": "",
-      "duplicate": false
-    },
-    {
-      "prospectId": 16101,
-      "displayId": 13493,
-      "name": "Maylin Estrella",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-09-10T11:50:50",
-      "status": "Prospect",
-      "lostReason": "",
-      "responded": true,
-      "responseTimeHours": 3.33,
-      "firstContactType": "Email",
-      "duplicate": false
-    },
-    {
-      "prospectId": 16099,
-      "displayId": 13492,
-      "name": "Briseida Baez",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-09-10T11:16:00",
-      "status": "Prospect",
-      "lostReason": "",
-      "responded": true,
-      "responseTimeHours": 0.51,
-      "firstContactType": "Email",
-      "duplicate": false
-    },
-    {
-      "prospectId": 16098,
-      "displayId": 13491,
-      "name": "Jessenia Cruz",
+      "prospectId": 16117,
+      "displayId": 13508,
+      "name": "Sade Wilson",
       "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-09-10T10:43:13",
+      "created": "2026-09-11T12:24:14",
+      "status": "Prospect",
+      "responded": false,
+      "responseTimeHours": null
+    },
+    {
+      "prospectId": 16116,
+      "displayId": 13507,
+      "name": "rose froneberger",
+      "property": "24-28 Wilcox",
+      "created": "2026-09-11T10:43:57",
       "status": "Lost",
-      "lostReason": "Open court 25",
       "responded": false,
-      "responseTimeHours": null,
-      "firstContactType": "",
-      "duplicate": false
+      "responseTimeHours": null
     },
     {
-      "prospectId": 16096,
-      "displayId": 13489,
-      "name": "Ziare Miller",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-09-10T09:40:06",
+      "prospectId": 16115,
+      "displayId": 13506,
+      "name": "rose froneberger",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-09-11T10:39:04",
       "status": "Prospect",
-      "lostReason": "",
-      "responded": false,
-      "responseTimeHours": null,
-      "firstContactType": "",
-      "duplicate": false
-    },
-    {
-      "prospectId": 16095,
-      "displayId": 13488,
-      "name": "Tracy Wanzo",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-09-10T09:12:27",
-      "status": "Prospect",
-      "lostReason": "",
-      "responded": false,
-      "responseTimeHours": null,
-      "firstContactType": "",
-      "duplicate": false
-    },
-    {
-      "prospectId": 16094,
-      "displayId": 13487,
-      "name": "Luis Morales",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-09-10T08:08:55",
-      "status": "Prospect",
-      "lostReason": "",
       "responded": true,
-      "responseTimeHours": 6.51,
-      "firstContactType": "Email",
-      "duplicate": false
+      "responseTimeHours": 5.62
+    },
+    {
+      "prospectId": 16114,
+      "displayId": 13505,
+      "name": "Maria Sanchez Melendez",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-09-11T10:31:58",
+      "status": "Lost",
+      "responded": false,
+      "responseTimeHours": null
+    },
+    {
+      "prospectId": 16113,
+      "displayId": 13504,
+      "name": "Nicol Mateo",
+      "property": "24-28 Wilcox",
+      "created": "2026-09-11T09:59:34",
+      "status": "Prospect",
+      "responded": true,
+      "responseTimeHours": 5.93
     }
   ],
   "urgentQueue": [
     {
-      "prospectId": 15860,
-      "name": "Michaela Obrien",
-      "property": "24-28 Wilcox",
-      "createdDate": "2026-08-12T07:01:28",
-      "status": "Lost",
-      "ageHours": 720.9
-    },
-    {
       "prospectId": 15870,
       "name": "Christelle Holmes",
       "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-08-13T10:21:15",
-      "status": "Lost",
-      "ageHours": 693.6
+      "created": "2026-08-13T10:21:15",
+      "hoursOld": 719
     },
     {
       "prospectId": 15873,
       "name": "Kersyana Santos",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-13T11:18:41",
-      "status": "Lost",
-      "ageHours": 692.6
+      "created": "2026-08-13T11:18:41",
+      "hoursOld": 718
     },
     {
       "prospectId": 15875,
       "name": "Yulianna Lugo-Rodríguez",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-13T18:22:49",
-      "status": "Lost",
-      "ageHours": 685.5
+      "created": "2026-08-13T18:22:49",
+      "hoursOld": 711
     },
     {
       "prospectId": 15876,
       "name": "Yanna Centeno",
       "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-08-13T21:35:06",
-      "status": "Lost",
-      "ageHours": 682.3
+      "created": "2026-08-13T21:35:06",
+      "hoursOld": 708
     },
     {
       "prospectId": 15877,
       "name": "Fernando Zuniga",
       "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-08-13T22:54:16",
-      "status": "Lost",
-      "ageHours": 681
+      "created": "2026-08-13T22:54:16",
+      "hoursOld": 707
     },
     {
       "prospectId": 15878,
       "name": "Tayzha Baulkman",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-14T09:50:33",
-      "status": "Lost",
-      "ageHours": 670.1
+      "created": "2026-08-14T09:50:33",
+      "hoursOld": 696
     },
     {
       "prospectId": 15880,
       "name": "Stephanie Vazquez",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-14T11:20:09",
-      "status": "Lost",
-      "ageHours": 668.6
+      "created": "2026-08-14T11:20:09",
+      "hoursOld": 694
     },
     {
       "prospectId": 15882,
       "name": "Reynaldo Figueroa",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-14T14:32:37",
-      "status": "Lost",
-      "ageHours": 665.4
+      "created": "2026-08-14T14:32:37",
+      "hoursOld": 691
     },
     {
       "prospectId": 15884,
       "name": "Lorin Fournier",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-14T17:41:19",
-      "status": "Lost",
-      "ageHours": 662.2
+      "created": "2026-08-14T17:41:19",
+      "hoursOld": 688
     },
     {
       "prospectId": 15885,
       "name": "Melinie Baez",
       "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-08-14T18:04:49",
-      "status": "Lost",
-      "ageHours": 661.8
+      "created": "2026-08-14T18:04:49",
+      "hoursOld": 687
     },
     {
       "prospectId": 15888,
       "name": "Tanya Davis",
       "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-08-14T19:32:22",
-      "status": "Lost",
-      "ageHours": 660.4
+      "created": "2026-08-14T19:32:22",
+      "hoursOld": 686
     },
     {
       "prospectId": 15889,
       "name": "Tanya Davis",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-14T19:53:25",
-      "status": "Lost",
-      "ageHours": 660
+      "created": "2026-08-14T19:53:25",
+      "hoursOld": 686
     },
     {
       "prospectId": 15890,
       "name": "Barbara Jimenez",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-15T10:17:58",
-      "status": "Lost",
-      "ageHours": 645.6
+      "created": "2026-08-15T10:17:58",
+      "hoursOld": 671
     },
     {
       "prospectId": 15892,
       "name": "Chavone Gardner",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-15T11:36:01",
-      "status": "Lost",
-      "ageHours": 644.3
+      "created": "2026-08-15T11:36:01",
+      "hoursOld": 670
     },
     {
       "prospectId": 15893,
       "name": "Neala Meade",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-15T14:08:44",
-      "status": "Lost",
-      "ageHours": 641.8
+      "created": "2026-08-15T14:08:44",
+      "hoursOld": 667
     },
     {
       "prospectId": 15895,
       "name": "Victor Millan",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-16T11:11:06",
-      "status": "Lost",
-      "ageHours": 620.7
+      "created": "2026-08-16T11:11:06",
+      "hoursOld": 646
     },
     {
       "prospectId": 15899,
       "name": "Kyra Henry",
       "property": "YellowBrick Management, Inc",
-      "createdDate": "2026-08-17T18:36:42",
-      "status": "Lost",
-      "ageHours": 589.3
+      "created": "2026-08-17T18:36:42",
+      "hoursOld": 615
     },
     {
       "prospectId": 15902,
       "name": "Frida Takem",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-18T10:46:40",
-      "status": "Lost",
-      "ageHours": 573.1
+      "created": "2026-08-18T10:46:40",
+      "hoursOld": 599
     },
     {
       "prospectId": 15903,
       "name": "Kyra Henry",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-18T11:46:15",
-      "status": "Lost",
-      "ageHours": 572.1
+      "created": "2026-08-18T11:46:15",
+      "hoursOld": 598
     },
     {
       "prospectId": 15904,
       "name": "patrick riggott",
       "property": "1-3 Stadler Street",
-      "createdDate": "2026-08-18T13:08:43",
-      "status": "Lost",
-      "ageHours": 570.8
+      "created": "2026-08-18T13:08:43",
+      "hoursOld": 596
     },
     {
       "prospectId": 15905,
       "name": "Lorin Fournier",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-18T13:56:14",
-      "status": "Lost",
-      "ageHours": 570
+      "created": "2026-08-18T13:56:14",
+      "hoursOld": 595
     },
     {
       "prospectId": 15908,
       "name": "Paulina Adams",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-18T22:25:19",
-      "status": "Lost",
-      "ageHours": 561.5
+      "created": "2026-08-18T22:25:19",
+      "hoursOld": 587
     },
     {
       "prospectId": 15909,
       "name": "Paulina Adams",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-19T08:48:14",
-      "status": "Lost",
-      "ageHours": 551.1
+      "created": "2026-08-19T08:48:14",
+      "hoursOld": 577
     },
     {
       "prospectId": 15910,
       "name": "Kyra Henry",
       "property": "24-28 Wilcox",
-      "createdDate": "2026-08-19T12:15:21",
-      "status": "Lost",
-      "ageHours": 547.7
+      "created": "2026-08-19T12:15:21",
+      "hoursOld": 573
+    },
+    {
+      "prospectId": 15913,
+      "name": "Ann Simard",
+      "property": "YellowBrick Management, Inc",
+      "created": "2026-08-19T13:54:41",
+      "hoursOld": 572
     }
   ],
   "vacancy": {
@@ -448,39 +352,96 @@
     "vacant": 31,
     "vacancyRatePct": 10.8,
     "byProperty": {
-      "Loring St 30-32 ": 1,
-      "Berkshire Ave 1237-1239": 1,
-      "Elm 21-25": 1,
-      "226-230 Sargeant Street": 1,
-      "60 Shaker Road": 1,
-      "214-218 Exchange St/52 Cabot Street": 1,
-      "17-21 Allyn/146-148 Pearl": 1,
-      "Marlborough 89-91 ": 1,
-      "Avondale 65": 1,
-      "Marble 21": 1,
-      "Central 100 ": 1,
-      "East St 24-30": 1,
-      "Hampden 291-293": 1,
-      "St. James Ave 83 ": 1,
-      "Union St 741-745 ": 2,
-      "Wilbraham RD 257 ": 1,
-      "Loring St 31 ": 1,
-      "800 College Highway": 2,
-      "1-3 Stadler Street": 3,
-      "Northwestern 3": 2,
-      "93 Lamont St": 1,
-      "83 Rolf Ave ": 1,
-      "171 Methuen": 1,
-      "55 White Ave": 1,
-      "8 Longview": 1,
-      "53 1/2 Orchard St": 1
+      "1-3 Stadler Street": [
+        "Building G Apt 2",
+        "Building A Apt 16",
+        "Building C Unit 6"
+      ],
+      "Union St 741-745 ": [
+        "741",
+        "745"
+      ],
+      "800 College Highway": [
+        "#1",
+        "#2"
+      ],
+      "Northwestern 3": [
+        "2",
+        "3"
+      ],
+      "Loring St 30-32 ": [
+        "30"
+      ],
+      "Berkshire Ave 1237-1239": [
+        "FL3"
+      ],
+      "Elm 21-25": [
+        "23"
+      ],
+      "226-230 Sargeant Street": [
+        "226"
+      ],
+      "60 Shaker Road": [
+        "Retail-10"
+      ],
+      "214-218 Exchange St/52 Cabot Street": [
+        "218 1/2"
+      ],
+      "17-21 Allyn/146-148 Pearl": [
+        "2L"
+      ],
+      "Marlborough 89-91 ": [
+        "Fl2"
+      ],
+      "Avondale 65": [
+        "65"
+      ],
+      "Marble 21": [
+        "FL2"
+      ],
+      "Central 100 ": [
+        "FL3"
+      ],
+      "East St 24-30": [
+        "30"
+      ],
+      "Hampden 291-293": [
+        "291"
+      ],
+      "St. James Ave 83 ": [
+        "3L"
+      ],
+      "Wilbraham RD 257 ": [
+        "FL1"
+      ],
+      "Loring St 31 ": [
+        "FL1"
+      ],
+      "93 Lamont St": [
+        "93"
+      ],
+      "83 Rolf Ave ": [
+        "83"
+      ],
+      "171 Methuen": [
+        "171"
+      ],
+      "55 White Ave": [
+        "55"
+      ],
+      "8 Longview": [
+        "8"
+      ],
+      "53 1/2 Orchard St": [
+        "4"
+      ]
     }
   },
   "notes": {
-    "urgentQueueTrueTotal": 80,
-    "urgentQueueShown": 25,
+    "urgentQueueTrueTotal": 83,
+    "urgentQueueCapped": true,
+    "generatedBy": "daily-leads-briefing re-run 2026-09-12 09:30 ET",
     "inactUnitsExcluded": true,
-    "historySource": "Prospects?embeds=History",
-    "firstContactFieldUnused": "FirstContact is auto-stamped at record creation and is not used"
+    "historySource": "Prospects?embeds=History"
   }
 }
