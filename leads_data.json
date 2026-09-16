@@ -1,32 +1,31 @@
 {
-  "lastUpdated": "2026-09-15T14:00:42-04:00",
+  "lastUpdated": "2026-09-16T07:52:33.151-04:00",
   "kpis": {
-    "newLeads24h": 10,
-    "newLeads30d": 204,
-    "activeProspects": 39,
-    "lostLeads30d": 165,
+    "newLeads24h": 5,
+    "newLeads30d": 205,
+    "activeProspects": 35,
+    "lostLeads30d": 170,
     "totalUnits": 288,
-    "contacted30d": 123,
-    "avgFirstContactHours": 27.75,
+    "contacted30d": 125,
+    "avgFirstContactHours": 27.54,
     "medianFirstContactHours": 19.66,
-    "leadsWithNoContactRecorded": 81
+    "leadsWithNoContactRecorded": 80
   },
   "responseTime": {
     "available": true,
     "method": "earliest non-System Call/Email/Note/Text History entry at or after CreateDate",
     "unavailableReason": null,
-    "avgHours": 27.75,
+    "avgHours": 27.54,
     "medianHours": 19.66,
     "fastestHours": 0.07,
     "fastestLeadName": "Jenny Ares",
     "slowestHours": 140.8,
     "slowestLeadName": "James Ferraro",
-    "respondedCount": 123,
-    "unrespondedCount": 81,
-    "totalLeads": 204
+    "respondedCount": 125,
+    "unrespondedCount": 80,
+    "totalLeads": 205
   },
   "volumeTrend": {
-    "2026-08-16": 4,
     "2026-08-17": 2,
     "2026-08-18": 6,
     "2026-08-19": 3,
@@ -55,142 +54,77 @@
     "2026-09-12": 4,
     "2026-09-13": 8,
     "2026-09-14": 9,
-    "2026-09-15": 1
+    "2026-09-15": 4,
+    "2026-09-16": 2
   },
   "statusBreakdown": {
-    "Lost": 165,
-    "Prospect": 39
+    "Lost": 170,
+    "Prospect": 35
   },
   "leadsByProperty": {
-    "24-28 Wilcox": 125,
     "YellowBrick Management, Inc": 77,
+    "24-28 Wilcox": 126,
     "1-3 Stadler Street": 1,
     "Loring St 30-32 ": 1
   },
   "newLeads24h": [
     {
-      "prospectId": 16134,
-      "displayId": 13525,
-      "name": "Jacob Miller",
+      "prospectId": 16148,
+      "displayId": 13537,
+      "name": "Maria Sanchez Melendez",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-09-14T10:14:01",
-      "status": "Prospect",
-      "contacted": true,
-      "responseHours": 1.02
-    },
-    {
-      "prospectId": 16135,
-      "displayId": 13526,
-      "name": "Devonte Mann",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-14T11:15:09",
+      "created": "2026-09-15T14:41:42",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     },
     {
-      "prospectId": 16136,
-      "displayId": 13527,
-      "name": "Olivia DePace",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-14T12:52:12",
-      "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16137,
-      "displayId": 13528,
-      "name": "Annette Lozada",
+      "prospectId": 16149,
+      "displayId": 13538,
+      "name": "Shelby Murley",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-09-14T13:05:37",
+      "created": "2026-09-15T15:51:51",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     },
     {
-      "prospectId": 16139,
-      "displayId": 13530,
-      "name": "Rebekah Baquera",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-14T14:29:33",
-      "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16140,
-      "displayId": 13531,
-      "name": "Rebekah Baquera",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-14T14:51:37",
-      "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16141,
-      "displayId": 13532,
-      "name": "Krystal Alomar",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-14T15:11:27",
-      "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16142,
-      "displayId": 13533,
-      "name": "Estefany Rodriguez",
+      "prospectId": 16150,
+      "displayId": 13539,
+      "name": "Steven Groux",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-09-14T15:42:23",
+      "created": "2026-09-15T18:16:14",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     },
     {
-      "prospectId": 16143,
-      "displayId": 13534,
-      "name": "Krystal Alomar",
+      "prospectId": 16151,
+      "displayId": 13540,
+      "name": "Conny Worner Melendez",
       "property": "YellowBrick Management, Inc",
       "source": "Not tracked in RM",
-      "created": "2026-09-14T16:45:07",
+      "created": "2026-09-16T00:32:58",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     },
     {
-      "prospectId": 16145,
-      "displayId": 13536,
-      "name": "Angelica Duque",
+      "prospectId": 16152,
+      "displayId": 13541,
+      "name": "Conny Worner Melendez",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-09-15T06:58:45",
+      "created": "2026-09-16T01:57:18",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     }
   ],
   "urgentQueue": [
-    {
-      "prospectId": 15895,
-      "displayId": 13295,
-      "name": "Victor Millan",
-      "property": "24-28 Wilcox",
-      "source": "Not tracked in RM",
-      "created": "2026-08-16T11:11:06",
-      "createdDate": "2026-08-16T11:11:06",
-      "status": "Lost",
-      "waitingHrs": 718.8
-    },
     {
       "prospectId": 15899,
       "displayId": 13299,
@@ -200,7 +134,7 @@
       "created": "2026-08-17T18:36:42",
       "createdDate": "2026-08-17T18:36:42",
       "status": "Lost",
-      "waitingHrs": 687.4
+      "waitingHrs": 709.3
     },
     {
       "prospectId": 15902,
@@ -211,7 +145,7 @@
       "created": "2026-08-18T10:46:40",
       "createdDate": "2026-08-18T10:46:40",
       "status": "Lost",
-      "waitingHrs": 671.2
+      "waitingHrs": 693.1
     },
     {
       "prospectId": 15903,
@@ -222,7 +156,7 @@
       "created": "2026-08-18T11:46:15",
       "createdDate": "2026-08-18T11:46:15",
       "status": "Lost",
-      "waitingHrs": 670.2
+      "waitingHrs": 692.1
     },
     {
       "prospectId": 15904,
@@ -233,7 +167,7 @@
       "created": "2026-08-18T13:08:43",
       "createdDate": "2026-08-18T13:08:43",
       "status": "Lost",
-      "waitingHrs": 668.9
+      "waitingHrs": 690.7
     },
     {
       "prospectId": 15905,
@@ -244,7 +178,7 @@
       "created": "2026-08-18T13:56:14",
       "createdDate": "2026-08-18T13:56:14",
       "status": "Lost",
-      "waitingHrs": 668.1
+      "waitingHrs": 689.9
     },
     {
       "prospectId": 15908,
@@ -255,7 +189,7 @@
       "created": "2026-08-18T22:25:19",
       "createdDate": "2026-08-18T22:25:19",
       "status": "Lost",
-      "waitingHrs": 659.6
+      "waitingHrs": 681.5
     },
     {
       "prospectId": 15909,
@@ -266,7 +200,7 @@
       "created": "2026-08-19T08:48:14",
       "createdDate": "2026-08-19T08:48:14",
       "status": "Lost",
-      "waitingHrs": 649.2
+      "waitingHrs": 671.1
     },
     {
       "prospectId": 15910,
@@ -277,7 +211,7 @@
       "created": "2026-08-19T12:15:21",
       "createdDate": "2026-08-19T12:15:21",
       "status": "Lost",
-      "waitingHrs": 645.8
+      "waitingHrs": 667.6
     },
     {
       "prospectId": 15913,
@@ -288,7 +222,7 @@
       "created": "2026-08-19T13:54:41",
       "createdDate": "2026-08-19T13:54:41",
       "status": "Lost",
-      "waitingHrs": 644.1
+      "waitingHrs": 666
     },
     {
       "prospectId": 15919,
@@ -299,7 +233,7 @@
       "created": "2026-08-20T13:19:13",
       "createdDate": "2026-08-20T13:19:13",
       "status": "Lost",
-      "waitingHrs": 620.7
+      "waitingHrs": 642.6
     },
     {
       "prospectId": 15920,
@@ -310,7 +244,7 @@
       "created": "2026-08-20T16:11:43",
       "createdDate": "2026-08-20T16:11:43",
       "status": "Lost",
-      "waitingHrs": 617.8
+      "waitingHrs": 639.7
     },
     {
       "prospectId": 15922,
@@ -321,7 +255,7 @@
       "created": "2026-08-21T07:06:26",
       "createdDate": "2026-08-21T07:06:26",
       "status": "Lost",
-      "waitingHrs": 602.9
+      "waitingHrs": 624.8
     },
     {
       "prospectId": 15923,
@@ -332,7 +266,7 @@
       "created": "2026-08-21T10:44:33",
       "createdDate": "2026-08-21T10:44:33",
       "status": "Lost",
-      "waitingHrs": 599.3
+      "waitingHrs": 621.1
     },
     {
       "prospectId": 15929,
@@ -343,7 +277,7 @@
       "created": "2026-08-24T14:45:20",
       "createdDate": "2026-08-24T14:45:20",
       "status": "Lost",
-      "waitingHrs": 523.3
+      "waitingHrs": 545.1
     },
     {
       "prospectId": 15933,
@@ -354,7 +288,7 @@
       "created": "2026-08-25T08:35:04",
       "createdDate": "2026-08-25T08:35:04",
       "status": "Lost",
-      "waitingHrs": 505.4
+      "waitingHrs": 527.3
     },
     {
       "prospectId": 15937,
@@ -365,7 +299,7 @@
       "created": "2026-08-25T13:03:21",
       "createdDate": "2026-08-25T13:03:21",
       "status": "Lost",
-      "waitingHrs": 501
+      "waitingHrs": 522.8
     },
     {
       "prospectId": 15947,
@@ -376,7 +310,7 @@
       "created": "2026-08-27T18:26:35",
       "createdDate": "2026-08-27T18:26:35",
       "status": "Lost",
-      "waitingHrs": 447.6
+      "waitingHrs": 469.4
     },
     {
       "prospectId": 15948,
@@ -387,7 +321,7 @@
       "created": "2026-08-27T18:38:45",
       "createdDate": "2026-08-27T18:38:45",
       "status": "Lost",
-      "waitingHrs": 447.4
+      "waitingHrs": 469.2
     },
     {
       "prospectId": 15949,
@@ -398,7 +332,7 @@
       "created": "2026-08-27T18:54:36",
       "createdDate": "2026-08-27T18:54:36",
       "status": "Lost",
-      "waitingHrs": 447.1
+      "waitingHrs": 469
     },
     {
       "prospectId": 15950,
@@ -409,7 +343,7 @@
       "created": "2026-08-27T22:56:48",
       "createdDate": "2026-08-27T22:56:48",
       "status": "Lost",
-      "waitingHrs": 443.1
+      "waitingHrs": 464.9
     },
     {
       "prospectId": 15951,
@@ -420,7 +354,7 @@
       "created": "2026-08-27T23:37:20",
       "createdDate": "2026-08-27T23:37:20",
       "status": "Lost",
-      "waitingHrs": 442.4
+      "waitingHrs": 464.3
     },
     {
       "prospectId": 15955,
@@ -431,7 +365,7 @@
       "created": "2026-08-28T18:21:48",
       "createdDate": "2026-08-28T18:21:48",
       "status": "Lost",
-      "waitingHrs": 423.6
+      "waitingHrs": 445.5
     },
     {
       "prospectId": 15958,
@@ -442,7 +376,7 @@
       "created": "2026-08-29T09:40:00",
       "createdDate": "2026-08-29T09:40:00",
       "status": "Lost",
-      "waitingHrs": 408.3
+      "waitingHrs": 430.2
     },
     {
       "prospectId": 15959,
@@ -453,7 +387,18 @@
       "created": "2026-08-29T11:56:10",
       "createdDate": "2026-08-29T11:56:10",
       "status": "Lost",
-      "waitingHrs": 406.1
+      "waitingHrs": 427.9
+    },
+    {
+      "prospectId": 15970,
+      "displayId": 13368,
+      "name": "Natasha Montanez",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-08-30T17:54:38",
+      "createdDate": "2026-08-30T17:54:38",
+      "status": "Lost",
+      "waitingHrs": 398
     }
   ],
   "vacancy": {
@@ -462,39 +407,40 @@
     "vacant": 31,
     "vacancyRatePct": 10.8,
     "byProperty": {
-      "Loring St 30-32 ": 1,
-      "Berkshire Ave 1237-1239": 1,
-      "Elm 21-25": 1,
-      "226-230 Sargeant Street": 1,
-      "60 Shaker Road": 1,
-      "214-218 Exchange St/52 Cabot Street": 1,
+      "1-3 Stadler Street": 3,
       "17-21 Allyn/146-148 Pearl": 1,
-      "Marlborough 89-91 ": 1,
+      "171 Methuen": 1,
+      "214-218 Exchange St/52 Cabot Street": 1,
+      "226-230 Sargeant Street": 1,
+      "53 1/2 Orchard St": 1,
+      "55 White Ave": 1,
+      "60 Shaker Road": 1,
+      "8 Longview": 1,
+      "800 College Highway": 2,
+      "83 Rolf Ave ": 1,
+      "93 Lamont St": 1,
       "Avondale 65": 1,
-      "Marble 21": 1,
+      "Berkshire Ave 1237-1239": 1,
       "Central 100 ": 1,
       "East St 24-30": 1,
+      "Elm 21-25": 1,
       "Hampden 291-293": 1,
+      "Loring St 30-32 ": 1,
+      "Loring St 31 ": 1,
+      "Marble 21": 1,
+      "Marlborough 89-91 ": 1,
+      "Northwestern 3": 2,
       "St. James Ave 83 ": 1,
       "Union St 741-745 ": 2,
-      "Wilbraham RD 257 ": 1,
-      "Loring St 31 ": 1,
-      "800 College Highway": 2,
-      "1-3 Stadler Street": 3,
-      "Northwestern 3": 2,
-      "93 Lamont St": 1,
-      "83 Rolf Ave ": 1,
-      "171 Methuen": 1,
-      "55 White Ave": 1,
-      "8 Longview": 1,
-      "53 1/2 Orchard St": 1
+      "Wilbraham RD 257 ": 1
     }
   },
   "notes": {
+    "leadSourceAvailability": "Rent Manager has no lead-source field on this instance (MarketingSource/ProspectSource/Source embeds all 404; WebMessage empty). Source is a fixed label, never inferred.",
     "urgentQueueCapped": true,
-    "urgentQueueTrueTotal": 72,
-    "leadSourceAvailability": "Rent Manager has no lead-source field on this instance: MarketingSource/ProspectSource/Source embeds all 404 and WebMessage was empty on all 204 records in the window. SOURCE is published as the literal label \"Not tracked in RM\"; no source is inferred.",
+    "urgentQueueTrueTotal": 75,
     "inactUnitsExcluded": true,
-    "historySource": "Prospects?embeds=History"
+    "responseTimeMethod": "earliest non-System Call/Email/Note/Text History entry at or after CreateDate",
+    "windowStart": "2026-08-17"
   }
 }
