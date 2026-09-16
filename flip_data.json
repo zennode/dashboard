@@ -1,14 +1,14 @@
 {
-  "lastUpdated": "2026-09-12T19:20:00-04:00",
+  "lastUpdated": "2026-09-16T19:20:00-04:00",
   "scanWindow": {
-    "type": "daily",
-    "from": "2026-09-11",
-    "to": "2026-09-12",
-    "note": "24h window. Re-run by auto-rerun-failed-tasks after the 18:00 ET fire hung just past PRECHECKS_DONE and sent nothing. The 09-11 digest sent AND published (loadedLastUpdated 2026-09-11T19:20 matches that digest's 'Data as of'), so no merge-baseline widening was needed."
+    "type": "widened",
+    "from": "2026-09-12",
+    "to": "2026-09-16",
+    "note": "Widened from 24h to cover 09-12 through 09-16. Re-run by auto-rerun-failed-tasks after the 18:00 ET fire hung just past PRECHECKS_DONE. No digest was sent on 09-14, 09-15 or 09-16 (last successful digest 09-13, msg 1a09ccc1e7b51953), and the last COMMITTED flip_data.json is 2026-09-12T19:20 - so both the scan window and the merge baseline were widened to 09-12 per STEP 1."
   },
   "summary": {
-    "pipeline": 17,
-    "active": 17,
+    "pipeline": 16,
+    "active": 19,
     "archived": 3
   },
   "pipeline": [
@@ -41,8 +41,8 @@
       "agent": "Sentry Commercial (Murdock)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-12",
-        "summary": "Pete Houser sent the inspection to-do list at 7:59 AM ahead of the proposed Wednesday 10:00 AM inspection: check roofs; inventory HVAC ages and types per unit; view all rental units; laser-measure unit square footage to verify; ask tenants who uses the adjacent lot for parking; check electrical condition and amperage per unit and whether any service is three-phase; identify which units have oil/water separators; check overhead door condition and height per unit. Seller signature on the P&S is still outstanding."
+        "date": "2026-09-16",
+        "summary": "Insurance underwriting. Adina Edgett (Alera Group) said at 12:59 PM she still needed building detail for 59 King Spring Rd because the property card lists three buildings; Pete Houser answered at 3:36 PM: two buildings, 18,000 sq ft (12 units) and 8,000 sq ft (4 units), with tenant lists for each attached. The 28-30 / 28.5 North unit split (10 and 4) had been supplied on 09-11."
       },
       "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod. 9/12: inspection scope issued by Pete Houser ahead of the proposed Wed 10:00 AM inspection. Adjacent-lot parking use, overhead door heights and three-phase electrical flagged as diligence items."
     },
@@ -51,17 +51,17 @@
       "source": "off-market",
       "askingPrice": null,
       "offerAmount": null,
-      "status": "under-contract",
+      "status": "closing",
       "targetStrategy": "TBD",
       "entity": null,
       "lawyer": "Vincent J. Todd (Langrock Sperry & Wool, VT)",
       "agent": "Lisa Kelley (Cummings & Co.)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-09",
-        "summary": "Matt checked in on the closing at 10:41 AM. VT counsel Vincent Todd replied at 10:46 AM: Ben Percy is still waiting to hear from his title insurer but understands a P&S addendum is being circulated by the buyer's broker to extend the closing. Todd asked Matt whether he has seen such an addendum."
+        "date": "2026-09-16",
+        "summary": "Closing mechanics underway on the Vermont property. Vincent Todd confirmed at 10:19 AM that he is passing the wire details to the buyer's attorney for his secure wire platform. Matt asked at 1:55 PM when a HUD would be available; Todd sent the draft settlement statement at 2:00 PM and said he is reviewing it and will come back with comments. Chris noted at 2:18 PM that the latest property tax bill of $5,427.70 has been paid."
       },
-      "notes": "P&S, appraisal gap addendum, inspection contingency and attorney review clause all signed Jul 26."
+      "notes": "P&S, appraisal gap addendum, inspection contingency and attorney review clause all signed Jul 26. 09-16: the live thread is titled '583 Hawks Spur Closing' and runs through the same VT counsel (Vincent Todd, Langrock) and the same Cummings brokerage as this record, so it is almost certainly this transaction - FLAGGED FOR MATT to confirm the address and, more importantly, the SIDE: Todd is passing wire instructions to 'the buyer's attorney' and Chris is paying the property tax, which reads as Matt being the SELLER here, not the buyer. If that is right this row does not belong in pipeline at all. Not restructured on inference."
     },
     {
       "address": "159 Main St (Cooper's Commons), Agawam, MA 01001",
@@ -92,27 +92,10 @@
       "agent": "BC Realty",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-10",
-        "summary": "Pete Houser asked at 9:52 AM whether to wait for a clean estoppel or close with a $50k holdback. Jeff Fialky answered at 10:21 AM that without a clean estoppel there is nothing from the tenant confirming the $38K resolves all their issues, and he would want a clean one. Pete accepted at 10:23 AM: \"We will wait for a clean estoppel.\" Closing is now gated on the estoppel."
+        "date": "2026-09-15",
+        "summary": "Pete Houser asked Greenfield Savings at 11:57 AM to add 36 Paramount St, Springfield to the Downing loan request and write one blanket loan across both properties, requesting $195,000. Separately Michelle Palmer (Senior Credit Analyst) followed up at 9:06 AM on Mark Grumoli's open questions on the proposed $1.9MM loan request; Pete answered that 4 of the 16 units are vacant because the seller occupied some for their business in an estate situation, and Matt sent the same answers at 11:08 AM."
       },
       "notes": "$30,000 repair credit requested. Fialky had a call with seller's counsel emphasizing urgency to close and outstanding deliverables."
-    },
-    {
-      "address": "1361 Memorial Dr, Chicopee, MA",
-      "source": "off-market",
-      "askingPrice": 650000,
-      "offerAmount": null,
-      "status": "closing",
-      "targetStrategy": "TBD",
-      "entity": "Flying Monkey LLC (TIC)",
-      "lawyer": "Jeff Fialky",
-      "agent": null,
-      "keyDates": {},
-      "lastActivity": {
-        "date": "2026-09-11",
-        "summary": "Financing day. Adam Baker at Greenfield Cooperative Bank sent the secure upload link at 10:23 AM; Matt began uploading at 10:37 AM and flagged that his and Kevin's personal 2025 returns are still outstanding. Baker asked at 10:39 AM which entity is purchasing and at what ownership percentage, which is unanswered in the mailbox. Baker circulated draft terms for the Chicopee loan at 1:43 PM including a reserve-account condition; Pete confirmed at 2:21 PM that YellowBrick is not managing this one because it is triple net, and Baker agreed at 4:42 PM to remove that guarantee requirement."
-      },
-      "notes": "TIC structure — Flying Monkey LLC holds half. Moe Burhan (Waystar) chasing lender docs. 9/9: economics agreed by all three parties; total consideration $650,000, Flying Monkey LLC allocated $287,500, split 50-50. Capital call outstanding: Matt owes $37,500 of the $75,000; Pete has funded $50,000. Pete proposes an additional $25,000 working account for SR leasing fees."
     },
     {
       "address": "37 Prospect St, East Longmeadow, MA",
@@ -213,10 +196,10 @@
         "offerAcceptedDate": "2026-08-31"
       },
       "lastActivity": {
-        "date": "2026-09-11",
-        "summary": "Greenfield Cooperative Bank issued draft loan terms: up to $1,575,000 (75% LTV) to Flying Monkey LLC at 6.30% fixed for 5 years then the 5-year FHLB Classic rate plus 2.25%, 4.50% lifetime floor, 25-year term, estimated P&I $10,527.73 monthly, $750 origination, 3-2-1 prepayment only if refinanced elsewhere. Guarantors: Peter Houser, Matt, Kevin Shippee and Yellowbrick Management Inc. Conditions include 1.20x DSCR, clean environmental report, cross-collateralisation, operating and landlord/tenant accounts moved to GCB, and lead certs for every 2-bedroom-plus unit. On the separate management thread Matt accepted YellowBrick management and chose the reserve account; Baker noted policy zeroes the management fee if DSCR falls under 1.20x."
+        "date": "2026-09-16",
+        "summary": "Three fronts moved. APPRAISAL: Adam Baker sent the Greenfield Cooperative appraisal bids at 2:26 PM, Pete picked bid 1 at 2:30 PM, and Chris confirmed at 2:35 PM that the check is going out today; Baker still needs an access contact and phone for the appraiser, and warns approval will take about three weeks and cannot be issued without the 2025 personal returns. DILIGENCE: Pete sent the Ware DD package at 11:48 AM (lead compliance certificates for 27 Parker, National Grid bills, unit-level docs) and at 11:58 AM put outstanding items to Taylor Perun - the lease for 28 North #1 (Carol Dunn), the insurance policy and bill, plus dumpster, plowing and landscaping bills; Perun replied at 1:25 PM that he is working on it. CONTRACT: at 5:47 PM Pete asked Jeff Fialky whether the additional deposit to extend the financing period is refundable if financing is not obtained, and argued the pending housing court case is moot because that tenant has vacated."
       },
-      "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr. 9/1: attorneys connected — Taylor Perun looped in Bacon Wilson (Michael Beglane, Jeff Fialky) on the executed LOI. DD request list assembled 9/1-9/2: rent roll, leases, ledgers, lead certs, utility bills, tax/insurance bills and policy, maintenance and capex records (1 yr), estoppels, court agreements, outstanding work orders, environmental reports. Debt being placed with Florence Bank."
+      "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr. 9/1: attorneys connected — Taylor Perun looped in Bacon Wilson (Michael Beglane, Jeff Fialky) on the executed LOI. DD request list assembled 9/1-9/2: rent roll, leases, ledgers, lead certs, utility bills, tax/insurance bills and policy, maintenance and capex records (1 yr), estoppels, court agreements, outstanding work orders, environmental reports. Debt being placed with Florence Bank. 09-14: Purchase and Sale Agreement 9.14.26.pdf completed by all parties via DocuSign (Ivy Begley, Bacon Wilson) at 4:57 PM; Matt told the internal team 'We are under purchase and sale agreement' at 3:27 PM. 09-15: Fialky forwarded a further P&S revision - the seller accepted nearly all of Bacon Wilson's mark-up - with the leases attached and a pending housing court case flagged. 09-16: appraisal ordered (bid 1, Greenfield Coop, check sent), DD package circulated, extension-deposit refundability question open with Fialky."
     },
     {
       "address": "265 Salisbury Rd, Sheffield, MA",
@@ -234,25 +217,6 @@
         "summary": "Antonio circulated the Purchase & Sale for 265 Salisbury Rd at 3:17 PM. David Burstein acknowledged, asked whether it needed assigning to one of the LLCs, then confirmed at 3:35 PM it is going to Revive & Rise LLC."
       },
       "notes": "New this run. P&S in circulation for review — treat as contract formation, not a confirmed executed agreement. Kev Shippee copied. No price disclosed in the thread; do not assume one."
-    },
-    {
-      "address": "36 Paramount St, Springfield, MA",
-      "source": "off-market",
-      "askingPrice": null,
-      "offerAmount": null,
-      "status": "closing",
-      "targetStrategy": "flip",
-      "entity": "Flying Monkey LLC",
-      "lawyer": "Dunn & Phillips, PC (Pinar Karaaslan) — closing/escrow",
-      "agent": null,
-      "keyDates": {
-        "closingDate": "2026-09-09"
-      },
-      "lastActivity": {
-        "date": "2026-09-09",
-        "summary": "Closing day. Gabby Voorhies asked the team to report the outcome so Rent Manager can be updated, and Jocelyn asked at 2:11 PM whether the sitting tenants are being built in as tenants and whether build-in info exists. No closing confirmation, deed or settlement statement has arrived in the mailbox, so the record stays at closing."
-      },
-      "notes": "New this run. Closing set for 9/9. Occupied — eviction or relocation required before rehab. Insurance being placed through Adina Edgett (Alera / Union Mutual); carrier asking who the current carrier is and whether it is being non-renewed. Plan shifted 9/8 from evict-or-relocate to retaining the sitting tenant at $1,850/mo from 11/1. 9/9: closing day reached; no confirmation email received as of this run — status deliberately not advanced past 'closing' without a deed, HUD-1 or explicit confirmation."
     },
     {
       "address": "71 Hazard Ave (Houser deal — full address TBD)",
@@ -306,6 +270,23 @@
         "summary": "Alice Kempf sent an ARV opinion at 9:44 PM: $549,900 with a third bedroom squeezed in, taken down off the top for the Route 202 frontage. The same evening's foreclosure auction analysis rated it MAYBE with a hard ceiling of $189,000 without interior access."
       },
       "notes": "Added 2026-09-09. Auction was scheduled for today, 9/9. No result email has arrived, so no outcome is recorded and the status stays 'analyzing' - do not read this row as a purchase."
+    },
+    {
+      "address": "2 Green St, Palmer, MA 01069",
+      "source": "off-market",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "analyzing",
+      "targetStrategy": "TBD",
+      "entity": null,
+      "lawyer": null,
+      "agent": "Moe Burhan (Waystar Property) via Peter Houser",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-09-14",
+        "summary": "Moe Burhan sent the deal to Pete Houser at 11:52 AM; Pete forwarded it to Matt the same minute and followed with the Zillow listing link at 12:23 PM. No price, no offer and no entity named anywhere in the thread."
+      },
+      "notes": "NEW 2026-09-16. Earliest-stage look only. A separate 'Chicopee Deals' forward from Moe Burhan on 09-14 names no address and has NOT been entered as a property."
     }
   ],
   "active": [
@@ -321,8 +302,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-07",
-        "summary": "David Burstein confirmed the 2140 Palmer payoff at $170,000 plus interest. Matt confirmed the payoff proceeds will be applied to the next acquisition (a roughly $300k property he walked today); remaining funds to come from cash."
+        "date": "2026-09-14",
+        "summary": "David Burstein asked for the last oil fill invoice showing price paid per gallon for 2140 Palmer Road as well as 166 East St; Jess supplied the 166 East St invoices the same afternoon. Pete Houser also sent a 'Palmer Numbers' note on 09-15 with no body text - not attributed to this parcel with certainty, so it is not recorded as this row's activity."
       },
       "draws": [],
       "notes": "Prior buyer backed out Aug 5 (Release from Contract signed); inspection flagged hazard items. Relisted and re-offered within 16 days. Agent: Alice Kempf (Kempf-Vanderburgh)."
@@ -357,11 +338,11 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-06",
-        "summary": "Offer to Purchase Revised (version 4) signed via DotLoop with Alice Kempf - buyer's offer executed on the resale. Signed 8:36 PM, after the 09-06 digest went out."
+        "date": "2026-09-16",
+        "summary": "Extension of Time - Inspection and PS signed via dotloop at 4:55 PM (shared for review by Riley Brennan, KVRE, at 4:05 PM). Alice Kempf worked the buyer's inspection requests at 4:05 PM - yes to hot water heater, heat in kitchen and ceiling fan, windows undecided; Melissa Vanderburgh confirmed at 4:26 PM that the ceiling fan works and one baseboard is an easy replacement, and offered to walk the windows and screens with Tim. Matt at 4:55 PM: 'I say we wait to hear back from Melissa.'"
       },
       "draws": [],
-      "notes": "Listing package signed Aug 14: CON DUAL DESIGNATED Exclusive Right to Sell, Mass Inspection Disclosure, Licensee-Consumer Relationship Disclosure, Buyer Broker Compensation Authorization, Deferral of Showings.",
+      "notes": "Listing package signed Aug 14: CON DUAL DESIGNATED Exclusive Right to Sell, Mass Inspection Disclosure, Licensee-Consumer Relationship Disclosure, Buyer Broker Compensation Authorization, Deferral of Showings. 09-14: Addendum to the Real Estate Purchase Contract signed via dotloop. 09-16: inspection-and-P&S deadline extended by signed Extension of Time; buyer's repair list still being negotiated.",
       "agent": "Alice Kempf"
     },
     {
@@ -409,12 +390,12 @@
       "renoBudget": null,
       "renoSpent": null,
       "contractor": "Premiere Home Solutions",
-      "status": "in-rehab",
+      "status": "listed",
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-06",
-        "summary": "CMA received from Alice Kempf at $279,900; Antonio and Matt both agreed. Listing prep underway - dining space flagged as a possible objection, enclosed porch to be highlighted."
+        "date": "2026-09-15",
+        "summary": "Full listing package signed via dotloop at 9:55 AM: Exclusive Right to Sell Agreement (BCBOR), Mandatory Licensee-Consumer Relationship Disclosure, Seller's Consent to Dual Agency, Seller's Consent to Designated Agency, MANDATORY Mass Inspection Disclosure and Property Transfer Lead Paint Notification. Alice Kempf had shared all 7 documents at 9:44 AM. The property is now listed for sale."
       },
       "draws": [
         {
@@ -423,7 +404,8 @@
           "note": "Kitchen and cabinets installed; granite next (Ruben); kitchen doorway expanded and trimmed"
         }
       ],
-      "notes": "Antonio (Investarters) walking the site on draw verification."
+      "notes": "Antonio (Investarters) walking the site on draw verification. 09-15: moved from in-rehab to listed on the signed Exclusive Right to Sell. CMA was $279,900 (09-06).",
+      "agent": "Alice Kempf"
     },
     {
       "address": "19 Draper Ave, Pittsfield, MA",
@@ -470,8 +452,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-12",
-        "summary": "David Burstein forwarded the building department search from Carol Gaudio (Mancini, Provenzano & Futtner) at 11:08 AM. It shows an OPEN PERMIT that must be closed before the closing can proceed. Matt acknowledged at 11:14 AM - \"Thank you. On it.\" The title search had been sent 9/4."
+        "date": "2026-09-14",
+        "summary": "David Burstein asked at 1:53 PM for the last oil fill invoice, then at 2:43 PM for something showing the price paid per gallon. Jess sent invoices at 2:11 PM and again at 7:57 PM. The open building permit flagged on 09-12 remains the gating item on the Regan closing - nothing in the mailbox says it has been closed out."
       },
       "draws": [],
       "notes": "Signature request suggests listing or transaction paperwork is being prepared — confirm document type. Resale under agreement. Buyer Larissa Regan; listing/selling agent Ross LaBella, Coldwell Banker South Windsor. EMD $30,000 paid 8/28/2026. Closing attorney David Burstein. 9/12: building department search returned an open permit that must be closed prior to closing - this is now the gating item on the Regan & Kaluna sale. Buyer's counsel Carol Gaudio (paralegal), Mancini Provenzano & Futtner, South Windsor CT.",
@@ -620,6 +602,42 @@
       },
       "draws": [],
       "notes": "NEW 2026-09-10, not previously tracked. Entered as an active listing because an Exclusive Right to Sell makes Matt and Pete the sellers. Owning entity is not stated anywhere in the thread - FLAGGED FOR MATT to confirm the entity and whether this belongs in the flip portfolio. Same broker as 37 Prospect St, East Longmeadow."
+    },
+    {
+      "address": "36 Paramount St, Springfield, MA",
+      "entity": "Flying Monkey LLC",
+      "purchasePrice": null,
+      "purchaseDate": "2026-09-09",
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "draws": [],
+      "status": "pre-rehab",
+      "targetStrategy": "flip",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-09-16",
+        "summary": "Jess confirmed to Jeff Ledoux (The Rise Group) at 1:40 PM that the property is occupied and that she is pulling the utility account info he needs for the lead determination. Matt at 1:45 PM: 'We also need to do lock change and safety inspection.' Jess at 1:49 PM: 'It's scheduled for Friday.'"
+      },
+      "notes": "MOVED FROM PIPELINE TO ACTIVE 2026-09-16. Purchase confirmed by Pete Houser's 09-15 email to Greenfield Savings - 'Matt and I also bought 36 Paramount St in Springfield' - asking to fold it into the 25 Downing / 3 Park loan request as one blanket loan at $195,000. Closing date 09-09 retained as purchaseDate; purchase price is not disclosed in any email and is left null rather than guessed. 09-15: Naples Group facilitation fee paid by ACH/wire (Matt approved at Florence Online); Chris chasing Nick Bencivengo's W9 for Naples Home Buying. Occupied - plan is to retain the sitting tenant at $1,850/mo from 11/1. Lead determination via The Rise Group (Jeff Ledoux); lock change and safety inspection scheduled for Friday 09-18."
+    },
+    {
+      "address": "1361 Memorial Dr, Chicopee, MA",
+      "entity": "Flying Monkey LLC (TIC)",
+      "purchasePrice": 650000,
+      "purchaseDate": "2026-09-11",
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "draws": [],
+      "status": "pre-rehab",
+      "targetStrategy": "TBD",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-09-16",
+        "summary": "Cash-out refinance push with Polish National Credit Union. Moe Burhan told Joe Kulig at 10:04 AM that the vet tenant is doing her buildout now, is financed through Bank of America, that they are trying to finance $625,000 and that she carries a two-year rolling personal guarantee. Kulig asked the purchase price at 10:08 AM; Pete Houser answered at 3:52 PM: 'We paid $650k for it.'"
+      },
+      "notes": "MOVED FROM PIPELINE TO ACTIVE 2026-09-16. Bacon Wilson confirmed 09-11 that the deed is on record; lease assignment supplied 09-14. Purchase price $650,000 confirmed by Pete Houser 09-16. TIC structure - Flying Monkey LLC allocated $287,500, split 50-50 with Blythewood side. Greenfield Cooperative Bank PASSED on the Chicopee loan 09-14 citing lack of information on the single tenant, so financing moved to Polish National Credit Union (Joe Kulig) as a $625,000 cash-out refi against a signed seven-year vet-clinic lease. TRIPLE NET - Pete has confirmed YellowBrick is NOT managing this one. targetStrategy still TBD: it behaves like a buy-and-hold, but no email says so, so it is NOT archived. FLAGGED FOR MATT to confirm whether this should move to archived as a hold or stay in the flip tracker."
     }
   ],
   "archived": [
