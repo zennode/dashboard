@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-09-16T19:20:00-04:00",
+  "lastUpdated": "2026-09-17T19:20:00-04:00",
   "scanWindow": {
-    "type": "widened",
-    "from": "2026-09-12",
-    "to": "2026-09-16",
-    "note": "Widened from 24h to cover 09-12 through 09-16. Re-run by auto-rerun-failed-tasks after the 18:00 ET fire hung just past PRECHECKS_DONE. No digest was sent on 09-14, 09-15 or 09-16 (last successful digest 09-13, msg 1a09ccc1e7b51953), and the last COMMITTED flip_data.json is 2026-09-12T19:20 - so both the scan window and the merge baseline were widened to 09-12 per STEP 1."
+    "type": "daily",
+    "from": "2026-09-16",
+    "to": "2026-09-17",
+    "note": "Standard 24h window. The 09-16 run both sent its digest and committed flip_data.json, so neither the scan window nor the merge baseline needed widening. This run is a re-run by auto-rerun-failed-tasks after the 18:00 ET fire hung just past PRECHECKS_DONE."
   },
   "summary": {
     "pipeline": 16,
@@ -39,12 +39,14 @@
       "entity": "Flying Monkey LLC / Yellow Brick Property (TIC with Blythewood)",
       "lawyer": "Jeff Fialky",
       "agent": "Sentry Commercial (Murdock)",
-      "keyDates": {},
-      "lastActivity": {
-        "date": "2026-09-16",
-        "summary": "Insurance underwriting. Adina Edgett (Alera Group) said at 12:59 PM she still needed building detail for 59 King Spring Rd because the property card lists three buildings; Pete Houser answered at 3:36 PM: two buildings, 18,000 sq ft (12 units) and 8,000 sq ft (4 units), with tenant lists for each attached. The 28-30 / 28.5 North unit split (10 and 4) had been supplied on 09-11."
+      "keyDates": {
+        "expectedClosing": "2026-10 (end, per Peter Houser 09-17)"
       },
-      "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod. 9/12: inspection scope issued by Pete Houser ahead of the proposed Wed 10:00 AM inspection. Adjacent-lot parking use, overhead door heights and three-phase electrical flagged as diligence items."
+      "lastActivity": {
+        "date": "2026-09-17",
+        "summary": "DEPOSIT AND UNDERWRITING. Sarah Federation (Bacon Wilson) sent the deposit demand per the terms of the agreement; Pete Houser at 11:40 AM: 'We need to pay the deposit. I will send my half directly.' Chris Keniley asked at 11:45 AM whether to wire out $37,500 and which property it was; Matt confirmed at 12:46 PM it is 59 King, Pete confirmed 'yes' at 12:47 PM, and Matt asked Chris to action it at 12:50 PM. INSURANCE: Matt supplied the update years to Alera at 10:10 AM - electrical mostly 2002, plumbing 2005, metal roof 2010, heating around 1995 - and Pete told Adina at 10:41 AM that King Spring closes about the end of October."
+      },
+      "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod. 9/12: inspection scope issued by Pete Houser ahead of the proposed Wed 10:00 AM inspection. Adjacent-lot parking use, overhead door heights and three-phase electrical flagged as diligence items. 09-17: $37,500 deposit to NQGQ Realty LLC being wired, Matt's half through Chris Keniley and Pete's half sent directly."
     },
     {
       "address": "Pappy - Plymouth Property",
@@ -58,10 +60,10 @@
       "agent": "Lisa Kelley (Cummings & Co.)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-16",
-        "summary": "Closing mechanics underway on the Vermont property. Vincent Todd confirmed at 10:19 AM that he is passing the wire details to the buyer's attorney for his secure wire platform. Matt asked at 1:55 PM when a HUD would be available; Todd sent the draft settlement statement at 2:00 PM and said he is reviewing it and will come back with comments. Chris noted at 2:18 PM that the latest property tax bill of $5,427.70 has been paid."
+        "date": "2026-09-17",
+        "summary": "SELLER-SIDE CONFIRMED. Vincent Todd (Langrock, VT) sent the outstanding seller closing documents for e-signature at 4:21 PM - 'Seller's Closing Disclosure (3).pdf, 583 Hawk Spur Road - Wicked Deals L...' - and DocuSign reported all parties complete at 4:23 PM. A Seller's Closing Disclosure naming Wicked Deals LLC puts Matt on the SELL side of 583 Hawk Spur Road."
       },
-      "notes": "P&S, appraisal gap addendum, inspection contingency and attorney review clause all signed Jul 26. 09-16: the live thread is titled '583 Hawks Spur Closing' and runs through the same VT counsel (Vincent Todd, Langrock) and the same Cummings brokerage as this record, so it is almost certainly this transaction - FLAGGED FOR MATT to confirm the address and, more importantly, the SIDE: Todd is passing wire instructions to 'the buyer's attorney' and Chris is paying the property tax, which reads as Matt being the SELLER here, not the buyer. If that is right this row does not belong in pipeline at all. Not restructured on inference."
+      "notes": "P&S, appraisal gap addendum, inspection contingency and attorney review clause all signed Jul 26. 09-16: the live thread is titled '583 Hawks Spur Closing' and runs through the same VT counsel (Vincent Todd, Langrock) and the same Cummings brokerage as this record, so it is almost certainly this transaction - FLAGGED FOR MATT to confirm the address and, more importantly, the SIDE: Todd is passing wire instructions to 'the buyer's attorney' and Chris is paying the property tax, which reads as Matt being the SELLER here, not the buyer. If that is right this row does not belong in pipeline at all. Not restructured on inference. 09-17: the DocuSign envelope names the seller's closing disclosure for 583 Hawk Spur Road and Wicked Deals LLC, which corroborates the 09-16 read that Matt is the seller. STILL FLAGGED FOR MATT: if 'Pappy - Plymouth Property' and 583 Hawk Spur Road are the same transaction, this row belongs in archived on closing, not in pipeline. Not restructured on inference - no recorded deed or settled HUD has been seen."
     },
     {
       "address": "159 Main St (Cooper's Commons), Agawam, MA 01001",
@@ -75,8 +77,8 @@
       "agent": "Jeremy Casey / Daniel Lavitman (SR Commercial Realty)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-02",
-        "summary": "Jeremy Casey (SR Commercial) shared a draft \"SR Commercial Offer To Purchase 159 Main St Agawam.docx\" for review at 11:45 AM; Matt approved it at 12:52 PM and passed it to Pete Houser for sign-off."
+        "date": "2026-09-17",
+        "summary": "Offer to Purchase signed. Daniel Lavitman (SR Commercial Realty) shared the document at 8:25 PM on 09-16 and Matt signed it via dotloop at 7:27 AM. A revised version, 'SR Commercial Offer To Purchase 159 Main St Agawam (1)', was shared at 9:13 AM and signed at 9:26 AM; Pete Houser forwarded his copy at 9:16 AM. Status held at 'offered' - the signature is Matt's own, and no seller acceptance is evidenced in the mailbox."
       },
       "notes": "Structure discussion: $1.4M with 20% seller second at 4%, 20-yr am / 7-yr term. Seller not open to more than 10–20% seller financing. Seller handles oil tank removal."
     },
@@ -193,11 +195,13 @@
       "lawyer": "Jeff Fialky (Bacon Wilson) / Michael Beglane",
       "agent": "Taylor Perun (Northeast Private Client Group) via Peter Houser",
       "keyDates": {
-        "offerAcceptedDate": "2026-08-31"
+        "offerAcceptedDate": "2026-08-31",
+        "inspectionDate": "2026-09-25",
+        "expectedClosing": "2026-11 (mid, per Peter Houser 09-17)"
       },
       "lastActivity": {
-        "date": "2026-09-16",
-        "summary": "Three fronts moved. APPRAISAL: Adam Baker sent the Greenfield Cooperative appraisal bids at 2:26 PM, Pete picked bid 1 at 2:30 PM, and Chris confirmed at 2:35 PM that the check is going out today; Baker still needs an access contact and phone for the appraiser, and warns approval will take about three weeks and cannot be issued without the 2025 personal returns. DILIGENCE: Pete sent the Ware DD package at 11:48 AM (lead compliance certificates for 27 Parker, National Grid bills, unit-level docs) and at 11:58 AM put outstanding items to Taylor Perun - the lease for 28 North #1 (Carol Dunn), the insurance policy and bill, plus dumpster, plowing and landscaping bills; Perun replied at 1:25 PM that he is working on it. CONTRACT: at 5:47 PM Pete asked Jeff Fialky whether the additional deposit to extend the financing period is refundable if financing is not obtained, and argued the pending housing court case is moot because that tenant has vacated."
+        "date": "2026-09-17",
+        "summary": "INSPECTION SCHEDULED for Friday 09-25 at 9:30 AM. Matt proposed it to Taylor Perun at 12:56 PM and added Jess to coordinate HVAC and electrical; Perun asked for the scope at 1:15 PM; Matt confirmed at 1:24 PM that access is needed to all units, utility areas, attics and basements; Perun acknowledged at 1:29 PM. APPRAISAL: Pete asked Adam Baker at 9:21 AM to confirm none of the bids came from Commercial Appraisal Services of East Longmeadow, which he refuses to work with; Baker said the bids were blind to him too and confirmed at 11:26 AM that none of them were that firm. INSURANCE: Pete told Alera at 10:41 AM that Ware is expected to close mid-November."
       },
       "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr. 9/1: attorneys connected — Taylor Perun looped in Bacon Wilson (Michael Beglane, Jeff Fialky) on the executed LOI. DD request list assembled 9/1-9/2: rent roll, leases, ledgers, lead certs, utility bills, tax/insurance bills and policy, maintenance and capex records (1 yr), estoppels, court agreements, outstanding work orders, environmental reports. Debt being placed with Florence Bank. 09-14: Purchase and Sale Agreement 9.14.26.pdf completed by all parties via DocuSign (Ivy Begley, Bacon Wilson) at 4:57 PM; Matt told the internal team 'We are under purchase and sale agreement' at 3:27 PM. 09-15: Fialky forwarded a further P&S revision - the seller accepted nearly all of Bacon Wilson's mark-up - with the leases attached and a pending housing court case flagged. 09-16: appraisal ordered (bid 1, Greenfield Coop, check sent), DD package circulated, extension-deposit refundability question open with Fialky."
     },
@@ -240,17 +244,17 @@
       "source": "off-market",
       "askingPrice": null,
       "offerAmount": null,
-      "status": "offered",
+      "status": "under-contract",
       "targetStrategy": "TBD",
       "entity": "Prop Doc LLC",
       "lawyer": "David Burstein",
       "agent": "Dennisse Rivera-Mercado (dual agency) / Alice Kempf (KVRE, EMD handling)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-10",
-        "summary": "Alice Kempf sent a CloudCMA at 8:00 AM landing on $524,900. Matt forwarded it to Antonio at 8:24 AM; Antonio pushed back at 9:30 AM - \"Not sure how she landed on that price when two of them sold for more than $50K less\" - and Matt told him at 9:53 AM to take it up with her directly. Valuation is in dispute; no offer number has moved."
+        "date": "2026-09-17",
+        "summary": "P&S EXECUTED. Matt signed 'PS Final 180 Fort (1)' via dotloop at 5:35 AM through Dennisse Rivera-Mercado. David Burstein forwarded the P&S draft at 9:18 AM asking Matt to confirm he wants to assume the solar panel contract; Matt asked at 9:26 AM for a copy of that contract and Burstein replied at 9:50 AM that he has requested it."
       },
-      "notes": "New this run. Buying entity Prop Doc LLC - not on the standing flip-entity list; Burstein has requested its EIN letter and Operating Agreement. One unit occupied. Matt expects to close in about two weeks. Insurance being placed as a new Named Insured. 9/9: EMD processing started through KVRE. Seller acceptance still not evidenced in writing, so status held at 'offered' rather than advanced to under-contract."
+      "notes": "New this run. Buying entity Prop Doc LLC - not on the standing flip-entity list; Burstein has requested its EIN letter and Operating Agreement. One unit occupied. Matt expects to close in about two weeks. Insurance being placed as a new Named Insured. 9/9: EMD processing started through KVRE. Seller acceptance still not evidenced in writing, so status held at 'offered' rather than advanced to under-contract. 09-17: advanced from offered to under-contract on the signed PS Final (dotloop). Open item: the solar panel contract Matt would be assuming has been requested but not yet produced."
     },
     {
       "address": "87 Daniel Shays Hwy, Pelham, MA",
@@ -276,17 +280,19 @@
       "source": "off-market",
       "askingPrice": null,
       "offerAmount": null,
-      "status": "analyzing",
+      "status": "under-contract",
       "targetStrategy": "TBD",
       "entity": null,
       "lawyer": null,
       "agent": "Moe Burhan (Waystar Property) via Peter Houser",
-      "keyDates": {},
-      "lastActivity": {
-        "date": "2026-09-14",
-        "summary": "Moe Burhan sent the deal to Pete Houser at 11:52 AM; Pete forwarded it to Matt the same minute and followed with the Zillow listing link at 12:23 PM. No price, no offer and no entity named anywhere in the thread."
+      "keyDates": {
+        "expectedClosing": "2026-09-30"
       },
-      "notes": "NEW 2026-09-16. Earliest-stage look only. A separate 'Chicopee Deals' forward from Moe Burhan on 09-14 names no address and has NOT been entered as a property."
+      "lastActivity": {
+        "date": "2026-09-17",
+        "summary": "MOVED TO UNDER CONTRACT ON A 9/30 CLOSE. Pete Houser forwarded Moe Burhan's estoppel certificates at 10:47 AM and the five unit rental agreements (Tenancy at Will, units 1-5) at 11:15 AM and 1:05 PM. Matt at 12:54 PM: 'This one is a quick close. Unfortunately. Look like we might close in a week or so,' and asked Jocelyn and Jess to add the property and tenants into Rent Manager. Pete pinned the date at 1:06 PM: '9/30.'"
+      },
+      "notes": "NEW 2026-09-16. Earliest-stage look only. A separate 'Chicopee Deals' forward from Moe Burhan on 09-14 names no address and has NOT been entered as a property. 09-17: advanced from analyzing to under-contract. Estoppel certificates and all five executed tenancy-at-will agreements have been delivered and a closing date of 9/30 was stated by Peter Houser - deliverables that only flow on a property under agreement. No price and no buying entity is named anywhere in the thread; both left null rather than guessed. FLAGGED FOR MATT: confirm the buying entity and price."
     }
   ],
   "active": [
@@ -338,8 +344,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-16",
-        "summary": "Extension of Time - Inspection and PS signed via dotloop at 4:55 PM (shared for review by Riley Brennan, KVRE, at 4:05 PM). Alice Kempf worked the buyer's inspection requests at 4:05 PM - yes to hot water heater, heat in kitchen and ceiling fan, windows undecided; Melissa Vanderburgh confirmed at 4:26 PM that the ceiling fan works and one baseboard is an easy replacement, and offered to walk the windows and screens with Tim. Matt at 4:55 PM: 'I say we wait to hear back from Melissa.'"
+        "date": "2026-09-17",
+        "summary": "Inspection-request negotiation closed out. Melissa Vanderburgh's 8:59 PM (09-16) walkthrough note said yes to the water heater - it smoked and made noise on a breaker cycle. Matt agreed at 12:55 PM and asked Jess; Jess sent the contract language at 4:25 PM (7.5.1 licensed plumber to inspect and repair or replace the water heater; 8.5.1 licensed electrician on the bedroom ceiling fan). Alice Kempf at 4:32 PM: 'I will make the changes and send for Matt's signature.'"
       },
       "draws": [],
       "notes": "Listing package signed Aug 14: CON DUAL DESIGNATED Exclusive Right to Sell, Mass Inspection Disclosure, Licensee-Consumer Relationship Disclosure, Buyer Broker Compensation Authorization, Deferral of Showings. 09-14: Addendum to the Real Estate Purchase Contract signed via dotloop. 09-16: inspection-and-P&S deadline extended by signed Extension of Time; buyer's repair list still being negotiated.",
@@ -452,8 +458,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-14",
-        "summary": "David Burstein asked at 1:53 PM for the last oil fill invoice, then at 2:43 PM for something showing the price paid per gallon. Jess sent invoices at 2:11 PM and again at 7:57 PM. The open building permit flagged on 09-12 remains the gating item on the Regan closing - nothing in the mailbox says it has been closed out."
+        "date": "2026-09-17",
+        "summary": "David Burstein asked at 11:32 AM for a copy of the last water bill and whether there are oil or other adjustments. Jess answered at 12:13 PM that the property is on well water so there is no water bill, and that the oil invoice was already sent, asking whether he needed a gauge reading. Burstein confirmed at 12:18 PM that he already has the oil info. Nothing in the mailbox says the open building permit has been closed out, so that remains the gating item on the Regan closing."
       },
       "draws": [],
       "notes": "Signature request suggests listing or transaction paperwork is being prepared — confirm document type. Resale under agreement. Buyer Larissa Regan; listing/selling agent Ross LaBella, Coldwell Banker South Windsor. EMD $30,000 paid 8/28/2026. Closing attorney David Burstein. 9/12: building department search returned an open permit that must be closed prior to closing - this is now the gating item on the Regan & Kaluna sale. Buyer's counsel Carol Gaudio (paralegal), Mancini Provenzano & Futtner, South Windsor CT.",
