@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2026-09-18T19:25:00-04:00",
+  "lastUpdated": "2026-09-19T19:20:00-04:00",
   "scanWindow": {
     "type": "daily",
-    "from": "2026-09-17",
-    "to": "2026-09-18",
-    "note": "Standard 24h window. Re-run by auto-rerun-failed-tasks after the 18:00 fire hung at 18:02 ET. The 09-17 run both sent and committed, so no widening was needed."
+    "from": "2026-09-18",
+    "to": "2026-09-19",
+    "note": "Standard 24h window. Re-run by auto-rerun-failed-tasks after the 18:00 fire hung at 18:03 ET with only DATA_MERGED written and no email sent. The 09-18 19:25 state is what is committed on main, so the merge baseline was current and no widening was needed."
   },
   "summary": {
-    "pipeline": 16,
-    "active": 19,
-    "archived": 3
+    "pipeline": 17,
+    "active": 18,
+    "archived": 4
   },
   "pipeline": [
     {
@@ -293,27 +293,26 @@
         "summary": "MOVED TO UNDER CONTRACT ON A 9/30 CLOSE. Pete Houser forwarded Moe Burhan's estoppel certificates at 10:47 AM and the five unit rental agreements (Tenancy at Will, units 1-5) at 11:15 AM and 1:05 PM. Matt at 12:54 PM: 'This one is a quick close. Unfortunately. Look like we might close in a week or so,' and asked Jocelyn and Jess to add the property and tenants into Rent Manager. Pete pinned the date at 1:06 PM: '9/30.'"
       },
       "notes": "NEW 2026-09-16. Earliest-stage look only. A separate 'Chicopee Deals' forward from Moe Burhan on 09-14 names no address and has NOT been entered as a property. 09-17: advanced from analyzing to under-contract. Estoppel certificates and all five executed tenancy-at-will agreements have been delivered and a closing date of 9/30 was stated by Peter Houser - deliverables that only flow on a property under agreement. No price and no buying entity is named anywhere in the thread; both left null rather than guessed. FLAGGED FOR MATT: confirm the buying entity and price."
+    },
+    {
+      "address": "271 Elm St, Westfield, MA",
+      "source": "off-market",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "analyzing",
+      "targetStrategy": "TBD",
+      "entity": null,
+      "lawyer": null,
+      "agent": "Jeremy Casey (SR Commercial Realty)",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-09-19",
+        "summary": "NEW — UNDERWRITING UNDERWAY. Jeremy Casey (SR Commercial Realty) forwarded Tony Neuser's shared spreadsheet '271 Elm St Westfield MA Property Analysis' at 10:49 AM. Matt replied at 10:57 AM that he had been running off current rents but can work the other figure in, then pressed at 12:07 PM: 'Where is the lease? What year is year 3? If it is two years away that is not helpful.' No price, no offer and no lease document in the mailbox yet."
+      },
+      "notes": "Arrived through SR Commercial Realty. Underwriting hinges on the lease term - Matt is pushing back on a year-3 rent assumption he cannot verify."
     }
   ],
   "active": [
-    {
-      "address": "2140 Palmer Rd, Palmer, MA 01069",
-      "entity": null,
-      "purchasePrice": null,
-      "purchaseDate": null,
-      "renoBudget": null,
-      "renoSpent": null,
-      "contractor": null,
-      "status": "under-contract",
-      "targetStrategy": "flip",
-      "estCompletion": null,
-      "lastActivity": {
-        "date": "2026-09-14",
-        "summary": "David Burstein asked for the last oil fill invoice showing price paid per gallon for 2140 Palmer Road as well as 166 East St; Jess supplied the 166 East St invoices the same afternoon. Pete Houser also sent a 'Palmer Numbers' note on 09-15 with no body text - not attributed to this parcel with certainty, so it is not recorded as this row's activity."
-      },
-      "draws": [],
-      "notes": "Prior buyer backed out Aug 5 (Release from Contract signed); inspection flagged hazard items. Relisted and re-offered within 16 days. Agent: Alice Kempf (Kempf-Vanderburgh)."
-    },
     {
       "address": "83 Rolf Ave, Chicopee, MA 01020",
       "entity": null,
@@ -682,6 +681,17 @@
         "summary": "Closing completed - settlement statement and deed. Reported in the 09-06 brief but never committed, because that run’s GitHub publish failed."
       },
       "notes": "Moved from pipeline to archived on 2026-09-07. Agent Daniel Lavitman (SR Commercial Realty). Prior pipeline record: {\"date\":\"2026-08-25\",\"summary\":\"Closing timing chased with Burstein; still no response from the other side.\"}"
+    },
+    {
+      "address": "2140 Palmer Rd, Palmer, MA 01069",
+      "entity": "Wicked Deals LLC",
+      "status": "sold",
+      "soldDate": "2026-09-18",
+      "lastActivity": {
+        "date": "2026-09-19",
+        "summary": "SOLD — DEED RECORDED. David Burstein circulated the closing package at 7:39 PM on 09-18 (Closing Disclosure statement, recorded deed and payoffs) to the full Wicked Deals group including Kevin, Russ, Chris, Michelle, Jess and Alice Kempf, who thanked the team at 7:41 PM. Matt logged a reminder to himself at 12:51 PM on 09-19 to grab the Palmer check."
+      },
+      "notes": "Moved from active to archived on 2026-09-19. Held in Wicked Deals LLC. Prior active record: under-contract, last activity 2026-09-14 (Burstein's oil-invoice request). Proceeds check to be collected from Burstein Law Offices. Realized profit not yet tallied."
     }
   ]
 }
