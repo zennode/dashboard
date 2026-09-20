@@ -1,14 +1,14 @@
 {
-  "lastUpdated": "2026-09-19T19:20:00-04:00",
+  "lastUpdated": "2026-09-20T19:20:00-04:00",
   "scanWindow": {
     "type": "daily",
-    "from": "2026-09-18",
-    "to": "2026-09-19",
-    "note": "Standard 24h window. Re-run by auto-rerun-failed-tasks after the 18:00 fire hung at 18:03 ET with only DATA_MERGED written and no email sent. The 09-18 19:25 state is what is committed on main, so the merge baseline was current and no widening was needed."
+    "from": "2026-09-19",
+    "to": "2026-09-20",
+    "note": "Standard 24h window. Re-run by auto-rerun-failed-tasks after the 18:00 fire stalled at GMAIL_SCANNED on a session token budget limit with no send issued. The 09-19 19:20 state was committed on main, so the merge baseline was current and no widening was needed."
   },
   "summary": {
     "pipeline": 17,
-    "active": 18,
+    "active": 19,
     "archived": 4
   },
   "pipeline": [
@@ -646,6 +646,24 @@
         "summary": "Cash-out refinance push with Polish National Credit Union. Moe Burhan told Joe Kulig at 10:04 AM that the vet tenant is doing her buildout now, is financed through Bank of America, that they are trying to finance $625,000 and that she carries a two-year rolling personal guarantee. Kulig asked the purchase price at 10:08 AM; Pete Houser answered at 3:52 PM: 'We paid $650k for it.'"
       },
       "notes": "MOVED FROM PIPELINE TO ACTIVE 2026-09-16. Bacon Wilson confirmed 09-11 that the deed is on record; lease assignment supplied 09-14. Purchase price $650,000 confirmed by Pete Houser 09-16. TIC structure - Flying Monkey LLC allocated $287,500, split 50-50 with Blythewood side. Greenfield Cooperative Bank PASSED on the Chicopee loan 09-14 citing lack of information on the single tenant, so financing moved to Polish National Credit Union (Joe Kulig) as a $625,000 cash-out refi against a signed seven-year vet-clinic lease. TRIPLE NET - Pete has confirmed YellowBrick is NOT managing this one. targetStrategy still TBD: it behaves like a buy-and-hold, but no email says so, so it is NOT archived. FLAGGED FOR MATT to confirm whether this should move to archived as a hold or stay in the flip tracker."
+    },
+    {
+      "address": "741-745 Union St, Springfield, MA",
+      "entity": null,
+      "purchasePrice": null,
+      "purchaseDate": null,
+      "renoBudget": null,
+      "renoSpent": null,
+      "contractor": null,
+      "status": "listed",
+      "targetStrategy": "TBD",
+      "estCompletion": null,
+      "lastActivity": {
+        "date": "2026-09-20",
+        "summary": "NEW — LISTING PACKAGE SIGNED. Alice Kempf (Kempf-Vanderburgh Realty) shared 5 documents through dotloop at 3:14 PM and Matt signed all five at 3:15 PM: CON DUAL DESIGNATED Exclusive Right to Sell, Property Transfer Lead Paint Notification, MANDATORY Mass Inspection Disclosure, Mandatory Licensee-Consumer Relationship Disclosure, and Authorization to Offer Buyer Broker Compensation (MAR). All five are seller-side listing documents, so the property is now listed for sale."
+      },
+      "draws": [],
+      "notes": "Entered tracking on 2026-09-20 via the executed listing package. No prior record existed in the tracker and no acquisition history, purchase price or entity appears in the mailbox — those fields are left null rather than inferred. Same listing-package pattern as 167 E Park Terrace on 09-15."
     }
   ],
   "archived": [
