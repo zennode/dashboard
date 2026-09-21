@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-09-20T19:20:00-04:00",
+  "lastUpdated": "2026-09-21T19:26:00-04:00",
   "scanWindow": {
     "type": "daily",
-    "from": "2026-09-19",
-    "to": "2026-09-20",
-    "note": "Standard 24h window. Re-run by auto-rerun-failed-tasks after the 18:00 fire stalled at GMAIL_SCANNED on a session token budget limit with no send issued. The 09-19 19:20 state was committed on main, so the merge baseline was current and no widening was needed."
+    "from": "2026-09-20",
+    "to": "2026-09-21",
+    "note": "Standard 24h window. Re-run by auto-rerun-failed-tasks after the 18:11 fire hung at GMAIL_SCANNED with no send issued. The 09-20 19:20 state was committed on main, so the merge baseline was current and no widening was needed."
   },
   "summary": {
-    "pipeline": 17,
+    "pipeline": 18,
     "active": 19,
     "archived": 4
   },
@@ -70,15 +70,15 @@
       "source": "MLS",
       "askingPrice": 1525000,
       "offerAmount": 1400000,
-      "status": "offered",
+      "status": "under-contract",
       "targetStrategy": "buy-and-hold",
       "entity": null,
-      "lawyer": null,
+      "lawyer": "Jeff Fialky",
       "agent": "Jeremy Casey / Daniel Lavitman (SR Commercial Realty)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-17",
-        "summary": "Offer to Purchase signed. Daniel Lavitman (SR Commercial Realty) shared the document at 8:25 PM on 09-16 and Matt signed it via dotloop at 7:27 AM. A revised version, 'SR Commercial Offer To Purchase 159 Main St Agawam (1)', was shared at 9:13 AM and signed at 9:26 AM; Pete Houser forwarded his copy at 9:16 AM. Status held at 'offered' - the signature is Matt's own, and no seller acceptance is evidenced in the mailbox."
+        "date": "2026-09-21",
+        "summary": "OFFER ACCEPTED — MOVED TO UNDER CONTRACT. Daniel Lavitman (SR Commercial Realty) wrote at 9:29 AM: 'Congratulations on the accepted offer! The fully executed offer is attached' (signed OTP.pdf), and said the attorneys were being looped in, asking whether Attorney Bernstein or another attorney would be used. Pete Houser asked at 10:28 AM whether to use Jeff; Matt confirmed 'Yes' at 10:44 AM. Lavitman confirmed at 12:22 PM that Fialky has been looped into the proper thread and recirculated the complete executed offer to purchase."
       },
       "notes": "Structure discussion: $1.4M with 20% seller second at 4%, 20-yr am / 7-yr term. Seller not open to more than 10–20% seller financing. Seller handles oil tank removal."
     },
@@ -94,8 +94,8 @@
       "agent": "BC Realty",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-15",
-        "summary": "Pete Houser asked Greenfield Savings at 11:57 AM to add 36 Paramount St, Springfield to the Downing loan request and write one blanket loan across both properties, requesting $195,000. Separately Michelle Palmer (Senior Credit Analyst) followed up at 9:06 AM on Mark Grumoli's open questions on the proposed $1.9MM loan request; Pete answered that 4 of the 16 units are vacant because the seller occupied some for their business in an estate situation, and Matt sent the same answers at 11:08 AM."
+        "date": "2026-09-21",
+        "summary": "Pete Houser followed up with Greenfield Savings at 2:29 PM on the outstanding loan application for Downing Park in Pittsfield. No lender response in the mailbox yet. The blanket-loan request adding 36 Paramount St, raised 09-15 at $195,000, remains open."
       },
       "notes": "$30,000 repair credit requested. Fialky had a call with seller's counsel emphasizing urgency to close and outstanding deliverables."
     },
@@ -200,8 +200,8 @@
         "expectedClosing": "2026-11 (mid, per Peter Houser 09-17)"
       },
       "lastActivity": {
-        "date": "2026-09-18",
-        "summary": "DUE DILIGENCE ANSWERED AND INSPECTION CONFIRMED. Taylor Perun forwarded seller Saranda Zherka's responses at 1:15 PM and refreshed the DD Dropbox: insurance policy, the missing 28 North #1 lease (Carol Dunn), 12 months of trash bills and landscaping invoices all uploaded; snow removal done in house at $250/month Dec-Mar under misc; no court agreements or outstanding work orders; Casella waste renewed 1/25/24 for 36 months, up again in January; cap-ex list still to come. Utilities: tenants pay their own, landlord carries common-area and outdoor lighting (two pole-light accounts), hot water in the 30s building (oil) and the gas dryers (propane). Inspection confirmed for Friday 09-25 at 9:30 AM with access to every unit, utility areas, basements and attics - calendar invite issued at 2:48 PM. Separately, estoppels: Fialky reported seller pushback at 9:38 AM, Pete pushed back at 9:46 AM ('almost all the deals I'm involved with that have tenants have estoppels required'), and Fialky said at 10:04 AM a compromise provision is coming. Appraisal: Adam Baker (Greenfield Cooperative) has the check, Matt is the appraiser's contact, and Baker asked at 10:59 AM whether the P&S is available for the appraiser."
+        "date": "2026-09-21",
+        "summary": "ENVIRONMENTAL INVOICE PAID. Christopher Parent (Enviro-Risk) sent the invoice for the Ware site at 1:04 PM, balance due $1,300.00, and said the report itself follows separately. Pete Houser forwarded it at 1:50 PM to Matt and Chris Keniley; Chris replied 'Paid' at 2:18 PM and copied Michelle. The 09-25 9:30 AM inspection remains confirmed."
       },
       "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr. 9/1: attorneys connected — Taylor Perun looped in Bacon Wilson (Michael Beglane, Jeff Fialky) on the executed LOI. DD request list assembled 9/1-9/2: rent roll, leases, ledgers, lead certs, utility bills, tax/insurance bills and policy, maintenance and capex records (1 yr), estoppels, court agreements, outstanding work orders, environmental reports. Debt being placed with Florence Bank. 09-14: Purchase and Sale Agreement 9.14.26.pdf completed by all parties via DocuSign (Ivy Begley, Bacon Wilson) at 4:57 PM; Matt told the internal team 'We are under purchase and sale agreement' at 3:27 PM. 09-15: Fialky forwarded a further P&S revision - the seller accepted nearly all of Bacon Wilson's mark-up - with the leases attached and a pending housing court case flagged. 09-16: appraisal ordered (bid 1, Greenfield Coop, check sent), DD package circulated, extension-deposit refundability question open with Fialky."
     },
@@ -310,6 +310,23 @@
         "summary": "NEW — UNDERWRITING UNDERWAY. Jeremy Casey (SR Commercial Realty) forwarded Tony Neuser's shared spreadsheet '271 Elm St Westfield MA Property Analysis' at 10:49 AM. Matt replied at 10:57 AM that he had been running off current rents but can work the other figure in, then pressed at 12:07 PM: 'Where is the lease? What year is year 3? If it is two years away that is not helpful.' No price, no offer and no lease document in the mailbox yet."
       },
       "notes": "Arrived through SR Commercial Realty. Underwriting hinges on the lease term - Matt is pushing back on a year-3 rent assumption he cannot verify."
+    },
+    {
+      "address": "43-Unit Multifamily, West Springfield, MA (Northeast PCG — address TBD)",
+      "source": "off-market",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "analyzing",
+      "targetStrategy": "TBD",
+      "entity": null,
+      "lawyer": null,
+      "agent": "Taylor Perun (Northeast Private Client Group)",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-09-21",
+        "summary": "NEW — TOURS AVAILABLE. Taylor Perun (Northeast Private Client Group) sent a 'TOURS AVAILABLE' marketing email at 12:06 PM for a 43-unit multifamily property in West Springfield. Matt forwarded it to Pete Houser at 12:07 PM with 'lol thoughts?'. No price, no address and no reply from Pete in the mailbox yet."
+      },
+      "notes": "Broker marketing email. Street address not disclosed in the email; recorded honestly as TBD rather than invented."
     }
   ],
   "active": [
@@ -321,12 +338,12 @@
       "renoBudget": null,
       "renoSpent": null,
       "contractor": null,
-      "status": "under-contract",
+      "status": "closing",
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-08-29",
-        "summary": "Buyer's post-inspection request received via Alice Kempf - large credit sought including chimney; Alice suggests repairing most items and offering a smaller credit."
+        "date": "2026-09-21",
+        "summary": "MOVED TO CLOSING. David Burstein asked at 12:45 PM for a mortgage paydown figure to release the property from the New Valley Bank & Trust mortgage, effective through 9/25/26. Matt routed it to Jeremy Casey at 12:48 PM, who forwarded the request to Aaron Goodman (SVP / Chief Lending Officer, New Valley) at 1:34 PM. Goodman replied at 1:38 PM that he is working on it and hopes to have the partial payoff quote back tomorrow. Matt added Burstein as the closing attorney at 1:40 PM."
       },
       "draws": [],
       "notes": "Agent: Alice Kempf (Kempf-Vanderburgh). First activity on this property since tracking began."
@@ -567,11 +584,14 @@
       "purchaseDate": null,
       "renoBudget": null,
       "renoSpent": null,
-      "contractor": null,
+      "contractor": "CAV Management (Tony Marcella)",
       "status": "pre-rehab",
       "targetStrategy": "flip",
       "estCompletion": null,
-      "lastActivity": null,
+      "lastActivity": {
+        "date": "2026-09-21",
+        "summary": "First activity recorded on this row. Pete Houser sent Tony Marcella (CAV Management) photos at 11:36 AM flagging hanging insulation in the basement, trash on site and overgrown grass, and asked him to take care of it. Marcella confirmed at 11:42 AM: 'Will do.' Rob Altman copied."
+      },
       "draws": [],
       "notes": "No email activity in the scan window."
     },
@@ -624,8 +644,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-18",
-        "summary": "Two threads. Nick Bencivengo (Naples Group) chased the unpaid facilitation fee at 3:44 PM - his W9 went to Chris Keniley on 09-15 - and Pete Houser asked Chris at 3:55 PM whether he had already paid it; no confirmation in the mailbox yet. Separately the lock change Jess scheduled for Friday is on today's work-order list as 43543, assigned to Randy."
+        "date": "2026-09-21",
+        "summary": "FACILITATION FEE RESOLVED. Chris Keniley confirmed at 9:00 AM that the Naples Group facilitation fee was sent out last week; Nick Bencivengo acknowledged at 9:37 AM ('Perfect, thanks Chris!'). This closes the open item Nick chased on 09-18 and Pete queried the same afternoon."
       },
       "notes": "MOVED FROM PIPELINE TO ACTIVE 2026-09-16. Purchase confirmed by Pete Houser's 09-15 email to Greenfield Savings - 'Matt and I also bought 36 Paramount St in Springfield' - asking to fold it into the 25 Downing / 3 Park loan request as one blanket loan at $195,000. Closing date 09-09 retained as purchaseDate; purchase price is not disclosed in any email and is left null rather than guessed. 09-15: Naples Group facilitation fee paid by ACH/wire (Matt approved at Florence Online); Chris chasing Nick Bencivengo's W9 for Naples Home Buying. Occupied - plan is to retain the sitting tenant at $1,850/mo from 11/1. Lead determination via The Rise Group (Jeff Ledoux); lock change and safety inspection scheduled for Friday 09-18."
     },
