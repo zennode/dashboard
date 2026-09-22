@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-09-21T19:26:00-04:00",
+  "lastUpdated": "2026-09-22T19:25:00-04:00",
   "scanWindow": {
     "type": "daily",
-    "from": "2026-09-20",
-    "to": "2026-09-21",
-    "note": "Standard 24h window. Re-run by auto-rerun-failed-tasks after the 18:11 fire hung at GMAIL_SCANNED with no send issued. The 09-20 19:20 state was committed on main, so the merge baseline was current and no widening was needed."
+    "from": "2026-09-21",
+    "to": "2026-09-22",
+    "note": "Standard 24h window. Re-run by auto-rerun-failed-tasks after the 18:10 fire hung after PRECHECKS_DONE. The 09-21 19:26 state was committed on main, so the merge baseline was current and no widening was needed."
   },
   "summary": {
     "pipeline": 18,
@@ -40,11 +40,13 @@
       "lawyer": "Jeff Fialky",
       "agent": "Sentry Commercial (Murdock)",
       "keyDates": {
-        "expectedClosing": "2026-10 (end, per Peter Houser 09-17)"
+        "expectedClosing": "2026-11-16",
+        "effectiveDate": "2026-09-15",
+        "ddExpires": "2026-10-15"
       },
       "lastActivity": {
-        "date": "2026-09-18",
-        "summary": "$1.9MM LOAN APPROVED AT LOAN COMMITTEE. Mark Grumoli (Greenfield Savings) confirmed at 9:03 AM that the proposed $1.9MM Blythewood loan cleared Loan Committee and now goes to EBOD next Tuesday, with two written questions for the write-up: how the proforma rent increases get achieved given rates roughly double current levels and the turnover that implies, and what the downside plan is if commercial tenants struggle or vacate - re-tenanting timelines and what cash flow outside these properties services the debt. Pete answered at 3:04 PM citing a local commercial broker who thought his projections were, if anything, low; Matt sent his own answer at 6:09 PM on six months of expense reserves, salaries drawn well below earnings and additional revenue outside the portfolio. Pete had rejected Matt's AI-drafted version at 2:29 PM as 'fake and bloated'."
+        "date": "2026-09-22",
+        "summary": "Contract dates confirmed by Sarah Federation (Bacon Wilson) at 4:27 PM in reply to Pete Houser: Effective Date 9/15/26, due diligence expires 10/15/26, closing 11/16/26."
       },
       "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod. 9/12: inspection scope issued by Pete Houser ahead of the proposed Wed 10:00 AM inspection. Adjacent-lot parking use, overhead door heights and three-phase electrical flagged as diligence items. 09-17: $37,500 deposit to NQGQ Realty LLC being wired, Matt's half through Chris Keniley and Pete's half sent directly."
     },
@@ -111,8 +113,8 @@
       "agent": "Zaisha Robert (SR Commercial Realty)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-08-29",
-        "summary": "The Opal Studio lease fully executed via dotloop at the property (tenant-side activity)."
+        "date": "2026-09-22",
+        "summary": "Leasing commission chase. Naissa Ortiz Soto (SR Commercial) followed up at 8:56 PM on 09-21 asking whether the Opal Studio lease commission has been sent; Matt pinged Chris at 12:00 PM."
       },
       "notes": "LOI signed by all parties Jul 30. Jess has the keys."
     },
@@ -200,8 +202,8 @@
         "expectedClosing": "2026-11 (mid, per Peter Houser 09-17)"
       },
       "lastActivity": {
-        "date": "2026-09-21",
-        "summary": "ENVIRONMENTAL INVOICE PAID. Christopher Parent (Enviro-Risk) sent the invoice for the Ware site at 1:04 PM, balance due $1,300.00, and said the report itself follows separately. Pete Houser forwarded it at 1:50 PM to Matt and Chris Keniley; Chris replied 'Paid' at 2:18 PM and copied Michelle. The 09-25 9:30 AM inspection remains confirmed."
+        "date": "2026-09-22",
+        "summary": "Estoppel dispute. Sellers reportedly unwilling to deliver tenant estoppels; Jeff Fialky asked seller's counsel for a $100K escrow holdback at 1:48 PM, Houser suggested $50K could work and warned the sellers may kill the deal over it. Still outstanding from seller: capex list, ledgers, lead certs, status of 2 vacant units, survey. Greenfield Cooperative Bank (Adam Baker) asked for the P&S for the appraiser; Houser replied it is not complete yet. Current insurance policy sent to Alera Group."
       },
       "notes": "One transaction covering four parcels (20 units total) under a single LOI at $2,100,000 ($105,000/unit). JV with Peter Houser; buying entity Flying Monkey LLC per Matt's 8/31 internal email. Buyer's attorney not yet named as of 8/31 — Perun requested the contact. Seller's 8/26 counter terms (Perun): 14-day DD/financing contingency, 60% minimum LTV in contract, $75,000 deposit going hard after DD, 60-day close, 30-day extensions at $25k each. Matt/Houser countered 8/27 for 21-day DD, 30 days for financing (appraisals running 30 days), 75% LTV and a $10k first extension. WHICH SET LANDED IN THE EXECUTED LOI IS NOT YET CONFIRMED — the 8/31 LOI PDF has not been read; do not treat the terms above as final and do not derive a P&S or closing date from them. Prior analysis exists, do not rebuild: Drive sheet \"Ware 20 units numbers\" (26 Aug) — current GSR $310,260/yr, pro forma $313,500/yr, NOI $176,876 current / $179,483 pro forma, 8.42%/8.55% cap, 1.30 DSCR at 80% LTV, 6.50%, 25-yr. 9/1: attorneys connected — Taylor Perun looped in Bacon Wilson (Michael Beglane, Jeff Fialky) on the executed LOI. DD request list assembled 9/1-9/2: rent roll, leases, ledgers, lead certs, utility bills, tax/insurance bills and policy, maintenance and capex records (1 yr), estoppels, court agreements, outstanding work orders, environmental reports. Debt being placed with Florence Bank. 09-14: Purchase and Sale Agreement 9.14.26.pdf completed by all parties via DocuSign (Ivy Begley, Bacon Wilson) at 4:57 PM; Matt told the internal team 'We are under purchase and sale agreement' at 3:27 PM. 09-15: Fialky forwarded a further P&S revision - the seller accepted nearly all of Bacon Wilson's mark-up - with the leases attached and a pending housing court case flagged. 09-16: appraisal ordered (bid 1, Greenfield Coop, check sent), DD package circulated, extension-deposit refundability question open with Fialky."
     },
@@ -251,8 +253,8 @@
       "agent": "Dennisse Rivera-Mercado (dual agency) / Alice Kempf (KVRE, EMD handling)",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-18",
-        "summary": "SOLAR PAYOFF POSITION TAKEN. David Burstein forwarded seller's counsel Van Johnson's message at 4:32 PM with 'I think we should ask them to pay it off'; Matt asked 'How much?' at 5:21 PM; Burstein answered at 5:56 PM 'About $23,500.00 owed'; Matt replied 'Wow. I am guessing they should' at 5:57 PM and 'Yeah they have to pay it off' at 6:01 PM. Burstein had sent the solar contract itself for review at 2:50 PM to Matt, Kevin and Chris."
+        "date": "2026-09-22",
+        "summary": "Extension Request executed. Dennisse Rivera-Mercado (Kempf-Vanderburgh Realty) shared it through dotloop at 5:00 PM and Matt signed at 5:52 PM."
       },
       "notes": "New this run. Buying entity Prop Doc LLC - not on the standing flip-entity list; Burstein has requested its EIN letter and Operating Agreement. One unit occupied. Matt expects to close in about two weeks. Insurance being placed as a new Named Insured. 9/9: EMD processing started through KVRE. Seller acceptance still not evidenced in writing, so status held at 'offered' rather than advanced to under-contract. 09-17: advanced from offered to under-contract on the signed PS Final (dotloop). Open item: the solar panel contract Matt would be assuming has been requested but not yet produced."
     },
@@ -289,8 +291,8 @@
         "expectedClosing": "2026-09-30"
       },
       "lastActivity": {
-        "date": "2026-09-17",
-        "summary": "MOVED TO UNDER CONTRACT ON A 9/30 CLOSE. Pete Houser forwarded Moe Burhan's estoppel certificates at 10:47 AM and the five unit rental agreements (Tenancy at Will, units 1-5) at 11:15 AM and 1:05 PM. Matt at 12:54 PM: 'This one is a quick close. Unfortunately. Look like we might close in a week or so,' and asked Jocelyn and Jess to add the property and tenants into Rent Manager. Pete pinned the date at 1:06 PM: '9/30.'"
+        "date": "2026-09-22",
+        "summary": "Rent Manager setup. Jess confirmed on 09-21 the property and units are being built in; Jocelyn Pickard asked for the rental agreements as PDFs at 11:32 AM and Pete Houser replied he sent them last week."
       },
       "notes": "NEW 2026-09-16. Earliest-stage look only. A separate 'Chicopee Deals' forward from Moe Burhan on 09-14 names no address and has NOT been entered as a property. 09-17: advanced from analyzing to under-contract. Estoppel certificates and all five executed tenancy-at-will agreements have been delivered and a closing date of 9/30 was stated by Peter Houser - deliverables that only flow on a property under agreement. No price and no buying entity is named anywhere in the thread; both left null rather than guessed. FLAGGED FOR MATT: confirm the buying entity and price."
     },
@@ -342,8 +344,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-21",
-        "summary": "MOVED TO CLOSING. David Burstein asked at 12:45 PM for a mortgage paydown figure to release the property from the New Valley Bank & Trust mortgage, effective through 9/25/26. Matt routed it to Jeremy Casey at 12:48 PM, who forwarded the request to Aaron Goodman (SVP / Chief Lending Officer, New Valley) at 1:34 PM. Goodman replied at 1:38 PM that he is working on it and hopes to have the partial payoff quote back tomorrow. Matt added Burstein as the closing attorney at 1:40 PM."
+        "date": "2026-09-22",
+        "summary": "Partial release payoff quote received. Burstein chased New Valley at 12:11 PM (buyer hoping to close today); Aaron Goodman replied at 12:29 PM it was coming shortly and sent the partial release payoff quote to Burstein at 4:28 PM. Burstein acknowledged at 4:34 PM."
       },
       "draws": [],
       "notes": "Agent: Alice Kempf (Kempf-Vanderburgh). First activity on this property since tracking began."
@@ -360,8 +362,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-18",
-        "summary": "Inspection-request addendum executed. Alice Kempf shared '283 Fuller Rd Unit K Inspection Requests.pdf' through dotloop at 3:56 PM and Matt signed it at 4:06 PM, closing out the water-heater and ceiling-fan repair language agreed on 09-17."
+        "date": "2026-09-22",
+        "summary": "Final P&S executed. Riley Brennan (Kempf-Vanderburgh Realty) shared '283 Fuller Rd K PS Final buyer signed' through dotloop at 3:39 PM and Matt signed it at 3:48 PM."
       },
       "draws": [],
       "notes": "Listing package signed Aug 14: CON DUAL DESIGNATED Exclusive Right to Sell, Mass Inspection Disclosure, Licensee-Consumer Relationship Disclosure, Buyer Broker Compensation Authorization, Deferral of Showings. 09-14: Addendum to the Real Estate Purchase Contract signed via dotloop. 09-16: inspection-and-P&S deadline extended by signed Extension of Time; buyer's repair list still being negotiated.",
@@ -416,8 +418,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-15",
-        "summary": "Full listing package signed via dotloop at 9:55 AM: Exclusive Right to Sell Agreement (BCBOR), Mandatory Licensee-Consumer Relationship Disclosure, Seller's Consent to Dual Agency, Seller's Consent to Designated Agency, MANDATORY Mass Inspection Disclosure and Property Transfer Lead Paint Notification. Alice Kempf had shared all 7 documents at 9:44 AM. The property is now listed for sale."
+        "date": "2026-09-22",
+        "summary": "Buyer-side building inspection scheduled for Thursday 09-24, 9:00-10:00 AM (calendar invite from YellowBrick Management, 2:25 PM)."
       },
       "draws": [
         {
