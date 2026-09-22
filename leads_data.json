@@ -1,32 +1,31 @@
 {
-  "lastUpdated": "2026-09-21T07:52:25-04:00",
+  "lastUpdated": "2026-09-22T07:56:42.348-04:00",
   "kpis": {
-    "newLeads24h": 3,
-    "newLeads30d": 213,
-    "activeProspects": 41,
-    "lostLeads30d": 172,
-    "totalUnits": 288,
-    "contacted30d": 126,
-    "avgFirstContactHours": 26.48,
-    "medianFirstContactHours": 19.18,
-    "leadsWithNoContactRecorded": 87
+    "newLeads24h": 6,
+    "newLeads30d": 218,
+    "activeProspects": 29,
+    "lostLeads30d": 189,
+    "totalUnits": 296,
+    "contacted30d": 134,
+    "avgFirstContactHours": 31.43,
+    "medianFirstContactHours": 19.67,
+    "leadsWithNoContactRecorded": 84
   },
   "responseTime": {
     "available": true,
     "method": "earliest non-System Call/Email/Note/Text History entry at or after CreateDate",
     "unavailableReason": null,
-    "avgHours": 26.48,
-    "medianHours": 19.18,
+    "avgHours": 31.43,
+    "medianHours": 19.67,
     "fastestHours": 0.07,
     "fastestLeadName": "Jenny Ares",
-    "slowestHours": 140.8,
-    "slowestLeadName": "James Ferraro",
-    "respondedCount": 126,
-    "unrespondedCount": 87,
-    "totalLeads": 213
+    "slowestHours": 168.41,
+    "slowestLeadName": "Olivia DePace",
+    "respondedCount": 134,
+    "unrespondedCount": 84,
+    "totalLeads": 218
   },
   "volumeTrend": {
-    "2026-08-22": 1,
     "2026-08-24": 4,
     "2026-08-25": 8,
     "2026-08-26": 1,
@@ -54,47 +53,81 @@
     "2026-09-17": 11,
     "2026-09-18": 5,
     "2026-09-19": 1,
-    "2026-09-20": 3
+    "2026-09-20": 3,
+    "2026-09-21": 6
   },
   "statusBreakdown": {
-    "Lost": 172,
-    "Prospect": 41
+    "Lost": 189,
+    "Prospect": 29
   },
   "leadsByProperty": {
-    "24-28 Wilcox": 127,
-    "YellowBrick Management, Inc": 85,
+    "24-28 Wilcox": 129,
+    "YellowBrick Management, Inc": 88,
     "Loring St 30-32 ": 1
   },
   "newLeads24h": [
     {
-      "prospectId": 16177,
-      "displayId": 13566,
-      "name": "Haishaleen Ramos",
+      "prospectId": 16180,
+      "displayId": 13569,
+      "name": "Chadea Serrano",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-09-20T09:24:41",
+      "created": "2026-09-21T11:09:41",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     },
     {
-      "prospectId": 16178,
-      "displayId": 13567,
-      "name": "MARILYNE Marilyne",
-      "property": "24-28 Wilcox",
-      "source": "Not tracked in RM",
-      "created": "2026-09-20T17:02:23",
-      "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16179,
-      "displayId": 13568,
-      "name": "William McDonald",
+      "prospectId": 16181,
+      "displayId": 13570,
+      "name": "Shayla Perez",
       "property": "YellowBrick Management, Inc",
       "source": "Not tracked in RM",
-      "created": "2026-09-20T17:04:02",
+      "created": "2026-09-21T14:50:26",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16182,
+      "displayId": 13571,
+      "name": "Sarah Briggs",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-09-21T18:31:57",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16184,
+      "displayId": 13572,
+      "name": "Paloma Ramirez",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-21T19:49:43",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16185,
+      "displayId": 13573,
+      "name": "Tiersa Forbes-Smith",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-09-21T22:35:45",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16186,
+      "displayId": 13574,
+      "name": "Tiersa Forbes-Smith",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-21T22:55:17",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
@@ -110,7 +143,7 @@
       "created": "2026-08-24T14:45:20",
       "createdDate": "2026-08-24T14:45:20",
       "status": "Lost",
-      "waitingHrs": 665.1
+      "waitingHrs": 689.2
     },
     {
       "prospectId": 15933,
@@ -121,7 +154,7 @@
       "created": "2026-08-25T08:35:04",
       "createdDate": "2026-08-25T08:35:04",
       "status": "Lost",
-      "waitingHrs": 647.3
+      "waitingHrs": 671.4
     },
     {
       "prospectId": 15937,
@@ -132,7 +165,7 @@
       "created": "2026-08-25T13:03:21",
       "createdDate": "2026-08-25T13:03:21",
       "status": "Lost",
-      "waitingHrs": 642.8
+      "waitingHrs": 666.9
     },
     {
       "prospectId": 15947,
@@ -143,7 +176,7 @@
       "created": "2026-08-27T18:26:35",
       "createdDate": "2026-08-27T18:26:35",
       "status": "Lost",
-      "waitingHrs": 589.4
+      "waitingHrs": 613.5
     },
     {
       "prospectId": 15948,
@@ -154,7 +187,7 @@
       "created": "2026-08-27T18:38:45",
       "createdDate": "2026-08-27T18:38:45",
       "status": "Lost",
-      "waitingHrs": 589.2
+      "waitingHrs": 613.3
     },
     {
       "prospectId": 15949,
@@ -165,7 +198,7 @@
       "created": "2026-08-27T18:54:36",
       "createdDate": "2026-08-27T18:54:36",
       "status": "Lost",
-      "waitingHrs": 589
+      "waitingHrs": 613
     },
     {
       "prospectId": 15950,
@@ -176,7 +209,7 @@
       "created": "2026-08-27T22:56:48",
       "createdDate": "2026-08-27T22:56:48",
       "status": "Lost",
-      "waitingHrs": 584.9
+      "waitingHrs": 609
     },
     {
       "prospectId": 15951,
@@ -187,7 +220,7 @@
       "created": "2026-08-27T23:37:20",
       "createdDate": "2026-08-27T23:37:20",
       "status": "Lost",
-      "waitingHrs": 584.3
+      "waitingHrs": 608.3
     },
     {
       "prospectId": 15955,
@@ -198,7 +231,7 @@
       "created": "2026-08-28T18:21:48",
       "createdDate": "2026-08-28T18:21:48",
       "status": "Lost",
-      "waitingHrs": 565.5
+      "waitingHrs": 589.6
     },
     {
       "prospectId": 15958,
@@ -209,7 +242,7 @@
       "created": "2026-08-29T09:40:00",
       "createdDate": "2026-08-29T09:40:00",
       "status": "Lost",
-      "waitingHrs": 550.2
+      "waitingHrs": 574.3
     },
     {
       "prospectId": 15959,
@@ -220,7 +253,7 @@
       "created": "2026-08-29T11:56:10",
       "createdDate": "2026-08-29T11:56:10",
       "status": "Lost",
-      "waitingHrs": 547.9
+      "waitingHrs": 572
     },
     {
       "prospectId": 15970,
@@ -231,7 +264,7 @@
       "created": "2026-08-30T17:54:38",
       "createdDate": "2026-08-30T17:54:38",
       "status": "Lost",
-      "waitingHrs": 518
+      "waitingHrs": 542
     },
     {
       "prospectId": 15981,
@@ -242,7 +275,7 @@
       "created": "2026-08-31T11:19:43",
       "createdDate": "2026-08-31T11:19:43",
       "status": "Lost",
-      "waitingHrs": 500.5
+      "waitingHrs": 524.6
     },
     {
       "prospectId": 15987,
@@ -253,7 +286,7 @@
       "created": "2026-08-31T13:30:08",
       "createdDate": "2026-08-31T13:30:08",
       "status": "Lost",
-      "waitingHrs": 498.4
+      "waitingHrs": 522.4
     },
     {
       "prospectId": 15988,
@@ -264,7 +297,7 @@
       "created": "2026-08-31T13:36:37",
       "createdDate": "2026-08-31T13:36:37",
       "status": "Lost",
-      "waitingHrs": 498.3
+      "waitingHrs": 522.3
     },
     {
       "prospectId": 15991,
@@ -275,7 +308,7 @@
       "created": "2026-08-31T19:34:46",
       "createdDate": "2026-08-31T19:34:46",
       "status": "Lost",
-      "waitingHrs": 492.3
+      "waitingHrs": 516.4
     },
     {
       "prospectId": 15994,
@@ -286,7 +319,7 @@
       "created": "2026-09-01T08:58:35",
       "createdDate": "2026-09-01T08:58:35",
       "status": "Lost",
-      "waitingHrs": 478.9
+      "waitingHrs": 503
     },
     {
       "prospectId": 16000,
@@ -297,7 +330,7 @@
       "created": "2026-09-01T12:27:40",
       "createdDate": "2026-09-01T12:27:40",
       "status": "Lost",
-      "waitingHrs": 475.4
+      "waitingHrs": 499.5
     },
     {
       "prospectId": 16002,
@@ -308,7 +341,7 @@
       "created": "2026-09-01T12:57:20",
       "createdDate": "2026-09-01T12:57:20",
       "status": "Lost",
-      "waitingHrs": 474.9
+      "waitingHrs": 499
     },
     {
       "prospectId": 16003,
@@ -319,7 +352,7 @@
       "created": "2026-09-01T13:35:29",
       "createdDate": "2026-09-01T13:35:29",
       "status": "Lost",
-      "waitingHrs": 474.3
+      "waitingHrs": 498.4
     },
     {
       "prospectId": 16004,
@@ -330,7 +363,7 @@
       "created": "2026-09-01T13:40:24",
       "createdDate": "2026-09-01T13:40:24",
       "status": "Lost",
-      "waitingHrs": 474.2
+      "waitingHrs": 498.3
     },
     {
       "prospectId": 16006,
@@ -341,7 +374,7 @@
       "created": "2026-09-01T15:12:22",
       "createdDate": "2026-09-01T15:12:22",
       "status": "Lost",
-      "waitingHrs": 472.7
+      "waitingHrs": 496.7
     },
     {
       "prospectId": 16013,
@@ -352,7 +385,7 @@
       "created": "2026-09-02T10:21:42",
       "createdDate": "2026-09-02T10:21:42",
       "status": "Lost",
-      "waitingHrs": 453.5
+      "waitingHrs": 477.6
     },
     {
       "prospectId": 16016,
@@ -363,7 +396,7 @@
       "created": "2026-09-02T17:17:21",
       "createdDate": "2026-09-02T17:17:21",
       "status": "Lost",
-      "waitingHrs": 446.6
+      "waitingHrs": 470.7
     },
     {
       "prospectId": 16017,
@@ -374,14 +407,14 @@
       "created": "2026-09-02T17:37:30",
       "createdDate": "2026-09-02T17:37:30",
       "status": "Lost",
-      "waitingHrs": 446.2
+      "waitingHrs": 470.3
     }
   ],
   "vacancy": {
-    "totalUnits": 288,
+    "totalUnits": 296,
     "occupied": 257,
-    "vacant": 31,
-    "vacancyRatePct": 10.8,
+    "vacant": 39,
+    "vacancyRatePct": 13.2,
     "byProperty": {
       "Loring St 30-32 ": 1,
       "Berkshire Ave 1237-1239": 1,
@@ -408,15 +441,16 @@
       "171 Methuen": 1,
       "55 White Ave": 1,
       "8 Longview": 1,
-      "53 1/2 Orchard St": 1
+      "53 1/2 Orchard St": 1,
+      "2 Green St": 8
     }
   },
   "notes": {
-    "leadSourceAvailability": "No lead-source field exists on this Rent Manager instance (MarketingSource/ProspectSource/Source embeds all 404; WebMessage empty). SOURCE is a fixed literal label, never inferred.",
     "urgentQueueCapped": true,
-    "urgentQueueTrueTotal": 84,
+    "urgentQueueTrueTotal": 78,
+    "leadSourceAvailability": "No lead-source field exists on this Rent Manager instance (MarketingSource/ProspectSource/Source embeds all 404; WebMessage empty). SOURCE shown as a fixed label rather than inferred.",
+    "inactUnitsExcluded": 94,
     "historySource": "Prospects?embeds=History",
-    "inactUnitsExcluded": true,
-    "birPropertiesExcluded": true
+    "dataWindow": "2026-08-23 to 2026-09-22"
   }
 }
