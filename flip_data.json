@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2026-09-22T19:25:00-04:00",
+  "lastUpdated": "2026-09-23T19:25:00-04:00",
   "scanWindow": {
-    "type": "daily",
+    "type": "widened",
     "from": "2026-09-21",
-    "to": "2026-09-22",
-    "note": "Standard 24h window. Re-run by auto-rerun-failed-tasks after the 18:10 fire hung after PRECHECKS_DONE. The 09-21 19:26 state was committed on main, so the merge baseline was current and no widening was needed."
+    "to": "2026-09-23",
+    "note": "Re-run by auto-rerun-failed-tasks. Last digest sent 2026-09-21; 09-22 run published but did not send, so scan covers 09-21 onward. 09-22 activity was already merged in the 09-22 commit."
   },
   "summary": {
-    "pipeline": 18,
-    "active": 19,
-    "archived": 4
+    "pipeline": 20,
+    "active": 18,
+    "archived": 5
   },
   "pipeline": [
     {
@@ -45,8 +45,8 @@
         "ddExpires": "2026-10-15"
       },
       "lastActivity": {
-        "date": "2026-09-22",
-        "summary": "Contract dates confirmed by Sarah Federation (Bacon Wilson) at 4:27 PM in reply to Pete Houser: Effective Date 9/15/26, due diligence expires 10/15/26, closing 11/16/26."
+        "date": "2026-09-23",
+        "summary": "Pete Houser sent the fully signed P&S to Ian Vukovich (Greenfield Savings Bank) at 5:46 PM, clearing the item that had held the appraisal since 09-11."
       },
       "notes": "Fialky pushing back on the as-is clause; buyer restructured to a TIC with Blythewood Property Management. Lender: Greenfield Savings (Ian Vukovich / Mark Grumoli). Seeking one free rate mod. 9/12: inspection scope issued by Pete Houser ahead of the proposed Wed 10:00 AM inspection. Adjacent-lot parking use, overhead door heights and three-phase electrical flagged as diligence items. 09-17: $37,500 deposit to NQGQ Realty LLC being wired, Matt's half through Chris Keniley and Pete's half sent directly."
     },
@@ -96,8 +96,8 @@
       "agent": "BC Realty",
       "keyDates": {},
       "lastActivity": {
-        "date": "2026-09-21",
-        "summary": "Pete Houser followed up with Greenfield Savings at 2:29 PM on the outstanding loan application for Downing Park in Pittsfield. No lender response in the mailbox yet. The blanket-loan request adding 36 Paramount St, raised 09-15 at $195,000, remains open."
+        "date": "2026-09-23",
+        "summary": "Greenfield Savings (Mark Grumoli) announced at 3:08 PM that a $1.9MM loan was approved with commitment letter to follow (the email does not name the property). Pete asked at 3:18 PM whether GSB had seen the separate Downing St application; Grumoli replied at 3:22 PM they are working on it with a $90 million backlog."
       },
       "notes": "$30,000 repair credit requested. Fialky had a call with seller's counsel emphasizing urgency to close and outstanding deliverables."
     },
@@ -329,27 +329,43 @@
         "summary": "NEW — TOURS AVAILABLE. Taylor Perun (Northeast Private Client Group) sent a 'TOURS AVAILABLE' marketing email at 12:06 PM for a 43-unit multifamily property in West Springfield. Matt forwarded it to Pete Houser at 12:07 PM with 'lol thoughts?'. No price, no address and no reply from Pete in the mailbox yet."
       },
       "notes": "Broker marketing email. Street address not disclosed in the email; recorded honestly as TBD rather than invented."
+    },
+    {
+      "address": "137 North St (Crawford Square), Pittsfield, MA",
+      "source": "off-market",
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "analyzing",
+      "targetStrategy": "TBD",
+      "entity": null,
+      "lawyer": null,
+      "agent": "Zaisha Robert (SR Commercial Realty) via James Mcrory",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-09-23",
+        "summary": "NEW. Zaisha Robert forwarded the Crawford Square offering (from James Mcrory) on 09-22 at 8:31 PM. Matt chased Pete at 9:09 AM; Pete replied at 9:20 AM: maybe if Ware falls apart or as a 1031 for Munich Haus, but the team has a lot going on. Matt agreed. Leaning pass."
+      },
+      "notes": "Commercial; no price in mailbox."
+    },
+    {
+      "address": "91 Old Poor Farm Rd, Ware, MA",
+      "source": null,
+      "askingPrice": null,
+      "offerAmount": null,
+      "status": "analyzing",
+      "targetStrategy": "TBD",
+      "entity": null,
+      "lawyer": null,
+      "agent": "Alice Kempf (KVRE Team)",
+      "keyDates": {},
+      "lastActivity": {
+        "date": "2026-09-23",
+        "summary": "NEW. Alice Kempf forwarded a package on 91 Old Poor Farm Rd, Ware at 9:33 AM; Matt forwarded it to Antonio (Investarters) at 10:37 AM. No price or analysis in the mailbox yet."
+      },
+      "notes": null
     }
   ],
   "active": [
-    {
-      "address": "83 Rolf Ave, Chicopee, MA 01020",
-      "entity": null,
-      "purchasePrice": null,
-      "purchaseDate": null,
-      "renoBudget": null,
-      "renoSpent": null,
-      "contractor": null,
-      "status": "closing",
-      "targetStrategy": "flip",
-      "estCompletion": null,
-      "lastActivity": {
-        "date": "2026-09-22",
-        "summary": "Partial release payoff quote received. Burstein chased New Valley at 12:11 PM (buyer hoping to close today); Aaron Goodman replied at 12:29 PM it was coming shortly and sent the partial release payoff quote to Burstein at 4:28 PM. Burstein acknowledged at 4:34 PM."
-      },
-      "draws": [],
-      "notes": "Agent: Alice Kempf (Kempf-Vanderburgh). First activity on this property since tracking began."
-    },
     {
       "address": "283 Fuller Rd Unit K, Chicopee, MA",
       "entity": "House Hack Helpers LLC",
@@ -627,8 +643,8 @@
       "targetStrategy": "TBD",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-10",
-        "summary": "Zaisha Robert (SR Commercial Realty) sent the Exclusive Right to Sell for signature via dotloop at 9:59 AM addressed to Matthew and Peter; Matt signed at 10:04 AM and the packet completed with all recipients signed at 10:04 AM."
+        "date": "2026-09-23",
+        "summary": "Buyer interest. In the Crawford Square thread Matt asked Zaisha Robert (SR Commercial) at 9:33 AM to get a good offer on Munich Haus; Zaisha replied she already has some leads. Pete floated Crawford Square as a possible 1031 target for Munich Haus proceeds."
       },
       "draws": [],
       "notes": "NEW 2026-09-10, not previously tracked. Entered as an active listing because an Exclusive Right to Sell makes Matt and Pete the sellers. Owning entity is not stated anywhere in the thread - FLAGGED FOR MATT to confirm the entity and whether this belongs in the flip portfolio. Same broker as 37 Prospect St, East Longmeadow."
@@ -646,8 +662,8 @@
       "targetStrategy": "flip",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-21",
-        "summary": "FACILITATION FEE RESOLVED. Chris Keniley confirmed at 9:00 AM that the Naples Group facilitation fee was sent out last week; Nick Bencivengo acknowledged at 9:37 AM ('Perfect, thanks Chris!'). This closes the open item Nick chased on 09-18 and Pete queried the same afternoon."
+        "date": "2026-09-23",
+        "summary": "Mini-split / occupancy debate. Pete Houser chased Jess at 5:47 PM on the mini-splits, arguing approval is easier while occupied. Jess said Kevin is handling the tenants over the illegal basement bedrooms and asked to pass the utility-bill task to him; Pete asked Kevin for the electric account holder's name. Matt replied at 5:54 PM and 6:04 PM that the focus should be getting the occupants out, and that electric baseboard is not appealing in Springfield given Eversource."
       },
       "notes": "MOVED FROM PIPELINE TO ACTIVE 2026-09-16. Purchase confirmed by Pete Houser's 09-15 email to Greenfield Savings - 'Matt and I also bought 36 Paramount St in Springfield' - asking to fold it into the 25 Downing / 3 Park loan request as one blanket loan at $195,000. Closing date 09-09 retained as purchaseDate; purchase price is not disclosed in any email and is left null rather than guessed. 09-15: Naples Group facilitation fee paid by ACH/wire (Matt approved at Florence Online); Chris chasing Nick Bencivengo's W9 for Naples Home Buying. Occupied - plan is to retain the sitting tenant at $1,850/mo from 11/1. Lead determination via The Rise Group (Jeff Ledoux); lock change and safety inspection scheduled for Friday 09-18."
     },
@@ -664,8 +680,8 @@
       "targetStrategy": "TBD",
       "estCompletion": null,
       "lastActivity": {
-        "date": "2026-09-16",
-        "summary": "Cash-out refinance push with Polish National Credit Union. Moe Burhan told Joe Kulig at 10:04 AM that the vet tenant is doing her buildout now, is financed through Bank of America, that they are trying to finance $625,000 and that she carries a two-year rolling personal guarantee. Kulig asked the purchase price at 10:08 AM; Pete Houser answered at 3:52 PM: 'We paid $650k for it.'"
+        "date": "2026-09-23",
+        "summary": "Pete Houser chased Joe Kulig (Polish National Credit Union) at 5:45 PM for an update on the cash-out refinance. No lender reply in the mailbox yet."
       },
       "notes": "MOVED FROM PIPELINE TO ACTIVE 2026-09-16. Bacon Wilson confirmed 09-11 that the deed is on record; lease assignment supplied 09-14. Purchase price $650,000 confirmed by Pete Houser 09-16. TIC structure - Flying Monkey LLC allocated $287,500, split 50-50 with Blythewood side. Greenfield Cooperative Bank PASSED on the Chicopee loan 09-14 citing lack of information on the single tenant, so financing moved to Polish National Credit Union (Joe Kulig) as a $625,000 cash-out refi against a signed seven-year vet-clinic lease. TRIPLE NET - Pete has confirmed YellowBrick is NOT managing this one. targetStrategy still TBD: it behaves like a buy-and-hold, but no email says so, so it is NOT archived. FLAGGED FOR MATT to confirm whether this should move to archived as a hold or stay in the flip tracker."
     },
@@ -732,6 +748,17 @@
         "summary": "SOLD — DEED RECORDED. David Burstein circulated the closing package at 7:39 PM on 09-18 (Closing Disclosure statement, recorded deed and payoffs) to the full Wicked Deals group including Kevin, Russ, Chris, Michelle, Jess and Alice Kempf, who thanked the team at 7:41 PM. Matt logged a reminder to himself at 12:51 PM on 09-19 to grab the Palmer check."
       },
       "notes": "Moved from active to archived on 2026-09-19. Held in Wicked Deals LLC. Prior active record: under-contract, last activity 2026-09-14 (Burstein's oil-invoice request). Proceeds check to be collected from Burstein Law Offices. Realized profit not yet tallied."
+    },
+    {
+      "address": "83 Rolf Ave, Chicopee, MA 01020",
+      "entity": "Courageous Lion LLC",
+      "status": "sold",
+      "soldDate": "2026-09-23",
+      "lastActivity": {
+        "date": "2026-09-23",
+        "summary": "SALE CLOSED. David Burstein confirmed at 1:39 PM that the sale of 83 Rolf Ave (Courageous Lion LLC and Altostratus LLC) was finalized today, and sent the Seller's CD, mortgage payoff, proceeds check and recorded deed."
+      },
+      "notes": "Agent: Alice Kempf (Kempf-Vanderburgh). First activity on this property since tracking began. | Moved closing -> sold/archived 2026-09-23."
     }
   ]
 }
