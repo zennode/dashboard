@@ -1,29 +1,29 @@
 {
-  "lastUpdated": "2026-09-22T07:56:42.348-04:00",
+  "lastUpdated": "2026-09-23T07:56:08-04:00",
   "kpis": {
-    "newLeads24h": 6,
-    "newLeads30d": 218,
-    "activeProspects": 29,
-    "lostLeads30d": 189,
+    "newLeads24h": 8,
+    "newLeads30d": 226,
+    "activeProspects": 28,
+    "lostLeads30d": 198,
     "totalUnits": 296,
-    "contacted30d": 134,
-    "avgFirstContactHours": 31.43,
-    "medianFirstContactHours": 19.67,
-    "leadsWithNoContactRecorded": 84
+    "contacted30d": 141,
+    "avgFirstContactHours": 31.61,
+    "medianFirstContactHours": 19.68,
+    "leadsWithNoContactRecorded": 85
   },
   "responseTime": {
     "available": true,
     "method": "earliest non-System Call/Email/Note/Text History entry at or after CreateDate",
     "unavailableReason": null,
-    "avgHours": 31.43,
-    "medianHours": 19.67,
+    "avgHours": 31.61,
+    "medianHours": 19.68,
     "fastestHours": 0.07,
     "fastestLeadName": "Jenny Ares",
     "slowestHours": 168.41,
     "slowestLeadName": "Olivia DePace",
-    "respondedCount": 134,
-    "unrespondedCount": 84,
-    "totalLeads": 218
+    "respondedCount": 141,
+    "unrespondedCount": 85,
+    "totalLeads": 226
   },
   "volumeTrend": {
     "2026-08-24": 4,
@@ -54,80 +54,104 @@
     "2026-09-18": 5,
     "2026-09-19": 1,
     "2026-09-20": 3,
-    "2026-09-21": 6
+    "2026-09-21": 6,
+    "2026-09-22": 7,
+    "2026-09-23": 1
   },
   "statusBreakdown": {
-    "Lost": 189,
-    "Prospect": 29
+    "Lost": 198,
+    "Prospect": 28
   },
   "leadsByProperty": {
-    "24-28 Wilcox": 129,
-    "YellowBrick Management, Inc": 88,
+    "24-28 Wilcox": 135,
+    "YellowBrick Management, Inc": 90,
     "Loring St 30-32 ": 1
   },
   "newLeads24h": [
     {
-      "prospectId": 16180,
-      "displayId": 13569,
-      "name": "Chadea Serrano",
+      "prospectId": 16187,
+      "displayId": 13575,
+      "name": "Nayeli Rodriguez",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-09-21T11:09:41",
+      "created": "2026-09-22T10:53:20",
       "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
+      "contacted": true,
+      "responseHours": 1.3
     },
     {
-      "prospectId": 16181,
-      "displayId": 13570,
-      "name": "Shayla Perez",
+      "prospectId": 16188,
+      "displayId": 13576,
+      "name": "Shannan Swinton",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-22T12:36:50",
+      "status": "Prospect",
+      "contacted": true,
+      "responseHours": 0.55
+    },
+    {
+      "prospectId": 16189,
+      "displayId": 13577,
+      "name": "Tiana Rivas",
       "property": "YellowBrick Management, Inc",
       "source": "Not tracked in RM",
-      "created": "2026-09-21T14:50:26",
+      "created": "2026-09-22T13:01:26",
       "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
+      "contacted": true,
+      "responseHours": 1.85
     },
     {
-      "prospectId": 16182,
-      "displayId": 13571,
-      "name": "Sarah Briggs",
-      "property": "YellowBrick Management, Inc",
+      "prospectId": 16190,
+      "displayId": 13578,
+      "name": "Natalie Morales",
+      "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-09-21T18:31:57",
+      "created": "2026-09-22T14:41:52",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     },
     {
-      "prospectId": 16184,
-      "displayId": 13572,
+      "prospectId": 16191,
+      "displayId": 13579,
       "name": "Paloma Ramirez",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-09-21T19:49:43",
+      "created": "2026-09-22T16:00:19",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     },
     {
-      "prospectId": 16185,
-      "displayId": 13573,
-      "name": "Tiersa Forbes-Smith",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-21T22:35:45",
-      "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16186,
-      "displayId": 13574,
-      "name": "Tiersa Forbes-Smith",
+      "prospectId": 16192,
+      "displayId": 13580,
+      "name": "Steven Hickson",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-09-21T22:55:17",
+      "created": "2026-09-22T20:14:55",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16193,
+      "displayId": 13581,
+      "name": "nayahlys claudio",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-22T22:07:44",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16194,
+      "displayId": 13582,
+      "name": "Natalie Navarro",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-23T01:18:19",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
@@ -143,7 +167,7 @@
       "created": "2026-08-24T14:45:20",
       "createdDate": "2026-08-24T14:45:20",
       "status": "Lost",
-      "waitingHrs": 689.2
+      "waitingHrs": 713.2
     },
     {
       "prospectId": 15933,
@@ -154,7 +178,7 @@
       "created": "2026-08-25T08:35:04",
       "createdDate": "2026-08-25T08:35:04",
       "status": "Lost",
-      "waitingHrs": 671.4
+      "waitingHrs": 695.4
     },
     {
       "prospectId": 15937,
@@ -165,7 +189,7 @@
       "created": "2026-08-25T13:03:21",
       "createdDate": "2026-08-25T13:03:21",
       "status": "Lost",
-      "waitingHrs": 666.9
+      "waitingHrs": 690.9
     },
     {
       "prospectId": 15947,
@@ -176,7 +200,7 @@
       "created": "2026-08-27T18:26:35",
       "createdDate": "2026-08-27T18:26:35",
       "status": "Lost",
-      "waitingHrs": 613.5
+      "waitingHrs": 637.5
     },
     {
       "prospectId": 15948,
@@ -187,7 +211,7 @@
       "created": "2026-08-27T18:38:45",
       "createdDate": "2026-08-27T18:38:45",
       "status": "Lost",
-      "waitingHrs": 613.3
+      "waitingHrs": 637.3
     },
     {
       "prospectId": 15949,
@@ -198,7 +222,7 @@
       "created": "2026-08-27T18:54:36",
       "createdDate": "2026-08-27T18:54:36",
       "status": "Lost",
-      "waitingHrs": 613
+      "waitingHrs": 637
     },
     {
       "prospectId": 15950,
@@ -209,7 +233,7 @@
       "created": "2026-08-27T22:56:48",
       "createdDate": "2026-08-27T22:56:48",
       "status": "Lost",
-      "waitingHrs": 609
+      "waitingHrs": 633
     },
     {
       "prospectId": 15951,
@@ -220,7 +244,7 @@
       "created": "2026-08-27T23:37:20",
       "createdDate": "2026-08-27T23:37:20",
       "status": "Lost",
-      "waitingHrs": 608.3
+      "waitingHrs": 632.3
     },
     {
       "prospectId": 15955,
@@ -231,7 +255,7 @@
       "created": "2026-08-28T18:21:48",
       "createdDate": "2026-08-28T18:21:48",
       "status": "Lost",
-      "waitingHrs": 589.6
+      "waitingHrs": 613.6
     },
     {
       "prospectId": 15958,
@@ -242,7 +266,7 @@
       "created": "2026-08-29T09:40:00",
       "createdDate": "2026-08-29T09:40:00",
       "status": "Lost",
-      "waitingHrs": 574.3
+      "waitingHrs": 598.3
     },
     {
       "prospectId": 15959,
@@ -253,7 +277,7 @@
       "created": "2026-08-29T11:56:10",
       "createdDate": "2026-08-29T11:56:10",
       "status": "Lost",
-      "waitingHrs": 572
+      "waitingHrs": 596
     },
     {
       "prospectId": 15970,
@@ -264,7 +288,7 @@
       "created": "2026-08-30T17:54:38",
       "createdDate": "2026-08-30T17:54:38",
       "status": "Lost",
-      "waitingHrs": 542
+      "waitingHrs": 566
     },
     {
       "prospectId": 15981,
@@ -275,7 +299,7 @@
       "created": "2026-08-31T11:19:43",
       "createdDate": "2026-08-31T11:19:43",
       "status": "Lost",
-      "waitingHrs": 524.6
+      "waitingHrs": 548.6
     },
     {
       "prospectId": 15987,
@@ -286,7 +310,7 @@
       "created": "2026-08-31T13:30:08",
       "createdDate": "2026-08-31T13:30:08",
       "status": "Lost",
-      "waitingHrs": 522.4
+      "waitingHrs": 546.4
     },
     {
       "prospectId": 15988,
@@ -297,7 +321,7 @@
       "created": "2026-08-31T13:36:37",
       "createdDate": "2026-08-31T13:36:37",
       "status": "Lost",
-      "waitingHrs": 522.3
+      "waitingHrs": 546.3
     },
     {
       "prospectId": 15991,
@@ -308,7 +332,7 @@
       "created": "2026-08-31T19:34:46",
       "createdDate": "2026-08-31T19:34:46",
       "status": "Lost",
-      "waitingHrs": 516.4
+      "waitingHrs": 540.4
     },
     {
       "prospectId": 15994,
@@ -319,7 +343,7 @@
       "created": "2026-09-01T08:58:35",
       "createdDate": "2026-09-01T08:58:35",
       "status": "Lost",
-      "waitingHrs": 503
+      "waitingHrs": 527
     },
     {
       "prospectId": 16000,
@@ -330,7 +354,7 @@
       "created": "2026-09-01T12:27:40",
       "createdDate": "2026-09-01T12:27:40",
       "status": "Lost",
-      "waitingHrs": 499.5
+      "waitingHrs": 523.5
     },
     {
       "prospectId": 16002,
@@ -341,7 +365,7 @@
       "created": "2026-09-01T12:57:20",
       "createdDate": "2026-09-01T12:57:20",
       "status": "Lost",
-      "waitingHrs": 499
+      "waitingHrs": 523
     },
     {
       "prospectId": 16003,
@@ -352,7 +376,7 @@
       "created": "2026-09-01T13:35:29",
       "createdDate": "2026-09-01T13:35:29",
       "status": "Lost",
-      "waitingHrs": 498.4
+      "waitingHrs": 522.3
     },
     {
       "prospectId": 16004,
@@ -363,7 +387,7 @@
       "created": "2026-09-01T13:40:24",
       "createdDate": "2026-09-01T13:40:24",
       "status": "Lost",
-      "waitingHrs": 498.3
+      "waitingHrs": 522.3
     },
     {
       "prospectId": 16006,
@@ -374,7 +398,7 @@
       "created": "2026-09-01T15:12:22",
       "createdDate": "2026-09-01T15:12:22",
       "status": "Lost",
-      "waitingHrs": 496.7
+      "waitingHrs": 520.7
     },
     {
       "prospectId": 16013,
@@ -385,7 +409,7 @@
       "created": "2026-09-02T10:21:42",
       "createdDate": "2026-09-02T10:21:42",
       "status": "Lost",
-      "waitingHrs": 477.6
+      "waitingHrs": 501.6
     },
     {
       "prospectId": 16016,
@@ -396,7 +420,7 @@
       "created": "2026-09-02T17:17:21",
       "createdDate": "2026-09-02T17:17:21",
       "status": "Lost",
-      "waitingHrs": 470.7
+      "waitingHrs": 494.6
     },
     {
       "prospectId": 16017,
@@ -407,50 +431,59 @@
       "created": "2026-09-02T17:37:30",
       "createdDate": "2026-09-02T17:37:30",
       "status": "Lost",
-      "waitingHrs": 470.3
+      "waitingHrs": 494.3
     }
   ],
   "vacancy": {
     "totalUnits": 296,
-    "occupied": 257,
-    "vacant": 39,
-    "vacancyRatePct": 13.2,
+    "occupied": 256,
+    "vacant": 40,
+    "vacancyRatePct": 13.5,
     "byProperty": {
-      "Loring St 30-32 ": 1,
-      "Berkshire Ave 1237-1239": 1,
-      "Elm 21-25": 1,
-      "226-230 Sargeant Street": 1,
-      "60 Shaker Road": 1,
-      "214-218 Exchange St/52 Cabot Street": 1,
+      "1-3 Stadler Street": 3,
       "17-21 Allyn/146-148 Pearl": 1,
-      "Marlborough 89-91 ": 1,
+      "171 Methuen": 1,
+      "2 Green St": 8,
+      "214-218 Exchange St/52 Cabot Street": 1,
+      "226-230 Sargeant Street": 1,
+      "53 1/2 Orchard St": 1,
+      "55 White Ave": 1,
+      "60 Shaker Road": 1,
+      "8 Longview": 1,
+      "800 College Highway": 2,
+      "83 Rolf Ave ": 1,
+      "93 Lamont St": 1,
       "Avondale 65": 1,
-      "Marble 21": 1,
+      "Berkshire Ave 1237-1239": 1,
       "Central 100 ": 1,
       "East St 24-30": 1,
+      "Elm 21-25": 1,
       "Hampden 291-293": 1,
+      "Loring St 30-32 ": 1,
+      "Loring St 31 ": 1,
+      "Marble 21": 1,
+      "Marlborough 89-91 ": 1,
+      "Northwestern 3": 2,
+      "Sherman St 89-91 ": 1,
       "St. James Ave 83 ": 1,
       "Union St 741-745 ": 2,
-      "Wilbraham RD 257 ": 1,
-      "Loring St 31 ": 1,
-      "800 College Highway": 2,
-      "1-3 Stadler Street": 3,
-      "Northwestern 3": 2,
-      "93 Lamont St": 1,
-      "83 Rolf Ave ": 1,
-      "171 Methuen": 1,
-      "55 White Ave": 1,
-      "8 Longview": 1,
-      "53 1/2 Orchard St": 1,
-      "2 Green St": 8
+      "Wilbraham RD 257 ": 1
     }
   },
   "notes": {
     "urgentQueueCapped": true,
-    "urgentQueueTrueTotal": 78,
-    "leadSourceAvailability": "No lead-source field exists on this Rent Manager instance (MarketingSource/ProspectSource/Source embeds all 404; WebMessage empty). SOURCE shown as a fixed label rather than inferred.",
-    "inactUnitsExcluded": 94,
-    "historySource": "Prospects?embeds=History",
-    "dataWindow": "2026-08-23 to 2026-09-22"
+    "urgentQueueTrueTotal": 80,
+    "leadSourceAvailability": "Rent Manager has no lead-source field on this instance (MarketingSource/ProspectSource/Source embeds 404; WebMessage empty). source is a fixed label, not inferred.",
+    "responseTimeMethod": "CreateDate to first non-System Call/Email/Note/Text History entry; FirstContact not used (auto-stamped).",
+    "vacancyMethod": "Rentable = active non-BIR properties, excluding INACT units; occupied = latest lease unit of current tenants.",
+    "historyTypes": {
+      "Call": 1,
+      "Email": 266,
+      "Note": 11,
+      "ProspectApplications": 225,
+      "Screening": 39,
+      "System": 438,
+      "WebAccountUpdate": 5
+    }
   }
 }
