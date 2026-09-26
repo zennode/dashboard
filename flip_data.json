@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-09-25T19:20:00-04:00",
+  "lastUpdated": "2026-09-26T19:15:00-04:00",
   "scanWindow": {
     "type": "widened",
-    "from": "2026-09-24",
-    "to": "2026-09-25",
-    "note": "Re-run by auto-rerun-failed-tasks. 09-24 digest sent but not published (loaded lastUpdated 2026-09-23T19:25), so the scan covers 09-24 and 09-25."
+    "from": "2026-09-25",
+    "to": "2026-09-26",
+    "note": "Re-run by auto-rerun-failed-tasks (18:00 fire hung after PRECHECKS_DONE). Last sent digest 09-24; the 09-25 run published but did not send, so the scan covers 09-25 and 09-26. No new property activity after the 09-25T19:20 commit."
   },
   "summary": {
     "pipeline": 20,
