@@ -1,215 +1,65 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-09-30T01:15:00-04:00",
+  "lastUpdated": "2026-10-02T01:00:00-04:00",
   "runStatus": {
-    "ok": true,
+    "ok": false,
     "platformsAttempted": 5,
-    "platformsFailed": 0,
-    "failures": []
+    "platformsFailed": 1,
+    "failures": ["youtube: Windsor.ai Free plan limitation — reads paused because 2 accounts are connected and the Free plan includes 1 account"]
   },
   "platforms": {
     "youtube": {
       "status": {
-        "ok": true,
-        "reason": null
+        "ok": false,
+        "reason": "Windsor.ai Free plan limitation — reads paused because 2 accounts are connected and the Free plan includes 1 account"
       },
       "channels": [
         {
           "name": "Two Guys Take on Real Estate",
           "handle": "twoguystakeonrealestate",
           "url": "https://www.youtube.com/@twoguystakeonrealestate",
-          "subscribers": 133000,
-          "totalViews": 38299974,
-          "totalVideos": 1852,
-          "viewsGained7d": 23833,
-          "viewsGained7dPct": 9.66,
+          "subscribers": null,
+          "subscribersReason": "Windsor connector unreachable due to plan limitation",
+          "totalViews": null,
+          "totalViewsReason": "Windsor connector unreachable due to plan limitation",
+          "totalVideos": null,
+          "totalVideosReason": "Windsor connector unreachable due to plan limitation",
+          "viewsGained7d": null,
+          "viewsGained7dReason": "Windsor connector unreachable due to plan limitation",
+          "viewsGained7dPct": null,
+          "viewsGained7dPctReason": "Windsor connector unreachable due to plan limitation",
           "estMonthlyEarnings": null,
           "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts, so the API cannot return them",
-          "monetized": true,
+          "monetized": null,
+          "monetizedReason": "Windsor connector unreachable due to plan limitation",
           "status": {
-            "ok": true,
-            "reason": null
+            "ok": false,
+            "reason": "Windsor.ai Free plan limitation"
           },
-          "recentVideos": [
-            {
-              "title": "Are Banks SCAMMING Investors at Foreclosure Auction!?",
-              "url": "https://www.youtube.com/watch?v=FCvSg8edV0s",
-              "views": 242,
-              "likes": 12,
-              "publishDate": "2026-09-27",
-              "duration": "1:25"
-            },
-            {
-              "title": "We Got RARE Inside Access to a Foreclosure Auction House!",
-              "url": "https://www.youtube.com/watch?v=lpR2mZ9Vivg",
-              "views": 3334,
-              "likes": 45,
-              "publishDate": "2026-09-22",
-              "duration": "1:09"
-            },
-            {
-              "title": "How We Made $80K at This Foreclosure Auction!",
-              "url": "https://www.youtube.com/watch?v=B8BMXh4VzEE",
-              "views": 604,
-              "likes": 7,
-              "publishDate": "2026-09-25",
-              "duration": "6:15"
-            },
-            {
-              "title": "Auction Win: Rental Property Profit Breakdown!",
-              "url": "https://www.youtube.com/watch?v=Zut1bAn6GAY",
-              "views": 2137,
-              "likes": 41,
-              "publishDate": "2026-09-24",
-              "duration": "1:23"
-            },
-            {
-              "title": "Red Flag at a Foreclosure Auction: Lead Paint!",
-              "url": "https://www.youtube.com/watch?v=UhHDvKwlLeA",
-              "views": 2799,
-              "likes": 45,
-              "publishDate": "2026-09-23",
-              "duration": "1:09"
-            },
-            {
-              "title": "Package Mortgage Foreclosure Auction EXPLAINED!",
-              "url": "https://www.youtube.com/watch?v=fP902t8asN8",
-              "views": 2398,
-              "likes": 42,
-              "publishDate": "2026-09-21",
-              "duration": "1:25"
-            },
-            {
-              "title": "Our Strategy to Buy Investment Properties at Foreclosure Auction!",
-              "url": "https://www.youtube.com/watch?v=KcA6xXzkCs0",
-              "views": 358,
-              "likes": 14,
-              "publishDate": "2026-09-20",
-              "duration": "1:04"
-            },
-            {
-              "title": "How Much Security Deposit Should We Keep at Our Rental Property?",
-              "url": "https://www.youtube.com/watch?v=LHFXIj2sRto",
-              "views": 441,
-              "likes": 10,
-              "publishDate": "2026-09-19",
-              "duration": "1:26"
-            },
-            {
-              "title": "Investor Lost a Foreclosure Auction For MISSING a Bid!",
-              "url": "https://www.youtube.com/watch?v=P68LkJWPKOk",
-              "views": 605,
-              "likes": 15,
-              "publishDate": "2026-09-18",
-              "duration": "1:24"
-            },
-            {
-              "title": "We Bought a $300K Rental Property For Half Price!",
-              "url": "https://www.youtube.com/watch?v=QRGz1ytLAVI",
-              "views": 858,
-              "likes": 14,
-              "publishDate": "2026-09-18",
-              "duration": "10:22"
-            }
-          ],
-          "popularVideos": [
-            {
-              "title": "LANDLORD FINDS DANGEROUS TENANT BEHAVIOR! 😳😱🏠",
-              "url": "https://www.youtube.com/watch?v=ex57rPPP2QI",
-              "views": 5386132,
-              "likes": 251982,
-              "publishDate": "2023-05-27",
-              "duration": "0:51"
-            },
-            {
-              "title": "Terror At Our Rental Property: Landlord Explores Destruction",
-              "url": "https://www.youtube.com/watch?v=rsQQPdFb81Q",
-              "views": 4402786,
-              "likes": 126959,
-              "publishDate": "2023-07-21",
-              "duration": "0:58"
-            },
-            {
-              "title": "🚨LANDLORD CALLS POLICE ON BAD TENANT! 🚨🚔😱",
-              "url": "https://www.youtube.com/watch?v=HErbBZZN0pc",
-              "views": 3281614,
-              "likes": 157369,
-              "publishDate": "2023-05-28",
-              "duration": "0:59"
-            },
-            {
-              "title": "Investors SHOCKED by Bank Bid at Foreclosure Auction!",
-              "url": "https://www.youtube.com/watch?v=T6E3r0KyjWM",
-              "views": 4761641,
-              "likes": 62437,
-              "publishDate": "2024-04-14",
-              "duration": "0:59"
-            },
-            {
-              "title": "Our Strategy to WIN Investment Properties at Foreclosure Auction!",
-              "url": "https://www.youtube.com/watch?v=ErkRJLfpGyQ",
-              "views": 1998696,
-              "likes": 12738,
-              "publishDate": "2025-02-11",
-              "duration": "1:07"
-            },
-            {
-              "title": "Fastest Foreclosure Auction Ever!?",
-              "url": "https://www.youtube.com/watch?v=jH2cTrrmLSU",
-              "views": 1743609,
-              "likes": 16028,
-              "publishDate": "2024-03-18",
-              "duration": "0:56"
-            },
-            {
-              "title": "We WON a Bidding War at a Home Auction!",
-              "url": "https://www.youtube.com/watch?v=x9ynqMMcxL8",
-              "views": 484485,
-              "likes": 6635,
-              "publishDate": "2026-07-14",
-              "duration": "1:16"
-            },
-            {
-              "title": "Investors get HEATED at Foreclosure Auction! 🤬",
-              "url": "https://www.youtube.com/watch?v=OGKbxPpr_HQ",
-              "views": 586870,
-              "likes": 6278,
-              "publishDate": "2024-04-07",
-              "duration": "0:58"
-            },
-            {
-              "title": "LANDLORD CONFRONTS DIFFICULT TENANT! 👀😳",
-              "url": "https://www.youtube.com/watch?v=5qpdw_T3gK0",
-              "views": 657446,
-              "likes": 22271,
-              "publishDate": "2023-06-17",
-              "duration": "0:56"
-            },
-            {
-              "title": "Resolving Rental Disasters: Landlord Confronts Troublesome Tenant",
-              "url": "https://www.youtube.com/watch?v=I8_SkOJIi8w",
-              "views": 504498,
-              "likes": 17124,
-              "publishDate": "2023-07-07",
-              "duration": "0:57"
-            }
-          ]
+          "recentVideos": [],
+          "popularVideos": []
         },
         {
           "name": "Auction House Masters",
           "handle": "foreclosureauctionmasters",
           "url": "https://www.youtube.com/@foreclosureauctionmasters",
-          "subscribers": 897,
-          "totalViews": 28991,
-          "totalVideos": 55,
-          "viewsGained7d": 744,
-          "viewsGained7dPct": -16.50,
+          "subscribers": null,
+          "subscribersReason": "Windsor connector unreachable due to plan limitation",
+          "totalViews": null,
+          "totalViewsReason": "Windsor connector unreachable due to plan limitation",
+          "totalVideos": null,
+          "totalVideosReason": "Windsor connector unreachable due to plan limitation",
+          "viewsGained7d": null,
+          "viewsGained7dReason": "Windsor connector unreachable due to plan limitation",
+          "viewsGained7dPct": null,
+          "viewsGained7dPctReason": "Windsor connector unreachable due to plan limitation",
           "estMonthlyEarnings": null,
-          "estMonthlyEarningsReason": "Channel is not monetized — no revenue to report",
-          "monetized": false,
+          "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts, so the API cannot return them",
+          "monetized": null,
+          "monetizedReason": "Windsor connector unreachable due to plan limitation",
           "status": {
-            "ok": true,
-            "reason": null
+            "ok": false,
+            "reason": "Windsor.ai Free plan limitation"
           },
           "recentVideos": [],
           "popularVideos": []
@@ -219,9 +69,9 @@
     "instagram": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.instagram.com/twoguystakeonrealestate/",
-      "followers": 207765,
+      "followers": 207779,
       "posts": null,
-      "postsReason": "Login wall — post count not publicly rendered",
+      "postsReason": "Post count not publicly rendered on profile page",
       "verified": true,
       "status": {
         "ok": true,
@@ -234,7 +84,7 @@
       "displayName": "Real Estate Investing Mentors",
       "followers": 891400,
       "likes": 7300000,
-      "bio": "We created massive wealth in Real Estate | OUR FORECLOSURE AUCTION BOOK",
+      "bio": "We created massive wealth in Real Estate",
       "status": {
         "ok": true,
         "reason": null
@@ -244,21 +94,39 @@
       "handle": "2GuysTake",
       "url": "https://x.com/2GuysTake",
       "displayName": "Two Guys Take on Real Estate",
-      "followers": 5763,
+      "followers": 5766,
       "following": 37,
-      "posts": 5001,
+      "posts": 5008,
       "verified": true,
       "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
       "location": "Springfield, MA",
       "joinedDate": "December 2020",
       "recentPosts": [
         {
-          "text": "Real Estate Investors Paying it forward",
-          "date": "2026-09-30",
-          "likes": null,
-          "retweets": null,
-          "replies": null,
-          "views": null,
+          "text": "Foreclosure auction Before and After\n\nWon for 136k\nRehab 70k\nUA for 360k\n\nWhat do you think?",
+          "date": "2025-02-21",
+          "likes": 98,
+          "retweets": 0,
+          "replies": 29,
+          "views": 16222,
+          "pinned": true
+        },
+        {
+          "text": "We've made thousands in mistakes at foreclosure auctions. Here are 5 we learned from",
+          "date": "2026-10-01",
+          "likes": 0,
+          "retweets": 0,
+          "replies": 1,
+          "views": 214,
+          "pinned": false
+        },
+        {
+          "text": "Mistake #1: Bidding wars drive prices up. We watched a $95K property go to $185K in 90 seconds. The #1 error? Not setting your max bid BEFORE the auct",
+          "date": "2026-10-01",
+          "likes": 0,
+          "retweets": 0,
+          "replies": 0,
+          "views": 47,
           "pinned": false
         }
       ],
@@ -270,11 +138,12 @@
     "facebook": {
       "handle": "TwoGuysTakeonRealEstate",
       "url": "https://www.facebook.com/TwoGuysTakeonRealEstate",
-      "followers": 222000,
+      "followers": null,
+      "followersReason": "Login wall — follower count not publicly rendered",
       "verified": true,
       "status": {
-        "ok": true,
-        "reason": null
+        "ok": false,
+        "reason": "Login wall — follower count not publicly rendered"
       }
     }
   },
