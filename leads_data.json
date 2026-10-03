@@ -1,34 +1,31 @@
 {
-  "lastUpdated": "2026-09-30T07:47:33-04:00",
+  "lastUpdated": "2026-10-03T07:47:08-04:00",
   "kpis": {
-    "newLeads24h": 5,
-    "newLeads30d": 228,
-    "activeProspects": 20,
-    "lostLeads30d": 208,
-    "totalUnits": 296,
-    "contacted30d": 137,
-    "avgFirstContactHours": 32.93,
-    "medianFirstContactHours": 21.43,
-    "leadsWithNoContactRecorded": 91
+    "newLeads24h": 3,
+    "newLeads30d": 207,
+    "activeProspects": 41,
+    "lostLeads30d": 166,
+    "totalUnits": 314,
+    "contacted30d": 107,
+    "avgFirstContactHours": 37.65,
+    "medianFirstContactHours": 23.09,
+    "leadsWithNoContactRecorded": 100
   },
   "responseTime": {
     "available": true,
     "method": "earliest non-System Call/Email/Note/Text History entry at or after CreateDate",
     "unavailableReason": null,
-    "avgHours": 32.93,
-    "medianHours": 21.43,
+    "avgHours": 37.65,
+    "medianHours": 23.09,
     "fastestHours": 0.07,
     "fastestLeadName": "Jenny Ares",
     "slowestHours": 168.41,
     "slowestLeadName": "Olivia DePace",
-    "respondedCount": 137,
-    "unrespondedCount": 91,
-    "totalLeads": 228
+    "respondedCount": 107,
+    "unrespondedCount": 100,
+    "totalLeads": 207
   },
   "volumeTrend": {
-    "2026-08-31": 21,
-    "2026-09-01": 16,
-    "2026-09-02": 7,
     "2026-09-03": 16,
     "2026-09-04": 12,
     "2026-09-05": 3,
@@ -56,218 +53,55 @@
     "2026-09-27": 2,
     "2026-09-28": 6,
     "2026-09-29": 3,
-    "2026-09-30": 2
+    "2026-09-30": 11,
+    "2026-10-01": 11,
+    "2026-10-02": 3
   },
   "statusBreakdown": {
-    "Lost": 208,
-    "Prospect": 20
+    "Lost": 166,
+    "Prospect": 41
   },
   "leadsByProperty": {
-    "24-28 Wilcox": 129,
-    "YellowBrick Management, Inc": 98,
+    "24-28 Wilcox": 116,
+    "YellowBrick Management, Inc": 90,
     "Loring St 30-32 ": 1
   },
   "newLeads24h": [
     {
-      "prospectId": 16228,
-      "displayId": 13616,
-      "name": "Ashley colon",
+      "prospectId": 16269,
+      "displayId": 13656,
+      "name": "Jeannot Jules",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-09-29T10:04:47",
-      "status": "Lost",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16241,
-      "displayId": 13629,
-      "name": "Kayla Kress",
-      "property": "24-28 Wilcox",
-      "source": "Not tracked in RM",
-      "created": "2026-09-29T18:20:31",
+      "created": "2026-10-02T09:53:49",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     },
     {
-      "prospectId": 16242,
-      "displayId": 13630,
-      "name": "Natalie Navarro",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-29T19:34:33",
-      "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16243,
-      "displayId": 13631,
-      "name": "Dara Howard",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-30T02:45:55",
-      "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16244,
-      "displayId": 13632,
-      "name": "Kayshla Cordero",
+      "prospectId": 16270,
+      "displayId": 13657,
+      "name": "Aimee Pardee",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-09-30T06:37:15",
+      "created": "2026-10-02T10:15:53",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16271,
+      "displayId": 13658,
+      "name": "Omayra Hernandez",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-10-02T12:58:36",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     }
   ],
   "urgentQueue": [
-    {
-      "prospectId": 15981,
-      "displayId": 13378,
-      "name": "Maritza Rodriguez",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-08-31T11:19:43",
-      "createdDate": "2026-08-31T11:19:43",
-      "status": "Lost",
-      "waitingHrs": 716.5
-    },
-    {
-      "prospectId": 15987,
-      "displayId": 13384,
-      "name": "Aishalee Santiago",
-      "property": "24-28 Wilcox",
-      "source": "Not tracked in RM",
-      "created": "2026-08-31T13:30:08",
-      "createdDate": "2026-08-31T13:30:08",
-      "status": "Lost",
-      "waitingHrs": 714.3
-    },
-    {
-      "prospectId": 15988,
-      "displayId": 13385,
-      "name": "Ana Torres",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-08-31T13:36:37",
-      "createdDate": "2026-08-31T13:36:37",
-      "status": "Lost",
-      "waitingHrs": 714.2
-    },
-    {
-      "prospectId": 15991,
-      "displayId": 13388,
-      "name": "Tashala Miller",
-      "property": "24-28 Wilcox",
-      "source": "Not tracked in RM",
-      "created": "2026-08-31T19:34:46",
-      "createdDate": "2026-08-31T19:34:46",
-      "status": "Lost",
-      "waitingHrs": 708.2
-    },
-    {
-      "prospectId": 15994,
-      "displayId": 13391,
-      "name": "Tracy Wanzo",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-01T08:58:35",
-      "createdDate": "2026-09-01T08:58:35",
-      "status": "Lost",
-      "waitingHrs": 694.8
-    },
-    {
-      "prospectId": 16000,
-      "displayId": 13397,
-      "name": "Jazel Scott",
-      "property": "24-28 Wilcox",
-      "source": "Not tracked in RM",
-      "created": "2026-09-01T12:27:40",
-      "createdDate": "2026-09-01T12:27:40",
-      "status": "Lost",
-      "waitingHrs": 691.3
-    },
-    {
-      "prospectId": 16002,
-      "displayId": 13399,
-      "name": "Tashala Miller",
-      "property": "24-28 Wilcox",
-      "source": "Not tracked in RM",
-      "created": "2026-09-01T12:57:20",
-      "createdDate": "2026-09-01T12:57:20",
-      "status": "Lost",
-      "waitingHrs": 690.8
-    },
-    {
-      "prospectId": 16003,
-      "displayId": 13400,
-      "name": "Tracy Wanzo",
-      "property": "24-28 Wilcox",
-      "source": "Not tracked in RM",
-      "created": "2026-09-01T13:35:29",
-      "createdDate": "2026-09-01T13:35:29",
-      "status": "Lost",
-      "waitingHrs": 690.2
-    },
-    {
-      "prospectId": 16004,
-      "displayId": 13401,
-      "name": "Nicholas Lee",
-      "property": "24-28 Wilcox",
-      "source": "Not tracked in RM",
-      "created": "2026-09-01T13:40:24",
-      "createdDate": "2026-09-01T13:40:24",
-      "status": "Lost",
-      "waitingHrs": 690.1
-    },
-    {
-      "prospectId": 16006,
-      "displayId": 13403,
-      "name": "Nyasia Soto",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-01T15:12:22",
-      "createdDate": "2026-09-01T15:12:22",
-      "status": "Lost",
-      "waitingHrs": 688.6
-    },
-    {
-      "prospectId": 16013,
-      "displayId": 13410,
-      "name": "Roldys Leal Moreira",
-      "property": "24-28 Wilcox",
-      "source": "Not tracked in RM",
-      "created": "2026-09-02T10:21:42",
-      "createdDate": "2026-09-02T10:21:42",
-      "status": "Lost",
-      "waitingHrs": 669.4
-    },
-    {
-      "prospectId": 16016,
-      "displayId": 13413,
-      "name": "Carlos Santiago",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-02T17:17:21",
-      "createdDate": "2026-09-02T17:17:21",
-      "status": "Lost",
-      "waitingHrs": 662.5
-    },
-    {
-      "prospectId": 16017,
-      "displayId": 13414,
-      "name": "Courtney Willis",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-09-02T17:37:30",
-      "createdDate": "2026-09-02T17:37:30",
-      "status": "Lost",
-      "waitingHrs": 662.2
-    },
     {
       "prospectId": 16018,
       "displayId": 13415,
@@ -277,7 +111,7 @@
       "created": "2026-09-03T09:16:18",
       "createdDate": "2026-09-03T09:16:18",
       "status": "Lost",
-      "waitingHrs": 646.5
+      "waitingHrs": 718.5
     },
     {
       "prospectId": 16020,
@@ -288,7 +122,7 @@
       "created": "2026-09-03T11:01:53",
       "createdDate": "2026-09-03T11:01:53",
       "status": "Lost",
-      "waitingHrs": 644.8
+      "waitingHrs": 716.8
     },
     {
       "prospectId": 16023,
@@ -299,7 +133,7 @@
       "created": "2026-09-03T12:21:24",
       "createdDate": "2026-09-03T12:21:24",
       "status": "Lost",
-      "waitingHrs": 643.4
+      "waitingHrs": 715.4
     },
     {
       "prospectId": 16027,
@@ -310,7 +144,7 @@
       "created": "2026-09-03T13:54:27",
       "createdDate": "2026-09-03T13:54:27",
       "status": "Lost",
-      "waitingHrs": 641.9
+      "waitingHrs": 713.9
     },
     {
       "prospectId": 16030,
@@ -321,7 +155,7 @@
       "created": "2026-09-03T15:09:17",
       "createdDate": "2026-09-03T15:09:17",
       "status": "Lost",
-      "waitingHrs": 640.6
+      "waitingHrs": 712.6
     },
     {
       "prospectId": 16040,
@@ -332,7 +166,7 @@
       "created": "2026-09-04T12:04:21",
       "createdDate": "2026-09-04T12:04:21",
       "status": "Lost",
-      "waitingHrs": 619.7
+      "waitingHrs": 691.7
     },
     {
       "prospectId": 16043,
@@ -343,7 +177,7 @@
       "created": "2026-09-04T13:32:24",
       "createdDate": "2026-09-04T13:32:24",
       "status": "Lost",
-      "waitingHrs": 618.3
+      "waitingHrs": 690.2
     },
     {
       "prospectId": 16045,
@@ -354,7 +188,7 @@
       "created": "2026-09-04T14:27:20",
       "createdDate": "2026-09-04T14:27:20",
       "status": "Lost",
-      "waitingHrs": 617.3
+      "waitingHrs": 689.3
     },
     {
       "prospectId": 16048,
@@ -365,7 +199,7 @@
       "created": "2026-09-04T18:35:12",
       "createdDate": "2026-09-04T18:35:12",
       "status": "Lost",
-      "waitingHrs": 613.2
+      "waitingHrs": 685.2
     },
     {
       "prospectId": 16049,
@@ -376,7 +210,7 @@
       "created": "2026-09-04T18:35:48",
       "createdDate": "2026-09-04T18:35:48",
       "status": "Lost",
-      "waitingHrs": 613.2
+      "waitingHrs": 685.2
     },
     {
       "prospectId": 16051,
@@ -387,7 +221,7 @@
       "created": "2026-09-05T20:54:42",
       "createdDate": "2026-09-05T20:54:42",
       "status": "Lost",
-      "waitingHrs": 586.9
+      "waitingHrs": 658.9
     },
     {
       "prospectId": 16054,
@@ -398,14 +232,157 @@
       "created": "2026-09-06T11:33:24",
       "createdDate": "2026-09-06T11:33:24",
       "status": "Lost",
-      "waitingHrs": 572.2
+      "waitingHrs": 644.2
+    },
+    {
+      "prospectId": 16058,
+      "displayId": 13453,
+      "name": "Preston Sharp",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-06T23:39:27",
+      "createdDate": "2026-09-06T23:39:27",
+      "status": "Lost",
+      "waitingHrs": 632.1
+    },
+    {
+      "prospectId": 16066,
+      "displayId": 13461,
+      "name": "Diana Zapata",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-09-07T19:22:56",
+      "createdDate": "2026-09-07T19:22:56",
+      "status": "Lost",
+      "waitingHrs": 612.4
+    },
+    {
+      "prospectId": 16067,
+      "displayId": 13462,
+      "name": "Dezyre Hughes",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-08T10:05:58",
+      "createdDate": "2026-09-08T10:05:58",
+      "status": "Lost",
+      "waitingHrs": 597.7
+    },
+    {
+      "prospectId": 16076,
+      "displayId": 13469,
+      "name": "Jody Newcomb",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-09-09T16:00:54",
+      "createdDate": "2026-09-09T16:00:54",
+      "status": "Lost",
+      "waitingHrs": 567.8
+    },
+    {
+      "prospectId": 16078,
+      "displayId": 13471,
+      "name": "LaShonda Gada",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-09T18:08:35",
+      "createdDate": "2026-09-09T18:08:35",
+      "status": "Lost",
+      "waitingHrs": 565.6
+    },
+    {
+      "prospectId": 16079,
+      "displayId": 13472,
+      "name": "Maritza Rodriguez",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-09T20:00:17",
+      "createdDate": "2026-09-09T20:00:17",
+      "status": "Lost",
+      "waitingHrs": 563.8
+    },
+    {
+      "prospectId": 16085,
+      "displayId": 13478,
+      "name": "Dawne Watkins",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-09-09T20:07:37",
+      "createdDate": "2026-09-09T20:07:37",
+      "status": "Lost",
+      "waitingHrs": 563.7
+    },
+    {
+      "prospectId": 16086,
+      "displayId": 13479,
+      "name": "Yolanda Wanzo",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-09-09T20:21:29",
+      "createdDate": "2026-09-09T20:21:29",
+      "status": "Lost",
+      "waitingHrs": 563.4
+    },
+    {
+      "prospectId": 16088,
+      "displayId": 13481,
+      "name": "Tilaya Latney",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-09-09T20:34:01",
+      "createdDate": "2026-09-09T20:34:01",
+      "status": "Lost",
+      "waitingHrs": 563.2
+    },
+    {
+      "prospectId": 16093,
+      "displayId": 13486,
+      "name": "Kaitlynn Hart",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-10T07:45:49",
+      "createdDate": "2026-09-10T07:45:49",
+      "status": "Lost",
+      "waitingHrs": 552
+    },
+    {
+      "prospectId": 16098,
+      "displayId": 13491,
+      "name": "Jessenia Cruz",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-09-10T10:43:13",
+      "createdDate": "2026-09-10T10:43:13",
+      "status": "Lost",
+      "waitingHrs": 549.1
+    },
+    {
+      "prospectId": 16103,
+      "displayId": 13494,
+      "name": "Shamia Gaynor",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-10T14:14:25",
+      "createdDate": "2026-09-10T14:14:25",
+      "status": "Lost",
+      "waitingHrs": 545.5
+    },
+    {
+      "prospectId": 16107,
+      "displayId": 13498,
+      "name": "Timeka Patterson",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-09-10T14:47:41",
+      "createdDate": "2026-09-10T14:47:41",
+      "status": "Lost",
+      "waitingHrs": 545
     }
   ],
   "vacancy": {
-    "totalUnits": 296,
+    "totalUnits": 314,
     "occupied": 264,
-    "vacant": 32,
-    "vacancyRatePct": 10.8,
+    "vacant": 50,
+    "vacancyRatePct": 15.9,
     "byProperty": {
       "Loring St 30-32 ": 1,
       "Berkshire Ave 1237-1239": 1,
@@ -421,24 +398,27 @@
       "East St 24-30": 1,
       "Hampden 291-293": 1,
       "Sherman St 89-91 ": 1,
-      "St. James Ave 83 ": 1,
+      "St. James Ave 83 ": 2,
       "Union St 741-745 ": 2,
       "Wilbraham RD 257 ": 1,
       "Loring St 31 ": 1,
       "800 College Highway": 2,
-      "1-3 Stadler Street": 3,
+      "1-3 Stadler Street": 2,
       "Northwestern 3": 2,
       "93 Lamont St": 1,
       "83 Rolf Ave ": 1,
       "171 Methuen": 1,
       "55 White Ave": 1,
       "8 Longview": 1,
-      "53 1/2 Orchard St": 1
+      "53 1/2 Orchard St": 1,
+      "27 Parker Street": 4,
+      "28.5 North Street": 3,
+      "28-30 North": 11
     }
   },
   "notes": {
-    "leadSourceAvailability": "Rent Manager has no lead-source field on this instance (MarketingSource/ProspectSource/Source embeds 404; WebMessage empty), so source is a fixed label.",
+    "leadSourceAvailability": "RM has no lead-source field (MarketingSource/ProspectSource/Source embeds 404; WebMessage empty); source fixed to \"Not tracked in RM\"",
     "urgentQueueCapped": true,
-    "urgentQueueTrueTotal": 86
+    "urgentQueueTrueTotal": 97
   }
 }
