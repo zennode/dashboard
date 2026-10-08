@@ -1,13 +1,14 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-10-03T01:00:00-04:00",
+  "lastUpdated": "2026-10-08T01:00:00-04:00",
   "runStatus": {
     "ok": false,
     "platformsAttempted": 5,
-    "platformsFailed": 2,
+    "platformsFailed": 3,
     "failures": [
       "youtube: Windsor.ai connector requires user approval during scheduled runs",
-      "instagram: Post count not accessible from public profile"
+      "instagram: Login wall — profile stats not publicly rendered",
+      "facebook: Login wall — follower count not publicly rendered"
     ]
   },
   "platforms": {
@@ -21,23 +22,20 @@
           "name": "Two Guys Take on Real Estate",
           "handle": "twoguystakeonrealestate",
           "url": "https://www.youtube.com/@twoguystakeonrealestate",
-          "subscribers": null,
-          "subscribersReason": "Windsor.ai connector requires user approval during scheduled runs",
+          "subscribers": 133000,
           "totalViews": null,
-          "totalViewsReason": "Windsor.ai connector requires user approval during scheduled runs",
-          "totalVideos": null,
-          "totalVideosReason": "Windsor.ai connector requires user approval during scheduled runs",
+          "totalViewsReason": "Windsor.ai connector requires user approval — unavailable in scheduled runs",
+          "totalVideos": 1800,
           "viewsGained7d": null,
-          "viewsGained7dReason": "Windsor.ai connector requires user approval during scheduled runs",
+          "viewsGained7dReason": "Windsor.ai connector requires user approval — unavailable in scheduled runs",
           "viewsGained7dPct": null,
-          "viewsGained7dPctReason": "Windsor.ai connector requires user approval during scheduled runs",
+          "viewsGained7dPctReason": "Windsor.ai connector requires user approval — unavailable in scheduled runs",
           "estMonthlyEarnings": null,
-          "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts, so the API cannot return them",
-          "monetized": null,
-          "monetizedReason": "Windsor.ai connector requires user approval during scheduled runs",
+          "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts",
+          "monetized": true,
           "status": {
             "ok": false,
-            "reason": "Windsor.ai connector requires user approval during scheduled runs"
+            "reason": "Windsor.ai connector requires user approval — unavailable in scheduled runs"
           },
           "recentVideos": [],
           "popularVideos": []
@@ -46,23 +44,20 @@
           "name": "Auction House Masters",
           "handle": "foreclosureauctionmasters",
           "url": "https://www.youtube.com/@foreclosureauctionmasters",
-          "subscribers": null,
-          "subscribersReason": "Windsor.ai connector requires user approval during scheduled runs",
+          "subscribers": 917,
           "totalViews": null,
-          "totalViewsReason": "Windsor.ai connector requires user approval during scheduled runs",
-          "totalVideos": null,
-          "totalVideosReason": "Windsor.ai connector requires user approval during scheduled runs",
+          "totalViewsReason": "Windsor.ai connector requires user approval — unavailable in scheduled runs",
+          "totalVideos": 56,
           "viewsGained7d": null,
-          "viewsGained7dReason": "Windsor.ai connector requires user approval during scheduled runs",
+          "viewsGained7dReason": "Windsor.ai connector requires user approval — unavailable in scheduled runs",
           "viewsGained7dPct": null,
-          "viewsGained7dPctReason": "Windsor.ai connector requires user approval during scheduled runs",
+          "viewsGained7dPctReason": "Windsor.ai connector requires user approval — unavailable in scheduled runs",
           "estMonthlyEarnings": null,
           "estMonthlyEarningsReason": "Channel is not monetized — no revenue to report",
-          "monetized": null,
-          "monetizedReason": "Windsor.ai connector requires user approval during scheduled runs",
+          "monetized": false,
           "status": {
             "ok": false,
-            "reason": "Windsor.ai connector requires user approval during scheduled runs"
+            "reason": "Windsor.ai connector requires user approval — unavailable in scheduled runs"
           },
           "recentVideos": [],
           "popularVideos": []
@@ -72,22 +67,21 @@
     "instagram": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.instagram.com/twoguystakeonrealestate/",
-      "followers": 207000,
+      "followers": null,
       "posts": null,
-      "postsReason": "Post count not publicly displayed on profile page",
-      "verified": true,
+      "verified": null,
       "status": {
         "ok": false,
-        "reason": "Post count not accessible from public profile"
+        "reason": "Login wall — profile stats not publicly rendered"
       }
     },
     "tiktok": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.tiktok.com/@twoguystakeonrealestate",
       "displayName": "Real Estate Investing Mentors",
-      "followers": 891400,
+      "followers": 892200,
       "likes": 7300000,
-      "bio": "We created massive wealth in Real Estate AUTOMATE RENTAL CASHFLOW 👇",
+      "bio": "We created massive wealth in Real Estate | AUTOMATE RENTAL CASHFLOW 💰",
       "status": {
         "ok": true,
         "reason": null
@@ -97,11 +91,11 @@
       "handle": "2GuysTake",
       "url": "https://x.com/2GuysTake",
       "displayName": "Two Guys Take on Real Estate",
-      "followers": 5768,
+      "followers": 5769,
       "following": 37,
-      "posts": 5011,
+      "posts": 5025,
       "verified": true,
-      "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
+      "bio": "Real Estate Investors Paying it forward 🏠 700+ Rental Units 🔑💼 500+ Flips",
       "location": "Springfield, MA",
       "joinedDate": "December 2020",
       "recentPosts": [],
@@ -113,11 +107,11 @@
     "facebook": {
       "handle": "TwoGuysTakeonRealEstate",
       "url": "https://www.facebook.com/TwoGuysTakeonRealEstate",
-      "followers": 222000,
-      "verified": true,
+      "followers": null,
+      "verified": null,
       "status": {
-        "ok": true,
-        "reason": null
+        "ok": false,
+        "reason": "Login wall — follower count not publicly rendered"
       }
     }
   },
