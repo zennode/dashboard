@@ -1,68 +1,59 @@
 {
-  "lastUpdated": "2026-09-18T15:30:00-04:00",
+  "lastUpdated": "2026-10-09T15:45:40.592-04:00",
   "updates": [
     {
-      "title": "MA Money Transmitter License — Hard Money Compliance Deadline PASSED",
-      "date": "2026-09-18",
-      "jurisdiction": "MA State",
-      "category": "Legal",
-      "impact": "High",
-      "summary": "M.G.L. c. 169B requires hard money lenders to obtain money transmitter licenses by July 1, 2026. Deadline has passed. Non-compliant lenders must immediately cease lending in MA.",
-      "action": "Verify MA money transmitter license status. If not licensed, cease MA hard money lending immediately and apply for license."
-    },
-    {
-      "title": "OBBBA: 100% Bonus Depreciation Now Permanent (IRS Notice 2026-11/16)",
-      "date": "2026-09-18",
+      "title": "OBBBA Makes 100% Bonus Depreciation Permanent for Commercial Real Estate",
+      "date": "2026-10-09",
       "jurisdiction": "Federal",
       "category": "Tax",
       "impact": "High",
-      "summary": "The One Big Beautiful Bill Act made 100% bonus depreciation permanent for qualified property acquired after Jan 19, 2025. IRS Notice 2026-11 and 2026-16 provide implementation guidance.",
-      "action": "For all 2025+ real estate acquisitions: consider cost segregation studies and plan maximum depreciation deductions."
+      "summary": "The One Big Beautiful Bill Act permanently restored 100% bonus depreciation for qualifying commercial real estate components acquired after January 19, 2025. Depreciation recapture applies upon sale under Section 1245.",
+      "action": "Review component depreciation methods; consider cost segregation studies for properties acquired in 2025-2026"
     },
     {
-      "title": "MA Decouples from Federal Bonus Depreciation (2025-2026 Tax Years)",
-      "date": "2026-09-18",
-      "jurisdiction": "MA State",
+      "title": "Section 179 Expensing Limit Increased to $2.56 Million for 2026",
+      "date": "2026-10-09",
+      "jurisdiction": "Federal",
       "category": "Tax",
       "impact": "High",
-      "summary": "Massachusetts temporarily decouples from federal special depreciation allowance for qualified production property (QPP) in 2025-2026. Creates permanent state/federal mismatch.",
-      "action": "Track federal vs. state depreciation separately. Plan for permanent MA add-backs. Consult on amended returns if 2025 already filed."
+      "summary": "Section 179 deduction limit increased from $1.25M to $2.56M for 2026, with phase-out beginning at $4.09M in total purchases. Pairs with 100% bonus depreciation for full year-one expensing.",
+      "action": "Maximize equipment purchases in 2026; coordinate with 100% bonus depreciation for maximum tax efficiency"
     },
     {
-      "title": "Massachusetts Surtax Threshold Increased to $1,107,750",
-      "date": "2026-09-18",
+      "title": "QOZ Critical Deadline: December 31, 2026 for Old-Regime Investments",
+      "date": "2026-10-09",
+      "jurisdiction": "Federal",
+      "category": "Tax",
+      "impact": "High",
+      "summary": "Investors who deferred gains in Opportunity Zones must recognize deferred gain by December 31, 2026, unless rolling into post-2026 investments. New regime begins January 1, 2027 with rolling five-year deferrals and 10% basis step-up.",
+      "action": "URGENT: Audit all QOZ positions immediately; determine extension vs. new rollover eligibility before year-end deadline"
+    },
+    {
+      "title": "Massachusetts Surtax Threshold Increased to $1,107,750 for 2026",
+      "date": "2026-10-09",
       "jurisdiction": "MA State",
       "category": "Tax",
       "impact": "Medium",
-      "summary": "The 4% surtax (9% total state tax) applies to income above $1,107,750 (increased from $1,083,150). Indexed annually.",
-      "action": "For high-income owners: review 2026 income projections and plan withholding adjustments if threshold will be exceeded."
+      "summary": "The millionaire's surtax threshold rose to $1,107,750 from $1,083,150. The 4% surtax applies to income above this level, creating a combined 9% top rate (5% base + 4% surtax).",
+      "action": "Review tax planning strategies for owners with income above $1.1M; evaluate income deferral and entity structure optimization"
     },
     {
-      "title": "Opportunity Zones 2.0 Made Permanent (Effective Jan 1, 2027)",
-      "date": "2026-09-18",
-      "jurisdiction": "Federal",
-      "category": "Tax",
-      "impact": "Medium",
-      "summary": "OBBBA made OZ program permanent and upgraded to 2.0 effective 1/1/27. SALT deduction cap increased to $40k (through 2029).",
-      "action": "Evaluate OZ 2.0 benefits for eligible 2026 acquisitions. Maximize $40k SALT cap through 2029."
+      "title": "Massachusetts Commercial Conversion Tax Credit: $15.3M Awarded for 856 Homes",
+      "date": "2026-10-09",
+      "jurisdiction": "MA State",
+      "category": "Tax Credit",
+      "impact": "High",
+      "summary": "Governor Healey announced $15.3M in Commercial Conversion Tax Credit awards for the second round of the CCTCI, supporting 856 new homes across Boston, Dedham, Springfield, Westford, and Worcester.",
+      "action": "Monitor EOHLC for next funding round; evaluate vacant/underutilized commercial properties for conversion eligibility"
     },
     {
-      "title": "2026 Section 179 Expensing Limits: $2.56M (Confirmed)",
-      "date": "2026-09-18",
-      "jurisdiction": "Federal",
-      "category": "Tax",
-      "impact": "Medium",
-      "summary": "Section 179 limit remains $2,560,000 with phase-out at $4,090,000. Effective when combined with 100% bonus depreciation.",
-      "action": "Plan 2026 equipment purchases (carwash, lending infrastructure) with Section 179 elections."
-    },
-    {
-      "title": "PMI Now Deductible as Mortgage Interest (Beginning 2026)",
-      "date": "2026-09-18",
-      "jurisdiction": "Federal",
-      "category": "Tax",
+      "title": "Hard Money Lending: Massachusetts Rates Stable, No 2026 Changes",
+      "date": "2026-10-09",
+      "jurisdiction": "MA State",
+      "category": "Regulatory",
       "impact": "Low",
-      "summary": "Private Mortgage Insurance (PMI) premiums treated as deductible mortgage interest beginning in 2026 (up to $750k loan cap).",
-      "action": "Track PMI on financed properties (e.g., fix-and-flips with high LTV loans) for deduction."
+      "summary": "Massachusetts allows interest rates up to 20% with Attorney General notice; no new usury law changes in 2026. Default legal rate remains 6% unless parties contract higher in writing.",
+      "action": "Continue existing notification protocols to AG; no operational changes required"
     }
   ]
 }
