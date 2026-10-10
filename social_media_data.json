@@ -1,23 +1,20 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-10-09T03:18:04-04:00",
+  "lastUpdated": "2026-10-10T03:18:24-04:00",
   "runStatus": {
     "ok": false,
-    "platformsAttempted": 5,
-    "platformsFailed": 5,
+    "platformsAttempted": 6,
+    "platformsFailed": 2,
     "failures": [
-      "youtube: Windsor.ai connector requires interactive approval not available in scheduled run",
-      "instagram: Login wall — profile stats not publicly rendered",
-      "tiktok: Access restricted in automated environment",
-      "twitter: Access restricted in automated environment",
-      "facebook: Login wall — follower count not publicly rendered"
+      "youtube: Windsor.ai connector requires interactive authentication unavailable during scheduled runs",
+      "instagram: Post count not publicly displayed — followers and verified status collected only"
     ]
   },
   "platforms": {
     "youtube": {
       "status": {
         "ok": false,
-        "reason": "Windsor.ai connector requires interactive approval not available in scheduled run"
+        "reason": "Windsor.ai connector requires interactive authentication unavailable during scheduled runs"
       },
       "channels": [
         {
@@ -25,22 +22,22 @@
           "handle": "twoguystakeonrealestate",
           "url": "https://www.youtube.com/@twoguystakeonrealestate",
           "subscribers": null,
-          "subscribersReason": "Windsor.ai connector requires interactive approval; not available in scheduled run",
+          "subscribersReason": "Windsor.ai connector requires interactive authentication",
           "totalViews": null,
-          "totalViewsReason": "Windsor.ai connector requires interactive approval; not available in scheduled run",
+          "totalViewsReason": "Windsor.ai connector requires interactive authentication",
           "totalVideos": null,
-          "totalVideosReason": "Windsor.ai connector requires interactive approval; not available in scheduled run",
+          "totalVideosReason": "Windsor.ai connector requires interactive authentication",
           "viewsGained7d": null,
-          "viewsGained7dReason": "Windsor.ai connector requires interactive approval; not available in scheduled run",
+          "viewsGained7dReason": "Windsor.ai connector requires interactive authentication",
           "viewsGained7dPct": null,
-          "viewsGained7dPctReason": "Windsor.ai connector requires interactive approval; not available in scheduled run",
+          "viewsGained7dPctReason": "Windsor.ai connector requires interactive authentication",
           "estMonthlyEarnings": null,
-          "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector",
+          "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts, so the API cannot return them",
           "monetized": null,
-          "monetizedReason": "Windsor.ai connector requires interactive approval; not available in scheduled run",
+          "monetizedReason": "Windsor.ai connector requires interactive authentication",
           "status": {
             "ok": false,
-            "reason": "Windsor.ai connector requires interactive approval; not available in scheduled run"
+            "reason": "Windsor.ai connector requires interactive authentication unavailable during scheduled runs"
           },
           "recentVideos": [],
           "popularVideos": []
@@ -50,21 +47,22 @@
           "handle": "foreclosureauctionmasters",
           "url": "https://www.youtube.com/@foreclosureauctionmasters",
           "subscribers": null,
-          "subscribersReason": "Windsor.ai connector requires interactive approval; not available in scheduled run",
+          "subscribersReason": "Windsor.ai connector requires interactive authentication",
           "totalViews": null,
-          "totalViewsReason": "Windsor.ai connector requires interactive approval; not available in scheduled run",
+          "totalViewsReason": "Windsor.ai connector requires interactive authentication",
           "totalVideos": null,
-          "totalVideosReason": "Windsor.ai connector requires interactive approval; not available in scheduled run",
+          "totalVideosReason": "Windsor.ai connector requires interactive authentication",
           "viewsGained7d": null,
-          "viewsGained7dReason": "Windsor.ai connector requires interactive approval; not available in scheduled run",
+          "viewsGained7dReason": "Windsor.ai connector requires interactive authentication",
           "viewsGained7dPct": null,
-          "viewsGained7dPctReason": "Windsor.ai connector requires interactive approval; not available in scheduled run",
+          "viewsGained7dPctReason": "Windsor.ai connector requires interactive authentication",
           "estMonthlyEarnings": null,
-          "estMonthlyEarningsReason": "Channel is not monetized — no revenue to report",
-          "monetized": false,
+          "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts, so the API cannot return them",
+          "monetized": null,
+          "monetizedReason": "Windsor.ai connector requires interactive authentication",
           "status": {
             "ok": false,
-            "reason": "Windsor.ai connector requires interactive approval; not available in scheduled run"
+            "reason": "Windsor.ai connector requires interactive authentication unavailable during scheduled runs"
           },
           "recentVideos": [],
           "popularVideos": []
@@ -74,68 +72,52 @@
     "instagram": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.instagram.com/twoguystakeonrealestate/",
-      "followers": null,
-      "followersReason": "Login wall — profile stats not publicly rendered",
+      "followers": 207930,
       "posts": null,
-      "postsReason": "Login wall — profile stats not publicly rendered",
-      "verified": null,
-      "verifiedReason": "Login wall — profile stats not publicly rendered",
+      "postsReason": "Post count not publicly displayed in accessible DOM elements on profile page",
+      "verified": true,
       "status": {
-        "ok": false,
-        "reason": "Login wall — profile stats not publicly rendered"
+        "ok": true,
+        "reason": null
       }
     },
     "tiktok": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.tiktok.com/@twoguystakeonrealestate",
-      "displayName": null,
-      "displayNameReason": "Access restricted in automated environment",
-      "followers": null,
-      "followersReason": "Access restricted in automated environment",
-      "likes": null,
-      "likesReason": "Access restricted in automated environment",
-      "bio": null,
-      "bioReason": "Access restricted in automated environment",
+      "displayName": "Real Estate Investing Mentors",
+      "followers": 891200,
+      "likes": 7300000,
+      "bio": "We created massive wealth in Real Estate AUTOMATE RENTAL CASHFLOW👇",
       "status": {
-        "ok": false,
-        "reason": "Access restricted in automated environment"
+        "ok": true,
+        "reason": null
       }
     },
     "twitter": {
       "handle": "2GuysTake",
       "url": "https://x.com/2GuysTake",
-      "displayName": null,
-      "displayNameReason": "Access restricted in automated environment",
-      "followers": null,
-      "followersReason": "Access restricted in automated environment",
-      "following": null,
-      "followingReason": "Access restricted in automated environment",
-      "posts": null,
-      "postsReason": "Access restricted in automated environment",
-      "verified": null,
-      "verifiedReason": "Access restricted in automated environment",
-      "bio": null,
-      "bioReason": "Access restricted in automated environment",
-      "location": null,
-      "locationReason": "Access restricted in automated environment",
-      "joinedDate": null,
-      "joinedDateReason": "Access restricted in automated environment",
+      "displayName": "Two Guys Take on Real Estate",
+      "followers": 5764,
+      "following": 37,
+      "posts": 5031,
+      "verified": true,
+      "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
+      "location": "Springfield, MA",
+      "joinedDate": "December 2020",
       "recentPosts": [],
       "status": {
-        "ok": false,
-        "reason": "Access restricted in automated environment"
+        "ok": true,
+        "reason": null
       }
     },
     "facebook": {
       "handle": "TwoGuysTakeonRealEstate",
       "url": "https://www.facebook.com/TwoGuysTakeonRealEstate",
-      "followers": null,
-      "followersReason": "Login wall — follower count not publicly rendered",
-      "verified": null,
-      "verifiedReason": "Login wall — verified status not publicly rendered",
+      "followers": 222000,
+      "verified": true,
       "status": {
-        "ok": false,
-        "reason": "Login wall — follower count not publicly rendered"
+        "ok": true,
+        "reason": null
       }
     }
   },
