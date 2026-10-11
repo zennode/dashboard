@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-10-10T03:18:24-04:00",
+  "lastUpdated": "2026-10-11T03:18:16.638622-04:00",
   "runStatus": {
     "ok": false,
-    "platformsAttempted": 6,
+    "platformsAttempted": 5,
     "platformsFailed": 2,
     "failures": [
-      "youtube: Windsor.ai connector requires interactive authentication unavailable during scheduled runs",
-      "instagram: Post count not publicly displayed — followers and verified status collected only"
+      "youtube: Windsor.ai connector requires user approval during scheduled run",
+      "facebook: Login wall blocks public profile data access"
     ]
   },
   "platforms": {
     "youtube": {
       "status": {
         "ok": false,
-        "reason": "Windsor.ai connector requires interactive authentication unavailable during scheduled runs"
+        "reason": "Windsor.ai connector requires user approval during scheduled automated run"
       },
       "channels": [
         {
@@ -22,22 +22,22 @@
           "handle": "twoguystakeonrealestate",
           "url": "https://www.youtube.com/@twoguystakeonrealestate",
           "subscribers": null,
-          "subscribersReason": "Windsor.ai connector requires interactive authentication",
+          "subscribersReason": "Windsor.ai connector access denied - requires approval",
           "totalViews": null,
-          "totalViewsReason": "Windsor.ai connector requires interactive authentication",
+          "totalViewsReason": "Windsor.ai connector access denied - requires approval",
           "totalVideos": null,
-          "totalVideosReason": "Windsor.ai connector requires interactive authentication",
+          "totalVideosReason": "Windsor.ai connector access denied - requires approval",
           "viewsGained7d": null,
-          "viewsGained7dReason": "Windsor.ai connector requires interactive authentication",
+          "viewsGained7dReason": "Windsor.ai connector access denied - requires approval",
           "viewsGained7dPct": null,
-          "viewsGained7dPctReason": "Windsor.ai connector requires interactive authentication",
+          "viewsGained7dPctReason": "Windsor.ai connector access denied - requires approval",
           "estMonthlyEarnings": null,
           "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts, so the API cannot return them",
           "monetized": null,
-          "monetizedReason": "Windsor.ai connector requires interactive authentication",
+          "monetizedReason": "Windsor.ai connector access denied - requires approval",
           "status": {
             "ok": false,
-            "reason": "Windsor.ai connector requires interactive authentication unavailable during scheduled runs"
+            "reason": "Windsor.ai connector requires user approval during scheduled automated run"
           },
           "recentVideos": [],
           "popularVideos": []
@@ -47,22 +47,21 @@
           "handle": "foreclosureauctionmasters",
           "url": "https://www.youtube.com/@foreclosureauctionmasters",
           "subscribers": null,
-          "subscribersReason": "Windsor.ai connector requires interactive authentication",
+          "subscribersReason": "Windsor.ai connector access denied - requires approval",
           "totalViews": null,
-          "totalViewsReason": "Windsor.ai connector requires interactive authentication",
+          "totalViewsReason": "Windsor.ai connector access denied - requires approval",
           "totalVideos": null,
-          "totalVideosReason": "Windsor.ai connector requires interactive authentication",
+          "totalVideosReason": "Windsor.ai connector access denied - requires approval",
           "viewsGained7d": null,
-          "viewsGained7dReason": "Windsor.ai connector requires interactive authentication",
+          "viewsGained7dReason": "Windsor.ai connector access denied - requires approval",
           "viewsGained7dPct": null,
-          "viewsGained7dPctReason": "Windsor.ai connector requires interactive authentication",
+          "viewsGained7dPctReason": "Windsor.ai connector access denied - requires approval",
           "estMonthlyEarnings": null,
-          "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts, so the API cannot return them",
-          "monetized": null,
-          "monetizedReason": "Windsor.ai connector requires interactive authentication",
+          "estMonthlyEarningsReason": "Channel is not monetized — no revenue to report",
+          "monetized": false,
           "status": {
             "ok": false,
-            "reason": "Windsor.ai connector requires interactive authentication unavailable during scheduled runs"
+            "reason": "Windsor.ai connector requires user approval during scheduled automated run"
           },
           "recentVideos": [],
           "popularVideos": []
@@ -72,13 +71,13 @@
     "instagram": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.instagram.com/twoguystakeonrealestate/",
-      "followers": 207930,
+      "followers": 207965,
       "posts": null,
-      "postsReason": "Post count not publicly displayed in accessible DOM elements on profile page",
+      "postsReason": "Instagram dynamically loads post count; unable to reliably extract from page DOM",
       "verified": true,
       "status": {
-        "ok": true,
-        "reason": null
+        "ok": false,
+        "reason": "Post count could not be collected - Instagram metrics load dynamically"
       }
     },
     "tiktok": {
@@ -113,11 +112,13 @@
     "facebook": {
       "handle": "TwoGuysTakeonRealEstate",
       "url": "https://www.facebook.com/TwoGuysTakeonRealEstate",
-      "followers": 222000,
-      "verified": true,
+      "followers": null,
+      "followersReason": "Login wall — follower count not publicly rendered",
+      "verified": null,
+      "verifiedReason": "Login wall — verified status not publicly rendered",
       "status": {
-        "ok": true,
-        "reason": null
+        "ok": false,
+        "reason": "Login wall — public profile stats not accessible"
       }
     }
   },
