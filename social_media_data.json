@@ -1,20 +1,19 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-10-11T03:18:16-04:00",
+  "lastUpdated": "2026-10-12T03:18:06-04:00",
   "runStatus": {
     "ok": false,
     "platformsAttempted": 5,
-    "platformsFailed": 2,
+    "platformsFailed": 1,
     "failures": [
-      "youtube: Windsor.ai connector requires user approval during scheduled run",
-      "facebook: Login wall blocks public profile data access"
+      "youtube: Windsor.ai connector requires authentication - approval not available during unattended scheduled run"
     ]
   },
   "platforms": {
     "youtube": {
       "status": {
         "ok": false,
-        "reason": "Windsor.ai connector requires user approval during scheduled automated run"
+        "reason": "Windsor.ai connector requires authentication - approval not available during unattended scheduled run"
       },
       "channels": [
         {
@@ -37,7 +36,7 @@
           "monetizedReason": "Windsor.ai connector access denied - requires approval",
           "status": {
             "ok": false,
-            "reason": "Windsor.ai connector requires user approval during scheduled automated run"
+            "reason": "Windsor.ai connector requires authentication - approval not available during unattended scheduled run"
           },
           "recentVideos": [],
           "popularVideos": []
@@ -57,11 +56,12 @@
           "viewsGained7dPct": null,
           "viewsGained7dPctReason": "Windsor.ai connector access denied - requires approval",
           "estMonthlyEarnings": null,
-          "estMonthlyEarningsReason": "Channel is not monetized — no revenue to report",
-          "monetized": false,
+          "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts, so the API cannot return them",
+          "monetized": null,
+          "monetizedReason": "Windsor.ai connector access denied - requires approval",
           "status": {
             "ok": false,
-            "reason": "Windsor.ai connector requires user approval during scheduled automated run"
+            "reason": "Windsor.ai connector requires authentication - approval not available during unattended scheduled run"
           },
           "recentVideos": [],
           "popularVideos": []
@@ -71,20 +71,20 @@
     "instagram": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.instagram.com/twoguystakeonrealestate/",
-      "followers": 207965,
+      "followers": 208013,
       "posts": null,
-      "postsReason": "Instagram dynamically loads post count; unable to reliably extract from page DOM",
+      "postsReason": "Post count not visible on public profile without login",
       "verified": true,
       "status": {
-        "ok": false,
-        "reason": "Post count could not be collected - Instagram metrics load dynamically"
+        "ok": true,
+        "reason": null
       }
     },
     "tiktok": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.tiktok.com/@twoguystakeonrealestate",
       "displayName": "Real Estate Investing Mentors",
-      "followers": 891200,
+      "followers": 891100,
       "likes": 7300000,
       "bio": "We created massive wealth in Real Estate AUTOMATE RENTAL CASHFLOW👇",
       "status": {
@@ -98,12 +98,22 @@
       "displayName": "Two Guys Take on Real Estate",
       "followers": 5764,
       "following": 37,
-      "posts": 5031,
+      "posts": 5032,
       "verified": true,
       "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
       "location": "Springfield, MA",
       "joinedDate": "December 2020",
-      "recentPosts": [],
+      "recentPosts": [
+        {
+          "text": "Foreclosure auction Before and After Won for 136k Rehab 70k UA for 360k What do you think?",
+          "date": "2026-02-21",
+          "likes": 98,
+          "retweets": 4,
+          "replies": 29,
+          "views": 16286,
+          "pinned": true
+        }
+      ],
       "status": {
         "ok": true,
         "reason": null
@@ -112,13 +122,11 @@
     "facebook": {
       "handle": "TwoGuysTakeonRealEstate",
       "url": "https://www.facebook.com/TwoGuysTakeonRealEstate",
-      "followers": null,
-      "followersReason": "Login wall — follower count not publicly rendered",
-      "verified": null,
-      "verifiedReason": "Login wall — verified status not publicly rendered",
+      "followers": 222000,
+      "verified": true,
       "status": {
-        "ok": false,
-        "reason": "Login wall — public profile stats not accessible"
+        "ok": true,
+        "reason": null
       }
     }
   },
