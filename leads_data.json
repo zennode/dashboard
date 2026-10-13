@@ -1,32 +1,31 @@
 {
-  "lastUpdated": "2026-10-12T07:48:43-04:00",
+  "lastUpdated": "2026-10-13T07:50:18.793-04:00",
   "kpis": {
-    "newLeads24h": 6,
-    "newLeads30d": 199,
-    "activeProspects": 44,
-    "lostLeads30d": 155,
+    "newLeads24h": 10,
+    "newLeads30d": 205,
+    "activeProspects": 53,
+    "lostLeads30d": 152,
     "totalUnits": 314,
-    "contacted30d": 107,
-    "avgFirstContactHours": 48.92,
-    "medianFirstContactHours": 28.14,
-    "leadsWithNoContactRecorded": 92
+    "contacted30d": 104,
+    "avgFirstContactHours": 48.63,
+    "medianFirstContactHours": 27.35,
+    "leadsWithNoContactRecorded": 101
   },
   "responseTime": {
     "available": true,
     "method": "earliest non-System Call/Email/Note/Text History entry at or after CreateDate",
     "unavailableReason": null,
-    "avgHours": 48.92,
-    "medianHours": 28.14,
+    "avgHours": 48.63,
+    "medianHours": 27.35,
     "fastestHours": 0.49,
     "fastestLeadName": "Juancarlos Rivera",
     "slowestHours": 214.2,
     "slowestLeadName": "Nicholas Blinn",
-    "respondedCount": 107,
-    "unrespondedCount": 92,
-    "totalLeads": 199
+    "respondedCount": 104,
+    "unrespondedCount": 101,
+    "totalLeads": 205
   },
   "volumeTrend": {
-    "2026-09-12": 4,
     "2026-09-13": 8,
     "2026-09-14": 9,
     "2026-09-15": 4,
@@ -56,79 +55,124 @@
     "2026-10-09": 10,
     "2026-10-10": 5,
     "2026-10-11": 6,
-    "2026-10-12": 1
+    "2026-10-12": 10,
+    "2026-10-13": 1
   },
   "statusBreakdown": {
-    "Lost": 155,
-    "Prospect": 44
+    "Lost": 152,
+    "Prospect": 53
   },
   "leadsByProperty": {
-    "YellowBrick Management, Inc": 93,
-    "24-28 Wilcox": 106
+    "24-28 Wilcox": 109,
+    "YellowBrick Management, Inc": 96
   },
   "newLeads24h": [
     {
-      "prospectId": 16358,
-      "displayId": 13743,
-      "name": "mutiyah baker",
+      "prospectId": 16364,
+      "displayId": 13749,
+      "name": "jonathan cardona",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-10-11T09:12:21",
+      "created": "2026-10-12T09:04:54",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     },
     {
-      "prospectId": 16359,
-      "displayId": 13744,
-      "name": "Ashley Ortiz",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-10-11T12:26:55",
-      "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16360,
-      "displayId": 13745,
-      "name": "Yesenia Burgos Cruz",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-10-11T12:35:49",
-      "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16361,
-      "displayId": 13746,
-      "name": "Gillian Moran",
-      "property": "YellowBrick Management, Inc",
-      "source": "Not tracked in RM",
-      "created": "2026-10-11T19:17:21",
-      "status": "Prospect",
-      "contacted": false,
-      "responseHours": null
-    },
-    {
-      "prospectId": 16362,
-      "displayId": 13747,
-      "name": "ashley ortiz",
+      "prospectId": 16366,
+      "displayId": 13751,
+      "name": "Nataliesha Cruz",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-10-11T23:53:07",
+      "created": "2026-10-12T10:39:08",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
     },
     {
-      "prospectId": 16363,
-      "displayId": 13748,
-      "name": "Joselyn Santiago",
+      "prospectId": 16367,
+      "displayId": 13752,
+      "name": "Brianna Molinary",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-10-12T10:42:31",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16368,
+      "displayId": 13753,
+      "name": "Antonia Diaz",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-10-12T12:04:19",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16371,
+      "displayId": 13756,
+      "name": "Lisa Santiago",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-10-12T13:41:12",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16372,
+      "displayId": 13757,
+      "name": "Francesca Rivera",
       "property": "24-28 Wilcox",
       "source": "Not tracked in RM",
-      "created": "2026-10-12T06:49:45",
+      "created": "2026-10-12T14:09:17",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16373,
+      "displayId": 13758,
+      "name": "Kiaraliz Carattini",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-10-12T15:08:29",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16374,
+      "displayId": 13759,
+      "name": "Anibal Padilla",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-10-12T15:30:11",
+      "status": "Prospect",
+      "contacted": true,
+      "responseHours": 1.57
+    },
+    {
+      "prospectId": 16375,
+      "displayId": 13760,
+      "name": "Jasmine Carattini",
+      "property": "YellowBrick Management, Inc",
+      "source": "Not tracked in RM",
+      "created": "2026-10-12T23:48:12",
+      "status": "Prospect",
+      "contacted": false,
+      "responseHours": null
+    },
+    {
+      "prospectId": 16376,
+      "displayId": 13761,
+      "name": "Victor Rivas",
+      "property": "24-28 Wilcox",
+      "source": "Not tracked in RM",
+      "created": "2026-10-13T03:30:15",
       "status": "Prospect",
       "contacted": false,
       "responseHours": null
@@ -144,7 +188,7 @@
       "created": "2026-09-13T00:55:39",
       "createdDate": "2026-09-13T00:55:39",
       "status": "Lost",
-      "waitingHrs": 702.9
+      "waitingHrs": 726.9
     },
     {
       "prospectId": 16127,
@@ -155,7 +199,7 @@
       "created": "2026-09-13T05:21:11",
       "createdDate": "2026-09-13T05:21:11",
       "status": "Lost",
-      "waitingHrs": 698.5
+      "waitingHrs": 722.5
     },
     {
       "prospectId": 16128,
@@ -166,7 +210,7 @@
       "created": "2026-09-13T10:45:01",
       "createdDate": "2026-09-13T10:45:01",
       "status": "Lost",
-      "waitingHrs": 693.1
+      "waitingHrs": 717.1
     },
     {
       "prospectId": 16137,
@@ -177,7 +221,7 @@
       "created": "2026-09-14T13:05:37",
       "createdDate": "2026-09-14T13:05:37",
       "status": "Lost",
-      "waitingHrs": 666.7
+      "waitingHrs": 690.7
     },
     {
       "prospectId": 16139,
@@ -188,7 +232,7 @@
       "created": "2026-09-14T14:29:33",
       "createdDate": "2026-09-14T14:29:33",
       "status": "Lost",
-      "waitingHrs": 665.3
+      "waitingHrs": 689.3
     },
     {
       "prospectId": 16143,
@@ -199,7 +243,7 @@
       "created": "2026-09-14T16:45:07",
       "createdDate": "2026-09-14T16:45:07",
       "status": "Lost",
-      "waitingHrs": 663.1
+      "waitingHrs": 687.1
     },
     {
       "prospectId": 16148,
@@ -210,7 +254,7 @@
       "created": "2026-09-15T14:41:42",
       "createdDate": "2026-09-15T14:41:42",
       "status": "Lost",
-      "waitingHrs": 641.1
+      "waitingHrs": 665.1
     },
     {
       "prospectId": 16149,
@@ -221,7 +265,7 @@
       "created": "2026-09-15T15:51:51",
       "createdDate": "2026-09-15T15:51:51",
       "status": "Lost",
-      "waitingHrs": 639.9
+      "waitingHrs": 664
     },
     {
       "prospectId": 16151,
@@ -232,7 +276,7 @@
       "created": "2026-09-16T00:32:58",
       "createdDate": "2026-09-16T00:32:58",
       "status": "Lost",
-      "waitingHrs": 631.3
+      "waitingHrs": 655.3
     },
     {
       "prospectId": 16152,
@@ -243,7 +287,7 @@
       "created": "2026-09-16T01:57:18",
       "createdDate": "2026-09-16T01:57:18",
       "status": "Lost",
-      "waitingHrs": 629.9
+      "waitingHrs": 653.9
     },
     {
       "prospectId": 16156,
@@ -254,7 +298,7 @@
       "created": "2026-09-16T18:40:55",
       "createdDate": "2026-09-16T18:40:55",
       "status": "Lost",
-      "waitingHrs": 613.1
+      "waitingHrs": 637.2
     },
     {
       "prospectId": 16157,
@@ -265,7 +309,7 @@
       "created": "2026-09-16T20:54:25",
       "createdDate": "2026-09-16T20:54:25",
       "status": "Lost",
-      "waitingHrs": 610.9
+      "waitingHrs": 634.9
     },
     {
       "prospectId": 16158,
@@ -276,7 +320,7 @@
       "created": "2026-09-16T21:11:59",
       "createdDate": "2026-09-16T21:11:59",
       "status": "Lost",
-      "waitingHrs": 610.6
+      "waitingHrs": 634.6
     },
     {
       "prospectId": 16159,
@@ -287,7 +331,7 @@
       "created": "2026-09-16T21:57:17",
       "createdDate": "2026-09-16T21:57:17",
       "status": "Lost",
-      "waitingHrs": 609.9
+      "waitingHrs": 633.9
     },
     {
       "prospectId": 16161,
@@ -298,7 +342,7 @@
       "created": "2026-09-17T08:30:42",
       "createdDate": "2026-09-17T08:30:42",
       "status": "Lost",
-      "waitingHrs": 599.3
+      "waitingHrs": 623.3
     },
     {
       "prospectId": 16163,
@@ -309,7 +353,7 @@
       "created": "2026-09-17T10:08:57",
       "createdDate": "2026-09-17T10:08:57",
       "status": "Lost",
-      "waitingHrs": 597.7
+      "waitingHrs": 621.7
     },
     {
       "prospectId": 16167,
@@ -320,7 +364,7 @@
       "created": "2026-09-17T15:05:12",
       "createdDate": "2026-09-17T15:05:12",
       "status": "Lost",
-      "waitingHrs": 592.7
+      "waitingHrs": 616.8
     },
     {
       "prospectId": 16168,
@@ -331,7 +375,7 @@
       "created": "2026-09-17T15:37:25",
       "createdDate": "2026-09-17T15:37:25",
       "status": "Lost",
-      "waitingHrs": 592.2
+      "waitingHrs": 616.2
     },
     {
       "prospectId": 16169,
@@ -342,7 +386,7 @@
       "created": "2026-09-17T17:31:18",
       "createdDate": "2026-09-17T17:31:18",
       "status": "Lost",
-      "waitingHrs": 590.3
+      "waitingHrs": 614.3
     },
     {
       "prospectId": 16172,
@@ -353,7 +397,7 @@
       "created": "2026-09-18T06:30:29",
       "createdDate": "2026-09-18T06:30:29",
       "status": "Lost",
-      "waitingHrs": 577.3
+      "waitingHrs": 601.3
     },
     {
       "prospectId": 16175,
@@ -364,7 +408,7 @@
       "created": "2026-09-18T16:09:45",
       "createdDate": "2026-09-18T16:09:45",
       "status": "Lost",
-      "waitingHrs": 567.6
+      "waitingHrs": 591.7
     },
     {
       "prospectId": 16181,
@@ -375,7 +419,7 @@
       "created": "2026-09-21T14:50:26",
       "createdDate": "2026-09-21T14:50:26",
       "status": "Lost",
-      "waitingHrs": 497
+      "waitingHrs": 521
     },
     {
       "prospectId": 16182,
@@ -386,7 +430,7 @@
       "created": "2026-09-21T18:31:57",
       "createdDate": "2026-09-21T18:31:57",
       "status": "Lost",
-      "waitingHrs": 493.3
+      "waitingHrs": 517.3
     },
     {
       "prospectId": 16184,
@@ -397,7 +441,7 @@
       "created": "2026-09-21T19:49:43",
       "createdDate": "2026-09-21T19:49:43",
       "status": "Lost",
-      "waitingHrs": 492
+      "waitingHrs": 516
     },
     {
       "prospectId": 16185,
@@ -408,7 +452,7 @@
       "created": "2026-09-21T22:35:45",
       "createdDate": "2026-09-21T22:35:45",
       "status": "Lost",
-      "waitingHrs": 489.2
+      "waitingHrs": 513.2
     }
   ],
   "vacancy": {
@@ -450,8 +494,8 @@
     }
   },
   "notes": {
-    "leadSourceAvailability": "RM has no lead-source field (MarketingSource/ProspectSource/Source embeds 404; WebMessage empty), so source is a fixed label.",
+    "leadSourceAvailability": "RM has no lead-source field on this instance (MarketingSource/ProspectSource/Source embeds 404); source is a fixed label.",
     "urgentQueueCapped": true,
-    "urgentQueueTrueTotal": 86
+    "urgentQueueTrueTotal": 92
   }
 }
