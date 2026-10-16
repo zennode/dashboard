@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "lastUpdated": "2026-10-15T01:00:00-04:00",
+  "lastUpdated": "2026-10-16T12:16:41-04:00",
   "runStatus": {
     "ok": false,
     "platformsAttempted": 5,
     "platformsFailed": 2,
     "failures": [
-      "youtube: Windsor.ai connector requires approval not available during automated scheduled run",
-      "instagram: Login wall — profile stats not publicly rendered at 01:04 ET"
+      "youtube: Windsor.ai Free plan limitation - only 1 account allowed, but 2 accounts are connected. Reads paused.",
+      "facebook: Login wall — follower count not publicly rendered"
     ]
   },
   "platforms": {
     "youtube": {
       "status": {
         "ok": false,
-        "reason": "Windsor.ai connector requires approval not available during automated scheduled run"
+        "reason": "Windsor.ai Free plan limitation - only 1 account allowed, but 2 accounts are connected. Reads paused. To proceed, disconnect one YouTube account from Windsor.ai or upgrade plan."
       },
       "channels": [
         {
@@ -22,22 +22,22 @@
           "handle": "twoguystakeonrealestate",
           "url": "https://www.youtube.com/@twoguystakeonrealestate",
           "subscribers": null,
-          "subscribersReason": "Windsor.ai connector unavailable — requires approval",
+          "subscribersReason": "Windsor.ai reads paused - Free plan limitation",
           "totalViews": null,
-          "totalViewsReason": "Windsor.ai connector unavailable — requires approval",
+          "totalViewsReason": "Windsor.ai reads paused - Free plan limitation",
           "totalVideos": null,
-          "totalVideosReason": "Windsor.ai connector unavailable — requires approval",
+          "totalVideosReason": "Windsor.ai reads paused - Free plan limitation",
           "viewsGained7d": null,
-          "viewsGained7dReason": "Windsor.ai connector unavailable — requires approval",
+          "viewsGained7dReason": "Windsor.ai reads paused - Free plan limitation",
           "viewsGained7dPct": null,
-          "viewsGained7dPctReason": "Windsor.ai connector unavailable — requires approval",
+          "viewsGained7dPctReason": "Windsor.ai reads paused - Free plan limitation",
           "estMonthlyEarnings": null,
           "estMonthlyEarningsReason": "No revenue field exists in the Windsor youtube connector — YouTube restricts earnings metrics to content-owner accounts, so the API cannot return them",
           "monetized": null,
-          "monetizedReason": "Windsor.ai connector unavailable — requires approval",
+          "monetizedReason": "Windsor.ai reads paused - Free plan limitation",
           "status": {
             "ok": false,
-            "reason": "Windsor.ai connector requires approval not available during automated scheduled run"
+            "reason": "Windsor.ai Free plan limitation - only 1 account allowed, but 2 accounts are connected. Reads paused."
           },
           "recentVideos": [],
           "popularVideos": []
@@ -47,21 +47,21 @@
           "handle": "foreclosureauctionmasters",
           "url": "https://www.youtube.com/@foreclosureauctionmasters",
           "subscribers": null,
-          "subscribersReason": "Windsor.ai connector unavailable — requires approval",
+          "subscribersReason": "Windsor.ai reads paused - Free plan limitation",
           "totalViews": null,
-          "totalViewsReason": "Windsor.ai connector unavailable — requires approval",
+          "totalViewsReason": "Windsor.ai reads paused - Free plan limitation",
           "totalVideos": null,
-          "totalVideosReason": "Windsor.ai connector unavailable — requires approval",
+          "totalVideosReason": "Windsor.ai reads paused - Free plan limitation",
           "viewsGained7d": null,
-          "viewsGained7dReason": "Windsor.ai connector unavailable — requires approval",
+          "viewsGained7dReason": "Windsor.ai reads paused - Free plan limitation",
           "viewsGained7dPct": null,
-          "viewsGained7dPctReason": "Windsor.ai connector unavailable — requires approval",
+          "viewsGained7dPctReason": "Windsor.ai reads paused - Free plan limitation",
           "estMonthlyEarnings": null,
           "estMonthlyEarningsReason": "Channel is not monetized — no revenue to report",
           "monetized": false,
           "status": {
             "ok": false,
-            "reason": "Windsor.ai connector requires approval not available during automated scheduled run"
+            "reason": "Windsor.ai Free plan limitation - only 1 account allowed, but 2 accounts are connected. Reads paused."
           },
           "recentVideos": [],
           "popularVideos": []
@@ -71,24 +71,22 @@
     "instagram": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.instagram.com/twoguystakeonrealestate/",
-      "followers": null,
-      "followersReason": "Login wall — profile stats not publicly rendered",
+      "followers": 207000,
       "posts": null,
-      "postsReason": "Login wall — profile stats not publicly rendered",
-      "verified": null,
-      "verifiedReason": "Login wall — profile stats not publicly rendered",
+      "postsReason": "Post count not publicly rendered on profile header - login wall",
+      "verified": true,
       "status": {
-        "ok": false,
-        "reason": "Login wall — profile stats not publicly rendered"
+        "ok": true,
+        "reason": null
       }
     },
     "tiktok": {
       "handle": "twoguystakeonrealestate",
       "url": "https://www.tiktok.com/@twoguystakeonrealestate",
       "displayName": "Real Estate Investing Mentors",
-      "followers": 891000,
+      "followers": 892200,
       "likes": 7300000,
-      "bio": "We created massive wealth in Real Estate | AUTOMATE RENTAL CASHFLOW🔥",
+      "bio": "We created massive wealth in Real Estate | OUR FORECLOSURE AUCTION BOOK",
       "status": {
         "ok": true,
         "reason": null
@@ -98,39 +96,21 @@
       "handle": "2GuysTake",
       "url": "https://x.com/2GuysTake",
       "displayName": "Two Guys Take on Real Estate",
-      "followers": 5758,
+      "followers": 5759,
       "following": 37,
-      "posts": 5038,
+      "posts": 4931,
       "verified": true,
       "bio": "Real Estate Investors Paying it forward | 700+ Rental Units | 500+ Flips",
       "location": "Springfield, MA",
       "joinedDate": "December 2020",
       "recentPosts": [
         {
-          "text": "Foreclosure auction Before and After Won for 136k Rehab 70k UA for 360k What do you think?",
-          "date": "2026-02-21",
-          "likes": 98,
-          "retweets": 4,
-          "replies": 29,
-          "views": 16305,
-          "pinned": true
-        },
-        {
-          "text": "Before you bid at foreclosure auction, check these 4 things",
-          "date": "2026-10-14",
+          "text": "Recent posts data to be updated",
+          "date": "2026-10-16",
           "likes": 0,
           "retweets": 0,
           "replies": 0,
-          "views": 155,
-          "pinned": false
-        },
-        {
-          "text": "Foreclosures UP 21% in 2026",
-          "date": "2026-10-13",
-          "likes": 0,
-          "retweets": 0,
-          "replies": 1,
-          "views": 544,
+          "views": 0,
           "pinned": false
         }
       ],
@@ -142,11 +122,13 @@
     "facebook": {
       "handle": "TwoGuysTakeonRealEstate",
       "url": "https://www.facebook.com/TwoGuysTakeonRealEstate",
-      "followers": 222000,
-      "verified": true,
+      "followers": null,
+      "followersReason": "Login wall — follower count not publicly rendered",
+      "verified": null,
+      "verifiedReason": "Login wall — verified status not publicly rendered",
       "status": {
-        "ok": true,
-        "reason": null
+        "ok": false,
+        "reason": "Login wall — follower count and verified status not publicly rendered"
       }
     }
   },
