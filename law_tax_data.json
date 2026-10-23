@@ -1,59 +1,41 @@
 {
-  "lastUpdated": "2026-10-09T15:45:40.592-04:00",
+  "lastUpdated": "2026-10-23T12:00:00-04:00",
   "updates": [
     {
-      "title": "OBBBA Makes 100% Bonus Depreciation Permanent for Commercial Real Estate",
-      "date": "2026-10-09",
+      "title": "OBBBA Implementation Guidance Released",
+      "date": "2026-10-23",
       "jurisdiction": "Federal",
       "category": "Tax",
       "impact": "High",
-      "summary": "The One Big Beautiful Bill Act permanently restored 100% bonus depreciation for qualifying commercial real estate components acquired after January 19, 2025. Depreciation recapture applies upon sale under Section 1245.",
-      "action": "Review component depreciation methods; consider cost segregation studies for properties acquired in 2025-2026"
+      "summary": "IRS actively clarifying OBBBA (One Big Beautiful Bill Act) provisions affecting businesses. Multiple CPE webinars and guidance documents being issued. Key areas: business deductions, opportunity zones, and compliance.",
+      "action": "Review OBBBA changes affecting your business structure, deductions, and reporting; consult with CPA on implementation timeline"
     },
     {
-      "title": "Section 179 Expensing Limit Increased to $2.56 Million for 2026",
-      "date": "2026-10-09",
+      "title": "QOZ Transition Guidance (IRS Notice 2026-40)",
+      "date": "2026-10-23",
       "jurisdiction": "Federal",
       "category": "Tax",
       "impact": "High",
-      "summary": "Section 179 deduction limit increased from $1.25M to $2.56M for 2026, with phase-out beginning at $4.09M in total purchases. Pairs with 100% bonus depreciation for full year-one expensing.",
-      "action": "Maximize equipment purchases in 2026; coordinate with 100% bonus depreciation for maximum tax efficiency"
+      "summary": "IRS issued Notice 2026-40 providing transitional guidance for Qualified Opportunity Zone investments under new OBBBA rules. Changes affect real estate investment timing and structure.",
+      "action": "If considering QOZ investments, review new guidance on compliance and timeline requirements; assess impact on planned real estate deals"
     },
     {
-      "title": "QOZ Critical Deadline: December 31, 2026 for Old-Regime Investments",
-      "date": "2026-10-09",
-      "jurisdiction": "Federal",
-      "category": "Tax",
-      "impact": "High",
-      "summary": "Investors who deferred gains in Opportunity Zones must recognize deferred gain by December 31, 2026, unless rolling into post-2026 investments. New regime begins January 1, 2027 with rolling five-year deferrals and 10% basis step-up.",
-      "action": "URGENT: Audit all QOZ positions immediately; determine extension vs. new rollover eligibility before year-end deadline"
-    },
-    {
-      "title": "Massachusetts Surtax Threshold Increased to $1,107,750 for 2026",
-      "date": "2026-10-09",
-      "jurisdiction": "MA State",
-      "category": "Tax",
-      "impact": "Medium",
-      "summary": "The millionaire's surtax threshold rose to $1,107,750 from $1,083,150. The 4% surtax applies to income above this level, creating a combined 9% top rate (5% base + 4% surtax).",
-      "action": "Review tax planning strategies for owners with income above $1.1M; evaluate income deferral and entity structure optimization"
-    },
-    {
-      "title": "Massachusetts Commercial Conversion Tax Credit: $15.3M Awarded for 856 Homes",
-      "date": "2026-10-09",
-      "jurisdiction": "MA State",
-      "category": "Tax Credit",
-      "impact": "High",
-      "summary": "Governor Healey announced $15.3M in Commercial Conversion Tax Credit awards for the second round of the CCTCI, supporting 856 new homes across Boston, Dedham, Springfield, Westford, and Worcester.",
-      "action": "Monitor EOHLC for next funding round; evaluate vacant/underutilized commercial properties for conversion eligibility"
-    },
-    {
-      "title": "Hard Money Lending: Massachusetts Rates Stable, No 2026 Changes",
-      "date": "2026-10-09",
+      "title": "MA Division of Banks Q2 2026 Enforcement",
+      "date": "2026-10-23",
       "jurisdiction": "MA State",
       "category": "Regulatory",
-      "impact": "Low",
-      "summary": "Massachusetts allows interest rates up to 20% with Attorney General notice; no new usury law changes in 2026. Default legal rate remains 6% unless parties contract higher in writing.",
-      "action": "Continue existing notification protocols to AG; no operational changes required"
+      "impact": "Medium",
+      "summary": "Division of Banks released Q2 2026 enforcement bulletin. Updates to small loans, truth-in-lending, and mortgage licensing regulations. Review for hard money lending compliance.",
+      "action": "For hard money lending business: review enforcement bulletin for compliance gaps; audit recent lending documentation against updated regulations"
+    },
+    {
+      "title": "Section 179 Deduction Limit Confirmed for 2026",
+      "date": "2026-10-23",
+      "jurisdiction": "Federal",
+      "category": "Tax",
+      "impact": "Medium",
+      "summary": "IRS confirmed Section 179 equipment deduction limit remains at $2.5 million for tax year 2026. Applies to business equipment, vehicles, and property used in real estate and carwash operations.",
+      "action": "Plan equipment purchases for businesses before year-end; confirm Section 179 eligibility for carwash equipment and real estate improvements"
     }
   ]
 }
