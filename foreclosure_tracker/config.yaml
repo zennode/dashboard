@@ -1,8 +1,8 @@
 # Foreclosure auction tracker settings.
 
-# Google Sheet to update ("Weekly Auction Sheets"). The tracker only writes to its own
-# tabs (names below) and never touches your weekly tabs or the auction-links tab.
-spreadsheet_id: 1Efn06grrDu0qHZr_mpdFIujbMCmgC6GDBwJeRL_l7kM
+# Google Sheet to update ("MA Weekly Auctions"). The tracker only writes to its own
+# tabs (names below) and never touches any other tab in the sheet.
+spreadsheet_id: 1jURtqtgCVPJKUb1nPgAya-gLPw86Tzw9OeCBxhlvZhk
 tabs:
   tracker: "Auto - Auction Tracker"
   changes: "Auto - Status Changes"
