@@ -1,0 +1,315 @@
+"""Scrape auctioneer websites for foreclosure auctions in our towns.
+
+A few big auctioneers publish their schedule as JSON or a clean table and get a
+dedicated parser. Everything else goes through `generic`, which finds each listing's
+block on the page (the element that holds exactly one street address) and pulls the
+date, time, deposit and status out of that block's text.
+"""
+
+import json
+import logging
+import re
+from datetime import date
+from urllib.parse import urljoin
+
+from bs4 import BeautifulSoup
+
+import parse as P
+from towns import resolve_town
+
+log = logging.getLogger(__name__)
+
+NEW_DATE_RE = re.compile(r"(postponed|continued|rescheduled|adjourned|moved)\s*(to|until|till)\b|new (auction )?date", re.I)
+OLD_DATE_RE = re.compile(r"previously scheduled( for)?|originally scheduled( for)?|was scheduled", re.I)
+
+
+def build_record(company, url, address, town, county, text, today, detail_url=""):
+    """Turn one listing's text block into a record."""
+    text = P.clean(text)
+    dates = P.all_dates(text, today)
+    status = P.parse_status(text)
+    current, original = None, None
+    new_m, old_m = NEW_DATE_RE.search(text), OLD_DATE_RE.search(text)
+    if new_m:
+        after = [d for pos, d in dates if pos > new_m.start()]
+        before = [d for pos, d in dates if pos < new_m.start()]
+        current = after[0] if after else None
+        original = before[0] if before else None
+        status = status if status == "Cancelled" else "Postponed"
+    elif old_m:
+        after = [d for pos, d in dates if pos > old_m.start()]
+        before = [d for pos, d in dates if pos < old_m.start()]
+        original = after[0] if after else None
+        current = before[0] if before else None
+        if status != "Cancelled":
+            status = "Postponed"
+    distinct = sorted({d for _, d in dates})
+    if not current and distinct:
+        current = distinct[0]
+        if len(distinct) > 1 and status == "Postponed":
+            original, current = distinct[0], distinct[-1]
+    time_text = text
+    if current:
+        for pos, d in dates:
+            if d == current:
+                time_text = text[pos:pos + 60]
+                break
+    return {
+        "address": address,
+        "town": town,
+        "county": county,
+        "auction_date": current.isoformat() if current else "",
+        "original_date": original.isoformat() if original and original != current else "",
+        "auction_time": P.parse_time(time_text) or P.parse_time(text),
+        "status": status or "Scheduled",
+        "deposit": P.parse_deposit(text) or _bare_deposit(text),
+        "auction_company": company,
+        "book_page": P.parse_book_page(text),
+        "specs": P.parse_specs(text),
+        "sewer": P.parse_sewer(text),
+        "listing_text": text[:600],
+        "source": company,
+        "source_url": url,
+        "detail_url": detail_url,
+    }
+
+
+def _bare_deposit(text):
+    """Some tables have a deposit column with no 'deposit' label: take a $5,000-$100,000 figure."""
+    for m in P.MONEY_RE.finditer(text):
+        v = float(m.group(1).replace(",", ""))
+        if 1000 <= v <= 100000 and v % 500 == 0:
+            return P.fmt_money(v)
+    return ""
+
+
+# ---------------------------------------------------------------- dedicated parsers
+
+def commonwealth(http, site, today):
+    """Commonwealth Auctions (Harmon Law's auctioneer): JSON behind a DataTable."""
+    base = "https://www.commonwealthauctions.com/"
+    r = http.post(base + "Components/Auction/Assets/AJAX/ListAuctions.php?Category=1",
+                  headers={"X-Requested-With": "XMLHttpRequest", "Referer": base + "ma-auctions"})
+    rows = r.json().get("data", [])
+    out = []
+    for row in rows:
+        if row.get("State") != "MA":
+            continue
+        # "158 Applewood Drive| Doverbrook Estates Condominium Chicopee": street before the
+        # bar, town at the very end.
+        raw = row.get("Location") or ""
+        town, county, street = _split_trailing_town(P.clean(raw.replace("|", " ")))
+        if not town:
+            continue
+        if "|" in raw:
+            street = P.clean(raw.split("|")[0])
+        text = f"{row.get('Date', '')} {row.get('Status', '')} deposit {row.get('Deposit', '')}"
+        rec = build_record(site["name"], site["url"], street, town, county, text, today)
+        rec["status"] = _norm_status(row.get("Status")) or rec["status"]
+        href = re.search(r"href='([^']+)'", row.get("Links", ""))
+        rec["detail_url"] = urljoin(base, href.group(1)) if href else ""
+        out.append(rec)
+    return out
+
+
+def baystate(http, site, today):
+    """Bay State Auction: listings embedded as a JS array (`var Auctions = [...]`)."""
+    r = http.get("https://www.baystateauction.com/auctions/state/ma")
+    m = re.search(r"var Auctions\s*=\s*(\[.*?\])\s*;?\s*</script>", r.text, re.S)
+    if not m:
+        raise ValueError("Auctions array not found")
+    # The array is JS, not strict JSON (trailing commas); tidy it up.
+    raw = re.sub(r",\s*([\]}])", r"\1", m.group(1))
+    items = json.loads(raw)
+    out = []
+    for it in items:
+        if (it.get("state") or "").strip() != "MA" or it.get("past"):
+            continue
+        town, county = resolve_town(it.get("city"))
+        if not town:
+            continue
+        date_html = BeautifulSoup(it.get("date", ""), "lxml").get_text(" ")
+        text = f"{date_html} | {it.get('text', '')} | deposit {it.get('deposit', '')}"
+        rec = build_record(site["name"], site["url"], P.clean(it.get("address")), town, county, text, today,
+                           detail_url=f"https://www.baystateauction.com/auctions/{it.get('id')}")
+        rec["deposit"] = P.fmt_money(P.parse_money(it.get("deposit"))) or rec["deposit"]
+        out.append(rec)
+    return out
+
+
+def towne(http, site, today):
+    """Towne Auction: one HTML table with a status and a county column."""
+    r = http.get("https://currentauctions.towneauction.com")
+    soup = BeautifulSoup(r.text, "lxml")
+    out = []
+    for tr in soup.find_all("tr"):
+        cells = [P.clean(td.get_text(" ")) for td in tr.find_all("td")]
+        if len(cells) < 8 or cells[5] != "MA":
+            continue
+        # Auction Date, Time, Status, Address, City, State, Zip, County, Page/Liber, Deposit, Info
+        town, county = resolve_town(cells[4])
+        if not town:
+            continue
+        text = " | ".join(cells)
+        rec = build_record(site["name"], site["url"], cells[3], town, county, text, today)
+        rec["status"] = _norm_status(cells[2]) or rec["status"]
+        rec["auction_time"] = P.parse_time(cells[1]) or rec["auction_time"]
+        d = P.parse_date(cells[0], today)
+        rec["auction_date"] = d.isoformat() if d else rec["auction_date"]
+        if len(cells) > 9:
+            rec["deposit"] = P.fmt_money(P.parse_money(cells[9])) or rec["deposit"]
+        out.append(rec)
+    return out
+
+
+WEEKDAY_RE = re.compile(r"\b(MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)\b")
+PLEASE_SEE_RE = re.compile(r"please see", re.I)
+
+
+def posnik(http, site, today):
+    """Aaron Posnik real-estate calendar: 'DAY | DATE | [Please See | NEW DATE] | TOWN, MA |
+    description | street address | [STATUS]', one segment per weekday heading."""
+    r = http.get(site["url"])
+    soup = BeautifulSoup(r.text, "lxml")
+    for t in soup(["script", "style"]):
+        t.decompose()
+    text = soup.get_text(" | ", strip=True)
+    starts = [m.start() for m in WEEKDAY_RE.finditer(text)] + [len(text)]
+    out = []
+    for a, b in zip(starts, starts[1:]):
+        seg = text[a:b]
+        tm = re.search(r"\b(" + "|".join(re.escape(x) for x in P.all_place_names()) + r")\s*,\s*MA\b", seg, re.I)
+        am = P.ADDRESS_RE.search(seg[tm.end():]) if tm else None
+        if not tm or not am:
+            continue
+        town, county = resolve_town(tm.group(1))
+        if not town:
+            continue
+        rec = build_record(site["name"], site["url"], P.clean(am.group(1)), town, county, seg, today)
+        dates = [d for _, d in P.all_dates(seg, today)]
+        if PLEASE_SEE_RE.search(seg) and len(dates) > 1:
+            rec["original_date"], rec["auction_date"] = dates[0].isoformat(), dates[1].isoformat()
+            if rec["status"] != "Cancelled":
+                rec["status"] = "Postponed"
+        out.append(rec)
+    return out
+
+
+def _split_trailing_town(loc):
+    """'62 Huntington Avenue West Springfield' -> ('West Springfield', 'Hampden', '62 Huntington Avenue')."""
+    words = loc.split()
+    for n in (3, 2, 1):
+        if len(words) > n:
+            town, county = resolve_town(" ".join(words[-n:]))
+            if town:
+                return town, county, " ".join(words[:-n]).rstrip(",")
+    return None, None, loc
+
+
+def _norm_status(s):
+    s = (s or "").lower()
+    if "cancel" in s:
+        return "Cancelled"
+    if "postpon" in s or "continu" in s:
+        return "Postponed"
+    if "sold" in s:
+        return "Sold"
+    if any(k in s for k in ("active", "on_time", "on time", "schedule")):
+        return "Scheduled"
+    return ""
+
+
+# ---------------------------------------------------------------- generic parser
+
+def _addr_keys(text):
+    return {P.address_key(m.group(1), "") for m in P.ADDRESS_RE.finditer(text)}
+
+
+def generic(http, site, today):
+    r = http.get(site["url"])
+    soup = BeautifulSoup(r.text, "lxml")
+    for t in soup(["script", "style", "noscript", "nav"]):
+        t.decompose()
+    base_url = r.url
+
+    page_text = soup.get_text(" | ", strip=True)
+    out, seen = [], set()
+    candidates = soup.find_all(["tr", "li", "article", "div", "section", "p", "td", "dd", "table"])
+    counts = {}
+    for el in candidates:
+        counts[id(el)] = len(_addr_keys(el.get_text(" | ", strip=True)))
+
+    # A listing block: holds exactly one distinct address, and its parent holds more.
+    for el in candidates:
+        if counts.get(id(el)) != 1:
+            continue
+        parent = el.find_parent(["tr", "li", "article", "div", "section", "p", "td", "dd", "table", "tbody", "ul", "body"])
+        parent_count = counts.get(id(parent)) if parent is not None else None
+        if parent_count is None and parent is not None:
+            parent_count = len(_addr_keys(parent.get_text(" | ", strip=True)))
+        if parent is not None and parent_count == 1:
+            continue  # a bigger block still holds just this listing; use that one instead
+        text = el.get_text(" | ", strip=True)
+        for start, end, addr, town, county in P.find_addresses(text):
+            key = P.address_key(addr, town)
+            if key in seen:
+                continue
+            seen.add(key)
+            link = el.find("a", href=True)
+            detail = urljoin(base_url, link["href"]) if link else ""
+            rec = build_record(site["name"], site["url"], addr, town, county, text, today, detail)
+            if not rec["auction_date"]:
+                rec = _from_page_text(page_text, addr, town, county, site, today, detail) or rec
+            out.append(rec)
+
+    # Leaf text with several listings run together (e.g. one <p> per page): split on addresses.
+    for el in candidates:
+        if counts.get(id(el), 0) < 2:
+            continue
+        if any(counts.get(id(c), 0) >= 1 for c in el.find_all(["tr", "li", "article", "div", "section", "p", "td", "dd", "table"])):
+            continue
+        text = el.get_text(" | ", strip=True)
+        hits = P.find_addresses(text)
+        all_starts = sorted(m.start() for m in P.ADDRESS_RE.finditer(text))
+        for start, end, addr, town, county in hits:
+            key = P.address_key(addr, town)
+            if key in seen:
+                continue
+            seen.add(key)
+            nxt = next((s for s in all_starts if s > start), len(text))
+            rec = build_record(site["name"], site["url"], addr, town, county, text[start:nxt], today)
+            if not rec["auction_date"]:
+                rec = _from_page_text(page_text, addr, town, county, site, today, "") or rec
+            out.append(rec)
+    return out
+
+
+def _from_page_text(page_text, addr, town, county, site, today, detail):
+    """For flat layouts (address and date in sibling elements): read from this address
+    to the next one, or back to the previous one when the date comes first."""
+    pos = page_text.find(addr)
+    if pos < 0:
+        return None
+    starts = sorted(m.start() for m in P.ADDRESS_RE.finditer(page_text))
+    nxt = next((x for x in starts if x > pos), len(page_text))
+    rec = build_record(site["name"], site["url"], addr, town, county, page_text[pos:nxt][:1200], today, detail)
+    if rec["auction_date"]:
+        return rec
+    # Date before the address: start from the closest date in the 300 characters before it.
+    window_start = max(0, pos - 300)
+    before = P.all_dates(page_text[window_start:pos], today)
+    if before:
+        seg = page_text[window_start + before[-1][0]: nxt][:1200]
+        rec = build_record(site["name"], site["url"], addr, town, county, seg, today, detail)
+        if rec["auction_date"]:
+            return rec
+    return None
+
+
+PARSERS = {"commonwealth": commonwealth, "baystate": baystate, "towne": towne, "posnik": posnik}
+
+
+def scrape_site(http, site, today=None):
+    today = today or date.today()
+    fn = PARSERS.get(site.get("parser", "generic"), generic)
+    return fn(http, site, today)

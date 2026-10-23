@@ -1,0 +1,76 @@
+# Foreclosure auction tracker settings.
+
+# Google Sheet to update ("Weekly Auction Sheets"). The tracker only writes to its own
+# tabs (names below) and never touches your weekly tabs or the auction-links tab.
+spreadsheet_id: 1Efn06grrDu0qHZr_mpdFIujbMCmgC6GDBwJeRL_l7kM
+tabs:
+  tracker: "Auto - Auction Tracker"
+  changes: "Auto - Status Changes"
+  call_list: "Auto - Owner Call List"
+  sources: "Auto - Source Health"
+
+counties: [Berkshire, Hampden, Hampshire, Franklin, Worcester]
+
+# Leave empty to track every town in the counties above. To narrow it down, list towns:
+#   towns: [Springfield, Chicopee, Holyoke, Westfield, Ware, Palmer]
+towns: []
+
+# How far ahead/behind to keep auctions on the tracker tab.
+keep_days_past: 14
+public_notice_lookback_days: 45
+
+# Small towns with little or no municipal sewer. Properties here show "Likely SEPTIC -
+# verify" unless the listing says otherwise. Everywhere else shows the listing's own
+# wording, or "Verify w/ BOH". Edit this list as you confirm towns with each Board of Health.
+likely_septic_towns: [
+  Alford, Becket, Florida, Hancock, Monterey, Mount Washington, New Ashford,
+  New Marlborough, Otis, Peru, Richmond, Sandisfield, Savoy, Tyringham, Washington,
+  Windsor, Ashfield, Conway, Hawley, Heath,
+  Leverett, Leyden, Monroe, New Salem, Rowe, Shutesbury, Warwick, Wendell, Whately,
+  Blandford, Brimfield, Granville, Hampden, Holland, Montgomery, Tolland, Wales,
+  Chesterfield, Cummington, Goshen, Middlefield, Pelham, Plainfield, Westhampton,
+  Worthington, Berlin, Bolton, Boylston, Hubbardston, Mendon, New Braintree,
+  Oakham, Petersham, Phillipston, Princeton, Royalston, 
+]
+
+# Auctioneer websites (from the "MA - Auction Site Links" tab). `parser` picks a
+# dedicated scraper; everything else uses the generic one.
+auction_sites:
+  - {name: Commonwealth, url: "https://www.commonwealthauctions.com/ma-auctions", parser: commonwealth}
+  - {name: Baystate, url: "https://www.baystateauction.com/auctions/state/ma", parser: baystate}
+  - {name: Towne, url: "https://currentauctions.towneauction.com", parser: towne}
+  - {name: ABC Auctions, url: "https://www.abcauctionscorp.com/current-auctions/"}
+  - {name: Auctions RI, url: "http://auctionsri.com/scripts/auctions.asp?category=R"}
+  - {name: Harkins, url: "https://www.harkinsrealestate.com/auction-schedule/"}
+  - {name: Posnik, url: "https://posnik.com/cals/_recal.htm", parser: posnik}
+  - {name: Sullivan, url: "https://sullivan-auctioneers.com/massachusetts/"}
+  - {name: Pesco, url: "https://www.pesco.com/real-estate-auction-calendar/"}
+  - {name: Jump, url: "https://jumppcompany.com/"}
+  - {name: JJ Manning, url: "https://jjmanning.com/"}
+  - {name: Landmark, url: "http://www.landmarkauction.biz/"}
+  - {name: Traverse, url: "https://traversecompanies.com/"}
+  - {name: Re-Auction, url: "https://www.re-auctions.com/Auction-Schedule/Printable-Auction-Schedule"}
+  - {name: Hudson, url: "https://www.hudsonmarshall.com/", note: "Loads listings with JavaScript - check by hand"}
+  - {name: Berman, url: "https://www.bermanpropertysolutions.com/current-listings/"}
+  - {name: Zekos, url: "https://www.zekosgroup.com/"}
+  - {name: Harvard, url: "https://www.harvardauctioneers.com/"}
+  - {name: AuctionNetwork, url: "https://www.auctionnetwork.com/live-auctions", note: "Loads listings with JavaScript - check by hand"}
+  - {name: Patriot, url: "https://patriotauctioneers.com/auctions-in-massachusetts/"}
+  - {name: ServiceLink, url: "https://www.servicelinkauction.com/", note: "Loads listings with JavaScript - check by hand (many also post on Sullivan)"}
+  - {name: Tranzon, url: "https://www.tranzon.com/", note: "Loads listings with JavaScript - check by hand"}
+  - {name: Harmon/Commonwealth, url: "https://www.harmonlawoffices.com/view-all-auctions", note: "Loads with JavaScript; Harmon's sales are covered by Commonwealth"}
+  - {name: Maine Auctioneers, url: "https://www.maineauctioneers.org/"}
+  - {name: Paine, url: "https://www.paineauctioneers.com/"}
+  - {name: Sutton, url: "https://www.suttonauction.com/"}
+  - {name: Dean Associates, url: "https://deanassociatesinc.com/auctions/"}
+  - {name: Skypoint, url: "https://www.skypointauctions.com/"}
+  - {name: APG, url: "https://apg-online.com/"}
+  - {name: Raucher Bros, url: "https://raucherbrothersauctioneers.com/"}
+  - {name: Demerle, url: "https://demerlepc.com/foreclosure-auctions/"}
+  - {name: Williams, url: "https://www.williamsauction.com/"}
+  - {name: American Auctions, url: "https://www.americanauctionsma.com/"}
+  - {name: Douglas, url: "https://douglasauctioneers.com/auctions/"}
+  - {name: Biffway, url: "https://www.biffway.com/"}
+  - {name: Strategic Auction, url: "https://www.strategicauctionalliance.com/"}
+  # Marcella (Facebook page only) cannot be read automatically.
+  - {name: Bank Owned Properties, url: "https://www.bankownedproperties.org/bankhomes/MASSACHUSETTS/HAMPDEN.html?property_type=FORECLOSURE"}
