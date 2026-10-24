@@ -59,3 +59,24 @@ def test_owner_name_patterns():
     assert owner_patterns("Pablo Gonzalez Roman") == ["ROMAN PABLO", "ROMAN, PABLO", "GONZALEZ ROMAN PABLO"]
     assert owner_patterns("Prestigious One LLC") == ["PRESTIGIOUS ONE"]
     assert owner_patterns("Timothy J. Adams and Mary Adams")[0] == "ADAMS TIMOTHY"
+
+
+def test_deposit_wording():
+    assert P.parse_deposit("Terms of Sale: $25,000.00 Initial Deposit Cash or Certified Funds") == "$25,000"
+    assert P.parse_deposit("shall deposit a bank treasurer's check, or certified check in the amount of "
+                           "Two Hundred Fifty Thousand Dollars ($250,000.00) at the time") == "$250,000"
+    assert P.parse_deposit("Terms of Sale $5,000 deposit by bank check.") == "$5,000"
+    assert P.parse_deposit("Opening bid $300,000. Deposit to be increased to 10%") == ""
+
+
+def test_stale_dates_without_a_year_stay_in_the_past():
+    assert P.parse_date("MARCH 25TH", TODAY) == date(2026, 3, 25)
+
+
+def test_notice_lookup_helpers():
+    from sources.public_notices import _ordinal
+    from tracker import _town_from_notice
+    assert [_ordinal(n) for n in (1, 2, 3, 11, 22, 31)] == ["1st", "2nd", "3rd", "11th", "22nd", "31st"]
+    assert _town_from_notice(["Grafton", "Worcester"], "Worcester") == "Grafton"
+    assert _town_from_notice(["Worcester"], "Worcester") == "Worcester"
+    assert _town_from_notice(["Charlton", "Dudley", "Worcester"], "Worcester") == ""

@@ -111,7 +111,7 @@ def scrape_sites(cfg, today, now_str):
 
     def one(site):
         try:
-            recs = scrape_site(Http(), site, today)
+            recs = scrape_site(Http(), site, today, cfg["town_set"])
             return site, recs, None
         except Exception as e:
             return site, [], f"{type(e).__name__}: {str(e)[:150]}"
@@ -211,20 +211,38 @@ def notice_only_records(notices, today):
         if n["kind"] != "Mortgagee's sale":
             continue
         last = n.get("last_published") and date.fromisoformat(n["last_published"])
-        if last and (today - last).days > 28:
+        if last and (today - last).days > 28 and not n.get("auction_date"):
             continue  # last ran a month ago: the sale has almost certainly happened
         key = ("N-" + P.address_key(n["address"], n["town"])) if n["address"] else "N-" + _notice_key(n)
         first = n.get("first_published") and date.fromisoformat(n["first_published"])
-        est = (f"Sale date is in the full notice. First published {first:%m/%d}, so the sale is "
-               f"likely {first + timedelta(days=21):%m/%d}-{first + timedelta(days=35):%m/%d}") if first else ""
+        if n.get("auction_date"):
+            note = "Only in the legal notice - not on any auctioneer website"
+        elif first:
+            note = (f"Sale date not found in the notice text. First published {first:%m/%d}, so the sale "
+                    f"is likely {first + timedelta(days=21):%m/%d}-{first + timedelta(days=35):%m/%d}")
+        else:
+            note = ""
         out[key] = {
             "address": n["address"], "town": n["town"], "county": n["county"],
-            "auction_date": "", "auction_time": "", "status": "Notice only", "original_date": "",
-            "deposit": "", "auction_company": "", "book_page": n["book_page"], "specs": "", "sewer": "",
-            "listing_text": "", "sources": ["Legal notice"], "links": [], "notices": [n],
-            "status_note": est,
+            "auction_date": n.get("auction_date", ""), "auction_time": "", "status": "Notice only",
+            "original_date": n.get("original_date", ""), "deposit": n.get("deposit", ""),
+            "auction_company": n.get("auction_company", ""), "book_page": n["book_page"], "specs": "",
+            "sewer": "", "listing_text": "", "sources": ["Legal notice"], "links": [], "notices": [n],
+            "status_note": note,
         }
     return out
+
+
+def _town_from_notice(named, county):
+    """The town a notice names, when the address itself wasn't in its excerpt. Every
+    Worcester County notice mentions "Worcester" (the registry), so the city of Worcester
+    only counts when no other town is named; the same goes for the town of Hampden."""
+    others = [t for t in named if t != county]
+    if len(others) == 1:
+        return others[0]
+    if not others and county in named:
+        return county
+    return ""
 
 
 def _notice_key(n):
@@ -245,11 +263,15 @@ def enrich(auctions, gis, towns):
         elif a.get("notices") and a["notices"][0].get("borrower"):
             # Notice with a borrower but no address: find the property by owner name.
             n = a["notices"][0]
-            res = gis.by_owner(n["borrower"], [t for t in COUNTY_TOWNS[n["county"]] if t in towns])
+            county_towns = [t for t in COUNTY_TOWNS[n["county"]] if t in towns]
+            named = [t for t in n.get("probe_towns", []) if t in county_towns]
+            res = (gis.by_owner(n["borrower"], named) if named else None) or gis.by_owner(n["borrower"], county_towns)
             if res:
                 a["gis"] = res
                 a["address"] = res["site_address"]
                 a["town"] = res["town"]
+            elif not a.get("town"):
+                a["town"] = _town_from_notice(named, n["county"])
 
 
 # ---------------------------------------------------------------- rows
@@ -289,7 +311,8 @@ def build_row(key, a, cfg):
         "1st or 2nd": lien,
         "Auction Date": _us(a["auction_date"]),
         "Time": a.get("auction_time", ""),
-        "Address": a.get("address", "") or (f"(borrower: {n.get('borrower', '')})" if n else ""),
+        "Address": a.get("address", "") or (f"(borrower: {n['borrower']})" if n.get("borrower") else
+                                            "(see legal notice)" if n else ""),
         "Town": a.get("town", ""),
         "County": county,
         "Tax / Water / Sewer Liens": "",
@@ -300,8 +323,8 @@ def build_row(key, a, cfg):
         "Gross Living Area": g.get("living_area", ""),
         "Total Building Area": g.get("building_area", ""),
         "Septic / Sewer": sewer,
-        "Deposit": a.get("deposit", ""),
-        "Auction Company": a.get("auction_company", "") or ", ".join(s for s in a.get("sources", []) if s != "Legal notice"),
+        "Deposit": a.get("deposit") or n.get("deposit", ""),
+        "Auction Company": a.get("auction_company", "") or n.get("auction_company", "") or ", ".join(s for s in a.get("sources", []) if s != "Legal notice"),
         "Status": a["status"],
         "Original Date": _us(a.get("original_date", "")),
         "Times Postponed": times_postponed or "",
@@ -485,6 +508,35 @@ def call_rows(rows, auctions, land_court, cfg, today):
 
 # ---------------------------------------------------------------- main
 
+def notice_facts(cfg, state, today):
+    """Sale dates, deposits, auctioneers and towns found by searching the notices' full
+    text. That takes a few hundred searches, so it runs once a day and only looks at
+    notices published since the last time; results are kept in the state file."""
+    store = state.setdefault("notice_facts", {})
+    last = state.get("notice_facts_date")
+    if last != today.isoformat():
+        gap = (today - date.fromisoformat(last)).days if last else 99
+        days = min(cfg.get("public_notice_lookback_days", 45), gap + 3)
+        try:
+            found = public_notices.probe(lambda: Http(), cfg["counties"], days, today, sorted(cfg["town_set"]))
+            for nid, fields in found.items():
+                slot = store.setdefault(nid, {})
+                for field, values in fields.items():
+                    slot[field] = sorted(set(slot.get(field, [])) | set(values))
+            state["notice_facts_date"] = today.isoformat()
+        except Exception:
+            log.exception("notice full-text lookups failed; will retry next run")
+        # Forget notices older than ~3 months.
+        keep = {int(k) for k in store if k.isdigit()}
+        if len(keep) > 3000:
+            cutoff = sorted(keep)[-3000]
+            store = state["notice_facts"] = {k: v for k, v in store.items() if not k.isdigit() or int(k) >= cutoff}
+    return {nid: {f: set(v) for f, v in fields.items()} for nid, fields in store.items()}
+
+
+INACTIVE = ("Cancelled", "Postponed", "Sold", "Removed from site")
+
+
 def run(cfg, writer, state_path, today=None):
     now = datetime.now(EASTERN)
     today = today or now.date()
@@ -502,6 +554,8 @@ def run(cfg, writer, state_path, today=None):
     enrich(auctions, gis, cfg["town_set"])  # assessor data first, so owner-name matching works
     sale_notices = [n for n in notices if n["kind"] == "Mortgagee's sale"]
     land_court = [n for n in notices if n["kind"] == "Land Court filing"]
+    if notice_health["Result"] == "OK":
+        public_notices.apply_probe(sale_notices, notice_facts(cfg, state, today))
     unmatched = match_notices(auctions, sale_notices)
     notice_only = notice_only_records(unmatched, today)
     enrich(notice_only, gis, cfg["town_set"])
@@ -535,8 +589,13 @@ def run(cfg, writer, state_path, today=None):
                              _minutes(r["Time"]), r["Town"]))
 
     tabs = cfg["tabs"]
-    rows = keep_sheet_edits(rows, writer.read_rows(tabs["tracker"]), TRACKER_ALWAYS_KEEP, TRACKER_KEEP_IF_EMPTY)
-    writer.write_table(tabs["tracker"], TRACKER_COLS, rows, status_col="Status")
+    # Rows move between the two tabs as their status changes, so look for typed-in notes on both.
+    typed = writer.read_rows(tabs["tracker"]) + writer.read_rows(tabs["cancelled"])
+    rows = keep_sheet_edits(rows, typed, TRACKER_ALWAYS_KEEP, TRACKER_KEEP_IF_EMPTY)
+    writer.write_table(tabs["tracker"], TRACKER_COLS, [r for r in rows if r["Status"] not in INACTIVE],
+                       status_col="Status")
+    writer.write_table(tabs["cancelled"], TRACKER_COLS, [r for r in rows if r["Status"] in INACTIVE],
+                       status_col="Status")
     calls = call_rows(rows, all_auctions, land_court, cfg, today)
     calls = keep_sheet_edits(calls, writer.read_rows(tabs["call_list"]), CALL_ALWAYS_KEEP, set())
     writer.write_table(tabs["call_list"], CALL_COLS, calls, status_col="Status")

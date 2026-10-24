@@ -7,9 +7,10 @@ Book/Page, and often the premises address. The full-text pages sit behind a CAPT
 so we only use the list snippets.
 """
 
+import concurrent.futures as cf
 import logging
 import re
-from datetime import date
+from datetime import date, timedelta
 
 from bs4 import BeautifulSoup
 
@@ -72,41 +73,59 @@ def _drop_buttons(d):
     return d
 
 
-def search(http, counties, days, keyword="mortgagee", max_pages=40):
-    """Yield raw result dicts: id, newspaper, published, snippet."""
-    r = http.get(HOME)
-    base = r.url.rsplit("/", 1)[0]  # session id lives in the path: /(S(xxxx))/
-    soup = BeautifulSoup(r.text, "lxml")
-    # Each county checkbox triggers a postback; tick them one at a time.
-    for county in counties:
-        idx = COUNTY_INDEX[county]
-        d = _form(soup)
-        d[f"{P_FORM}lstCounty${idx}"] = "on"
-        d["__EVENTTARGET"], d["__EVENTARGUMENT"] = f"{P_FORM}lstCounty${idx}", ""
-        soup = BeautifulSoup(http.post(base + "/default.aspx", data=_drop_buttons(d)).text, "lxml")
+class NoticeSearch:
+    """One search session on masspublicnotices.org with our counties ticked, reusable for
+    many keyword searches (each search is two or three requests)."""
 
-    d = _form(soup)
-    d.update({P_FORM + "txtSearch": keyword, P_FORM + "rdoType": "AND",
-              P_FORM + "dateRange": "rbLastNumDays", P_FORM + "txtLastNumDays": str(days),
-              P_FORM + "btnGo": ""})
-    r = http.post(base + "/default.aspx", data=d)
-    url = r.url
-    soup = BeautifulSoup(r.text, "lxml")
+    def __init__(self, http, counties):
+        self.http = http
+        r = http.get(HOME)
+        self.base = r.url.rsplit("/", 1)[0]  # session id lives in the path: /(S(xxxx))/
+        soup = BeautifulSoup(r.text, "lxml")
+        # Each county checkbox triggers a postback; tick them one at a time.
+        for county in counties:
+            idx = COUNTY_INDEX[county]
+            d = _form(soup)
+            d[f"{P_FORM}lstCounty${idx}"] = "on"
+            d["__EVENTTARGET"], d["__EVENTARGUMENT"] = f"{P_FORM}lstCounty${idx}", ""
+            soup = BeautifulSoup(http.post(self.base + "/default.aspx", data=_drop_buttons(d)).text, "lxml")
+        self.soup, self.url = soup, self.base + "/default.aspx"
 
-    d = _drop_buttons(_form(soup))
-    d[P_GRID + "ddlPerPage"] = "50"
-    d["__EVENTTARGET"], d["__EVENTARGUMENT"] = P_GRID + "ddlPerPage", ""
-    soup = BeautifulSoup(http.post(url, data=d).text, "lxml")
+    def rows(self, keyword, days, mode="AND", max_pages=40):
+        """Yield raw result dicts: notice_id, newspaper, published, snippet."""
+        d = _form(self.soup)
+        d.update({P_FORM + "txtSearch": keyword, P_FORM + "rdoType": mode,
+                  P_FORM + "dateRange": "rbLastNumDays", P_FORM + "txtLastNumDays": str(days),
+                  P_FORM + "btnGo": ""})
+        r = self.http.post(self.url, data=d)
+        self.url, soup = r.url, BeautifulSoup(r.text, "lxml")
+        if self._pages(soup)[1] > 1:
+            d = _drop_buttons(_form(soup))
+            d[P_GRID + "ddlPerPage"] = "50"
+            d["__EVENTTARGET"], d["__EVENTARGUMENT"] = P_GRID + "ddlPerPage", ""
+            soup = BeautifulSoup(self.http.post(self.url, data=d).text, "lxml")
+        for _ in range(max_pages):
+            self.soup = soup
+            yield from _rows(soup)
+            page, last = self._pages(soup)
+            if page >= last:
+                break
+            d = _drop_buttons(_form(soup))
+            d[P_GRID + "btnNext.x"], d[P_GRID + "btnNext.y"] = "5", "5"
+            soup = BeautifulSoup(self.http.post(self.url, data=d).text, "lxml")
+        self.soup = soup
 
-    for page in range(max_pages):
-        for row in _rows(soup):
-            yield row
+    def ids(self, keyword, days, mode="EXACT"):
+        return {r["notice_id"] for r in self.rows(keyword, days, mode)}
+
+    @staticmethod
+    def _pages(soup):
         m = re.search(r"Page\s+(\d+)\s+of\s+(\d+)", soup.get_text(" "))
-        if not m or int(m.group(1)) >= int(m.group(2)):
-            break
-        d = _drop_buttons(_form(soup))
-        d[P_GRID + "btnNext.x"], d[P_GRID + "btnNext.y"] = "5", "5"
-        soup = BeautifulSoup(http.post(url, data=d).text, "lxml")
+        return (int(m.group(1)), int(m.group(2))) if m else (1, 1)
+
+
+def search(http, counties, days, keyword="mortgagee", max_pages=40, mode="AND"):
+    yield from NoticeSearch(http, counties).rows(keyword, days, mode, max_pages)
 
 
 def _rows(soup):
@@ -234,7 +253,102 @@ def collect(http, counties, days, today=None):
                 prev["first_published"] = min(filter(None, [prev["first_published"], n["first_published"]]))
                 prev["last_published"] = max(prev["last_published"], n["last_published"])
             prev["publications"] += 1
+            prev["ids"].append(n["notice_id"])
         else:
             n["publications"] = 1
+            n["ids"] = [n["notice_id"]]
             out[key] = n
     return list(out.values())
+
+
+# ---------------------------------------------------------------- full-text lookups
+#
+# The full notice is behind a CAPTCHA, but the site's search covers the full text. So we
+# search for each upcoming date, each common deposit, each auctioneer and each town, and
+# note which notices come back. A notice that comes back for "November 10, 2026" is
+# selling on November 10. Weekly papers sometimes print several notices as one record,
+# so a fact is only kept when it is unambiguous for that notice.
+
+DEPOSIT_WORDS = {5000: "Five Thousand", 10000: "Ten Thousand", 15000: "Fifteen Thousand",
+                 20000: "Twenty Thousand", 25000: "Twenty-Five Thousand", 30000: "Thirty Thousand",
+                 50000: "Fifty Thousand"}
+# Searched by name to find which auctioneer runs each sale, including ones without a
+# website. Full names only: "Douglas" or "Harvard" alone would match towns and people.
+AUCTIONEER_SEARCH = {
+    "Aaron Posnik": "Posnik", "Posnik": "Posnik", "Sullivan & Sullivan": "Sullivan",
+    "Commonwealth Auction": "Commonwealth", "Bay State Auction": "Baystate", "Towne Auction": "Towne",
+    "Patriot Auctioneers": "Patriot", "Landmark Auction": "Landmark", "Raucher Brothers": "Raucher Bros",
+    "Daniel P. McLaughlin": "Re-Auction", "Dean Associates": "Dean Associates", "Skypoint": "Skypoint",
+    "Asset Protection Group": "APG", "Harkins Real Estate": "Harkins", "Berman Property": "Berman",
+    "JJ Manning": "JJ Manning", "Paine Auctioneers": "Paine", "Jump Company": "Jump",
+    "Zekos": "Zekos", "Harvard Auctioneers": "Harvard", "Douglas Auctioneers": "Douglas",
+    "Williams Auction": "Williams", "ABC Auctions": "ABC Auctions", "Auctions RI": "Auctions RI",
+    "Pesco": "Pesco", "Tranzon": "Tranzon", "ServiceLink": "ServiceLink", "Strategic Auction": "Strategic Auction",
+    "Paul E. Saperstein": "Saperstein", "Shechtman": "Shechtman", "Marcella": "Marcella",
+    "Hudson & Marshall": "Hudson", "Biff Way": "Biffway", "Sutton Auction": "Sutton",
+}
+
+
+def probe(make_http, counties, days, today, towns, workers=6):
+    """Full-text searches for sale dates, deposits, auctioneers and towns.
+    Returns {notice_id: {field: {values}}}. `make_http` builds one client per session."""
+    queries = []
+    for k in range(-3, 76):  # sale dates: three days ago to 75 days out
+        d = today + timedelta(days=k)
+        for form in (f"{d:%B} {d.day}, {d.year}",      # November 10, 2026
+                     f"{_ordinal(d.day)} day of {d:%B}",  # 10th day of November
+                     f"{d:%B} {_ordinal(d.day)}",       # November 10th
+                     f"{d:%m/%d/%Y}"):                  # 11/10/2026 (HUD notices)
+            queries.append((form, "auction_date", d.isoformat()))
+    for amount, words in DEPOSIT_WORDS.items():
+        queries += [(words, "deposit", amount), (f"${amount:,}", "deposit", amount)]
+    for name, company in sorted(AUCTIONEER_SEARCH.items()):
+        queries.append((name, "auction_company", company))
+    for town in sorted(towns):
+        queries.append((town, "town", town))
+
+    def work(chunk):
+        session, found = NoticeSearch(make_http(), counties), []
+        for q, field, value in chunk:
+            try:
+                found.append((session.ids(q, days), field, value))
+            except Exception as e:
+                log.warning("notice search %r failed: %s", q, e)
+        return found
+
+    facts = {}
+    with cf.ThreadPoolExecutor(workers) as ex:
+        for found in ex.map(work, [queries[i::workers] for i in range(workers)]):
+            for ids, field, value in found:
+                for i in ids:
+                    facts.setdefault(i, {}).setdefault(field, set()).add(value)
+    log.info("notice searches: %d queries, %d notices matched", len(queries), len(facts))
+    return facts
+
+
+def _ordinal(n):
+    suffix = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suffix}"
+
+
+def apply_probe(notices, facts):
+    """Copy unambiguous facts onto each notice (a notice spans several publication ids)."""
+    for n in notices:
+        merged = {}
+        for i in n.get("ids", [n["notice_id"]]):
+            for field, values in facts.get(i, {}).items():
+                merged.setdefault(field, set()).update(values)
+        dates = sorted(merged.get("auction_date", ()))
+        if dates:
+            # A notice names one sale date; a later one means it was rescheduled.
+            n["auction_date"] = dates[-1]
+            if len(dates) > 1:
+                n["original_date"] = dates[0]
+        deposits = merged.get("deposit", set())
+        if len(deposits) == 1:
+            n["deposit"] = P.fmt_money(next(iter(deposits)))
+        companies = merged.get("auction_company", set())
+        if companies:
+            n["auction_company"] = " / ".join(sorted(companies))
+        n["probe_towns"] = sorted(merged.get("town", ()))
+    return notices

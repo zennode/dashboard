@@ -162,6 +162,39 @@ def towne(http, site, today):
     return out
 
 
+def servicelink(http, site, today):
+    """ServiceLink Auction: its site is a JavaScript app, but it reads a public JSON feed."""
+    r = http.get("https://www.servicelinkauction.com/api/listingsvc/v1/listings?state=MA&limit=100",
+                 headers={"Accept": "application/json"})
+    out = []
+    for it in r.json().get("data", []):
+        if it.get("listingProgramWebsite") != "Foreclosure Sale":
+            continue  # skip bank-owned and post-foreclosure resales
+        prop = it.get("propertyInfo") or {}
+        town, county = resolve_town(prop.get("city"))
+        if not town:
+            continue
+        status_text = f"{it.get('foreclosureSaleStatusWebsite', '')} {it.get('foreclosureSaleStatus', '')}"
+        sale = (it.get("foreclosureSaleDate") or "")[:10]
+        specs = ", ".join(x for x in [
+            prop.get("propertyType", ""),
+            f"{int(prop['bedrooms'])} beds" if prop.get("bedrooms") else "",
+            f"{prop['fullBathrooms']:g} baths" if prop.get("fullBathrooms") else "",
+        ] if x)
+        rec = build_record(site["name"], site["url"], P.clean(prop.get("address")), town, county,
+                           f"{status_text} {it.get('tpsSaleTime', '')}", today,
+                           detail_url=prop.get("websiteUrl", ""))
+        rec.update({
+            "auction_date": sale or rec["auction_date"],
+            "auction_time": P.parse_time(it.get("tpsSaleTime") or "") or rec["auction_time"],
+            "status": _norm_status(status_text) or "Scheduled",
+            "specs": specs,
+            "opening_bid": P.fmt_money(it.get("tpsOpenBid") or it.get("openingBid")),
+        })
+        out.append(rec)
+    return out
+
+
 WEEKDAY_RE = re.compile(r"\b(MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)\b")
 PLEASE_SEE_RE = re.compile(r"please see", re.I)
 
@@ -174,6 +207,10 @@ def posnik(http, site, today):
     for t in soup(["script", "style"]):
         t.decompose()
     text = soup.get_text(" | ", strip=True)
+    # Each listing's picture block links to its own page (html26/093026.htm).
+    pages = [(P.clean(c.get_text(" ")).upper(), urljoin(r.url, a["href"]))
+             for c in soup.find_all("center") for a in c.find_all("a", href=True)[:1]
+             if "html" in a["href"] and "cals/" not in a["href"]]
     starts = [m.start() for m in WEEKDAY_RE.finditer(text)] + [len(text)]
     out = []
     for a, b in zip(starts, starts[1:]):
@@ -185,7 +222,9 @@ def posnik(http, site, today):
         town, county = resolve_town(tm.group(1))
         if not town:
             continue
-        rec = build_record(site["name"], site["url"], P.clean(am.group(1)), town, county, seg, today)
+        addr = P.clean(am.group(1))
+        detail = next((u for t, u in pages if addr.upper() in t), "")
+        rec = build_record(site["name"], site["url"], addr, town, county, seg, today, detail)
         dates = [d for _, d in P.all_dates(seg, today)]
         if PLEASE_SEE_RE.search(seg) and len(dates) > 1:
             rec["original_date"], rec["auction_date"] = dates[0].isoformat(), dates[1].isoformat()
@@ -221,6 +260,9 @@ def _norm_status(s):
 
 # ---------------------------------------------------------------- generic parser
 
+BLOCK_TAGS = ["tr", "li", "article", "div", "section", "p", "td", "dd", "table", "a"]
+
+
 def _addr_keys(text):
     return {P.address_key(m.group(1), "") for m in P.ADDRESS_RE.finditer(text)}
 
@@ -234,7 +276,7 @@ def generic(http, site, today):
 
     page_text = soup.get_text(" | ", strip=True)
     out, seen = [], set()
-    candidates = soup.find_all(["tr", "li", "article", "div", "section", "p", "td", "dd", "table"])
+    candidates = soup.find_all(BLOCK_TAGS)
     counts = {}
     for el in candidates:
         counts[id(el)] = len(_addr_keys(el.get_text(" | ", strip=True)))
@@ -243,7 +285,7 @@ def generic(http, site, today):
     for el in candidates:
         if counts.get(id(el)) != 1:
             continue
-        parent = el.find_parent(["tr", "li", "article", "div", "section", "p", "td", "dd", "table", "tbody", "ul", "body"])
+        parent = el.find_parent(BLOCK_TAGS + ["tbody", "ul", "body"])
         parent_count = counts.get(id(parent)) if parent is not None else None
         if parent_count is None and parent is not None:
             parent_count = len(_addr_keys(parent.get_text(" | ", strip=True)))
@@ -255,7 +297,7 @@ def generic(http, site, today):
             if key in seen:
                 continue
             seen.add(key)
-            link = el.find("a", href=True)
+            link = el if el.name == "a" and el.get("href") else (el.find("a", href=True) or el.find_parent("a", href=True))
             detail = urljoin(base_url, link["href"]) if link else ""
             rec = build_record(site["name"], site["url"], addr, town, county, text, today, detail)
             if not rec["auction_date"]:
@@ -266,7 +308,7 @@ def generic(http, site, today):
     for el in candidates:
         if counts.get(id(el), 0) < 2:
             continue
-        if any(counts.get(id(c), 0) >= 1 for c in el.find_all(["tr", "li", "article", "div", "section", "p", "td", "dd", "table"])):
+        if any(counts.get(id(c), 0) >= 1 for c in el.find_all(BLOCK_TAGS)):
             continue
         text = el.get_text(" | ", strip=True)
         hits = P.find_addresses(text)
@@ -306,10 +348,39 @@ def _from_page_text(page_text, addr, town, county, site, today, detail):
     return None
 
 
-PARSERS = {"commonwealth": commonwealth, "baystate": baystate, "towne": towne, "posnik": posnik}
+PARSERS = {"commonwealth": commonwealth, "baystate": baystate, "towne": towne, "posnik": posnik,
+           "servicelink": servicelink}
 
 
-def scrape_site(http, site, today=None):
+def scrape_site(http, site, today=None, towns=None):
     today = today or date.today()
     fn = PARSERS.get(site.get("parser", "generic"), generic)
-    return fn(http, site, today)
+    recs = fn(http, site, today)
+    if towns is not None:
+        recs = [r for r in recs if r["town"] in towns]
+    add_detail_pages(http, recs, today)
+    return recs
+
+
+def add_detail_pages(http, recs, today):
+    """Many schedule pages leave the deposit (and Book/Page) to each listing's own page.
+    Read that page for upcoming listings that are missing them."""
+    for rec in recs:
+        url = rec.get("detail_url")
+        if (not url or url == rec["source_url"] or "#" in url or rec["status"] in ("Cancelled", "Sold")
+                or (rec["auction_date"] and rec["auction_date"] < today.isoformat())
+                or (rec["deposit"] and rec["book_page"])):
+            continue
+        try:
+            soup = BeautifulSoup(http.get(url).text, "lxml")
+        except Exception as e:
+            log.info("detail page %s: %s", url, e)
+            continue
+        for t in soup(["script", "style", "nav", "footer"]):
+            t.decompose()
+        text = P.clean(soup.get_text(" "))
+        rec["deposit"] = rec["deposit"] or P.parse_deposit(text) or ""
+        rec["book_page"] = rec["book_page"] or P.parse_book_page(text)
+        rec["specs"] = rec["specs"] or P.parse_specs(text)
+        rec["sewer"] = rec["sewer"] or P.parse_sewer(text)
+        rec["listing_text"] = (rec["listing_text"] + " | " + text[:1500])[:2000]

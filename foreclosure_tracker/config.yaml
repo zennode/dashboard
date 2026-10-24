@@ -5,6 +5,7 @@
 spreadsheet_id: 1jURtqtgCVPJKUb1nPgAya-gLPw86Tzw9OeCBxhlvZhk
 tabs:
   tracker: "Auto - Auction Tracker"
+  cancelled: "Auto - Cancelled & Postponed"
   changes: "Auto - Status Changes"
   call_list: "Auto - Owner Call List"
   sources: "Auto - Source Health"
@@ -56,7 +57,7 @@ auction_sites:
   - {name: Harvard, url: "https://www.harvardauctioneers.com/"}
   - {name: AuctionNetwork, url: "https://www.auctionnetwork.com/live-auctions", note: "Loads listings with JavaScript - check by hand"}
   - {name: Patriot, url: "https://patriotauctioneers.com/auctions-in-massachusetts/"}
-  - {name: ServiceLink, url: "https://www.servicelinkauction.com/", note: "Loads listings with JavaScript - check by hand (many also post on Sullivan)"}
+  - {name: ServiceLink, url: "https://www.servicelinkauction.com/foreclosures/", parser: servicelink}
   - {name: Tranzon, url: "https://www.tranzon.com/", note: "Loads listings with JavaScript - check by hand"}
   - {name: Harmon/Commonwealth, url: "https://www.harmonlawoffices.com/view-all-auctions", note: "Loads with JavaScript; Harmon's sales are covered by Commonwealth"}
   - {name: Maine Auctioneers, url: "https://www.maineauctioneers.org/"}
