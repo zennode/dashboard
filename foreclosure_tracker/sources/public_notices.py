@@ -73,6 +73,9 @@ def _drop_buttons(d):
     return d
 
 
+CHUNK_DAYS = 30
+
+
 class NoticeSearch:
     """One search session on masspublicnotices.org with our counties ticked, reusable for
     many keyword searches (each search is two or three requests)."""
@@ -92,11 +95,21 @@ class NoticeSearch:
         self.soup, self.url = soup, self.base + "/default.aspx"
 
     def rows(self, keyword, days, mode="AND", max_pages=40):
-        """Yield raw result dicts: notice_id, newspaper, published, snippet."""
+        """Yield raw result dicts: notice_id, newspaper, published, snippet.
+        The site returns at most 1,000 results per search, so long periods are searched
+        in 30-day pieces."""
+        end = date.today()
+        while days > 0:
+            span = min(days, CHUNK_DAYS)
+            yield from self._rows_between(keyword, end - timedelta(days=span - 1), end, mode, max_pages)
+            end -= timedelta(days=span)
+            days -= span
+
+    def _rows_between(self, keyword, start, end, mode, max_pages):
         d = _form(self.soup)
         d.update({P_FORM + "txtSearch": keyword, P_FORM + "rdoType": mode,
-                  P_FORM + "dateRange": "rbLastNumDays", P_FORM + "txtLastNumDays": str(days),
-                  P_FORM + "btnGo": ""})
+                  P_FORM + "dateRange": "rbRange", P_FORM + "txtDateFrom": f"{start:%m/%d/%Y}",
+                  P_FORM + "txtDateTo": f"{end:%m/%d/%Y}", P_FORM + "btnGo": ""})
         r = self.http.post(self.url, data=d)
         self.url, soup = r.url, BeautifulSoup(r.text, "lxml")
         if self._pages(soup)[1] > 1:
@@ -289,11 +302,25 @@ AUCTIONEER_SEARCH = {
 }
 
 
-def probe(make_http, counties, days, today, towns, workers=6):
-    """Full-text searches for sale dates, deposits, auctioneers and towns.
-    Returns {notice_id: {field: {values}}}. `make_http` builds one client per session."""
+# Sale times. The search ignores "AM"/"PM", but sales run 9am-6pm, so 9:00-11:30 is
+# morning and 12:00-6:00 afternoon.
+SALE_TIMES = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "1:00", "1:30",
+              "2:00", "2:30", "3:00", "3:30", "4:00", "4:30", "5:00", "5:30", "6:00"]
+
+
+def _ampm(t):
+    hour = int(t.split(":")[0])
+    return f"{t} {'AM' if 9 <= hour <= 11 else 'PM'}"
+
+
+def probe(make_http, counties, days, today, towns, workers=6, past_days=3):
+    """Full-text searches for sale dates and times, deposits, auctioneers and towns.
+    Returns {notice_id: {field: {values}}}. `make_http` builds one client per session.
+    `past_days` reaches back for postponed sales, whose notices name the original date."""
     queries = []
-    for k in range(-3, 76):  # sale dates: three days ago to 75 days out
+    for t in SALE_TIMES:
+        queries.append((t, "auction_time", _ampm(t)))
+    for k in range(-past_days, 76):  # sale dates
         d = today + timedelta(days=k)
         for form in (f"{d:%B} {d.day}, {d.year}",      # November 10, 2026
                      f"{_ordinal(d.day)} day of {d:%B}",  # 10th day of November
@@ -344,6 +371,9 @@ def apply_probe(notices, facts):
             n["auction_date"] = dates[-1]
             if len(dates) > 1:
                 n["original_date"] = dates[0]
+        times = merged.get("auction_time", set())
+        if len(times) == 1:
+            n["auction_time"] = next(iter(times))
         deposits = merged.get("deposit", set())
         if len(deposits) == 1:
             n["deposit"] = P.fmt_money(next(iter(deposits)))

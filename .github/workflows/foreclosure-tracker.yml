@@ -14,7 +14,7 @@ concurrency:
 jobs:
   update-sheet:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 90
     defaults:
       run:
         working-directory: foreclosure_tracker

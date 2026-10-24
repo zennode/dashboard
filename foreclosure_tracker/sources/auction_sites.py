@@ -207,10 +207,9 @@ def posnik(http, site, today):
     for t in soup(["script", "style"]):
         t.decompose()
     text = soup.get_text(" | ", strip=True)
-    # Each listing's picture block links to its own page (html26/093026.htm).
-    pages = [(P.clean(c.get_text(" ")).upper(), urljoin(r.url, a["href"]))
-             for c in soup.find_all("center") for a in c.find_all("a", href=True)[:1]
-             if "html" in a["href"] and "cals/" not in a["href"]]
+    # Each sale has its own page named after its first scheduled date (html26/110626.htm).
+    pages = {a["href"].rsplit("/", 1)[-1]: urljoin(r.url, a["href"])
+             for a in soup.find_all("a", href=True) if re.search(r"/\d{6}\.htm$", a["href"])}
     starts = [m.start() for m in WEEKDAY_RE.finditer(text)] + [len(text)]
     out = []
     for a, b in zip(starts, starts[1:]):
@@ -223,9 +222,9 @@ def posnik(http, site, today):
         if not town:
             continue
         addr = P.clean(am.group(1))
-        detail = next((u for t, u in pages if addr.upper() in t), "")
-        rec = build_record(site["name"], site["url"], addr, town, county, seg, today, detail)
         dates = [d for _, d in P.all_dates(seg, today)]
+        detail = next((pages[f"{d:%m%d%y}.htm"] for d in dates if f"{d:%m%d%y}.htm" in pages), "")
+        rec = build_record(site["name"], site["url"], addr, town, county, seg, today, detail)
         if PLEASE_SEE_RE.search(seg) and len(dates) > 1:
             rec["original_date"], rec["auction_date"] = dates[0].isoformat(), dates[1].isoformat()
             if rec["status"] != "Cancelled":
@@ -379,6 +378,9 @@ def add_detail_pages(http, recs, today):
         for t in soup(["script", "style", "nav", "footer"]):
             t.decompose()
         text = P.clean(soup.get_text(" "))
+        num, street, _ = P.split_address(rec["address"])
+        if street and street.split()[0] not in text.upper():
+            continue  # a shared page that isn't about this property
         rec["deposit"] = rec["deposit"] or P.parse_deposit(text) or ""
         rec["book_page"] = rec["book_page"] or P.parse_book_page(text)
         rec["specs"] = rec["specs"] or P.parse_specs(text)

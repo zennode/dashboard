@@ -18,7 +18,7 @@ towns: []
 
 # How far ahead/behind to keep auctions on the tracker tab.
 keep_days_past: 14
-public_notice_lookback_days: 45
+public_notice_lookback_days: 90
 
 # Small towns with little or no municipal sewer. Properties here show "Likely SEPTIC -
 # verify" unless the listing says otherwise. Everywhere else shows the listing's own

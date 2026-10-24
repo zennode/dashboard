@@ -197,11 +197,24 @@ def match_notices(auctions, notices):
                 if owner and a["county"] == n["county"] and any(owner.startswith(p) for p in pats):
                     key = k
                     break
+        if not key and n.get("auction_date"):
+            key = _match_by_date_and_town(auctions, n)
         if key:
             auctions[key].setdefault("notices", []).append(n)
         else:
             unmatched.append(n)
     return unmatched
+
+
+def _match_by_date_and_town(auctions, n):
+    """A listing with the same sale date (or original date) in a town the notice names.
+    Only used when exactly one listing fits."""
+    towns = {n["town"]} if n.get("town") else set(n.get("probe_towns", []))
+    dates = {n["auction_date"], n.get("original_date")} - {None, ""}
+    hits = [k for k, a in auctions.items()
+            if a.get("town") in towns and {a.get("auction_date"), a.get("original_date")} & dates
+            and not a.get("notices")]
+    return hits[0] if len(hits) == 1 else None
 
 
 def notice_only_records(notices, today):
@@ -224,7 +237,8 @@ def notice_only_records(notices, today):
             note = ""
         out[key] = {
             "address": n["address"], "town": n["town"], "county": n["county"],
-            "auction_date": n.get("auction_date", ""), "auction_time": "", "status": "Notice only",
+            "auction_date": n.get("auction_date", ""), "auction_time": n.get("auction_time", ""),
+            "status": "Notice only",
             "original_date": n.get("original_date", ""), "deposit": n.get("deposit", ""),
             "auction_company": n.get("auction_company", ""), "book_page": n["book_page"], "specs": "",
             "sewer": "", "listing_text": "", "sources": ["Legal notice"], "links": [], "notices": [n],
@@ -310,7 +324,7 @@ def build_row(key, a, cfg):
         "Lender / Mortgagee": _lender(notices),
         "1st or 2nd": lien,
         "Auction Date": _us(a["auction_date"]),
-        "Time": a.get("auction_time", ""),
+        "Time": a.get("auction_time") or n.get("auction_time", ""),
         "Address": a.get("address", "") or (f"(borrower: {n['borrower']})" if n.get("borrower") else
                                             "(see legal notice)" if n else ""),
         "Town": a.get("town", ""),
@@ -516,12 +530,18 @@ def notice_facts(cfg, state, today):
     text. That takes a few hundred searches, so it runs once a day and only looks at
     notices published since the last time; results are kept in the state file."""
     store = state.setdefault("notice_facts", {})
+    lookback = cfg.get("public_notice_lookback_days", 90)
+    # Bump when probe() starts looking for something new, so old notices get searched again.
+    version = 2
+    if state.get("notice_facts_version") != version:
+        state["notice_facts_date"], state["notice_facts_version"] = None, version
     last = state.get("notice_facts_date")
     if last != today.isoformat():
-        gap = (today - date.fromisoformat(last)).days if last else 99
-        days = min(cfg.get("public_notice_lookback_days", 45), gap + 3)
+        gap = (today - date.fromisoformat(last)).days if last else 9999
+        days = min(lookback, gap + 3)
         try:
-            found = public_notices.probe(lambda: Http(), cfg["counties"], days, today, sorted(cfg["town_set"]))
+            found = public_notices.probe(lambda: Http(), cfg["counties"], days, today, sorted(cfg["town_set"]),
+                                         past_days=days)
             for nid, fields in found.items():
                 slot = store.setdefault(nid, {})
                 for field, values in fields.items():
