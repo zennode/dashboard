@@ -52,7 +52,7 @@ TRACKER_COLS = [
     "Mortgage Amount", "Mortgage Year", "Lender / Mortgagee", "1st or 2nd", "Auction Date", "Time",
     "Address", "Town", "County", "Tax / Water / Sewer Liens", "Specs", "Year Built", "Lot Sq Ft",
     "Acres", "Gross Living Area", "Total Building Area", "Septic / Sewer", "Deposit",
-    "Auction Company", "Status", "Original Date", "Times Postponed", "Status Notes",
+    "Auction Company", "Law Firm (Notice)", "Status", "Original Date", "Times Postponed", "Status Notes",
     "Owner (Assessor)", "Borrower (Legal Notice)", "Owner Mailing Address", "Owner Occupied",
     "Parcel ID", "Assessed Value", "Est. Equity", "Last Sale", "Registry Book/Page", "Registry Search",
     "Listing Link", "Legal Notice", "Found On", "First Seen", "Last Checked", "Team Notes", "Key",
@@ -350,7 +350,10 @@ def build_row(key, a, cfg):
         "Total Building Area": g.get("building_area", ""),
         "Septic / Sewer": sewer,
         "Deposit": a.get("deposit") or n.get("deposit", ""),
-        "Auction Company": a.get("auction_company", "") or n.get("auction_company", "") or ", ".join(s for s in a.get("sources", []) if s != "Legal notice"),
+        "Auction Company": (a.get("auction_company", "") or n.get("auction_company", "")
+                            or _likely_auctioneer(n.get("law_firm"), cfg.get("_firm_map", {}))
+                            or ", ".join(s for s in a.get("sources", []) if s != "Legal notice")),
+        "Law Firm (Notice)": n.get("law_firm", ""),
         "Status": a["status"],
         "Original Date": _us(a.get("original_date", "")),
         "Times Postponed": times_postponed or "",
@@ -371,6 +374,36 @@ def build_row(key, a, cfg):
         "Last Checked": a.get("last_seen", ""),
         "Team Notes": "",
     }
+
+
+def learn_firm_auctioneers(auctions, state):
+    """Remember which auctioneer ran each matched sale and which law firm signed its
+    notice, then summarise as {firm: Counter(auctioneer)}. Kept per auction, so a sale
+    seen on many runs counts once."""
+    from collections import Counter
+    pairs = state.setdefault("firm_pairs", {})
+    for key, a in auctions.items():
+        company = a.get("auction_company")
+        firms = {n.get("law_firm") for n in a.get("notices", []) if n.get("law_firm")}
+        if company and len(firms) == 1 and not key.startswith("N-"):
+            pairs[key] = [firms.pop(), company]
+    summary = {}
+    for firm, company in pairs.values():
+        summary.setdefault(firm, Counter())[company] += 1
+    return summary
+
+
+def _likely_auctioneer(firm, firm_map):
+    """'Baystate (likely - Korde & Associates notice)' when that firm's past sales here
+    went to one auctioneer at least 60% of the time (3+ sales); else who to ask."""
+    if not firm:
+        return ""
+    seen = firm_map.get(firm)
+    if seen:
+        company, count = seen.most_common(1)[0]
+        if count >= 3 and count / sum(seen.values()) >= 0.6:
+            return f"{company} (likely - {firm} notice)"
+    return f"Ask {firm} (attorneys)"
 
 
 def _lender(notices):
@@ -548,7 +581,7 @@ def notice_facts(cfg, state, today):
     store = state.setdefault("notice_facts", {})
     lookback = cfg.get("public_notice_lookback_days", 90)
     # Bump when probe() starts looking for something new, so old notices get searched again.
-    version = 2
+    version = 3
     if state.get("notice_facts_version") != version:
         state["notice_facts_date"], state["notice_facts_version"] = None, version
     last = state.get("notice_facts_date")
@@ -596,6 +629,7 @@ def run(cfg, writer, state_path, today=None):
     if notice_health["Result"] == "OK":
         public_notices.apply_probe(sale_notices, notice_facts(cfg, state, today))
     unmatched = match_notices(auctions, sale_notices)
+    cfg["_firm_map"] = learn_firm_auctioneers(auctions, state)
     notice_only = notice_only_records(unmatched, today)
     enrich(notice_only, gis, cfg["town_set"])
     # Drop notice-only records whose property turned out to be outside our towns.
