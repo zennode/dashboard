@@ -80,3 +80,23 @@ def test_notice_lookup_helpers():
     assert _town_from_notice(["Grafton", "Worcester"], "Worcester") == "Grafton"
     assert _town_from_notice(["Worcester"], "Worcester") == "Worcester"
     assert _town_from_notice(["Charlton", "Dudley", "Worcester"], "Worcester") == ""
+
+
+def test_propstream_export():
+    import propstream
+    export = [
+        {"Address": "14 Talcott Ave", "City": "Springfield", "Est. Equity": "$142,000",
+         "Mortgage 1 Amount": "$98,500", "Mortgage 1 Recording Date": "01/22/2009", "Mortgage 1 Lender": "James B Nutter"},
+        {"Address": "13 Pineywood Rd", "City": "Southwick", "Mortgage 1 Amount": "150000",
+         "Mortgage 1 Recording Date": "2001-05-01", "Mortgage 1 Lender": "Big Bank", "Mortgage 2 Amount": "60,000",
+         "Mortgage 2 Recording Date": "2008-03-02", "Mortgage 2 Lender": "M&T Bank"},
+    ]
+    rows = [{"Key": "a", "Address": "14 Talcott Street", "Town": "Springfield", "Mortgage Year": "2009",
+             "1st or 2nd": "1st (presumed)", "Status": "Scheduled"},
+            {"Key": "b", "Address": "13 Pineywood Road", "Town": "Southwick", "Mortgage Year": "2008",
+             "Status": "Scheduled"}]
+    a, b = propstream.apply(rows, export)
+    assert (a["Mortgage Amount"], a["1st or 2nd"], a["Est. Equity"]) == ("$98,500", "1st", "$142,000")
+    # The notice's 2008 mortgage is PropStream's second loan.
+    assert (b["Mortgage Amount"], b["Lender / Mortgagee"], b["1st or 2nd"]) == ("$60,000", "M&T Bank", "2nd")
+    assert propstream.lookup_rows(rows) == []

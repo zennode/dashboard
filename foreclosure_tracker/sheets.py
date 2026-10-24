@@ -18,6 +18,7 @@ STATUS_COLORS = {
     "Postponed": {"red": 1.0, "green": 0.95, "blue": 0.70},
     "Notice only": {"red": 0.85, "green": 0.92, "blue": 1.0},
     "Sold": {"red": 0.88, "green": 0.88, "blue": 0.88},
+    "Held": {"red": 0.88, "green": 0.88, "blue": 0.88},
 }
 
 

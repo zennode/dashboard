@@ -26,6 +26,7 @@ import yaml
 
 import assessor_index
 import parse as P
+import propstream
 from http_client import Http
 from massgis import MassGIS, owner_patterns
 from sheets import CsvWriter, SheetWriter
@@ -53,13 +54,13 @@ TRACKER_COLS = [
     "Acres", "Gross Living Area", "Total Building Area", "Septic / Sewer", "Deposit",
     "Auction Company", "Status", "Original Date", "Times Postponed", "Status Notes",
     "Owner (Assessor)", "Borrower (Legal Notice)", "Owner Mailing Address", "Owner Occupied",
-    "Parcel ID", "Assessed Value", "Last Sale", "Registry Book/Page", "Registry Search",
+    "Parcel ID", "Assessed Value", "Est. Equity", "Last Sale", "Registry Book/Page", "Registry Search",
     "Listing Link", "Legal Notice", "Found On", "First Seen", "Last Checked", "Team Notes", "Key",
 ]
 # Columns people fill in by hand: a value typed in the sheet wins over an empty scraped one,
 # and Team Notes is always kept as typed.
 TRACKER_KEEP_IF_EMPTY = {"Mortgage Amount", "Mortgage Year", "Lender / Mortgagee", "1st or 2nd",
-                         "Tax / Water / Sewer Liens", "Septic / Sewer", "Specs"}
+                         "Tax / Water / Sewer Liens", "Septic / Sewer", "Specs", "Est. Equity"}
 TRACKER_ALWAYS_KEEP = {"Team Notes"}
 
 CALL_COLS = [
@@ -91,10 +92,21 @@ def load_config(path):
 
 
 def load_state(path):
-    if os.path.exists(path):
-        with open(path) as f:
-            return json.load(f)
-    return {}
+    if not os.path.exists(path):
+        return {}
+    with open(path) as f:
+        state = json.load(f)
+    # Re-key saved auctions with today's address rules, so a change in how addresses are
+    # matched ("5th" = "Fifth") doesn't make an auction look removed and re-added.
+    rekeyed = {}
+    for key, a in state.get("auctions", {}).items():
+        if not key.startswith("N-") and a.get("address") and a.get("town"):
+            key = P.address_key(a["address"], a["town"])
+        prev = rekeyed.get(key)
+        if prev is None or (a.get("last_seen", "") > prev.get("last_seen", "")):
+            rekeyed[key] = a
+    state["auctions"] = rekeyed
+    return state
 
 
 def save_state(path, state):
@@ -415,8 +427,11 @@ def detect_changes(current, state, sources_ok, today, now_str):
     first_run = not prev_all
     for key, a in current.items():
         p = prev_all.get(key)
+        already_held = bool(a.get("auction_date")) and a["auction_date"] < today.isoformat()
         if not p:
-            if not first_run:
+            # Notices found by a backfill can describe sales that already happened; those
+            # aren't news, so only announce auctions still to come.
+            if not first_run and not already_held:
                 event("New legal notice (not on auction sites)" if a["status"] == "Notice only" else "New auction",
                       key, a, "", f"{_us(a['auction_date'])} {a.get('auction_time', '')} {a['status']}".strip())
             a["times_postponed"] = 1 if a["status"] == "Postponed" else 0
@@ -426,7 +441,8 @@ def detect_changes(current, state, sources_ok, today, now_str):
             a["times_postponed"] = p.get("times_postponed", 0)
             if p.get("status") != a["status"]:
                 event(f"Status: {p.get('status')} -> {a['status']}", key, a, p.get("status", ""), a["status"])
-            if p.get("auction_date") and a["auction_date"] and p["auction_date"] != a["auction_date"]:
+            if (p.get("auction_date") and a["auction_date"] and p["auction_date"] != a["auction_date"]
+                    and not already_held):
                 kind = "Postponed" if a["auction_date"] > p["auction_date"] else "Date moved earlier"
                 if kind == "Postponed":
                     a["times_postponed"] += 1
@@ -468,7 +484,7 @@ def call_rows(rows, auctions, land_court, cfg, today):
     out = []
     for r in rows:
         a = auctions.get(r["Key"], {})
-        if r["Status"] in ("Cancelled", "Sold", "Removed from site"):
+        if r["Status"] in ("Cancelled", "Sold", "Removed from site", "Held"):
             continue
         d = a.get("auction_date")
         days_left = (date.fromisoformat(d) - today).days if d else ""
@@ -557,7 +573,7 @@ def notice_facts(cfg, state, today):
     return {nid: {f: set(v) for f, v in fields.items()} for nid, fields in store.items()}
 
 
-INACTIVE = ("Cancelled", "Postponed", "Sold", "Removed from site")
+INACTIVE = ("Cancelled", "Postponed", "Sold", "Removed from site", "Held")
 
 
 def run(cfg, writer, state_path, today=None):
@@ -607,7 +623,13 @@ def run(cfg, writer, state_path, today=None):
             continue
         if key.startswith("N-") and key not in auctions:
             continue  # notice-only record that has since matched a listing or aged out
-        rows.append(build_row(key, a, cfg))
+        if not a.get("auction_date") and key not in auctions:
+            continue  # undated and no longer found: an address that wasn't a sale
+        row = build_row(key, a, cfg)
+        if row["Status"] in ("Scheduled", "Notice only") and a.get("auction_date") and a["auction_date"] < today.isoformat():
+            row["Status"] = "Held"  # the date has passed; results aren't posted
+            row["Status Notes"] = row["Status Notes"] or "Sale date has passed - check the result with the auctioneer"
+        rows.append(row)
     rows.sort(key=lambda r: (r["Auction Date"][6:] + r["Auction Date"][:5] if r["Auction Date"] else "9999",
                              _minutes(r["Time"]), r["Town"]))
 
@@ -615,6 +637,8 @@ def run(cfg, writer, state_path, today=None):
     # Rows move between the two tabs as their status changes, so look for typed-in notes on both.
     typed = writer.read_rows(tabs["tracker"]) + writer.read_rows(tabs["cancelled"])
     rows = keep_sheet_edits(rows, typed, TRACKER_ALWAYS_KEEP, TRACKER_KEEP_IF_EMPTY)
+    rows = propstream.apply(rows, writer.read_rows(tabs["propstream_export"]))
+    writer.write_table(tabs["propstream_lookup"], propstream.LOOKUP_COLS, propstream.lookup_rows(rows, today))
     writer.write_table(tabs["tracker"], TRACKER_COLS, [r for r in rows if r["Status"] not in INACTIVE],
                        status_col="Status")
     writer.write_table(tabs["cancelled"], TRACKER_COLS, [r for r in rows if r["Status"] in INACTIVE],
