@@ -351,8 +351,8 @@ def build_row(key, a, cfg):
         "Septic / Sewer": sewer,
         "Deposit": a.get("deposit") or n.get("deposit", ""),
         "Auction Company": (a.get("auction_company", "") or n.get("auction_company", "")
-                            or _likely_auctioneer(n.get("law_firm"), cfg.get("_firm_map", {}))
-                            or ", ".join(s for s in a.get("sources", []) if s != "Legal notice")),
+                            or ", ".join(s for s in a.get("sources", []) if s != "Legal notice")
+                            or _from_public_notice(n.get("law_firm"), cfg.get("_firm_map", {}))),
         "Law Firm (Notice)": n.get("law_firm", ""),
         "Status": a["status"],
         "Original Date": _us(a.get("original_date", "")),
@@ -393,17 +393,16 @@ def learn_firm_auctioneers(auctions, state):
     return summary
 
 
-def _likely_auctioneer(firm, firm_map):
-    """'Baystate (likely - Korde & Associates notice)' when that firm's past sales here
-    went to one auctioneer at least 60% of the time (3+ sales); else who to ask."""
-    if not firm:
-        return ""
-    seen = firm_map.get(firm)
+def _from_public_notice(firm, firm_map):
+    """Auction company for a sale known only from its legal notice, which rarely names
+    the auctioneer. Adds a hint when the notice's law firm used one auctioneer for at
+    least 60% of its 3+ matched sales here."""
+    seen = firm_map.get(firm) if firm else None
     if seen:
         company, count = seen.most_common(1)[0]
         if count >= 3 and count / sum(seen.values()) >= 0.6:
-            return f"{company} (likely - {firm} notice)"
-    return f"Ask {firm} (attorneys)"
+            return f"From Public Notice (likely {company})"
+    return "From Public Notice"
 
 
 def _lender(notices):
