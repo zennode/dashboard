@@ -5,3 +5,4 @@ python-dateutil>=2.8
 PyYAML>=6.0
 gspread>=6.0
 google-auth>=2.20
+openpyxl>=3.1

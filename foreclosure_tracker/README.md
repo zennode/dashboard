@@ -122,3 +122,14 @@ automatically and need a manual look:
 Massachusetts regulates "foreclosure rescue" offers (940 CMR 25.00 and M.G.L. c.93A).
 Federal and state do-not-call rules also apply to cold calls. Check your scripts and any
 offers with your attorney before you start calling.
+
+## Friday email
+
+`weekly_email.py` builds the "Foreclosure Auctions Next Week" email (Mon–Sun of the
+coming week) from an .xlsx download of the sheet:
+
+    python weekly_email.py --xlsx sheet.xlsx --out email.html [--week-of 2026-10-26]
+
+It prints a JSON summary (subject, counts, guard thresholds). A scheduled Claude task
+runs it every Friday morning and sends the result with the Gmail connector. Gmail drops
+`background:` shorthand and gradients, so styles use `background-color`.
