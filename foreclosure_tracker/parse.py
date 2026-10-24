@@ -37,7 +37,10 @@ DATE_RE = re.compile(
 )
 TIME_RE = re.compile(r"\b(\d{1,2})(?::(\d{2}))?(?::\d{2})?\s*([AaPp])\.?\s*[Mm]\.?", re.IGNORECASE)
 MONEY_RE = re.compile(r"\$\s?([\d,]+(?:\.\d{2})?)\s*(k|K|thousand)?")
-DEPOSIT_RE = re.compile(r"deposit[^$]{0,40}\$\s?([\d,]+(?:\.\d{2})?)", re.IGNORECASE)
+# "$25,000.00 Initial Deposit", "$5,000 deposit by bank check"
+DEPOSIT_BEFORE_RE = re.compile(r"\$\s?([\d,]+(?:\.\d{2})?)\s*(?:\(|\)|\s)*(?:initial\s+|required\s+)?deposit", re.IGNORECASE)
+# "Required Deposit: $10,000", "deposit ... in the amount of Ten Thousand Dollars ($10,000.00)"
+DEPOSIT_AFTER_RE = re.compile(r"deposit[^$.]{0,200}?\$\s?([\d,]+(?:\.\d{2})?)", re.IGNORECASE)
 BOOK_PAGE_RE = re.compile(r"\b(?:Book|Bk|B)\.?\s*:?\s*(\d{2,6})\s*[,/]?\s*(?:at\s+)?(?:Page|Pg|P)\.?\s*:?\s*(\d{1,5})", re.IGNORECASE)
 
 STATUS_PATTERNS = [
@@ -86,8 +89,12 @@ def parse_date(text, today=None):
     except (ValueError, OverflowError):
         return None
     has_year = bool(re.search(r"\d{4}|/\d{2}$|-\d{2}$", raw))
-    if not has_year and (today - d).days > 120:
-        d = d.replace(year=d.year + 1)
+    if not has_year and (today - d).days > 30:
+        # "Jan 12" seen in October is next January. But auctions are rarely set more than
+        # four months out, so a stale "March 25" left on a page stays in the past.
+        nxt = d.replace(year=d.year + 1)
+        if (nxt - today).days <= 120:
+            d = nxt
     return d
 
 
@@ -127,9 +134,11 @@ def fmt_money(value):
 
 
 def parse_deposit(text):
-    m = DEPOSIT_RE.search(text or "")
-    if m:
-        return fmt_money(float(m.group(1).replace(",", "")))
+    hits = [m for rx in (DEPOSIT_BEFORE_RE, DEPOSIT_AFTER_RE) for m in rx.finditer(text or "")]
+    for m in sorted(hits, key=lambda m: m.start()):
+        value = float(m.group(1).replace(",", ""))
+        if 500 <= value <= 1_000_000:
+            return fmt_money(value)
     return ""
 
 

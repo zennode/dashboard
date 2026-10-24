@@ -8,7 +8,8 @@ It writes only to its own tabs. Any other tabs in the sheet are never touched.
 
 | Tab | What's on it |
 | --- | --- |
-| **Auto - Auction Tracker** | One row per auction in your towns. Columns follow your weekly tabs: mortgage, year, lender, 1st/2nd, date, time, address, liens, specs, year built, lot, acres, living area, septic/sewer, deposit, auction company. After those come status, owner, parcel and links. Cancelled rows are red, postponed yellow, notice-only blue. |
+| **Auto - Auction Tracker** | One row per auction in your towns. Columns follow your weekly tabs: mortgage, year, lender, 1st/2nd, date, time, address, liens, specs, year built, lot, acres, living area, septic/sewer, deposit, auction company. After those come status, owner, parcel and links. Scheduled auctions and notice-only sales (blue). |
+| **Auto - Cancelled & Postponed** | Same columns, for auctions that were cancelled, postponed, sold or dropped off their site. Rows move between the two tabs as their status changes, and your notes move with them. |
 | **Auto - Owner Call List** | Owners worth calling, ranked by priority, with the reason to call. It includes **pre-foreclosure** owners from Land Court filings, months before an auction is set. Your Phone / Called? / Call Date / Outcome / Call Notes columns are kept between runs. |
 | **Auto - Status Changes** | A running log of every new auction, postponement, cancellation, time change, and listing that drops off a site. |
 | **Auto - Source Health** | Each site's result on the last run, so you know which sites to spot-check by hand. |
@@ -19,7 +20,7 @@ It writes only to its own tabs. Any other tabs in the sheet are never touched.
 | --- | --- |
 | Auction date, time, status, deposit, auction company | The auctioneer's site. If several sites list the same property, the latest date wins. |
 | Lender, mortgage year, borrower, 1st/2nd, Book/Page | The legal notice. It's matched to the listing by registry Book/Page, address, or owner name. |
-| Mortgage amount | The legal notice, but only when it states the principal (most don't). Otherwise the **Registry Book/Page** and **Registry Search** link get you there in a minute. masslandrecords.com blocks automated access, so we don't scrape it. |
+| Mortgage amount | Almost never published: only 1 of 722 recent notices stated the loan amount. It's on the recorded mortgage, so use the **Registry Book/Page** and **Registry Search** link. masslandrecords.com blocks automated access, so we don't scrape it. Whatever you type in the column is kept. |
 | Owner, mailing address, owner-occupied, year built, living area, building area, lot sq ft / acres, style, rooms, assessed value, last sale, parcel ID | MassGIS statewide assessor tables (free, official, updated yearly). A local copy is refreshed monthly. |
 | Septic / Sewer | The listing text if it says so. Otherwise "Likely SEPTIC - verify" for small towns listed in `config.yaml`, or "Verify w/ BOH". |
 | Tax / Water / Sewer Liens | Yours to fill in. Town tax data isn't online in any standard form. What you type is kept. |
@@ -30,9 +31,12 @@ It writes only to its own tabs. Any other tabs in the sheet are never touched.
 for that column.
 
 **"Notice only" rows** are foreclosures that have a legal notice but aren't on any
-auction site yet. That's the "might not be on the websites" list. The notice site
-hides the full text (with the sale date) behind a CAPTCHA, so click the **Legal Notice**
-link to read it.
+auction site, often because the auctioneer has no website. The full notice is behind a
+CAPTCHA, but the notice site's search covers the full text. Once a day the tracker searches
+it for every upcoming sale date, common deposits, auctioneer names and town names, and
+fills in the sale date, deposit, auctioneer and town from what each notice matches. When
+the excerpt has no address, it finds the borrower's property in the assessor records for
+the towns the notice names. The sale time isn't found this way; click **Legal Notice** for it.
 
 ## One-time setup (about 15 minutes)
 
@@ -78,11 +82,12 @@ GOOGLE_SERVICE_ACCOUNT_JSON="$(cat key.json)" python tracker.py   # updates the 
 Check **Auto - Source Health** after the first run. These sites can't be read
 automatically and need a manual look:
 
-- **JavaScript-only sites:** ServiceLink, Hudson & Marshall, Tranzon, AuctionNetwork and
-  Harmon's own page. Harmon's sales also show up through Commonwealth.
-- **Sites that block automated visitors or are down:** Jump and Biffway (403),
-  American Auctions (404). Sutton and Strategic Auction couldn't be reached from the test
-  machine, so check Source Health after the first GitHub run to see if they load there.
+- **JavaScript-only sites:** Hudson & Marshall, Tranzon, AuctionNetwork and Harmon's own
+  page. Harmon's sales also show up through Commonwealth. ServiceLink is read through its
+  data feed.
+- **Sites that block automated visitors or are down:** Jump and Biffway (403), American
+  Auctions (404, the site is gone), and Sutton and Strategic Auction (no connection, from
+  GitHub as well). Their sales still show up as notice-only rows when a legal notice runs.
 - **Facebook:** the Marcella page can't be read.
 
 ## A note on calling owners
