@@ -287,8 +287,8 @@ DEPOSIT_WORDS = {5000: "Five Thousand", 10000: "Ten Thousand", 15000: "Fifteen T
                  50000: "Fifty Thousand"}
 # Searched by name to find which auctioneer runs each sale, including ones without a
 # website. Full names only: "Douglas" or "Harvard" alone would match towns and people.
-# Law firms that sign foreclosure notices here. Most notices don't name the auctioneer,
-# but each firm tends to use the same one, which the tracker learns from matched sales.
+# Law firms that sign foreclosure notices here, shown on each row. Most notices don't
+# name the auctioneer; the firm can say who is running the sale.
 LAW_FIRMS = {
     "Korde": "Korde & Associates", "Brock & Scott": "Brock & Scott", "Harmon Law": "Harmon Law Offices",
     "Orlans": "Orlans PC", "Doonan": "Doonan, Graves & Longoria", "Demerle": "Demerle & Associates",

@@ -352,7 +352,7 @@ def build_row(key, a, cfg):
         "Deposit": a.get("deposit") or n.get("deposit", ""),
         "Auction Company": (a.get("auction_company", "") or n.get("auction_company", "")
                             or ", ".join(s for s in a.get("sources", []) if s != "Legal notice")
-                            or _from_public_notice(n.get("law_firm"), cfg.get("_firm_map", {}))),
+                            or ("From Public Notice" if notices else "")),
         "Law Firm (Notice)": n.get("law_firm", ""),
         "Status": a["status"],
         "Original Date": _us(a.get("original_date", "")),
@@ -374,35 +374,6 @@ def build_row(key, a, cfg):
         "Last Checked": a.get("last_seen", ""),
         "Team Notes": "",
     }
-
-
-def learn_firm_auctioneers(auctions, state):
-    """Remember which auctioneer ran each matched sale and which law firm signed its
-    notice, then summarise as {firm: Counter(auctioneer)}. Kept per auction, so a sale
-    seen on many runs counts once."""
-    from collections import Counter
-    pairs = state.setdefault("firm_pairs", {})
-    for key, a in auctions.items():
-        company = a.get("auction_company")
-        firms = {n.get("law_firm") for n in a.get("notices", []) if n.get("law_firm")}
-        if company and len(firms) == 1 and not key.startswith("N-"):
-            pairs[key] = [firms.pop(), company]
-    summary = {}
-    for firm, company in pairs.values():
-        summary.setdefault(firm, Counter())[company] += 1
-    return summary
-
-
-def _from_public_notice(firm, firm_map):
-    """Auction company for a sale known only from its legal notice, which rarely names
-    the auctioneer. Adds a hint when the notice's law firm used one auctioneer for at
-    least 60% of its 3+ matched sales here."""
-    seen = firm_map.get(firm) if firm else None
-    if seen:
-        company, count = seen.most_common(1)[0]
-        if count >= 3 and count / sum(seen.values()) >= 0.6:
-            return f"From Public Notice (likely {company})"
-    return "From Public Notice"
 
 
 def _lender(notices):
@@ -628,7 +599,6 @@ def run(cfg, writer, state_path, today=None):
     if notice_health["Result"] == "OK":
         public_notices.apply_probe(sale_notices, notice_facts(cfg, state, today))
     unmatched = match_notices(auctions, sale_notices)
-    cfg["_firm_map"] = learn_firm_auctioneers(auctions, state)
     notice_only = notice_only_records(unmatched, today)
     enrich(notice_only, gis, cfg["town_set"])
     # Drop notice-only records whose property turned out to be outside our towns.
