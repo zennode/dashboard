@@ -416,8 +416,11 @@ def detect_changes(current, state, sources_ok, today, now_str):
     first_run = not prev_all
     for key, a in current.items():
         p = prev_all.get(key)
+        already_held = bool(a.get("auction_date")) and a["auction_date"] < today.isoformat()
         if not p:
-            if not first_run:
+            # Notices found by a backfill can describe sales that already happened; those
+            # aren't news, so only announce auctions still to come.
+            if not first_run and not already_held:
                 event("New legal notice (not on auction sites)" if a["status"] == "Notice only" else "New auction",
                       key, a, "", f"{_us(a['auction_date'])} {a.get('auction_time', '')} {a['status']}".strip())
             a["times_postponed"] = 1 if a["status"] == "Postponed" else 0
@@ -427,7 +430,8 @@ def detect_changes(current, state, sources_ok, today, now_str):
             a["times_postponed"] = p.get("times_postponed", 0)
             if p.get("status") != a["status"]:
                 event(f"Status: {p.get('status')} -> {a['status']}", key, a, p.get("status", ""), a["status"])
-            if p.get("auction_date") and a["auction_date"] and p["auction_date"] != a["auction_date"]:
+            if (p.get("auction_date") and a["auction_date"] and p["auction_date"] != a["auction_date"]
+                    and not already_held):
                 kind = "Postponed" if a["auction_date"] > p["auction_date"] else "Date moved earlier"
                 if kind == "Postponed":
                     a["times_postponed"] += 1
