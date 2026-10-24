@@ -287,6 +287,16 @@ DEPOSIT_WORDS = {5000: "Five Thousand", 10000: "Ten Thousand", 15000: "Fifteen T
                  50000: "Fifty Thousand"}
 # Searched by name to find which auctioneer runs each sale, including ones without a
 # website. Full names only: "Douglas" or "Harvard" alone would match towns and people.
+# Law firms that sign foreclosure notices here, shown on each row. Most notices don't
+# name the auctioneer; the firm can say who is running the sale.
+LAW_FIRMS = {
+    "Korde": "Korde & Associates", "Brock & Scott": "Brock & Scott", "Harmon Law": "Harmon Law Offices",
+    "Orlans": "Orlans PC", "Doonan": "Doonan, Graves & Longoria", "Demerle": "Demerle & Associates",
+    "Marinosci": "Marinosci Law Group", "Bacon Wilson": "Bacon Wilson", "Shatz": "Shatz, Schwartz & Fentin",
+    "Sapirstein": "Sapirstein & Sapirstein", "Ferris": "Ferris Law", "Bendett": "Bendett & McHugh",
+    "Shechtman Halperin": "Shechtman Halperin Savage", "Ablitt": "Ablitt Scofield",
+}
+
 AUCTIONEER_SEARCH = {
     "Aaron Posnik": "Posnik", "Posnik": "Posnik", "Sullivan & Sullivan": "Sullivan",
     "Commonwealth Auction": "Commonwealth", "Bay State Auction": "Baystate", "Towne Auction": "Towne",
@@ -331,6 +341,8 @@ def probe(make_http, counties, days, today, towns, workers=6, past_days=3):
         queries += [(words, "deposit", amount), (f"${amount:,}", "deposit", amount)]
     for name, company in sorted(AUCTIONEER_SEARCH.items()):
         queries.append((name, "auction_company", company))
+    for name, firm in sorted(LAW_FIRMS.items()):
+        queries.append((name, "law_firm", firm))
     for town in sorted(towns):
         queries.append((town, "town", town))
 
@@ -380,5 +392,8 @@ def apply_probe(notices, facts):
         companies = merged.get("auction_company", set())
         if companies:
             n["auction_company"] = " / ".join(sorted(companies))
+        firms = merged.get("law_firm", set())
+        if len(firms) == 1:
+            n["law_firm"] = next(iter(firms))
         n["probe_towns"] = sorted(merged.get("town", ()))
     return notices
