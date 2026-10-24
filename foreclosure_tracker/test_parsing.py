@@ -100,3 +100,14 @@ def test_propstream_export():
     # The notice's 2008 mortgage is PropStream's second loan.
     assert (b["Mortgage Amount"], b["Lender / Mortgagee"], b["1st or 2nd"]) == ("$60,000", "M&T Bank", "2nd")
     assert propstream.lookup_rows(rows) == []
+
+
+def test_propstream_phones():
+    import propstream
+    export = [{"Address": "14 Talcott Ave", "City": "Springfield", "Phone 1": "(413) 555-0100", "Phone 1 Type": "Mobile",
+               "Phone 1 DNC": "No", "Phone 2": "1-413-555-0199", "Phone 2 Type": "Landline", "Phone 2 DNC": "Yes"}]
+    calls = [{"Key": "a", "Property Address": "14 Talcott Street", "Town": "Springfield", "Phone": ""},
+             {"Key": "b", "Property Address": "14 Talcott Street", "Town": "Springfield", "Phone": "typed"}]
+    a, b = propstream.apply_phones(calls, export)
+    assert a["Phone"] == "413-555-0100 (Mobile); 413-555-0199 (Landline, DNC)"
+    assert b["Phone"] == "typed"

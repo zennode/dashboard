@@ -98,12 +98,68 @@ def index(export_rows):
             if amount or year or lender:
                 loans.append({"position": n, "amount": amount, "year": year, "lender": lender})
         details = {
+            "phones": _phones(r),
             "loans": loans,
             "equity": _money(r.get(cols["equity"])) if cols["equity"] else "",
             "balance": _money(r.get(cols["balance"])) if cols["balance"] else "",
         }
         out[P.address_key(addr, city.title())] = details
         out.setdefault(_loose_key(addr, city), details)
+    return out
+
+
+def _phones(r):
+    """'413-555-0100 (Mobile); 413-555-0199 (DNC)' from PropStream's skip-trace columns
+    (Phone 1, Phone 1 Type, Phone 1 DNC, ...)."""
+    out = []
+    for h, v in r.items():
+        low = h.lower()
+        if "phone" not in low or any(x in low for x in ("type", "dnc", "do not call", "status", "litigator")):
+            continue
+        digits = re.sub(r"\D", "", str(v or ""))
+        if len(digits) == 11 and digits.startswith("1"):
+            digits = digits[1:]
+        if len(digits) != 10:
+            continue
+        number = f"{digits[:3]}-{digits[3:6]}-{digits[6:]}"
+        tags = []
+        for k, flag in r.items():
+            kl = k.lower()
+            if kl.startswith(low) and kl != low:
+                if "type" in kl and flag:
+                    tags.append(str(flag).strip().title())
+                if ("dnc" in kl or "do not call" in kl or "litigator" in kl) and str(flag).strip().lower() in (
+                        "y", "yes", "true", "1", "dnc", "x"):
+                    tags.append("DNC")
+        out.append(number + (f" ({', '.join(tags)})" if tags else ""))
+    return "; ".join(dict.fromkeys(out))
+
+
+def apply_phones(calls, export_rows):
+    """Fill the call list's Phone column from the export's skip-trace phones, unless a
+    number was already typed in."""
+    data = index(export_rows)
+    for r in calls:
+        if r.get("Phone"):
+            continue
+        d = (data.get(P.address_key(r.get("Property Address", ""), r.get("Town", "")))
+             or data.get(_loose_key(r.get("Property Address", ""), r.get("Town", ""))))
+        if d and d.get("phones"):
+            r["Phone"] = d["phones"]
+    return calls
+
+
+def call_lookup_rows(calls, already):
+    """Call-list owners (e.g. Land Court filings) not on the auction lookup, without a phone."""
+    seen = {(x["Address"].upper(), x["City"].upper()) for x in already}
+    out = []
+    for r in calls:
+        addr = re.split(r"\s+a/?k/?a\s+", r.get("Property Address", ""), flags=re.I)[0]
+        if r.get("Phone") or not addr or addr.startswith("(") or (addr.upper(), r.get("Town", "").upper()) in seen:
+            continue
+        seen.add((addr.upper(), r.get("Town", "").upper()))
+        out.append({"Address": addr, "City": r.get("Town", ""), "State": "MA", "Zip": "",
+                    "Auction Date": r.get("Auction Date", ""), "Key": r["Key"]})
     return out
 
 

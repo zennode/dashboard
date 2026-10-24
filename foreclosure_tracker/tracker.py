@@ -69,7 +69,8 @@ CALL_COLS = [
     "Lender / Mortgagee", "Mortgage Year", "Assessed Value", "Last Sale", "Auction Company",
     "Legal Notice", "Why Call", "Phone", "Called?", "Call Date", "Outcome", "Call Notes", "Key",
 ]
-CALL_ALWAYS_KEEP = {"Phone", "Called?", "Call Date", "Outcome", "Call Notes"}
+CALL_ALWAYS_KEEP = {"Called?", "Call Date", "Outcome", "Call Notes"}
+CALL_KEEP_IF_EMPTY = {"Phone"}  # typed-in numbers win over PropStream's
 
 CHANGE_COLS = ["Detected (ET)", "Change", "Address", "Town", "Auction Date", "Previous", "Now",
                "Auction Company", "Found On", "Key"]
@@ -640,14 +641,18 @@ def run(cfg, writer, state_path, today=None):
     # Rows move between the two tabs as their status changes, so look for typed-in notes on both.
     typed = writer.read_rows(tabs["tracker"]) + writer.read_rows(tabs["cancelled"])
     rows = keep_sheet_edits(rows, typed, TRACKER_ALWAYS_KEEP, TRACKER_KEEP_IF_EMPTY)
-    rows = propstream.apply(rows, writer.read_rows(tabs["propstream_export"]))
-    writer.write_table(tabs["propstream_lookup"], propstream.LOOKUP_COLS, propstream.lookup_rows(rows, today))
+    export = writer.read_rows(tabs["propstream_export"])
+    rows = propstream.apply(rows, export)
     writer.write_table(tabs["tracker"], TRACKER_COLS, [r for r in rows if r["Status"] not in INACTIVE],
                        status_col="Status")
     writer.write_table(tabs["cancelled"], TRACKER_COLS, [r for r in rows if r["Status"] in INACTIVE],
                        status_col="Status")
     calls = call_rows(rows, all_auctions, land_court, cfg, today)
-    calls = keep_sheet_edits(calls, writer.read_rows(tabs["call_list"]), CALL_ALWAYS_KEEP, set())
+    calls = keep_sheet_edits(calls, writer.read_rows(tabs["call_list"]), CALL_ALWAYS_KEEP, CALL_KEEP_IF_EMPTY)
+    calls = propstream.apply_phones(calls, export)
+    lookup = propstream.lookup_rows(rows, today)
+    writer.write_table(tabs["propstream_lookup"], propstream.LOOKUP_COLS,
+                       lookup + propstream.call_lookup_rows(calls, lookup))
     writer.write_table(tabs["call_list"], CALL_COLS, calls, status_col="Status")
     writer.append_rows(tabs["changes"], CHANGE_COLS, events)
     writer.write_table(tabs["sources"], SOURCE_COLS, health)
