@@ -2,10 +2,9 @@
 
 Checks every auctioneer website on your **MA - Auction Site Links** tab, plus the
 newspapers' foreclosure legal notices, five times a day. Then it updates your
-**Weekly Auction Sheets** Google Sheet.
+**MA Weekly Auctions** Google Sheet (set by `spreadsheet_id` in `config.yaml`).
 
-It writes only to its own tabs. Your weekly tabs, the postponed tab, and the
-auction-links tab are never touched.
+It writes only to its own tabs. Any other tabs in the sheet are never touched.
 
 | Tab | What's on it |
 | --- | --- |
