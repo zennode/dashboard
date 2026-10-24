@@ -438,10 +438,13 @@ def detect_changes(current, state, sources_ok, today, now_str):
             event("Removed from auction site", key, p, "listed", "not listed")
 
     merged = {**prev_all, **current}
-    # Forget auctions more than 120 days old so the state file stays small.
+    # Forget auctions more than 120 days old so the state file stays small, and any dated
+    # more than four months out: foreclosure sales aren't set that far ahead, so such a date
+    # is a misread (an old listing with no year).
     cutoff = (today - timedelta(days=120)).isoformat()
+    too_far = (today + timedelta(days=125)).isoformat()
     state["auctions"] = {k: v for k, v in merged.items()
-                         if (v.get("auction_date") or v.get("last_seen", "")[:10] or "9999") >= cutoff}
+                         if cutoff <= (v.get("auction_date") or v.get("last_seen", "")[:10] or cutoff) <= too_far}
     return events
 
 
