@@ -76,7 +76,7 @@ def build_record(company, url, address, town, county, text, today, detail_url=""
 
 def _bare_deposit(text):
     """Some tables have a deposit column with no 'deposit' label: take a $5,000-$100,000 figure."""
-    for m in P.MONEY_RE.finditer(text):
+    for m in P.MONEY_RE.finditer(re.sub(r"\$\s*\|\s*", "$", text)):
         v = float(m.group(1).replace(",", ""))
         if 1000 <= v <= 100000 and v % 500 == 0:
             return P.fmt_money(v)
@@ -296,12 +296,12 @@ def generic(http, site, today):
             if key in seen:
                 continue
             seen.add(key)
-            link = el if el.name == "a" and el.get("href") else (el.find("a", href=True) or el.find_parent("a", href=True))
-            detail = urljoin(base_url, link["href"]) if link else ""
+            detail = _listing_link(el, base_url)
             rec = build_record(site["name"], site["url"], addr, town, county, text, today, detail)
             if not rec["auction_date"]:
                 rec = _from_page_text(page_text, addr, town, county, site, today, detail) or rec
-            out.append(rec)
+            if rec["auction_date"]:  # no date means an office or attorney address, not a sale
+                out.append(rec)
 
     # Leaf text with several listings run together (e.g. one <p> per page): split on addresses.
     for el in candidates:
@@ -321,8 +321,24 @@ def generic(http, site, today):
             rec = build_record(site["name"], site["url"], addr, town, county, text[start:nxt], today)
             if not rec["auction_date"]:
                 rec = _from_page_text(page_text, addr, town, county, site, today, "") or rec
-            out.append(rec)
+            if rec["auction_date"]:  # no date means an office or attorney address, not a sale
+                out.append(rec)
     return out
+
+
+SKIP_LINK = re.compile(r"\.(jpe?g|png|gif|webp|pdf)(\?|$)|maps\.google|goo\.gl|google\.com/maps|mailto:|tel:", re.I)
+
+
+def _listing_link(el, base_url):
+    """The block's link to its own listing page, skipping photos, maps and phone links."""
+    links = ([el] if el.name == "a" and el.get("href") else []) + el.find_all("a", href=True)
+    parent = el.find_parent("a", href=True)
+    if parent is not None:
+        links.append(parent)
+    for a in links:
+        if not SKIP_LINK.search(a["href"]) and not a["href"].startswith("#"):
+            return urljoin(base_url, a["href"])
+    return ""
 
 
 def _from_page_text(page_text, addr, town, county, site, today, detail):
@@ -366,9 +382,10 @@ def add_detail_pages(http, recs, today):
     Read that page for upcoming listings that are missing them."""
     for rec in recs:
         url = rec.get("detail_url")
+        stale = rec["auction_date"] and rec["auction_date"] < today.isoformat()
         if (not url or url == rec["source_url"] or "#" in url or rec["status"] in ("Cancelled", "Sold")
-                or (rec["auction_date"] and rec["auction_date"] < today.isoformat())
-                or (rec["deposit"] and rec["book_page"])):
+                or (stale and rec["status"] != "Postponed")
+                or (rec["deposit"] and rec["book_page"] and rec["status"] != "Postponed")):
             continue
         try:
             soup = BeautifulSoup(http.get(url).text, "lxml")
@@ -381,6 +398,9 @@ def add_detail_pages(http, recs, today):
         num, street, _ = P.split_address(rec["address"])
         if street and street.split()[0] not in text.upper():
             continue  # a shared page that isn't about this property
+        # Some auctioneers (Posnik) mark the sale "CANCELLED" on its own page first.
+        if re.search(r"\|\s*CANCELL?ED\s*\|", P.clean(soup.get_text(" | "))):
+            rec["status"] = "Cancelled"
         rec["deposit"] = rec["deposit"] or P.parse_deposit(text) or ""
         rec["book_page"] = rec["book_page"] or P.parse_book_page(text)
         rec["specs"] = rec["specs"] or P.parse_specs(text)

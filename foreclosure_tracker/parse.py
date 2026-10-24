@@ -134,6 +134,9 @@ def fmt_money(value):
 
 
 def parse_deposit(text):
+    text = re.sub(r"\$\s*\|\s*", "$", text or "")  # table cells split "$ | 25,000"
+    if re.search(r"deposit[^.]{0,80}\$\s?x+,?x*", text, re.I):
+        return "Not posted yet"  # "A deposit of $xx,000 ..."
     hits = [m for rx in (DEPOSIT_BEFORE_RE, DEPOSIT_AFTER_RE) for m in rx.finditer(text or "")]
     for m in sorted(hits, key=lambda m: m.start()):
         value = float(m.group(1).replace(",", ""))
@@ -198,7 +201,8 @@ ABBREV = {
     "BOULEVARD": "BLVD", "HIGHWAY": "HWY", "TURNPIKE": "TPKE", "TPK": "TPKE",
     "PARKWAY": "PKWY", "SQUARE": "SQ", "TRAIL": "TRL", "HEIGHTS": "HTS",
     "EXTENSION": "EXT", "NORTH": "N", "SOUTH": "S", "EAST": "E", "WEST": "W",
-    "MOUNT": "MT", "SAINT": "ST",
+    "MOUNT": "MT", "SAINT": "ST", "FIRST": "1ST", "SECOND": "2ND", "THIRD": "3RD", "FOURTH": "4TH",
+    "FIFTH": "5TH", "SIXTH": "6TH", "SEVENTH": "7TH", "EIGHTH": "8TH", "NINTH": "9TH", "TENTH": "10TH",
 }
 
 

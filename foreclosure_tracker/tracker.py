@@ -92,10 +92,21 @@ def load_config(path):
 
 
 def load_state(path):
-    if os.path.exists(path):
-        with open(path) as f:
-            return json.load(f)
-    return {}
+    if not os.path.exists(path):
+        return {}
+    with open(path) as f:
+        state = json.load(f)
+    # Re-key saved auctions with today's address rules, so a change in how addresses are
+    # matched ("5th" = "Fifth") doesn't make an auction look removed and re-added.
+    rekeyed = {}
+    for key, a in state.get("auctions", {}).items():
+        if not key.startswith("N-") and a.get("address") and a.get("town"):
+            key = P.address_key(a["address"], a["town"])
+        prev = rekeyed.get(key)
+        if prev is None or (a.get("last_seen", "") > prev.get("last_seen", "")):
+            rekeyed[key] = a
+    state["auctions"] = rekeyed
+    return state
 
 
 def save_state(path, state):
@@ -473,7 +484,7 @@ def call_rows(rows, auctions, land_court, cfg, today):
     out = []
     for r in rows:
         a = auctions.get(r["Key"], {})
-        if r["Status"] in ("Cancelled", "Sold", "Removed from site"):
+        if r["Status"] in ("Cancelled", "Sold", "Removed from site", "Held"):
             continue
         d = a.get("auction_date")
         days_left = (date.fromisoformat(d) - today).days if d else ""
@@ -562,7 +573,7 @@ def notice_facts(cfg, state, today):
     return {nid: {f: set(v) for f, v in fields.items()} for nid, fields in store.items()}
 
 
-INACTIVE = ("Cancelled", "Postponed", "Sold", "Removed from site")
+INACTIVE = ("Cancelled", "Postponed", "Sold", "Removed from site", "Held")
 
 
 def run(cfg, writer, state_path, today=None):
@@ -612,7 +623,13 @@ def run(cfg, writer, state_path, today=None):
             continue
         if key.startswith("N-") and key not in auctions:
             continue  # notice-only record that has since matched a listing or aged out
-        rows.append(build_row(key, a, cfg))
+        if not a.get("auction_date") and key not in auctions:
+            continue  # undated and no longer found: an address that wasn't a sale
+        row = build_row(key, a, cfg)
+        if row["Status"] in ("Scheduled", "Notice only") and a.get("auction_date") and a["auction_date"] < today.isoformat():
+            row["Status"] = "Held"  # the date has passed; results aren't posted
+            row["Status Notes"] = row["Status Notes"] or "Sale date has passed - check the result with the auctioneer"
+        rows.append(row)
     rows.sort(key=lambda r: (r["Auction Date"][6:] + r["Auction Date"][:5] if r["Auction Date"] else "9999",
                              _minutes(r["Time"]), r["Town"]))
 
