@@ -289,11 +289,25 @@ AUCTIONEER_SEARCH = {
 }
 
 
-def probe(make_http, counties, days, today, towns, workers=6):
-    """Full-text searches for sale dates, deposits, auctioneers and towns.
-    Returns {notice_id: {field: {values}}}. `make_http` builds one client per session."""
+# Sale times. The search ignores "AM"/"PM", but sales run 9am-6pm, so 9:00-11:30 is
+# morning and 12:00-6:00 afternoon.
+SALE_TIMES = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "1:00", "1:30",
+              "2:00", "2:30", "3:00", "3:30", "4:00", "4:30", "5:00", "5:30", "6:00"]
+
+
+def _ampm(t):
+    hour = int(t.split(":")[0])
+    return f"{t} {'AM' if 9 <= hour <= 11 else 'PM'}"
+
+
+def probe(make_http, counties, days, today, towns, workers=6, past_days=3):
+    """Full-text searches for sale dates and times, deposits, auctioneers and towns.
+    Returns {notice_id: {field: {values}}}. `make_http` builds one client per session.
+    `past_days` reaches back for postponed sales, whose notices name the original date."""
     queries = []
-    for k in range(-3, 76):  # sale dates: three days ago to 75 days out
+    for t in SALE_TIMES:
+        queries.append((t, "auction_time", _ampm(t)))
+    for k in range(-past_days, 76):  # sale dates
         d = today + timedelta(days=k)
         for form in (f"{d:%B} {d.day}, {d.year}",      # November 10, 2026
                      f"{_ordinal(d.day)} day of {d:%B}",  # 10th day of November
@@ -344,6 +358,9 @@ def apply_probe(notices, facts):
             n["auction_date"] = dates[-1]
             if len(dates) > 1:
                 n["original_date"] = dates[0]
+        times = merged.get("auction_time", set())
+        if len(times) == 1:
+            n["auction_time"] = next(iter(times))
         deposits = merged.get("deposit", set())
         if len(deposits) == 1:
             n["deposit"] = P.fmt_money(next(iter(deposits)))
