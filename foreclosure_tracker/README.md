@@ -47,10 +47,17 @@ access. PropStream has the recorded mortgages, so the tracker can use it in four
    **Auto - PropStream Lookup** tab (address, city, state).
 2. In PropStream, choose **Import List** and upload that tab (File → Download → CSV).
 3. Export the imported list. Include the mortgage columns: amount, recording date and
-   lender for each loan, and estimated equity.
+   lender for each loan, and estimated equity. To get owner phone numbers, skip-trace the
+   list in PropStream first and include the phone columns (Phone 1, Phone 1 Type,
+   Phone 1 DNC, ...).
 4. Paste the export, header row included, into a tab named **PropStream Export**. On the
    next run the tracker fills **Mortgage Amount**, **Mortgage Year**, **Lender**,
    **1st or 2nd** and **Est. Equity**.
+
+Phone numbers go into the **Phone** column of **Auto - Owner Call List**, with their type
+and a **DNC** mark for numbers on the Do-Not-Call list. A number you type into that column
+is never replaced. The lookup tab also lists the pre-foreclosure (Land Court) owners from
+the call list, so they can be skip-traced too.
 
 It matches PropStream's loans to the foreclosing mortgage by year. If the notice's
 mortgage is PropStream's second loan, the row says **2nd**. If there's also a second loan
@@ -115,3 +122,14 @@ automatically and need a manual look:
 Massachusetts regulates "foreclosure rescue" offers (940 CMR 25.00 and M.G.L. c.93A).
 Federal and state do-not-call rules also apply to cold calls. Check your scripts and any
 offers with your attorney before you start calling.
+
+## Friday email
+
+`weekly_email.py` builds the "Foreclosure Auctions Next Week" email (Mon–Sun of the
+coming week) from an .xlsx download of the sheet:
+
+    python weekly_email.py --xlsx sheet.xlsx --out email.html [--week-of 2026-10-26]
+
+It prints a JSON summary (subject, counts, guard thresholds). A scheduled Claude task
+runs it every Friday morning and sends the result with the Gmail connector. Gmail drops
+`background:` shorthand and gradients, so styles use `background-color`.
