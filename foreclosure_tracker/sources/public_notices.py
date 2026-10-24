@@ -73,6 +73,9 @@ def _drop_buttons(d):
     return d
 
 
+CHUNK_DAYS = 30
+
+
 class NoticeSearch:
     """One search session on masspublicnotices.org with our counties ticked, reusable for
     many keyword searches (each search is two or three requests)."""
@@ -92,11 +95,21 @@ class NoticeSearch:
         self.soup, self.url = soup, self.base + "/default.aspx"
 
     def rows(self, keyword, days, mode="AND", max_pages=40):
-        """Yield raw result dicts: notice_id, newspaper, published, snippet."""
+        """Yield raw result dicts: notice_id, newspaper, published, snippet.
+        The site returns at most 1,000 results per search, so long periods are searched
+        in 30-day pieces."""
+        end = date.today()
+        while days > 0:
+            span = min(days, CHUNK_DAYS)
+            yield from self._rows_between(keyword, end - timedelta(days=span - 1), end, mode, max_pages)
+            end -= timedelta(days=span)
+            days -= span
+
+    def _rows_between(self, keyword, start, end, mode, max_pages):
         d = _form(self.soup)
         d.update({P_FORM + "txtSearch": keyword, P_FORM + "rdoType": mode,
-                  P_FORM + "dateRange": "rbLastNumDays", P_FORM + "txtLastNumDays": str(days),
-                  P_FORM + "btnGo": ""})
+                  P_FORM + "dateRange": "rbRange", P_FORM + "txtDateFrom": f"{start:%m/%d/%Y}",
+                  P_FORM + "txtDateTo": f"{end:%m/%d/%Y}", P_FORM + "btnGo": ""})
         r = self.http.post(self.url, data=d)
         self.url, soup = r.url, BeautifulSoup(r.text, "lxml")
         if self._pages(soup)[1] > 1:
