@@ -38,6 +38,26 @@ fills in the sale date, deposit, auctioneer and town from what each notice match
 the excerpt has no address, it finds the borrower's property in the assessor records for
 the towns the notice names. The sale time isn't found this way; click **Legal Notice** for it.
 
+## Mortgage amount, year and 1st/2nd from PropStream
+
+Legal notices almost never state the loan amount, and the registry site blocks automated
+access. PropStream has the recorded mortgages, so the tracker can use it in four steps:
+
+1. Every run, the tracker lists the auctions still missing a mortgage amount on the
+   **Auto - PropStream Lookup** tab (address, city, state).
+2. In PropStream, choose **Import List** and upload that tab (File → Download → CSV).
+3. Export the imported list. Include the mortgage columns: amount, recording date and
+   lender for each loan, and estimated equity.
+4. Paste the export, header row included, into a tab named **PropStream Export**. On the
+   next run the tracker fills **Mortgage Amount**, **Mortgage Year**, **Lender**,
+   **1st or 2nd** and **Est. Equity**.
+
+It matches PropStream's loans to the foreclosing mortgage by year. If the notice's
+mortgage is PropStream's second loan, the row says **2nd**. If there's also a second loan
+behind the one being foreclosed, it says **1st (2nd exists)**. Values from the legal
+notice, or typed in by hand, are never overwritten. Repeat steps 2–4 whenever the lookup
+tab grows (about once a week).
+
 ## One-time setup (about 15 minutes)
 
 1. **Create a Google service account**

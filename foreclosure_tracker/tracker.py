@@ -26,6 +26,7 @@ import yaml
 
 import assessor_index
 import parse as P
+import propstream
 from http_client import Http
 from massgis import MassGIS, owner_patterns
 from sheets import CsvWriter, SheetWriter
@@ -53,13 +54,13 @@ TRACKER_COLS = [
     "Acres", "Gross Living Area", "Total Building Area", "Septic / Sewer", "Deposit",
     "Auction Company", "Status", "Original Date", "Times Postponed", "Status Notes",
     "Owner (Assessor)", "Borrower (Legal Notice)", "Owner Mailing Address", "Owner Occupied",
-    "Parcel ID", "Assessed Value", "Last Sale", "Registry Book/Page", "Registry Search",
+    "Parcel ID", "Assessed Value", "Est. Equity", "Last Sale", "Registry Book/Page", "Registry Search",
     "Listing Link", "Legal Notice", "Found On", "First Seen", "Last Checked", "Team Notes", "Key",
 ]
 # Columns people fill in by hand: a value typed in the sheet wins over an empty scraped one,
 # and Team Notes is always kept as typed.
 TRACKER_KEEP_IF_EMPTY = {"Mortgage Amount", "Mortgage Year", "Lender / Mortgagee", "1st or 2nd",
-                         "Tax / Water / Sewer Liens", "Septic / Sewer", "Specs"}
+                         "Tax / Water / Sewer Liens", "Septic / Sewer", "Specs", "Est. Equity"}
 TRACKER_ALWAYS_KEEP = {"Team Notes"}
 
 CALL_COLS = [
@@ -615,6 +616,8 @@ def run(cfg, writer, state_path, today=None):
     # Rows move between the two tabs as their status changes, so look for typed-in notes on both.
     typed = writer.read_rows(tabs["tracker"]) + writer.read_rows(tabs["cancelled"])
     rows = keep_sheet_edits(rows, typed, TRACKER_ALWAYS_KEEP, TRACKER_KEEP_IF_EMPTY)
+    rows = propstream.apply(rows, writer.read_rows(tabs["propstream_export"]))
+    writer.write_table(tabs["propstream_lookup"], propstream.LOOKUP_COLS, propstream.lookup_rows(rows, today))
     writer.write_table(tabs["tracker"], TRACKER_COLS, [r for r in rows if r["Status"] not in INACTIVE],
                        status_col="Status")
     writer.write_table(tabs["cancelled"], TRACKER_COLS, [r for r in rows if r["Status"] in INACTIVE],

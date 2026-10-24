@@ -9,6 +9,10 @@ tabs:
   changes: "Auto - Status Changes"
   call_list: "Auto - Owner Call List"
   sources: "Auto - Source Health"
+  # Mortgage data from PropStream: import the lookup tab's addresses into PropStream,
+  # export them, and paste the export (with headers) into the export tab.
+  propstream_lookup: "Auto - PropStream Lookup"
+  propstream_export: "PropStream Export"
 
 counties: [Berkshire, Hampden, Hampshire, Franklin, Worcester]
 
