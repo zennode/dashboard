@@ -12,6 +12,7 @@ Environment:
 """
 
 import argparse
+import html
 import io
 import json
 import os
@@ -95,7 +96,8 @@ def check(body, summary):
 def send(subject, body, sender, to, password):
     msg = MIMEMultipart("alternative")
     msg["Subject"], msg["From"], msg["To"] = subject, sender, to
-    msg.attach(MIMEText(re.sub(r"\s+", " ", re.sub(r"<[^>]*>", " ", body)).strip(), "plain"))
+    text = html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]*>", " ", body)).strip())
+    msg.attach(MIMEText(text, "plain"))
     msg.attach(MIMEText(body, "html"))
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=60) as s:
         s.login(sender, password)

@@ -11,6 +11,7 @@ JSON summary (subject, counts, the sentinel title) for the send step's checks.
 import argparse
 import html
 import json
+import re
 from datetime import date, datetime, timedelta
 
 import openpyxl
@@ -65,9 +66,18 @@ def as_time(v):
     return str(v).strip()
 
 
+def _number(v):
+    """Numbers read back as text (Sheets API path) -> int/float; anything else unchanged."""
+    if isinstance(v, str) and re.fullmatch(r"-?[\d,]+(\.\d+)?", v.strip()):
+        n = float(v.replace(",", ""))
+        return int(n) if n.is_integer() else n
+    return v
+
+
 def money(v):
     if v in (None, ""):
         return ""
+    v = _number(v)
     if isinstance(v, (int, float)):
         return f"${v:,.0f}"
     return str(v)
@@ -76,6 +86,7 @@ def money(v):
 def num(v, suffix=""):
     if v in (None, ""):
         return ""
+    v = _number(v)
     if isinstance(v, float) and v.is_integer():
         v = int(v)
     if isinstance(v, (int, float)):
