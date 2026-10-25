@@ -1,7 +1,7 @@
 """A printable clipboard sheet of next week's auctions (landscape letter PDF).
 
-One row per sale, grouped by day: a checkbox, time, property, auctioneer, deposit and
-lender, with room to write notes and a max bid.
+One row per sale, grouped by day: a checkbox, time, property, auctioneer, deposit, tax /
+lien amounts, septic / sewer and the sheet's Team Notes, with room to write a max bid.
 
   python print_sheet.py --xlsx sheet.xlsx --out auctions.pdf [--week-of 2026-10-26]
 """
@@ -32,8 +32,12 @@ HEAD = ParagraphStyle("head", parent=BASE, fontName="Helvetica-Bold", textColor=
 DAY = ParagraphStyle("day", parent=BASE, fontName="Helvetica-Bold", fontSize=11, leading=13, textColor=NAVY)
 TITLE = ParagraphStyle("title", parent=BASE, fontName="Helvetica-Bold", fontSize=16, leading=19, textColor=NAVY)
 
-# Checkbox, time, property, auctioneer, deposit, lender, notes / max bid (10" usable width).
-WIDTHS = [0.3 * inch, 0.8 * inch, 3.0 * inch, 1.1 * inch, 0.8 * inch, 1.45 * inch, 2.55 * inch]
+# Checkbox, time, property, auctioneer, deposit, tax/liens, septic, notes (10" usable width).
+WIDTHS = [0.3 * inch, 0.82 * inch, 2.38 * inch, 1.05 * inch, 0.75 * inch, 1.2 * inch, 1.1 * inch,
+          2.4 * inch]
+HEADER = ["", "Time", "Property", "Auctioneer", "Deposit", "Tax / Liens", "Septic / Sewer",
+          "Notes / max bid"]
+SEPTIC_GUESSES = {"Likely SEPTIC - verify", "Verify w/ BOH"}
 DAY_BG = colors.HexColor("#c7d6ea")
 
 
@@ -46,7 +50,6 @@ class Box(Flowable):
     def draw(self):
         self.canv.setLineWidth(1)
         self.canv.rect(0, 0, 11, 11)
-HEADER = ["", "Time", "Property", "Auctioneer", "Deposit", "Lender", "Notes / max bid"]
 
 
 def _p(text, style=BASE):
@@ -80,14 +83,21 @@ def _row(r):
         flags.append("Owner-occupied")
     if r.get("Assessed Value"):
         flags.append(f"Assessed {money(r['Assessed Value'])}")
-    notes = [_p(" · ".join(flags), ParagraphStyle(
-        "flag", parent=SMALL, textColor=AMBER if status == "Postponed" else BLUE))] if flags else []
-
-    lender = [_p(_short(r.get("Lender / Mortgagee"), 40), SMALL)] if r.get("Lender / Mortgagee") else []
+    if r.get("Lender / Mortgagee"):
+        flags.append(f"Lender: {_short(r['Lender / Mortgagee'], 40)}")
     if r.get("Mortgage Amount"):
-        lender.append(_p(f"Mtg {money(r['Mortgage Amount'])}", SMALL))
+        flags.append(f"Mtg {money(r['Mortgage Amount'])}")
+    # Team Notes (e.g. from the VA call) first and prominent, then the tracker's facts.
+    notes = [_p(r["Team Notes"], BASE)] if r.get("Team Notes") else []
+    if flags:
+        notes.append(_p(" · ".join(flags), ParagraphStyle(
+            "flag", parent=SMALL, textColor=AMBER if status == "Postponed" else BLUE)))
+
+    septic = str(r.get("Septic / Sewer") or "")
+    septic_cell = _p(septic, SMALL) if septic in SEPTIC_GUESSES else _p(septic)
     return [Box(), _p(r.get("_time") or "TBD", BOLD), prop, _p(_short(r.get("Auction Company"), 22)),
-            _p(money(r.get("Deposit")) or "?"), lender, notes]
+            _p(money(r.get("Deposit")) or "?", BOLD), _p(r.get("Tax / Water / Sewer Liens")),
+            septic_cell, notes]
 
 
 def build_pdf(week, start, end, printed=None):
@@ -128,7 +138,7 @@ def build_pdf(week, start, end, printed=None):
         rows = [r for r in week if r["_date"] == day]
         if rows:
             i = len(data)
-            data.append([_p(f"{day:%A, %B %-d}  ({len(rows)})", DAY)] + [""] * 6)
+            data.append([_p(f"{day:%A, %B %-d}  ({len(rows)})", DAY)] + [""] * (len(HEADER) - 1))
             style += [("SPAN", (0, i), (-1, i)), ("BACKGROUND", (0, i), (-1, i), DAY_BG)]
             for n, r in enumerate(rows):
                 data.append(_row(r))

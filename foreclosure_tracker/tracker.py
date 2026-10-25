@@ -62,6 +62,10 @@ TRACKER_COLS = [
 TRACKER_KEEP_IF_EMPTY = {"Mortgage Amount", "Mortgage Year", "Lender / Mortgagee", "1st or 2nd",
                          "Tax / Water / Sewer Liens", "Septic / Sewer", "Specs", "Est. Equity"}
 TRACKER_ALWAYS_KEEP = {"Team Notes"}
+# The tracker's own placeholder guesses; anything else typed in these columns (e.g. septic
+# details from a call) is kept even though the tracker always has a guess of its own.
+SEPTIC_GUESSES = {"Likely SEPTIC - verify", "Verify w/ BOH"}
+TRACKER_KEEP_UNLESS = {"Septic / Sewer": SEPTIC_GUESSES}
 
 CALL_COLS = [
     "Priority", "Stage", "Auction Date", "Days Left", "Status", "Times Postponed", "Owner (Assessor)",
@@ -401,7 +405,7 @@ def _minutes(t):
     return (int(m.group(1)) % 12 + (12 if m.group(3) == "P" else 0)) * 60 + int(m.group(2))
 
 
-def keep_sheet_edits(rows, existing, always, if_empty):
+def keep_sheet_edits(rows, existing, always, if_empty, unless=None):
     old = {r.get("Key"): r for r in existing if r.get("Key")}
     for r in rows:
         o = old.get(r["Key"])
@@ -412,6 +416,10 @@ def keep_sheet_edits(rows, existing, always, if_empty):
         for col in if_empty:
             if not r.get(col) and o.get(col):
                 r[col] = o[col]
+        for col, guesses in (unless or {}).items():
+            typed = str(o.get(col) or "").strip()
+            if typed and typed not in guesses:
+                r[col] = typed
     return rows
 
 
@@ -640,7 +648,7 @@ def run(cfg, writer, state_path, today=None):
     tabs = cfg["tabs"]
     # Rows move between the two tabs as their status changes, so look for typed-in notes on both.
     typed = writer.read_rows(tabs["tracker"]) + writer.read_rows(tabs["cancelled"])
-    rows = keep_sheet_edits(rows, typed, TRACKER_ALWAYS_KEEP, TRACKER_KEEP_IF_EMPTY)
+    rows = keep_sheet_edits(rows, typed, TRACKER_ALWAYS_KEEP, TRACKER_KEEP_IF_EMPTY, TRACKER_KEEP_UNLESS)
     export = writer.read_rows(tabs["propstream_export"])
     rows = propstream.apply(rows, export)
     writer.write_table(tabs["tracker"], TRACKER_COLS, [r for r in rows if r["Status"] not in INACTIVE],

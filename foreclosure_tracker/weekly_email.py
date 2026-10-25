@@ -122,6 +122,7 @@ def card(r):
         f"Mortgage: {e(money(r.get('Mortgage Amount')))}" if r.get("Mortgage Amount") else "",
         f"Yr {e(num(r.get('Mortgage Year')).replace(',', ''))}" if r.get("Mortgage Year") else "",
         e(r.get("1st or 2nd")) if r.get("1st or 2nd") else "",
+        f"Tax / liens: {e(r.get('Tax / Water / Sewer Liens'))}" if r.get("Tax / Water / Sewer Liens") else "",
     ] if x)
     line3 = " &nbsp;|&nbsp; ".join(x for x in [
         e(r.get("Specs")) if r.get("Specs") else "",
@@ -131,6 +132,8 @@ def card(r):
         e(r.get("Septic / Sewer")) if r.get("Septic / Sewer") else "",
     ] if x)
     notes = []
+    if r.get("Team Notes"):
+        notes.append(f"Notes: {e(r['Team Notes'])}")
     if status == "Postponed":
         notes.append(f"Postponed{(' from ' + e(r['_orig'])) if r.get('_orig') else ''}")
     if status == "Notice only":
