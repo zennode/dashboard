@@ -14,6 +14,7 @@ import json
 from datetime import date, datetime, timedelta
 
 import openpyxl
+from dateutil import parser as dateparser
 
 TITLE = "Foreclosure Auctions Next Week"
 SHEET_URL = "https://docs.google.com/spreadsheets/d/1jURtqtgCVPJKUb1nPgAya-gLPw86Tzw9OeCBxhlvZhk/edit"
@@ -45,6 +46,15 @@ def as_date(v):
         except ValueError:
             pass
     return None
+
+
+def as_datetime(v):
+    if isinstance(v, datetime):
+        return v
+    try:
+        return dateparser.parse(str(v)) if v not in (None, "") else None
+    except (ValueError, OverflowError):
+        return None
 
 
 def as_time(v):
@@ -155,8 +165,7 @@ def build(wb, today):
     # Changes logged in the last 7 days, for sales in or after next week.
     changes = []
     for c in read_tab(wb, "Auto - Status Changes"):
-        when = c.get("Detected (ET)")
-        when = when if isinstance(when, datetime) else None
+        when = as_datetime(c.get("Detected (ET)"))
         kind = str(c.get("Change") or "")
         sale = as_date(c.get("Auction Date"))
         # Skip changes on past sales and on far-future dates (misread years).
