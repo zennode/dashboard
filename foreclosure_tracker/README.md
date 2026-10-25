@@ -125,11 +125,19 @@ offers with your attorney before you start calling.
 
 ## Friday email
 
-`weekly_email.py` builds the "Foreclosure Auctions Next Week" email (Mon–Sun of the
-coming week) from an .xlsx download of the sheet:
+Every Friday at about 7:45am Eastern the **Friday auctions email** workflow
+(`.github/workflows/weekly-email.yml`) emails next Monday–Sunday's auctions to
+zennode@gmail.com. It reads the sheet with the same service account as the tracker and
+sends through Gmail, so it needs one more repository secret:
+
+1. Turn on 2-Step Verification for the Google account, then create an app password at
+   https://myaccount.google.com/apppasswords (any name, e.g. "Auction email").
+2. In GitHub: Settings -> Secrets and variables -> Actions -> New repository secret,
+   name `GMAIL_APP_PASSWORD`, value the 16-character password.
+3. Actions -> Friday auctions email -> Run workflow sends one right away to test it.
+
+`weekly_email.py` builds the email on its own from an .xlsx download of the sheet:
 
     python weekly_email.py --xlsx sheet.xlsx --out email.html [--week-of 2026-10-26]
 
-It prints a JSON summary (subject, counts, guard thresholds). A scheduled Claude task
-runs it every Friday morning and sends the result with the Gmail connector. Gmail drops
-`background:` shorthand and gradients, so styles use `background-color`.
+Gmail drops `background:` shorthand and gradients, so styles use `background-color`.
