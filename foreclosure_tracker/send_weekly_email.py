@@ -1,7 +1,8 @@
 """Send the Friday email from GitHub Actions.
 
 Exports the tracker sheet as .xlsx with the service account, builds the email with
-weekly_email.build(), checks it, and sends it through Gmail SMTP.
+weekly_email.build() and the printable PDF with print_sheet.build_pdf(), checks the
+email, and sends both through Gmail SMTP.
 
 Environment:
   GOOGLE_SERVICE_ACCOUNT_JSON  the same key the tracker uses
@@ -20,6 +21,7 @@ import re
 import smtplib
 import sys
 from datetime import date, timedelta
+from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -28,6 +30,7 @@ import yaml
 from google.auth.transport.requests import AuthorizedSession
 from google.oauth2.service_account import Credentials
 
+import print_sheet
 import weekly_email
 
 XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
@@ -93,12 +96,18 @@ def check(body, summary):
     return problems
 
 
-def send(subject, body, sender, to, password):
-    msg = MIMEMultipart("alternative")
+def send(subject, body, sender, to, password, pdf=None, pdf_name="auctions.pdf"):
+    msg = MIMEMultipart("mixed")
     msg["Subject"], msg["From"], msg["To"] = subject, sender, to
+    alt = MIMEMultipart("alternative")
     text = html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]*>", " ", body)).strip())
-    msg.attach(MIMEText(text, "plain"))
-    msg.attach(MIMEText(body, "html"))
+    alt.attach(MIMEText(text, "plain"))
+    alt.attach(MIMEText(body, "html"))
+    msg.attach(alt)
+    if pdf:
+        part = MIMEApplication(pdf, _subtype="pdf")
+        part.add_header("Content-Disposition", "attachment", filename=pdf_name)
+        msg.attach(part)
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=60) as s:
         s.login(sender, password)
         s.sendmail(sender, [to], msg.as_string())
@@ -116,8 +125,12 @@ def main():
     if args.week_of:
         today = date.fromisoformat(args.week_of) - timedelta(days=3)
 
-    body, summary = weekly_email.build(download_sheet(spreadsheet_id), today)
+    wb = download_sheet(spreadsheet_id)
+    body, summary = weekly_email.build(wb, today)
     print(json.dumps(summary, indent=1))
+    start, end, week = weekly_email.select_week(wb, today)
+    pdf = print_sheet.build_pdf(week, start, end)
+    pdf_name = f"Auctions {start:%b %-d} - {end:%b %-d}.pdf"
     problems = check(body, summary)
     if problems:
         sys.exit("Not sending: " + "; ".join(problems))
@@ -125,14 +138,16 @@ def main():
     if args.dry_run:
         with open(args.dry_run, "w") as f:
             f.write(body)
+        with open(os.path.splitext(args.dry_run)[0] + ".pdf", "wb") as f:
+            f.write(pdf)
         return
     sender = os.environ.get("EMAIL_FROM") or "zennode@gmail.com"
     to = os.environ.get("EMAIL_TO") or "zennode@gmail.com"
     password = os.environ.get("GMAIL_APP_PASSWORD")
     if not password:
         sys.exit("Set the GMAIL_APP_PASSWORD secret to send the email")
-    send(summary["subject"], body, sender, to, password.replace(" ", ""))
-    print(f"Sent \"{summary['subject']}\" to {to}")
+    send(summary["subject"], body, sender, to, password.replace(" ", ""), pdf, pdf_name)
+    print(f"Sent \"{summary['subject']}\" to {to} with {pdf_name} ({len(pdf):,} bytes)")
 
 
 if __name__ == "__main__":

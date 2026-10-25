@@ -155,7 +155,8 @@ def card(r):
     )
 
 
-def build(wb, today):
+def select_week(wb, today):
+    """The coming Monday-Sunday and its auctions, sorted by day and time."""
     start, end = next_week(today)
     rows = read_tab(wb, "Auto - Auction Tracker") + read_tab(wb, "Auto - Cancelled & Postponed")
     week, seen = [], set()
@@ -172,6 +173,11 @@ def build(wb, today):
         r["_orig"] = f"{od:%m/%d}" if od else ""
         week.append(r)
     week.sort(key=lambda r: (r["_date"], minutes(r["_time"]), str(r.get("Town"))))
+    return start, end, week
+
+
+def build(wb, today):
+    start, end, week = select_week(wb, today)
 
     # Changes logged in the last 7 days, for sales in or after next week.
     changes = []
