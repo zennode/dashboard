@@ -111,3 +111,15 @@ def test_propstream_phones():
     a, b = propstream.apply_phones(calls, export)
     assert a["Phone"] == "413-555-0100 (Mobile); 413-555-0199 (Landline, DNC)"
     assert b["Phone"] == "typed"
+
+
+def test_typed_septic_kept():
+    from tracker import keep_sheet_edits, TRACKER_KEEP_UNLESS
+    rows = [{"Key": "a", "Septic / Sewer": "Verify w/ BOH"}, {"Key": "b", "Septic / Sewer": "SEWER"},
+            {"Key": "c", "Septic / Sewer": "Likely SEPTIC - verify"}]
+    typed = [{"Key": "a", "Septic / Sewer": "Septic, Title 5 passed 2023"},
+             {"Key": "b", "Septic / Sewer": "Verify w/ BOH"}, {"Key": "c", "Septic / Sewer": ""}]
+    a, b, c = keep_sheet_edits(rows, typed, set(), set(), TRACKER_KEEP_UNLESS)
+    assert a["Septic / Sewer"] == "Septic, Title 5 passed 2023"
+    assert b["Septic / Sewer"] == "SEWER"
+    assert c["Septic / Sewer"] == "Likely SEPTIC - verify"

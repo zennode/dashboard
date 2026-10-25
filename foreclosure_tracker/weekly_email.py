@@ -122,6 +122,7 @@ def card(r):
         f"Mortgage: {e(money(r.get('Mortgage Amount')))}" if r.get("Mortgage Amount") else "",
         f"Yr {e(num(r.get('Mortgage Year')).replace(',', ''))}" if r.get("Mortgage Year") else "",
         e(r.get("1st or 2nd")) if r.get("1st or 2nd") else "",
+        f"Tax / liens: {e(r.get('Tax / Water / Sewer Liens'))}" if r.get("Tax / Water / Sewer Liens") else "",
     ] if x)
     line3 = " &nbsp;|&nbsp; ".join(x for x in [
         e(r.get("Specs")) if r.get("Specs") else "",
@@ -131,6 +132,8 @@ def card(r):
         e(r.get("Septic / Sewer")) if r.get("Septic / Sewer") else "",
     ] if x)
     notes = []
+    if r.get("Team Notes"):
+        notes.append(f"Notes: {e(r['Team Notes'])}")
     if status == "Postponed":
         notes.append(f"Postponed{(' from ' + e(r['_orig'])) if r.get('_orig') else ''}")
     if status == "Notice only":
@@ -155,7 +158,8 @@ def card(r):
     )
 
 
-def build(wb, today):
+def select_week(wb, today):
+    """The coming Monday-Sunday and its auctions, sorted by day and time."""
     start, end = next_week(today)
     rows = read_tab(wb, "Auto - Auction Tracker") + read_tab(wb, "Auto - Cancelled & Postponed")
     week, seen = [], set()
@@ -172,6 +176,11 @@ def build(wb, today):
         r["_orig"] = f"{od:%m/%d}" if od else ""
         week.append(r)
     week.sort(key=lambda r: (r["_date"], minutes(r["_time"]), str(r.get("Town"))))
+    return start, end, week
+
+
+def build(wb, today):
+    start, end, week = select_week(wb, today)
 
     # Changes logged in the last 7 days, for sales in or after next week.
     changes = []

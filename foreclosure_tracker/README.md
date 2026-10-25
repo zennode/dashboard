@@ -127,7 +127,8 @@ offers with your attorney before you start calling.
 
 Every Friday at about 7:45am Eastern the **Friday auctions email** workflow
 (`.github/workflows/weekly-email.yml`) emails next Monday–Sunday's auctions to
-zennode@gmail.com. It reads the sheet with the same service account as the tracker and
+zennode@gmail.com, with a printable PDF attached (landscape, one row per sale grouped by
+day, with checkboxes and room for notes and a max bid). It reads the sheet with the same service account as the tracker and
 sends through Gmail, so it needs one more repository secret:
 
 1. Turn on 2-Step Verification for the Google account, then create an app password at
@@ -139,5 +140,6 @@ sends through Gmail, so it needs one more repository secret:
 `weekly_email.py` builds the email on its own from an .xlsx download of the sheet:
 
     python weekly_email.py --xlsx sheet.xlsx --out email.html [--week-of 2026-10-26]
+    python print_sheet.py --xlsx sheet.xlsx --out auctions.pdf [--week-of 2026-10-26]
 
 Gmail drops `background:` shorthand and gradients, so styles use `background-color`.
