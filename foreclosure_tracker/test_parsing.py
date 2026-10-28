@@ -184,3 +184,35 @@ def test_typed_address_on_notice_row():
     use_typed_addresses(recs, typed, {"Ware", "Springfield"}, previous)
     assert (recs["N-1"]["address"], recs["N-1"]["town"]) == ("14 Oak St", "Ware")
     assert recs["N-2"]["address"] == "" and recs["N-3"]["address"] == ""
+
+
+def test_posnik_status_in_date_cell():
+    """Posnik puts a sale's status above its weekday; it must not slide onto the next sale."""
+    from datetime import date
+    from sources.auction_sites import posnik
+
+    def row(date_cell, town, addr, page):
+        return (f'<tr><td><a href="../html26/{page}.htm">{date_cell}</a></td>'
+                f'<td><a href="../html26/{page}.htm">{town}, MA</a></td>'
+                f'<td><a href="../html26/{page}.htm">3 BEDROOM HOME <u>{addr}</u></a></td></tr>')
+    html = "<table>" + "".join([
+        row("<span>POSTPONED</span><u>WEDNESDAY</u><br>OCTOBER 14TH", "CHICOPEE", "193 Fairview Avenue", "101426"),
+        row("<u>THURSDAY</u><br>OCTOBER 15TH<br>AT 11:00 AM", "LEEDS", "47 East Center Street", "101526"),
+        row("<span>CANCELLED</span><u>WEDNESDAY</u><br>OCTOBER 28TH", "CHICOPEE", "193 Fairview Avenue", "101426"),
+        row("<span>POSTPONED</span><u>WEDNESDAY</u><br>OCTOBER 21ST<br>Please\xa0See<br>NOVEMBER\xa013TH",
+            "SPRINGFIELD", "57 Pearl Street", "102126"),
+    ]) + "</table>"
+
+    class Resp:
+        text, url = html, "https://posnik.com/cals/_recal.htm"
+
+    class Http:
+        def get(self, url, **kw):
+            return Resp()
+    recs = posnik(Http(), {"name": "Posnik", "url": Resp.url}, date(2026, 10, 10))
+    got = [(r["address"], r["auction_date"], r["status"]) for r in recs]
+    assert got == [("193 Fairview Avenue", "2026-10-14", "Postponed"),
+                   ("47 East Center Street", "2026-10-15", "Scheduled"),
+                   ("193 Fairview Avenue", "2026-10-28", "Cancelled"),
+                   ("57 Pearl Street", "2026-11-13", "Postponed")]
+    assert recs[3]["original_date"] == "2026-10-21"

@@ -197,35 +197,43 @@ def servicelink(http, site, today):
 
 
 WEEKDAY_RE = re.compile(r"\b(MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)\b")
-PLEASE_SEE_RE = re.compile(r"please see", re.I)
+PLEASE_SEE_RE = re.compile(r"please\s+see", re.I)
 
 
 def posnik(http, site, today):
-    """Aaron Posnik real-estate calendar: 'DAY | DATE | [Please See | NEW DATE] | TOWN, MA |
-    description | street address | [STATUS]', one segment per weekday heading."""
+    """Aaron Posnik real-estate calendar: one table row per sale, cells 'STATUS? DAY DATE
+    [AT TIME] [Please See NEW DATE]' | 'TOWN, MA' | description and street address.
+    The status sits above the weekday in the date cell, so each row is read on its own;
+    reading the page as one run of text hands every status to the sale before it."""
     r = http.get(site["url"])
     soup = BeautifulSoup(r.text, "lxml")
     for t in soup(["script", "style"]):
         t.decompose()
-    text = soup.get_text(" | ", strip=True)
     # Each sale has its own page named after its first scheduled date (html26/110626.htm).
     pages = {a["href"].rsplit("/", 1)[-1]: urljoin(r.url, a["href"])
              for a in soup.find_all("a", href=True) if re.search(r"/\d{6}\.htm$", a["href"])}
-    starts = [m.start() for m in WEEKDAY_RE.finditer(text)] + [len(text)]
     out = []
-    for a, b in zip(starts, starts[1:]):
-        seg = text[a:b]
-        tm = re.search(r"\b(" + "|".join(re.escape(x) for x in P.all_place_names()) + r")\s*,\s*MA\b", seg, re.I)
-        am = P.ADDRESS_RE.search(seg[tm.end():]) if tm else None
+    for tr in soup.find_all("tr"):
+        cells = tr.find_all("td", recursive=False)
+        if len(cells) < 3 or not WEEKDAY_RE.search(cells[0].get_text(" ").upper()):
+            continue
+        seg = " | ".join(c.get_text(" | ", strip=True) for c in cells)
+        tm = re.search(r"\b(" + "|".join(re.escape(x) for x in P.all_place_names()) + r")\s*,\s*MA\b",
+                       cells[1].get_text(" ", strip=True), re.I)
+        am = P.ADDRESS_RE.search(" | ".join(c.get_text(" | ", strip=True) for c in cells[2:]))
         if not tm or not am:
             continue
         town, county = resolve_town(tm.group(1))
         if not town:
             continue
         addr = P.clean(am.group(1))
-        dates = [d for _, d in P.all_dates(seg, today)]
-        detail = next((pages[f"{d:%m%d%y}.htm"] for d in dates if f"{d:%m%d%y}.htm" in pages), "")
+        dates = [d for _, d in P.all_dates(cells[0].get_text(" ", strip=True), today)]
+        link = cells[0].find("a", href=True)
+        detail = (urljoin(r.url, link["href"]) if link and re.search(r"/\d{6}\.htm$", link["href"])
+                  else next((pages[f"{d:%m%d%y}.htm"] for d in dates if f"{d:%m%d%y}.htm" in pages), ""))
         rec = build_record(site["name"], site["url"], addr, town, county, seg, today, detail)
+        if dates:
+            rec["auction_date"] = dates[0].isoformat()
         if PLEASE_SEE_RE.search(seg) and len(dates) > 1:
             rec["original_date"], rec["auction_date"] = dates[0].isoformat(), dates[1].isoformat()
             if rec["status"] != "Cancelled":
