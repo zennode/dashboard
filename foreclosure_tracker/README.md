@@ -23,12 +23,14 @@ It writes only to its own tabs. Any other tabs in the sheet are never touched.
 | Mortgage amount | Almost never published: only 1 of 722 recent notices stated the loan amount. It's on the recorded mortgage, so use the **Registry Book/Page** and **Registry Search** link. masslandrecords.com blocks automated access, so we don't scrape it. Whatever you type in the column is kept. |
 | Owner, mailing address, owner-occupied, year built, living area, building area, lot sq ft / acres, style, rooms, assessed value, last sale, parcel ID | MassGIS statewide assessor tables (free, official, updated yearly). A local copy is refreshed monthly. |
 | Septic / Sewer | The listing text if it says so. Otherwise "Likely SEPTIC - verify" for small towns listed in `config.yaml`, or "Verify w/ BOH". |
+| Opening Bid | The opening or starting bid when one is posted, with where it came from: ServiceLink's feed, or Xome's Massachusetts auction pages. Xome only adds bids to sales already on the list; it isn't treated as the auctioneer. "est." means Xome calls it an estimated opening bid. Bids usually appear a few days before the sale, and the last one seen stays after the listing comes down. Auction.com blocks automated access, so check it by hand. Whatever you type is kept. |
 | Tax / Water / Sewer Liens | Yours to fill in. Town tax data isn't online in any standard form. What you type is kept. |
 | Team Notes | Yours. Always kept. |
 
-**Columns you type into are safe.** If you fill in Mortgage Amount, Liens, Septic, Specs,
-1st/2nd, Lender or Mortgage Year, your value is kept whenever the scraper has nothing
-for that column.
+**Columns you type into are safe.** If you fill in Mortgage Amount, Liens, Specs, 1st/2nd,
+Lender, Mortgage Year or Opening Bid, your value is kept whenever the scraper has nothing
+for that column. Anything typed in Septic / Sewer is always kept over the tracker's own
+"Verify w/ BOH" / "Likely SEPTIC - verify" guesses.
 
 **"Notice only" rows** are foreclosures that have a legal notice but aren't on any
 auction site, often because the auctioneer has no website. The full notice is behind a
@@ -116,6 +118,8 @@ automatically and need a manual look:
   Auctions (404, the site is gone), and Sutton and Strategic Auction (no connection, from
   GitHub as well). Their sales still show up as notice-only rows when a legal notice runs.
 - **Facebook:** the Marcella page can't be read.
+- **Auction.com** (Imperva bot protection): opening bids posted there have to be checked by
+  hand.
 
 ## A note on calling owners
 

@@ -94,6 +94,11 @@ def num(v, suffix=""):
     return f"{v}{suffix}"
 
 
+def _bid_short(v):
+    """'$215,000 (Xome)' -> '$215,000' for the narrow schedule column."""
+    return str(v or "").split(" (")[0]
+
+
 def minutes(t):
     try:
         return datetime.strptime(t, "%I:%M %p").hour * 60 + datetime.strptime(t, "%I:%M %p").minute
@@ -118,6 +123,7 @@ def card(r):
     when = " &nbsp;|&nbsp; ".join(e(x) for x in (r.get("_time"), r.get("Auction Company")) if x)
     line2 = " &nbsp;|&nbsp; ".join(x for x in [
         f"Deposit: {e(money(r.get('Deposit')))}" if r.get("Deposit") else "",
+        f"<strong>Opening bid: {e(r.get('Opening Bid'))}</strong>" if r.get("Opening Bid") else "",
         f"Lender: {e(r.get('Lender / Mortgagee'))}" if r.get("Lender / Mortgagee") else "",
         f"Mortgage: {e(money(r.get('Mortgage Amount')))}" if r.get("Mortgage Amount") else "",
         f"Yr {e(num(r.get('Mortgage Year')).replace(',', ''))}" if r.get("Mortgage Year") else "",
@@ -221,15 +227,16 @@ def build(wb, today):
     th = (f'style="padding:10px 14px;text-align:left;color:#ffffff;font-size:13px;font-weight:600;'
           f'border-bottom:2px solid {LIGHT};"')
     parts.append(f'<table style="width:100%;border-collapse:collapse;"><thead><tr style="background-color:{NAVY};">'
-                 f'<th {th}>Day</th><th {th}>Time</th><th {th}>Address</th><th {th}>Deposit</th></tr></thead><tbody>')
+                 f'<th {th}>Day</th><th {th}>Time</th><th {th}>Address</th><th {th}>Deposit</th><th {th}>Opening Bid</th></tr></thead><tbody>')
     if not week:
-        parts.append(f'<tr style="background-color:#f9fafb;"><td colspan="4" style="padding:10px 14px;font-size:14px;'
+        parts.append(f'<tr style="background-color:#f9fafb;"><td colspan="5" style="padding:10px 14px;font-size:14px;'
                      f'border-bottom:1px solid {BORDER};">No auctions found for next week.</td></tr>')
     for i, r in enumerate(week):
         bg = "#f9fafb" if i % 2 == 0 else "#ffffff"
         td = f'style="padding:10px 14px;font-size:14px;border-bottom:1px solid {BORDER};"'
         parts.append(f'<tr style="background-color:{bg};"><td {td}>{r["_date"]:%a %-m/%-d}</td><td {td}>{e(r["_time"])}</td>'
-                     f'<td {td}>{e(r.get("Address"))}, {e(r.get("Town"))}</td><td {td}>{e(money(r.get("Deposit")))}</td></tr>')
+                     f'<td {td}>{e(r.get("Address"))}, {e(r.get("Town"))}</td><td {td}>{e(money(r.get("Deposit")))}</td>'
+                     f'<td {td}>{e(_bid_short(r.get("Opening Bid")))}</td></tr>')
     parts.append("</tbody></table>")
 
     # Detail cards grouped by day.

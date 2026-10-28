@@ -30,7 +30,7 @@ import propstream
 from http_client import Http
 from massgis import MassGIS, owner_patterns
 from sheets import CsvWriter, SheetWriter
-from sources import public_notices
+from sources import public_notices, xome
 from sources.auction_sites import scrape_site
 from towns import COUNTY_TOWNS, TOWN_IDS, TOWN_TO_COUNTY
 
@@ -52,7 +52,7 @@ TRACKER_COLS = [
     "Mortgage Amount", "Mortgage Year", "Lender / Mortgagee", "1st or 2nd", "Auction Date", "Time",
     "Address", "Town", "County", "Tax / Water / Sewer Liens", "Specs", "Year Built", "Lot Sq Ft",
     "Acres", "Gross Living Area", "Total Building Area", "Septic / Sewer", "Deposit",
-    "Auction Company", "Law Firm (Notice)", "Status", "Original Date", "Times Postponed", "Status Notes",
+    "Opening Bid", "Auction Company", "Law Firm (Notice)", "Status", "Original Date", "Times Postponed", "Status Notes",
     "Owner (Assessor)", "Borrower (Legal Notice)", "Owner Mailing Address", "Owner Occupied",
     "Parcel ID", "Assessed Value", "Est. Equity", "Last Sale", "Registry Book/Page", "Registry Search",
     "Listing Link", "Legal Notice", "Found On", "First Seen", "Last Checked", "Team Notes", "Key",
@@ -60,7 +60,8 @@ TRACKER_COLS = [
 # Columns people fill in by hand: a value typed in the sheet wins over an empty scraped one,
 # and Team Notes is always kept as typed.
 TRACKER_KEEP_IF_EMPTY = {"Mortgage Amount", "Mortgage Year", "Lender / Mortgagee", "1st or 2nd",
-                         "Tax / Water / Sewer Liens", "Septic / Sewer", "Specs", "Est. Equity"}
+                         "Tax / Water / Sewer Liens", "Septic / Sewer", "Specs", "Est. Equity",
+                         "Opening Bid"}
 TRACKER_ALWAYS_KEEP = {"Team Notes"}
 # The tracker's own placeholder guesses; anything else typed in these columns (e.g. septic
 # details from a call) is kept even though the tracker always has a guess of its own.
@@ -189,6 +190,23 @@ def merge_listings(listings, today):
         best["links"] = sorted({r["detail_url"] or r["source_url"] for r in recs})
         merged[key] = best
     return merged
+
+
+def add_xome_bids(auctions, today, now_str):
+    """Fill in opening/starting bids Xome posts for sales we already have."""
+    status = {"Source": "Xome (bids only)", "Kind": "Bid prices", "URL": xome.URL, "Last Run (ET)": now_str}
+    try:
+        found = xome.bids(Http(), today)
+    except Exception as e:
+        log.warning("xome: %s", e)
+        return {**status, "Result": "ERROR", "Listings In Our Towns": 0, "Note": f"{type(e).__name__}: {str(e)[:150]}"}
+    used = 0
+    for key, bid in found.items():
+        if key in auctions and not auctions[key].get("opening_bid"):
+            auctions[key]["opening_bid"] = bid
+            used += 1
+    return {**status, "Result": "OK", "Listings In Our Towns": used,
+            "Note": f"Upcoming MA sales with a bid posted: {len(found)}; matched to our list: {used}"}
 
 
 def _bp_digits(bp):
@@ -355,6 +373,7 @@ def build_row(key, a, cfg):
         "Total Building Area": g.get("building_area", ""),
         "Septic / Sewer": sewer,
         "Deposit": a.get("deposit") or n.get("deposit", ""),
+        "Opening Bid": a.get("opening_bid", ""),
         "Auction Company": (a.get("auction_company", "") or n.get("auction_company", "")
                             or ", ".join(s for s in a.get("sources", []) if s != "Legal notice")
                             or ("From Public Notice" if notices else "")),
@@ -450,6 +469,9 @@ def detect_changes(current, state, sources_ok, today, now_str):
             a["first_seen"] = now_str
         else:
             a["first_seen"] = p.get("first_seen", now_str)
+            # Bid sites take a sale down once it's held; keep the last bid we saw.
+            if not a.get("opening_bid") and p.get("opening_bid"):
+                a["opening_bid"] = p["opening_bid"]
             a["times_postponed"] = p.get("times_postponed", 0)
             if p.get("status") != a["status"]:
                 event(f"Status: {p.get('status')} -> {a['status']}", key, a, p.get("status", ""), a["status"])
@@ -602,6 +624,7 @@ def run(cfg, writer, state_path, today=None):
     health.append(notice_health)
 
     auctions = merge_listings(listings, today)
+    health.append(add_xome_bids(auctions, today, now_str))
     enrich(auctions, gis, cfg["town_set"])  # assessor data first, so owner-name matching works
     sale_notices = [n for n in notices if n["kind"] == "Mortgagee's sale"]
     land_court = [n for n in notices if n["kind"] == "Land Court filing"]

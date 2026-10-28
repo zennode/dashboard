@@ -189,7 +189,8 @@ def servicelink(http, site, today):
             "auction_time": P.parse_time(it.get("tpsSaleTime") or "") or rec["auction_time"],
             "status": _norm_status(status_text) or "Scheduled",
             "specs": specs,
-            "opening_bid": P.fmt_money(it.get("tpsOpenBid") or it.get("openingBid")),
+            "opening_bid": (P.fmt_money(it.get("tpsOpenBid") or it.get("openingBid")) + " (ServiceLink)"
+                            if (it.get("tpsOpenBid") or it.get("openingBid")) else ""),
         })
         out.append(rec)
     return out

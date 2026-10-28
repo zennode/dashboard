@@ -123,3 +123,27 @@ def test_typed_septic_kept():
     assert a["Septic / Sewer"] == "Septic, Title 5 passed 2023"
     assert b["Septic / Sewer"] == "SEWER"
     assert c["Septic / Sewer"] == "Likely SEPTIC - verify"
+
+
+def test_xome_bids():
+    from datetime import date
+    from sources import xome
+    page = ('x = "[{\\"listingID\\":1,\\"streetAddress\\":\\"75 Windemere Street\\",\\"city\\":\\"Springfield\\",'
+            '\\"auctionInfo\\":{\\"bidType\\":\\"Starting Bid \\",\\"auctionStartDate\\":\\"2026-10-27T11:00:00+00:00\\",'
+            '\\"bidAmount\\":\\"$$187,500\\"}},'
+            '{\\"listingID\\":2,\\"streetAddress\\":\\"67 Marmon Street\\",\\"city\\":\\"Springfield\\",'
+            '\\"auctionInfo\\":{\\"bidType\\":\\"Est. Opening Bid \\",\\"auctionStartDate\\":\\"2026-12-09T11:00:00+00:00\\",'
+            '\\"bidAmount\\":\\"$$98,599.98\\"}},'
+            '{\\"listingID\\":3,\\"streetAddress\\":\\"1 Elm St\\",\\"city\\":\\"Springfield\\",'
+            '\\"auctionInfo\\":{\\"bidType\\":\\"Est. Opening Bid \\",\\"auctionStartDate\\":\\"2026-11-09T11:00:00+00:00\\",'
+            '\\"bidAmount\\":\\"$$0\\"}},'
+            '{\\"listingID\\":4,\\"streetAddress\\":\\"220 Antelope Drive\\",\\"city\\":\\"Lee\\",'
+            '\\"auctionInfo\\":{\\"bidType\\":\\"Final Bid\\",\\"auctionStartDate\\":\\"2026-10-24T13:00:00+00:00\\",'
+            '\\"bidAmount\\":\\"$$147,000\\"}},'
+            '{\\"listingID\\":5,\\"streetAddress\\":\\"6 Harvard Ave\\",\\"city\\":\\"Saugus\\",'
+            '\\"auctionInfo\\":{\\"bidType\\":\\"Starting Bid \\",\\"auctionStartDate\\":\\"2026-11-14T14:00:00+00:00\\",'
+            '\\"bidAmount\\":\\"$$340,000\\"}}]"; {\\"totalPages\\":2}')
+    rows = xome.parse_page(page, date(2026, 10, 26))
+    assert [(a, b) for a, _, b, _ in rows] == [("75 Windemere Street", "$187,500 (Xome)"),
+                                                ("67 Marmon Street", "$98,600 est. (Xome)")]
+    assert xome.total_pages(page) == 2

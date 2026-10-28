@@ -35,7 +35,7 @@ TITLE = ParagraphStyle("title", parent=BASE, fontName="Helvetica-Bold", fontSize
 # Checkbox, time, property, auctioneer, deposit, tax/liens, septic, notes (10" usable width).
 WIDTHS = [0.3 * inch, 0.82 * inch, 2.38 * inch, 1.05 * inch, 0.75 * inch, 1.2 * inch, 1.1 * inch,
           2.4 * inch]
-HEADER = ["", "Time", "Property", "Auctioneer", "Deposit", "Tax / Liens", "Septic / Sewer",
+HEADER = ["", "Time", "Property", "Auctioneer", "Deposit / bid", "Tax / Liens", "Septic / Sewer",
           "Notes / max bid"]
 SEPTIC_GUESSES = {"Likely SEPTIC - verify", "Verify w/ BOH"}
 DAY_BG = colors.HexColor("#c7d6ea")
@@ -96,7 +96,9 @@ def _row(r):
     septic = str(r.get("Septic / Sewer") or "")
     septic_cell = _p(septic, SMALL) if septic in SEPTIC_GUESSES else _p(septic)
     return [Box(), _p(r.get("_time") or "TBD", BOLD), prop, _p(_short(r.get("Auction Company"), 22)),
-            _p(money(r.get("Deposit")) or "?", BOLD), _p(r.get("Tax / Water / Sewer Liens")),
+            [_p(money(r.get("Deposit")) or "?", BOLD)]
+            + ([_p("Open " + str(r["Opening Bid"]).split(" (")[0], SMALL)] if r.get("Opening Bid") else []),
+            _p(r.get("Tax / Water / Sewer Liens")),
             septic_cell, notes]
 
 

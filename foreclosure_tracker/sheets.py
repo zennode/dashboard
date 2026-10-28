@@ -71,7 +71,9 @@ class SheetWriter:
         ws.resize(rows=max(len(values) + 20, 50), cols=len(header))
         ws.update(values=values, range_name="A1", value_input_option="USER_ENTERED")
         if created:
-            self._format_new_tab(ws, header, status_col)
+            self._format_new_tab(ws, header, None)
+        if status_col in header:
+            self._set_status_colors(ws, header, status_col)
 
     def append_rows(self, title, header, rows):
         ws, created = self._tab(title, len(header))
@@ -94,15 +96,46 @@ class SheetWriter:
                 "fields": "userEnteredFormat(textFormat,backgroundColor)"}},
         ]
         if status_col and status_col in header:
-            letter = _col_letter(header.index(status_col))
-            for status, color in STATUS_COLORS.items():
-                requests.append({"addConditionalFormatRule": {"index": 0, "rule": {
-                    "ranges": [{"sheetId": ws.id, "startRowIndex": 1}],
-                    "booleanRule": {
-                        "condition": {"type": "CUSTOM_FORMULA",
-                                      "values": [{"userEnteredValue": f'=LEFT(${letter}2,{len(status)})="{status}"'}]},
-                        "format": {"backgroundColor": color}}}}})
+            requests += _status_color_rules(ws.id, header, status_col)
         self.book.batch_update({"requests": requests})
+
+    def _set_status_colors(self, ws, header, status_col):
+        """Point the status colors at the Status column's current position. Columns get
+        added over time, so rules made when the tab was created can drift; only the
+        tracker's own rules are replaced, never ones added by hand."""
+        meta = self.book.fetch_sheet_metadata(
+            params={"fields": "sheets(properties.sheetId,conditionalFormats)"})
+        rules = next((sh.get("conditionalFormats", []) for sh in meta["sheets"]
+                      if sh["properties"]["sheetId"] == ws.id), [])
+        wanted = _status_color_rules(ws.id, header, status_col)
+        ours = [i for i, r in enumerate(rules) if _is_status_rule(r)]
+        if [_formula(rules[i]) for i in ours] == [_formula(w["addConditionalFormatRule"]["rule"])
+                                                  for w in reversed(wanted)]:
+            return  # already right
+        requests = [{"deleteConditionalFormatRule": {"sheetId": ws.id, "index": i}} for i in reversed(ours)]
+        self.book.batch_update({"requests": requests + wanted})
+
+
+def _status_color_rules(sheet_id, header, status_col):
+    letter = _col_letter(header.index(status_col))
+    return [{"addConditionalFormatRule": {"index": 0, "rule": {
+        "ranges": [{"sheetId": sheet_id, "startRowIndex": 1}],
+        "booleanRule": {
+            "condition": {"type": "CUSTOM_FORMULA",
+                          "values": [{"userEnteredValue": f'=LEFT(${letter}2,{len(status)})="{status}"'}]},
+            "format": {"backgroundColor": color}}}}} for status, color in STATUS_COLORS.items()]
+
+
+def _formula(rule):
+    try:
+        return rule["booleanRule"]["condition"]["values"][0]["userEnteredValue"]
+    except (KeyError, IndexError):
+        return ""
+
+
+def _is_status_rule(rule):
+    f = _formula(rule)
+    return f.startswith("=LEFT($") and any(f'="{s}"' in f for s in STATUS_COLORS)
 
 
 class CsvWriter:
