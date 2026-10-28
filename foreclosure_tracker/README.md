@@ -36,9 +36,25 @@ for that column. Anything typed in Septic / Sewer is always kept over the tracke
 auction site, often because the auctioneer has no website. The full notice is behind a
 CAPTCHA, but the notice site's search covers the full text. Once a day the tracker searches
 it for every upcoming sale date, common deposits, auctioneer names and town names, and
-fills in the sale date, deposit, auctioneer and town from what each notice matches. When
-the excerpt has no address, it finds the borrower's property in the assessor records for
-the towns the notice names. The sale time isn't found this way; click **Legal Notice** for it.
+fills in the sale date, deposit, auctioneer and town from what each notice matches. The sale
+time isn't found this way; click **Legal Notice** for it.
+
+**Finding the address when the notice excerpt has none.** The excerpt stops before the
+property description, and the full notice is behind a CAPTCHA. So the tracker:
+
+1. Looks up every borrower's name in the assessor records for the notice's county (or the
+   towns it names). One home owned by that name means that's the property.
+2. When the name fits several homes, or only the last name matches (a trust, a relative),
+   it full-text searches the notice for each candidate's town, then street, then house
+   number, and keeps the one property the notice mentions. That's up to 60 searches,
+   once per notice; the answer is saved, and a miss is retried after two weeks.
+3. If the property turns out to be a sale already listed on an auctioneer's site, the
+   notice joins that row instead of showing up twice.
+
+Addresses found this way say so in **Status Notes**; confirm them with the legal notice.
+Rows still showing "(borrower: ...)" or "(see legal notice)" need the **Legal Notice** link.
+Type the address over the placeholder (and the Town) and it's kept, and the assessor
+details fill in on the next run.
 
 ## Mortgage amount, year and 1st/2nd from PropStream
 

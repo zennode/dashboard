@@ -147,3 +147,40 @@ def test_xome_bids():
     assert [(a, b) for a, _, b, _ in rows] == [("75 Windemere Street", "$187,500 (Xome)"),
                                                 ("67 Marmon Street", "$98,600 est. (Xome)")]
     assert xome.total_pages(page) == 2
+
+
+def test_owner_names_every_borrower():
+    from massgis import last_names, owner_matches
+    pats = owner_patterns("Susan J. Boyer and Ronald C. Boyer")
+    assert "BOYER RONALD" in pats and "BOYER SUSAN" in pats
+    assert owner_matches("BOYER RONALD C", pats)
+    assert owner_matches("KABAMBA,CHRISTOPHORE M", owner_patterns("Christophore M. Kabamba"))
+    assert not owner_matches("BOYERS RONALD", ["BOYER, RONALD"])
+    assert last_names("Christine Diane MacDonald, Deilya Nap") == {"MACDONALD", "NAP"}
+    assert last_names("Prestigious One LLC") == set()
+
+
+def test_street_word_and_folding():
+    from tracker import _street_word, fold_into_listings
+    assert _street_word("22 SORRENTO ST") == "SORRENTO"
+    assert _street_word("46 NEW BOSTON ROAD") == "BOSTON"
+    assert _street_word("11 RICE LN #3") == "RICE"
+    listing = {"address": "11-3 Rice Lane", "town": "Worcester", "auction_date": "2026-10-29", "gis": {}}
+    notice = {"address": "11 Rice Ln #3", "town": "Worcester", "auction_date": "2026-10-29",
+              "gis": {"parcel_id": "P1"}, "notices": [{"n": 1}]}
+    other = {"address": "5 Elm St", "town": "Worcester", "gis": {}, "notices": [{"n": 2}]}
+    auctions = {"L": listing}
+    left = fold_into_listings(auctions, {"N-a": notice, "N-b": other})
+    assert list(left) == ["N-b"] and listing["notices"] == [{"n": 1}]
+
+
+def test_typed_address_on_notice_row():
+    from tracker import use_typed_addresses
+    recs = {"N-1": {"address": "", "town": ""}, "N-2": {"address": "", "town": ""}, "N-3": {"address": "", "town": ""}}
+    typed = [{"Key": "N-1", "Address": "14 Oak St", "Town": "Ware"},
+             {"Key": "N-2", "Address": "22 Sorrento St", "Town": "Springfield"},
+             {"Key": "N-3", "Address": "(borrower: Jane Doe)", "Town": ""}]
+    previous = {"N-2": {"address": "22 Sorrento St"}}
+    use_typed_addresses(recs, typed, {"Ware", "Springfield"}, previous)
+    assert (recs["N-1"]["address"], recs["N-1"]["town"]) == ("14 Oak St", "Ware")
+    assert recs["N-2"]["address"] == "" and recs["N-3"]["address"] == ""

@@ -28,7 +28,8 @@ import assessor_index
 import parse as P
 import propstream
 from http_client import Http
-from massgis import MassGIS, owner_patterns
+from massgis import MassGIS, owner_matches, owner_patterns
+from massgis import last_names as massgis_last_names
 from sheets import CsvWriter, SheetWriter
 from sources import public_notices, xome
 from sources.auction_sites import scrape_site
@@ -228,8 +229,8 @@ def match_notices(auctions, notices):
         if not key and n["borrower"]:
             pats = owner_patterns(n["borrower"])
             for k, a in auctions.items():
-                owner = ((a.get("gis") or {}).get("owner") or "").upper()
-                if owner and a["county"] == n["county"] and any(owner.startswith(p) for p in pats):
+                owner = (a.get("gis") or {}).get("owner")
+                if a["county"] == n["county"] and owner_matches(owner, pats):
                     key = k
                     break
         if not key and n.get("auction_date"):
@@ -282,6 +283,148 @@ def notice_only_records(notices, today):
     return out
 
 
+STREET_WORDS = {"ST", "STREET", "RD", "ROAD", "AVE", "AV", "AVENUE", "DR", "DRIVE", "LN", "LANE", "CT", "COURT",
+                "PL", "PLACE", "TER", "TERR", "TERRACE", "WAY", "CIR", "CIRCLE", "BLVD", "PKWY", "HWY", "EXT",
+                "N", "S", "E", "W", "UNIT", "APT"}
+LOCATE_QUERIES = 60  # notice-text searches allowed per notice, ever (results are saved)
+
+
+class _OutOfQueries(Exception):
+    pass
+
+
+def _street_word(site_addr):
+    """The most distinctive word of a street address: '22 SORRENTO ST' -> 'SORRENTO'."""
+    words = [w for w in re.findall(r"[A-Z0-9']+", re.sub(r"#.*", "", site_addr.upper()))
+             if w not in STREET_WORDS and not w.isdigit()]
+    return max(words, key=len) if words else ""
+
+
+def locate_by_notice_text(records, gis, state, today, towns, http_factory=Http):
+    """Notice-only sales with a borrower but no address: narrow the borrower's possible
+    properties (assessor parcels whose owner shares a last name) by full-text searching the
+    notice for each candidate's town and then street. Each notice is worked out once; the
+    answer (or that there wasn't one) is saved in the state file."""
+    store = state.setdefault("notice_addresses", {})
+    sessions = {}
+    for key, a in records.items():
+        n = (a.get("notices") or [{}])[0]
+        if a.get("address") or not n.get("borrower") or not n.get("county"):
+            continue
+        saved = store.get(key)
+        if saved and (saved.get("site_address") or saved.get("checked", "") >= (today - timedelta(days=14)).isoformat()):
+            if saved.get("site_address"):
+                a["gis"], a["address"], a["town"] = saved, saved["site_address"], saved["town"]
+                _note_found_address(a)
+            continue
+        county_towns = [t for t in COUNTY_TOWNS[n["county"]] if t in towns]
+        named = [t for t in n.get("probe_towns", []) if t in county_towns]
+        cands = [r for r in gis.owner_candidates(n["borrower"], named or county_towns) if (r.get("RES_AREA") or 0) > 0]
+        # Several owners with the borrower's full name: test just those first.
+        pats = owner_patterns(n["borrower"])
+        exact = [r for r in cands if owner_matches(r.get("OWNER1"), pats)]
+        if 1 < len(exact) <= 8:
+            cands = exact
+        last = sorted(massgis_last_names(n["borrower"]))
+        ids = set(n.get("ids", [n["notice_id"]]))
+        if not cands or not last:
+            store[key] = {"checked": today.isoformat()}
+            continue
+        if n["county"] not in sessions:
+            sessions[n["county"]] = public_notices.NoticeSearch(http_factory(), [n["county"]])
+        session, budget = sessions[n["county"]], [LOCATE_QUERIES]
+
+        def says(word):
+            """Does the notice's full text contain the borrower's last name and `word`?"""
+            if budget[0] <= 0:
+                raise _OutOfQueries
+            budget[0] -= 1
+            return bool(ids & session.ids(f"{last[0]} {word}", 60, mode="AND"))
+
+        try:
+            snippet = n.get("snippet", "").upper()
+            by_town = {}
+            for r in cands:
+                by_town.setdefault(r["_town"], []).append(r)
+            if len(by_town) > 1 and len({_street_word(str(r.get("SITE_ADDR"))) for r in cands}) > 12:
+                # A town named in the notice's opening (a lender, the registry) proves nothing.
+                testable = [t for t in by_town if t.upper() not in snippet and t != n["county"]]
+                hit = [t for t in sorted(testable, key=lambda t: -len(by_town[t])) if says(t)]
+                cands = [r for t in (hit or [t for t in by_town if t not in testable]) for r in by_town[t]]
+            by_street = {}
+            for r in cands:
+                by_street.setdefault((r["_town"], _street_word(str(r.get("SITE_ADDR")))), []).append(r)
+            if len(by_street) > budget[0]:
+                raise _OutOfQueries
+            found = [r for (t, w), rs in by_street.items() if w and says(w) for r in rs]
+            if len(found) > 1:
+                found = [r for r in found if (m := re.match(r"\d+", str(r.get("SITE_ADDR") or ""))) and says(m.group())]
+        except _OutOfQueries:
+            found = []
+        except Exception as e:
+            log.warning("locating %s: %s", n["borrower"], e)
+            continue  # try again next run
+        if len(found) == 1:
+            res = gis.summarize(found[0])
+            res.update({"town": found[0]["_town"], "matched_by": "borrower name + notice text",
+                        "checked": today.isoformat()})
+            store[key] = res
+            a["gis"], a["address"], a["town"] = res, res["site_address"], res["town"]
+            _note_found_address(a)
+            log.info("located %s: %s, %s", n["borrower"], res["site_address"], res["town"])
+        else:
+            store[key] = {"checked": today.isoformat()}
+
+
+def _note_found_address(a):
+    note = "Address found from the borrower's name in assessor records - confirm with the legal notice"
+    a["status_note"] = "; ".join(x for x in (a.get("status_note"), note) if x)
+
+
+def use_typed_addresses(notice_only, typed, towns, previous):
+    """An address someone typed over a notice-only row's "(borrower: ...)" placeholder is
+    kept, and used to look the property up like any other address. An address the tracker
+    wrote there itself (found from the borrower's name) is not "typed"."""
+    by_key = {r.get("Key"): r for r in typed if r.get("Key")}
+    for key, a in notice_only.items():
+        r = by_key.get(key) or {}
+        addr, town = str(r.get("Address") or "").strip(), str(r.get("Town") or "").strip()
+        ours = str((previous.get(key) or {}).get("address") or "").strip()
+        if a.get("address") or not addr or addr.startswith("(") or addr.upper() == ours.upper():
+            continue
+        a["address"] = addr
+        if town in towns:
+            a["town"] = town
+
+
+def _sale_spot(a):
+    m = re.match(r"\s*(\d+)", a.get("address") or "")
+    word = _street_word(re.sub(r"^[\d\s-]+", "", (a.get("address") or "").upper()))
+    if not (m and word and a.get("town") and a.get("auction_date")):
+        return None
+    return (a["town"], a["auction_date"], m.group(1), word)
+
+
+def fold_into_listings(auctions, notice_only):
+    """A notice-only sale whose address we just found may be a listing we already have
+    (an auctioneer's site writes the address differently). Attach it there instead."""
+    by_parcel = {(a.get("gis") or {}).get("parcel_id"): k for k, a in auctions.items() if (a.get("gis") or {}).get("parcel_id")}
+    by_addr = {P.address_key(a["address"], a["town"]): k for k, a in auctions.items() if a.get("address")}
+    # Same town, sale date, house number and street word ("11-3 Rice Lane" vs "11 Rice Ln #3").
+    by_sale = {_sale_spot(a): k for k, a in auctions.items() if _sale_spot(a)}
+    out = {}
+    for key, a in notice_only.items():
+        g = a.get("gis") or {}
+        k = (by_parcel.get(g.get("parcel_id"))
+             or (a.get("address") and by_addr.get(P.address_key(a["address"], a["town"])))
+             or by_sale.get(_sale_spot(a)))
+        if k:
+            auctions[k].setdefault("notices", []).extend(a["notices"])
+        else:
+            out[key] = a
+    return out
+
+
 def _town_from_notice(named, county):
     """The town a notice names, when the address itself wasn't in its excerpt. Every
     Worcester County notice mentions "Worcester" (the registry), so the city of Worcester
@@ -319,6 +462,7 @@ def enrich(auctions, gis, towns):
                 a["gis"] = res
                 a["address"] = res["site_address"]
                 a["town"] = res["town"]
+                _note_found_address(a)
             elif not a.get("town"):
                 a["town"] = _town_from_notice(named, n["county"])
 
@@ -632,7 +776,13 @@ def run(cfg, writer, state_path, today=None):
         public_notices.apply_probe(sale_notices, notice_facts(cfg, state, today))
     unmatched = match_notices(auctions, sale_notices)
     notice_only = notice_only_records(unmatched, today)
+    tabs = cfg["tabs"]
+    # Rows move between the two tabs as their status changes, so look for typed-in notes on both.
+    typed = writer.read_rows(tabs["tracker"]) + writer.read_rows(tabs["cancelled"])
+    use_typed_addresses(notice_only, typed, cfg["town_set"], state.get("auctions", {}))
     enrich(notice_only, gis, cfg["town_set"])
+    locate_by_notice_text(notice_only, gis, state, today, cfg["town_set"])
+    notice_only = fold_into_listings(auctions, notice_only)
     # Drop notice-only records whose property turned out to be outside our towns.
     notice_only = {k: a for k, a in notice_only.items() if not a["town"] or a["town"] in cfg["town_set"]}
     auctions.update(notice_only)
@@ -668,9 +818,6 @@ def run(cfg, writer, state_path, today=None):
     rows.sort(key=lambda r: (r["Auction Date"][6:] + r["Auction Date"][:5] if r["Auction Date"] else "9999",
                              _minutes(r["Time"]), r["Town"]))
 
-    tabs = cfg["tabs"]
-    # Rows move between the two tabs as their status changes, so look for typed-in notes on both.
-    typed = writer.read_rows(tabs["tracker"]) + writer.read_rows(tabs["cancelled"])
     rows = keep_sheet_edits(rows, typed, TRACKER_ALWAYS_KEEP, TRACKER_KEEP_IF_EMPTY, TRACKER_KEEP_UNLESS)
     export = writer.read_rows(tabs["propstream_export"])
     rows = propstream.apply(rows, export)
