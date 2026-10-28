@@ -75,12 +75,7 @@ class MassGIS:
         patterns = owner_patterns(borrower)
         if not patterns:
             return None
-        hits = []
-        for t in towns:
-            for r in self._rows(t):
-                owner = str(r.get("OWNER1") or "").upper()
-                if owner and any(owner.startswith(p) for p in patterns):
-                    hits.append(r)
+        hits = [r for t in towns for r in self._rows(t) if owner_matches(r.get("OWNER1"), patterns)]
         homes = [h for h in hits if (h.get("RES_AREA") or 0) > 0] or hits
         if len(homes) != 1:
             return None
@@ -90,9 +85,50 @@ class MassGIS:
         return result
 
 
+    @staticmethod
+    def summarize(row):
+        return _summarize(row)
+
+    def owner_candidates(self, borrower, towns):
+        """Every parcel in `towns` whose owner shares a borrower's last name, for when the
+        full name finds nothing or more than one home (trusts, other family members)."""
+        lasts = last_names(borrower)
+        if not lasts:
+            return []
+        return [r for t in towns for r in self._rows(t)
+                if lasts & set(re.findall(r"[A-Z'-]+", str(r.get("OWNER1") or "").upper()))]
+
+
+def _norm_owner(name):
+    """'KABAMBA,CHRISTOPHORE M' and 'KABAMBA , CHRISTOPHORE' -> 'KABAMBA, CHRISTOPHORE M'"""
+    return re.sub(r"\s*,\s*", ", ", re.sub(r"\s+", " ", str(name or "").upper())).strip()
+
+
+def owner_matches(owner, patterns):
+    owner = _norm_owner(owner)
+    return bool(owner) and any(owner.startswith(p) for p in patterns)
+
+
+def _people(borrower):
+    """'Paul D. Mckunes and Janine E. Mckunes' -> [['PAUL', 'D', 'MCKUNES'], ['JANINE', 'E', 'MCKUNES']]"""
+    out = []
+    for person in re.split(r"\s+and\s+|,|;|&", borrower.strip()):
+        parts = [re.sub(r"[^\w'-]", "", w).upper() for w in person.split()]
+        parts = [p for p in parts if p and p not in NAME_SUFFIXES and len(p) > 1]
+        if parts:
+            out.append(parts)
+    return out
+
+
+def last_names(borrower):
+    if not borrower or ORG_WORDS.search(borrower):
+        return set()
+    return {parts[-1] for parts in _people(borrower) if len(parts) >= 2}
+
+
 def owner_patterns(borrower):
-    """Assessor-style owner names to search for.
-    'Timothy J. Adams and Mary Adams' -> ['ADAMS TIMOTHY', 'ADAMS, TIMOTHY']
+    """Assessor-style owner names to search for, for every borrower named.
+    'Timothy J. Adams and Mary Adams' -> ['ADAMS TIMOTHY', 'ADAMS, TIMOTHY', 'ADAMS MARY', 'ADAMS, MARY']
     'Pablo Gonzalez Roman' -> ['ROMAN PABLO', 'ROMAN, PABLO', 'GONZALEZ ROMAN PABLO']
     'Prestigious One LLC' -> ['PRESTIGIOUS ONE']"""
     if not borrower:
@@ -101,15 +137,14 @@ def owner_patterns(borrower):
         words = ORG_WORDS.split(borrower.upper())[0].split()
         name = " ".join(re.sub(r"[^\w]", "", w) for w in words[:3]).strip()
         return [name] if len(name) > 3 else []
-    first = re.split(r"\s+and\s+|,|;|&", borrower.strip(), maxsplit=1)[0].strip()
-    parts = [re.sub(r"[^\w'-]", "", w).upper() for w in first.split()]
-    parts = [p for p in parts if p and p not in NAME_SUFFIXES and len(p) > 1]
-    if len(parts) < 2:
-        return []
-    out = [f"{parts[-1]} {parts[0]}", f"{parts[-1]}, {parts[0]}"]
-    if len(parts) >= 3:
-        out.append(f"{parts[-2]} {parts[-1]} {parts[0]}")
-    return out
+    out = []
+    for parts in _people(borrower):
+        if len(parts) < 2:
+            continue
+        out += [f"{parts[-1]} {parts[0]}", f"{parts[-1]}, {parts[0]}"]
+        if len(parts) >= 3:
+            out.append(f"{parts[-2]} {parts[-1]} {parts[0]}")
+    return list(dict.fromkeys(out))
 
 
 def _summarize(r):
