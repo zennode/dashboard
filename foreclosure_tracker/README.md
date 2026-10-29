@@ -134,6 +134,10 @@ automatically and need a manual look:
   Auctions (404, the site is gone), and Sutton and Strategic Auction (no connection, from
   GitHub as well). Their sales still show up as notice-only rows when a legal notice runs.
 - **Facebook:** the Marcella page can't be read.
+- **Zekos municipal (town-owned / tax title) sales** show as one row per sale, such as
+  "(municipal auction - City of Chicopee)", with date, time, deposit, number of properties
+  and where it's held. Zekos lists the individual properties only through pages its
+  robots.txt asks automated visitors to skip, so open the sale's link for the list.
 - **Auction.com** (Imperva bot protection): opening bids posted there have to be checked by
   hand.
 
@@ -145,7 +149,8 @@ offers with your attorney before you start calling.
 
 ## Google Calendar
 
-Every run also mirrors upcoming sales onto the **Foreclosure Auctions** Google Calendar
+At the end of every run (about 5 times a day) the tracker also mirrors the sheet's
+upcoming sales onto the **Foreclosure Auctions** Google Calendar
 (`calendar_id` in `config.yaml`):
 
 - One event per sale with status **Scheduled** or **Notice only**. The event runs an hour

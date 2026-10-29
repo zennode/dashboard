@@ -33,7 +33,7 @@ from massgis import MassGIS, owner_matches, owner_patterns
 from massgis import last_names as massgis_last_names
 from sheets import CsvWriter, SheetWriter
 from sources import public_notices, xome
-from sources.auction_sites import scrape_site
+from sources.auction_sites import MUNICIPAL_PREFIX, scrape_site
 from towns import COUNTY_TOWNS, TOWN_IDS, TOWN_TO_COUNTY
 
 log = logging.getLogger("tracker")
@@ -682,6 +682,8 @@ def call_rows(rows, auctions, land_court, cfg, today):
         a = auctions.get(r["Key"], {})
         if r["Status"] in ("Cancelled", "Sold", "Removed from site", "Held"):
             continue
+        if r["Address"].startswith(MUNICIPAL_PREFIX):
+            continue  # a town's own sale: no homeowner to call
         d = a.get("auction_date")
         days_left = (date.fromisoformat(d) - today).days if d else ""
         if d and days_left < 0:
@@ -851,7 +853,10 @@ def run(cfg, writer, state_path, today=None):
                        lookup + propstream.call_lookup_rows(calls, lookup))
     writer.write_table(tabs["call_list"], CALL_COLS, calls, status_col="Status")
     writer.append_rows(tabs["changes"], CHANGE_COLS, events)
-    health.append(sync_calendar(rows, cfg, today, now_str))
+    # The calendar is built from the tabs as written, so it matches the sheet, typed-in
+    # notes included (`python calendar_sync.py` does the same by hand).
+    written = writer.read_rows(tabs["tracker"]) + writer.read_rows(tabs["cancelled"])
+    health.append(sync_calendar(written, cfg, today, now_str))
     writer.write_table(tabs["sources"], SOURCE_COLS, [h for h in health if h])
 
     save_state(state_path, state)

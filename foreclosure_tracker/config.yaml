@@ -59,7 +59,7 @@ auction_sites:
   - {name: Re-Auction, url: "https://www.re-auctions.com/Auction-Schedule/Printable-Auction-Schedule"}
   - {name: Hudson, url: "https://www.hudsonmarshall.com/", note: "Loads listings with JavaScript - check by hand"}
   - {name: Berman, url: "https://www.bermanpropertysolutions.com/current-listings/"}
-  - {name: Zekos, url: "https://www.zekosgroup.com/"}
+  - {name: Zekos, url: "https://www.zekosgroup.com/", parser: zekos}
   - {name: Harvard, url: "https://www.harvardauctioneers.com/"}
   - {name: AuctionNetwork, url: "https://www.auctionnetwork.com/live-auctions", note: "Loads listings with JavaScript - check by hand"}
   - {name: Patriot, url: "https://patriotauctioneers.com/auctions-in-massachusetts/"}

@@ -14,6 +14,7 @@ import hashlib
 import json
 import logging
 import os
+import re
 from datetime import date, datetime, timedelta
 from urllib.parse import quote
 
@@ -45,23 +46,32 @@ def event_id(key):
 
 
 def _sale_date(row):
-    try:
-        return datetime.strptime(str(row.get("Auction Date") or ""), "%m/%d/%Y").date()
-    except ValueError:
-        return None
+    v = str(row.get("Auction Date") or "").strip()
+    for fmt in ("%m/%d/%Y", "%Y-%m-%d", "%Y-%m-%d %H:%M:%S", "%m/%d/%y"):
+        try:
+            return datetime.strptime(v, fmt).date()
+        except ValueError:
+            pass
+    return None
 
 
 def _sale_time(row):
-    try:
-        return datetime.strptime(str(row.get("Time") or "").strip().upper(), "%I:%M %p").time()
-    except ValueError:
-        return None
+    v = str(row.get("Time") or "").strip().upper()
+    for fmt in ("%I:%M %p", "%I:%M:%S %p", "%H:%M:%S", "%H:%M"):
+        try:
+            return datetime.strptime(v, fmt).time()
+        except ValueError:
+            pass
+    return None
 
 
 def build_event(row, spreadsheet_id):
     d, t = _sale_date(row), _sale_time(row)
     addr, town = row.get("Address") or "", row.get("Town") or ""
-    if addr.startswith("("):  # "(borrower: ...)" / "(see legal notice)": no address yet
+    held_at = re.search(r"held at (.+?, MA)", str(row.get("Status Notes") or ""))
+    if addr.lower().startswith("(municipal auction"):  # a town's multi-property sale
+        title = f"Municipal auction: {addr.split(' - ', 1)[-1].rstrip(')')}"
+    elif addr.startswith("("):  # "(borrower: ...)" / "(see legal notice)": no address yet
         title = f"Auction: address not found yet{', ' + town if town else ''} - see legal notice"
     else:
         title = f"Auction: {addr}, {town}" if town else f"Auction: {addr}"
@@ -89,7 +99,8 @@ def build_event(row, spreadsheet_id):
         lines.insert(0, ("Time", "not posted yet - check the listing or legal notice"))
     body = {
         "summary": title,
-        "location": f"{addr}, {town}, MA" if town and not addr.startswith("(") else "",
+        "location": (held_at.group(1) if held_at else
+                     f"{addr}, {town}, MA" if town and not addr.startswith("(") else ""),
         "description": "\n".join(f"{k}: {v}" for k, v in lines if v),
         "status": "confirmed",
         "transparency": "transparent",  # don't block the day as busy
@@ -162,3 +173,30 @@ def sync(rows, calendar_id, spreadsheet_id, today=None, session=None):
             removed += 1
     log.info("calendar: %d on calendar, %d added, %d updated, %d removed", len(want), added, updated, removed)
     return {"events": len(want), "added": added, "updated": updated, "removed": removed}
+
+
+def main():
+    """Sync the calendar by hand, outside a tracker run: read the tracker tabs as they
+    stand (including anything typed in since the last run) and bring the calendar in line."""
+    import argparse
+
+    import yaml
+
+    from sheets import SheetWriter
+
+    ap = argparse.ArgumentParser(description=main.__doc__)
+    ap.add_argument("--config", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.yaml"))
+    args = ap.parse_args()
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+    with open(args.config) as f:
+        cfg = yaml.safe_load(f)
+    cal = os.environ.get("GOOGLE_CALENDAR_ID") or cfg.get("calendar_id")
+    if not cal:
+        raise SystemExit("No calendar_id in config.yaml")
+    sheet = SheetWriter(cfg["spreadsheet_id"])
+    rows = sheet.read_rows(cfg["tabs"]["tracker"]) + sheet.read_rows(cfg["tabs"]["cancelled"])
+    sync(rows, cal, cfg["spreadsheet_id"])
+
+
+if __name__ == "__main__":
+    main()
