@@ -134,10 +134,13 @@ automatically and need a manual look:
   Auctions (404, the site is gone), and Sutton and Strategic Auction (no connection, from
   GitHub as well). Their sales still show up as notice-only rows when a legal notice runs.
 - **Facebook:** the Marcella page can't be read.
-- **Zekos municipal (town-owned / tax title) sales** show as one row per sale, such as
-  "(municipal auction - City of Chicopee)", with date, time, deposit, number of properties
-  and where it's held. Zekos lists the individual properties only through pages its
-  robots.txt asks automated visitors to skip, so open the sale's link for the list.
+- **Zekos municipal (town-owned / tax title) sales** are listed property by property, with
+  the sale's date, time, deposit and location (Status Notes: "Municipal ... (2 of 5), held
+  at ..."). The property list comes from a Zekos page its robots.txt asks automated
+  visitors to skip; reading it was the owner's call, and it's read a few times a day at
+  the 10-second pace the file asks for. If it can't be read, the sale shows as one row
+  ("(municipal auction - City of ...)"). These rows stay off the call list and the
+  PropStream lookup, and show as "(municipal)" on the calendar.
 - **Auction.com** (Imperva bot protection): opening bids posted there have to be checked by
   hand.
 

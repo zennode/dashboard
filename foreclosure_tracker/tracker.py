@@ -650,7 +650,7 @@ def detect_changes(current, state, sources_ok, today, now_str):
 
     # Listings that disappeared from the sites they were on (only if those sites loaded fine).
     for key, p in prev_all.items():
-        if key in current or key.startswith("N-"):
+        if key in current or key.startswith("N-") or (p.get("address") or "").startswith(MUNICIPAL_PREFIX):
             continue
         future = p.get("auction_date") and p["auction_date"] >= today.isoformat()
         if not future or p.get("status") in ("Cancelled", "Removed from site"):
@@ -682,7 +682,7 @@ def call_rows(rows, auctions, land_court, cfg, today):
         a = auctions.get(r["Key"], {})
         if r["Status"] in ("Cancelled", "Sold", "Removed from site", "Held"):
             continue
-        if r["Address"].startswith(MUNICIPAL_PREFIX):
+        if r["Address"].startswith(MUNICIPAL_PREFIX) or str(r.get("Status Notes", "")).startswith("Municipal"):
             continue  # a town's own sale: no homeowner to call
         d = a.get("auction_date")
         days_left = (date.fromisoformat(d) - today).days if d else ""
@@ -828,6 +828,8 @@ def run(cfg, writer, state_path, today=None):
             continue
         if key.startswith("N-") and key not in auctions:
             continue  # notice-only record that has since matched a listing or aged out
+        if (a.get("address") or "").startswith(MUNICIPAL_PREFIX) and key not in auctions:
+            continue  # a municipal sale now listed property by property
         if not a.get("auction_date") and key not in auctions:
             continue  # undated and no longer found: an address that wasn't a sale
         row = build_row(key, a, cfg)

@@ -309,17 +309,32 @@ def test_zekos_municipal_and_foreclosure():
         def __init__(self, text, url):
             self.text, self.url = text, url
 
+    items = "".join(
+        f'<div class="row"><div><a href="/auctions/item/bw{i}" title="{addr}"><img></a></div>'
+        f'<div><h4><a href="/auctions/item/bw{i}">{addr}</a></h4><p>{kind}. Deposit $10,000. 30 Day Closing.</p>'
+        f'<a href="/auctions/item/bw{i}">View Property Info &raquo;</a></div></div>'
+        for i, (addr, kind) in enumerate([("141 Woodlawn Street", "Single Family Home"),
+                                          ("0 Meadow Street", "Industrial Land Parcel")]))
+    lists = {"items": items}
+
     class Http:
         def get(self, url, **kw):
+            if "/ajax/items/" in url:
+                return Resp(lists["items"], "https://www.zekosgroup.com/")
             return Resp(detail if "/detail/" in url else home, "https://www.zekosgroup.com/")
     sleep, time.sleep = time.sleep, lambda s: None
     try:
-        recs = A.zekos(Http(), {"name": "Zekos", "url": "https://www.zekosgroup.com/"}, date(2026, 10, 28))
+        site = {"name": "Zekos", "url": "https://www.zekosgroup.com/"}
+        recs = A.zekos(Http(), site, date(2026, 10, 28))
+        lists["items"] = ""  # property list unreadable: the sale stays one row
+        fallback = A.zekos(Http(), site, date(2026, 10, 28))[0]
     finally:
         time.sleep = sleep
-    chic, spencer, oxford = recs
-    assert chic["address"] == "(municipal auction - City of Chicopee)" and chic["town"] == "Chicopee"
-    assert (chic["auction_date"], chic["auction_time"], chic["deposit"]) == ("2026-10-29", "2:00 PM", "$10,000 per property")
-    assert "31 Springfield St., Chicopee, MA" in chic["status_note"] and chic["specs"].startswith("5 town-owned")
+    woodlawn, meadow, spencer, oxford = recs
+    assert (woodlawn["address"], woodlawn["town"], woodlawn["specs"]) == ("141 Woodlawn Street", "Chicopee", "Single Family Home")
+    assert (woodlawn["auction_date"], woodlawn["auction_time"], woodlawn["deposit"]) == ("2026-10-29", "2:00 PM", "$10,000")
+    assert woodlawn["status_note"].startswith("Municipal (town-owned / tax title) auction (1 of 2)")
+    assert "31 Springfield St., Chicopee, MA" in woodlawn["status_note"] and meadow["specs"] == "Industrial Land Parcel"
+    assert fallback["address"] == "(municipal auction - City of Chicopee)" and fallback["specs"].startswith("5 town-owned")
     assert spencer["auction_date"] == "2025-10-28"  # last year's sale still on the page
     assert (oxford["address"], oxford["town"], oxford["status"]) == ("12 Pine Ridge Drive", "Oxford", "Sold")

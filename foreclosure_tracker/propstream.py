@@ -202,6 +202,8 @@ def lookup_rows(rows, today=None):
         addr = r.get("Address", "")
         if r.get("Mortgage Amount") or not addr or addr.startswith("("):
             continue
+        if str(r.get("Status Notes", "")).startswith("Municipal"):
+            continue  # town-owned: no mortgage to look up
         if r.get("Status") not in ("Scheduled", "Postponed", "Notice only"):
             continue
         when = r.get("Auction Date", "")

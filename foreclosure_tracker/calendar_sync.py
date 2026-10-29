@@ -77,6 +77,8 @@ def build_event(row, spreadsheet_id):
         title = f"Auction: {addr}, {town}" if town else f"Auction: {addr}"
     if row.get("Status") == "Notice only":
         title += " (legal notice only)"
+    if str(row.get("Status Notes") or "").startswith("Municipal") and not addr.lower().startswith("(municipal"):
+        title += " (municipal)"
     lines = [
         ("Auction company", row.get("Auction Company")),
         ("Deposit", row.get("Deposit")),
