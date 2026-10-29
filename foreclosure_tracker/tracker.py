@@ -25,6 +25,7 @@ from zoneinfo import ZoneInfo
 import yaml
 
 import assessor_index
+import calendar_sync
 import parse as P
 import propstream
 from http_client import Http
@@ -208,6 +209,23 @@ def add_xome_bids(auctions, today, now_str):
             used += 1
     return {**status, "Result": "OK", "Listings In Our Towns": used,
             "Note": f"Upcoming MA sales with a bid posted: {len(found)}; matched to our list: {used}"}
+
+
+def sync_calendar(rows, cfg, today, now_str):
+    """Mirror upcoming sales onto the Google Calendar, if one is set up."""
+    cal = os.environ.get("GOOGLE_CALENDAR_ID") or cfg.get("calendar_id")
+    if not cal:
+        return None
+    status = {"Source": "Google Calendar", "Kind": "Calendar sync", "URL": "https://calendar.google.com",
+              "Last Run (ET)": now_str}
+    try:
+        res = calendar_sync.sync(rows, cal, cfg["spreadsheet_id"], today)
+    except Exception as e:
+        log.warning("calendar sync failed: %s", e)
+        return {**status, "Result": "ERROR", "Listings In Our Towns": 0, "Note": f"{type(e).__name__}: {str(e)[:150]}"}
+    return {**status, "Result": "OK", "Listings In Our Towns": res["events"],
+            "Note": f"On calendar: {res['events']}; added {res['added']}, updated {res['updated']}, "
+                    f"removed {res['removed']} (postponed or cancelled)"}
 
 
 def _bp_digits(bp):
@@ -833,7 +851,8 @@ def run(cfg, writer, state_path, today=None):
                        lookup + propstream.call_lookup_rows(calls, lookup))
     writer.write_table(tabs["call_list"], CALL_COLS, calls, status_col="Status")
     writer.append_rows(tabs["changes"], CHANGE_COLS, events)
-    writer.write_table(tabs["sources"], SOURCE_COLS, health)
+    health.append(sync_calendar(rows, cfg, today, now_str))
+    writer.write_table(tabs["sources"], SOURCE_COLS, [h for h in health if h])
 
     save_state(state_path, state)
     log.info("Done: %d auctions on tracker, %d to call, %d changes", len(rows), len(calls), len(events))

@@ -216,3 +216,71 @@ def test_posnik_status_in_date_cell():
                    ("193 Fairview Avenue", "2026-10-28", "Cancelled"),
                    ("57 Pearl Street", "2026-11-13", "Postponed")]
     assert recs[3]["original_date"] == "2026-10-21"
+
+
+class FakeCalendar:
+    """Just enough of the Calendar API's events endpoint for calendar_sync."""
+
+    def __init__(self):
+        self.events, self.calls = {}, []
+
+    class Resp:
+        def __init__(self, code, data=None):
+            self.status_code, self._data = code, data or {}
+
+        def json(self):
+            return self._data
+
+        def raise_for_status(self):
+            if self.status_code >= 400:
+                raise RuntimeError(self.status_code)
+
+    def get(self, url, params=None, **kw):
+        return self.Resp(200, {"items": list(self.events.values())})
+
+    def post(self, url, json=None, **kw):
+        self.calls.append(("insert", json["id"]))
+        if json["id"] in self.events:
+            return self.Resp(409)
+        self.events[json["id"]] = dict(json)
+        return self.Resp(200)
+
+    def put(self, url, json=None, **kw):
+        eid = url.rsplit("/", 1)[-1]
+        self.calls.append(("update", eid))
+        self.events[eid] = {**json, "id": eid}
+        return self.Resp(200)
+
+    def delete(self, url, **kw):
+        eid = url.rsplit("/", 1)[-1]
+        self.calls.append(("delete", eid))
+        self.events[eid]["status"] = "cancelled"
+        return self.Resp(204)
+
+
+def test_calendar_sync():
+    from datetime import date
+    import calendar_sync as C
+    today = date(2026, 10, 29)
+    row = lambda key, st, d, t="11:00 AM": {"Key": key, "Status": st, "Auction Date": d, "Time": t,
+                                            "Address": f"{key} Main St", "Town": "Ware", "Deposit": "$5,000"}
+    cal = FakeCalendar()
+    rows = [row("1", "Scheduled", "11/02/2026"), row("2", "Notice only", "11/03/2026", ""),
+            row("3", "Cancelled", "11/04/2026"), row("4", "Scheduled", "10/20/2026")]
+    res = C.sync(rows, "cal", "sheet", today, cal)
+    assert (res["events"], res["added"]) == (2, 2)
+    e1, e2 = cal.events[C.event_id("1")], cal.events[C.event_id("2")]
+    assert e1["start"] == {"dateTime": "2026-11-02T11:00:00", "timeZone": C.TZ} and "Deposit: $5,000" in e1["description"]
+    assert e2["start"] == {"date": "2026-11-03"} and e2["summary"].endswith("(legal notice only)")
+    # Nothing changed: nothing written.
+    cal.calls.clear()
+    assert C.sync(rows, "cal", "sheet", today, cal)["updated"] == 0 and cal.calls == []
+    # Sale 1 postponed, sale 2 cancelled, a past event left alone.
+    cal.events["old"] = {"id": "old", "status": "confirmed", "start": {"date": "2026-10-28"}}
+    rows = [row("1", "Postponed", "11/16/2026"), row("2", "Cancelled", "11/03/2026", "")]
+    res = C.sync(rows, "cal", "sheet", today, cal)
+    assert res["removed"] == 2 and cal.events["old"]["status"] == "confirmed"
+    assert cal.events[C.event_id("1")]["status"] == "cancelled"
+    # Sale 1 back on as scheduled: its event comes back.
+    res = C.sync([row("1", "Scheduled", "11/16/2026")], "cal", "sheet", today, cal)
+    assert res["updated"] == 1 and cal.events[C.event_id("1")]["status"] == "confirmed"

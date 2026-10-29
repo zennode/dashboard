@@ -3,6 +3,8 @@
 # Google Sheet to update ("MA Weekly Auctions"). The tracker only writes to its own
 # tabs (names below) and never touches any other tab in the sheet.
 spreadsheet_id: 1jURtqtgCVPJKUb1nPgAya-gLPw86Tzw9OeCBxhlvZhk
+# "Foreclosure Auctions" Google Calendar: upcoming sales are mirrored onto it (calendar_sync.py).
+calendar_id: ffccdc46f08fae95a99ed4101432cf6349e89a17ad6633a9571fd01583466780@group.calendar.google.com
 tabs:
   tracker: "Auto - Auction Tracker"
   cancelled: "Auto - Cancelled & Postponed"
