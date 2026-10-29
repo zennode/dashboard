@@ -14,6 +14,7 @@ import hashlib
 import json
 import logging
 import os
+import re
 from datetime import date, datetime, timedelta
 from urllib.parse import quote
 
@@ -61,7 +62,10 @@ def _sale_time(row):
 def build_event(row, spreadsheet_id):
     d, t = _sale_date(row), _sale_time(row)
     addr, town = row.get("Address") or "", row.get("Town") or ""
-    if addr.startswith("("):  # "(borrower: ...)" / "(see legal notice)": no address yet
+    held_at = re.search(r"held at (.+?, MA)", str(row.get("Status Notes") or ""))
+    if addr.lower().startswith("(municipal auction"):  # a town's multi-property sale
+        title = f"Municipal auction: {addr.split(' - ', 1)[-1].rstrip(')')}"
+    elif addr.startswith("("):  # "(borrower: ...)" / "(see legal notice)": no address yet
         title = f"Auction: address not found yet{', ' + town if town else ''} - see legal notice"
     else:
         title = f"Auction: {addr}, {town}" if town else f"Auction: {addr}"
@@ -89,7 +93,8 @@ def build_event(row, spreadsheet_id):
         lines.insert(0, ("Time", "not posted yet - check the listing or legal notice"))
     body = {
         "summary": title,
-        "location": f"{addr}, {town}, MA" if town and not addr.startswith("(") else "",
+        "location": (held_at.group(1) if held_at else
+                     f"{addr}, {town}, MA" if town and not addr.startswith("(") else ""),
         "description": "\n".join(f"{k}: {v}" for k, v in lines if v),
         "status": "confirmed",
         "transparency": "transparent",  # don't block the day as busy

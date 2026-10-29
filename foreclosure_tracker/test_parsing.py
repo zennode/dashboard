@@ -284,3 +284,42 @@ def test_calendar_sync():
     # Sale 1 back on as scheduled: its event comes back.
     res = C.sync([row("1", "Scheduled", "11/16/2026")], "cal", "sheet", today, cal)
     assert res["updated"] == 1 and cal.events[C.event_id("1")]["status"] == "confirmed"
+
+
+def test_zekos_municipal_and_foreclosure():
+    from datetime import date
+    import time
+    from sources import auction_sites as A
+
+    def block(href, title, badge, when, blurb):
+        return (f'<div class="row"><div><div class="easy-sold-badge">{badge}</div></div><div>'
+                f'<h3><a href="{href}">{title}</a></h3><ul><li><strong>{when}</strong></li></ul>'
+                f'<div><p>{blurb}</p></div></div></div>')
+    home = "<div>" + "".join([
+        block("/auctions/detail/bw1", "City of Chicopee", "5 PROPERTIES", "October 29 at 2:00 PM EDT",
+              "The auction will be held on Thursday, October 29, 2026 at 2:00 PM."),
+        block("/auctions/detail/bw2", "Town of Spencer", "4 PROPERTIES!", "October 28 at 2:00 PM EDT",
+              "will be held on Tuesday, October 28, 2025 at 2:00 PM."),
+        block("/auctions/detail/bw3", "12 Pine Ridge Drive, Oxford", "SOLD", "July 31 at 11:00 AM EDT", "Foreclosure."),
+    ]) + "</div>"
+    detail = ("<p>The live auction will be held on Thursday, October 29, 2026 at 2:00 PM at The Hub at Market "
+              "Square, 31 Springfield St., Chicopee, MA. A $10,000 deposit per property is required.</p>")
+
+    class Resp:
+        def __init__(self, text, url):
+            self.text, self.url = text, url
+
+    class Http:
+        def get(self, url, **kw):
+            return Resp(detail if "/detail/" in url else home, "https://www.zekosgroup.com/")
+    sleep, time.sleep = time.sleep, lambda s: None
+    try:
+        recs = A.zekos(Http(), {"name": "Zekos", "url": "https://www.zekosgroup.com/"}, date(2026, 10, 28))
+    finally:
+        time.sleep = sleep
+    chic, spencer, oxford = recs
+    assert chic["address"] == "(municipal auction - City of Chicopee)" and chic["town"] == "Chicopee"
+    assert (chic["auction_date"], chic["auction_time"], chic["deposit"]) == ("2026-10-29", "2:00 PM", "$10,000 per property")
+    assert "31 Springfield St., Chicopee, MA" in chic["status_note"] and chic["specs"].startswith("5 town-owned")
+    assert spencer["auction_date"] == "2025-10-28"  # last year's sale still on the page
+    assert (oxford["address"], oxford["town"], oxford["status"]) == ("12 Pine Ridge Drive", "Oxford", "Sold")

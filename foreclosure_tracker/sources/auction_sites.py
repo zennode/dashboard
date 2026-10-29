@@ -242,6 +242,73 @@ def posnik(http, site, today):
     return out
 
 
+MUNICIPAL_PREFIX = "(municipal auction"
+MUNICIPAL_RE = re.compile(r"^(?:City|Town) of\s+(.+?)\s*(?:Coming Soon!?)?$", re.I)
+
+
+def zekos(http, site, today):
+    """The Zekos Group: every sale is a block on the home page (title, a badge such as
+    "5 PROPERTIES" or "SOLD", "October 29 at 2:00 PM EDT"). Lender foreclosures are titled
+    with the address. Municipal (town-owned / tax title) sales are titled "City of X" and
+    hold several properties, which the site only lists through its /ajax pages (barred by
+    its robots.txt), so each municipal sale becomes one row pointing at the sale's page."""
+    r = http.get(site["url"])
+    soup = BeautifulSoup(r.text, "lxml")
+    out = []
+    for h3 in soup.find_all("h3"):
+        a = h3.find("a", href=re.compile(r"/auctions/detail/"))
+        if not a:
+            continue
+        block = h3.find_parent(class_="row") or h3.parent
+        badge = block.find(class_="easy-sold-badge")
+        badge = badge.get_text(" ", strip=True) if badge else ""
+        title = P.clean(a.get_text(" ", strip=True))
+        text = P.clean(block.get_text(" | ", strip=True))
+        detail = urljoin(r.url, a["href"])
+        m = MUNICIPAL_RE.match(title)
+        if m:
+            town, county = resolve_town(m.group(1))
+            if not town:
+                continue
+            rec = build_record(site["name"], site["url"], f"{MUNICIPAL_PREFIX} - {title.split(' Coming')[0]})",
+                               town, county, text, today, detail)
+            count = re.search(r"(\d+)\s+(PROPERTIES|TOWNHOUSES|PARCELS|LOTS|HOMES|UNITS)", badge, re.I)
+            rec["specs"] = (f"{count.group(1)} town-owned {count.group(2).lower()}" if count
+                            else "Town-owned property") + " - see the auctioneer's page for the list"
+            rec["status_note"] = "Municipal (town-owned / tax title) auction"
+            rec["skip_detail"] = True
+            if rec["auction_date"] and rec["auction_date"] >= today.isoformat():
+                _municipal_details(http, rec)
+        else:
+            town, county, street = _split_trailing_town(re.sub(r",?\s*MA\b\.?$", "", title).replace(",", " "))
+            if not town:
+                continue
+            rec = build_record(site["name"], site["url"], P.clean(street), town, county, text, today, detail)
+        if badge.upper() == "SOLD":
+            rec["status"] = "Sold"
+        out.append(rec)
+    return out
+
+
+def _municipal_details(http, rec):
+    """Deposit and where the sale is held, from the sale's own page (allowed by robots.txt,
+    which asks for 10 seconds between requests)."""
+    import time
+    time.sleep(10)
+    try:
+        soup = BeautifulSoup(http.get(rec["detail_url"]).text, "lxml")
+    except Exception as e:
+        log.info("zekos detail %s: %s", rec["detail_url"], e)
+        return
+    text = P.clean(soup.get_text(" "))
+    dep = re.search(r"\$\s?([\d,]+)\s+deposit\s+per\s+property", text, re.I)
+    if dep:
+        rec["deposit"] = f"${dep.group(1)} per property"
+    where = re.search(r"will be held on [^.]*?\d{1,2}:\d\d\s*[AP]\.?M\.?\s+at\s+(.{5,90}?,\s*MA)\b", text, re.I)
+    if where:
+        rec["status_note"] += f", held at {where.group(1)}"
+
+
 def _split_trailing_town(loc):
     """'62 Huntington Avenue West Springfield' -> ('West Springfield', 'Hampden', '62 Huntington Avenue')."""
     words = loc.split()
@@ -373,7 +440,7 @@ def _from_page_text(page_text, addr, town, county, site, today, detail):
 
 
 PARSERS = {"commonwealth": commonwealth, "baystate": baystate, "towne": towne, "posnik": posnik,
-           "servicelink": servicelink}
+           "servicelink": servicelink, "zekos": zekos}
 
 
 def scrape_site(http, site, today=None, towns=None):
@@ -393,6 +460,7 @@ def add_detail_pages(http, recs, today):
         url = rec.get("detail_url")
         stale = rec["auction_date"] and rec["auction_date"] < today.isoformat()
         if (not url or url == rec["source_url"] or "#" in url or rec["status"] in ("Cancelled", "Sold")
+                or rec.get("skip_detail")
                 or (stale and rec["status"] != "Postponed")
                 or (rec["deposit"] and rec["book_page"] and rec["status"] != "Postponed")):
             continue
