@@ -853,7 +853,10 @@ def run(cfg, writer, state_path, today=None):
                        lookup + propstream.call_lookup_rows(calls, lookup))
     writer.write_table(tabs["call_list"], CALL_COLS, calls, status_col="Status")
     writer.append_rows(tabs["changes"], CHANGE_COLS, events)
-    health.append(sync_calendar(rows, cfg, today, now_str))
+    # The calendar is built from the tabs as written, the same input the hourly refresh
+    # (calendar_sync.py) reads, so the two never disagree about an event.
+    written = writer.read_rows(tabs["tracker"]) + writer.read_rows(tabs["cancelled"])
+    health.append(sync_calendar(written, cfg, today, now_str))
     writer.write_table(tabs["sources"], SOURCE_COLS, [h for h in health if h])
 
     save_state(state_path, state)

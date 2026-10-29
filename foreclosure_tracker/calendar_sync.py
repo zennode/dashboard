@@ -46,17 +46,23 @@ def event_id(key):
 
 
 def _sale_date(row):
-    try:
-        return datetime.strptime(str(row.get("Auction Date") or ""), "%m/%d/%Y").date()
-    except ValueError:
-        return None
+    v = str(row.get("Auction Date") or "").strip()
+    for fmt in ("%m/%d/%Y", "%Y-%m-%d", "%Y-%m-%d %H:%M:%S", "%m/%d/%y"):
+        try:
+            return datetime.strptime(v, fmt).date()
+        except ValueError:
+            pass
+    return None
 
 
 def _sale_time(row):
-    try:
-        return datetime.strptime(str(row.get("Time") or "").strip().upper(), "%I:%M %p").time()
-    except ValueError:
-        return None
+    v = str(row.get("Time") or "").strip().upper()
+    for fmt in ("%I:%M %p", "%I:%M:%S %p", "%H:%M:%S", "%H:%M"):
+        try:
+            return datetime.strptime(v, fmt).time()
+        except ValueError:
+            pass
+    return None
 
 
 def build_event(row, spreadsheet_id):
@@ -167,3 +173,30 @@ def sync(rows, calendar_id, spreadsheet_id, today=None, session=None):
             removed += 1
     log.info("calendar: %d on calendar, %d added, %d updated, %d removed", len(want), added, updated, removed)
     return {"events": len(want), "added": added, "updated": updated, "removed": removed}
+
+
+def main():
+    """Hourly refresh: read the tracker tabs as they stand (including anything typed in
+    since the last tracker run) and bring the calendar in line."""
+    import argparse
+
+    import yaml
+
+    from sheets import SheetWriter
+
+    ap = argparse.ArgumentParser(description=main.__doc__)
+    ap.add_argument("--config", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.yaml"))
+    args = ap.parse_args()
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+    with open(args.config) as f:
+        cfg = yaml.safe_load(f)
+    cal = os.environ.get("GOOGLE_CALENDAR_ID") or cfg.get("calendar_id")
+    if not cal:
+        raise SystemExit("No calendar_id in config.yaml")
+    sheet = SheetWriter(cfg["spreadsheet_id"])
+    rows = sheet.read_rows(cfg["tabs"]["tracker"]) + sheet.read_rows(cfg["tabs"]["cancelled"])
+    sync(rows, cal, cfg["spreadsheet_id"])
+
+
+if __name__ == "__main__":
+    main()
