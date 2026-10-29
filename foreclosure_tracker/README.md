@@ -143,6 +143,24 @@ Massachusetts regulates "foreclosure rescue" offers (940 CMR 25.00 and M.G.L. c.
 Federal and state do-not-call rules also apply to cold calls. Check your scripts and any
 offers with your attorney before you start calling.
 
+## Google Calendar
+
+Every run also mirrors upcoming sales onto the **Foreclosure Auctions** Google Calendar
+(`calendar_id` in `config.yaml`):
+
+- One event per sale with status **Scheduled** or **Notice only**. The event runs an hour
+  from the sale time, or is all-day when no time is posted. The location is the property,
+  and the description has the auctioneer, deposit, opening bid, lender, liens, septic,
+  Team Notes and links.
+- When a sale is **postponed or cancelled**, its event is removed. If it comes back on as
+  scheduled, the event returns. Past events are left alone.
+- Events are matched to sales by Key, so they update in place, and they're only rewritten
+  when something changed. Only events the tracker made are touched.
+
+Setup (once): share the calendar with the service account email with **Make changes to
+events**, and enable the Google Calendar API in the service account's Cloud project. The
+**Google Calendar** row on **Auto - Source Health** shows each run's result.
+
 ## Friday email
 
 Every Friday at about 7:45am Eastern the **Friday auctions email** workflow
