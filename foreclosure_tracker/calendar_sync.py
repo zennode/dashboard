@@ -176,8 +176,8 @@ def sync(rows, calendar_id, spreadsheet_id, today=None, session=None):
 
 
 def main():
-    """Hourly refresh: read the tracker tabs as they stand (including anything typed in
-    since the last tracker run) and bring the calendar in line."""
+    """Sync the calendar by hand, outside a tracker run: read the tracker tabs as they
+    stand (including anything typed in since the last run) and bring the calendar in line."""
     import argparse
 
     import yaml

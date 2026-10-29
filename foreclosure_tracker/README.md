@@ -149,7 +149,8 @@ offers with your attorney before you start calling.
 
 ## Google Calendar
 
-Every run also mirrors upcoming sales onto the **Foreclosure Auctions** Google Calendar
+At the end of every run (about 5 times a day) the tracker also mirrors the sheet's
+upcoming sales onto the **Foreclosure Auctions** Google Calendar
 (`calendar_id` in `config.yaml`):
 
 - One event per sale with status **Scheduled** or **Notice only**. The event runs an hour
