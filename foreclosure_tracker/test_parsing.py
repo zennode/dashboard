@@ -338,3 +338,12 @@ def test_zekos_municipal_and_foreclosure():
     assert fallback["address"] == "(municipal auction - City of Chicopee)" and fallback["specs"].startswith("5 town-owned")
     assert spencer["auction_date"] == "2025-10-28"  # last year's sale still on the page
     assert (oxford["address"], oxford["town"], oxford["status"]) == ("12 Pine Ridge Drive", "Oxford", "Sold")
+
+
+def test_untracked_notice_towns():
+    from tracker import _may_be_tracked
+    towns = {"Grafton", "Greenfield"}
+    note = lambda *t: {"notices": [{"probe_towns": list(t)}]}
+    assert not _may_be_tracked(note("Fitchburg", "Worcester"), towns)
+    assert _may_be_tracked(note("Grafton", "Worcester"), towns)
+    assert _may_be_tracked(note(), towns)  # nothing to go on: keep it

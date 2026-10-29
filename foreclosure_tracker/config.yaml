@@ -21,6 +21,14 @@ counties: [Berkshire, Hampden, Hampshire, Franklin, Worcester]
 # Leave empty to track every town in the counties above. To narrow it down, list towns:
 #   towns: [Springfield, Chicopee, Holyoke, Westfield, Ware, Palmer]
 towns: []
+# Towns in the counties above to leave out. Their sales, notices and calendar events are
+# dropped on the next run.
+exclude_towns: [
+  # Worcester County
+  Athol, Auburn, Charlton, Fitchburg, Leominster, Milford, Paxton, Petersham, Phillipston,
+  Princeton, Royalston, Rutland, Spencer, Sterling, Sutton, Templeton, Uxbridge,
+  West Boylston, Worcester,
+]
 
 # How far ahead/behind to keep auctions on the tracker tab.
 keep_days_past: 14

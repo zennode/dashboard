@@ -91,10 +91,11 @@ def load_config(path):
         cfg = yaml.safe_load(f)
     counties = cfg.get("counties") or list(COUNTY_TOWNS)
     towns = cfg.get("towns") or [t for c in counties for t in COUNTY_TOWNS[c]]
-    unknown = [t for t in towns if t not in TOWN_TO_COUNTY]
+    excluded = cfg.get("exclude_towns") or []
+    unknown = [t for t in towns + excluded if t not in TOWN_TO_COUNTY]
     if unknown:
         raise SystemExit(f"Unknown towns in config.yaml: {unknown}")
-    cfg["counties"], cfg["town_set"] = counties, set(towns)
+    cfg["counties"], cfg["town_set"] = counties, set(towns) - set(excluded)
     cfg["likely_septic"] = set(cfg.get("likely_septic_towns") or [])
     return cfg
 
@@ -443,6 +444,13 @@ def fold_into_listings(auctions, notice_only):
     return out
 
 
+def _may_be_tracked(a, towns):
+    """A notice-only sale we couldn't place: keep it unless every town its notice names is
+    one we don't track (e.g. only "Fitchburg" and "Worcester", the registry's name)."""
+    named = [t for n in a.get("notices") or [] for t in n.get("probe_towns", [])]
+    return not named or any(t in towns for t in named)
+
+
 def _town_from_notice(named, county):
     """The town a notice names, when the address itself wasn't in its excerpt. Every
     Worcester County notice mentions "Worcester" (the registry), so the city of Worcester
@@ -779,6 +787,10 @@ def run(cfg, writer, state_path, today=None):
     today = today or now.date()
     now_str = now.strftime("%Y-%m-%d %H:%M")
     state = load_state(state_path)
+    # Forget sales in towns no longer tracked, so they drop off quietly instead of
+    # showing up as "removed from site".
+    state["auctions"] = {k: a for k, a in state.get("auctions", {}).items()
+                         if not a.get("town") or a["town"] in cfg["town_set"]}
     assessor_dir = os.path.join(os.path.dirname(state_path), "assessor")
     assessor_index.ensure(Http(timeout=120), assessor_dir, {TOWN_IDS[t] for t in cfg["town_set"]})
     gis = MassGIS(assessor_dir)
@@ -804,7 +816,8 @@ def run(cfg, writer, state_path, today=None):
     locate_by_notice_text(notice_only, gis, state, today, cfg["town_set"])
     notice_only = fold_into_listings(auctions, notice_only)
     # Drop notice-only records whose property turned out to be outside our towns.
-    notice_only = {k: a for k, a in notice_only.items() if not a["town"] or a["town"] in cfg["town_set"]}
+    notice_only = {k: a for k, a in notice_only.items() if a["town"] in cfg["town_set"]
+                   or (not a["town"] and _may_be_tracked(a, cfg["town_set"]))}
     auctions.update(notice_only)
 
     for n in land_court:
