@@ -161,7 +161,12 @@ def test_owner_names_every_borrower():
 
 
 def test_street_word_and_folding():
-    from tracker import _street_word, fold_into_listings
+    from tracker import _street_phrases, _street_word, fold_into_listings
+    assert _street_phrases("29 HIGH ST N") == ("29", ["High Street", "High St"])
+    assert _street_phrases("46 NEW BOSTON ROAD") == ("46", ["New Boston Road"])
+    assert _street_phrases("11 RICE LN #3") == ("11", ["Rice Lane", "Rice Ln"])
+    assert _street_phrases("0 MEADOW ST") == ("", [])
+    assert _street_phrases("10 Wilson Graves Rd.") == ("10", ["Wilson Graves Road", "Wilson Graves Rd"])
     assert _street_word("22 SORRENTO ST") == "SORRENTO"
     assert _street_word("46 NEW BOSTON ROAD") == "BOSTON"
     assert _street_word("11 RICE LN #3") == "RICE"

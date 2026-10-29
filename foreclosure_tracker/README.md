@@ -45,9 +45,13 @@ property description, and the full notice is behind a CAPTCHA. So the tracker:
 1. Looks up every borrower's name in the assessor records for the notice's county (or the
    towns it names). One home owned by that name means that's the property.
 2. When the name fits several homes, or only the last name matches (a trust, a relative),
-   it full-text searches the notice for each candidate's town, then street, then house
-   number, and keeps the one property the notice mentions. That's up to 60 searches,
-   once per notice; the answer is saved, and a miss is retried after two weeks.
+   it full-text searches the notice. A candidate is kept only if the notice has its street
+   name as an exact phrase ("Sorrento Street"), its house number with the borrower's name,
+   and its town with the borrower's name; one word such as "High" or "Day" proves nothing.
+   An address found from the name alone in step 1 gets the same check, so a borrower's
+   other property (say, in a town you don't track) isn't mistaken for the one being sold.
+   That's up to 60 searches, once per notice; the answer is saved, and a miss is retried
+   after two weeks.
 3. If the property turns out to be a sale already listed on an auctioneer's site, the
    notice joins that row instead of showing up twice.
 
