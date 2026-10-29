@@ -250,8 +250,10 @@ def zekos(http, site, today):
     """The Zekos Group: every sale is a block on the home page (title, a badge such as
     "5 PROPERTIES" or "SOLD", "October 29 at 2:00 PM EDT"). Lender foreclosures are titled
     with the address. Municipal (town-owned / tax title) sales are titled "City of X" and
-    hold several properties, which the site only lists through its /ajax pages (barred by
-    its robots.txt), so each municipal sale becomes one row pointing at the sale's page."""
+    hold several properties; each property gets its own row, read from the sale's
+    "Auction Properties" list. Its robots.txt asks automated visitors to skip /ajax, where
+    that list lives; the owner chose to read it anyway, at the 10-second pace the file
+    asks for, a few times a day. If the list can't be read, the sale stays one row."""
     r = http.get(site["url"])
     soup = BeautifulSoup(r.text, "lxml")
     out = []
@@ -279,6 +281,10 @@ def zekos(http, site, today):
             rec["skip_detail"] = True
             if rec["auction_date"] and rec["auction_date"] >= today.isoformat():
                 _municipal_details(http, rec)
+                props = _municipal_properties(http, r.url, a["href"], rec)
+                if props:
+                    out += props
+                    continue
         else:
             town, county, street = _split_trailing_town(re.sub(r",?\s*MA\b\.?$", "", title).replace(",", " "))
             if not town:
@@ -307,6 +313,40 @@ def _municipal_details(http, rec):
     where = re.search(r"will be held on [^.]*?\d{1,2}:\d\d\s*[AP]\.?M\.?\s+at\s+(.{5,90}?,\s*MA)\b", text, re.I)
     if where:
         rec["status_note"] += f", held at {where.group(1)}"
+
+
+def _municipal_properties(http, base_url, detail_href, sale):
+    """One record per property in a municipal sale, from its "Auction Properties" list."""
+    import time
+    m = re.search(r"bw(\d+)", detail_href)
+    if not m:
+        return []
+    time.sleep(10)
+    try:
+        soup = BeautifulSoup(http.get(urljoin(base_url, f"/ajax/items/{m.group(1)}/undefined"),
+                                      headers={"X-Requested-With": "XMLHttpRequest"}).text, "lxml")
+    except Exception as e:
+        log.info("zekos items %s: %s", detail_href, e)
+        return []
+    out, seen = [], set()
+    for a in soup.find_all("a", href=re.compile(r"/auctions/item/"), title=True):
+        href = a["href"]
+        if href in seen:
+            continue
+        seen.add(href)
+        row = a.find_parent(class_="row") or a.parent
+        blurb = P.clean(row.get_text(" ", strip=True).replace("View Property Info", "").replace("»", ""))
+        addr = P.clean(a["title"])
+        rec = dict(sale, address=addr, detail_url=urljoin(base_url, href), listing_text=blurb[:600],
+                   specs=blurb.replace(addr, "").split(".")[0].strip(" .|") or "Town-owned property",
+                   status_note=sale["status_note"].replace("auction", f"auction ({len(seen)} of many)", 1))
+        dep = re.search(r"Deposit\s+\$([\d,]+)", blurb, re.I)
+        if dep:
+            rec["deposit"] = f"${dep.group(1)}"
+        out.append(rec)
+    for rec in out:  # "(3 of many)" -> "(3 of 5)"
+        rec["status_note"] = rec["status_note"].replace("of many)", f"of {len(out)})")
+    return out
 
 
 def _split_trailing_town(loc):
