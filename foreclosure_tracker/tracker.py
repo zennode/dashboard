@@ -319,65 +319,103 @@ def _street_word(site_addr):
     return max(words, key=len) if words else ""
 
 
+SUFFIXES = {"ST": "Street", "RD": "Road", "AVE": "Avenue", "AV": "Avenue", "DR": "Drive", "LN": "Lane",
+            "CT": "Court", "PL": "Place", "TER": "Terrace", "TERR": "Terrace", "CIR": "Circle",
+            "BLVD": "Boulevard", "PKWY": "Parkway", "HWY": "Highway", "WAY": "Way", "SQ": "Square"}
+LOCATE_VERSION = 2  # bump to re-check every saved answer
+
+
+def _street_phrases(site_addr):
+    """'29 HIGH ST N' -> ('29', ['High Street', 'High St']); ('', []) when there's no number."""
+    m = re.match(r"\s*(\d+)[\d\s-]*\s+(.+)", re.sub(r"[.,]", " ", re.sub(r"#.*", "", site_addr.upper())))
+    if not m or m.group(1) == "0":
+        return "", []
+    words = m.group(2).split()
+    for i, w in enumerate(words):
+        if w in SUFFIXES and i:
+            name = " ".join(x.title() for x in words[:i])
+            return m.group(1), [f"{name} {SUFFIXES[w]}", f"{name} {w.title()}"]
+    return m.group(1), [" ".join(x.title() for x in words)]
+
+
 def locate_by_notice_text(records, gis, state, today, towns, http_factory=Http):
-    """Notice-only sales with a borrower but no address: narrow the borrower's possible
-    properties (assessor parcels whose owner shares a last name) by full-text searching the
-    notice for each candidate's town and then street. Each notice is worked out once; the
+    """Notice-only sales with a borrower but no address in the excerpt.
+
+    Candidates are assessor parcels whose owner shares a borrower's last name (only the
+    full-name matches when there are a few). A candidate is accepted only when the notice's
+    full text has its street name as an exact phrase ("Sorrento Street"), its house number
+    with the borrower's name, and its town with the borrower's name; a single word such as
+    "High" or "Day" proves nothing in a legal notice. An address the assessor lookup found
+    from the name alone is put through the same check. Each notice is worked out once; the
     answer (or that there wasn't one) is saved in the state file."""
-    store = state.setdefault("notice_addresses", {})
+    if state.get("notice_addresses_version") != LOCATE_VERSION:
+        state["notice_addresses"], state["notice_addresses_version"] = {}, LOCATE_VERSION
+    store = state["notice_addresses"]
     sessions = {}
     for key, a in records.items():
         n = (a.get("notices") or [{}])[0]
-        if a.get("address") or not n.get("borrower") or not n.get("county"):
+        by_name = (a.get("gis") or {}).get("matched_by") == "owner name"
+        if (a.get("address") and not by_name) or not n.get("borrower") or not n.get("county"):
             continue
         saved = store.get(key)
         if saved and (saved.get("site_address") or saved.get("checked", "") >= (today - timedelta(days=14)).isoformat()):
             if saved.get("site_address"):
                 a["gis"], a["address"], a["town"] = saved, saved["site_address"], saved["town"]
                 _note_found_address(a)
+            elif by_name:
+                _forget_address(a)
             continue
         county_towns = [t for t in COUNTY_TOWNS[n["county"]] if t in towns]
         named = [t for t in n.get("probe_towns", []) if t in county_towns]
-        cands = [r for r in gis.owner_candidates(n["borrower"], named or county_towns) if (r.get("RES_AREA") or 0) > 0]
-        # Several owners with the borrower's full name: test just those first.
-        pats = owner_patterns(n["borrower"])
-        exact = [r for r in cands if owner_matches(r.get("OWNER1"), pats)]
-        if 1 < len(exact) <= 8:
-            cands = exact
         last = sorted(massgis_last_names(n["borrower"]))
         ids = set(n.get("ids", [n["notice_id"]]))
+        if by_name:
+            cands = [gis.parcel(a["gis"])] if gis.parcel(a["gis"]) else []
+        else:
+            cands = [r for r in gis.owner_candidates(n["borrower"], named or county_towns) if (r.get("RES_AREA") or 0) > 0]
+            # Several owners with the borrower's full name: test just those first.
+            pats = owner_patterns(n["borrower"])
+            exact = [r for r in cands if owner_matches(r.get("OWNER1"), pats)]
+            if 1 < len(exact) <= 8:
+                cands = exact
         if not cands or not last:
             store[key] = {"checked": today.isoformat()}
+            if by_name:
+                _forget_address(a)
             continue
         if n["county"] not in sessions:
             sessions[n["county"]] = public_notices.NoticeSearch(http_factory(), [n["county"]])
-        session, budget = sessions[n["county"]], [LOCATE_QUERIES]
+        session, budget, cache = sessions[n["county"]], [LOCATE_QUERIES], {}
 
-        def says(word):
-            """Does the notice's full text contain the borrower's last name and `word`?"""
-            if budget[0] <= 0:
-                raise _OutOfQueries
-            budget[0] -= 1
-            return bool(ids & session.ids(f"{last[0]} {word}", 60, mode="AND"))
+        def says(query, mode="AND"):
+            """Is `query` in this notice's full text?"""
+            if (query, mode) not in cache:
+                if budget[0] <= 0:
+                    raise _OutOfQueries
+                budget[0] -= 1
+                cache[(query, mode)] = bool(ids & session.ids(query, 60, mode=mode))
+            return cache[(query, mode)]
+
+        snippet = n.get("snippet", "").upper()
+
+        def town_ok(town):
+            # A town named in the notice's opening (a lender, the registry) proves nothing.
+            return town.upper() in snippet or town == n["county"] or says(f"{last[0]} {town}")
+
+        def fits(r):
+            num, streets = _street_phrases(str(r.get("SITE_ADDR") or ""))
+            return bool(num and streets and any(says(p, "EXACT") for p in streets)
+                        and says(f"{last[0]} {num}") and town_ok(r["_town"]))
 
         try:
-            snippet = n.get("snippet", "").upper()
             by_town = {}
             for r in cands:
                 by_town.setdefault(r["_town"], []).append(r)
-            if len(by_town) > 1 and len({_street_word(str(r.get("SITE_ADDR"))) for r in cands}) > 12:
-                # A town named in the notice's opening (a lender, the registry) proves nothing.
+            if len(by_town) > 1 and len(cands) > 12:
                 testable = [t for t in by_town if t.upper() not in snippet and t != n["county"]]
-                hit = [t for t in sorted(testable, key=lambda t: -len(by_town[t])) if says(t)]
+                hit = [t for t in sorted(testable, key=lambda t: -len(by_town[t])) if says(f"{last[0]} {t}")]
                 cands = [r for t in (hit or [t for t in by_town if t not in testable]) for r in by_town[t]]
-            by_street = {}
-            for r in cands:
-                by_street.setdefault((r["_town"], _street_word(str(r.get("SITE_ADDR")))), []).append(r)
-            if len(by_street) > budget[0]:
-                raise _OutOfQueries
-            found = [r for (t, w), rs in by_street.items() if w and says(w) for r in rs]
-            if len(found) > 1:
-                found = [r for r in found if (m := re.match(r"\d+", str(r.get("SITE_ADDR") or ""))) and says(m.group())]
+            found = [r for r in cands if fits(r)]
         except _OutOfQueries:
             found = []
         except Exception as e:
@@ -393,6 +431,16 @@ def locate_by_notice_text(records, gis, state, today, towns, http_factory=Http):
             log.info("located %s: %s, %s", n["borrower"], res["site_address"], res["town"])
         else:
             store[key] = {"checked": today.isoformat()}
+            if by_name:
+                log.info("not confirmed by the notice text, dropped: %s at %s", n["borrower"], a["address"])
+                _forget_address(a)
+
+
+def _forget_address(a):
+    """Undo an address the assessor lookup guessed from the borrower's name."""
+    a["gis"], a["address"], a["town"] = {}, "", ""
+    a["status_note"] = (a.get("status_note") or "").replace(
+        "; Address found from the borrower's name in assessor records - confirm with the legal notice", "")
 
 
 def _note_found_address(a):

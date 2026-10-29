@@ -89,6 +89,13 @@ class MassGIS:
     def summarize(row):
         return _summarize(row)
 
+    def parcel(self, summary):
+        """The assessor row behind a summary from by_owner/by_address (None if gone)."""
+        pid, town = summary.get("parcel_id"), summary.get("town")
+        if not pid or not town:
+            return None
+        return next((r for r in self._rows(town) if (r.get("PROP_ID") or r.get("LOC_ID")) == pid), None)
+
     def owner_candidates(self, borrower, towns):
         """Every parcel in `towns` whose owner shares a borrower's last name, for when the
         full name finds nothing or more than one home (trusts, other family members)."""
