@@ -109,6 +109,10 @@ Edit `config.yaml`:
 
 - `towns:` limits tracking to certain towns, e.g. `towns: [Springfield, Chicopee, Holyoke]`.
   Leave it empty to track all 161 towns in the five counties.
+- `exclude_towns:` leaves towns out (currently 19 in Worcester County, so 142 are
+  tracked). On the next run their sales, call-list rows and calendar events drop off
+  quietly, without being logged as "removed from site". Legal notices that name only
+  excluded towns are dropped too.
 - `auction_sites:` holds the auctioneer list. To add a site, add a line with its name and
   the URL of its schedule page. The generic reader handles most table- or list-style pages.
 - `likely_septic_towns:` is the list of towns that get "Likely SEPTIC - verify".
