@@ -1,7 +1,7 @@
 # Foreclosure Auction Tracker (Berkshire, Hampden, Hampshire, Franklin, Worcester)
 
 Checks every auctioneer website on your **MA - Auction Site Links** tab, plus the
-newspapers' foreclosure legal notices, five times a day. Then it updates your
+newspapers' foreclosure legal notices, several times a day. Then it updates your
 **MA Weekly Auctions** Google Sheet (set by `spreadsheet_id` in `config.yaml`).
 
 It writes only to its own tabs. Any other tabs in the sheet are never touched.
@@ -103,9 +103,10 @@ tab grows (about once a week).
    The first run takes about 5 minutes because it downloads the assessor tables for
    your towns (about 55 MB, refreshed monthly). Later runs take 2-3 minutes.
 
-After that it runs on its own at about 7:15am, 10:15am, 12:15pm, 3:15pm and 6:15pm
-Eastern. To change the times, edit the `cron` line in
-`.github/workflows/foreclosure-tracker.yml`.
+After that it runs on its own about every two hours from 6:40am to 6:40pm Eastern (an
+hour earlier in winter), plus an extra early run on Fridays. GitHub sometimes starts
+scheduled runs late or skips one, so expect a run every 2-3 hours. To change the times, edit
+the `cron` lines in `.github/workflows/foreclosure-tracker.yml`.
 
 ## Changing what it tracks
 
@@ -160,7 +161,7 @@ offers with your attorney before you start calling.
 
 ## Google Calendar
 
-At the end of every run (about 5 times a day) the tracker also mirrors the sheet's
+At the end of every run (several times a day) the tracker also mirrors the sheet's
 upcoming sales onto the **Foreclosure Auctions** Google Calendar
 (`calendar_id` in `config.yaml`):
 

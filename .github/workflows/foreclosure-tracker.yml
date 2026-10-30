@@ -2,9 +2,13 @@ name: Foreclosure auction tracker
 
 on:
   schedule:
-    # Times are UTC: about 7:15am, 10:15am, 12:15pm, 3:15pm and 6:15pm Eastern (an hour
-    # earlier in winter). GitHub can start scheduled runs a few minutes late.
-    - cron: "15 11,14,16,19,22 * * *"
+    # Times are UTC: every two hours from about 6:40am to 6:40pm Eastern (an hour earlier
+    # in winter), plus an extra early run on Fridays so the Friday email has fresh data.
+    # GitHub often starts scheduled runs late or skips some when it's busy, so there are
+    # more slots than strictly needed, on odd minutes away from the busy top of the hour.
+    # A run takes about 5 minutes; 8 a day stays within the free Actions minutes.
+    - cron: "41 10,12,14,16,18,20,22 * * *"
+    - cron: "11 10 * * 5"
   workflow_dispatch: {}
 
 concurrency:
