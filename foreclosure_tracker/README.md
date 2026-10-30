@@ -179,7 +179,8 @@ events**, and enable the Google Calendar API in the service account's Cloud proj
 
 ## Friday email
 
-Every Friday at about 7:45am Eastern the **Friday auctions email** workflow
+Every Friday morning (the first of several tries between 7am and noon Eastern; GitHub
+sometimes starts scheduled jobs late or skips them) the **Friday auctions email** workflow
 (`.github/workflows/weekly-email.yml`) emails next Monday–Sunday's auctions to
 zennode@gmail.com, with a printable PDF attached (landscape, one row per sale grouped by
 day, with checkboxes and room for notes and a max bid). It reads the sheet with the same service account as the tracker and
@@ -190,6 +191,7 @@ sends through Gmail, so it needs one more repository secret:
 2. In GitHub: Settings -> Secrets and variables -> Actions -> New repository secret,
    name `GMAIL_APP_PASSWORD`, value the 16-character password.
 3. Actions -> Friday auctions email -> Run workflow sends one right away to test it.
+   (Run it with "mark_only" ticked to record next week's email as sent without sending.)
 
 `weekly_email.py` builds the email on its own from an .xlsx download of the sheet:
 
