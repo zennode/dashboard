@@ -167,7 +167,8 @@ upcoming sales onto the **Foreclosure Auctions** Google Calendar
 
 - One event per sale with status **Scheduled** or **Notice only**. The event runs an hour
   from the sale time, or is all-day when no time is posted. The location is the property,
-  and the description has the auctioneer, deposit, opening bid, lender, liens, septic,
+  and the description has the auctioneer, deposit, opening bid, lender, mortgage amount and
+  year, 1st or 2nd, liens, septic,
   Team Notes and links.
 - When a sale is **postponed or cancelled**, its event is removed. If it comes back on as
   scheduled, the event returns. Past events are left alone.

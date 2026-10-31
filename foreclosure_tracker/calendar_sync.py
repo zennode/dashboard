@@ -84,7 +84,9 @@ def build_event(row, spreadsheet_id):
         ("Deposit", row.get("Deposit")),
         ("Opening bid", row.get("Opening Bid")),
         ("Lender", row.get("Lender / Mortgagee")),
-        ("Mortgage", " ".join(str(x) for x in (row.get("Mortgage Amount"), row.get("Mortgage Year")) if x)),
+        ("Mortgage amount", row.get("Mortgage Amount")),
+        ("Mortgage year", row.get("Mortgage Year")),
+        ("1st or 2nd", row.get("1st or 2nd")),
         ("Tax / liens", row.get("Tax / Water / Sewer Liens")),
         ("Septic / sewer", row.get("Septic / Sewer")),
         ("Property", " · ".join(str(x) for x in (
