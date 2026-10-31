@@ -268,7 +268,8 @@ def test_calendar_sync():
     import calendar_sync as C
     today = date(2026, 10, 29)
     row = lambda key, st, d, t="11:00 AM": {"Key": key, "Status": st, "Auction Date": d, "Time": t,
-                                            "Address": f"{key} Main St", "Town": "Ware", "Deposit": "$5,000"}
+                                            "Address": f"{key} Main St", "Town": "Ware", "Deposit": "$5,000",
+                                            "Mortgage Amount": "$212,000", "Mortgage Year": "2008"}
     cal = FakeCalendar()
     rows = [row("1", "Scheduled", "11/02/2026"), row("2", "Notice only", "11/03/2026", ""),
             row("3", "Cancelled", "11/04/2026"), row("4", "Scheduled", "10/20/2026")]
@@ -276,6 +277,7 @@ def test_calendar_sync():
     assert (res["events"], res["added"]) == (2, 2)
     e1, e2 = cal.events[C.event_id("1")], cal.events[C.event_id("2")]
     assert e1["start"] == {"dateTime": "2026-11-02T11:00:00", "timeZone": C.TZ} and "Deposit: $5,000" in e1["description"]
+    assert "Mortgage amount: $212,000\nMortgage year: 2008" in e1["description"]
     assert e2["start"] == {"date": "2026-11-03"} and e2["summary"].endswith("(legal notice only)")
     # Nothing changed: nothing written.
     cal.calls.clear()
