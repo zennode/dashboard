@@ -642,12 +642,30 @@ def _minutes(t):
     return (int(m.group(1)) % 12 + (12 if m.group(3) == "P" else 0)) * 60 + int(m.group(2))
 
 
+def _row_place(r):
+    """Address key for a sheet row (tracker or call list), or None for a placeholder."""
+    addr = str(r.get("Address") or r.get("Property Address") or "").strip()
+    if not addr or addr.startswith("(") or not r.get("Town"):
+        return None
+    return P.address_key(addr, r["Town"])
+
+
 def keep_sheet_edits(rows, existing, always, if_empty, unless=None):
     old = {r.get("Key"): r for r in existing if r.get("Key")}
+    # A row's Key changes when a legal-notice-only sale turns up on an auctioneer's site
+    # (or the two are merged), so fall back to the same address in the same town.
+    by_place = {}
+    for r in existing:
+        place = _row_place(r)
+        if place:
+            by_place.setdefault(place, r)
+    current = {r["Key"] for r in rows}
     for r in rows:
         o = old.get(r["Key"])
         if not o:
-            continue
+            o = by_place.get(_row_place(r))
+            if not o or o.get("Key") in current:
+                continue  # nothing typed for it, or that row is still on the sheet itself
         for col in always:
             r[col] = o.get(col, "")
         for col in if_empty:

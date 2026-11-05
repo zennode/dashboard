@@ -384,3 +384,17 @@ def test_amg_events():
     assert (king["auction_date"], king["original_date"], king["status"]) == ("2027-01-20", "2026-11-05", "Postponed")
     assert (king["deposit"], king["book_page"], king["sewer"]) == ("$10,000", "Book 65622, Page 194", "SEPTIC")
     assert king["auction_time"] == "10:00 AM" and king["address"] == "24 King Street"
+
+
+def test_typed_notes_follow_a_new_key():
+    from tracker import keep_sheet_edits
+    typed = [{"Key": "N-abc", "Address": "24 King St", "Town": "North Brookfield", "Team Notes": "VA called",
+              "Tax / Water / Sewer Liens": "MLC"},
+             {"Key": "k2", "Address": "5 Elm St", "Town": "Ware", "Team Notes": "own note"}]
+    rows = [{"Key": "k1", "Address": "24 King Street", "Town": "North Brookfield", "Team Notes": "",
+             "Tax / Water / Sewer Liens": ""},
+            {"Key": "k2", "Address": "5 Elm St", "Town": "Ware", "Team Notes": ""},
+            {"Key": "k3", "Address": "5 Elm Street", "Town": "Ware", "Team Notes": ""}]
+    a, b, c = keep_sheet_edits(rows, typed, {"Team Notes"}, {"Tax / Water / Sewer Liens"})
+    assert (a["Team Notes"], a["Tax / Water / Sewer Liens"]) == ("VA called", "MLC")
+    assert b["Team Notes"] == "own note" and c["Team Notes"] == ""  # k2 still has its own row
