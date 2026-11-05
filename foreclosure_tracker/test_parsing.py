@@ -354,3 +354,47 @@ def test_untracked_notice_towns():
     assert not _may_be_tracked(note("Fitchburg", "Worcester"), towns)
     assert _may_be_tracked(note("Grafton", "Worcester"), towns)
     assert _may_be_tracked(note(), towns)  # nothing to go on: keep it
+
+
+def test_amg_events():
+    from datetime import date
+    from sources import auction_sites as A
+
+    def event(slug, title, iso, street, town):
+        return (f'<article class="eventlist-event eventlist-event--upcoming"><h1 class="eventlist-title">'
+                f'<a href="/auctions/{slug}">{title}</a></h1><time class="event-date" datetime="{iso}">x</time>'
+                f'<time class="event-time-localized-start" datetime="{iso}">10:00 AM</time>'
+                f'<span class="eventlist-meta-address-line">{street}</span>'
+                f'<span class="eventlist-meta-address-line">{town}, Massachusetts, 01535</span></article>')
+    cal = "".join([event("king", "24 King St, North Brookfield, MA POSTPONED to January 20th @ 10:00 AM",
+                         "2026-11-05", "24 King Street", "North Brookfield"),
+                   event("brain", "90 Sheppard Ave, Braintree", "2026-11-20", "90 Sheppard Ave", "Braintree")])
+    page = ("Recorded at: Worcester South District Registry of Deeds, Book 65622, Page 194 | "
+            "Water/sewer: Private/private | Terms: $10,000.00 non refundable deposit shall be paid")
+
+    class Resp:
+        def __init__(self, text):
+            self.text, self.url = text, "https://www.amgauction.com/auctions"
+
+    class Http:
+        def get(self, url, **kw):
+            return Resp(cal if url.endswith("/auctions") else page)
+    recs = A.amg(Http(), {"name": "AMG", "url": "https://www.amgauction.com/auctions"}, date(2026, 11, 1))
+    king = [r for r in recs if r["town"] == "North Brookfield"][0]
+    assert (king["auction_date"], king["original_date"], king["status"]) == ("2027-01-20", "2026-11-05", "Postponed")
+    assert (king["deposit"], king["book_page"], king["sewer"]) == ("$10,000", "Book 65622, Page 194", "SEPTIC")
+    assert king["auction_time"] == "10:00 AM" and king["address"] == "24 King Street"
+
+
+def test_typed_notes_follow_a_new_key():
+    from tracker import keep_sheet_edits
+    typed = [{"Key": "N-abc", "Address": "24 King St", "Town": "North Brookfield", "Team Notes": "VA called",
+              "Tax / Water / Sewer Liens": "MLC"},
+             {"Key": "k2", "Address": "5 Elm St", "Town": "Ware", "Team Notes": "own note"}]
+    rows = [{"Key": "k1", "Address": "24 King Street", "Town": "North Brookfield", "Team Notes": "",
+             "Tax / Water / Sewer Liens": ""},
+            {"Key": "k2", "Address": "5 Elm St", "Town": "Ware", "Team Notes": ""},
+            {"Key": "k3", "Address": "5 Elm Street", "Town": "Ware", "Team Notes": ""}]
+    a, b, c = keep_sheet_edits(rows, typed, {"Team Notes"}, {"Tax / Water / Sewer Liens"})
+    assert (a["Team Notes"], a["Tax / Water / Sewer Liens"]) == ("VA called", "MLC")
+    assert b["Team Notes"] == "own note" and c["Team Notes"] == ""  # k2 still has its own row
