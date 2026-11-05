@@ -304,7 +304,7 @@ AUCTIONEER_SEARCH = {
     "Daniel P. McLaughlin": "Re-Auction", "Dean Associates": "Dean Associates", "Skypoint": "Skypoint",
     "Asset Protection Group": "APG", "Harkins Real Estate": "Harkins", "Berman Property": "Berman",
     "JJ Manning": "JJ Manning", "Paine Auctioneers": "Paine", "Jump Company": "Jump",
-    "Zekos": "Zekos", "Harvard Auctioneers": "Harvard", "Douglas Auctioneers": "Douglas",
+    "Zekos": "Zekos", "Auction Marketing Group": "AMG", "Harvard Auctioneers": "Harvard", "Douglas Auctioneers": "Douglas",
     "Williams Auction": "Williams", "ABC Auctions": "ABC Auctions", "Auctions RI": "Auctions RI",
     "Pesco": "Pesco", "Tranzon": "Tranzon", "ServiceLink": "ServiceLink", "Strategic Auction": "Strategic Auction",
     "Paul E. Saperstein": "Saperstein", "Shechtman": "Shechtman", "Marcella": "Marcella",

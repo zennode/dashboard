@@ -68,6 +68,7 @@ auction_sites:
   - {name: Hudson, url: "https://www.hudsonmarshall.com/", note: "Loads listings with JavaScript - check by hand"}
   - {name: Berman, url: "https://www.bermanpropertysolutions.com/current-listings/"}
   - {name: Zekos, url: "https://www.zekosgroup.com/", parser: zekos}
+  - {name: AMG, url: "https://www.amgauction.com/auctions", parser: amg}
   - {name: Harvard, url: "https://www.harvardauctioneers.com/"}
   - {name: AuctionNetwork, url: "https://www.auctionnetwork.com/live-auctions", note: "Loads listings with JavaScript - check by hand"}
   - {name: Patriot, url: "https://patriotauctioneers.com/auctions-in-massachusetts/"}

@@ -242,6 +242,61 @@ def posnik(http, site, today):
     return out
 
 
+def amg(http, site, today):
+    """Auction Marketing Group (amgauction.com): a Squarespace events calendar. Each upcoming
+    sale is an <article> with a title, an ISO date, a start time and an address. A
+    postponed sale is retitled "... POSTPONED to January 20th" and usually reposted as a
+    new event on the new date; the merge keeps the later one. Deposit, Book/Page and
+    "Water/sewer: Public/private" come from each sale's own page."""
+    r = http.get(site["url"])
+    soup = BeautifulSoup(r.text, "lxml")
+    out = []
+    for art in soup.select("article.eventlist-event--upcoming"):
+        title_a = art.select_one(".eventlist-title a")
+        when = art.select_one("time.event-date")
+        lines = [P.clean(x.get_text(" ")) for x in art.select(".eventlist-meta-address-line")]
+        if not title_a or not when or len(lines) < 2:
+            continue
+        town, county = resolve_town(lines[1].split(",")[0])
+        if not town:
+            continue
+        title = P.clean(title_a.get_text(" "))
+        start = art.select_one("time.event-time-localized-start")
+        excerpt = art.select_one(".eventlist-excerpt")
+        text = " | ".join(x for x in (title, excerpt.get_text(" ") if excerpt else "") if x)
+        detail = urljoin(r.url, title_a["href"])
+        rec = build_record(site["name"], site["url"], lines[0], town, county, text, today, detail)
+        rec["auction_date"] = when["datetime"][:10]
+        rec["auction_time"] = P.parse_time(start.get_text(" ")) if start else rec["auction_time"]
+        rec["original_date"] = ""
+        rec["status"] = _norm_status(title) or "Scheduled"
+        if rec["status"] == "Postponed":
+            later = [d for _, d in P.all_dates(title, today) if d.isoformat() > rec["auction_date"]]
+            if later:
+                rec["original_date"], rec["auction_date"] = rec["auction_date"], later[0].isoformat()
+        _amg_details(http, rec)
+        out.append(rec)
+    return out
+
+
+def _amg_details(http, rec):
+    try:
+        text = P.clean(BeautifulSoup(http.get(rec["detail_url"]).text, "lxml").get_text(" "))
+    except Exception as e:
+        log.info("amg detail %s: %s", rec["detail_url"], e)
+        return
+    rec["skip_detail"] = True
+    dep = re.search(r"\$\s?([\d,]+)(?:\.\d\d)?\s+(?:non[- ]?refundable\s+)?deposit", text, re.I)
+    rec["deposit"] = (P.fmt_money(float(dep.group(1).replace(",", ""))) if dep else
+                      P.parse_deposit(text) or rec["deposit"])
+    rec["book_page"] = P.parse_book_page(text) or rec["book_page"]
+    ws = re.search(r"Water\s*/\s*sewer\s*:?\s*(\w+)\s*/\s*(\w+)", text, re.I)
+    if ws:
+        rec["sewer"] = {"public": "SEWER", "town": "SEWER", "city": "SEWER",
+                        "private": "SEPTIC", "septic": "SEPTIC"}.get(ws.group(2).lower(), rec["sewer"])
+    rec["listing_text"] = (rec["listing_text"] + " | " + text[:1500])[:2000]
+
+
 MUNICIPAL_PREFIX = "(municipal auction"
 MUNICIPAL_RE = re.compile(r"^(?:City|Town) of\s+(.+?)\s*(?:Coming Soon!?)?$", re.I)
 
@@ -480,7 +535,7 @@ def _from_page_text(page_text, addr, town, county, site, today, detail):
 
 
 PARSERS = {"commonwealth": commonwealth, "baystate": baystate, "towne": towne, "posnik": posnik,
-           "servicelink": servicelink, "zekos": zekos}
+           "servicelink": servicelink, "zekos": zekos, "amg": amg}
 
 
 def scrape_site(http, site, today=None, towns=None):
