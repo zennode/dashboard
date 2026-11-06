@@ -193,7 +193,13 @@ sends through Gmail, so it needs one more repository secret:
 2. In GitHub: Settings -> Secrets and variables -> Actions -> New repository secret,
    name `GMAIL_APP_PASSWORD`, value the 16-character password.
 3. Actions -> Friday auctions email -> Run workflow sends one right away to test it.
-   (Run it with "mark_only" ticked to record next week's email as sent without sending.)
+   (Run it with "mark_only" ticked to record next week's email as sent without sending,
+   or "force" to send again after it already went out.)
+
+GitHub often starts scheduled jobs late or not at all, so the reliable trigger is an outside
+scheduler (cron-job.org) that asks GitHub to run each workflow at a set time. A plain run
+started that way checks whether next week's email already went out, so a late GitHub run
+and the outside one never both send.
 
 `weekly_email.py` builds the email on its own from an .xlsx download of the sheet:
 

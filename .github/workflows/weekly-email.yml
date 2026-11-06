@@ -24,6 +24,10 @@ on:
         description: "Don't send; just record next week's email as already sent"
         type: boolean
         default: false
+      force:
+        description: "Send even if next week's email was already sent"
+        type: boolean
+        default: false
 
 jobs:
   send:
@@ -51,7 +55,11 @@ jobs:
       # A tiny cache entry marks "next week's email is sent", so later tries skip.
       - name: Already sent this week?
         id: sent
-        if: steps.week.outputs.skip != 'true' && github.event_name == 'schedule'
+        # Outside schedulers (cron-job.org) start runs as workflow_dispatch, so a plain
+        # dispatch checks too; a test week (week_of) or force skips the check.
+        if: >-
+          steps.week.outputs.skip != 'true' &&
+          (github.event_name == 'schedule' || (inputs.week_of == '' && inputs.force != true))
         uses: actions/cache/restore@v4
         with:
           path: foreclosure_tracker/.email-sent
