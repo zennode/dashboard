@@ -579,6 +579,10 @@ def scrape_site(http, site, today=None, towns=None):
     if towns is not None:
         recs = [r for r in recs if r["town"] in towns]
     add_detail_pages(http, recs, today)
+    # An auctioneer's usual deposit (config default_deposit) where the listing posts none.
+    if site.get("default_deposit"):
+        for r in recs:
+            r["deposit"] = r["deposit"] or site["default_deposit"]
     return recs
 
 

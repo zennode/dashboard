@@ -62,7 +62,7 @@ auction_sites:
   - {name: Pesco, url: "https://www.pesco.com/real-estate-auction-calendar/"}
   - {name: Jump, url: "https://jumppcompany.com/"}
   - {name: JJ Manning, url: "https://jjmanning.com/"}
-  - {name: Landmark, url: "http://www.landmarkauction.biz/", parser: landmark}
+  - {name: Landmark, url: "http://www.landmarkauction.biz/", parser: landmark, default_deposit: "$5,000"}  # usual deposit; not posted on the site
   - {name: Traverse, url: "https://traversecompanies.com/"}
   - {name: Re-Auction, url: "https://www.re-auctions.com/Auction-Schedule/Printable-Auction-Schedule"}
   - {name: Hudson, url: "https://www.hudsonmarshall.com/", note: "Loads listings with JavaScript - check by hand"}

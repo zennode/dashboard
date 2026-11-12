@@ -421,6 +421,9 @@ def test_landmark_events():
     assert (recs["53 Fullerton St"]["town"], recs["53 Fullerton St"]["status"]) == ("Springfield", "Cancelled")
     assert recs["20 Leverett Rd"]["status"] == "Postponed" and recs["20 Leverett Rd"]["auction_date"] == "2027-01-14"
     assert (recs["30 Plaza Ave"]["auction_date"], recs["30 Plaza Ave"]["original_date"]) == ("2026-12-21", "2026-11-05")
+    site = {"name": "Landmark", "url": "http://www.landmarkauction.biz/", "parser": "landmark",
+            "default_deposit": "$5,000"}
+    assert {r["deposit"] for r in A.scrape_site(Http(), site, date(2026, 11, 12))} == {"$5,000"}
 
 
 def test_typed_notes_follow_a_new_key():
