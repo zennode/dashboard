@@ -242,41 +242,74 @@ def posnik(http, site, today):
     return out
 
 
-def amg(http, site, today):
-    """Auction Marketing Group (amgauction.com): a Squarespace events calendar. Each upcoming
-    sale is an <article> with a title, an ISO date, a start time and an address. A
-    postponed sale is retitled "... POSTPONED to January 20th" and usually reposted as a
-    new event on the new date; the merge keeps the later one. Deposit, Book/Page and
-    "Water/sewer: Public/private" come from each sale's own page."""
+def squarespace_events(http, site, today, details=None):
+    """A Squarespace events calendar (AMG, Landmark). Each upcoming sale is an <article>
+    with a title, an ISO date and a start time. The address comes from the event's address
+    lines, or else from the title ("53 Fullerton St, Indian Orchard (Springfield), MA").
+    The status is in the title or the excerpt under it ("CANCELED", "POSTPONED to January
+    20th", "Continued to January 14 at 11 AM"); a postponed sale takes the later date
+    named there, with the listed date as its original date. A sale whose listed date has
+    passed is filed under past events even when it was continued to a later date, so past
+    events count only when they were continued to a date still ahead."""
     r = http.get(site["url"])
     soup = BeautifulSoup(r.text, "lxml")
     out = []
-    for art in soup.select("article.eventlist-event--upcoming"):
+    for art in soup.select("article.eventlist-event"):
+        upcoming = "eventlist-event--upcoming" in (art.get("class") or [])
         title_a = art.select_one(".eventlist-title a")
         when = art.select_one("time.event-date")
-        lines = [P.clean(x.get_text(" ")) for x in art.select(".eventlist-meta-address-line")]
-        if not title_a or not when or len(lines) < 2:
-            continue
-        town, county = resolve_town(lines[1].split(",")[0])
-        if not town:
+        if not title_a or not when:
             continue
         title = P.clean(title_a.get_text(" "))
-        start = art.select_one("time.event-time-localized-start")
+        lines = [P.clean(x.get_text(" ")) for x in art.select(".eventlist-meta-address-line")]
+        if len(lines) >= 2:
+            street, place = lines[0], lines[1].split(",")[0]
+        else:
+            parts = [x.strip() for x in re.sub(r",?\s*(MA|Massachusetts)\b.*$", "", title).split(",")]
+            if len(parts) < 2:
+                continue
+            street, place = parts[0], parts[1]
+        town, county = resolve_town(place)
+        if not town:
+            continue
+        start = art.select_one("time.event-time-localized-start, time.event-time-12hr-start")
+        # Status lines sit in the excerpt (AMG) or loose in the article (Landmark).
         excerpt = art.select_one(".eventlist-excerpt")
-        text = " | ".join(x for x in (title, excerpt.get_text(" ") if excerpt else "") if x)
+        if excerpt:
+            note = P.clean(excerpt.get_text(" | "))
+        else:
+            info = art.select_one(".eventlist-column-info") or art
+            note = P.clean(" | ".join(t for t in info.find_all(string=True, recursive=True)
+                                      if t.strip() and not t.find_parent(["h1", "ul", "script", "style"])))
+        text = " | ".join(x for x in (title, note) if x)
         detail = urljoin(r.url, title_a["href"])
-        rec = build_record(site["name"], site["url"], lines[0], town, county, text, today, detail)
+        rec = build_record(site["name"], site["url"], street, town, county, text, today, detail)
         rec["auction_date"] = when["datetime"][:10]
         rec["auction_time"] = P.parse_time(start.get_text(" ")) if start else rec["auction_time"]
         rec["original_date"] = ""
-        rec["status"] = _norm_status(title) or "Scheduled"
+        rec["status"] = _norm_status(title) or _norm_status(note) or "Scheduled"
         if rec["status"] == "Postponed":
-            later = [d for _, d in P.all_dates(title, today) if d.isoformat() > rec["auction_date"]]
+            later = [d for _, d in P.all_dates(text, today) if d.isoformat() > rec["auction_date"]]
             if later:
                 rec["original_date"], rec["auction_date"] = rec["auction_date"], later[0].isoformat()
-        _amg_details(http, rec)
+        if not upcoming and not (rec["status"] == "Postponed" and rec["auction_date"] >= today.isoformat()):
+            continue  # a past sale, not one continued to a date still ahead
+        if details:
+            details(http, rec)
         out.append(rec)
     return out
+
+
+def amg(http, site, today):
+    """Auction Marketing Group: deposit, Book/Page and "Water/sewer: Public/private" come
+    from each sale's own page."""
+    return squarespace_events(http, site, today, _amg_details)
+
+
+def landmark(http, site, today):
+    """Landmark Auction: the Book/Page and status are in each event's excerpt; the deposit
+    comes from the sale's own page (add_detail_pages)."""
+    return squarespace_events(http, site, today)
 
 
 def _amg_details(http, rec):
@@ -535,7 +568,8 @@ def _from_page_text(page_text, addr, town, county, site, today, detail):
 
 
 PARSERS = {"commonwealth": commonwealth, "baystate": baystate, "towne": towne, "posnik": posnik,
-           "servicelink": servicelink, "zekos": zekos, "amg": amg}
+           "servicelink": servicelink, "zekos": zekos, "amg": amg,
+           "landmark": landmark}
 
 
 def scrape_site(http, site, today=None, towns=None):
@@ -545,6 +579,10 @@ def scrape_site(http, site, today=None, towns=None):
     if towns is not None:
         recs = [r for r in recs if r["town"] in towns]
     add_detail_pages(http, recs, today)
+    # An auctioneer's usual deposit (config default_deposit) where the listing posts none.
+    if site.get("default_deposit"):
+        for r in recs:
+            r["deposit"] = r["deposit"] or site["default_deposit"]
     return recs
 
 
