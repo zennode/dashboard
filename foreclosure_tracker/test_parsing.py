@@ -386,6 +386,43 @@ def test_amg_events():
     assert king["auction_time"] == "10:00 AM" and king["address"] == "24 King Street"
 
 
+def test_landmark_events():
+    from datetime import date
+    from sources import auction_sites as A
+    from towns import resolve_town
+
+    assert resolve_town("Indian Orchard (Springfield)")[0] == "Springfield"
+    assert resolve_town("Feeding Hills (Agawam)")[0] == "Agawam"
+
+    def event(when, title, iso, status):
+        return (f'<article class="eventlist-event eventlist-event--{when}"><div class="eventlist-column-info">'
+                f'<h1 class="eventlist-title"><a href="/auction-calendar/x">{title}</a></h1>'
+                f'<ul class="eventlist-meta"><li><time class="event-date" datetime="{iso}">x</time>'
+                f'<time class="event-time-12hr-start" datetime="{iso}">1:00 PM</time></li></ul>'
+                f'<p>{status}</p></div></article>')
+    cal = "".join([
+        event("upcoming", "53 Fullerton St, Indian Orchard (Springfield), MA 01151", "2026-11-12",
+              "CANCELED | Book 21767 at Page 554"),
+        event("upcoming", "20 Leverett Rd, Shutesbury, MA", "2026-11-12", "Continued to January 14 at 11 AM"),
+        event("past", "30 Plaza Ave, Belchertown, MA", "2026-11-05", "Continued to December 21 at 12 PM"),
+        event("past", "9 Old Rd, Ware, MA", "2026-11-05", "Book 1 at Page 2"),
+    ])
+
+    class Resp:
+        def __init__(self, text):
+            self.text, self.url = text, "http://www.landmarkauction.biz/"
+
+    class Http:
+        def get(self, url, **kw):
+            return Resp(cal)
+    recs = {r["address"]: r for r in A.landmark(Http(), {"name": "Landmark", "url": "http://www.landmarkauction.biz/"},
+                                                 date(2026, 11, 12))}
+    assert set(recs) == {"53 Fullerton St", "20 Leverett Rd", "30 Plaza Ave"}  # a plain past sale is dropped
+    assert (recs["53 Fullerton St"]["town"], recs["53 Fullerton St"]["status"]) == ("Springfield", "Cancelled")
+    assert recs["20 Leverett Rd"]["status"] == "Postponed" and recs["20 Leverett Rd"]["auction_date"] == "2027-01-14"
+    assert (recs["30 Plaza Ave"]["auction_date"], recs["30 Plaza Ave"]["original_date"]) == ("2026-12-21", "2026-11-05")
+
+
 def test_typed_notes_follow_a_new_key():
     from tracker import keep_sheet_edits
     typed = [{"Key": "N-abc", "Address": "24 King St", "Town": "North Brookfield", "Team Notes": "VA called",

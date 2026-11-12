@@ -1,5 +1,7 @@
 """Massachusetts towns for the counties we track, plus common village names."""
 
+import re
+
 COUNTY_TOWNS = {
     "Berkshire": [
         "Adams", "Alford", "Becket", "Cheshire", "Clarksburg", "Dalton", "Egremont",
@@ -120,6 +122,14 @@ TOWN_TO_COUNTY = {t: c for c, towns in COUNTY_TOWNS.items() for t in towns}
 def resolve_town(name):
     """Return (town, county) for a town or village name, or (None, None)."""
     if not name:
+        return None, None
+    # "Indian Orchard (Springfield)": the town in parentheses, else the village before it.
+    paren = re.match(r"\s*(.*?)\s*\(([^)]*)\)\s*$", name)
+    if paren:
+        for part in (paren.group(2), paren.group(1)):
+            found = resolve_town(part)
+            if found[0]:
+                return found
         return None, None
     key = " ".join(name.replace(".", " ").split()).title()
     if key in TOWN_TO_COUNTY:
