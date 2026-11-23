@@ -262,6 +262,8 @@ def squarespace_events(http, site, today, details=None):
             continue
         title = P.clean(title_a.get_text(" "))
         lines = [P.clean(x.get_text(" ")) for x in art.select(".eventlist-meta-address-line")]
+        if P.other_state(", ".join(lines[1:]) or title.split(",", 1)[-1]):
+            continue  # e.g. "314 Drake Pl Rd, Sheffield, VT 05866": not the Berkshire town
         if len(lines) >= 2:
             street, place = lines[0], lines[1].split(",")[0]
         else:
