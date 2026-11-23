@@ -406,6 +406,7 @@ def test_landmark_events():
         event("upcoming", "20 Leverett Rd, Shutesbury, MA", "2026-11-12", "Continued to January 14 at 11 AM"),
         event("past", "30 Plaza Ave, Belchertown, MA", "2026-11-05", "Continued to December 21 at 12 PM"),
         event("past", "9 Old Rd, Ware, MA", "2026-11-05", "Book 1 at Page 2"),
+        event("upcoming", "314 Drake Pl Rd, Sheffield, VT 05866", "2026-11-24", "Book 50 at Page 558"),
     ])
 
     class Resp:
@@ -424,6 +425,16 @@ def test_landmark_events():
     site = {"name": "Landmark", "url": "http://www.landmarkauction.biz/", "parser": "landmark",
             "default_deposit": "$5,000"}
     assert {r["deposit"] for r in A.scrape_site(Http(), site, date(2026, 11, 12))} == {"$5,000"}
+
+
+def test_out_of_state_towns_skipped():
+    import tracker as T
+    assert P.find_addresses("314 Drake Road, Sheffield, VT 05866 | Nov 24") == []
+    assert P.find_addresses("314 Drake Road, Sheffield, MA 01257 | Nov 24")[0][3] == "Sheffield"
+    assert P.other_state(", Windsor, Connecticut") and not P.other_state(", Springfield, Massachusetts, 01104")
+    assert not P.other_state(", Indian Orchard (Springfield), MA 01151")
+    assert T.OUT_OF_STATE_LINK.search("/2026/11/24/314-drake-pl-rd-sheffield-vt-05866")
+    assert not T.OUT_OF_STATE_LINK.search("/2026/11/19/90-bessemer-st-springfield-ma-01104")
 
 
 def test_typed_notes_follow_a_new_key():

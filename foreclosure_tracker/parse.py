@@ -254,6 +254,20 @@ def _town_near(after, before):
     return None, None, False
 
 
+# Another state right after a town ("Sheffield, VT 05866"): towns like Sheffield, Windsor
+# and Washington exist in Vermont, New Hampshire, Connecticut and New York too.
+OTHER_STATE_RE = re.compile(
+    r"^[^|]{0,40}?(?:,\s*(?:VT|NH|CT|NY|RI|ME)\b|\b(?:Vermont|New Hampshire|Connecticut|New York|"
+    r"Rhode Island|Maine)\b|\b(?!01|02|055)\d{5}(?:-\d{4})?\b)")
+MA_RE = re.compile(r"^[^|]{0,40}?(?:,\s*MA\b|\bMass(?:achusetts)?\b)")
+
+
+def other_state(after_town):
+    """True when the text just after a town names another state (or a non-MA ZIP) before MA."""
+    o, m = OTHER_STATE_RE.search(after_town or ""), MA_RE.search(after_town or "")
+    return bool(o) and (not m or o.end() < m.end())
+
+
 def find_addresses(text):
     """All (start, end, street_address, town, county) found in text in one of our towns."""
     found = []
@@ -264,7 +278,7 @@ def find_addresses(text):
         after = text[m.end(): m.end() + 60]
         before = text[max(0, m.start() - 45): m.start()]
         town, county, _ = _town_near(after, before)
-        if town:
+        if town and not other_state(after):
             found.append((m.start(), m.end(), addr, town, county))
     return found
 

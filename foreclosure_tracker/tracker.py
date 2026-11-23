@@ -86,6 +86,9 @@ SOURCE_COLS = ["Source", "Kind", "URL", "Last Run (ET)", "Result", "Listings In 
 
 # ---------------------------------------------------------------- config & state
 
+OUT_OF_STATE_LINK = re.compile(r"[-_](?:vt|nh|ct|ny|ri|me)[-_]\d{5}(?:\b|$)", re.I)
+
+
 def load_config(path):
     with open(path) as f:
         cfg = yaml.safe_load(f)
@@ -721,6 +724,12 @@ def detect_changes(current, state, sources_ok, today, now_str):
                 event("Time changed", key, a, p["auction_time"], a["auction_time"])
         a["missing_runs"] = 0
         a["last_seen"] = now_str
+
+    # Forget out-of-state sales picked up before the state check (Landmark's
+    # ".../314-drake-pl-rd-sheffield-vt-05866"): they were never ours, not "removed from site".
+    for key in [k for k, p in prev_all.items() if k not in current
+                and any(OUT_OF_STATE_LINK.search(u or "") for u in p.get("links") or [])]:
+        del prev_all[key]
 
     # Listings that disappeared from the sites they were on (only if those sites loaded fine).
     for key, p in prev_all.items():
