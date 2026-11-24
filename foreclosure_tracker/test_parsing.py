@@ -437,6 +437,37 @@ def test_out_of_state_towns_skipped():
     assert not T.OUT_OF_STATE_LINK.search("/2026/11/19/90-bessemer-st-springfield-ma-01104")
 
 
+def test_atlantic_table():
+    from datetime import date
+    from sources import auction_sites as A
+
+    def row(*c):
+        return "<tr>" + "".join(f"<td>{x}</td>" for x in c) + "</tr>"
+    page = ("<table><tr><td>DATE</td><td>TIME</td><td>ADDRESS</td><td>CITY</td><td>ST</td><td>DEPOSIT</td>"
+            "<td>STATUS</td></tr>"
+            + row("11/24/2026", "12:00 PM", "30 Mazarin St", "Springfield", "MA", "$10,000", "ON")
+            + row("12/1/2026", "11:00 AM", "141 Pinard St", "Manchester", "NH", "$10,000", "ON")
+            + row("12/3/2026", "11:00 AM", "8 Harriet Rd", "Agawam", "MA", "$10,000", "cancelled")
+            + row("12/8/2026", "11:00 AM", "22 Rock Ct", "Ware", "MA", "$10,000", "postponed to 12/8 at 11am")
+            + "</table>")
+
+    class Resp:
+        text, url = page, "https://www.atlanticauctioneers.com/"
+
+    class Http:
+        def get(self, url, **kw):
+            return Resp()
+    recs = {r["address"]: r for r in A.atlantic(Http(), {"name": "Atlantic Auctioneers",
+                                                          "url": "https://www.atlanticauctioneers.com/"},
+                                                date(2026, 11, 24))}
+    assert set(recs) == {"30 Mazarin St", "8 Harriet Rd", "22 Rock Ct"}  # NH row skipped
+    m = recs["30 Mazarin St"]
+    assert (m["auction_date"], m["auction_time"], m["town"], m["deposit"], m["status"]) == \
+        ("2026-11-24", "12:00 PM", "Springfield", "$10,000", "Scheduled")
+    assert recs["8 Harriet Rd"]["status"] == "Cancelled"
+    assert (recs["22 Rock Ct"]["status"], recs["22 Rock Ct"]["auction_date"]) == ("Postponed", "2026-12-08")
+
+
 def test_typed_notes_follow_a_new_key():
     from tracker import keep_sheet_edits
     typed = [{"Key": "N-abc", "Address": "24 King St", "Town": "North Brookfield", "Team Notes": "VA called",
