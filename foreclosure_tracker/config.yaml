@@ -51,6 +51,8 @@ likely_septic_towns: [
 # Auctioneer websites (from the "MA - Auction Site Links" tab). `parser` picks a
 # dedicated scraper; everything else uses the generic one.
 auction_sites:
+  # Removed Nov 2026, sites gone: American Auctions (americanauctionsma.com, Wix domain
+  # disconnected) and Biffway (biffway.com now forwards to a gotoauction.com directory page).
   - {name: Commonwealth, url: "https://www.commonwealthauctions.com/ma-auctions", parser: commonwealth}
   - {name: Baystate, url: "https://www.baystateauction.com/auctions/state/ma", parser: baystate}
   - {name: Towne, url: "https://currentauctions.towneauction.com", parser: towne}
@@ -60,7 +62,7 @@ auction_sites:
   - {name: Posnik, url: "https://posnik.com/cals/_recal.htm", parser: posnik}
   - {name: Sullivan, url: "https://sullivan-auctioneers.com/massachusetts/"}
   - {name: Pesco, url: "https://www.pesco.com/real-estate-auction-calendar/"}
-  - {name: Jump, url: "https://jumppcompany.com/"}
+  - {name: Jump, url: "https://jumppcompany.com/", blocked: "Cloudflare refuses automated readers (403)"}
   - {name: JJ Manning, url: "https://jjmanning.com/"}
   - {name: Atlantic Auctioneers, url: "https://www.atlanticauctioneers.com/", parser: atlantic}
   - {name: Landmark, url: "http://www.landmarkauction.biz/", parser: landmark, default_deposit: "$5,000"}  # usual deposit; not posted on the site
@@ -78,16 +80,14 @@ auction_sites:
   - {name: Harmon/Commonwealth, url: "https://www.harmonlawoffices.com/view-all-auctions", note: "Loads with JavaScript; Harmon's sales are covered by Commonwealth"}
   - {name: Maine Auctioneers, url: "https://www.maineauctioneers.org/"}
   - {name: Paine, url: "https://www.paineauctioneers.com/"}
-  - {name: Sutton, url: "https://www.suttonauction.com/"}
+  - {name: Sutton, url: "https://www.suttonauction.com/", blocked: "the site drops automated connections"}
   - {name: Dean Associates, url: "https://deanassociatesinc.com/auctions/"}
   - {name: Skypoint, url: "https://www.skypointauctions.com/"}
   - {name: APG, url: "https://apg-online.com/"}
   - {name: Raucher Bros, url: "https://raucherbrothersauctioneers.com/"}
   - {name: Demerle, url: "https://demerlepc.com/foreclosure-auctions/"}
   - {name: Williams, url: "https://www.williamsauction.com/"}
-  - {name: American Auctions, url: "https://www.americanauctionsma.com/"}
   - {name: Douglas, url: "https://douglasauctioneers.com/auctions/"}
-  - {name: Biffway, url: "https://www.biffway.com/"}
-  - {name: Strategic Auction, url: "https://www.strategicauctionalliance.com/"}
+  - {name: Strategic Auction, url: "https://www.strategicauctionalliance.com/", blocked: "the site drops automated connections"}
   # Marcella (Facebook page only) cannot be read automatically.
   - {name: Bank Owned Properties, url: "https://www.bankownedproperties.org/bankhomes/MASSACHUSETTS/HAMPDEN.html?property_type=FORECLOSURE"}

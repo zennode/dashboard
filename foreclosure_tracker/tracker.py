@@ -134,6 +134,8 @@ def scrape_sites(cfg, today, now_str):
     listings, health = [], []
 
     def one(site):
+        if site.get("blocked"):  # the site turns automated readers away; don't try every run
+            return site, [], None
         try:
             recs = scrape_site(Http(), site, today, cfg["town_set"])
             return site, recs, None
@@ -148,8 +150,12 @@ def scrape_sites(cfg, today, now_str):
             if not err and not recs:
                 note = note or "Nothing in our towns right now (or the site loads its list with JavaScript - spot-check it)."
             health.append({"Source": site["name"], "Kind": "Auction site", "URL": site["url"],
-                           "Last Run (ET)": now_str, "Result": "ERROR" if err else "OK",
-                           "Listings In Our Towns": len(recs), "Note": err or note})
+                           "Last Run (ET)": now_str,
+                           "Result": "BLOCKED" if site.get("blocked") else "ERROR" if err else "OK",
+                           "Listings In Our Towns": len(recs),
+                           "Note": (f"Not read: {site['blocked']}. Its sales still come in through the "
+                                    "legal notices; check the site by hand.") if site.get("blocked")
+                           else err or note})
             log.info("%-22s %3d listings %s", site["name"], len(recs), err or "")
     return listings, health
 
