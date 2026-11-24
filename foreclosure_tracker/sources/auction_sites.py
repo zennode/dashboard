@@ -162,6 +162,31 @@ def towne(http, site, today):
     return out
 
 
+def atlantic(http, site, today):
+    """Atlantic Auctioneers: one table of Date, Time, Address, City, ST, Deposit, Status
+    ("ON", "cancelled", "postponed to 12/8 at 11am"; the Date column is already the new date)."""
+    r = http.get(site["url"])
+    soup = BeautifulSoup(r.text, "lxml")
+    out = []
+    for tr in soup.find_all("tr"):
+        cells = [P.clean(td.get_text(" ")) for td in tr.find_all("td", recursive=False)]
+        if len(cells) != 7 or cells[4] != "MA" or not re.match(r"\d{1,2}/\d{1,2}/\d{4}$", cells[0]):
+            continue
+        town, county = resolve_town(cells[3])
+        if not town:
+            continue
+        rec = build_record(site["name"], site["url"], cells[2], town, county, " | ".join(cells), today)
+        d = P.parse_date(cells[0], today)
+        rec["auction_date"] = d.isoformat() if d else rec["auction_date"]
+        rec["auction_time"] = P.parse_time(cells[1]) or rec["auction_time"]
+        rec["original_date"] = ""
+        rec["deposit"] = P.fmt_money(P.parse_money(cells[5])) or rec["deposit"]
+        rec["status"] = _norm_status(cells[6]) or "Scheduled"
+        rec["skip_detail"] = True  # no per-listing pages
+        out.append(rec)
+    return out
+
+
 def servicelink(http, site, today):
     """ServiceLink Auction: its site is a JavaScript app, but it reads a public JSON feed."""
     r = http.get("https://www.servicelinkauction.com/api/listingsvc/v1/listings?state=MA&limit=100",
@@ -571,7 +596,7 @@ def _from_page_text(page_text, addr, town, county, site, today, detail):
 
 PARSERS = {"commonwealth": commonwealth, "baystate": baystate, "towne": towne, "posnik": posnik,
            "servicelink": servicelink, "zekos": zekos, "amg": amg,
-           "landmark": landmark}
+           "landmark": landmark, "atlantic": atlantic}
 
 
 def scrape_site(http, site, today=None, towns=None):
