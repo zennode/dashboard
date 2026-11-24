@@ -51,8 +51,8 @@ likely_septic_towns: [
 # Auctioneer websites (from the "MA - Auction Site Links" tab). `parser` picks a
 # dedicated scraper; everything else uses the generic one.
 auction_sites:
-  # Removed Nov 2026, sites gone: American Auctions (americanauctionsma.com, Wix domain
-  # disconnected) and Biffway (biffway.com now forwards to a gotoauction.com directory page).
+  # Removed Nov 2026, site gone: American Auctions (americanauctionsma.com, Wix domain
+  # disconnected). Biffway's own site now forwards to its gotoauction.com page (below).
   - {name: Commonwealth, url: "https://www.commonwealthauctions.com/ma-auctions", parser: commonwealth}
   - {name: Baystate, url: "https://www.baystateauction.com/auctions/state/ma", parser: baystate}
   - {name: Towne, url: "https://currentauctions.towneauction.com", parser: towne}
@@ -88,6 +88,7 @@ auction_sites:
   - {name: Demerle, url: "https://demerlepc.com/foreclosure-auctions/"}
   - {name: Williams, url: "https://www.williamsauction.com/"}
   - {name: Douglas, url: "https://douglasauctioneers.com/auctions/"}
+  - {name: Biffway, url: "https://www.gotoauction.com/companies/view/1846/Biff-Way-Auctions-Inc.html", blocked: "gotoauction.com's Cloudflare browser check refuses automated readers"}
   - {name: Strategic Auction, url: "https://www.strategicauctionalliance.com/", blocked: "the site drops automated connections"}
   # Marcella (Facebook page only) cannot be read automatically.
   - {name: Bank Owned Properties, url: "https://www.bankownedproperties.org/bankhomes/MASSACHUSETTS/HAMPDEN.html?property_type=FORECLOSURE"}
