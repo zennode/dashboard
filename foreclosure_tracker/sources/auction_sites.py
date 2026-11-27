@@ -497,11 +497,18 @@ def _addr_keys(text):
     return {P.address_key(m.group(1), "") for m in P.ADDRESS_RE.finditer(text)}
 
 
+ASIDE_RE = re.compile(r"\s*\((?:a/?k/?a\b\.?|[NSEW]\s?/?\s?S\b)[^)]*\)", re.I)
+
+
 def generic(http, site, today):
     r = http.get(site["url"])
     soup = BeautifulSoup(r.text, "lxml")
     for t in soup(["script", "style", "noscript", "nav"]):
         t.decompose()
+    # "250 Gresham Street (W S Gresham Street), Springfield" / "134-136 Bay Street (AKA N S
+    # Bay Street), Springfield": the aside hides the town from the address reader.
+    for node in soup.find_all(string=ASIDE_RE):
+        node.replace_with(ASIDE_RE.sub("", node))
     base_url = r.url
 
     page_text = soup.get_text(" | ", strip=True)

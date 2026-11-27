@@ -1,5 +1,6 @@
 """Parsing checks built from real listing and notice text. Run: python -m pytest -q"""
 
+import re
 from datetime import date
 
 import parse as P
@@ -466,6 +467,73 @@ def test_atlantic_table():
         ("2026-11-24", "12:00 PM", "Springfield", "$10,000", "Scheduled")
     assert recs["8 Harriet Rd"]["status"] == "Cancelled"
     assert (recs["22 Rock Ct"]["status"], recs["22 Rock Ct"]["auction_date"]) == ("Postponed", "2026-12-08")
+
+
+def test_september_dates_and_street_sweep():
+    assert P.parse_date("Friday, September 04, 2026", date(2026, 11, 27)) == date(2026, 9, 4)
+    assert P.parse_date("Sept. 4, 2026", date(2026, 8, 1)) == date(2026, 9, 4)
+    assert P.parse_date("Wednesday, September 30, 2026", date(2026, 11, 27)) == date(2026, 9, 30)
+
+    # Street sweep: a fake notice search over three notices' "full text".
+    import tracker as T
+    texts = {"11": "premises known as 250 Gresham Street, Springfield, bounded by Second Street",
+             "12": "Lot 4 on Baltimore Avenue in Springfield",
+             "13": "land in Springfield on the corner, see plan"}
+
+    class Search:
+        def __init__(self, http, counties):
+            pass
+
+        def ids(self, q, days, mode="EXACT"):
+            low = {i: t.lower() for i, t in texts.items()}
+            if mode == "EXACT":
+                return {i for i, t in low.items() if re.search(r"(?<!\w)" + re.escape(q.lower()) + r"(?!\w)", t)}
+            return {i for i, t in low.items() if any(re.search(r"(?<!\w)" + re.escape(w.lower()) + r"(?!\w)", t)
+                                                     for w in q.split())}
+
+    class Gis:
+        rows = [{"SITE_ADDR": a, "RES_AREA": 1500, "_town": "Springfield"} for a in
+                ("250 GRESHAM ST", "12 GRESHAM ST", "8 SECOND ST", "36 BALTIMORE AV", "5 ELM ST")]
+
+        def _rows(self, town):
+            return self.rows
+
+        @staticmethod
+        def summarize(r):
+            return {"site_address": r["SITE_ADDR"].title()}
+
+    def rec(nid):
+        return {"address": "", "town": "Springfield", "status_note": "",
+                "notices": [{"notice_id": nid, "ids": [nid], "county": "Hampden", "borrower": "Post Investment LLC",
+                             "last_published": "2026-11-25"}]}
+    recs = {"N-a": rec("11"), "N-b": rec("12"), "N-c": rec("13")}
+    real, T.public_notices.NoticeSearch = T.public_notices.NoticeSearch, Search
+    try:
+        state = {}
+        T.locate_by_street_sweep(recs, Gis(), state, date(2026, 11, 27), {"Springfield"}, http_factory=lambda: None)
+    finally:
+        T.public_notices.NoticeSearch = real
+    assert recs["N-a"]["address"] == "250 Gresham St"
+    assert recs["N-b"]["address"] == "" and recs["N-b"]["street_hint"] == "Baltimore Avenue"
+    assert recs["N-c"]["address"] == "" and "street_hint" not in recs["N-c"]
+    assert state["street_sweep"]["N-c"]["checked"] == "2026-11-27"  # worked out once
+    again = {"N-a": rec("11")}
+    T.locate_by_street_sweep(again, Gis(), state, date(2026, 11, 28), {"Springfield"}, http_factory=None)
+    assert again["N-a"]["address"] == "250 Gresham St"  # from the saved answer, no searching
+
+
+def test_same_day_sales_matched_by_hour_and_asides():
+    import tracker as T
+    from sources import auction_sites as A
+    auctions = {"a": {"town": "Springfield", "auction_date": "2026-12-04", "auction_time": "12:00 PM"},
+                "b": {"town": "Springfield", "auction_date": "2026-12-04", "auction_time": "1:00 PM"}}
+    n = {"town": "", "probe_towns": ["Springfield"], "auction_date": "2026-12-04", "auction_time": "1:00 PM"}
+    assert T._match_by_date_and_town(auctions, n) == "b"
+    assert T._match_by_date_and_town(auctions, {**n, "auction_time": ""}) is None
+    assert A.ASIDE_RE.sub("", "250 Gresham Street (W S Gresham Street), Springfield, MA") == \
+        "250 Gresham Street, Springfield, MA"
+    assert A.ASIDE_RE.sub("", "134-136 Bay Street (AKA N S Bay Street), Springfield") == "134-136 Bay Street, Springfield"
+    assert A.ASIDE_RE.sub("", "12 Main St (2 units), Ware") == "12 Main St (2 units), Ware"
 
 
 def test_typed_notes_follow_a_new_key():

@@ -82,7 +82,7 @@ def parse_date(text, today=None):
     if not m:
         return None
     raw = re.sub(r"(\d)(st|nd|rd|th)\b", r"\1", m.group(1))
-    raw = raw.replace("Sept", "Sep")
+    raw = re.sub(r"\bSept\b", "Sep", raw)  # "Sept. 4"; leave "September" alone
     try:
         default = datetime(today.year, 1, 1)
         d = dateparser.parse(raw, default=default, fuzzy=True).date()
