@@ -522,6 +522,20 @@ def test_september_dates_and_street_sweep():
     assert again["N-a"]["address"] == "250 Gresham St"  # from the saved answer, no searching
 
 
+def test_same_day_sales_matched_by_hour_and_asides():
+    import tracker as T
+    from sources import auction_sites as A
+    auctions = {"a": {"town": "Springfield", "auction_date": "2026-12-04", "auction_time": "12:00 PM"},
+                "b": {"town": "Springfield", "auction_date": "2026-12-04", "auction_time": "1:00 PM"}}
+    n = {"town": "", "probe_towns": ["Springfield"], "auction_date": "2026-12-04", "auction_time": "1:00 PM"}
+    assert T._match_by_date_and_town(auctions, n) == "b"
+    assert T._match_by_date_and_town(auctions, {**n, "auction_time": ""}) is None
+    assert A.ASIDE_RE.sub("", "250 Gresham Street (W S Gresham Street), Springfield, MA") == \
+        "250 Gresham Street, Springfield, MA"
+    assert A.ASIDE_RE.sub("", "134-136 Bay Street (AKA N S Bay Street), Springfield") == "134-136 Bay Street, Springfield"
+    assert A.ASIDE_RE.sub("", "12 Main St (2 units), Ware") == "12 Main St (2 units), Ware"
+
+
 def test_typed_notes_follow_a_new_key():
     from tracker import keep_sheet_edits
     typed = [{"Key": "N-abc", "Address": "24 King St", "Town": "North Brookfield", "Team Notes": "VA called",

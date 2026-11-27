@@ -272,12 +272,15 @@ def match_notices(auctions, notices):
 
 def _match_by_date_and_town(auctions, n):
     """A listing with the same sale date (or original date) in a town the notice names.
-    Only used when exactly one listing fits."""
+    Only used when exactly one listing fits (at the same hour, when several share the day)."""
     towns = {n["town"]} if n.get("town") else set(n.get("probe_towns", []))
     dates = {n["auction_date"], n.get("original_date")} - {None, ""}
     hits = [k for k, a in auctions.items()
             if a.get("town") in towns and {a.get("auction_date"), a.get("original_date")} & dates
             and not a.get("notices")]
+    if len(hits) > 1 and n.get("auction_time"):
+        # One lender selling several homes in a town the same day: the hour tells them apart.
+        hits = [k for k in hits if _minutes(auctions[k].get("auction_time")) == _minutes(n["auction_time"])]
     return hits[0] if len(hits) == 1 else None
 
 
@@ -452,7 +455,9 @@ SWEEP_CHUNK = 80
 SWEEP_SKIP = {"MASSACHUSETTS", "COUNTY", "PAGE", "BOOK", "FIRST", "SECOND", "THIRD", "STATE", "BANK", "PRICE",
               "NORTH", "SOUTH", "EAST", "WEST", "BOSTON", "REGISTRY", "MORTGAGE", "SALE", "DEED", "LAND",
               "COURT", "PUBLIC", "FEDERAL", "NATIONAL", "UNION", "TRUST", "TITLE", "NOTICE", "RECORD",
-              "DISTRICT", "PREMISES", "PROPERTY", "COMMON", "PARK", "POINT", "LINE", "CORNER", "MILL"}
+              "DISTRICT", "PREMISES", "PROPERTY", "COMMON", "PARK", "POINT", "LINE", "CORNER", "MILL",
+              "THE", "AND", "FOR", "LOT", "ALL", "ANY", "NEW", "OLD", "END", "DAY", "ONE", "TWO", "MAY", "ACT",
+              "LAW", "TAX", "SUM", "USE", "ITS", "SAID", "DATE", "PLAN", "HALL", "TOWN", "CITY", "CASH", "BILL"}
 
 
 def locate_by_street_sweep(records, gis, state, today, towns, http_factory=Http):
@@ -505,7 +510,8 @@ def _use_sweep_result(a, res):
         note = "Address found by searching the legal notice's text for the town's streets - confirm with the notice"
     elif res.get("street"):
         a["street_hint"], a["town"] = res["street"], res.get("town") or a.get("town", "")
-        note = f"The notice places it on {res['street']}; the house number isn't in its searchable text"
+        note = (f"The notice names {res['street']} with no house number - it may be the property's "
+                "street or one beside it; read the notice")
     else:
         return
     a["status_note"] = "; ".join(x for x in (a.get("status_note"), note) if x)
@@ -518,7 +524,7 @@ def _sweep_town(gis, county, town, group, today, budget, http_factory):
         addr = str(r.get("SITE_ADDR") or "")
         word = _street_word(addr)
         m = re.match(r"\s*(\d+)?[\d\s-]*\s*(.+)", re.sub(r"[.,]", " ", re.sub(r"#.*", "", addr.upper())))
-        if len(word) < 4 or word in SWEEP_SKIP or word == town.upper() or word == county.upper() or not m:
+        if len(word) < 3 or word in SWEEP_SKIP or word == town.upper() or word == county.upper() or not m:
             continue
         # Vacant-lot entries: "N/S CHRISTIAN LN", "A PEARL ST", "REAR MAIN ST".
         name = re.sub(r"^(?:(?:[NSEW]/S|[A-DF-MO-RT-VX-Z]|REAR|OFF|LOT)\s+)+", "", m.group(2).strip())
@@ -733,7 +739,7 @@ def build_row(key, a, cfg):
         "Auction Date": _us(a["auction_date"]),
         "Time": a.get("auction_time") or n.get("auction_time", ""),
         "Address": a.get("address", "") or (
-            f"(on {a['street_hint']} - number in legal notice; borrower: {n.get('borrower') or 'see notice'})"
+            f"(notice names {a['street_hint']} - see legal notice; borrower: {n.get('borrower') or 'see notice'})"
             if a.get("street_hint") else f"(borrower: {n['borrower']})" if n.get("borrower") else
             "(see legal notice)" if n else ""),
         "Town": a.get("town", ""),
