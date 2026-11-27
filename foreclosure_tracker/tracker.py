@@ -445,6 +445,151 @@ def locate_by_notice_text(records, gis, state, today, towns, http_factory=Http):
                 _forget_address(a)
 
 
+SWEEP_VERSION = 1
+SWEEP_QUERIES = 500   # notice-text searches per run for the street sweep; the rest wait for the next run
+SWEEP_CHUNK = 80
+# Street words that are in every notice anyway (the registry, the boilerplate).
+SWEEP_SKIP = {"MASSACHUSETTS", "COUNTY", "PAGE", "BOOK", "FIRST", "SECOND", "THIRD", "STATE", "BANK", "PRICE",
+              "NORTH", "SOUTH", "EAST", "WEST", "BOSTON", "REGISTRY", "MORTGAGE", "SALE", "DEED", "LAND",
+              "COURT", "PUBLIC", "FEDERAL", "NATIONAL", "UNION", "TRUST", "TITLE", "NOTICE", "RECORD",
+              "DISTRICT", "PREMISES", "PROPERTY", "COMMON", "PARK", "POINT", "LINE", "CORNER", "MILL"}
+
+
+def locate_by_street_sweep(records, gis, state, today, towns, http_factory=Http):
+    """Notice-only sales still without an address, in a town we know (LLC borrowers, homes
+    bought since the assessor's list was made, names that match nobody).
+
+    The notice site's search covers each notice's full text, so the town's street names are
+    searched for a batch at a time ("any of these words") and the batches that bring a
+    notice back are split until single streets are left. A street counts only when its full
+    name is in the notice as an exact phrase ("Gresham Street"), and a house only when
+    "<number> <street>" is; the description of a lot names the streets around it too.
+    With one house confirmed the row gets that address. With a street but no number (new
+    construction, "Lot 4"), the row shows the street. Each notice is worked out once."""
+    if state.get("street_sweep_version") != SWEEP_VERSION:
+        state["street_sweep"], state["street_sweep_version"] = {}, SWEEP_VERSION
+    store, groups = state["street_sweep"], {}
+    for key, a in records.items():
+        n = (a.get("notices") or [{}])[0]
+        if a.get("address") or not n.get("county") or not n.get("last_published"):
+            continue
+        saved = store.get(key)
+        if saved:
+            _use_sweep_result(a, saved)
+            continue
+        town = a.get("town") or _town_from_notice(n.get("probe_towns", []), n["county"])
+        if town in towns:
+            groups.setdefault((n["county"], town), []).append((key, a, n))
+    budget = [SWEEP_QUERIES]
+    for (county, town), group in sorted(groups.items()):
+        try:
+            found = _sweep_town(gis, county, town, group, today, budget, http_factory)
+        except _OutOfQueries:
+            log.info("street sweep: out of searches for this run; %s waits for the next", town)
+            break
+        except Exception as e:
+            log.warning("street sweep of %s: %s", town, e)
+            continue
+        for key, a, n in group:
+            res = found.get(key) or {}
+            res["checked"] = today.isoformat()
+            store[key] = res
+            _use_sweep_result(a, res)
+            log.info("street sweep: %s in %s -> %s", n.get("borrower") or n["notice_id"], town,
+                     res.get("site_address") or res.get("street") or "nothing")
+
+
+def _use_sweep_result(a, res):
+    if res.get("site_address"):
+        a["gis"], a["address"], a["town"] = res, res["site_address"], res["town"]
+        note = "Address found by searching the legal notice's text for the town's streets - confirm with the notice"
+    elif res.get("street"):
+        a["street_hint"], a["town"] = res["street"], res.get("town") or a.get("town", "")
+        note = f"The notice places it on {res['street']}; the house number isn't in its searchable text"
+    else:
+        return
+    a["status_note"] = "; ".join(x for x in (a.get("status_note"), note) if x)
+
+
+def _sweep_town(gis, county, town, group, today, budget, http_factory):
+    """{record key: result} for the notices in `group`, all in `town`."""
+    streets = {}  # distinctive word -> {street phrase: {house number: assessor row}}
+    for r in gis._rows(town):
+        addr = str(r.get("SITE_ADDR") or "")
+        word = _street_word(addr)
+        m = re.match(r"\s*(\d+)?[\d\s-]*\s*(.+)", re.sub(r"[.,]", " ", re.sub(r"#.*", "", addr.upper())))
+        if len(word) < 4 or word in SWEEP_SKIP or word == town.upper() or word == county.upper() or not m:
+            continue
+        # Vacant-lot entries: "N/S CHRISTIAN LN", "A PEARL ST", "REAR MAIN ST".
+        name = re.sub(r"^(?:(?:[NSEW]/S|[A-DF-MO-RT-VX-Z]|REAR|OFF|LOT)\s+)+", "", m.group(2).strip())
+        _, phrases = _street_phrases("1 " + name)
+        if not phrases:
+            continue
+        nums = streets.setdefault(word, {}).setdefault(phrases[0], {})
+        if m.group(1) and m.group(1) != "0":
+            prev = nums.get(m.group(1))
+            if prev is None or (r.get("RES_AREA") or 0) > (prev.get("RES_AREA") or 0):
+                nums[m.group(1)] = r
+    # One publication id per notice (the newest), and how far back the search must reach.
+    target = {max(n.get("ids", [n["notice_id"]]), key=lambda i: int(i) if str(i).isdigit() else 0): key
+              for key, a, n in group}
+    oldest = min(date.fromisoformat(n["last_published"]) for _, _, n in group)
+    days = min(60, (today - oldest).days + 2)
+    session = public_notices.NoticeSearch(http_factory(), [county])
+
+    def ids(query, mode):
+        if budget[0] <= 0:
+            raise _OutOfQueries
+        budget[0] -= 1
+        return set(target) & session.ids(query, days, mode=mode)
+
+    def split(items, test, want):
+        """{item: ids} for single items that bring back any of `want`, by halving."""
+        got = test(items) & want
+        if not got:
+            return {}
+        if len(items) == 1:
+            return {items[0]: got}
+        mid = len(items) // 2
+        return {**split(items[:mid], test, got), **split(items[mid:], test, got)}
+
+    word_hits, words = {}, sorted(streets)
+    for i in range(0, len(words), SWEEP_CHUNK):
+        word_hits.update(split(words[i:i + SWEEP_CHUNK], lambda c: ids(" ".join(c), "OR"), set(target)))
+    houses, on_street = {}, {}  # notice id -> [assessor rows] / [street phrases]
+    for word, hit in sorted(word_hits.items()):
+        if len(hit) > max(3, len(target) // 2) and len(target) > 3:
+            continue  # in most of the notices: boilerplate, not a street
+        for phrase, nums in streets[word].items():
+            variants = [phrase] + [f"{' '.join(phrase.split()[:-1])} {abbr.title()}"
+                                   for abbr, full in SUFFIXES.items() if phrase.endswith(" " + full)][:1]
+            here = set()
+            for v in variants:
+                here |= ids(v, "EXACT") & hit
+            for nid in here:
+                on_street.setdefault(nid, []).append(phrase)
+            if not here or not nums:
+                continue
+            order = sorted(nums, key=int)
+            maybe = {}
+            for i in range(0, len(order), 60):
+                maybe.update(split(order[i:i + 60], lambda c: ids(" ".join(c), "OR"), here))
+            for num, who in maybe.items():
+                for v in variants:
+                    for nid in ids(f"{num} {v}", "EXACT") & who:
+                        if nums[num] not in houses.setdefault(nid, []):
+                            houses[nid].append(nums[num])
+    out = {}
+    for nid, key in target.items():
+        if len(houses.get(nid, [])) == 1:
+            res = gis.summarize(houses[nid][0])
+            res.update({"town": town, "matched_by": "street search of the notice text"})
+            out[key] = res
+        elif not houses.get(nid) and 1 <= len(on_street.get(nid, [])) <= 3:
+            out[key] = {"street": " or ".join(sorted(on_street[nid])), "town": town}
+    return out
+
+
 def _forget_address(a):
     """Undo an address the assessor lookup guessed from the borrower's name."""
     a["gis"], a["address"], a["town"] = {}, "", ""
@@ -587,8 +732,10 @@ def build_row(key, a, cfg):
         "1st or 2nd": lien,
         "Auction Date": _us(a["auction_date"]),
         "Time": a.get("auction_time") or n.get("auction_time", ""),
-        "Address": a.get("address", "") or (f"(borrower: {n['borrower']})" if n.get("borrower") else
-                                            "(see legal notice)" if n else ""),
+        "Address": a.get("address", "") or (
+            f"(on {a['street_hint']} - number in legal notice; borrower: {n.get('borrower') or 'see notice'})"
+            if a.get("street_hint") else f"(borrower: {n['borrower']})" if n.get("borrower") else
+            "(see legal notice)" if n else ""),
         "Town": a.get("town", ""),
         "County": county,
         "Tax / Water / Sewer Liens": "",
@@ -835,7 +982,10 @@ def notice_facts(cfg, state, today):
     store = state.setdefault("notice_facts", {})
     lookback = cfg.get("public_notice_lookback_days", 90)
     # Bump when probe() starts looking for something new, so old notices get searched again.
-    version = 3
+    version = 4
+    # Every town in our counties is searched for, tracked or not, so a notice that only
+    # names towns we don't follow can be dropped instead of sitting there with no address.
+    every_town = sorted({t for c in cfg["counties"] for t in COUNTY_TOWNS[c]} | cfg["town_set"])
     if state.get("notice_facts_version") != version:
         state["notice_facts_date"], state["notice_facts_version"] = None, version
     last = state.get("notice_facts_date")
@@ -843,7 +993,7 @@ def notice_facts(cfg, state, today):
         gap = (today - date.fromisoformat(last)).days if last else 9999
         days = min(lookback, gap + 3)
         try:
-            found = public_notices.probe(lambda: Http(), cfg["counties"], days, today, sorted(cfg["town_set"]),
+            found = public_notices.probe(lambda: Http(), cfg["counties"], days, today, every_town,
                                          past_days=days)
             for nid, fields in found.items():
                 slot = store.setdefault(nid, {})
@@ -895,6 +1045,7 @@ def run(cfg, writer, state_path, today=None):
     use_typed_addresses(notice_only, typed, cfg["town_set"], state.get("auctions", {}))
     enrich(notice_only, gis, cfg["town_set"])
     locate_by_notice_text(notice_only, gis, state, today, cfg["town_set"])
+    locate_by_street_sweep(notice_only, gis, state, today, cfg["town_set"])
     notice_only = fold_into_listings(auctions, notice_only)
     # Drop notice-only records whose property turned out to be outside our towns.
     notice_only = {k: a for k, a in notice_only.items() if a["town"] in cfg["town_set"]
